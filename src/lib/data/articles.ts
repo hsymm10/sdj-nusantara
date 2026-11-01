@@ -1,0 +1,257 @@
+// Dataset Artikel & Wawasan SDJNusantara
+// WAJIB DIISI/DIVERIFIKASI: penulis, sumber tepercaya, tanggal publikasi/pembaruan (content-master bagian 6)
+
+export interface Article {
+	id: number;
+	slug: string;
+	judul: string;
+	kategori: 'Pendidikan' | 'Beasiswa' | 'Pengembangan Talenta' | 'Keterampilan Digital' | 'Kemitraan' | 'Karier & Profesional';
+	tanggal: string; // Contoh: '12 Okt 2026'
+	updatedAt: string;
+	ringkasan: string;
+	isi: string;
+	penulis: string; // WAJIB DIVERIFIKASI
+	sumber: string; // WAJIB DIVERIFIKASI
+	gambar: string;
+	isFeatured?: boolean;
+	populerRank?: number; // 1, 2, 3, 4 jika artikel terpopuler
+	isLatestPrimary?: boolean; // 6 artikel utama di grid halaman 1 sesuai mockup
+}
+
+export const articlesData: Article[] = [
+	// 1–6: Grid 6 Artikel Terbaru Mockup (3 kolom x 2 baris persis seperti di mockup)
+	{
+		id: 1,
+		slug: 'membangun-lingkungan-belajar-yang-inklusif-di-sekolah',
+		judul: 'Membangun Lingkungan Belajar yang Inklusif di Sekolah',
+		kategori: 'Pendidikan',
+		tanggal: '10 Okt 2026',
+		updatedAt: '10 Oktober 2026',
+		ringkasan: 'Lingkungan belajar yang inklusif memberikan kesempatan yang sama bagi setiap individu untuk berkembang secara optimal.',
+		isi: `
+			<p>Menciptakan ruang kelas yang ramah bagi semua peserta didik dengan keberagaman latar belakang, potensi, dan kebutuhan belajar merupakan fondasi terpenting dalam pendidikan modern.</p>
+			<h3>Pilar Pendidikan Inklusif</h3>
+			<p>Pendidikan inklusif tidak hanya berbicara mengenai fasilitas fisik, tetapi juga pendekatan pedagogis yang adaptif, saling menghargai keberagaman, dan menumbuhkan empati antar peserta didik.</p>
+			<h3>Peran Tenaga Pendidik dan Komunitas</h3>
+			<p>Guru dan pihak sekolah memerlukan pendampingan berkelanjutan agar mampu merancang kurikulum berdiferensiasi yang menjawab kebutuhan individual siswa secara efektif.</p>
+		`,
+		penulis: 'Konsultan Pendidikan Inklusif SDJNusantara',
+		sumber: 'Jurnal Pedagogi & Kebijakan Pendidikan Indonesia',
+		gambar: '/images/article-card-1.jpg',
+		isLatestPrimary: true
+	},
+	{
+		id: 2,
+		slug: 'keterampilan-digital-yang-relevan-di-dunia-kerja-masa-depan',
+		judul: 'Keterampilan Digital yang Relevan di Dunia Kerja Masa Depan',
+		kategori: 'Keterampilan Digital',
+		tanggal: '8 Okt 2026',
+		updatedAt: '8 Oktober 2026',
+		ringkasan: 'Dunia kerja terus berkembang, dan keterampilan digital menjadi salah satu faktor penting untuk meningkatkan daya saing.',
+		isi: `
+			<p>Dinamika revolusi industri 4.0 dan kecerdasan buatan menuntut talenta muda memiliki penguasaan teknologi terapan yang relevan dengan kebutuhan industri saat ini.</p>
+			<h3>Kombinasi Hard Skill dan Soft Skill</h3>
+			<p>Selain keahlian teknis seperti analisis data, pemrograman, atau desain digital, kemampuan berpikir kritis dan pemecahan masalah kompleks tetap menjadi kunci utama.</p>
+		`,
+		penulis: 'Instruktur Keterampilan Digital SDJNusantara',
+		sumber: 'World Economic Forum - Future of Jobs Report',
+		gambar: '/images/article-card-2.jpg',
+		isLatestPrimary: true
+	},
+	{
+		id: 3,
+		slug: 'mempersiapkan-diri-menghadapi-dunia-kerja-setelah-lulus',
+		judul: 'Mempersiapkan Diri Menghadapi Dunia Kerja Setelah Lulus',
+		kategori: 'Karier & Profesional',
+		tanggal: '5 Okt 2026',
+		updatedAt: '5 Oktober 2026',
+		ringkasan: 'Transisi dari dunia pendidikan ke dunia kerja membutuhkan strategi yang tepat agar dapat beradaptasi dengan cepat.',
+		isi: `
+			<p>Fase peralihan dari bangku kuliah menuju lingkungan kerja profesional seringkali menjadi tantangan tersendiri bagi lulusan baru.</p>
+			<h3>Persiapan Karier Strategis</h3>
+			<p>Mulai dari pemetaan kompetensi, penyusunan portofolio profesional berbasis hasil nyata, hingga pemahaman etika kerja dan komunikasi lintas generasi.</p>
+		`,
+		penulis: 'Penasihat Karier & Talenta SDJNusantara',
+		sumber: 'Survei Kesiapan Kerja Lulusan Indonesia',
+		gambar: '/images/article-card-3.jpg',
+		isLatestPrimary: true
+	},
+	{
+		id: 4,
+		slug: 'mengenal-jenis-beasiswa-untuk-pelajar-indonesia',
+		judul: 'Mengenal Jenis Beasiswa untuk Pelajar Indonesia',
+		kategori: 'Beasiswa',
+		tanggal: '3 Okt 2026',
+		updatedAt: '3 Oktober 2026',
+		ringkasan: 'Berbagai jenis beasiswa tersedia untuk mendukung pendidikan, baik di dalam negeri maupun luar negeri.',
+		isi: `
+			<p>Akses informasi pembiayaan pendidikan kini terbuka luas melalui skema beasiswa pemerintah, institusi swasta, maupun yayasan filantropi internasional.</p>
+			<h3>Kategori dan Persyaratan Beasiswa</h3>
+			<p>Pahami perbedaan antara beasiswa prestasi akademis, afirmasi daerah, riset terapan, dan kemitraan bilateral untuk memilih program yang paling sesuai.</p>
+		`,
+		penulis: 'Tim Konsultan Beasiswa SDJNusantara',
+		sumber: 'Direktori Beasiswa Terbuka Indonesia',
+		gambar: '/images/article-card-4.jpg',
+		isLatestPrimary: true
+	},
+	{
+		id: 5,
+		slug: 'kolaborasi-institusi-pendidikan-dengan-dunia-industri',
+		judul: 'Kolaborasi Institusi Pendidikan dengan Dunia Industri',
+		kategori: 'Kemitraan',
+		tanggal: '30 Sep 2026',
+		updatedAt: '30 September 2026',
+		ringkasan: 'Kolaborasi yang kuat antara institusi pendidikan dan industri dapat menciptakan ekosistem yang saling menguntungkan.',
+		isi: `
+			<p>Menyelaraskan kurikulum pendidikan dengan standar kompetensi industri menjembatani kesenjangan keterampilan yang dihadapi lulusan baru.</p>
+			<h3>Bentuk Kemitraan Strategis</h3>
+			<p>Program magang industri terstruktur, pengajar praktisi, dan riset bersama terbukti meningkatkan relevansi lulusan secara signifikan.</p>
+		`,
+		penulis: 'Divisi Kemitraan SDJNusantara',
+		sumber: 'Laporan Forum Kemitraan Pendidikan & Industri',
+		gambar: '/images/article-card-5.jpg',
+		isLatestPrimary: true
+	},
+	{
+		id: 6,
+		slug: 'pentingnya-mentoring-dalam-pengembangan-talenta-muda',
+		judul: 'Pentingnya Mentoring dalam Pengembangan Talenta Muda',
+		kategori: 'Pengembangan Talenta',
+		tanggal: '27 Sep 2026',
+		updatedAt: '27 September 2026',
+		ringkasan: 'Mentoring membantu individu mengembangkan potensi, memperluas jaringan, dan mempersiapkan karier yang lebih matang.',
+		isi: `
+			<p>Bimbingan dari praktisi dan profesional berpengalaman memberikan arah yang jelas dan mempercepat proses belajar talenta muda.</p>
+			<h3>Dampak Positif Mentoring</h3>
+			<p>Melalui sesi konsultasi dan refleksi terarah, mentee dapat mengenali kekuatan diri, memetakan peluang, serta menghindari kesalahan umum dalam perencanaan karier.</p>
+		`,
+		penulis: 'Lead Mentor SDJNusantara',
+		sumber: 'Studi Efektivitas Mentoring Talenta Muda',
+		gambar: '/images/article-card-6.jpg',
+		isLatestPrimary: true
+	},
+
+	// 7–10: Featured Carousel Slides (Top-Left Slider)
+	{
+		id: 7,
+		slug: 'strategi-persiapan-beasiswa-kuliah-luar-negeri',
+		judul: 'Strategi Persiapan Beasiswa Untuk Kuliah di Luar Negeri',
+		kategori: 'Beasiswa',
+		tanggal: '12 Okt 2026',
+		updatedAt: '12 Oktober 2026',
+		ringkasan: 'Persiapan beasiswa membutuhkan perencanaan yang matang, mulai dari pemilihan program, penyusunan dokumen, hingga latihan wawancara. Artikel ini membahas langkah-langkah strategis yang dapat membantu Anda meraih peluang di universitas luar negeri.',
+		isi: `
+			<p>Meraih beasiswa untuk melanjutkan studi ke luar negeri merupakan impian banyak talenta muda Indonesia. Namun, proses seleksi yang kompetitif menuntut persiapan terencana dan berorientasi jangka panjang.</p>
+			<h3>1. Pemilihan Program yang Tepat</h3>
+			<p>Langkah awal yang sangat krusial adalah memahami kesesuaian antara latar belakang akademis, rencana karier, dan persyaratan khusus dari universitas maupun lembaga donor beasiswa.</p>
+			<h3>2. Penyusunan Dokumen Berkualitas</h3>
+			<p>Curriculum Vitae (CV), motivation letter, dan rencana studi bukan sekadar syarat administratif, melainkan media refleksi pencapaian dan visi kontribusi Anda di masa depan.</p>
+			<h3>3. Penguatan Bahasa dan Wawancara</h3>
+			<p>Sertifikasi kemampuan bahasa asing dan latihan wawancara berbasis simulasi terbukti efektif membangun kepercayaan diri peserta seleksi beasiswa internasional.</p>
+		`,
+		penulis: 'Tim Konsultan Beasiswa SDJNusantara',
+		sumber: 'SDJNusantara Education Research & Insight',
+		gambar: '/images/article-featured-grad.jpg',
+		isFeatured: true
+	},
+	{
+		id: 8,
+		slug: 'panduan-sukses-wawancara-beasiswa-internasional',
+		judul: 'Panduan Praktis Menghadapi Wawancara Beasiswa Bergengsi',
+		kategori: 'Beasiswa',
+		tanggal: '11 Okt 2026',
+		updatedAt: '11 Oktober 2026',
+		ringkasan: 'Kuasai teknik komunikasi efektif dan penyampaian visi kontribusi yang meyakinkan di hadapan dewan juri beasiswa internasional.',
+		isi: '<p>Wawancara merupakan fase penentu dalam proses seleksi beasiswa. Pelajari bagaimana memformulasikan jawaban berbasis bukti dan pengalaman nyata.</p>',
+		penulis: 'Tim Mentor SDJNusantara',
+		sumber: 'Internal Assessment Data SDJNusantara',
+		gambar: '/images/article-featured-grad.jpg',
+		isFeatured: true
+	},
+	{
+		id: 9,
+		slug: 'transformasi-pendidikan-digital-indonesia',
+		judul: 'Masa Depan Pembelajaran Adaptif di Era Kecerdasan Buatan',
+		kategori: 'Keterampilan Digital',
+		tanggal: '10 Okt 2026',
+		updatedAt: '10 Oktober 2026',
+		ringkasan: 'Eksplorasi metodologi pedagogi modern yang memanfaatkan teknologi digital untuk meningkatkan efektivitas transfer ilmu.',
+		isi: '<p>Integrasi teknologi dalam kurikulum sekolah dan universitas menuntut adaptasi berkelanjutan dari pengajar maupun siswa.</p>',
+		penulis: 'Divisi Inovasi Pendidikan SDJNusantara',
+		sumber: 'Kementerian Pendidikan & World Economic Forum Report',
+		gambar: '/images/article-card-2.jpg',
+		isFeatured: true
+	},
+	{
+		id: 10,
+		slug: 'membangun-jejaring-karier-global',
+		judul: 'Membangun Portofolio Profesional Sejak Masa Perkuliahan',
+		kategori: 'Karier & Profesional',
+		tanggal: '9 Okt 2026',
+		updatedAt: '9 Oktober 2026',
+		ringkasan: 'Langkah strategis mahasiswa untuk mengonversi pengalaman organisasi dan magang menjadi nilai tambah kompetitif di pasar kerja.',
+		isi: '<p>Portofolio komprehensif membedakan lulusan baru di tengah persaingan bursa kerja nasional dan multinasional.</p>',
+		penulis: 'Konsultan Pengembangan Karier SDJNusantara',
+		sumber: 'SDJNusantara Career Development Center',
+		gambar: '/images/article-card-3.jpg',
+		isFeatured: true
+	},
+
+	// 11–14: Artikel Terpopuler (Sidebar Kanan Mockup)
+	{
+		id: 11,
+		slug: 'tips-membangun-portofolio-untuk-beasiswa',
+		judul: 'Tips Membangun Portofolio untuk Beasiswa',
+		kategori: 'Beasiswa',
+		tanggal: '5 Okt 2026',
+		updatedAt: '5 Oktober 2026',
+		ringkasan: 'Struktur portofolio yang sistematis membantu penilai memahami rekam jejak kepemimpinan dan dedikasi akademis calon penerima beasiswa.',
+		isi: '<p>Portofolio beasiswa harus menonjolkan dampak sosial, prestasi terverifikasi, dan relevansi terhadap program studi tujuan.</p>',
+		penulis: 'Tim Ahli Beasiswa SDJNusantara',
+		sumber: 'Pusat Riset Beasiswa SDJNusantara',
+		gambar: '/images/article-pop-1.jpg',
+		populerRank: 1
+	},
+	{
+		id: 12,
+		slug: 'peran-soft-skill-dalam-dunia-pendidikan-modern',
+		judul: 'Peran Soft Skill dalam Dunia Pendidikan Modern',
+		kategori: 'Pengembangan Talenta',
+		tanggal: '28 Sep 2026',
+		updatedAt: '28 September 2026',
+		ringkasan: 'Kecakapan komunikasi, kepemimpinan, dan pemecahan masalah kompleks kini menjadi parameter utama kesuksesan talenta muda.',
+		isi: '<p>Pendidikan abad 21 menitikberatkan pada pengembangan holistik karakter serta kecerdasan emosional siswa.</p>',
+		penulis: 'Konsultan Talenta SDJNusantara',
+		sumber: 'OECD Future of Education and Skills',
+		gambar: '/images/article-pop-2.jpg',
+		populerRank: 2
+	},
+	{
+		id: 13,
+		slug: 'peluang-karier-di-industri-pendidikan-digital',
+		judul: 'Peluang Karier di Industri Pendidikan Digital',
+		kategori: 'Karier & Profesional',
+		tanggal: '20 Sep 2026',
+		updatedAt: '20 September 2026',
+		ringkasan: 'Perkembangan edtech membuka peluang profesi baru mulai dari instructional designer hingga konsultan pembelajaran daring.',
+		isi: '<p>Industri pendidikan berkembang pesat dengan munculnya berbagai platform teknologi yang membutuhkan talenta multidisiplin.</p>',
+		penulis: 'Riset Karier SDJNusantara',
+		sumber: 'EdTech Asia Market Overview',
+		gambar: '/images/article-pop-3.jpg',
+		populerRank: 3
+	},
+	{
+		id: 14,
+		slug: 'kolaborasi-sekolah-dan-industri-untuk-pengembangan-talenta',
+		judul: 'Kolaborasi Sekolah dan Industri untuk Pengembangan Talenta',
+		kategori: 'Kemitraan',
+		tanggal: '12 Sep 2026',
+		updatedAt: '12 September 2026',
+		ringkasan: 'Model kemitraan strategis yang menjembatani kurikulum vokasi dan akademik dengan standar kompetensi industri terkini.',
+		isi: '<p>Link and match antara institusi pendidikan dan pelaku usaha menjamin relevansi kompetensi lulusan.</p>',
+		penulis: 'Divisi Kemitraan SDJNusantara',
+		sumber: 'Kemitraan Industri SDJNusantara',
+		gambar: '/images/article-pop-4.jpg',
+		populerRank: 4
+	}
+];
