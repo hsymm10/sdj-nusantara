@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><body style="margin:0;overflow:hidden;background:#082442;">
+    <canvas id="c" width="1800" height="2400"></canvas>
+    <script>
+      const c = document.getElementById("c");
+      const ctx = c.getContext("2d");
+      const grad = ctx.createLinearGradient(0, 0, 1800, 2400);
+      grad.addColorStop(0, "#0A284A");
+grad.addColorStop(0.4, "#0E3B60");
+grad.addColorStop(0.75, "#0B4A5E");
+grad.addColorStop(1, "#082442");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1800, 2400);
+      // Soft ambient lighting circle
+      const rGrad = ctx.createRadialGradient(720, 840, 0, 720, 840, 1260);
+      rGrad.addColorStop(0, "rgba(22, 182, 193, 0.25)");
+      rGrad.addColorStop(0.5, "rgba(10, 94, 117, 0.15)");
+      rGrad.addColorStop(1, "rgba(8, 36, 66, 0)");
+      ctx.fillStyle = rGrad;
+      ctx.fillRect(0, 0, 1800, 2400);
+    </script>
+  </body></html>

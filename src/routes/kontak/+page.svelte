@@ -17,7 +17,7 @@
 	/>
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="page-content">
 	<!-- 1. Hero Kontak -->
