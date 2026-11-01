@@ -69,7 +69,7 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Navigasi Utama</h4>
 				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program'}
+					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program' || variant === 'kontak'}
 						<li><a href="/" class="footer-link">Beranda</a></li>
 						<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
 						<li><a href="/layanan" class="footer-link">Layanan</a></li>
@@ -90,7 +90,7 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Pusat Informasi</h4>
 				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program'}
+					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program' || variant === 'kontak'}
 						<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
 						<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
 						<li><a href="/kontak" class="footer-link">Kontak</a></li>
@@ -146,8 +146,8 @@
 				{/if}
 			</div>
 
-			<!-- Col 5: For Home, Program, Beasiswa, Kemitraan, Artikel (in-grid copyright) -->
-			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel'}
+			<!-- Col 5: For Home, Program, Beasiswa, Kemitraan, Artikel, Kontak (in-grid copyright) -->
+			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel' || variant === 'kontak'}
 				<!-- Vertical Divider -->
 				<div class="footer-vdivider"></div>
 
@@ -165,7 +165,7 @@
 		</div>
 
 		<!-- Bottom Bar for pages that have it -->
-		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kontak'}
+		{#if variant === 'tentang-kami' || variant === 'layanan'}
 			<div class="footer-bottom-bar">
 				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
 				<div class="footer-bottom-right">
@@ -183,8 +183,8 @@
 			</div>
 		{/if}
 
-		<!-- Floating Back-to-Top Button for Program, Beasiswa, Kemitraan & Artikel per Mockup -->
-		{#if variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel'}
+		<!-- Floating Back-to-Top Button for Program, Beasiswa, Kemitraan, Artikel & Kontak per Mockup -->
+		{#if variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel' || variant === 'kontak'}
 			<button class="back-to-top-btn floating-btt-program" onclick={scrollToTop} aria-label="Kembali ke atas">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="18 15 12 9 6 15"></polyline>
@@ -589,9 +589,20 @@
 		justify-content: space-between;
 	}
 
+	/* Specific variant for Kontak per mockup (Tinggi ±240px pada 1536) */
+	.footer.variant-kontak {
+		padding: 1.8rem 0 1rem;
+		height: 240px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
 	.footer.variant-program .footer-inner,
 	.footer.variant-beasiswa .footer-inner,
-	.footer.variant-kemitraan .footer-inner {
+	.footer.variant-kemitraan .footer-inner,
+	.footer.variant-kontak .footer-inner {
 		max-width: 1440px;
 		margin: 0 auto;
 		padding: 0 1.5rem;
@@ -606,14 +617,16 @@
 	@media (min-width: 1920px) {
 		.footer.variant-program .footer-inner,
 		.footer.variant-beasiswa .footer-inner,
-		.footer.variant-kemitraan .footer-inner {
+		.footer.variant-kemitraan .footer-inner,
+		.footer.variant-kontak .footer-inner {
 			max-width: 1500px;
 		}
 	}
 
 	.footer.variant-program .footer-grid,
 	.footer.variant-beasiswa .footer-grid,
-	.footer.variant-kemitraan .footer-grid {
+	.footer.variant-kemitraan .footer-grid,
+	.footer.variant-kontak .footer-grid {
 		display: grid;
 		grid-template-columns: 2.1fr auto 1.15fr auto 1.25fr auto 1.45fr auto 1.45fr;
 		gap: 0 1.25rem;
@@ -622,7 +635,8 @@
 
 	.footer.variant-program .floating-btt-program,
 	.footer.variant-beasiswa .floating-btt-program,
-	.footer.variant-kemitraan .floating-btt-program {
+	.footer.variant-kemitraan .floating-btt-program,
+	.footer.variant-kontak .floating-btt-program {
 		position: fixed;
 		bottom: 30px;
 		right: 30px;
@@ -643,7 +657,8 @@
 
 	.footer.variant-program .floating-btt-program:hover,
 	.footer.variant-beasiswa .floating-btt-program:hover,
-	.footer.variant-kemitraan .floating-btt-program:hover {
+	.footer.variant-kemitraan .floating-btt-program:hover,
+	.footer.variant-kontak .floating-btt-program:hover {
 		background: #079EAD;
 		transform: translateY(-2px);
 	}

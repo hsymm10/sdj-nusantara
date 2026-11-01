@@ -4,7 +4,7 @@
 
 <section class="location-3panel-section" id="lokasi">
 	<div class="panel-grid">
-		<!-- Left Panel: Building Photo -->
+		<!-- Panel Kiri: Foto Gedung Kaca Modern Penuh Tepi Kiri Layar (x 0→678, ±44% lebar) -->
 		<div class="panel-left">
 			<img
 				src="/images/contact-building.jpg"
@@ -12,13 +12,28 @@
 				class="panel-img"
 				loading="lazy"
 			/>
+			
+			<!-- Overlay Papan Signage Logo SDJNusantara pada fasad gedung -->
+			<div class="building-logo-plaque" aria-hidden="true">
+				<div class="plaque-inner">
+					<svg class="plaque-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18 3L32 10.5L18 18L4 10.5L18 3Z" fill="#16B6C1"/>
+						<path d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z" fill="#4176A8"/>
+						<path d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z" fill="#F5B331"/>
+					</svg>
+					<div class="plaque-text">
+						<span class="plaque-brand">SDJNusantara</span>
+						<span class="plaque-sub">KONSULTAN PENDIDIKAN</span>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<!-- Center Panel: Information Content -->
+		<!-- Panel Tengah: Informasi Lokasi & Kartu Alamat (x ±678→1098, Latar PUTIH) -->
 		<div class="panel-center">
-			<div class="section-dash-line">
-				<span class="dash"></span>
-				<span class="section-tag">Lokasi Kami</span>
+			<div class="section-label">
+				<span class="label-line"></span>
+				<span class="label-text">Lokasi Kami</span>
 			</div>
 
 			<h2 class="location-title">Kunjungi Kantor Kami</h2>
@@ -27,19 +42,29 @@
 				Kami terbuka untuk diskusi dan pertemuan langsung dengan institusi, mitra, maupun individu yang ingin menjalin kerja sama.
 			</p>
 
-			<!-- Address White Card -->
+			<!-- Kartu Putih Alamat Kantor -->
 			<div class="address-card">
-				<div class="address-icon">
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-						<circle cx="12" cy="10" r="3"></circle>
-					</svg>
+				<div class="address-top-row">
+					<div class="pin-circle">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+							<circle cx="12" cy="10" r="3"></circle>
+						</svg>
+					</div>
+					<div class="address-info">
+						<!-- WAJIB DIISI alamat kantor resmi (content-master bagian 15) -->
+						<strong class="addr-label">Alamat Kantor</strong>
+						<span class="addr-city">{contactConfig.address}</span>
+						<span class="addr-note">(Dapat disesuaikan sesuai lokasi sebenarnya)</span>
+					</div>
 				</div>
-				<div class="address-details">
-					<strong class="address-title">Alamat Kantor</strong>
-					<span class="address-main">{contactConfig.address}</span>
-					<span class="address-sub">{contactConfig.addressDetail}</span>
-					<a href={contactConfig.mapsUrl} target="_blank" rel="noopener noreferrer" class="btn-maps">
+				<div class="address-btn-row">
+					<a
+						href={contactConfig.mapsUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn-maps"
+					>
 						<span>Buka di Google Maps</span>
 						<span class="btn-arrow">→</span>
 					</a>
@@ -47,15 +72,15 @@
 			</div>
 		</div>
 
-		<!-- Right Panel: Lobby Photo with Quote -->
+		<!-- Panel Kanan: Foto Lobi Modern Penuh Tepi Kanan Layar dengan Kutipan HTML Text -->
 		<div class="panel-right">
 			<img
 				src="/images/contact-lobby.jpg"
-				alt="Lobi SDJNusantara"
+				alt="Lobi dan Lounge SDJNusantara"
 				class="panel-img"
 				loading="lazy"
 			/>
-			<div class="quote-overlay">
+			<div class="quote-scrim">
 				<blockquote class="quote-text">
 					“Pendidikan adalah investasi untuk masa depan yang lebih baik.”
 				</blockquote>
@@ -67,20 +92,20 @@
 <style>
 	.location-3panel-section {
 		width: 100%;
-		background: #082442;
+		background: #FFFFFF;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
 	.panel-grid {
 		width: 100%;
-		height: 380px;
+		height: 290px;
 		display: grid;
-		grid-template-columns: 44% 31% 25%;
+		grid-template-columns: 44.14% 27.34% 28.52%;
 		align-items: stretch;
 	}
 
-	/* Left Panel */
+	/* Panel Kiri */
 	.panel-left {
 		position: relative;
 		height: 100%;
@@ -95,154 +120,243 @@
 		display: block;
 	}
 
-	/* Center Panel */
+	.building-logo-plaque {
+		position: absolute;
+		top: 24px;
+		left: 28px;
+		background: rgba(8, 36, 66, 0.88);
+		backdrop-filter: blur(8px);
+		border: 1px solid rgba(22, 182, 193, 0.4);
+		border-radius: 8px;
+		padding: 7px 12px;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+	}
+
+	.plaque-inner {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.plaque-svg {
+		width: 20px;
+		height: 20px;
+		flex-shrink: 0;
+	}
+
+	.plaque-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+	}
+
+	.plaque-brand {
+		font-size: 11px;
+		font-weight: 800;
+		color: #FFFFFF;
+		letter-spacing: 0.02em;
+	}
+
+	.plaque-sub {
+		font-size: 7.5px;
+		font-weight: 600;
+		color: #16B6C1;
+		letter-spacing: 0.04em;
+	}
+
+	/* Panel Tengah (PUTIH) */
 	.panel-center {
-		background: #082442;
-		padding: 32px 30px;
+		background: #FFFFFF;
+		padding: 24px 28px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		box-sizing: border-box;
-		border-left: 1px solid rgba(255, 255, 255, 0.08);
-		border-right: 1px solid rgba(255, 255, 255, 0.08);
+		border-left: 1px solid #E2E8F0;
+		border-right: 1px solid #E2E8F0;
 	}
 
-	.section-dash-line {
+	.section-label {
 		display: flex;
 		align-items: center;
 		gap: 6px;
 		margin-bottom: 6px;
 	}
 
-	.dash {
+	.label-line {
 		width: 16px;
-		height: 2.5px;
+		height: 2px;
 		background: #16B6C1;
 		border-radius: 2px;
 	}
 
-	.section-tag {
-		font-size: 10.5px;
+	.label-text {
+		font-size: 11.5px;
 		font-weight: 700;
 		color: #16B6C1;
 	}
 
 	.location-title {
-		font-size: 20px;
+		font-size: 22px;
 		font-weight: 800;
-		color: #FFFFFF;
-		margin: 0 0 8px;
+		color: #082442;
+		margin: 0 0 6px;
 		letter-spacing: -0.01em;
+		line-height: 1.25;
 	}
 
 	.location-desc {
-		font-size: 10.5px;
-		line-height: 1.5;
-		color: rgba(255, 255, 255, 0.75);
-		margin: 0 0 16px;
+		font-size: 12.5px;
+		line-height: 1.45;
+		color: #183553;
+		margin: 0 0 14px;
+		max-width: 360px;
+		text-wrap: pretty;
 	}
 
+	/* Kartu Putih Alamat */
 	.address-card {
 		background: #FFFFFF;
+		border: 1px solid #D9E2EC;
 		border-radius: 12px;
-		padding: 14px 16px;
+		padding: 10px 14px;
 		display: flex;
-		align-items: flex-start;
-		gap: 12px;
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+		flex-direction: column;
+		gap: 8px;
+		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.06);
 	}
 
-	.address-icon {
-		margin-top: 2px;
+	.address-top-row {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.pin-circle {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 1.5px solid #16B6C1;
+		background: rgba(22, 182, 193, 0.08);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		flex-shrink: 0;
 	}
 
-	.address-details {
+	.address-info {
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
 	}
 
-	.address-title {
-		font-size: 11px;
-		font-weight: 700;
+	.addr-label {
+		font-size: 11.5px;
+		font-weight: 800;
 		color: #082442;
 	}
 
-	.address-main {
-		font-size: 11.5px;
+	.addr-city {
+		font-size: 12px;
 		font-weight: 700;
 		color: #079EAD;
 	}
 
-	.address-sub {
+	.addr-note {
 		font-size: 9px;
 		color: #64748B;
-		line-height: 1.35;
-		margin-bottom: 6px;
+		line-height: 1.25;
+	}
+
+	.address-btn-row {
+		display: flex;
+		justify-content: center;
 	}
 
 	.btn-maps {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 4px;
-		font-size: 10.5px;
+		font-size: 11px;
 		font-weight: 700;
 		color: #082442;
+		background: #FFFFFF;
+		border: 1.5px solid #16B6C1;
+		padding: 5px 14px;
+		border-radius: 8px;
 		text-decoration: none;
-		transition: color 0.2s;
+		transition: all 0.2s ease;
+		white-space: nowrap;
 	}
 
 	.btn-maps:hover {
-		color: #079EAD;
+		background: #16B6C1;
+		color: #FFFFFF;
 	}
 
 	.btn-arrow {
-		font-size: 11px;
+		font-size: 12px;
+		transition: transform 0.2s ease;
 	}
 
-	/* Right Panel */
+	.btn-maps:hover .btn-arrow {
+		transform: translateX(2px);
+	}
+
+	/* Panel Kanan */
 	.panel-right {
 		position: relative;
 		height: 100%;
 		overflow: hidden;
 	}
 
-	.quote-overlay {
+	.quote-scrim {
 		position: absolute;
-		bottom: 24px;
-		left: 20px;
-		right: 20px;
-		background: rgba(8, 36, 66, 0.85);
-		backdrop-filter: blur(8px);
-		border-radius: 10px;
-		padding: 12px 14px;
-		border: 1px solid rgba(22, 182, 193, 0.3);
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 30px 24px 20px;
+		background: linear-gradient(to top, rgba(8, 36, 66, 0.92) 0%, rgba(8, 36, 66, 0.65) 60%, transparent 100%);
+		display: flex;
+		align-items: flex-end;
 		box-sizing: border-box;
 	}
 
 	.quote-text {
-		font-size: 11px;
-		font-weight: 600;
+		font-size: 18px;
+		font-weight: 700;
 		font-style: italic;
-		line-height: 1.45;
+		line-height: 1.35;
 		color: #FFFFFF;
 		margin: 0;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+		text-wrap: balance;
 	}
 
+	/* Responsive Tablet & Mobile */
 	@media (max-width: 1024px) {
 		.panel-grid {
 			grid-template-columns: 1fr;
 			height: auto;
 		}
 
-		.panel-left, .panel-right {
-			height: 240px;
+		.panel-left {
+			height: 220px;
 		}
 
 		.panel-center {
-			border: none;
-			padding: 2.5rem 1.5rem;
+			border-left: none;
+			border-right: none;
+			padding: 28px 20px;
+		}
+
+		.panel-right {
+			height: 220px;
+		}
+
+		.quote-text {
+			font-size: 16px;
 		}
 	}
 </style>

@@ -365,7 +365,7 @@
 		position: relative;
 		width: 100%;
 		background: #FFFFFF;
-		padding: 24px 0 28px;
+		padding: 8px 0 12px;
 		box-sizing: border-box;
 		overflow: hidden;
 	}
@@ -441,12 +441,12 @@
 		position: relative;
 		background: #FFFFFF;
 		border-radius: 21px;
-		padding: 24px 28px;
+		padding: 20px 24px;
 		box-shadow: 0 10px 35px rgba(8, 36, 66, 0.08);
 		border: 1px solid rgba(226, 232, 240, 0.9);
 		overflow: hidden;
 		box-sizing: border-box;
-		min-height: 555px;
+		min-height: 520px;
 	}
 
 	.card-wave-decor {
@@ -699,11 +699,11 @@
 	.channels-col {
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 10px;
 	}
 
 	.section-dash-line {
-		margin-bottom: 6px;
+		margin-bottom: 4px;
 	}
 
 	.dash {
@@ -718,31 +718,31 @@
 		font-size: 26px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 4px;
+		margin: 0 0 2px;
 		letter-spacing: -0.015em;
 	}
 
 	.channels-desc {
-		font-size: 15px;
+		font-size: 14.5px;
 		color: #64748B;
-		margin: 0 0 12px;
+		margin: 0 0 8px;
 	}
 
 	.channel-cards-list {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 8px;
 	}
 
 	.channel-card {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.85);
 		border-radius: 16px;
-		padding: 13px 18px;
-		min-height: 90px;
+		padding: 10px 16px;
+		min-height: 82px;
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: 14px;
 		text-decoration: none;
 		box-shadow: 0 4px 18px rgba(8, 36, 66, 0.05);
 		transition: all 0.2s ease;

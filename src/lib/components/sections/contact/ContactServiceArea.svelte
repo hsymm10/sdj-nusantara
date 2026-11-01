@@ -11,10 +11,7 @@
 				<span class="section-tag">Wilayah Layanan</span>
 			</div>
 
-			<h2 class="area-title">
-				<span>Mendukung Institusi Pendidikan</span><br />
-				<span>di Seluruh Indonesia.</span>
-			</h2>
+			<h2 class="area-title">Mendukung Institusi Pendidikan di Seluruh Indonesia.</h2>
 			
 			<p class="area-desc">
 				Program dan layanan SDJNusantara dapat diakses oleh institusi dan individu dari berbagai daerah di Indonesia, baik secara online maupun offline.
@@ -24,7 +21,7 @@
 			<div class="mini-cards-row">
 				<div class="mini-card">
 					<div class="mini-icon">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="12" cy="12" r="10"></circle>
 							<line x1="2" y1="12" x2="22" y2="12"></line>
 							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -38,7 +35,7 @@
 
 				<div class="mini-card">
 					<div class="mini-icon">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
 							<line x1="8" y1="21" x2="16" y2="21"></line>
 							<line x1="12" y1="17" x2="12" y2="21"></line>
@@ -184,7 +181,7 @@
 	.service-area-section {
 		width: 100%;
 		background: #F4F8FA;
-		padding: 28px 0;
+		padding: 16px 0 18px;
 		box-sizing: border-box;
 		position: relative;
 		overflow: hidden;
@@ -205,7 +202,7 @@
 	.area-text-col {
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
+		gap: 8px;
 	}
 
 	.section-dash-line {
@@ -222,25 +219,26 @@
 	}
 
 	.section-tag {
-		font-size: 13px;
+		font-size: 12px;
 		font-weight: 700;
 		color: #16B6C1;
 	}
 
 	.area-title {
-		font-size: 30px;
+		font-size: 26px;
 		font-weight: 800;
 		color: #082442;
-		line-height: 1.2;
+		line-height: 1.25;
 		margin: 0;
 		letter-spacing: -0.015em;
+		text-wrap: balance;
 	}
 
 	.area-desc {
-		font-size: 15px;
-		line-height: 1.5;
+		font-size: 13.5px;
+		line-height: 1.45;
 		color: #183553;
-		margin: 0 0 6px;
+		margin: 0 0 2px;
 		max-width: 440px;
 		text-wrap: pretty;
 	}
@@ -248,22 +246,22 @@
 	.mini-cards-row {
 		display: flex;
 		align-items: center;
-		gap: 14px;
-		margin-bottom: 6px;
+		gap: 12px;
+		margin-bottom: 2px;
 	}
 
 	.mini-card {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.85);
-		border-radius: 14px;
-		padding: 12px 14px;
+		border-radius: 12px;
+		padding: 8px 12px;
 		display: flex;
 		align-items: center;
-		gap: 12px;
+		gap: 10px;
 		box-shadow: 0 4px 16px rgba(8, 36, 66, 0.05);
 		flex: 1;
 		box-sizing: border-box;
-		min-height: 66px;
+		min-height: 56px;
 	}
 
 	.mini-icon {
@@ -276,18 +274,18 @@
 	.mini-text {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: 1px;
 	}
 
 	.mini-title {
-		font-size: 13px;
+		font-size: 12px;
 		font-weight: 700;
 		color: #082442;
-		line-height: 1.25;
+		line-height: 1.2;
 	}
 
 	.mini-sub {
-		font-size: 11px;
+		font-size: 10px;
 		color: #64748B;
 	}
 
@@ -296,18 +294,18 @@
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
-		width: 220px;
-		height: 42px;
+		width: 210px;
+		height: 38px;
 		background: #F5B331;
 		color: #082442;
-		font-size: 14px;
+		font-size: 13px;
 		font-weight: 700;
-		border-radius: 10px;
+		border-radius: 9px;
 		text-decoration: none;
 		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.3);
 		transition: all 0.2s ease;
 		box-sizing: border-box;
-		margin-top: 4px;
+		margin-top: 2px;
 	}
 
 	.btn-gold-area:hover {
@@ -316,7 +314,7 @@
 	}
 
 	.btn-arrow {
-		font-size: 14px;
+		font-size: 13px;
 		transition: transform 0.2s ease;
 	}
 
