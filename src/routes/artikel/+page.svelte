@@ -48,6 +48,7 @@
 		secondaryText="Hubungi Kami"
 		secondaryHref="/kontak"
 		bgImage="/images/article-cta-bg.jpg"
+		variant="artikel"
 	/>
 </main>
 

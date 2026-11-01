@@ -146,8 +146,8 @@
 				{/if}
 			</div>
 
-			<!-- Col 5: For Home, Program, Beasiswa, Kemitraan (in-grid copyright) -->
-			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan'}
+			<!-- Col 5: For Home, Program, Beasiswa, Kemitraan, Artikel (in-grid copyright) -->
+			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel'}
 				<!-- Vertical Divider -->
 				<div class="footer-vdivider"></div>
 
@@ -165,7 +165,7 @@
 		</div>
 
 		<!-- Bottom Bar for pages that have it -->
-		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kontak' || variant === 'artikel'}
+		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kontak'}
 			<div class="footer-bottom-bar">
 				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
 				<div class="footer-bottom-right">
@@ -183,8 +183,8 @@
 			</div>
 		{/if}
 
-		<!-- Floating Back-to-Top Button for Program, Beasiswa & Kemitraan per Mockup -->
-		{#if variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan'}
+		<!-- Floating Back-to-Top Button for Program, Beasiswa, Kemitraan & Artikel per Mockup -->
+		{#if variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel'}
 			<button class="back-to-top-btn floating-btt-program" onclick={scrollToTop} aria-label="Kembali ke atas">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="18 15 12 9 6 15"></polyline>

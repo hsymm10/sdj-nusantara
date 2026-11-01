@@ -240,8 +240,25 @@
 	}
 
 	@media (max-width: 640px) {
+		.category-overlap-wrapper {
+			padding: 0 1rem;
+		}
 		.category-bar {
-			grid-template-columns: repeat(2, 1fr);
+			display: flex;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;
+			padding: 8px;
+			gap: 8px;
+		}
+		.category-bar::-webkit-scrollbar {
+			display: none;
+		}
+		.cat-tile {
+			flex: 0 0 auto;
+			scroll-snap-align: start;
+			height: 52px;
+			padding: 0 14px;
 		}
 	}
 </style>
