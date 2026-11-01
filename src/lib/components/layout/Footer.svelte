@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { footerNav } from '#lib/data/navigation';
+	import logoSdj from '#lib/assets/logo_sdj.png';
 
 	interface Props {
 		compact?: boolean;
@@ -21,11 +22,9 @@
 				<a href="/" class="footer-logo-link">
 					<div class="footer-logo-wrap">
 						<!-- Logo mark 26px -->
-						<svg class="footer-logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M18 3L32 10.5L18 18L4 10.5L18 3Z" fill="#00A6B2"/>
-							<path d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z" fill="#4176A8"/>
-							<path d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z" fill="#F4B334"/>
-						</svg>
+						<div class="footer-logo-badge">
+							<img src={logoSdj} alt="Logo SDJNusantara" class="footer-logo-img" />
+						</div>
 						<div class="footer-logo-text">
 							<span class="footer-brand-title">SDJNusantara</span>
 							<span class="footer-brand-tagline {variant === 'tentang-kami' ? 'tagline-tentang' : ''}">{variant === 'tentang-kami' ? 'KONSULTAN PENDIDIKAN' : 'KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA'}</span>
@@ -259,10 +258,22 @@
 		gap: 0.5rem;
 	}
 
-	.footer-logo-svg {
+	.footer-logo-badge {
 		width: 26px;
 		height: 26px;
+		background: #FFFFFF;
+		border-radius: 6px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2px;
 		flex-shrink: 0;
+	}
+
+	.footer-logo-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.footer-logo-text {

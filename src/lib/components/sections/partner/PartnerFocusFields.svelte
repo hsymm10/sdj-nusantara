@@ -95,6 +95,7 @@
 							</div>
 						{/each}
 					</div>
+				</div>
 			</div>
 		</div>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { navItems } from '#lib/data/navigation';
+	import logoSdj from '#lib/assets/logo_sdj.png';
 
 	interface Props {
 		compact?: boolean;
@@ -62,11 +63,11 @@
 		<!-- Logo (ikon ±28px, SDJNusantara ±16px bold, KONSULTAN PENDIDIKAN ±7px rapat) -->
 		<a href="/" class="logo-link">
 			<div class="nav-logo-box">
-				<svg class="nav-logo-svg {compact ? 'compact-logo' : ''}" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M18 3L32 10.5L18 18L4 10.5L18 3Z" fill="#00A6B2"/>
-					<path d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z" fill="#0B2747"/>
-					<path d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z" fill="#F4B334"/>
-				</svg>
+				<img
+					src={logoSdj}
+					alt="Logo SDJNusantara"
+					class="nav-logo-img {compact ? 'compact-logo' : ''}"
+				/>
 				<div class="nav-logo-text">
 					<span class="nav-brand-title {compact ? 'compact-title' : ''}">SDJNusantara</span>
 					<span class="nav-brand-tagline {compact ? 'compact-tagline' : ''}">KONSULTAN PENDIDIKAN</span>
@@ -221,13 +222,14 @@
 		gap: 0.5rem;
 	}
 
-	.nav-logo-svg {
+	.nav-logo-img {
 		width: 36px;
 		height: 36px;
+		object-fit: contain;
 		flex-shrink: 0;
 	}
 
-	.nav-logo-svg.compact-logo {
+	.nav-logo-img.compact-logo {
 		width: 28px;
 		height: 28px;
 	}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroAbout.svelte - Faithful to design/tentang-kami.png
+	import logoSdj from '#lib/assets/logo_sdj.png';
 </script>
 
 <section class="hero-about">
@@ -18,11 +18,7 @@
 	<!-- 3D Signboard mounted on facade at top right per mockup -->
 	<div class="building-signboard">
 		<div class="sign-inner">
-			<svg class="sign-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M18 3L32 10.5L18 18L4 10.5L18 3Z" fill="#00A6B2"/>
-				<path d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z" fill="#0B2747"/>
-				<path d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z" fill="#F5B331"/>
-			</svg>
+			<img src={logoSdj} alt="Logo SDJNusantara" class="sign-logo" />
 			<div class="sign-text">
 				<span class="sign-title">SDJNusantara</span>
 				<span class="sign-subtitle">KONSULTAN PENDIDIKAN</span>
@@ -156,8 +152,10 @@
 	.sign-logo {
 		width: 52px;
 		height: 52px;
+		object-fit: contain;
 		flex-shrink: 0;
 		filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.35));
+		border-radius: 8px;
 	}
 
 	.sign-text {

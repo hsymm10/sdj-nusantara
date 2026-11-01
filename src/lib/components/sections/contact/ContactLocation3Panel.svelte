@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { contactConfig } from '#lib/config/contact';
+	import logoSdj from '#lib/assets/logo_sdj.png';
 </script>
 
 <section class="location-3panel-section" id="lokasi">
@@ -16,11 +17,7 @@
 			<!-- Overlay Papan Signage Logo SDJNusantara pada fasad gedung -->
 			<div class="building-logo-plaque" aria-hidden="true">
 				<div class="plaque-inner">
-					<svg class="plaque-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M18 3L32 10.5L18 18L4 10.5L18 3Z" fill="#16B6C1"/>
-						<path d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z" fill="#4176A8"/>
-						<path d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z" fill="#F5B331"/>
-					</svg>
+					<img src={logoSdj} alt="Logo SDJNusantara" class="plaque-img" />
 					<div class="plaque-text">
 						<span class="plaque-brand">SDJNusantara</span>
 						<span class="plaque-sub">KONSULTAN PENDIDIKAN</span>
@@ -138,10 +135,12 @@
 		gap: 8px;
 	}
 
-	.plaque-svg {
-		width: 20px;
-		height: 20px;
+	.plaque-img {
+		width: 22px;
+		height: 22px;
+		object-fit: contain;
 		flex-shrink: 0;
+		border-radius: 4px;
 	}
 
 	.plaque-text {

@@ -56,6 +56,53 @@
 		})
 	);
 
+	const pageSize = 6;
+	const totalPages = $derived(Math.max(1, Math.ceil(filteredArticles.length / pageSize)));
+
+	// Reset ke page 1 jika filter kategori atau pencarian berubah
+	$effect(() => {
+		selectedCategory;
+		searchQuery;
+		currentPage = 1;
+	});
+
+	// Pastikan currentPage selalu berada di rentang valid
+	$effect(() => {
+		if (currentPage > totalPages) {
+			currentPage = totalPages;
+		}
+	});
+
+	const paginatedArticles = $derived(
+		filteredArticles.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+	);
+
+	function setPage(pageNum: number) {
+		if (pageNum < 1 || pageNum > totalPages || pageNum === currentPage) return;
+		currentPage = pageNum;
+		if (typeof document !== 'undefined') {
+			const section = document.getElementById('artikel-terbaru');
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		}
+	}
+
+	function getPageNumbers(total: number, current: number): (number | string)[] {
+		if (total <= 7) {
+			return Array.from({ length: total }, (_, i) => i + 1);
+		}
+		if (current <= 4) {
+			return [1, 2, 3, 4, 5, '…', total];
+		}
+		if (current >= total - 3) {
+			return [1, '…', total - 4, total - 3, total - 2, total - 1, total];
+		}
+		return [1, '…', current - 1, current, current + 1, '…', total];
+	}
+
+	const pageNumbers = $derived(getPageNumbers(totalPages, currentPage));
+
 	const categoriesList = [
 		{ name: 'Pendidikan', icon: 'education' },
 		{ name: 'Beasiswa', icon: 'scholarship' },
@@ -171,7 +218,7 @@
 
 				<!-- 3. Grid 3 Kolom x 2 Baris (6 Kartu Bersih) -->
 				<div class="cards-3x2-grid">
-					{#if filteredArticles.length === 0}
+					{#if paginatedArticles.length === 0}
 						<div class="empty-state-box">
 							<p>Tidak ada artikel yang cocok dengan filter atau kata kunci pencarian Anda.</p>
 							<button type="button" class="btn-reset" onclick={() => { onSelectCategory('Semua Artikel'); searchQuery = ''; }}>
@@ -179,7 +226,7 @@
 							</button>
 						</div>
 					{:else}
-						{#each filteredArticles.slice(0, 6) as item}
+						{#each paginatedArticles as item (item.id)}
 							<article class="clean-article-card">
 								<a href="/artikel/{item.slug}" class="card-thumb-link">
 									<img src={item.gambar} alt={item.judul} class="card-photo" loading="lazy" />
@@ -205,33 +252,43 @@
 				</div>
 
 				<!-- 4. Pagination Bar (Centered) -->
-				<div class="pagination-center-wrap">
-					<button type="button" class="page-square-btn nav-btn" disabled={currentPage === 1} onclick={() => currentPage--} aria-label="Halaman sebelumnya">
-						←
-					</button>
-					<button type="button" class="page-square-btn {currentPage === 1 ? 'active' : ''}" onclick={() => currentPage = 1}>
-						1
-					</button>
-					<button type="button" class="page-square-btn {currentPage === 2 ? 'active' : ''}" onclick={() => currentPage = 2}>
-						2
-					</button>
-					<button type="button" class="page-square-btn {currentPage === 3 ? 'active' : ''}" onclick={() => currentPage = 3}>
-						3
-					</button>
-					<button type="button" class="page-square-btn {currentPage === 4 ? 'active' : ''}" onclick={() => currentPage = 4}>
-						4
-					</button>
-					<button type="button" class="page-square-btn {currentPage === 5 ? 'active' : ''}" onclick={() => currentPage = 5}>
-						5
-					</button>
-					<span class="page-dots">…</span>
-					<button type="button" class="page-square-btn {currentPage === 12 ? 'active' : ''}" onclick={() => currentPage = 12}>
-						12
-					</button>
-					<button type="button" class="page-square-btn nav-btn" onclick={() => currentPage++} aria-label="Halaman berikutnya">
-						→
-					</button>
-				</div>
+				{#if totalPages > 1}
+					<div class="pagination-center-wrap">
+						<button
+							type="button"
+							class="page-square-btn nav-btn"
+							disabled={currentPage === 1}
+							onclick={() => setPage(currentPage - 1)}
+							aria-label="Halaman sebelumnya"
+						>
+							←
+						</button>
+
+						{#each pageNumbers as p}
+							{#if p === '…'}
+								<span class="page-dots">…</span>
+							{:else}
+								<button
+									type="button"
+									class="page-square-btn {currentPage === p ? 'active' : ''}"
+									onclick={() => setPage(Number(p))}
+								>
+									{p}
+								</button>
+							{/if}
+						{/each}
+
+						<button
+							type="button"
+							class="page-square-btn nav-btn"
+							disabled={currentPage === totalPages}
+							onclick={() => setPage(currentPage + 1)}
+							aria-label="Halaman berikutnya"
+						>
+							→
+						</button>
+					</div>
+				{/if}
 			</div>
 
 			<!-- RIGHT SIDEBAR COLUMN (Width: ±367px) -->

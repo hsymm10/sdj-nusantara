@@ -253,5 +253,57 @@ export const articlesData: Article[] = [
 		sumber: 'Kemitraan Industri SDJNusantara',
 		gambar: '/images/article-pop-4.jpg',
 		populerRank: 4
+	},
+	{
+		id: 15,
+		slug: 'mengembangkan-literasi-data-untuk-pengambilan-keputusan-strategis',
+		judul: 'Mengembangkan Literasi Data untuk Pengambilan Keputusan Strategis',
+		kategori: 'Keterampilan Digital',
+		tanggal: '10 Sep 2026',
+		updatedAt: '10 September 2026',
+		ringkasan: 'Pemahaman analisis data kuantitatif dan kualitatif kini menjadi keahlian penting di berbagai lini industri dan institusi.',
+		isi: '<p>Literasi data memungkinkan individu dan institusi menyusun proyeksi serta keputusan berbasis bukti nyata yang akurat.</p>',
+		penulis: 'Instruktur Data & Analitik SDJNusantara',
+		sumber: 'Data Literacy Index 2026',
+		gambar: '/images/article-card-2.jpg'
+	},
+	{
+		id: 16,
+		slug: 'peran-ekosistem-inkubasi-kampus-mendorong-wirausaha',
+		judul: 'Peran Ekosistem Inkubasi Kampus dalam Mendorong Talenta Wirausaha',
+		kategori: 'Pengembangan Talenta',
+		tanggal: '8 Sep 2026',
+		updatedAt: '8 September 2026',
+		ringkasan: 'Dukungan fasilitas, pendanaan awal, dan pendampingan mentor mengubah ide inovatif mahasiswa menjadi rintisan usaha produktif.',
+		isi: '<p>Perguruan tinggi bertransformasi menjadi katalisator penciptaan lapangan kerja melalui program inkubasi terstruktur.</p>',
+		penulis: 'Konsultan Talenta & Inovasi SDJNusantara',
+		sumber: 'Laporan Kewirausahaan Pemuda Nasional',
+		gambar: '/images/article-card-4.jpg'
+	},
+	{
+		id: 17,
+		slug: 'strategi-sukses-memperoleh-loa-unconditional-kampus-dunia',
+		judul: 'Strategi Sukses Memperoleh LoA Unconditional dari Kampus Ternama Dunia',
+		kategori: 'Beasiswa',
+		tanggal: '4 Sep 2026',
+		updatedAt: '4 September 2026',
+		ringkasan: 'Langkah taktis menyusun rencana studi, menjalin korespondensi dengan calon supervisor, dan memenuhi kualifikasi ketat universitas top.',
+		isi: '<p>Letter of Acceptance (LoA) tanpa syarat merupakan tiket utama untuk mengunci peluang beasiswa bergengsi luar negeri.</p>',
+		penulis: 'Tim Konsultan Studi Luar Negeri SDJNusantara',
+		sumber: 'Panduan Beasiswa & Studi Global SDJNusantara',
+		gambar: '/images/article-card-5.jpg'
+	},
+	{
+		id: 18,
+		slug: 'pentingnya-keselarasan-kurikulum-vokasi-dengan-industri',
+		judul: 'Pentingnya Keselarasan Kurikulum Vokasi dengan Dinamika Industri 4.0',
+		kategori: 'Kemitraan',
+		tanggal: '1 Sep 2026',
+		updatedAt: '1 September 2026',
+		ringkasan: 'Sinkronisasi standar kompetensi kerja nasional dengan kebutuhan riil pasar memastikan lulusan langsung siap berkarya.',
+		isi: '<p>Kolaborasi kurikulum terintegrasi dan program magang bersertifikat menjadi jembatan kokoh antara SMK/Politeknik dan industri modern.</p>',
+		penulis: 'Divisi Kemitraan Vokasi SDJNusantara',
+		sumber: 'Kajian Kemitraan Vokasi Nasional',
+		gambar: '/images/article-card-6.jpg'
 	}
 ];

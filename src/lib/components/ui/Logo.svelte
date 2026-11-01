@@ -1,4 +1,6 @@
 <script lang="ts">
+	import logoSdj from '#lib/assets/logo_sdj.png';
+
 	interface Props {
 		variant?: 'dark' | 'light';
 		size?: 'sm' | 'md' | 'lg';
@@ -16,30 +18,12 @@
 	const isLight = $derived(variant === 'light');
 </script>
 
-<div class="logo-wrapper {size}">
-	<!-- 3-layer logo mark -->
-	<svg
-		class="logo-icon-svg"
-		viewBox="0 0 36 36"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<!-- Layer 1: Top (Teal) -->
-		<path
-			d="M18 3L32 10.5L18 18L4 10.5L18 3Z"
-			fill="#00A6B2"
-		/>
-		<!-- Layer 2: Middle (Navy) -->
-		<path
-			d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z"
-			fill={isLight ? '#4176A8' : '#0B2747'}
-		/>
-		<!-- Layer 3: Bottom (Gold) -->
-		<path
-			d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z"
-			fill="#F4B334"
-		/>
-	</svg>
+<div class="logo-wrapper {size} {variant}">
+	<img
+		src={logoSdj}
+		alt="Logo SDJNusantara"
+		class="logo-icon-img"
+	/>
 
 	<div class="logo-text">
 		<span class="brand-name {isLight ? 'text-white' : 'text-[#0B2747]'}">
@@ -62,18 +46,25 @@
 		user-select: none;
 	}
 
-	.logo-icon-svg {
+	.logo-icon-img {
 		width: 38px;
 		height: 38px;
+		object-fit: contain;
 		flex-shrink: 0;
+		border-radius: 6px;
 	}
 
-	.logo-wrapper.sm .logo-icon-svg {
+	.logo-wrapper.light .logo-icon-img {
+		background: #FFFFFF;
+		padding: 2px;
+	}
+
+	.logo-wrapper.sm .logo-icon-img {
 		width: 30px;
 		height: 30px;
 	}
 
-	.logo-wrapper.lg .logo-icon-svg {
+	.logo-wrapper.lg .logo-icon-img {
 		width: 44px;
 		height: 44px;
 	}
