@@ -7,6 +7,12 @@
 	import ScholarshipPrepGuide from '#lib/components/sections/scholarship/ScholarshipPrepGuide.svelte';
 	import ScholarshipCategorySection from '#lib/components/sections/scholarship/ScholarshipCategorySection.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+
+	let activeCategory = $state('Semua Kategori');
+
+	function handleCategorySelect(cat: string) {
+		activeCategory = cat;
+	}
 </script>
 
 <svelte:head>
@@ -27,23 +33,24 @@
 	<ScholarshipFeatureOverlap />
 
 	<!-- 3 & 4. Cari Beasiswa (Search, 5 Filters, 4 Cards, Disclaimer) -->
-	<ScholarshipSearchSection />
+	<ScholarshipSearchSection bind:selectedCategory={activeCategory} />
 
 	<!-- 5. Panduan Persiapan -->
 	<ScholarshipPrepGuide />
 
 	<!-- 6. Jelajahi Beasiswa Berdasarkan Kategori -->
-	<ScholarshipCategorySection />
+	<ScholarshipCategorySection onSelectCategory={handleCategorySelect} />
 
 	<!-- 7. CTA Banner -->
 	<CtaBanner
 		title="Butuh Bantuan Memilih Beasiswa?"
 		description="Konsultasikan rencana pendidikan Anda dengan tim SDJNusantara dan dapatkan rekomendasi beasiswa yang sesuai dengan profil Anda."
-		primaryText="Jadwalkan Konsultasi"
-		primaryHref="#kontak"
+		primaryText="Jadwalkan Konsultasi →"
+		primaryHref="/konsultasi"
 		secondaryText="Lihat Program Lainnya"
 		secondaryHref="/program"
 		bgImage="/images/sch-cta-cap.jpg"
+		variant="beasiswa"
 	/>
 </main>
 

@@ -9,7 +9,7 @@
 		secondaryHref?: string;
 		secondaryIcon?: 'whatsapp' | 'none';
 		secondaryTarget?: string;
-		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program';
+		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa';
 	}
 
 	let {
@@ -412,12 +412,86 @@
 		object-position: left center;
 	}
 
-	.cta-banner.variant-program .cta-overlay {
+	/* Variant Beasiswa (125px height, student silhouette on left, text starts x~441) */
+	.cta-banner.variant-beasiswa {
+		height: 125px;
+		background: #082442;
+	}
+
+	.cta-banner.variant-beasiswa .cta-container {
+		width: 100%;
+		max-width: 1380px;
+		margin: 0 auto;
+		padding: 0 54px;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.cta-banner.variant-beasiswa .cta-container {
+			max-width: 1500px;
+		}
+	}
+
+	.cta-banner.variant-beasiswa .cta-content {
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.cta-banner.variant-beasiswa .cta-text {
+		max-width: 600px;
+		margin-left: 360px; /* text starts at x≈441px */
+	}
+
+	@media (max-width: 1200px) {
+		.cta-banner.variant-beasiswa .cta-text {
+			margin-left: 0;
+		}
+	}
+
+	.cta-banner.variant-beasiswa .cta-title {
+		font-size: clamp(20px, 1.8vw, 26px);
+		line-height: 1.2;
+		font-weight: 800;
+		color: #FFFFFF;
+		margin-bottom: 0.35rem;
+	}
+
+	.cta-banner.variant-beasiswa .cta-desc {
+		font-size: 13px;
+		line-height: 19px;
+		color: rgba(255, 255, 255, 0.88);
+	}
+
+	.cta-banner.variant-beasiswa .btn-gold {
+		padding: 9px 22px;
+		font-size: 13px;
+		font-weight: 700;
+		background: #F5B331;
+		color: #082442;
+		border-radius: 8px;
+		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.28);
+	}
+
+	.cta-banner.variant-beasiswa .btn-outline {
+		padding: 9px 20px;
+		font-size: 13px;
+		font-weight: 600;
+		border: 1.5px solid rgba(255, 255, 255, 0.65);
+		border-radius: 8px;
+	}
+
+	.cta-banner.variant-beasiswa .cta-bg-img {
+		opacity: 0.75;
+		width: 440px;
+		object-position: left center;
+	}
+
+	.cta-banner.variant-beasiswa .cta-overlay {
 		background: linear-gradient(
 			90deg,
-			rgba(8, 36, 66, 0.72) 0%,
-			rgba(8, 36, 66, 0.88) 35%,
-			rgba(8, 36, 66, 0.96) 65%,
+			rgba(8, 36, 66, 0.45) 0%,
+			rgba(8, 36, 66, 0.82) 28%,
+			#082442 42%,
 			#082442 100%
 		);
 	}

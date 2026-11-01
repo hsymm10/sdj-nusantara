@@ -158,14 +158,13 @@
 	@media (max-width: 1024px) {
 		.feature-card {
 			height: auto;
-			flex-wrap: wrap;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
 			padding: 1.25rem 1rem;
-			gap: 1.25rem;
+			gap: 1.25rem 1rem;
 		}
 		.feature-col {
-			flex: 1 1 45%;
-			justify-content: flex-start;
-			padding: 0.5rem;
+			padding: 0.25rem 0.5rem;
 		}
 		.v-divider {
 			display: none;
@@ -178,24 +177,23 @@
 			margin-bottom: 1.5rem;
 		}
 		.feature-card {
-			flex-direction: column;
-			align-items: stretch;
-			gap: 1rem;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem 0.75rem;
 			border-radius: 16px;
-			padding: 1.25rem 1rem;
+			padding: 1.15rem 0.85rem;
 		}
 		.feature-col {
-			flex: 1 1 100%;
-			justify-content: flex-start;
-			padding-left: 0.5rem;
-			gap: 12px;
+			padding: 0.25rem;
+			gap: 10px;
 		}
 		.feat-icon-svg {
-			width: 38px;
-			height: 38px;
+			width: 32px;
+			height: 32px;
 		}
 		.feature-text {
-			font-size: 15px;
+			font-size: 13.5px;
+			line-height: 1.25;
 		}
 	}
 </style>

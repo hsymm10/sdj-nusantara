@@ -89,7 +89,7 @@ async function inspect(width = 1536, height = 2304, screenshotPath = 'screenshot
         features: getBox('.sch-feature-overlap-wrap') || getBox('.feature-card') || getBox('.feature-overlap-wrap'),
         searchSection: getBox('.sch-search-section') || getBox('.scholarship-search-section'),
         prepGuide: getBox('.prep-guide-section') || getBox('.scholarship-prep-guide'),
-        categories: getBox('.category-section') || getBox('.scholarship-category-section'),
+        categories: getBox('.sch-category-section') || getBox('.category-section') || getBox('.scholarship-category-section'),
         cta: getBox('.cta-banner-section') || getBox('.cta-banner'),
         footer: getBox('.footer')
       };

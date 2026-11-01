@@ -183,8 +183,8 @@
 			</div>
 		{/if}
 
-		<!-- Floating Back-to-Top Button for Program per Mockup -->
-		{#if variant === 'program'}
+		<!-- Floating Back-to-Top Button for Program & Beasiswa per Mockup -->
+		{#if variant === 'program' || variant === 'beasiswa'}
 			<button class="back-to-top-btn floating-btt-program" onclick={scrollToTop} aria-label="Kembali ke atas">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="18 15 12 9 6 15"></polyline>
@@ -611,12 +611,13 @@
 		align-items: flex-start;
 	}
 
-	.footer.variant-program .floating-btt-program {
+	.footer.variant-program .floating-btt-program,
+	.footer.variant-beasiswa .floating-btt-program {
 		position: fixed;
 		bottom: 30px;
 		right: 30px;
-		width: 48px;
-		height: 48px;
+		width: 52px;
+		height: 52px;
 		border-radius: 50%;
 		background: #00A6B2;
 		color: #FFFFFF;
@@ -630,7 +631,8 @@
 		transition: all 0.2s ease;
 	}
 
-	.footer.variant-program .floating-btt-program:hover {
+	.footer.variant-program .floating-btt-program:hover,
+	.footer.variant-beasiswa .floating-btt-program:hover {
 		background: #079EAD;
 		transform: translateY(-2px);
 	}

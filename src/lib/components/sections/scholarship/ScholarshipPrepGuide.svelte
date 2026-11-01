@@ -1,5 +1,5 @@
 <script lang="ts">
-	// ScholarshipPrepGuide.svelte - Faithful to design/beasiswa.png
+	// ScholarshipPrepGuide.svelte - Replicated faithfully from design/beasiswa.png
 	const checklist = [
 		'Strategi memilih beasiswa',
 		'Persiapan dokumen',
@@ -10,141 +10,132 @@
 </script>
 
 <section id="panduan-persiapan" class="prep-guide-section">
-	<div class="prep-layout-row">
-		<!-- Left: Photo flush with left edge + S-curve -->
-		<div class="photo-side">
-			<img
-				src="/images/sch-guide-writing.jpg"
-				alt="Panduan Persiapan Beasiswa"
-				class="prep-photo"
-				loading="lazy"
+	<!-- Left Photo flush to left edge (x 0→592) with right curved arc & gold border -->
+	<div class="photo-side-wrap">
+		<img
+			src="/images/sch-guide-writing.jpg"
+			alt="Panduan Persiapan Beasiswa"
+			class="prep-guide-img"
+			loading="lazy"
+		/>
+		<!-- S-curve mask / decoration with gold #F5B331 stroke -->
+		<svg class="s-curve-svg" viewBox="0 0 160 220" fill="none" preserveAspectRatio="none" aria-hidden="true">
+			<!-- White mask to cut the right edge of image -->
+			<path
+				d="M160,0 C100,25 40,85 10,140 C-10,180 5,210 20,220 L160,220 Z"
+				fill="#FFFFFF"
 			/>
-			<!-- S-curve SVG on right edge of photo -->
-			<svg class="s-curve" viewBox="0 0 100 280" fill="none" preserveAspectRatio="none">
-				<path
-					d="M100 0 C40 40 10 120 70 200 C95 235 100 260 100 280 L100 0 Z"
-					fill="#FFFFFF"
-				/>
-				<path
-					d="M100 0 C40 40 10 120 70 200 C95 235 100 260 100 280"
-					stroke="#00A6B2"
-					stroke-width="5"
-					fill="none"
-				/>
-				<path
-					d="M100 160 C75 190 70 220 100 280"
-					stroke="#F4B334"
-					stroke-width="6"
-					fill="none"
-				/>
-			</svg>
+			<!-- Teal accent curve -->
+			<path
+				d="M160,0 C100,25 40,85 10,140 C-10,180 5,210 20,220"
+				stroke="#00A6B2"
+				stroke-width="5"
+				fill="none"
+			/>
+			<!-- Thin gold #F5B331 curve along the arc -->
+			<path
+				d="M160,10 C105,35 48,95 20,150 C5,188 18,215 32,220"
+				stroke="#F5B331"
+				stroke-width="4"
+				fill="none"
+			/>
+		</svg>
+	</div>
+
+	<!-- Center Content: Label, Title, Desc, Gold Button -->
+	<div class="prep-center-content">
+		<div class="section-label">
+			<span class="label-dash">—</span>
+			<span class="label-text">Panduan Persiapan</span>
 		</div>
 
-		<!-- Right Content Container -->
-		<div class="content-container">
-			<div class="content-grid">
-				<!-- Center: Text & CTA -->
-				<div class="text-col">
-					<div class="section-label">
-						<span class="label-dash">—</span>
-						<span class="label-text">Panduan Persiapan</span>
+		<h2 class="prep-title">Persiapkan Diri untuk Meraih Beasiswa Impian</h2>
+
+		<p class="prep-desc">
+			Dapatkan panduan, tips, dan strategi persiapan beasiswa dari tim profesional<br />
+			SDJNusantara agar peluang Anda semakin besar.
+		</p>
+
+		<a href="/konsultasi" class="btn-gold-guide">
+			<span>Lihat Panduan Lengkap</span>
+			<span class="arrow-glyph" aria-hidden="true">→</span>
+		</a>
+	</div>
+
+	<!-- Right White Card flush with right edge (x 1168→1509) with 5 turquoise checkmarks -->
+	<div class="prep-right-card">
+		<ul class="checklist-items">
+			{#each checklist as item}
+				<li class="check-item">
+					<div class="check-icon-teal" aria-hidden="true">
+						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
 					</div>
-
-					<h2 class="section-title">
-						Persiapkan Diri untuk<br />
-						Meraih Beasiswa Impian
-					</h2>
-
-					<p class="section-desc">
-						Dapatkan panduan, tips, dan strategi persiapan beasiswa dari tim profesional SDJNusantara agar peluang Anda semakin besar.
-					</p>
-
-					<a href="#kontak" class="btn-gold">
-						<span>Lihat Panduan Lengkap</span>
-						<span class="btn-arrow">→</span>
-					</a>
-				</div>
-
-				<!-- Right: Checklist Card -->
-				<div class="card-col">
-					<div class="guide-checklist-card">
-						<ul class="checklist-items">
-							{#each checklist as item}
-								<li>
-									<div class="check-icon">
-										<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</div>
-									<span>{item}</span>
-								</li>
-							{/each}
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+					<span class="check-label">{item}</span>
+				</li>
+			{/each}
+		</ul>
 	</div>
 </section>
 
 <style>
 	.prep-guide-section {
+		position: relative;
+		width: 100%;
+		height: 220px;
 		background: #FFFFFF;
-		padding: 2.5rem 0 3.5rem;
 		overflow: hidden;
 		border-top: 1px solid #F1F5F9;
-	}
-
-	.prep-layout-row {
+		border-bottom: 1px solid #F1F5F9;
 		display: flex;
 		align-items: center;
-		width: 100%;
+		box-sizing: border-box;
 	}
 
-	/* Photo flush left */
-	.photo-side {
-		position: relative;
-		width: 32%;
-		min-width: 320px;
-		height: 250px;
-		flex-shrink: 0;
+	/* Left photo flush with left screen edge (x 0→592) */
+	.photo-side-wrap {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 592px;
+		height: 100%;
+		overflow: hidden;
+		z-index: 1;
 	}
 
-	.prep-photo {
+	.prep-guide-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: left center;
 		display: block;
 	}
 
-	.s-curve {
+	/* S-curve with gold line */
+	.s-curve-svg {
 		position: absolute;
 		top: 0;
 		right: -1px;
 		bottom: 0;
-		width: 80px;
+		width: 160px;
 		height: 100%;
 		pointer-events: none;
+		z-index: 2;
 	}
 
-	/* Content Container */
-	.content-container {
-		flex: 1;
-		max-width: 850px;
-		padding-right: 2rem;
+	/* Center content */
+	.prep-center-content {
+		position: relative;
+		z-index: 3;
+		margin-left: 540px;
+		max-width: 610px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		box-sizing: border-box;
-	}
-
-	.content-grid {
-		display: grid;
-		grid-template-columns: 1.25fr 1fr;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	/* Text Col */
-	.text-col {
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 	}
 
 	.section-label {
@@ -152,62 +143,80 @@
 		align-items: center;
 		gap: 6px;
 		color: #00A6B2;
-		font-size: 11px;
+		font-size: 13px;
 		font-weight: 700;
-		margin-bottom: 0.4rem;
+		margin-bottom: 6px;
 	}
 
 	.label-dash {
 		font-weight: 800;
 	}
 
-	.section-title {
-		font-size: 21px;
-		line-height: 27px;
+	.prep-title {
+		font-size: clamp(22px, 1.85vw, 28px);
+		line-height: 1.25;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 0.65rem 0;
-		letter-spacing: -0.01em;
+		margin: 0 0 8px 0;
+		white-space: nowrap;
 	}
 
-	.section-desc {
-		font-size: 11.5px;
-		line-height: 18px;
-		color: #556B82;
-		margin: 0 0 1.25rem 0;
+	.prep-desc {
+		font-size: 13.5px;
+		line-height: 19px;
+		color: #475569;
+		margin: 0 0 16px 0;
 	}
 
-	.btn-gold {
+	.btn-gold-guide {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: #F4B334;
-		color: #071D36;
-		padding: 7px 18px;
-		font-size: 11px;
+		gap: 8px;
+		width: fit-content;
+		height: 42px;
+		padding: 0 20px;
+		background: #F5B331;
+		color: #082442;
+		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.25);
 		transition: all 0.2s ease;
 	}
 
-	.btn-gold:hover {
+	.btn-gold-guide:hover {
 		background: #e6a528;
 		transform: translateY(-1px);
 	}
 
-	.btn-arrow {
-		font-size: 12px;
+	.arrow-glyph {
+		font-size: 15px;
+		transition: transform 0.2s ease;
 	}
 
-	/* Card Col */
-	.guide-checklist-card {
+	.btn-gold-guide:hover .arrow-glyph {
+		transform: translateX(3px);
+	}
+
+	/* Right White Card flush with right edge (x 1168→1509) */
+	.prep-right-card {
+		position: absolute;
+		right: 0;
+		top: 14px;
+		bottom: 14px;
+		width: 345px;
 		background: #FFFFFF;
+		border-radius: 18px 0 0 18px;
+		box-shadow: -6px 6px 22px rgba(11, 39, 71, 0.08);
 		border: 1px solid #E2E8F0;
-		border-radius: 14px;
-		padding: 1.5rem 1.35rem;
-		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.06);
+		border-right: none;
+		padding: 16px 24px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		z-index: 3;
+		box-sizing: border-box;
 	}
 
 	.checklist-items {
@@ -216,42 +225,76 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 10px;
 	}
 
-	.checklist-items li {
+	.check-item {
 		display: flex;
 		align-items: center;
-		gap: 9px;
-		font-size: 10.5px;
-		color: #334155;
-		font-weight: 600;
+		gap: 10px;
 	}
 
-	.check-icon {
-		width: 18px;
-		height: 18px;
-		border-radius: 50%;
-		background: rgba(0, 166, 178, 0.12);
+	.check-icon-teal {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 900px) {
-		.prep-layout-row {
+	.check-label {
+		font-size: 12.5px;
+		font-weight: 600;
+		color: #334155;
+		white-space: nowrap;
+	}
+
+	@media (max-width: 1360px) {
+		.prep-title {
+			white-space: normal;
+		}
+		.prep-center-content {
+			margin-left: 480px;
+			max-width: 500px;
+		}
+		.photo-side-wrap {
+			width: 500px;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.prep-guide-section {
+			height: auto;
+			padding: 2.5rem 1.5rem;
 			flex-direction: column;
+			align-items: stretch;
+			gap: 1.5rem;
 		}
-		.photo-side {
+		.photo-side-wrap {
+			position: relative;
 			width: 100%;
-			height: 220px;
+			height: 200px;
+			border-radius: 14px;
 		}
-		.content-grid {
-			grid-template-columns: 1fr;
+		.s-curve-svg {
+			display: none;
 		}
-		.content-container {
-			padding: 1.5rem 1rem;
+		.prep-center-content {
+			margin-left: 0;
+			max-width: 100%;
+			padding: 0;
+		}
+		.prep-right-card {
+			position: relative;
+			right: auto;
+			top: auto;
+			bottom: auto;
+			width: 100%;
+			border-radius: 14px;
+			border-right: 1px solid #E2E8F0;
+			box-shadow: 0 4px 16px rgba(11, 39, 71, 0.06);
+		}
+		.check-label {
+			white-space: normal;
 		}
 	}
 </style>

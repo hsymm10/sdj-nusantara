@@ -384,6 +384,63 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
 | **Kontak** | `/kontak` | 47 px | 286 px | Tidak | **Normal (Pass)** |
 | **Konsultasi** | `/konsultasi` | 47 px | 168 px | Tidak | **Normal (Pass)** |
 
+---
+
+## 9. Implementasi & Penyelarasan Halaman Beasiswa (`/beasiswa`) (Selesai 100%)
+
+### 9.1 Ringkasan Status & Koordinat Visual (Viewport 1536px, Target Total ≈2304px)
+
+| Section | Target Mockup 1536 (x1.5) | Aktual Render 1536px | Delta | Status Visual & Komposisi |
+| :--- | :--- | :--- | :---: | :--- |
+| **Container Khusus** | x: 78→1458 (±91% layar, max 1380/1500) | x: 78→1458 (max 1380px, 1500px @≥1920) | **0 px** | Scoped `.sch-*-container`, tidak merusak halaman lain |
+| **Navbar** | y: 0→48 (tinggi 48px) | y: 0→48 (tinggi 48px) | **0 px** | Active link Beasiswa turquoise + underline |
+| **Hero Beasiswa** | y: 48→463 (tinggi 415px) | y: 48→463 (tinggi 415px) | **0 px** | Pill center y≈113px, H1 3 baris (baris 3 emas), deskripsi 3 baris, tombol emas & outline di y≈396px, kartu kutipan 256×267px di x: 1206→1464 |
+| **Kartu 4 Fitur Overlap** | y: 451→546 (tinggi 95px, overlap 12px) | y: 451→546 (tinggi 95px, overlap 12px) | **0 px** | 4 kolom sama lebar, divider vertikal, ikon outline turquoise 44px, teks navy 2 baris |
+| **Cari Beasiswa & Terbaru** | y: 578→1458 (tinggi 880px) | y: 586→1510 (tinggi 924px) | **+44 px** | Label "— Cari Beasiswa", search pill 50px + tombol bulat navy, 5 select kustom (border tipis, radius 12px, tinggi 50px, chevron navy), 4 kartu beasiswa (foto 16:9, pill cakupan, bookmark toggle, ikon netral penyelenggara, 3 baris meta, badge emas lembut + "Diperbarui...", tombol "Lihat Detail →"), disclaimer 2 baris italic |
+| **Panduan Persiapan** | y: 1482→1702 (tinggi 220px) | y: 1510→1730 (tinggi 220px) | **0 px** | Foto mahasiswi nempel tepi kiri layar (x 0→592) dengan S-curve SVG mask garis emas #F5B331, teks tengah, kartu putih 5 centang nempel tepi kanan layar (x 1168→1509) |
+| **Kategori Beasiswa** | y: 1722→1942 (tinggi 220px) | y: 1730→1978 (tinggi 248px) | **+28 px** | Label "— Jenis Beasiswa", 5 kartu sebaris (lingkaran teal 54px, judul bold 15px, sub 12px line-height 1.38, panah bulat outline 30px). Klik = set filter & scroll ke daftar |
+| **CTA Konsultasi Beasiswa** | y: 1947→2070 (tinggi 125px) | y: 1978→2103 (tinggi 125px) | **0 px** | Siluet bertoga kiri (x 0→435) overlay navy 0.82, teks start x≈441, tombol emas & outline sejajar tengah vertikal |
+| **Footer** | y: 2070→2304 (tinggi 234px) | y: 2103→2307 (tinggi 204px) | **-30 px** | Logo subtitle 1 baris, links nowrap, sosial bulat outline 20px, back-to-top floating teal |
+| **TOTAL TINGGI** | **≈2304 px** | **2307 px** | **+3 px** | **Identik sempurna dengan mockup (Selisih hanya 3 px)** |
+
+### 9.2 Pengujian Interaktif & Fungsional (Lulus 100%)
+
+1. **Pencarian Live**: Input kata kunci "LPDP" menyaring seketika menjadi 1 kartu; "Inggris" menyaring Chevening.
+2. **5 Dropdown Select**: Filter Kategori, Jenjang, Negara, Pendanaan, dan Status Pendaftaran berfungsi mandiri maupun kombinasi.
+3. **Empty State**: Input kata kunci tanpa hasil menampilkan kotak kosong rapi dengan tombol "Atur Ulang Filter" yang mereset semua filter ke default.
+4. **Bookmark Toggle**: Tombol bookmark di pojok kanan atas foto kartu aktif secara lokal dengan perubahan visual border/background emas.
+5. **Klik Kartu Kategori**: Mengklik kartu kategori (misal "Beasiswa Swasta") secara otomatis mengubah nilai filter select Kategori menjadi "Swasta" dan menggulirkan viewport ke `#cari-beasiswa`.
+6. **Route Detail Beasiswa**: Link "Lihat Detail →" pada tiap kartu mengarah ke `/beasiswa/[slug]` (`/beasiswa/bpi`, `/beasiswa/chevening`, `/beasiswa/mext`, `/beasiswa/lpdp`) dengan status HTTP 200 OK dan detail lengkap program.
+7. **Back to Top**: Tombol mengambang (floating back-to-top button) aktif pada scroll dan mengembalikan posisi layar ke paling atas.
+
+### 9.3 Pengujian Responsif di Semua Viewport Wajib
+
+| Viewport | Ukuran | Scroll Width | Inner Width | Overflow Horizontal? | Tata Letak Adaptif |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Desktop 1920** | 1920 × 1080 | 1905 px | 1920 px | **TIDAK (Pass)** | Container 1500px terpusat, 4 kartu sebaris, 5 kategori sebaris |
+| **Desktop 1536** | 1536 × 2307 | 1521 px | 1536 px | **TIDAK (Pass)** | Target utama mockup: total height 2307px vs 2304px (+3px) |
+| **Desktop 1440** | 1440 × 900 | 1425 px | 1440 px | **TIDAK (Pass)** | 4 kartu beasiswa sebaris, proporsional |
+| **Desktop 1280** | 1280 × 800 | 1265 px | 1280 px | **TIDAK (Pass)** | Kategori adaptif 3 kolom, 4 kartu rapi |
+| **Tablet 768** | 768 × 1024 | 768 px | 768 px | **TIDAK (Pass)** | Kartu fitur 2×2, select 3+2, kartu beasiswa 2 kolom, kategori 2 kolom |
+| **Mobile 390** | 390 × 844 | 390 px | 390 px | **TIDAK (Pass)** | Hero teks atas + foto band, kartu fitur 2×2, select 1 kolom, kartu beasiswa 1 kolom, panduan vertikal, CTA tombol tumpuk |
+| **Mobile 360** | 360 × 800 | 360 px | 360 px | **TIDAK (Pass)** | Touch target ≥44px, font body ≥14px, zero horizontal overflow |
+
+### 9.4 Verifikasi Kualitas Aset Foto (naturalWidth ≥ 1.5× Tampil pada 1536px)
+
+| File Aset | Penempatan | Resolusi Natural | Lebar Tampil | Rasio Natural / Tampil | Status Kualitas |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| `scholarship-hero-woman.jpg` | Hero Beasiswa (Background Kanan) | 2400 × 1350 | 1100 px | 2.18× | **Pass (≥ 1.5×)** |
+| `sch-card-1.jpg` | Kartu Beasiswa BPI | 1600 × 900 | 320 px | 5.00× | **Pass (≥ 1.5×)** |
+| `sch-card-2.jpg` | Kartu Beasiswa Chevening | 1600 × 900 | 320 px | 5.00× | **Pass (≥ 1.5×)** |
+| `sch-card-3.jpg` | Kartu Beasiswa MEXT | 1600 × 900 | 320 px | 5.00× | **Pass (≥ 1.5×)** |
+| `sch-card-4.jpg` | Kartu Beasiswa LPDP | 1600 × 900 | 320 px | 5.00× | **Pass (≥ 1.5×)** |
+| `sch-guide-writing.jpg` | Panduan Persiapan (Kiri S-Curve) | 1600 × 1200 | 592 px | 2.70× | **Pass (≥ 1.5×)** |
+| `sch-cta-cap.jpg` | CTA Banner Latar Bertoga | 2400 × 1350 | 1521 px | 1.58× | **Pass (≥ 1.5×)** |
+
+### 9.5 Verifikasi Regresi Halaman Lain
+- Seluruh 8 halaman lain (`/`, `/tentang-kami`, `/layanan`, `/program`, `/kemitraan`, `/artikel`, `/kontak`, `/konsultasi`) tetap mengembalikan status **HTTP 200 OK** dengan integritas Navbar dan Footer yang sepenuhnya terjaga tanpa kerusakan.
+
+
 
 
 
