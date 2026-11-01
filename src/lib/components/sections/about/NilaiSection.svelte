@@ -3,52 +3,51 @@
 </script>
 
 <section class="nilai-section" id="nilai">
-	<!-- Background image overlay -->
+	<!-- Background image overlay (foto tangan kolaborasi + navy 0.85) -->
 	<div class="nilai-bg-wrap">
 		<img
 			src="/images/about-hands-network.jpg"
-			alt=""
+			alt="Kolaborasi Nilai SDJNusantara"
 			class="nilai-bg-img"
 			loading="lazy"
 		/>
 		<div class="nilai-overlay"></div>
 	</div>
 
-	<!-- Swoosh teal bottom-right -->
-	<svg class="nilai-swoosh-br" viewBox="0 0 240 100" fill="none" preserveAspectRatio="none">
-		<path d="M0 100 C80 60 160 30 240 0 V100 H0 Z" fill="#00A6B2" fill-opacity="0.25"/>
-		<path d="M60 100 C120 75 180 50 240 30 V100 H60 Z" fill="#16B6C1" fill-opacity="0.3"/>
+	<!-- Swoosh teal bottom-right (lebih tebal seperti mockup) -->
+	<svg class="nilai-swoosh-br" viewBox="0 0 260 120" fill="none" preserveAspectRatio="none">
+		<path d="M0 120 C90 70 170 30 260 0 V120 H0 Z" fill="#00A6B2" fill-opacity="0.45"/>
+		<path d="M70 120 C130 85 190 55 260 30 V120 H70 Z" fill="#16B6C1" fill-opacity="0.55"/>
 	</svg>
 
 	<div class="nilai-container">
 		<div class="nilai-grid">
 			<!-- Left Column: Title & CTA -->
 			<div class="nilai-left">
-				<div class="section-label">
-					<span class="label-line"></span>
-					<span class="label-text">Nilai-Nilai Luhur</span>
-				</div>
+				<div class="section-label">— Nilai-Nilai Luhur</div>
 
 				<h2 class="nilai-title">
-					Integritas, Profesionalitas, Kolaborasi, dan Dampak Nyata
+					Integritas, Profesionalitas,<br />
+					Kolaborasi, dan Dampak Nyata
 				</h2>
 
 				<p class="nilai-desc">
-					Nilai-nilai ini menjadi landasan dalam setiap langkah kami untuk menghadirkan solusi pendidikan terbaik.
+					Nilai-nilai ini menjadi landasan dalam setiap langkah kami<br />
+					untuk menghadirkan solusi pendidikan terbaik.
 				</p>
 
 				<a href="#pendekatan" class="btn-gold">
-					<span>Pelajari Nilai Kami</span>
+					<span>Kenali Nilai Kami</span>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>
 
-			<!-- Right Columns: 4 Value Items with Vertical Dividers -->
+			<!-- Right Columns: 4 Value Items with Thin Vertical Dividers -->
 			<div class="nilai-items">
-				<!-- Item 1: Integritas -->
+				<!-- Item 1: Integritas (Perisai dengan centang) -->
 				<div class="nilai-col">
 					<div class="nilai-icon">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
 							<polyline points="9 12 11 14 15 10"></polyline>
 						</svg>
@@ -59,10 +58,10 @@
 
 				<div class="nilai-vdivider"></div>
 
-				<!-- Item 2: Profesionalitas -->
+				<!-- Item 2: Profesionalitas (Kelompok 3 orang) -->
 				<div class="nilai-col">
 					<div class="nilai-icon">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 							<circle cx="9" cy="7" r="4"></circle>
 							<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -75,11 +74,14 @@
 
 				<div class="nilai-vdivider"></div>
 
-				<!-- Item 3: Kolaborasi -->
+				<!-- Item 3: Kolaborasi (JABAT TANGAN - Handshake, BUKAN hati) -->
 				<div class="nilai-col">
 					<div class="nilai-icon">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.77.78L12 20.66l7.65-7.65.77-.78a5.4 5.4 0 0 0 0-7.65z"></path>
+						<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-1.6-1.6a2 2 0 0 0-2.8 0L13 11.6"></path>
+							<path d="m13 11.6-2-2a1 1 0 0 0-1.4 0L3 16.2a2 2 0 0 0 0 2.8l1.6 1.6a2 2 0 0 0 2.8 0l3.6-3.6"></path>
+							<path d="m17 7 2-2a2 2 0 0 1 2.8 0v0a2 2 0 0 1 0 2.8L20 9.6"></path>
+							<path d="m7 17-2 2a2 2 0 0 1-2.8 0v0a2 2 0 0 1 0-2.8L4 14.4"></path>
 						</svg>
 					</div>
 					<h3 class="nilai-item-title">Kolaborasi</h3>
@@ -88,12 +90,15 @@
 
 				<div class="nilai-vdivider"></div>
 
-				<!-- Item 4: Dampak Nyata -->
+				<!-- Item 4: Dampak Nyata (GRAFIK BATANG dengan panah naik) -->
 				<div class="nilai-col">
 					<div class="nilai-icon">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-							<polyline points="17 6 23 6 23 12"></polyline>
+						<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="18" y1="20" x2="18" y2="10"></line>
+							<line x1="12" y1="20" x2="12" y2="4"></line>
+							<line x1="6" y1="20" x2="6" y2="14"></line>
+							<polyline points="4 9 9 4 14 7 20 1"></polyline>
+							<polyline points="15 1 20 1 20 6"></polyline>
 						</svg>
 					</div>
 					<h3 class="nilai-item-title">Dampak Nyata</h3>
@@ -108,8 +113,11 @@
 	.nilai-section {
 		position: relative;
 		background: #082442;
-		padding: 3.5rem 0 3.2rem;
+		height: 260px;
+		display: flex;
+		align-items: center;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.nilai-bg-wrap {
@@ -126,7 +134,7 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
-		opacity: 0.18;
+		opacity: 0.22;
 	}
 
 	.nilai-overlay {
@@ -135,21 +143,15 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(
-			90deg,
-			#082442 0%,
-			#082442 40%,
-			rgba(8, 36, 66, 0.88) 70%,
-			rgba(8, 36, 66, 0.8) 100%
-		);
+		background: rgba(8, 36, 66, 0.85);
 	}
 
 	.nilai-swoosh-br {
 		position: absolute;
-		right: 0;
 		bottom: 0;
-		width: 240px;
-		height: 90px;
+		right: 0;
+		width: 320px;
+		height: 110px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -158,73 +160,68 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.nilai-container {
+			max-width: 1500px;
+		}
 	}
 
 	.nilai-grid {
 		display: grid;
-		grid-template-columns: 1fr 1.6fr;
-		gap: 3rem;
+		grid-template-columns: 1fr 1.65fr;
+		gap: 3.5rem;
 		align-items: center;
 	}
 
-	/* Left */
+	/* Left Column */
 	.nilai-left {
 		display: flex;
 		flex-direction: column;
 	}
 
 	.section-label {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-bottom: 0.5rem;
-	}
-
-	.label-line {
-		width: 16px;
-		height: 2px;
-		background: #00A6B2;
-	}
-
-	.label-text {
-		font-size: 11px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 600;
 		color: #00A6B2;
+		margin-bottom: 0.35rem;
+		letter-spacing: 0;
 	}
 
 	.nilai-title {
-		font-size: 20px;
+		font-size: clamp(18px, 1.65vw, 24px);
+		line-height: 1.25;
 		font-weight: 800;
 		color: #FFFFFF;
-		line-height: 27px;
-		margin: 0 0 0.85rem 0;
+		margin: 0 0 0.55rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.nilai-desc {
-		font-size: 11.5px;
-		line-height: 17.5px;
-		color: rgba(255, 255, 255, 0.8);
-		margin: 0 0 1.35rem 0;
+		font-size: 12px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.82);
+		margin: 0 0 1rem 0;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		background: #F4B334;
+		background: #F5B331;
 		color: #071D36;
 		padding: 7px 18px;
-		font-size: 11px;
+		font-size: 11.5px;
 		font-weight: 700;
 		border-radius: 7px;
 		text-decoration: none;
 		align-self: flex-start;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.25);
 		transition: all 0.2s ease;
 	}
 
@@ -237,10 +234,11 @@
 		font-size: 12px;
 	}
 
-	/* Right: 4 items */
+	/* Right 4 Columns with Thin Vertical Dividers */
 	.nilai-items {
 		display: flex;
-		align-items: stretch;
+		align-items: flex-start;
+		justify-content: space-between;
 		gap: 1.25rem;
 	}
 
@@ -248,43 +246,42 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		text-align: center;
 	}
 
 	.nilai-icon {
-		width: 44px;
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		margin-bottom: 0.65rem;
 	}
 
 	.nilai-item-title {
-		font-size: 12.5px;
+		font-size: 13px;
 		font-weight: 700;
 		color: #FFFFFF;
-		margin: 0 0 0.35rem 0;
+		margin: 0 0 0.25rem 0;
 	}
 
 	.nilai-item-desc {
-		font-size: 10px;
-		line-height: 14.5px;
-		color: rgba(255, 255, 255, 0.7);
+		font-size: 11px;
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.75);
 		margin: 0;
 	}
 
 	.nilai-vdivider {
 		width: 1px;
+		height: 75px;
 		background: rgba(255, 255, 255, 0.15);
-		margin: 0.5rem 0;
+		align-self: center;
+		flex-shrink: 0;
 	}
 
 	@media (max-width: 900px) {
+		.nilai-section {
+			height: auto;
+			padding: 3rem 0;
+		}
 		.nilai-grid {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
+			gap: 2rem;
 		}
 		.nilai-items {
 			display: grid;

@@ -6,13 +6,28 @@
 	<!-- Background image right -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/about-hero-building.jpg"
+			src="/images/tentang-building-hero-hd.jpg"
 			alt="Gedung Kampus SDJNusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
 		/>
 		<div class="hero-overlay"></div>
+	</div>
+
+	<!-- 3D Signboard mounted on facade at top right per mockup -->
+	<div class="building-signboard">
+		<div class="sign-inner">
+			<svg class="sign-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M18 3L32 10.5L18 18L4 10.5L18 3Z" fill="#00A6B2"/>
+				<path d="M4 14.5L18 22L32 14.5L32 17.5L18 25L4 17.5V14.5Z" fill="#0B2747"/>
+				<path d="M4 21.5L18 29L32 21.5L32 24.5L18 32L4 24.5V21.5Z" fill="#F5B331"/>
+			</svg>
+			<div class="sign-text">
+				<span class="sign-title">SDJNusantara</span>
+				<span class="sign-subtitle">KONSULTAN PENDIDIKAN</span>
+			</div>
+		</div>
 	</div>
 
 	<!-- Wave decoration bottom-left -->
@@ -41,14 +56,14 @@
 				<span class="pill-label">Tentang Kami</span>
 			</div>
 
-			<!-- Headline -->
+			<!-- Headline (3 lines, font ±44px at 1536, line 3 gold #F5B331) -->
 			<h1 class="hero-title">
 				Bersama Membangun<br />
 				Pendidikan yang Lebih Baik<br />
 				<span class="gold-text">untuk Masa Depan Indonesia.</span>
 			</h1>
 
-			<!-- Description -->
+			<!-- Description (max-width 560px without manual <br>) -->
 			<p class="hero-desc">
 				SDJNusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.
 			</p>
@@ -68,7 +83,7 @@
 	.hero-about {
 		position: relative;
 		width: 100%;
-		height: 345px;
+		height: 369px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
@@ -101,19 +116,79 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 35%,
-			rgba(8, 36, 66, 0.88) 52%,
-			rgba(8, 36, 66, 0.35) 75%,
-			rgba(8, 36, 66, 0.1) 100%
+			#082442 34%,
+			rgba(8, 36, 66, 0.82) 48%,
+			rgba(8, 36, 66, 0.22) 68%,
+			rgba(8, 36, 66, 0.0) 85%,
+			rgba(8, 36, 66, 0.0) 100%
 		);
+	}
+
+	/* Signboard mounted on facade */
+	.building-signboard {
+		position: absolute;
+		top: 42px;
+		right: calc((100% - 1312px) / 2 + 35px);
+		z-index: 2;
+		pointer-events: none;
+		transform: perspective(900px) rotateY(-10deg) rotateX(2deg) skewY(-1deg);
+	}
+
+	@media (max-width: 1400px) {
+		.building-signboard {
+			right: 3rem;
+		}
+	}
+
+	@media (max-width: 860px) {
+		.building-signboard {
+			display: none;
+		}
+	}
+
+	.sign-inner {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+	}
+
+	.sign-logo {
+		width: 52px;
+		height: 52px;
+		flex-shrink: 0;
+		filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.35));
+	}
+
+	.sign-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.05;
+	}
+
+	.sign-title {
+		font-size: 28px;
+		font-weight: 900;
+		color: #07223D;
+		letter-spacing: -0.01em;
+		text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 1px 2px 4px rgba(0, 0, 0, 0.25);
+	}
+
+	.sign-subtitle {
+		font-size: 11px;
+		font-weight: 800;
+		color: #07223D;
+		letter-spacing: 0.12em;
+		margin-top: 2px;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
 	}
 
 	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 300px;
-		height: 140px;
+		width: 360px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -132,21 +207,30 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		box-sizing: border-box;
 	}
 
+	@media (min-width: 1920px) {
+		.hero-container {
+			max-width: 1500px;
+		}
+		.building-signboard {
+			right: calc((100% - 1500px) / 2 + 10px);
+		}
+	}
+
 	.hero-text-col {
-		max-width: 530px;
+		max-width: 600px;
 	}
 
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		padding: 3px 10px;
+		padding: 4px 12px;
 		background: rgba(0, 166, 178, 0.2);
 		border: 1px solid rgba(0, 166, 178, 0.4);
 		border-radius: 20px;
@@ -161,31 +245,32 @@
 	}
 
 	.pill-label {
-		font-size: 10.5px;
+		font-size: 11px;
 		font-weight: 600;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
 	.hero-title {
-		font-size: 32px;
-		line-height: 38px;
+		font-size: clamp(30px, 2.87vw, 44px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 0.85rem 0;
+		margin: 0 0 1rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.gold-text {
-		color: #F4B334;
+		color: #F5B331;
 	}
 
 	.hero-desc {
-		font-size: 12px;
-		line-height: 18px;
-		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 1.25rem 0;
-		max-width: 480px;
+		font-size: 13px;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.88);
+		margin: 0 0 1.35rem 0;
+		max-width: 560px;
+		text-wrap: pretty;
 	}
 
 	.hero-btn-row {
@@ -197,15 +282,15 @@
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: #F4B334;
+		gap: 8px;
+		background: #F5B331;
 		color: #071D36;
-		padding: 7px 18px;
-		font-size: 11px;
+		padding: 8px 20px;
+		font-size: 12px;
 		font-weight: 700;
 		border-radius: 7px;
 		text-decoration: none;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
 	}
 
@@ -215,7 +300,7 @@
 	}
 
 	.btn-arrow {
-		font-size: 12px;
+		font-size: 13px;
 	}
 
 	@media (max-width: 768px) {
@@ -226,6 +311,10 @@
 		.hero-title {
 			font-size: 26px;
 			line-height: 32px;
+		}
+		.btn-gold {
+			width: 100%;
+			justify-content: center;
 		}
 	}
 </style>

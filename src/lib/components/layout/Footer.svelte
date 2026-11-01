@@ -28,7 +28,7 @@
 						</svg>
 						<div class="footer-logo-text">
 							<span class="footer-brand-title">SDJNusantara</span>
-							<span class="footer-brand-tagline">KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA</span>
+							<span class="footer-brand-tagline {variant === 'tentang-kami' ? 'tagline-tentang' : ''}">{variant === 'tentang-kami' ? 'KONSULTAN PENDIDIKAN' : 'KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA'}</span>
 						</div>
 					</div>
 				</a>
@@ -69,9 +69,17 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Navigasi Utama</h4>
 				<ul class="footer-links-list">
-					{#each footerNav.navigasiUtama as item}
-						<li><a href={item.href} class="footer-link">{item.label}</a></li>
-					{/each}
+					{#if variant === 'tentang-kami'}
+						<li><a href="/" class="footer-link">Beranda</a></li>
+						<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
+						<li><a href="/layanan" class="footer-link">Layanan</a></li>
+						<li><a href="/program" class="footer-link">Program</a></li>
+						<li><a href="/beasiswa" class="footer-link">Beasiswa</a></li>
+					{:else}
+						{#each footerNav.navigasiUtama as item}
+							<li><a href={item.href} class="footer-link">{item.label}</a></li>
+						{/each}
+					{/if}
 				</ul>
 			</div>
 
@@ -82,9 +90,17 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Pusat Informasi</h4>
 				<ul class="footer-links-list">
-					{#each footerNav.pusatInformasi as item}
-						<li><a href={item.href} class="footer-link">{item.label}</a></li>
-					{/each}
+					{#if variant === 'tentang-kami'}
+						<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
+						<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
+						<li><a href="/kontak" class="footer-link">Kontak</a></li>
+						<li><a href="/kebijakan-privasi" class="footer-link">Kebijakan Privasi</a></li>
+						<li><a href="/syarat-ketentuan" class="footer-link">Syarat & Ketentuan</a></li>
+					{:else}
+						{#each footerNav.pusatInformasi as item}
+							<li><a href={item.href} class="footer-link">{item.label}</a></li>
+						{/each}
+					{/if}
 				</ul>
 			</div>
 
@@ -449,6 +465,64 @@
 		max-width: 1086px;
 		margin: 0 auto;
 		padding: 0 0.5rem;
+	}
+
+	/* Specific variant for Tentang Kami per mockup */
+	.footer.variant-tentang-kami {
+		padding: 2.8rem 0 1.25rem;
+		height: 345px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.footer.variant-tentang-kami .footer-inner {
+		max-width: 1312px;
+		margin: 0 auto;
+		padding: 0 1rem;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	@media (min-width: 1920px) {
+		.footer.variant-tentang-kami .footer-inner {
+			max-width: 1500px;
+		}
+	}
+
+	.footer.variant-tentang-kami .footer-grid {
+		display: grid;
+		grid-template-columns: 2fr auto 1.2fr auto 1.2fr auto 1.8fr;
+		gap: 0 1.5rem;
+		align-items: flex-start;
+	}
+
+	.footer.variant-tentang-kami .footer-newsletter {
+		max-width: 100%;
+	}
+
+	.footer.variant-tentang-kami .back-to-top-btn {
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: #00A6B2;
+		color: #FFFFFF;
+		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.4);
+		z-index: 99;
+	}
+
+	.tagline-tentang {
+		font-size: 8px !important;
+		font-weight: 500 !important;
+		letter-spacing: 0.03em !important;
 	}
 
 	.footer-grid.page-grid {

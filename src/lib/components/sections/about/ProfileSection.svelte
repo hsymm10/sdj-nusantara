@@ -3,20 +3,20 @@
 </script>
 
 <section class="profile-section" id="profil">
-	<!-- Subtle line art illustration on right background -->
+	<!-- Subtle line art illustration on right background (opacity 0.08) -->
 	<img src="/images/tentang-line-art.png" alt="" class="bg-line-art" />
 
 	<div class="profile-container">
 		<div class="profile-grid">
-			<!-- Left: Image with 2 overlapping rounded color blocks -->
+			<!-- Left: Image with 2 overlapping rounded color blocks popping on LEFT -->
 			<div class="image-wrapper">
-				<!-- Turquoise and Gold rounded decorative blocks popping from bottom-left -->
+				<!-- Turquoise and Gold rounded decorative blocks popping from LEFT side -->
 				<div class="deco-block deco-turquoise"></div>
 				<div class="deco-block deco-gold"></div>
 
 				<div class="image-box">
 					<img
-						src="/images/about-team-4.jpg"
+						src="/images/about-team-4-hd.jpg"
 						alt="Tim dan Mahasiswa SDJNusantara"
 						class="profile-img"
 						loading="lazy"
@@ -26,10 +26,7 @@
 
 			<!-- Right: Content & Stats -->
 			<div class="content-wrapper">
-				<div class="section-label">
-					<span class="label-line"></span>
-					<span class="label-text">Profil Perusahaan</span>
-				</div>
+				<div class="section-label">— Profil Perusahaan</div>
 
 				<h2 class="company-title">SDJNusantara</h2>
 				<h3 class="company-subtitle">
@@ -41,7 +38,7 @@
 					SDJNusantara adalah lembaga konsultan pendidikan yang berfokus pada pengembangan potensi individu dan institusi melalui program yang inovatif, terstruktur, dan berorientasi pada hasil. Kami percaya bahwa pendidikan adalah kunci utama untuk menciptakan generasi unggul dan berdaya saing global.
 				</p>
 
-				<!-- 3 Stats with vertical dividers -->
+				<!-- 3 Stats with vertical dividers (RATA TENGAH, tanpa garis horizontal atas) -->
 				<div class="stats-row">
 					<div class="stat-item">
 						<span class="stat-number">200+</span>
@@ -72,8 +69,11 @@
 	.profile-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 3.5rem 0 3rem;
+		height: 396px;
+		display: flex;
+		align-items: center;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.bg-line-art {
@@ -81,8 +81,8 @@
 		right: 0;
 		top: 50%;
 		transform: translateY(-50%);
-		width: 320px;
-		opacity: 0.05;
+		width: 380px;
+		opacity: 0.08;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -91,10 +91,16 @@
 		position: relative;
 		z-index: 2;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.profile-container {
+			max-width: 1500px;
+		}
 	}
 
 	.profile-grid {
@@ -108,46 +114,47 @@
 	.image-wrapper {
 		position: relative;
 		width: 100%;
-		max-width: 440px;
+		max-width: 540px;
 	}
 
 	.deco-block {
 		position: absolute;
-		border-radius: 14px;
 		z-index: 1;
 	}
 
 	.deco-turquoise {
-		bottom: -14px;
-		left: -14px;
-		width: 90px;
-		height: 90px;
+		top: 40px;
+		left: -35px;
+		width: 55px;
+		height: 165px;
 		background: #00A6B2;
+		border-radius: 12px;
 	}
 
 	.deco-gold {
-		bottom: -22px;
-		left: 20px;
-		width: 75px;
-		height: 75px;
-		background: #F4B334;
+		top: 145px;
+		left: -18px;
+		width: 40px;
+		height: 130px;
+		background: #F5B331;
+		border-radius: 10px;
 	}
 
 	.image-box {
 		position: relative;
 		z-index: 2;
 		width: 100%;
-		height: 290px;
-		border-radius: 18px;
+		height: 300px;
+		border-radius: 8px;
 		overflow: hidden;
-		box-shadow: 0 10px 30px rgba(11, 39, 71, 0.1);
+		box-shadow: 0 8px 24px rgba(11, 39, 71, 0.12);
 	}
 
 	.profile-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 25%;
+		object-position: center;
 		display: block;
 	}
 
@@ -158,96 +165,103 @@
 	}
 
 	.section-label {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-bottom: 0.5rem;
-	}
-
-	.label-line {
-		width: 16px;
-		height: 2px;
-		background: #00A6B2;
-	}
-
-	.label-text {
-		font-size: 11px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 600;
 		color: #00A6B2;
+		margin-bottom: 0.35rem;
+		letter-spacing: 0;
 	}
 
 	.company-title {
-		font-size: 26px;
+		font-size: clamp(28px, 2.5vw, 36px);
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 0.35rem 0;
+		margin: 0 0 0.3rem 0;
 		letter-spacing: -0.015em;
+		line-height: 1.1;
 	}
 
 	.company-subtitle {
-		font-size: 13.5px;
+		font-size: 15px;
 		font-weight: 700;
 		color: #0B2747;
-		line-height: 19px;
-		margin: 0 0 0.85rem 0;
+		line-height: 1.35;
+		margin: 0 0 0.75rem 0;
 	}
 
 	.company-desc {
-		font-size: 11.5px;
-		line-height: 18px;
-		color: #475569;
-		margin: 0 0 1.5rem 0;
+		font-size: 12.5px;
+		line-height: 1.55;
+		color: #183553;
+		margin: 0 0 1.2rem 0;
+		text-wrap: pretty;
 	}
 
-	/* Stats Row */
+	/* Stats Row: 3 Kolom RATA TENGAH, HAPUS garis horizontal atas */
 	.stats-row {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
-		padding-top: 1rem;
-		border-top: 1px solid #E2E8F0;
+		justify-content: space-between;
+		max-width: 490px;
+		width: 100%;
+		padding-top: 0.25rem;
+		border-top: none;
 	}
 
 	.stat-item {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		text-align: center;
 		gap: 2px;
 	}
 
 	.stat-number {
-		font-size: 24px;
+		font-size: 26px;
 		font-weight: 800;
 		color: #082442;
 		line-height: 1;
 	}
 
 	.stat-label {
-		font-size: 10.5px;
+		font-size: 11px;
 		font-weight: 500;
 		color: #64748B;
 		white-space: nowrap;
+		text-align: center;
 	}
 
 	.stat-vdivider {
 		width: 1px;
-		height: 38px;
+		height: 34px;
 		background: #CBD5E1;
 	}
 
 	.stat-note {
-		font-size: 9px;
+		font-size: 9.5px;
 		color: #94A3B8;
 		font-style: italic;
-		margin: 0.5rem 0 0 0;
+		margin: 0.45rem 0 0 0;
 	}
 
 	@media (max-width: 900px) {
+		.profile-section {
+			height: auto;
+			padding: 3rem 0;
+		}
 		.profile-grid {
 			grid-template-columns: 1fr;
 			gap: 2.5rem;
 		}
 		.image-wrapper {
 			margin: 0 auto;
+		}
+		.deco-turquoise, .deco-gold {
+			display: none;
+		}
+		.stats-row {
+			justify-content: space-around;
+			gap: 0.75rem;
 		}
 	}
 </style>

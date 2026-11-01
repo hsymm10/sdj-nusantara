@@ -4,9 +4,10 @@
 
 	interface Props {
 		compact?: boolean;
+		wide?: boolean;
 	}
 
-	let { compact = false }: Props = $props();
+	let { compact = false, wide = false }: Props = $props();
 	let mobileOpen = $state(false);
 
 	function toggleMobile() {
@@ -57,7 +58,7 @@
 		</svg>
 	{/if}
 
-	<div class="navbar-inner {compact ? 'compact-inner' : ''}">
+	<div class="navbar-inner {compact ? 'compact-inner' : ''} {wide ? 'wide-inner' : ''}">
 		<!-- Logo (ikon ±28px, SDJNusantara ±16px bold, KONSULTAN PENDIDIKAN ±7px rapat) -->
 		<a href="/" class="logo-link">
 			<div class="nav-logo-box">
@@ -198,6 +199,17 @@
 		gap: 1.5rem;
 	}
 
+	.navbar-inner.compact-inner.wide-inner {
+		max-width: 1312px;
+		padding: 0 1rem;
+	}
+
+	@media (min-width: 1920px) {
+		.navbar-inner.compact-inner.wide-inner {
+			max-width: 1500px;
+		}
+	}
+
 	.logo-link {
 		text-decoration: none;
 		flex-shrink: 0;
@@ -246,8 +258,9 @@
 	}
 
 	.nav-brand-tagline.compact-tagline {
-		font-size: 7px;
-		letter-spacing: 0.02em;
+		font-size: 8px;
+		font-weight: 500;
+		letter-spacing: 0.03em;
 	}
 
 	.nav-list {

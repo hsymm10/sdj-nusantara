@@ -6,7 +6,7 @@
 	<!-- Left photo fading into white -->
 	<div class="photo-fade-wrap">
 		<img
-			src="/images/about-laptop-desk.jpg"
+			src="/images/about-laptop-desk-hd.jpg"
 			alt="Ruang Kerja Konsultasi"
 			class="photo-fade-img"
 			loading="lazy"
@@ -26,13 +26,11 @@
 
 			<!-- Center Column: Heading & Desc -->
 			<div class="pendekatan-content">
-				<div class="section-label">
-					<span class="label-line"></span>
-					<span class="label-text">Pendekatan Kami</span>
-				</div>
+				<div class="section-label">— Pendekatan Kami</div>
 
 				<h2 class="pendekatan-title">
-					Pendekatan Berbasis Kebutuhan & Hasil Nyata
+					Pendekatan Berbasis<br />
+					Kebutuhan & Hasil Nyata
 				</h2>
 
 				<p class="pendekatan-desc">
@@ -80,9 +78,12 @@
 	.pendekatan-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 3rem 0;
+		height: 198px;
+		display: flex;
+		align-items: center;
 		overflow: hidden;
-		border-bottom: 1px solid #E2E8F0;
+		box-sizing: border-box;
+		border-bottom: 1px solid #EAF0F6;
 	}
 
 	.photo-fade-wrap {
@@ -90,7 +91,7 @@
 		top: 0;
 		left: 0;
 		bottom: 0;
-		width: 38%;
+		width: 40%;
 		z-index: 1;
 		pointer-events: none;
 	}
@@ -112,8 +113,8 @@
 		background: linear-gradient(
 			90deg,
 			transparent 0%,
-			transparent 70%,
-			rgba(255, 255, 255, 0.8) 90%,
+			transparent 65%,
+			rgba(255, 255, 255, 0.85) 88%,
 			#FFFFFF 100%
 		);
 	}
@@ -131,16 +132,22 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.pendekatan-container {
+			max-width: 1500px;
+		}
 	}
 
 	.pendekatan-grid {
 		display: grid;
-		grid-template-columns: 280px 1.2fr auto 1.1fr;
-		gap: 1.75rem;
+		grid-template-columns: 460px 1.25fr auto 1.15fr;
+		gap: 2.2rem;
 		align-items: center;
 	}
 
@@ -154,38 +161,29 @@
 	}
 
 	.section-label {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-bottom: 0.4rem;
-	}
-
-	.label-line {
-		width: 16px;
-		height: 2px;
-		background: #00A6B2;
-	}
-
-	.label-text {
-		font-size: 11px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 600;
 		color: #00A6B2;
+		margin-bottom: 0.3rem;
+		letter-spacing: 0;
 	}
 
 	.pendekatan-title {
-		font-size: 19px;
+		font-size: clamp(18px, 1.55vw, 22px);
 		font-weight: 800;
 		color: #082442;
-		line-height: 25px;
-		margin: 0 0 0.65rem 0;
+		line-height: 1.25;
+		margin: 0 0 0.5rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.pendekatan-desc {
-		font-size: 11px;
-		line-height: 17px;
+		font-size: 11.5px;
+		line-height: 1.5;
 		color: #475569;
 		margin: 0;
+		max-width: 380px;
+		text-wrap: pretty;
 	}
 
 	.center-vdivider {
@@ -200,7 +198,7 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.65rem;
+		gap: 0.55rem;
 	}
 
 	.checks-list li {
@@ -213,6 +211,10 @@
 	}
 
 	@media (max-width: 1024px) {
+		.pendekatan-section {
+			height: auto;
+			padding: 2.5rem 0;
+		}
 		.pendekatan-grid {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;

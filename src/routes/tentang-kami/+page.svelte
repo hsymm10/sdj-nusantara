@@ -15,9 +15,9 @@
 	<meta name="description" content="Profil, visi, misi, nilai luhur, dan struktur organisasi SDJNusantara sebagai konsultan pendidikan dan pengembangan talenta." />
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
-<main class="page-content">
+<main class="page-content about-page">
 	<HeroAbout />
 	<ProfileSection />
 	<VisiMisiSection />
@@ -32,6 +32,7 @@
 		secondaryText="Pelajari Program Kami"
 		secondaryHref="/program"
 		bgImage="/images/cta-building-glass.jpg"
+		variant="tentang-kami"
 	/>
 </main>
 

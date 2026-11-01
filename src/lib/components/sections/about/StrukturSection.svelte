@@ -3,17 +3,19 @@
 </script>
 
 <section class="struktur-section" id="struktur">
+	<!-- Decorative faint geometric lines left & right (opacity 0.05) -->
+	<div class="bg-decor-left"></div>
+	<div class="bg-decor-right"></div>
+
 	<div class="struktur-container">
 		<div class="struktur-grid">
-			<!-- Left Column -->
+			<!-- Left Column: Heading, Desc, CTA -->
 			<div class="struktur-left">
-				<div class="section-label">
-					<span class="label-line"></span>
-					<span class="label-text">Struktur Organisasi</span>
-				</div>
+				<div class="section-label">— Struktur Organisasi</div>
 
 				<h2 class="struktur-title">
-					Didukung oleh Tim Profesional & Berpengalaman
+					Didukung oleh Tim<br />
+					Profesional &amp; Berpengalaman
 				</h2>
 
 				<p class="struktur-desc">
@@ -27,21 +29,24 @@
 			</div>
 
 			<!-- Right Column: Organization Tree Chart -->
+			<!-- WAJIB DIGANTI data tim aktual (content-master: ISI DATA) -->
 			<div class="chart-wrapper">
 				<!-- Top Node: Direktur Utama -->
 				<div class="chart-top">
 					<div class="node-root">Direktur Utama</div>
 				</div>
 
-				<!-- Connectors -->
+				<!-- Connectors: satu garis vertikal turun ke garis horizontal lalu cabang 5 -->
 				<div class="tree-line-v"></div>
-				<div class="tree-line-h"></div>
-				<div class="tree-connectors-5">
-					<div class="t-line"></div>
-					<div class="t-line"></div>
-					<div class="t-line"></div>
-					<div class="t-line"></div>
-					<div class="t-line"></div>
+				<div class="tree-connector-grid">
+					<div class="tree-line-h"></div>
+					<div class="tree-branches">
+						<div class="b-line"></div>
+						<div class="b-line"></div>
+						<div class="b-line"></div>
+						<div class="b-line"></div>
+						<div class="b-line"></div>
+					</div>
 				</div>
 
 				<!-- 5 Division Cards -->
@@ -49,7 +54,7 @@
 					<!-- Divisi 1 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 								<circle cx="9" cy="7" r="4"></circle>
 								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -63,8 +68,9 @@
 					<!-- Divisi 2 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.77.78L12 20.66l7.65-7.65.77-.78a5.4 5.4 0 0 0 0-7.65z"></path>
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+								<path d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-1.6-1.6a2 2 0 0 0-2.8 0L13 11.6"></path>
+								<path d="m13 11.6-2-2a1 1 0 0 0-1.4 0L3 16.2a2 2 0 0 0 0 2.8l1.6 1.6a2 2 0 0 0 2.8 0l3.6-3.6"></path>
 							</svg>
 						</div>
 						<span class="divisi-prefix">Divisi</span>
@@ -74,14 +80,16 @@
 					<!-- Divisi 3 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="12" y1="2" x2="12" y2="6"></line>
-								<line x1="12" y1="18" x2="12" y2="22"></line>
-								<line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-								<line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-								<line x1="2" y1="12" x2="6" y2="12"></line>
-								<line x1="18" y1="12" x2="22" y2="12"></line>
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 								<circle cx="12" cy="12" r="5"></circle>
+								<line x1="12" y1="1" x2="12" y2="3"></line>
+								<line x1="12" y1="21" x2="12" y2="23"></line>
+								<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+								<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+								<line x1="1" y1="12" x2="3" y2="12"></line>
+								<line x1="21" y1="12" x2="23" y2="12"></line>
+								<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+								<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
 							</svg>
 						</div>
 						<span class="divisi-prefix">Divisi</span>
@@ -91,16 +99,11 @@
 					<!-- Divisi 4 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 								<rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-								<line x1="9" y1="22" x2="9" y2="22.01"></line>
-								<line x1="15" y1="22" x2="15" y2="22.01"></line>
-								<line x1="9" y1="6" x2="9" y2="6.01"></line>
-								<line x1="15" y1="6" x2="15" y2="6.01"></line>
-								<line x1="9" y1="10" x2="9" y2="10.01"></line>
-								<line x1="15" y1="10" x2="15" y2="10.01"></line>
-								<line x1="9" y1="14" x2="9" y2="14.01"></line>
-								<line x1="15" y1="14" x2="15" y2="14.01"></line>
+								<line x1="8" y1="6" x2="16" y2="6"></line>
+								<line x1="8" y1="10" x2="16" y2="10"></line>
+								<line x1="8" y1="14" x2="12" y2="14"></line>
 							</svg>
 						</div>
 						<span class="divisi-prefix">Divisi</span>
@@ -110,7 +113,7 @@
 					<!-- Divisi 5 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
 								<line x1="8" y1="21" x2="16" y2="21"></line>
 								<line x1="12" y1="17" x2="12" y2="21"></line>
@@ -120,7 +123,6 @@
 						<span class="divisi-name">Digital Learning</span>
 					</div>
 				</div>
-				<!-- ISI DATA: Struktur organisasi visual di atas dapat diperbarui dengan data tim aktual -->
 			</div>
 		</div>
 	</div>
@@ -128,23 +130,56 @@
 
 <style>
 	.struktur-section {
+		position: relative;
 		background: #FFFFFF;
-		padding: 3.5rem 0 3.2rem;
-		border-bottom: 1px solid #E2E8F0;
+		height: 252px;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		box-sizing: border-box;
+		border-bottom: 1px solid #EAF0F6;
+	}
+
+	.bg-decor-left {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 120px;
+		background: radial-gradient(circle at 0% 50%, rgba(0, 166, 178, 0.05) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.bg-decor-right {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 120px;
+		background: radial-gradient(circle at 100% 50%, rgba(0, 166, 178, 0.05) 0%, transparent 70%);
+		pointer-events: none;
 	}
 
 	.struktur-container {
+		position: relative;
+		z-index: 2;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.struktur-container {
+			max-width: 1500px;
+		}
 	}
 
 	.struktur-grid {
 		display: grid;
-		grid-template-columns: 1fr 1.6fr;
-		gap: 3rem;
+		grid-template-columns: 1fr 1.8fr;
+		gap: 3.5rem;
 		align-items: center;
 	}
 
@@ -155,45 +190,36 @@
 	}
 
 	.section-label {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-bottom: 0.5rem;
-	}
-
-	.label-line {
-		width: 16px;
-		height: 2px;
-		background: #00A6B2;
-	}
-
-	.label-text {
-		font-size: 11px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 600;
 		color: #00A6B2;
+		margin-bottom: 0.3rem;
+		letter-spacing: 0;
 	}
 
 	.struktur-title {
-		font-size: 20px;
+		font-size: clamp(19px, 1.6vw, 23px);
 		font-weight: 800;
 		color: #082442;
-		line-height: 27px;
-		margin: 0 0 0.85rem 0;
+		line-height: 1.25;
+		margin: 0 0 0.55rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.struktur-desc {
 		font-size: 11.5px;
-		line-height: 17.5px;
+		line-height: 1.5;
 		color: #475569;
-		margin: 0 0 1.35rem 0;
+		margin: 0 0 1rem 0;
+		max-width: 380px;
+		text-wrap: pretty;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		background: #F4B334;
+		background: #F5B331;
 		color: #071D36;
 		padding: 7px 18px;
 		font-size: 11px;
@@ -201,7 +227,7 @@
 		border-radius: 7px;
 		text-decoration: none;
 		align-self: flex-start;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.25);
 		transition: all 0.2s ease;
 	}
 
@@ -233,97 +259,109 @@
 		color: #FFFFFF;
 		font-size: 11.5px;
 		font-weight: 700;
-		padding: 6px 20px;
-		border-radius: 7px;
+		padding: 5px 22px;
+		border-radius: 8px;
 		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.15);
 	}
 
 	.tree-line-v {
 		width: 1.5px;
-		height: 16px;
+		height: 12px;
 		background: #CBD5E1;
 	}
 
+	.tree-connector-grid {
+		position: relative;
+		width: 80%;
+		height: 12px;
+	}
+
 	.tree-line-h {
-		width: 82%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 		height: 1.5px;
 		background: #CBD5E1;
 	}
 
-	.tree-connectors-5 {
-		width: 82%;
+	.tree-branches {
 		display: flex;
 		justify-content: space-between;
+		width: 100%;
+		height: 12px;
 	}
 
-	.t-line {
+	.b-line {
 		width: 1.5px;
-		height: 14px;
+		height: 12px;
 		background: #CBD5E1;
 	}
 
+	/* 5 Division Cards */
 	.chart-cards-row {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
-		gap: 8px;
+		gap: 0.65rem;
 		width: 100%;
 	}
 
 	.divisi-card {
-		background: #F8FAFC;
-		border: 1px solid #E2E8F0;
+		background: #FFFFFF;
+		border: 1px solid rgba(226, 232, 240, 0.9);
 		border-radius: 10px;
-		padding: 0.85rem 0.4rem;
+		padding: 0.75rem 0.5rem;
+		box-shadow: 0 4px 14px rgba(11, 39, 71, 0.06);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		box-shadow: 0 2px 8px rgba(11, 39, 71, 0.03);
-		transition: all 0.2s;
-	}
-
-	.divisi-card:hover {
-		transform: translateY(-2px);
-		border-color: #00A6B2;
-		background: #FFFFFF;
+		gap: 3px;
 	}
 
 	.divisi-icon {
-		width: 32px;
-		height: 32px;
+		width: 26px;
+		height: 26px;
 		border-radius: 50%;
-		background: rgba(0, 166, 178, 0.1);
+		background: rgba(0, 166, 178, 0.08);
+		border: 1px solid rgba(0, 166, 178, 0.25);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 0.4rem;
-	}
-
-	.divisi-prefix {
-		font-size: 9px;
-		font-weight: 600;
-		color: #94A3B8;
-		line-height: 1;
 		margin-bottom: 2px;
 	}
 
+	.divisi-prefix {
+		font-size: 8.5px;
+		font-weight: 600;
+		color: #64748B;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+
 	.divisi-name {
-		font-size: 9.5px;
+		font-size: 10px;
 		font-weight: 700;
 		color: #082442;
-		line-height: 12.5px;
+		line-height: 1.25;
 	}
 
 	@media (max-width: 900px) {
+		.struktur-section {
+			height: auto;
+			padding: 3rem 0;
+		}
 		.struktur-grid {
 			grid-template-columns: 1fr;
 			gap: 2rem;
 		}
+		.tree-line-v,
+		.tree-connector-grid {
+			display: none;
+		}
 		.chart-cards-row {
 			grid-template-columns: repeat(2, 1fr);
-		}
-		.tree-line-h, .tree-connectors-5 {
-			display: none;
+			gap: 0.75rem;
 		}
 	}
 </style>

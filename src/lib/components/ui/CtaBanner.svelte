@@ -9,6 +9,7 @@
 		secondaryHref?: string;
 		secondaryIcon?: 'whatsapp' | 'none';
 		secondaryTarget?: string;
+		variant?: 'default' | 'tentang-kami';
 	}
 
 	let {
@@ -20,11 +21,12 @@
 		secondaryText,
 		secondaryHref,
 		secondaryIcon = 'none',
-		secondaryTarget = '_self'
+		secondaryTarget = '_self',
+		variant = 'default'
 	}: Props = $props();
 </script>
 
-<section class="cta-banner">
+<section class="cta-banner variant-{variant}">
 	<div class="cta-bg-wrap">
 		<img src={bgImage} alt="" class="cta-bg-img" loading="lazy" />
 		<div class="cta-overlay"></div>
@@ -207,5 +209,58 @@
 			width: 100%;
 			justify-content: center;
 		}
+	}
+
+	/* Variant Tentang Kami (117px height, wide container, crisp typography) */
+	.cta-banner.variant-tentang-kami {
+		height: 117px;
+	}
+
+	.cta-banner.variant-tentang-kami .cta-container {
+		max-width: 1312px;
+		padding: 0 1rem;
+	}
+
+	@media (min-width: 1920px) {
+		.cta-banner.variant-tentang-kami .cta-container {
+			max-width: 1500px;
+		}
+	}
+
+	.cta-banner.variant-tentang-kami .cta-title {
+		font-size: clamp(19px, 1.6vw, 24px);
+		font-weight: 800;
+	}
+
+	.cta-banner.variant-tentang-kami .cta-desc {
+		font-size: 11.5px;
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.cta-banner.variant-tentang-kami .btn-gold {
+		padding: 8px 22px;
+		font-size: 12px;
+		background: #F5B331;
+		color: #082442;
+	}
+
+	.cta-banner.variant-tentang-kami .btn-outline {
+		padding: 8px 20px;
+		font-size: 12px;
+		border-color: rgba(255, 255, 255, 0.6);
+	}
+
+	.cta-banner.variant-tentang-kami .cta-bg-img {
+		opacity: 0.35;
+		object-position: right 40%;
+	}
+
+	.cta-banner.variant-tentang-kami .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			#0B2948 0%,
+			rgba(11, 41, 72, 0.9) 45%,
+			rgba(11, 41, 72, 0.72) 100%
+		);
 	}
 </style>

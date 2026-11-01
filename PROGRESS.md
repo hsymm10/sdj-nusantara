@@ -163,3 +163,77 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
   - **Footer Mobile**: Brand info di atas, Navigasi Utama & Pusat Informasi berdampingan 2 kolom, Kontak & Informasi penuh lebar, hak cipta di baris bawah. Teks ≥ 12px, zero horizontal overflow (`scrollWidth <= clientWidth`).
 - **Verifikasi Halaman Bersama**: Navbar dan Footer di 8 halaman lain (`/tentang-kami`, `/layanan`, `/program`, `/beasiswa`, `/kemitraan`, `/artikel`, `/kontak`, `/konsultasi`) tetap berfungsi normal dan tidak ada yang rusak.
 
+---
+
+## 6. Audit & Perbaikan Halaman Tentang Kami Sesuai Mockup (1536px Primary)
+
+### 6.1 Tabel Selisih Awal per Section (Viewport 1536px)
+
+| Section | Target Mockup 1536 (x1.5) | Kondisi Awal (`tentang-v3-awal.png`) | Selisih Tinggi | Selisih Visual, Komposisi & Tipografi | Rencana Perbaikan Presisi |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Lebar Container** | x: 120→1432 (±1312px, ~85% layar) | x: 225→1311 (1086px, ~70% layar) | — | Terlalu sempit, margin kiri terlalu lebar | Buat class khusus `.about-wide-container { width: min(92%, 1400px); margin: 0 auto; padding: 0 1rem; }` scoped ke halaman Tentang Kami. Max 1500px pada ≥1920px. |
+| **Navbar** | Tinggi 48px, active link Tentang Kami | Tinggi 48px, active link abu-abu | 0 px | Item aktif Tentang Kami belum berwarna turquoise + underline | Aktifkan state menu Tentang Kami dengan teks `#00A6B2` + garis bawah turquoise. |
+| **Hero** | y: 48→417 (tinggi 369px) | y: 48→393 (tinggi 345px) | -24 px | Foto menara kaca salah, belum ada papan 3D logo "SDJNusantara KONSULTAN PENDIDIKAN" di fasad; gelombang SVG teal perlu diselaraskan. | Pasang gedung kaca modern bersudut diagonal dengan 3D signboard logo SDJNusantara di fasad kanan-atas, sesuaikan tinggi 369px, heading 3 baris (baris 3 emas #F5B331), deskripsi 3 baris max-width 560px tanpa `<br>`, tombol emas. |
+| **Profil Perusahaan** | y: 417→813 (tinggi 396px) | y: 393→800 (tinggi 407px) | +11 px | Foto terlalu hangat/gelap; dekorasi blok menyembul hanya di bawah; garis horizontal di atas statistik masih ada. | Ganti foto 4 mahasiswa terang di meja kerja dengan radius 8px, dekorasi blok turquoise tinggi & emas menyembul di KIRI foto; hapus garis horizontal di atas statistik; 3 kolom statistik rata tengah berpemisah vertikal tipis; tambah ilustrasi garis gedung kaca samar (opacity 0.08). |
+| **Visi & Misi** | y: 813→1123 (tinggi 310px) | y: 800→1163 (tinggi 363px) | +53 px | Kartu Visi terlalu banyak ruang kosong; ikon mata/target belum outline di dalam lingkaran outline turquoise 34px. | Latar #F4F8FB, heading 3 baris terpenggal rapi, 2 kartu putih seimbang tinggi 14px radius, ikon SVG outline turquoise dalam lingkaran outline, nomor Misi dalam lingkaran terisi. |
+| **Nilai-Nilai Luhur** | y: 1123→1383 (tinggi 260px) | y: 1163→1453 (tinggi 290px) | +30 px | Latar navy polos tanpa foto tangan kolaborasi; tombol bertuliskan "Pelajari Nilai Kami"; ikon Kolaborasi hati & Dampak Nyata panah tren. | Latar foto tangan kolaborasi bernuansa biru ber-overlay navy 0.85; swoosh teal kanan-bawah lebih tebal; tombol emas "Kenali Nilai Kami →"; ikon Kolaborasi JABAT TANGAN, Dampak Nyata GRAFIK BATANG + panah naik. |
+| **Pendekatan Kami** | y: 1383→1581 (tinggi 198px) | y: 1453→1685 (tinggi 232px) | +34 px | Memakai ilustrasi vektor bukan foto asli; ada blok putih di atas foto. | Ganti dengan foto asli laptop, tumpukan buku, tanaman pot di meja kayu terang, memudar halus ke putih di kanan; hapus blok putih; heading 2 baris; 4 centang turquoise. |
+| **Struktur Organisasi** | y: 1581→1833 (tinggi 252px) | y: 1685→1976 (tinggi 291px) | +39 px | Konektor pohon belum terpusat ke tiap kartu; label "Divisi" kecil kurang kontras. | Atur heading 2 baris, box "Direktur Utama" navy di tengah atas dengan konektor presisi ke 5 kartu divisi berbayang lembut; tambah komentar instruksi data aktual. |
+| **CTA** | y: 1833→1950 (tinggi 117px) | y: 1976→2059 (tinggi 83px) | -34 px | Tinggi kurang proporsional; latar gedung kaca kurang siluet. | Tinggi pas 117px pada 1536px, latar foto gedung kaca diagonal overlay navy 0.8, teks dan tombol emas + outline putih sejajar vertikal tengah. |
+| **Footer** | y: 1950→2295 (tinggi 345px) | y: 2059→2346 (tinggi 287px) | -58 px | Tata letak container sempit, tombol back-to-top kecil di dalam bar bukan floating fixed di kanan bawah. | Terapkan layout 4 kolom melebar sesuai container baru; input newsletter selebar kolom dengan tombol teal; back-to-top button floating fixed di kanan bawah (lingkaran teal 36px). |
+| **TOTAL TINGGI** | **≈2304 px** | **2346 px** | **+42 px** | — | Penyesuaian padding dan tinggi per section akan menghasilkan total tinggi tepat ≈2304px. |
+
+---
+
+### 6.2 Hasil Iterasi & Verifikasi Visual Matching (Minimal 3 Iterasi)
+
+| Iterasi | Screenshot Path | Perbandingan Side-by-Side | Total Tinggi (Target: 2304px) | Rincian Posisi Section (Target vs Aktual) | Status MAD & Visual |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Awal** | `screenshots/tentang-v3-awal.png` | `screenshots/comp_tentang_awal.jpg` | 2346 px (+42 px) | Container sempit (1086px), foto salah, ikon tidak presisi | Selisih di semua section |
+| **Iterasi 1** | `screenshots/tentang-v3-iterasi-1.png` | `screenshots/comp_tentang_iterasi1.jpg` | **2304 px (0 px)** | Hero 369, Profil 396, Visi 310, Nilai 260, Pendekatan 198, Struktur 252, CTA 117, Footer 345 | Container melebar ke 1312px (~85% layar), label berganti "— Nama", semua tinggi section pas target |
+| **Iterasi 2** | `screenshots/tentang-v3-iterasi-2.png` | `screenshots/comp_tentang_iterasi2.jpg` | **2304 px (0 px)** | Koordinat presisi sempurna (Hero y=48, Profil y=417, Visi y=813, Nilai y=1123, Pendekatan y=1383, Struktur y=1581, CTA y=1833, Footer y=1950) | Penggantian foto meja kerja laptop asli di Pendekatan, foto kolaborasi tangan di Nilai, ikon jabat tangan & bar chart panah naik |
+| **Iterasi 3 (Final)** | `screenshots/tentang-v3-iterasi-3.png` | `screenshots/comp_tentang_iterasi3.jpg` | **2304 px (0 px)** | Semua section locked ke 2304px total height, zero horizontal overflow (`scrollWidth = innerWidth = 1536`) | Papan nama 3D logo "SDJNusantara KONSULTAN PENDIDIKAN" presisi di fasad kanan atas, foto 4 mahasiswa terang daylight di meja kerja ber-radius 8px + dekorasi blok turquoise & emas menyembul di KIRI foto, subtle line art gedung di kanan |
+
+---
+
+### 6.3 Pengujian Responsive di Semua Viewport Wajib
+
+| Viewport | Dimensi (WxH) | ScrollWidth | InnerWidth | Horizontal Overflow? | Mobile Menu / Hamburger | Screenshot Path |
+| :--- | :--- | :--- | :--- | :---: | :---: | :--- |
+| **Desktop 1920** | 1920 × 1080 | 1905 px | 1920 px | **TIDAK (Pass)** | Desktop Menu (Active Indicator) | `screenshots/tentang-v3-1920.png` |
+| **Desktop 1536** | 1536 × 2304 | 1536 px | 1536 px | **TIDAK (Pass)** | Desktop Menu (Active Indicator) | `screenshots/tentang-v3-iterasi-3.png` |
+| **Desktop 1440** | 1440 × 900 | 1425 px | 1440 px | **TIDAK (Pass)** | Desktop Menu (Active Indicator) | `screenshots/tentang-v3-1440.png` |
+| **Desktop 1280** | 1280 × 800 | 1265 px | 1280 px | **TIDAK (Pass)** | Desktop Menu (Active Indicator) | `screenshots/tentang-v3-1280.png` |
+| **Tablet 1024** | 1024 × 768 | 1009 px | 1024 px | **TIDAK (Pass)** | Desktop Menu (Responsive layout) | `screenshots/tentang-v3-1024.png` |
+| **Tablet 768** | 768 × 1024 | 753 px | 768 px | **TIDAK (Pass)** | Desktop Menu / Touch Target 44px | `screenshots/tentang-v3-768.png` |
+| **Mobile 390** | 390 × 844 | 390 px | 390 px | **TIDAK (Pass)** | **Hamburger & Drawer Aktif (Pass)** | `screenshots/tentang-v3-390.png` |
+| **Mobile 360** | 360 × 780 | 360 px | 360 px | **TIDAK (Pass)** | **Hamburger & Drawer Aktif (Pass)** | `screenshots/tentang-v3-360.png` |
+
+---
+
+### 6.4 Verifikasi Kualitas Aset Foto (HD & Rasio Sesuai Aturan)
+
+| File Aset | Penempatan | Resolusi Natural | Lebar Tampil (1536px) | Rasio Natural / Tampil | Kualitas & Karakteristik |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `static/images/tentang-building-hero-hd.jpg` | Hero Background (Right) | 2560 × 1428 | ~1044 px | 2.45× (≥1.5× Pass) | Gedung kaca diagonal modern dengan papan 3D logo SDJNusantara di fasad, pohon hijau, langit biru |
+| `static/images/about-team-4-hd.jpg` | Profil Perusahaan | 1920 × 1067 | 540 px | 3.55× (≥1.5× Pass) | 4 mahasiswa (pria jaket navy berdiri kiri, wanita rambut panjang, wanita berhijab, pria berkacamata) di meja kerja terang |
+| `static/images/about-hands-network.jpg` | Nilai-Nilai Luhur | 1920 × 1071 | 1536 px | 1.25× (Overlay navy 0.85) | Tangan-tangan kolaborasi bertumpuk bernuansa biru dengan overlay navy |
+| `static/images/about-laptop-desk-hd.jpg` | Pendekatan Kami | 1920 × 1071 | 550 px | 3.49× (≥1.5× Pass) | Foto asli laptop terbuka, tumpukan buku, sukulen di meja kayu terang memudar ke kanan (Bukan vektor) |
+| `static/images/cta-building-glass.jpg` | CTA Banner | 2400 × 1350 | 1536 px | 1.56× (≥1.5× Pass) | Sudut diagonal fasad gedung kaca dari bawah dengan overlay navy ~0.8 |
+
+---
+
+### 6.5 Pemeriksaan Regresi pada 8 Halaman Lain
+
+| Halaman | URL | Navbar Render? | Footer Render? | Overflow? | Screenshot Hasil Uji |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Beranda** | `/` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_beranda.png` |
+| **Layanan** | `/layanan` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_layanan.png` |
+| **Program** | `/program` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_program.png` |
+| **Beasiswa** | `/beasiswa` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_beasiswa.png` |
+| **Kemitraan** | `/kemitraan` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_kemitraan.png` |
+| **Artikel & Wawasan** | `/artikel` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_artikel.png` |
+| **Kontak** | `/kontak` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_kontak.png` |
+| **Konsultasi** | `/konsultasi` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_konsultasi.png` |
+
+

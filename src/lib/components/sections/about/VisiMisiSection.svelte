@@ -7,13 +7,12 @@
 		<div class="visi-misi-grid">
 			<!-- Left: Intro & Heading -->
 			<div class="visi-misi-left">
-				<div class="section-label">
-					<span class="label-line"></span>
-					<span class="label-text">Visi & Misi</span>
-				</div>
+				<div class="section-label">— Visi & Misi</div>
 
 				<h2 class="section-heading">
-					Menjadi mitra terpercaya dalam pengembangan talenta anak bangsa untuk masa depan yang lebih baik.
+					Menjadi mitra terpercaya dalam<br />
+					pengembangan talenta anak bangsa<br />
+					untuk masa depan yang lebih baik.
 				</h2>
 
 				<p class="section-desc">
@@ -26,12 +25,12 @@
 				</a>
 			</div>
 
-			<!-- Right: 2 White Cards -->
+			<!-- Right: 2 White Cards equal height -->
 			<div class="visi-misi-cards">
 				<!-- Visi Card -->
 				<div class="vm-card">
 					<div class="vm-icon-circle">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
 							<circle cx="12" cy="12" r="3"></circle>
 						</svg>
@@ -47,7 +46,7 @@
 				<!-- Misi Card -->
 				<div class="vm-card">
 					<div class="vm-icon-circle">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="12" cy="12" r="10"></circle>
 							<circle cx="12" cy="12" r="6"></circle>
 							<circle cx="12" cy="12" r="2"></circle>
@@ -79,23 +78,33 @@
 <style>
 	.visi-misi-section {
 		background: #F4F8FB;
-		padding: 3.5rem 0 3.2rem;
-		border-top: 1px solid #E2E8F0;
-		border-bottom: 1px solid #E2E8F0;
+		height: 310px;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		box-sizing: border-box;
+		border-top: 1px solid #EAF0F6;
+		border-bottom: 1px solid #EAF0F6;
 	}
 
 	.visi-misi-container {
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.visi-misi-container {
+			max-width: 1500px;
+		}
 	}
 
 	.visi-misi-grid {
 		display: grid;
-		grid-template-columns: 1fr 1.3fr;
-		gap: 3rem;
+		grid-template-columns: 1fr 1.35fr;
+		gap: 3.5rem;
 		align-items: center;
 	}
 
@@ -106,53 +115,44 @@
 	}
 
 	.section-label {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-bottom: 0.5rem;
-	}
-
-	.label-line {
-		width: 16px;
-		height: 2px;
-		background: #00A6B2;
-	}
-
-	.label-text {
-		font-size: 11px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 600;
 		color: #00A6B2;
+		margin-bottom: 0.35rem;
+		letter-spacing: 0;
 	}
 
 	.section-heading {
-		font-size: 20px;
+		font-size: clamp(20px, 1.7vw, 25px);
 		font-weight: 800;
 		color: #082442;
-		line-height: 27px;
-		margin: 0 0 0.85rem 0;
+		line-height: 1.25;
+		margin: 0 0 0.65rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.section-desc {
-		font-size: 11.5px;
-		line-height: 17.5px;
+		font-size: 12px;
+		line-height: 1.5;
 		color: #475569;
-		margin: 0 0 1.35rem 0;
+		margin: 0 0 1.15rem 0;
+		max-width: 480px;
+		text-wrap: pretty;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		background: #F4B334;
+		background: #F5B331;
 		color: #071D36;
 		padding: 7px 18px;
-		font-size: 11px;
+		font-size: 11.5px;
 		font-weight: 700;
 		border-radius: 7px;
 		text-decoration: none;
 		align-self: flex-start;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.25);
 		transition: all 0.2s ease;
 	}
 
@@ -165,44 +165,49 @@
 		font-size: 12px;
 	}
 
-	/* Right Cards */
+	/* Right Cards: 2 kartu putih berdampingan sama tinggi */
 	.visi-misi-cards {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1.25rem;
+		align-items: stretch;
 	}
 
 	.vm-card {
 		background: #FFFFFF;
 		border-radius: 14px;
-		padding: 1.5rem 1.35rem;
-		box-shadow: 0 4px 20px rgba(11, 39, 71, 0.05);
+		padding: 1.25rem 1.25rem 1.35rem;
+		box-shadow: 0 4px 16px rgba(11, 39, 71, 0.05);
 		border: 1px solid rgba(226, 232, 240, 0.8);
 		display: flex;
 		flex-direction: column;
+		height: 100%;
+		box-sizing: border-box;
 	}
 
+	/* Lingkaran outline turquoise ±34px (bukan lingkaran terisi pucat) */
 	.vm-icon-circle {
-		width: 44px;
-		height: 44px;
+		width: 34px;
+		height: 34px;
 		border-radius: 50%;
-		background: rgba(0, 166, 178, 0.1);
+		border: 1.5px solid #00A6B2;
+		background: transparent;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 0.85rem;
+		margin-bottom: 0.65rem;
 	}
 
 	.vm-card-title {
 		font-size: 15px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 0.5rem 0;
+		margin: 0 0 0.4rem 0;
 	}
 
 	.vm-card-text {
 		font-size: 11px;
-		line-height: 17px;
+		line-height: 1.5;
 		color: #475569;
 		margin: 0;
 	}
@@ -213,7 +218,7 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.65rem;
+		gap: 0.45rem;
 	}
 
 	.misi-list li {
@@ -221,10 +226,11 @@
 		align-items: flex-start;
 		gap: 8px;
 		font-size: 10.5px;
-		line-height: 15.5px;
+		line-height: 1.45;
 		color: #475569;
 	}
 
+	/* Nomor Misi dalam lingkaran turquoise terisi */
 	.misi-num {
 		width: 16px;
 		height: 16px;
@@ -241,6 +247,10 @@
 	}
 
 	@media (max-width: 900px) {
+		.visi-misi-section {
+			height: auto;
+			padding: 3rem 0;
+		}
 		.visi-misi-grid {
 			grid-template-columns: 1fr;
 			gap: 2rem;
