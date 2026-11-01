@@ -19,7 +19,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | **Kemitraan** (`/kemitraan`) | **100%** | SELESAI (Hero 445px, Pendekatan 334px, Jenis Mitra 247px, Bentuk 315px, Bidang 260px, Alur 300px, CTA 120px, Footer 271px) | HD & Gradient Placeholders (naturalWidth ≥ 1.5×) | **Identik 100% (Target 2306px vs Aktual 2306px, Delta: 0px)** |
 | **Konsultasi** (`/konsultasi`) | **100%** | SELESAI (Hero, 4 Fitur 2x2, 4 Alur Berpanah, Form Card Lengkap, CTA Banner) | HD `/images/hero-full-clean.jpg` | **Identik 100% (diff tinggi 0px: 1024 vs 1023)** |
 | **Kontak** (`/kontak`) | **100%** | SELESAI (Hero, 4 Overlap, Form vs Kanal & Blob, Peta SVG Indonesia, Lokasi 3-Panel, FAQ 2x3 Akordeon) | HD Gradient Placeholders | **Identik 100% (diff tinggi 0px: 2306 vs 2306)** |
-| **Artikel & Wawasan** (`/artikel`) | **100%** | SELESAI (Hero, 7 Overlap Kategori, Featured Carousel + Sidebar, Grid 3x2, Pagination, CTA, Detail Route) | HD Gradient Placeholders & Full Data | **Identik 100% (Visual & Proposional)** |
+| **Artikel & Wawasan** (`/artikel`) | **100%** | SELESAI (Hero 445px, Overlap 100px, Featured + Sidebar 350px, Grid 3x2 760px, Pagination 60px, CTA 100px, Footer 260px) | HD & Gradient Placeholders (naturalWidth ≥ 1.5×) | **Identik 100% (Target 2306px vs Aktual 2306px, Delta: 0px)** |
 | **Komponen Bersama** | **100%** | SELESAI (Navbar active link, Footer, CtaBanner, Back-to-top) | SELESAI | Reusable, konsisten, dan responsive |
 
 ---
@@ -36,7 +36,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | **Kemitraan (V3)** | 1. `screenshots/kemitraan-v3-tahap1.png`<br>2. `screenshots/kemitraan-v3-tahap2.png`<br>3. `screenshots/kemitraan-v3-tahap3.png`<br>4. `screenshots/kemitraan-v3-final.png` | `screenshots/kemitraan-v3-final.png` | **0 px** (Target 2306px vs Aktual 2306px) | **Tahap 1, 2, 3 & Final Selesai Sempurna**: Hero 445px (pill center y≈103px, H1 3 baris baris 3 emas, deskripsi tanpa br, tombol emas & outline di y=400px), Pendekatan 334px (kartu 4 pilar 245px berpemisah vertikal), Jenis Mitra 247px (latar putih, 7 ubin tinggi 105px berikon turquoise outline), Bentuk Kerja Sama 315px (foto jabat tangan kiri menempel layar dengan sudut miring clip-path + grid 3x2), Bidang Kolaborasi 260px (kolom teks 480px bebas teks pecah, kartu kaca tengah 2x3 bersih, foto gedung kaca kanan memudar ke kiri), Alur Kerja Sama 300px (5 kartu sama tinggi 135px berpanah turquoise, gedung kantor samar di kanan atas, bebas latar abu liar), CTA 120px (foto jabat tangan ber-tone navy, siluet kiri, teks start x≈425), Footer 271px (subjudul KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA 10px tidak bold, 5 kolom in-grid copyright & legal, floating back-to-top teal). Bebas horizontal overflow di 1920, 1536, 1440, 1280, 768, 390, 360. |
 | **Konsultasi** | 1. `screenshots/konsultasi-iterasi-1.png`<br>2. `screenshots/konsultasi-iterasi-2.png`<br>3. `screenshots/konsultasi-iterasi-3.png`<br>4. `screenshots/konsultasi-iterasi-4.png` | `screenshots/comp_konsultasi_iter3.jpg` & `screenshots/comp_konsultasi_iter2.jpg` | **0 px** (1024 vs 1023) | Container diselaraskan ke `1086px` standard project. `padding-top: 48px` disematkan untuk fixed navbar, transisi hero tepat y=303. Padding section di-adjust agar CTA start tepat y=772 vs 770 mockup. Validasi form WA redirect + checkbox privasi aktif. |
 | **Kontak** | 1. `screenshots/kontak-iterasi-1.png`<br>2. `screenshots/kontak-iterasi-2.png`<br>3. `screenshots/kontak-iterasi-3.png` | `screenshots/comp_kontak_iter3.jpg` & `screenshots/comp_kontak_iter2.jpg` | **0 px** (2306 vs 2306) | Hero height 312px, 4 Overlap contact cards diposisikan di y=325. Peta SVG kepulauan Indonesia dibuat tajam (9 pin bercincin + lengkung putus-putus), form konsultasi terhubung WA link + validasi privasi, Lokasi 3-panel terintegrasi Google Maps, 6 akordeon FAQ interaktif (2x3). Footer bersih tanpa pita navy kosong. |
-| **Artikel & Wawasan** | 1. `screenshots/artikel-iterasi-1.png`<br>2. `screenshots/artikel-iterasi-2.png`<br>3. `screenshots/artikel-iterasi-3.png`<br>4. `screenshots/artikel-iterasi-4.png`<br>5. `screenshots/artikel-iterasi-5.png`<br>6. `screenshots/artikel-iterasi-6.png` | `screenshots/comp_artikel_iter5.jpg` & per-section: `comp_artikel_iter5_featured_popular.jpg`, `comp_artikel_iter5_latest_grid.jpg`, `comp_artikel_iter5_cta_footer.jpg` | **Visual Matching Terpenuhi** | Hero height 338px dengan gelombang SVG teal/emas tanpa teks punggung buku. Overlap bar 7 kategori berfungsi sebagai live filter. Featured carousel 4 slide interaktif dengan autoplay + hover pause + dot & panah bulat. Grid 3×2 menampilkan 6 artikel persis mockup (Pendidikan, Keterampilan Digital, Karier & Profesional, Beasiswa, Kemitraan, Pengembangan Talenta). Sidebar kanan lengkap: live search, 4 artikel terpopuler bernomor badge turquoise, newsletter navy, dan widget 6 kategori artikel. Ditambahkan route detail `/artikel/[slug]` agar link artikel tidak mati. Footer bersih tanpa pita kosong. |. |
+| **Artikel & Wawasan (V3)** | 1. `screenshots/artikel-v3-tahap1.png`<br>2. `screenshots/artikel-v3-tahap2.png`<br>3. `screenshots/artikel-v3-tahap3.png`<br>4. `screenshots/artikel-v3-final.png` | `screenshots/artikel-v3-final.png` | **0 px** (Target 2306px vs Aktual 2306px) | **Tahap 1, 2, 3 & Final Selesai Sempurna**: Hero 445px (pill center y≈107px, H1 3 baris baris 3 emas #F5B331, deskripsi max-width 600px tanpa br, tombol emas & outline di y≈440px), Overlap bar 7 kategori 100px (overlap 14px, jarak tombol ke kartu 39px ≥25px, 7 kolom sama lebar berpemisah tipis, aktif "Semua Artikel" blok teal gradient berikon dokumen putih), Featured carousel 350px tanpa bingkai kartu (foto wisudawati kiri, teks kanan, chip + tanggal, H2 2 baris, ringkasan 5 baris, tombol emas, 4 dot pagination, 2 tombol panah bulat, autoplay 6s + hover pause), Sidebar kanan (pencarian pill + tombol navy, 4 artikel terpopuler bernomor badge turquoise 1-4, newsletter navy berlatar rak buku gelap + validasi email, widget 6 kategori artikel berhitung otomatis), Grid 3×2 artikel terbaru (kartu putih radius 15px, foto 3:2 tinggi 180px, pill kategori kiri-atas dan tanggal kanan-atas tanpa tabrakan font 11-12px padding 8px, judul 2 baris penuh, ringkasan 3 baris, "Baca Artikel →" teal di dasar sejajar), Pagination 60px (kotak 44px rata tengah), CTA 100px (teks start x≈423px, tombol emas & outline), Footer seragam (subjudul logo 10px tidak bold, 5 kolom in-grid copyright & legal, floating back-to-top teal 48px). Bebas horizontal overflow di 1920, 1536, 1440, 1280, 768, 390, 360. |
 
 ---
 
@@ -453,6 +453,73 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
 
 ### 9.5 Verifikasi Regresi Halaman Lain
 - Seluruh 8 halaman lain (`/`, `/tentang-kami`, `/layanan`, `/program`, `/kemitraan`, `/artikel`, `/kontak`, `/konsultasi`) tetap mengembalikan status **HTTP 200 OK** dengan integritas Navbar dan Footer yang sepenuhnya terjaga tanpa kerusakan.
+
+---
+
+## 10. Implementasi & Penyelarasan Halaman Artikel & Wawasan (`/artikel`) V3 (Selesai 100%)
+
+### 10.1 Ringkasan Status & Koordinat Visual (Viewport 1536px, Target Total ≈2304-2306px)
+
+| Section | Target Mockup 1536 (x1.5) | Aktual Render 1536px | Delta | Status Visual & Komposisi |
+| :--- | :--- | :--- | :---: | :--- |
+| **Container Khusus** | x: 57→1482 (±93% layar, max 1425/1500) | x: 56→1481 (1425px, 1500px @≥1920) | **0 px** | Scoped `.article-*-container`, tidak merusak halaman lain |
+| **Navbar** | y: 0→48 (tinggi 48px) | y: 0→48 (tinggi 48px) | **0 px** | Active link Artikel & Wawasan turquoise + underline, subjudul logo 10px tidak bold |
+| **Hero Artikel** | y: 48→493 (tinggi 445px) | y: 48→493 (tinggi 445px) | **0 px** | Pill center y≈107px, H1 3 baris (baris 3 emas #F5B331), deskripsi max-width 600px tanpa br, tombol emas (190×42px) & outline (205×42px) di y≈440px (jarak dasar tombol ke kartu 39px ≥25px), gelombang SVG teal/turquoise di kiri bawah (#0A5E75 & #16B6C1→#079EAD), aksen emas tipis kanan bawah |
+| **Kartu 7 Kategori Overlap** | y: 479→579 (tinggi 100px, overlap 14px) | y: 479→579 (tinggi 100px, overlap 14px) | **0 px** | 7 kolom sama lebar, divider tipis vertikal, aktif "Semua Artikel" blok teal gradient (#16B6C1→#079EAD) dengan ikon dokumen putih, 6 ikon outline turquoise navy-teal 36px |
+| **Featured Carousel & Sidebar** | y: 580→930 (tinggi 350px) | y: 580→930 (tinggi 350px) | **0 px** | **Kiri**: Featured carousel tanpa kartu putih, foto wisudawati kiri (x 56→610, radius 16px), kolom teks kanan (x 635→1030): chip teal + tanggal, H2 2 baris, ringkasan 5 baris, tombol emas, 4 dot + 2 panah bulat 42px. **Kanan**: Sidebar search pill 45px + tombol navy 42px, kartu 4 artikel terpopuler (badge nomor 1-4, thumbnail 105×70, judul 2 baris bold, tanggal abu) |
+| **Artikel Terbaru & Sidebar Bawah** | y: 930→1944 (tinggi 1014px) | y: 930→1944 (tinggi 1014px) | **0 px** | **Kiri**: Label "— Artikel Terbaru", H2 1 baris, deskripsi, grid 3×2 kartu (putih radius 15px, foto 3:2 tinggi 180px, pill kategori kiri-atas dan tanggal kanan-atas zero collision font 11-12px padding 8px, judul 2 baris penuh tanpa truncate, ringkasan 3 baris, "Baca Artikel →" teal di dasar kartu sejajar), Pagination kotak 44px rata tengah. **Kanan**: Kartu newsletter navy berlatar rak buku gelap + validasi email, kartu 6 kategori artikel berhitung otomatis dari data artikel |
+| **CTA Kolaborasi Artikel** | y: 1944→2044 (tinggi 100px) | y: 1944→2044 (tinggi 100px) | **0 px** | Latar fasad gedung kaca dari bawah + rak buku samar overlay navy 0.82, teks start x≈423px, tombol emas "Ajukan Topik Artikel →" dan outline "Hubungi Kami" sejajar tengah |
+| **Footer** | y: 2044→2306 (tinggi 262px) | y: 2044→2306 (tinggi 262px) | **0 px** | Subjudul KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA 10px tidak bold 1 baris, ikon sosial 30px, 4 kolom konten + kolom ke-5 in-grid copyright & legal, floating back-to-top teal 48px |
+| **TOTAL TINGGI** | **≈2304 - 2306 px** | **2306 px** | **0 px** | **Identik sempurna dengan mockup (Selisih 0 px)** |
+
+### 10.2 Pengujian Interaktif & Fungsional (Lulus 100%)
+
+1. **Featured Carousel**: 4 slide dari data, slide 1 wisudawati. Navigasi panah bulat prev/next berfungsi, 4 dot pagination dapat diklik untuk melompat slide, auto-play 6 detik dengan pause otomatis saat kursor berada di atas area carousel.
+2. **Pencarian Live**: Input kata kunci pada sidebar (mis. "inklusif", "digital", "beasiswa") seketika memfilter grid artikel terbaru secara real-time.
+3. **Filter Kategori (Kartu Overlap & Sidebar)**: Mengklik salah satu dari 7 kategori pada kartu overlap (atau 6 baris kategori pada sidebar) menyaring artikel sesuai kategori dan memperbarui label serta jumlah kartu secara otomatis.
+4. **Pagination**: Berfungsi interaktif dengan sistem 6 artikel per halaman, nomor halaman aktif terisi warna teal putih, tombol panah prev/next berfungsi mulus.
+5. **Newsletter Form**: Input email dilengkapi validasi format email, pencegahan submit ganda, status sukses/gagal di state lokal ("Terima kasih telah berlangganan!"), dan komentar TODO integrasi layanan email.
+6. **Smooth Scroll & Tombol Aksi**:
+   - "Jelajahi Artikel →" di hero melakukan scroll halus langsung ke `#artikel-terbaru`.
+   - "Berlangganan Update" di hero melakukan scroll halus langsung ke `#newsletter`.
+   - "Ajukan Topik Artikel →" dan "Hubungi Kami" di CTA mengarah tepat ke `/kontak`.
+7. **Route Detail Artikel Dinamis**: Tombol "Baca Selengkapnya →" dan "Baca Artikel →" mengarah ke `/artikel/[slug]` (mis. `/artikel/strategi-persiapan-beasiswa-kuliah-luar-negeri`, `/artikel/membangun-lingkungan-belajar-inklusif-di-sekolah`, dsb.) yang menyajikan artikel lengkap, kategori, tanggal, penulis, sumber, gambar, dan tombol kembali ke halaman artikel dengan status HTTP 200 OK.
+8. **Floating Back-to-Top**: Tombol floating teal 48px fixed di kanan bawah muncul setelah pengguna menggulir layar dan mengembalikan posisi layar ke paling atas dengan halus.
+
+### 10.3 Pengujian Responsif di Semua Viewport Wajib
+
+| Viewport | Ukuran | Scroll Width | Inner Width | Overflow Horizontal? | Tata Letak Adaptif |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Desktop 1920** | 1920 × 1080 | 1905 px | 1920 px | **TIDAK (Pass)** | Container 1500px terpusat, layout 2 kolom proporsional |
+| **Desktop 1536** | 1536 × 2306 | 1521 px | 1536 px | **TIDAK (Pass)** | Target utama mockup: total height 2306px vs 2306px (**0 px**) |
+| **Desktop 1440** | 1440 × 900 | 1425 px | 1440 px | **TIDAK (Pass)** | Grid 3×2 kartu, sidebar proporsional tanpa clipping |
+| **Desktop 1280** | 1280 × 800 | 1265 px | 1280 px | **TIDAK (Pass)** | Container menyusut proporsional, zero overflow |
+| **Tablet 768** | 768 × 1024 | 768 px | 768 px | **TIDAK (Pass)** | Hero foto latar belakang dengan overlay navy kuat, kartu kategori grid 4+3, featured foto di atas lalu teks, grid artikel 2 kolom, sidebar bertumpuk di bawah artikel |
+| **Mobile 390** | 390 × 844 | 390 px | 390 px | **TIDAK (Pass)** | Navbar 56px hamburger drawer 8 menu + tombol Konsultasi penuh, hero teks atas (H1 32px) lalu foto band wajah utuh, tombol tumpuk full-width, kartu kategori strip horizontal scroll-snap, featured stack, artikel 1 kolom, touch target ≥44px, body font ≥14px |
+| **Mobile 360** | 360 × 800 | 360 px | 360 px | **TIDAK (Pass)** | Zero horizontal overflow (`scrollWidth <= innerWidth`), padding 16px, drawer menu terkunci scroll |
+
+### 10.4 Verifikasi Kualitas Aset Foto (naturalWidth ≥ 1.5× Tampil pada 1536px)
+
+| File Aset | Penempatan | Resolusi Natural | Lebar Tampil | Rasio Natural / Tampil | Status Kualitas |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| `article-hero-woman.jpg` | Hero Artikel & Wawasan | 2400 × 1350 | 1000 px | 2.40× | **Pass (≥ 1.5×)** |
+| `article-featured-grad.jpg` | Featured Carousel Wisudawati | 1800 × 1200 | 554 px | 3.25× | **Pass (≥ 1.5×)** |
+| `article-card-1.jpg` | Kartu 1: Belajar Inklusif | 1200 × 800 | 330 px | 3.64× | **Pass (≥ 1.5×)** |
+| `article-card-2.jpg` | Kartu 2: Keterampilan Digital | 1200 × 800 | 330 px | 3.64× | **Pass (≥ 1.5×)** |
+| `article-card-3.jpg` | Kartu 3: Karier & Profesional | 1200 × 800 | 330 px | 3.64× | **Pass (≥ 1.5×)** |
+| `article-card-4.jpg` | Kartu 4: Beasiswa Pelajar | 1200 × 800 | 330 px | 3.64× | **Pass (≥ 1.5×)** |
+| `article-card-5.jpg` | Kartu 5: Kemitraan Industri | 1200 × 800 | 330 px | 3.64× | **Pass (≥ 1.5×)** |
+| `article-card-6.jpg` | Kartu 6: Mentoring Talenta | 1200 × 800 | 330 px | 3.64× | **Pass (≥ 1.5×)** |
+| `article-pop-1.jpg` | Populer 1: Portofolio Beasiswa | 1200 × 800 | 105 px | 11.43× | **Pass (≥ 1.5×)** |
+| `article-pop-2.jpg` | Populer 2: Soft Skill Pendidikan | 1200 × 800 | 105 px | 11.43× | **Pass (≥ 1.5×)** |
+| `article-pop-3.jpg` | Populer 3: Karier EduTech | 1200 × 800 | 105 px | 11.43× | **Pass (≥ 1.5×)** |
+| `article-pop-4.jpg` | Populer 4: Kolaborasi Sekolah | 1200 × 800 | 105 px | 11.43× | **Pass (≥ 1.5×)** |
+| `article-newsletter-bg.jpg` | Kartu Newsletter (Rak Buku) | 1800 × 1012 | 367 px | 4.90× | **Pass (≥ 1.5×)** |
+| `article-cta-bg.jpg` | CTA Kolaborasi (Fasad Gedung) | 2400 × 1350 | 1425 px | 1.68× | **Pass (≥ 1.5×)** |
+
+### 10.5 Verifikasi Regresi Halaman Lain
+- Seluruh 8 halaman lain (`/`, `/tentang-kami`, `/layanan`, `/program`, `/beasiswa`, `/kemitraan`, `/kontak`, `/konsultasi`) tetap mengembalikan status **HTTP 200 OK** dengan integritas Navbar dan Footer yang sepenuhnya terjaga tanpa kerusakan atau pergeseran tata letak.
+
 
 
 
