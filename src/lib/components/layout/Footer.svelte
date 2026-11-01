@@ -146,8 +146,8 @@
 				{/if}
 			</div>
 
-			<!-- Col 5: For Home, Program, Beasiswa (in-grid copyright) -->
-			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa'}
+			<!-- Col 5: For Home, Program, Beasiswa, Kemitraan (in-grid copyright) -->
+			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan'}
 				<!-- Vertical Divider -->
 				<div class="footer-vdivider"></div>
 
@@ -165,7 +165,7 @@
 		</div>
 
 		<!-- Bottom Bar for pages that have it -->
-		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kemitraan' || variant === 'kontak' || variant === 'artikel'}
+		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kontak' || variant === 'artikel'}
 			<div class="footer-bottom-bar">
 				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
 				<div class="footer-bottom-right">
@@ -183,8 +183,8 @@
 			</div>
 		{/if}
 
-		<!-- Floating Back-to-Top Button for Program & Beasiswa per Mockup -->
-		{#if variant === 'program' || variant === 'beasiswa'}
+		<!-- Floating Back-to-Top Button for Program, Beasiswa & Kemitraan per Mockup -->
+		{#if variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan'}
 			<button class="back-to-top-btn floating-btt-program" onclick={scrollToTop} aria-label="Kembali ke atas">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="18 15 12 9 6 15"></polyline>
@@ -577,7 +577,10 @@
 	}
 
 	/* Specific variant for Program per mockup (Tinggi ±271px pada 1536) */
-	.footer.variant-program {
+	/* Specific variant for Program, Beasiswa & Kemitraan per mockup (Tinggi ±271px pada 1536) */
+	.footer.variant-program,
+	.footer.variant-beasiswa,
+	.footer.variant-kemitraan {
 		padding: 2.2rem 0 1rem;
 		height: 271px;
 		box-sizing: border-box;
@@ -586,7 +589,9 @@
 		justify-content: space-between;
 	}
 
-	.footer.variant-program .footer-inner {
+	.footer.variant-program .footer-inner,
+	.footer.variant-beasiswa .footer-inner,
+	.footer.variant-kemitraan .footer-inner {
 		max-width: 1440px;
 		margin: 0 auto;
 		padding: 0 1.5rem;
@@ -599,12 +604,16 @@
 	}
 
 	@media (min-width: 1920px) {
-		.footer.variant-program .footer-inner {
+		.footer.variant-program .footer-inner,
+		.footer.variant-beasiswa .footer-inner,
+		.footer.variant-kemitraan .footer-inner {
 			max-width: 1500px;
 		}
 	}
 
-	.footer.variant-program .footer-grid {
+	.footer.variant-program .footer-grid,
+	.footer.variant-beasiswa .footer-grid,
+	.footer.variant-kemitraan .footer-grid {
 		display: grid;
 		grid-template-columns: 2.1fr auto 1.15fr auto 1.25fr auto 1.45fr auto 1.45fr;
 		gap: 0 1.25rem;
@@ -612,7 +621,8 @@
 	}
 
 	.footer.variant-program .floating-btt-program,
-	.footer.variant-beasiswa .floating-btt-program {
+	.footer.variant-beasiswa .floating-btt-program,
+	.footer.variant-kemitraan .floating-btt-program {
 		position: fixed;
 		bottom: 30px;
 		right: 30px;
@@ -632,7 +642,8 @@
 	}
 
 	.footer.variant-program .floating-btt-program:hover,
-	.footer.variant-beasiswa .floating-btt-program:hover {
+	.footer.variant-beasiswa .floating-btt-program:hover,
+	.footer.variant-kemitraan .floating-btt-program:hover {
 		background: #079EAD;
 		transform: translateY(-2px);
 	}

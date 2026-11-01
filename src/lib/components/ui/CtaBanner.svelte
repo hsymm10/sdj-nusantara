@@ -9,7 +9,7 @@
 		secondaryHref?: string;
 		secondaryIcon?: 'whatsapp' | 'none';
 		secondaryTarget?: string;
-		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa';
+		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan';
 	}
 
 	let {
@@ -412,13 +412,15 @@
 		object-position: left center;
 	}
 
-	/* Variant Beasiswa (125px height, student silhouette on left, text starts x~441) */
-	.cta-banner.variant-beasiswa {
-		height: 125px;
+	/* Variant Beasiswa & Kemitraan (±120-125px height, silhouette on left, text starts x~425-441) */
+	.cta-banner.variant-beasiswa,
+	.cta-banner.variant-kemitraan {
+		height: 120px;
 		background: #082442;
 	}
 
-	.cta-banner.variant-beasiswa .cta-container {
+	.cta-banner.variant-beasiswa .cta-container,
+	.cta-banner.variant-kemitraan .cta-container {
 		width: 100%;
 		max-width: 1380px;
 		margin: 0 auto;
@@ -427,42 +429,49 @@
 	}
 
 	@media (min-width: 1920px) {
-		.cta-banner.variant-beasiswa .cta-container {
+		.cta-banner.variant-beasiswa .cta-container,
+		.cta-banner.variant-kemitraan .cta-container {
 			max-width: 1500px;
 		}
 	}
 
-	.cta-banner.variant-beasiswa .cta-content {
+	.cta-banner.variant-beasiswa .cta-content,
+	.cta-banner.variant-kemitraan .cta-content {
 		align-items: center;
 		justify-content: space-between;
 	}
 
-	.cta-banner.variant-beasiswa .cta-text {
+	.cta-banner.variant-beasiswa .cta-text,
+	.cta-banner.variant-kemitraan .cta-text {
 		max-width: 600px;
-		margin-left: 360px; /* text starts at x≈441px */
+		margin-left: 350px; /* text starts at x≈425px */
 	}
 
 	@media (max-width: 1200px) {
-		.cta-banner.variant-beasiswa .cta-text {
+		.cta-banner.variant-beasiswa .cta-text,
+		.cta-banner.variant-kemitraan .cta-text {
 			margin-left: 0;
 		}
 	}
 
-	.cta-banner.variant-beasiswa .cta-title {
-		font-size: clamp(20px, 1.8vw, 26px);
+	.cta-banner.variant-beasiswa .cta-title,
+	.cta-banner.variant-kemitraan .cta-title {
+		font-size: clamp(20px, 1.8vw, 25px);
 		line-height: 1.2;
 		font-weight: 800;
 		color: #FFFFFF;
 		margin-bottom: 0.35rem;
 	}
 
-	.cta-banner.variant-beasiswa .cta-desc {
-		font-size: 13px;
+	.cta-banner.variant-beasiswa .cta-desc,
+	.cta-banner.variant-kemitraan .cta-desc {
+		font-size: 13.5px;
 		line-height: 19px;
 		color: rgba(255, 255, 255, 0.88);
 	}
 
-	.cta-banner.variant-beasiswa .btn-gold {
+	.cta-banner.variant-beasiswa .btn-gold,
+	.cta-banner.variant-kemitraan .btn-gold {
 		padding: 9px 22px;
 		font-size: 13px;
 		font-weight: 700;
@@ -472,7 +481,8 @@
 		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.28);
 	}
 
-	.cta-banner.variant-beasiswa .btn-outline {
+	.cta-banner.variant-beasiswa .btn-outline,
+	.cta-banner.variant-kemitraan .btn-outline {
 		padding: 9px 20px;
 		font-size: 13px;
 		font-weight: 600;
@@ -480,13 +490,15 @@
 		border-radius: 8px;
 	}
 
-	.cta-banner.variant-beasiswa .cta-bg-img {
+	.cta-banner.variant-beasiswa .cta-bg-img,
+	.cta-banner.variant-kemitraan .cta-bg-img {
 		opacity: 0.75;
 		width: 440px;
 		object-position: left center;
 	}
 
-	.cta-banner.variant-beasiswa .cta-overlay {
+	.cta-banner.variant-beasiswa .cta-overlay,
+	.cta-banner.variant-kemitraan .cta-overlay {
 		background: linear-gradient(
 			90deg,
 			rgba(8, 36, 66, 0.45) 0%,

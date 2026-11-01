@@ -43,11 +43,12 @@
 	<CtaBanner
 		title="Siap Menjalin Kemitraan dengan SDJNusantara?"
 		description="Bersama kita bisa menciptakan lebih banyak peluang, program inovatif, dan dampak positif bagi dunia pendidikan dan talenta Indonesia."
-		primaryText="Ajukan Kerja Sama"
-		primaryHref="#kontak"
+		primaryText="Ajukan Kerja Sama →"
+		primaryHref="/konsultasi"
 		secondaryText="Hubungi Kami"
-		secondaryHref="#kontak"
+		secondaryHref="/kontak"
 		bgImage="/images/partner-cta-handshake.jpg"
+		variant="kemitraan"
 	/>
 </main>
 
