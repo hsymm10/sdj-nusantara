@@ -111,9 +111,9 @@
 		bottom: 0;
 		background: linear-gradient(
 			90deg,
-			rgba(255, 255, 255, 0.05) 0%,
-			rgba(255, 255, 255, 0.3) 50%,
-			rgba(255, 255, 255, 0.95) 85%,
+			transparent 0%,
+			transparent 70%,
+			rgba(255, 255, 255, 0.8) 90%,
 			#FFFFFF 100%
 		);
 	}
