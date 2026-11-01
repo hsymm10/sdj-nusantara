@@ -149,17 +149,15 @@
 		</div>
 
 		<!-- Bottom Bar for pages that have it -->
-		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kemitraan' || variant === 'program'}
+		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kemitraan' || variant === 'program' || variant === 'kontak' || variant === 'artikel'}
 			<div class="footer-bottom-bar">
 				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
 				<div class="footer-bottom-right">
-					{#if variant !== 'program'}
-						<div class="footer-bottom-links">
-							<a href="/kebijakan-privasi" class="footer-bottom-link">Kebijakan Privasi</a>
-							<span class="footer-bottom-sep">|</span>
-							<a href="/syarat-ketentuan" class="footer-bottom-link">Syarat & Ketentuan</a>
-						</div>
-					{/if}
+					<div class="footer-bottom-links">
+						<a href="/kebijakan-privasi" class="footer-bottom-link">Kebijakan Privasi</a>
+						<span class="footer-bottom-sep">|</span>
+						<a href="/syarat-ketentuan" class="footer-bottom-link">Syarat & Ketentuan</a>
+					</div>
 					<button class="back-to-top-btn" onclick={scrollToTop} aria-label="Kembali ke atas">
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="18 15 12 9 6 15"></polyline>
