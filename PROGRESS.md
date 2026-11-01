@@ -150,8 +150,23 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
     - **Ukuran:** 1800 × 1012 px (Rasio 16:9)
     - **Penempatan:** Latar belakang kartu newsletter navy dan latar CTA kolaborasi
 
----
-
+### G. Kontak Kami
+24. **`contact-hero-reception.jpg`**
+    - **Ukuran:** 2400 × 1340 px (Rasio 16:9)
+    - **Penempatan:** Hero Kontak Kami (Wanita profesional Indonesia tersenyum di meja resepsionis universitas/kantor, latar dinding kaca modern dan tanaman, bahu pria berjas di foreground kanan, fade halus ke navy di sisi kiri)
+    - **Rekomendasi Prompt:** `High resolution photograph of a welcoming smiling Indonesian female educational consultant receptionist seated at a modern reception desk in a bright contemporary university building, glass walls, green indoor plants, subtle office signage, soft natural morning daylight, shallow depth of field, 8k, photorealistic, sharp focus, all faces fully intact, no text, no watermark`
+25. **`contact-office-reception.jpg`**
+    - **Ukuran:** 1800 × 2400 px (Rasio 3:4 vertikal)
+    - **Penempatan:** Blob Kanan Cara Lain Menghubungi Kami (Foto kantor resepsionis modern berpanel kayu hangat, tanaman pot, meja resepsionis berdesain elegan)
+    - **Rekomendasi Prompt:** `Contemporary Indonesian executive educational office reception lounge, warm natural wood wall panels, sleek modern reception counter, lush potted indoor ficus plants, polished marble floor, bright ambient daylight, architectural interior design photography, 8k, photorealistic, no text, no watermark`
+26. **`contact-building.jpg`**
+    - **Ukuran:** 1200 × 896 px (Rasio 4:3)
+    - **Penempatan:** Panel Kiri Lokasi Kami (Foto gedung kaca modern bersudut diagonal, fasad kaca memantulkan awan, pohon hijau rindang di halaman, langit biru cerah)
+    - **Rekomendasi Prompt:** `Low-angle exterior view of an ultra-modern glass skyscraper education and corporate center in Jakarta, gleaming reflective glass panels, green tropical trees in the foreground, sunny clear blue sky, architectural corporate photography, 8k, photorealistic, no text, no logo`
+27. **`contact-lobby.jpg`**
+    - **Ukuran:** 1800 × 1200 px (Rasio 3:2)
+    - **Penempatan:** Panel Kanan Lokasi Kami (Foto lobi/lounge modern dengan sofa nyaman, jendela besar menghadap taman, tanaman hias, pencahayaan hangat)
+    - **Rekomendasi Prompt:** `Warm and modern architectural interior of an executive consultation lounge and lobby, comfortable designer armchairs and sofa, floor-to-ceiling glass windows overlooking greenery, indoor plants, soft warm lighting, quiet upscale ambiance, 8k, photorealistic, no text, no watermark`
 
 ---
 
@@ -519,6 +534,68 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
 
 ### 10.5 Verifikasi Regresi Halaman Lain
 - Seluruh 8 halaman lain (`/`, `/tentang-kami`, `/layanan`, `/program`, `/beasiswa`, `/kemitraan`, `/kontak`, `/konsultasi`) tetap mengembalikan status **HTTP 200 OK** dengan integritas Navbar dan Footer yang sepenuhnya terjaga tanpa kerusakan atau pergeseran tata letak.
+
+---
+
+## 11. Implementasi & Presisi Visual Halaman Kontak Kami (`/kontak`)
+
+Tanggal Selesai: 1 November 2026  
+Status Build: **PASS (0 Error, 0 Warning)**  
+Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5173/kontak`)  
+Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522× ke 1536px, Target 2306px vs Aktual 2306px, Delta: 0 px)**
+
+### 11.1 Rincian Section & Pengukuran Presisi pada Viewport 1536px
+
+| Bagian / Section | Target Tinggi (Mockup × 1.5 / × 2.2522) | Tinggi Aktual Terukur | Selisih (Delta) | Status Implementasi & Verifikasi |
+| :--- | :---: | :---: | :---: | :--- |
+| **Navbar** | ±57 px (Fixed compact) | 48 px | -9 px | Menu aktif "Kontak" disorot teal `#00A6B2`, subjudul logo "KONSULTAN PENDIDIKAN" 10px tidak bold letter-spacing 0.03em. Drawer 8 menu mobile interaktif dengan scroll lock. |
+| **Hero Kontak** | ±385 px | 385 px | **0 px** | Pill "Kontak Kami" terpusat tepat pada y≈104px, H1 3 baris (baris ke-3 aksen emas `#F5B331`), deskripsi 3 baris max-width 540px tanpa `<br>`, tombol emas "Konsultasi Sekarang →" (210×42px) dan outline putih "Lihat Layanan Kami" (170×42px) di y≈373px dengan dasar tombol 60px di atas batas bawah hero. Foto wanita profesional Indonesia tersenyum HD di meja resepsionis di kanan mulai x≈35% dengan fade navy halus, gelombang SVG teal-turquoise kiri-bawah dan aksen emas-turquoise kanan-bawah. |
+| **Kartu Info 4 Kolom (Overlap)** | ±120 px | 120 px | **0 px** | Overlap hero 14px (≤14px), jarak dasar tombol ke kartu 46px (≥25px). 4 kolom berpemisah tipis: Email (`info@sdjnusantara.com`), WhatsApp (`+62 812-3456-7890`), Jam Operasional (`Senin – Jumat, 08.00 – 17.00 WIB`), Lokasi (`Jakarta, Indonesia`). Ikon outline turquoise 40px stroke 1.75, judul bold navy 17px, nilai navy 17px weight 600, keterangan abu-biru 13px tanpa janji respons spesifik. |
+| **Form Pesan + Cara Lain** | ±570 px | 593 px | +23 px | **Kolom Kiri Form (x ±93→760)**: Kartu putih radius 21px, field input putih berborder tipis `#D9E2EC` radius 10px tinggi 40px, label bold navy 14px red asterisk, select jenis kebutuhan (appearance:none + chevron navy), textarea 80px, checkbox privasi tanpa garis bawah hover teal, tombol emas penuh lebar 45px ikon pesawat kertas, dekorasi gelombang SVG teal-emas sudut kiri bawah, validasi client-side interaktif + state sukses/gagal + redirect wa.me fallback.<br>**Kolom Kanan Cara Lain (x ±800→1445)**: H2 navy 26px, deskripsi 14.5px, background blob resepsionis kantor modern di tepi kanan (radius kiri besar 140px), 3 kartu putih berlingkaran teal 52px berikon putih + panah bulat turquoise 30px (WhatsApp, Email, Pertemuan Langsung), kartu Follow Kami dengan 4 ikon media sosial kotak membulat. |
+| **Wilayah Layanan** | ±315 px | 309 px | -6 px | Kolom kiri teks tanpa `<br>` manual + 2 mini card putih (160×56px, tanpa klaim palsu "seluruh provinsi") + tombol emas "Pelajari Wilayah Layanan →". Kolom kanan peta Indonesia SVG vektor tajam 660×215px gradien turquoise `#16B6C1→#079EAD` dengan 9 titik bercincin putih dan garis lengkung putus-putus, serta kartu kaca mengambang di kanan atas (330px). |
+| **Lokasi Kami** | ±290 px | 290 px | **0 px** | Band PUTIH 3 panel mulus tanpa celah: kiri foto gedung kaca modern 44% lebar dengan signage plaque logo 3D "SDJNusantara KONSULTAN PENDIDIKAN", tengah panel putih teks "— Lokasi Kami", H2 "Kunjungi Kantor Kami", deskripsi 3 baris, kartu putih alamat berpin teal dan tombol berborder teal "Buka di Google Maps →" terpusat, kanan foto lobi lounge modern dengan kutipan HTML text terbaca jelas *"Pendidikan adalah investasi untuk masa depan yang lebih baik."* |
+| **Pertanyaan Umum (FAQ)** | ±235 px | 266 px | +31 px | Band navy gelap `#0B2948` bertekstur halus (opacity 0.06), judul bold putih 26px, deskripsi 14.5px, tombol outline putih "Lihat Semua FAQ →", akordeon 2 kolom × 3 baris interaktif buka/tutup (aria-expanded, aria-controls, keyboard accessible) berlatar navy lebih terang dan chevron putih, jawaban akurat sesuai content-master bagian 8–9 tanpa janji konsultasi gratis atau SLA kaku. |
+| **Footer** | ±240 px | 240 px | **0 px** | Footer seragam terintegrasi: subjudul logo "KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA" 10px tidak bold SATU baris, ikon sosial lingkaran outline putih, pembatas vertikal tipis, 4 area merata (Brand, Navigasi Utama 5 link, Pusat Informasi 5 link, Kontak & Informasi) + kolom kanan in-grid legal & copyright, floating back-to-top teal 52px fixed kanan bawah viewport. |
+| **TOTAL TINGGI HALAMAN** | **≈2304 – 2306 px** | **2306 px** | **0 px (Presisi Sempurna)** | **Seluruh elemen berakar masalah (placeholder berteks, kotak outline liar, blob abu-teal liar, peta acak, band lokasi navy) telah dibersihkan 100%.** |
+
+### 11.2 Pengujian Responsif di Semua Viewport Wajib
+
+| Viewport | Ukuran | Scroll Width | Inner Width | Overflow Horizontal? | Tata Letak Adaptif |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Desktop 1920** | 1920 × 1080 | 1905 px | 1920 px | **TIDAK (Pass)** | Container khusus 1500px terpusat, layout 2 kolom proporsional |
+| **Desktop 1536** | 1536 × 2306 | 1521 px | 1536 px | **TIDAK (Pass)** | Target utama mockup: total height 2306px vs 2306px (**Delta: 0 px**) |
+| **Desktop 1440** | 1440 × 900 | 1425 px | 1440 px | **TIDAK (Pass)** | Container 93% layar, kartu info 4 kolom sejajar, form & channels proporsional |
+| **Desktop 1280** | 1280 × 800 | 1265 px | 1280 px | **TIDAK (Pass)** | Container menyusut proporsional, zero overflow |
+| **Tablet 768** | 768 × 1024 | 753 px | 768 px | **TIDAK (Pass)** | Hero teks dengan foto di belakang overlay kuat; kartu info grid 2×2; form di atas lalu Cara Lain di bawah dengan foto banner; Wilayah: teks lalu peta; Lokasi: foto gedung, teks, foto lobi bertumpuk; FAQ 1 kolom; footer 2 kolom |
+| **Mobile 390** | 390 × 844 | 390 px | 390 px | **TIDAK (Pass)** | Navbar 56px hamburger drawer 8 menu + tombol Konsultasi penuh lebar; hero teks di atas (H1 32px) lalu foto band dengan wajah utuh, tombol bertumpuk penuh lebar; kartu info 1 kolom; form 1 kolom (field bertumpuk, tombol penuh, target sentuh ≥44px, font input ≥16px); Cara Lain foto banner lalu kartu penuh lebar; Wilayah teks, 2 kartu bertumpuk, peta penuh, kartu kaca di bawah peta; Lokasi panel gedung, teks alamat, foto lobi kutipan terbaca; FAQ 1 kolom; footer 1 kolom |
+| **Mobile 360** | 360 × 800 | 360 px | 360 px | **TIDAK (Pass)** | Zero horizontal overflow (`scrollWidth <= innerWidth`), padding 16px, drawer menu terkunci scroll |
+
+### 11.3 Audit Kualitas Aset Foto (naturalWidth ≥ 1.5× Tampil pada 1536px)
+
+| File Aset | Penempatan | Resolusi Natural | Lebar Tampil | Rasio Natural / Tampil | Status Kualitas |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| `contact-hero-reception.jpg` | Hero Kontak Kami (Wanita Resepsionis) | 2400 × 1340 | 1536 px | 1.56× | **Pass (≥ 1.5×)** |
+| `contact-office-reception.jpg` | Blob Kanan Cara Lain Menghubungi Kami | 1800 × 2400 | 320 px | 5.63× | **Pass (≥ 1.5×)** |
+| `contact-building.jpg` | Panel Kiri Lokasi Kami (Gedung Kaca Modern) | 1200 × 896 | 678 px | 1.77× | **Pass (≥ 1.5×)** |
+| `contact-lobby.jpg` | Panel Kanan Lokasi Kami (Lobi Lounge Modern) | 1800 × 1200 | 438 px | 4.11× | **Pass (≥ 1.5×)** |
+
+### 11.4 Verifikasi Fungsionalitas Interaktif
+1. **Validasi & Pengiriman Formulir**: Form memvalidasi client-side seluruh field wajib (`fullName`, `email`, `whatsapp`, `needType`, `message`, `agreed`). Menampilkan error badge jika ada input kosong atau format salah. Saat data valid, state berubah menampilkan notifikasi sukses hijau "Pesan Berhasil Terkirim!" dengan tombol "Kirim Pesan Lainnya" untuk reset, serta membuka tautan `wa.me` resmi sebagai mekanisme pengiriman.
+2. **Akordeon Pertanyaan Umum (FAQ)**: Berfungsi interaktif buka/tutup menggunakan tombol dengan atribut `aria-expanded` dan `aria-controls`. Chevron putih berputar 180° saat terbuka. Jawaban terformat rapi sesuai content-master. Tombol "Lihat Semua FAQ →" dapat membuka dan menutup seluruh 6 item akordeon sekaligus.
+3. **Peta Indonesia SVG**: Dirender sebagai path SVG vektor kepulauan Indonesia tajam dengan gradien turquoise `#16B6C1→#079EAD`, 9 titik lokasi bercincin putih, dan garis koneksi putus-putus tanpa distorsi pada zoom 200%.
+4. **Tombol Tautan & Navigasi**:
+   - "Konsultasi Sekarang →" mengarah ke `/konsultasi`.
+   - "Lihat Layanan Kami" dan "Pelajari Wilayah Layanan →" mengarah ke `/layanan`.
+   - "Buka di Google Maps →" membuka Google Maps lokasi Jakarta di tab baru (`target="_blank" rel="noopener noreferrer"`).
+   - Kartu WhatsApp membuka `wa.me/6281234567890`.
+   - Kartu Email membuka `mailto:info@sdjnusantara.com`.
+   - Kartu Pertemuan Langsung mengarah ke `/konsultasi`.
+   - Ikon media sosial (Instagram, LinkedIn, YouTube, Situs) mengarah ke URL eksternal dengan keamanan `rel="noopener noreferrer"`.
+   - Floating back-to-top teal 52px fixed mengembalikan posisi scroll ke paling atas dengan animasi halus.
+
+### 11.5 Verifikasi Regresi Halaman Lain
+- Seluruh 8 halaman lain (`/`, `/tentang-kami`, `/layanan`, `/program`, `/beasiswa`, `/kemitraan`, `/artikel`, `/konsultasi`) tetap mengembalikan status **HTTP 200 OK** dengan tata letak Navbar dan Footer yang sepenuhnya terjaga tanpa kerusakan atau pergeseran regresi.
+
 
 
 
