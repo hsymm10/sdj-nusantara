@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --color-primary-navy: #0B2747;
+  --color-deep-navy: #071D36;
+  --color-secondary-navy: #123B60;
+  --color-teal: #00A6B2;
+  --color-dark-teal: #008C9A;
+  --color-gold: #F4B334;
+  --color-light-gold: #FFD16A;
+  --color-white: #FFFFFF;
+
+  /* Background Colors */
+  --color-bg-main: #FFFFFF;
+  --color-bg-light: #F5F8FB;
+  --color-bg-light-blue: #EAF2F8;
+  --color-bg-soft-teal: #E6F7F8;
+  --color-bg-soft-gold: #FEF8EC;
+
+  /* Text Colors */
+  --color-text-primary: #17365A;
+  --color-text-heading: #0B2747;
+  --color-text-secondary: #52647A;
+  --color-text-muted: #64748B;
+  --color-text-white: #FFFFFF;
+
+  /* Accent & Border */
+  --color-border: #DCE6EE;
+  --color-divider: #DCE6EE;
+}
+
+@theme inline {
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+
+  --color-primary-navy: #0B2747;
+  --color-deep-navy: #071D36;
+  --color-secondary-navy: #123B60;
+  --color-teal: #00A6B2;
+  --color-dark-teal: #008C9A;
+  --color-gold: #F4B334;
+  --color-light-gold: #FFD16A;
+
+  --color-bg-light: #F5F8FB;
+  --color-bg-light-blue: #EAF2F8;
+
+  --color-text-primary: #17365A;
+  --color-text-heading: #0B2747;
+  --color-text-muted: #64748B;
+
+  --color-border: #DCE6EE;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--color-text-primary);
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Utility Classes */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--color-teal);
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: #FFFFFF;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-gold:hover {
+  background-color: #c4922e;
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: #FFFFFF;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.btn-navy {
+  background-color: var(--color-primary-navy);
+  color: #FFFFFF;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-navy:hover {
+  background-color: var(--color-deep-navy);
+  transform: translateY(-1px);
+}
+
+.btn-teal {
+  background-color: var(--color-teal);
+  color: #FFFFFF;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-teal:hover {
+  background-color: #117d7c;
+  transform: translateY(-1px);
+}
+
+/* Decorative elements */
+.teal-arc-left {
+  position: absolute;
+  left: 0;
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  background: var(--color-teal);
+  opacity: 0.85;
+}
+
+.gold-arc {
+  background: var(--color-gold);
+  border-radius: 50%;
+}
+
+/* Divider */
+.vertical-divider {
+  width: 1px;
+  background: var(--color-divider);
+  align-self: stretch;
+}

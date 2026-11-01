@@ -1,0 +1,1409 @@
+{
+  "pages": {
+    "beranda": {
+      "viewports": {
+        "desktop": {
+          "file": "beranda.png",
+          "width": 1536,
+          "height": 1024,
+          "overflow": false
+        },
+        "tablet": {
+          "file": "tab-beranda.png",
+          "width": 768,
+          "height": 2305,
+          "overflow": false
+        },
+        "mobile": {
+          "file": "mob-beranda.png",
+          "width": 390,
+          "height": 2735,
+          "overflow": false
+        }
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:5173/images/hero-full-clean.jpg",
+          "alt": "SDJNusantara Mahasiswa di Kampus",
+          "naturalWidth": 1536,
+          "naturalHeight": 297,
+          "clientWidth": 1536,
+          "clientHeight": 297,
+          "ratio": "1.00",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/tentang-line-art.png",
+          "alt": "",
+          "naturalWidth": 190,
+          "naturalHeight": 143,
+          "clientWidth": 190,
+          "clientHeight": 143,
+          "ratio": "1.00",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/tentang-top-swoosh.png",
+          "alt": "",
+          "naturalWidth": 156,
+          "naturalHeight": 70,
+          "clientWidth": 156,
+          "clientHeight": 70,
+          "ratio": "1.00",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/building-pure.jpg",
+          "alt": "Gedung Kampus SDJNusantara",
+          "naturalWidth": 396,
+          "naturalHeight": 183,
+          "clientWidth": 420,
+          "clientHeight": 183,
+          "ratio": "0.94",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/services-library-crop.jpg",
+          "alt": "Meja belajar, laptop dan buku",
+          "naturalWidth": 460,
+          "naturalHeight": 159,
+          "clientWidth": 460,
+          "clientHeight": 159,
+          "ratio": "1.00",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/cta-bg-clean.jpg",
+          "alt": "",
+          "naturalWidth": 1536,
+          "naturalHeight": 83,
+          "clientWidth": 1536,
+          "clientHeight": 83,
+          "ratio": "1.00",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/cta-cap-clean.png",
+          "alt": "Graduation cap",
+          "naturalWidth": 160,
+          "naturalHeight": 80,
+          "clientWidth": 115,
+          "clientHeight": 72,
+          "ratio": "1.39",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        }
+      ],
+      "overflow": {
+        "desktop": {
+          "docScrollWidth": 1521,
+          "docClientWidth": 1521,
+          "bodyScrollWidth": 1521,
+          "windowInnerWidth": 1536,
+          "hasOverflow": false
+        },
+        "tablet": {
+          "docScrollWidth": 753,
+          "docClientWidth": 753,
+          "bodyScrollWidth": 753,
+          "windowInnerWidth": 768,
+          "hasOverflow": false
+        },
+        "mobile": {
+          "docScrollWidth": 390,
+          "docClientWidth": 390,
+          "bodyScrollWidth": 390,
+          "windowInnerWidth": 390,
+          "hasOverflow": false
+        }
+      }
+    },
+    "tentang-kami": {
+      "viewports": {
+        "desktop": {
+          "file": "tentang-kami.png",
+          "width": 1536,
+          "height": 2400,
+          "overflow": false
+        },
+        "tablet": {
+          "file": "tab-tentang-kami.png",
+          "width": 768,
+          "height": 3844,
+          "overflow": false
+        },
+        "mobile": {
+          "file": "mob-tentang-kami.png",
+          "width": 390,
+          "height": 4621,
+          "overflow": false
+        }
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:5173/images/about-hero-building.jpg",
+          "alt": "Gedung Kampus SDJNusantara",
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "clientWidth": 1536,
+          "clientHeight": 345,
+          "ratio": "0.90",
+          "isSufficient": false,
+          "loading": "eager",
+          "fetchPriority": "high"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/tentang-line-art.png",
+          "alt": "",
+          "naturalWidth": 190,
+          "naturalHeight": 143,
+          "clientWidth": 320,
+          "clientHeight": 241,
+          "ratio": "0.59",
+          "isSufficient": false,
+          "loading": "auto",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/about-team-4.jpg",
+          "alt": "Tim dan Mahasiswa SDJNusantara",
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "clientWidth": 440,
+          "clientHeight": 290,
+          "ratio": "3.13",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/about-hands-network.jpg",
+          "alt": "",
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "clientWidth": 1536,
+          "clientHeight": 290,
+          "ratio": "0.90",
+          "isSufficient": false,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/about-laptop-desk.jpg",
+          "alt": "Ruang Kerja Konsultasi",
+          "naturalWidth": 1800,
+          "naturalHeight": 900,
+          "clientWidth": 584,
+          "clientHeight": 231,
+          "ratio": "3.08",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/cta-building-glass.jpg",
+          "alt": "",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 83,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        }
+      ],
+      "overflow": {
+        "desktop": {
+          "docScrollWidth": 1521,
+          "docClientWidth": 1521,
+          "bodyScrollWidth": 1521,
+          "windowInnerWidth": 1536,
+          "hasOverflow": false
+        },
+        "tablet": {
+          "docScrollWidth": 753,
+          "docClientWidth": 753,
+          "bodyScrollWidth": 753,
+          "windowInnerWidth": 768,
+          "hasOverflow": false
+        },
+        "mobile": {
+          "docScrollWidth": 390,
+          "docClientWidth": 390,
+          "bodyScrollWidth": 390,
+          "windowInnerWidth": 390,
+          "hasOverflow": false
+        }
+      }
+    },
+    "layanan": {
+      "viewports": {
+        "desktop": {
+          "file": "layanan.png",
+          "width": 1536,
+          "height": 2838,
+          "overflow": false
+        },
+        "tablet": {
+          "file": "tab-layanan.png",
+          "width": 768,
+          "height": 5726,
+          "overflow": false
+        },
+        "mobile": {
+          "file": "mob-layanan.png",
+          "width": 390,
+          "height": 6287,
+          "overflow": false
+        }
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:5173/images/services-hero-4.jpg",
+          "alt": "Layanan SDJNusantara",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 345,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "eager",
+          "fetchPriority": "high"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/services-building.jpg",
+          "alt": "Kampus Modern",
+          "naturalWidth": 1800,
+          "naturalHeight": 1012,
+          "clientWidth": 320,
+          "clientHeight": 180,
+          "ratio": "5.63",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/svc-01-woman-tablet.jpg",
+          "alt": "Talent Management",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 519,
+          "clientHeight": 260,
+          "ratio": "3.08",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/svc-02-graduation-cap.jpg",
+          "alt": "Scholarship Academy",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 574,
+          "clientHeight": 260,
+          "ratio": "2.79",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/svc-03-man-laptop.jpg",
+          "alt": "Skills Development",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 519,
+          "clientHeight": 260,
+          "ratio": "3.08",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/svc-04-handshake.jpg",
+          "alt": "Institutional Partnership",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 574,
+          "clientHeight": 260,
+          "ratio": "2.79",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/svc-05-video-call.jpg",
+          "alt": "Digital Education",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 519,
+          "clientHeight": 260,
+          "ratio": "3.08",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/cta-grad-cap-dark.jpg",
+          "alt": "",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 83,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        }
+      ],
+      "overflow": {
+        "desktop": {
+          "docScrollWidth": 1521,
+          "docClientWidth": 1521,
+          "bodyScrollWidth": 1521,
+          "windowInnerWidth": 1536,
+          "hasOverflow": false
+        },
+        "tablet": {
+          "docScrollWidth": 753,
+          "docClientWidth": 753,
+          "bodyScrollWidth": 753,
+          "windowInnerWidth": 768,
+          "hasOverflow": false
+        },
+        "mobile": {
+          "docScrollWidth": 390,
+          "docClientWidth": 390,
+          "bodyScrollWidth": 390,
+          "windowInnerWidth": 390,
+          "hasOverflow": false
+        }
+      }
+    },
+    "program": {
+      "viewports": {
+        "desktop": {
+          "file": "program.png",
+          "width": 1536,
+          "height": 2152,
+          "overflow": false
+        },
+        "tablet": {
+          "file": "tab-program.png",
+          "width": 768,
+          "height": 4575,
+          "overflow": false
+        },
+        "mobile": {
+          "file": "mob-program.png",
+          "width": 390,
+          "height": 5051,
+          "overflow": false
+        }
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:5173/images/program-hero-3.jpg",
+          "alt": "Program SDJNusantara",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 345,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "eager",
+          "fetchPriority": "high"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/program-featured-hijab.jpg",
+          "alt": "Program Persiapan Beasiswa",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 487,
+          "clientHeight": 320,
+          "ratio": "3.29",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/prog-card-1.jpg",
+          "alt": "Program Persiapan Beasiswa Dalam Negeri",
+          "naturalWidth": 1200,
+          "naturalHeight": 800,
+          "clientWidth": 201,
+          "clientHeight": 110,
+          "ratio": "5.97",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/prog-card-2.jpg",
+          "alt": "Program Persiapan Beasiswa Luar Negeri",
+          "naturalWidth": 1200,
+          "naturalHeight": 800,
+          "clientWidth": 201,
+          "clientHeight": 110,
+          "ratio": "5.97",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/prog-card-3.jpg",
+          "alt": "Program Pelatihan Keterampilan Digital",
+          "naturalWidth": 1200,
+          "naturalHeight": 800,
+          "clientWidth": 201,
+          "clientHeight": 110,
+          "ratio": "5.97",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/prog-card-4.jpg",
+          "alt": "Program Pengembangan Talenta",
+          "naturalWidth": 1200,
+          "naturalHeight": 800,
+          "clientWidth": 201,
+          "clientHeight": 110,
+          "ratio": "5.97",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/prog-card-5.jpg",
+          "alt": "Program Pelatihan Khusus",
+          "naturalWidth": 1200,
+          "naturalHeight": 800,
+          "clientWidth": 201,
+          "clientHeight": 110,
+          "ratio": "5.97",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/program-custom-laptop.jpg",
+          "alt": "Program Disesuaikan",
+          "naturalWidth": 1800,
+          "naturalHeight": 1012,
+          "clientWidth": 313,
+          "clientHeight": 190,
+          "ratio": "5.75",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/program-cta-cap.jpg",
+          "alt": "",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 83,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        }
+      ],
+      "overflow": {
+        "desktop": {
+          "docScrollWidth": 1521,
+          "docClientWidth": 1521,
+          "bodyScrollWidth": 1521,
+          "windowInnerWidth": 1536,
+          "hasOverflow": false
+        },
+        "tablet": {
+          "docScrollWidth": 753,
+          "docClientWidth": 753,
+          "bodyScrollWidth": 753,
+          "windowInnerWidth": 768,
+          "hasOverflow": false
+        },
+        "mobile": {
+          "docScrollWidth": 390,
+          "docClientWidth": 390,
+          "bodyScrollWidth": 390,
+          "windowInnerWidth": 390,
+          "hasOverflow": false
+        }
+      }
+    },
+    "beasiswa": {
+      "viewports": {
+        "desktop": {
+          "file": "beasiswa.png",
+          "width": 1536,
+          "height": 2254,
+          "overflow": false
+        },
+        "tablet": {
+          "file": "tab-beasiswa.png",
+          "width": 768,
+          "height": 3754,
+          "overflow": false
+        },
+        "mobile": {
+          "file": "mob-beasiswa.png",
+          "width": 390,
+          "height": 5282,
+          "overflow": false
+        }
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:5173/images/scholarship-hero-woman.jpg",
+          "alt": "Beasiswa SDJNusantara",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 350,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "eager",
+          "fetchPriority": "high"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/sch-card-1.jpg",
+          "alt": "Beasiswa Pendidikan Indonesia (BPI)",
+          "naturalWidth": 1600,
+          "naturalHeight": 900,
+          "clientWidth": 254,
+          "clientHeight": 115,
+          "ratio": "6.30",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/sch-card-2.jpg",
+          "alt": "Chevening Scholarship",
+          "naturalWidth": 1600,
+          "naturalHeight": 900,
+          "clientWidth": 254,
+          "clientHeight": 115,
+          "ratio": "6.30",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/sch-card-3.jpg",
+          "alt": "MEXT Scholarship",
+          "naturalWidth": 1600,
+          "naturalHeight": 900,
+          "clientWidth": 254,
+          "clientHeight": 115,
+          "ratio": "6.30",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/sch-card-4.jpg",
+          "alt": "Beasiswa LPDP",
+          "naturalWidth": 1600,
+          "naturalHeight": 900,
+          "clientWidth": 254,
+          "clientHeight": 115,
+          "ratio": "6.30",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/sch-guide-writing.jpg",
+          "alt": "Panduan Persiapan Beasiswa",
+          "naturalWidth": 1600,
+          "naturalHeight": 1200,
+          "clientWidth": 492,
+          "clientHeight": 250,
+          "ratio": "3.25",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/sch-cta-cap.jpg",
+          "alt": "",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 83,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        }
+      ],
+      "overflow": {
+        "desktop": {
+          "docScrollWidth": 1521,
+          "docClientWidth": 1521,
+          "bodyScrollWidth": 1521,
+          "windowInnerWidth": 1536,
+          "hasOverflow": false
+        },
+        "tablet": {
+          "docScrollWidth": 753,
+          "docClientWidth": 753,
+          "bodyScrollWidth": 753,
+          "windowInnerWidth": 768,
+          "hasOverflow": false
+        },
+        "mobile": {
+          "docScrollWidth": 390,
+          "docClientWidth": 390,
+          "bodyScrollWidth": 390,
+          "windowInnerWidth": 390,
+          "hasOverflow": false
+        }
+      }
+    },
+    "kemitraan": {
+      "viewports": {
+        "desktop": {
+          "file": "kemitraan.png",
+          "width": 1536,
+          "height": 2434,
+          "overflow": false
+        },
+        "tablet": {
+          "file": "tab-kemitraan.png",
+          "width": 768,
+          "height": 4552,
+          "overflow": false
+        },
+        "mobile": {
+          "file": "mob-kemitraan.png",
+          "width": 390,
+          "height": 5238,
+          "overflow": false
+        }
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:5173/images/partner-hero-5.jpg",
+          "alt": "Kemitraan SDJNusantara",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 350,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "eager",
+          "fetchPriority": "high"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/partner-handshake-wide.jpg",
+          "alt": "Bentuk Kerja Sama SDJNusantara",
+          "naturalWidth": 1800,
+          "naturalHeight": 1012,
+          "clientWidth": 584,
+          "clientHeight": 280,
+          "ratio": "3.08",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/partner-fields-building.jpg",
+          "alt": "SDJNusantara Mitra Gedung",
+          "naturalWidth": 1800,
+          "naturalHeight": 1012,
+          "clientWidth": 636,
+          "clientHeight": 270,
+          "ratio": "2.83",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/partner-flow-building.jpg",
+          "alt": "",
+          "naturalWidth": 1800,
+          "naturalHeight": 1012,
+          "clientWidth": 768,
+          "clientHeight": 372,
+          "ratio": "2.34",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:5173/images/partner-cta-handshake.jpg",
+          "alt": "",
+          "naturalWidth": 2400,
+          "naturalHeight": 1350,
+          "clientWidth": 1536,
+          "clientHeight": 83,
+          "ratio": "1.56",
+          "isSufficient": true,
+          "loading": "lazy",
+          "fetchPriority": "auto"
+        }
+      ],
+      "overflow": {
+        "desktop": {
+          "docScrollWidth": 1521,
+          "docClientWidth": 1521,
+          "bodyScrollWidth": 1521,
+          "windowInnerWidth": 1536,
+          "hasOverflow": false
+        },
+        "tablet": {
+          "docScrollWidth": 753,
+          "docClientWidth": 753,
+          "bodyScrollWidth": 753,
+          "windowInnerWidth": 768,
+          "hasOverflow": false
+        },
+        "mobile": {
+          "docScrollWidth": 390,
+          "docClientWidth": 390,
+          "bodyScrollWidth": 390,
+          "windowInnerWidth": 390,
+          "hasOverflow": false
+        }
+      }
+    }
+  },
+  "imageAudit": [
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/hero-full-clean.jpg",
+      "alt": "SDJNusantara Mahasiswa di Kampus",
+      "naturalWidth": 1536,
+      "naturalHeight": 297,
+      "clientWidth": 1536,
+      "clientHeight": 297,
+      "ratio": "1.00",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/tentang-line-art.png",
+      "alt": "",
+      "naturalWidth": 190,
+      "naturalHeight": 143,
+      "clientWidth": 190,
+      "clientHeight": 143,
+      "ratio": "1.00",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/tentang-top-swoosh.png",
+      "alt": "",
+      "naturalWidth": 156,
+      "naturalHeight": 70,
+      "clientWidth": 156,
+      "clientHeight": 70,
+      "ratio": "1.00",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/building-pure.jpg",
+      "alt": "Gedung Kampus SDJNusantara",
+      "naturalWidth": 396,
+      "naturalHeight": 183,
+      "clientWidth": 420,
+      "clientHeight": 183,
+      "ratio": "0.94",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/services-library-crop.jpg",
+      "alt": "Meja belajar, laptop dan buku",
+      "naturalWidth": 460,
+      "naturalHeight": 159,
+      "clientWidth": 460,
+      "clientHeight": 159,
+      "ratio": "1.00",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/cta-bg-clean.jpg",
+      "alt": "",
+      "naturalWidth": 1536,
+      "naturalHeight": 83,
+      "clientWidth": 1536,
+      "clientHeight": 83,
+      "ratio": "1.00",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beranda",
+      "src": "http://127.0.0.1:5173/images/cta-cap-clean.png",
+      "alt": "Graduation cap",
+      "naturalWidth": 160,
+      "naturalHeight": 80,
+      "clientWidth": 115,
+      "clientHeight": 72,
+      "ratio": "1.39",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "tentang-kami",
+      "src": "http://127.0.0.1:5173/images/about-hero-building.jpg",
+      "alt": "Gedung Kampus SDJNusantara",
+      "naturalWidth": 1376,
+      "naturalHeight": 768,
+      "clientWidth": 1536,
+      "clientHeight": 345,
+      "ratio": "0.90",
+      "isSufficient": false,
+      "loading": "eager",
+      "fetchPriority": "high"
+    },
+    {
+      "page": "tentang-kami",
+      "src": "http://127.0.0.1:5173/images/tentang-line-art.png",
+      "alt": "",
+      "naturalWidth": 190,
+      "naturalHeight": 143,
+      "clientWidth": 320,
+      "clientHeight": 241,
+      "ratio": "0.59",
+      "isSufficient": false,
+      "loading": "auto",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "tentang-kami",
+      "src": "http://127.0.0.1:5173/images/about-team-4.jpg",
+      "alt": "Tim dan Mahasiswa SDJNusantara",
+      "naturalWidth": 1376,
+      "naturalHeight": 768,
+      "clientWidth": 440,
+      "clientHeight": 290,
+      "ratio": "3.13",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "tentang-kami",
+      "src": "http://127.0.0.1:5173/images/about-hands-network.jpg",
+      "alt": "",
+      "naturalWidth": 1376,
+      "naturalHeight": 768,
+      "clientWidth": 1536,
+      "clientHeight": 290,
+      "ratio": "0.90",
+      "isSufficient": false,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "tentang-kami",
+      "src": "http://127.0.0.1:5173/images/about-laptop-desk.jpg",
+      "alt": "Ruang Kerja Konsultasi",
+      "naturalWidth": 1800,
+      "naturalHeight": 900,
+      "clientWidth": 584,
+      "clientHeight": 231,
+      "ratio": "3.08",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "tentang-kami",
+      "src": "http://127.0.0.1:5173/images/cta-building-glass.jpg",
+      "alt": "",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 83,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/services-hero-4.jpg",
+      "alt": "Layanan SDJNusantara",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 345,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "eager",
+      "fetchPriority": "high"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/services-building.jpg",
+      "alt": "Kampus Modern",
+      "naturalWidth": 1800,
+      "naturalHeight": 1012,
+      "clientWidth": 320,
+      "clientHeight": 180,
+      "ratio": "5.63",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/svc-01-woman-tablet.jpg",
+      "alt": "Talent Management",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 519,
+      "clientHeight": 260,
+      "ratio": "3.08",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/svc-02-graduation-cap.jpg",
+      "alt": "Scholarship Academy",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 574,
+      "clientHeight": 260,
+      "ratio": "2.79",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/svc-03-man-laptop.jpg",
+      "alt": "Skills Development",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 519,
+      "clientHeight": 260,
+      "ratio": "3.08",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/svc-04-handshake.jpg",
+      "alt": "Institutional Partnership",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 574,
+      "clientHeight": 260,
+      "ratio": "2.79",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/svc-05-video-call.jpg",
+      "alt": "Digital Education",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 519,
+      "clientHeight": 260,
+      "ratio": "3.08",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "layanan",
+      "src": "http://127.0.0.1:5173/images/cta-grad-cap-dark.jpg",
+      "alt": "",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 83,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/program-hero-3.jpg",
+      "alt": "Program SDJNusantara",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 345,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "eager",
+      "fetchPriority": "high"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/program-featured-hijab.jpg",
+      "alt": "Program Persiapan Beasiswa",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 487,
+      "clientHeight": 320,
+      "ratio": "3.29",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/prog-card-1.jpg",
+      "alt": "Program Persiapan Beasiswa Dalam Negeri",
+      "naturalWidth": 1200,
+      "naturalHeight": 800,
+      "clientWidth": 201,
+      "clientHeight": 110,
+      "ratio": "5.97",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/prog-card-2.jpg",
+      "alt": "Program Persiapan Beasiswa Luar Negeri",
+      "naturalWidth": 1200,
+      "naturalHeight": 800,
+      "clientWidth": 201,
+      "clientHeight": 110,
+      "ratio": "5.97",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/prog-card-3.jpg",
+      "alt": "Program Pelatihan Keterampilan Digital",
+      "naturalWidth": 1200,
+      "naturalHeight": 800,
+      "clientWidth": 201,
+      "clientHeight": 110,
+      "ratio": "5.97",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/prog-card-4.jpg",
+      "alt": "Program Pengembangan Talenta",
+      "naturalWidth": 1200,
+      "naturalHeight": 800,
+      "clientWidth": 201,
+      "clientHeight": 110,
+      "ratio": "5.97",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/prog-card-5.jpg",
+      "alt": "Program Pelatihan Khusus",
+      "naturalWidth": 1200,
+      "naturalHeight": 800,
+      "clientWidth": 201,
+      "clientHeight": 110,
+      "ratio": "5.97",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/program-custom-laptop.jpg",
+      "alt": "Program Disesuaikan",
+      "naturalWidth": 1800,
+      "naturalHeight": 1012,
+      "clientWidth": 313,
+      "clientHeight": 190,
+      "ratio": "5.75",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "program",
+      "src": "http://127.0.0.1:5173/images/program-cta-cap.jpg",
+      "alt": "",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 83,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/scholarship-hero-woman.jpg",
+      "alt": "Beasiswa SDJNusantara",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 350,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "eager",
+      "fetchPriority": "high"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/sch-card-1.jpg",
+      "alt": "Beasiswa Pendidikan Indonesia (BPI)",
+      "naturalWidth": 1600,
+      "naturalHeight": 900,
+      "clientWidth": 254,
+      "clientHeight": 115,
+      "ratio": "6.30",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/sch-card-2.jpg",
+      "alt": "Chevening Scholarship",
+      "naturalWidth": 1600,
+      "naturalHeight": 900,
+      "clientWidth": 254,
+      "clientHeight": 115,
+      "ratio": "6.30",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/sch-card-3.jpg",
+      "alt": "MEXT Scholarship",
+      "naturalWidth": 1600,
+      "naturalHeight": 900,
+      "clientWidth": 254,
+      "clientHeight": 115,
+      "ratio": "6.30",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/sch-card-4.jpg",
+      "alt": "Beasiswa LPDP",
+      "naturalWidth": 1600,
+      "naturalHeight": 900,
+      "clientWidth": 254,
+      "clientHeight": 115,
+      "ratio": "6.30",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/sch-guide-writing.jpg",
+      "alt": "Panduan Persiapan Beasiswa",
+      "naturalWidth": 1600,
+      "naturalHeight": 1200,
+      "clientWidth": 492,
+      "clientHeight": 250,
+      "ratio": "3.25",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "beasiswa",
+      "src": "http://127.0.0.1:5173/images/sch-cta-cap.jpg",
+      "alt": "",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 83,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "kemitraan",
+      "src": "http://127.0.0.1:5173/images/partner-hero-5.jpg",
+      "alt": "Kemitraan SDJNusantara",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 350,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "eager",
+      "fetchPriority": "high"
+    },
+    {
+      "page": "kemitraan",
+      "src": "http://127.0.0.1:5173/images/partner-handshake-wide.jpg",
+      "alt": "Bentuk Kerja Sama SDJNusantara",
+      "naturalWidth": 1800,
+      "naturalHeight": 1012,
+      "clientWidth": 584,
+      "clientHeight": 280,
+      "ratio": "3.08",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "kemitraan",
+      "src": "http://127.0.0.1:5173/images/partner-fields-building.jpg",
+      "alt": "SDJNusantara Mitra Gedung",
+      "naturalWidth": 1800,
+      "naturalHeight": 1012,
+      "clientWidth": 636,
+      "clientHeight": 270,
+      "ratio": "2.83",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "kemitraan",
+      "src": "http://127.0.0.1:5173/images/partner-flow-building.jpg",
+      "alt": "",
+      "naturalWidth": 1800,
+      "naturalHeight": 1012,
+      "clientWidth": 768,
+      "clientHeight": 372,
+      "ratio": "2.34",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    },
+    {
+      "page": "kemitraan",
+      "src": "http://127.0.0.1:5173/images/partner-cta-handshake.jpg",
+      "alt": "",
+      "naturalWidth": 2400,
+      "naturalHeight": 1350,
+      "clientWidth": 1536,
+      "clientHeight": 83,
+      "ratio": "1.56",
+      "isSufficient": true,
+      "loading": "lazy",
+      "fetchPriority": "auto"
+    }
+  ],
+  "functionalChecks": {
+    "navbar_beranda": [
+      {
+        "text": "Beranda",
+        "href": "/",
+        "class": "nav-link compact-link active svelte-1n8e4t1"
+      }
+    ],
+    "navbar_tentang-kami": [
+      {
+        "text": "Tentang Kami",
+        "href": "/tentang-kami",
+        "class": "nav-link compact-link active svelte-1n8e4t1"
+      }
+    ],
+    "navbar_layanan": [
+      {
+        "text": "Layanan",
+        "href": "/layanan",
+        "class": "nav-link compact-link active svelte-1n8e4t1"
+      }
+    ],
+    "navbar_program": [
+      {
+        "text": "Program",
+        "href": "/program",
+        "class": "nav-link compact-link active svelte-1n8e4t1"
+      }
+    ],
+    "program_interactive": {
+      "tabsFound": [
+        "Manajemen Talenta",
+        "Semua Program",
+        "Manajemen Talenta"
+      ],
+      "initialCards": 0,
+      "tabWorked": true,
+      "searchFound": true,
+      "searchWorked": true,
+      "filteredCount": 0
+    },
+    "navbar_beasiswa": [
+      {
+        "text": "Beasiswa",
+        "href": "/beasiswa",
+        "class": "nav-link compact-link active svelte-1n8e4t1"
+      }
+    ],
+    "beasiswa_interactive": {
+      "selectsCount": 5,
+      "hasSearchInput": true,
+      "initialCards": 0,
+      "filterResults": {
+        "select0_options": [
+          "Semua Kategori",
+          "Pemerintah",
+          "Universitas",
+          "Lembaga Internasional",
+          "Swasta",
+          "Daerah"
+        ]
+      }
+    },
+    "navbar_kemitraan": [
+      {
+        "text": "Kemitraan",
+        "href": "/kemitraan",
+        "class": "nav-link compact-link active svelte-1n8e4t1"
+      }
+    ]
+  }
+}
