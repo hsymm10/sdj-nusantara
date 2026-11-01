@@ -9,7 +9,7 @@
 		secondaryHref?: string;
 		secondaryIcon?: 'whatsapp' | 'none';
 		secondaryTarget?: string;
-		variant?: 'default' | 'tentang-kami';
+		variant?: 'default' | 'tentang-kami' | 'layanan';
 	}
 
 	let {
@@ -261,6 +261,85 @@
 			#0B2948 0%,
 			rgba(11, 41, 72, 0.9) 45%,
 			rgba(11, 41, 72, 0.72) 100%
+		);
+	}
+
+	/* Variant Layanan (193px height, wide container, toga silhouette on left) */
+	.cta-banner.variant-layanan {
+		height: 193px;
+	}
+
+	.cta-banner.variant-layanan .cta-container {
+		max-width: 1400px;
+		padding: 0 1rem;
+	}
+
+	@media (min-width: 1920px) {
+		.cta-banner.variant-layanan .cta-container {
+			max-width: 1500px;
+		}
+	}
+
+	.cta-banner.variant-layanan .cta-content {
+		align-items: center;
+	}
+
+	.cta-banner.variant-layanan .cta-text {
+		max-width: 620px;
+		margin-left: 240px; /* offset to give room for student silhouette on left */
+	}
+
+	@media (max-width: 1200px) {
+		.cta-banner.variant-layanan .cta-text {
+			margin-left: 0;
+		}
+	}
+
+	.cta-banner.variant-layanan .cta-title {
+		font-size: clamp(20px, 1.9vw, 28px);
+		line-height: 1.25;
+		font-weight: 800;
+		color: #FFFFFF;
+		margin-bottom: 0.5rem;
+	}
+
+	.cta-banner.variant-layanan .cta-desc {
+		font-size: 13px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.88);
+		text-wrap: pretty;
+	}
+
+	.cta-banner.variant-layanan .btn-gold {
+		padding: 10px 24px;
+		font-size: 13px;
+		font-weight: 700;
+		background: #F5B331;
+		color: #082442;
+		border-radius: 8px;
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.3);
+	}
+
+	.cta-banner.variant-layanan .btn-outline {
+		padding: 10px 22px;
+		font-size: 13px;
+		font-weight: 600;
+		border-color: rgba(255, 255, 255, 0.6);
+		border-radius: 8px;
+	}
+
+	.cta-banner.variant-layanan .cta-bg-img {
+		opacity: 0.25;
+		object-position: left center;
+	}
+
+	.cta-banner.variant-layanan .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(8, 36, 66, 0.72) 0%,
+			rgba(8, 36, 66, 0.88) 35%,
+			rgba(8, 36, 66, 0.96) 65%,
+			#082442 100%
 		);
 	}
 </style>

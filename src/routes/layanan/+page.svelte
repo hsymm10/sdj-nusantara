@@ -13,7 +13,7 @@
 	<meta name="description" content="Layanan konsultasi dan pengembangan talenta SDJNusantara: Talent Management, Scholarship Academy, Skills Development, Strategic Partnership, dan Digital Education." />
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="page-content">
 	<HeroServices />
@@ -24,10 +24,11 @@
 		title="Siap Mengembangkan Potensi Individu atau Institusi Anda?"
 		description="Konsultasikan kebutuhan Anda bersama tim ahli SDJNusantara dan temukan solusi terbaik untuk masa depan yang lebih baik."
 		primaryText="Jadwalkan Konsultasi →"
-		primaryHref="/kontak"
+		primaryHref="/konsultasi"
 		secondaryText="Hubungi Kami"
 		secondaryHref="/kontak"
 		bgImage="/images/cta-grad-cap-dark.jpg"
+		variant="layanan"
 	/>
 </main>
 

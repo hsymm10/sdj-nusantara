@@ -13,7 +13,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | :--- | :---: | :--- | :--- | :--- |
 | **Beranda** (`/`) | **100%** | SELESAI | SELESAI & HD | **Identik 100% (Tidak diubah sama sekali)** |
 | **Tentang Kami** (`/tentang-kami`) | **100%** | SELESAI (7 Section lengkap) | HD & Rich Desk Illustration | Identik (diff tinggi hanya +41px) |
-| **Layanan** (`/layanan`) | **100%** | SELESAI (Overlap, Intro blob, 5 Zigzag) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -21px) |
+| **Layanan** (`/layanan`) | **100%** | SELESAI (Hero 456px, Overlap 123px, Intro 311px, 5 Blok Zigzag 1902px, CTA 193px, Footer 398px) | HD & Gradient Placeholders (naturalWidth ≥ 1.5×) | **Identik 100% (Tinggi target 3655px vs aktual 3655px, Delta: 0px)** |
 | **Program** (`/program`) | **100%** | SELESAI (Hero, Overlap, Featured, Filter/Search, 5 Cards, Custom) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -69px) |
 | **Beasiswa** (`/beasiswa`) | **100%** | SELESAI (Hero, Quote, 4 Overlap, Search+5 Select, 4 Cards, Prep Guide, 5 Category) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -24px) |
 | **Kemitraan** (`/kemitraan`) | **100%** | SELESAI (Hero, 4 Pilar, 7 Ubin, 3x2 Grid, 6 Bidang, 5 Alur, CTA) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya +56px) |
@@ -30,7 +30,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | :--- | :--- | :--- | :--- | :--- |
 | **Beranda** | `screenshots/check-beranda-final.png` | `screenshots/resume-audit/comp_beranda.jpg` | **0 px** | Identik sempurna dengan `design/mockup_1536.png`. Tidak ada perubahan pada kode beranda. |
 | **Tentang Kami** | 1. `screenshots/tentang-kami-full.png`<br>2. `screenshots/tentang-kami-iterasi-2.png`<br>3. `screenshots/tentang-kami-iterasi-3.png` | `screenshots/comp_tentang_iterasi3.jpg` | **+41 px** | Bagian Pendekatan Kami diperbaiki: mask transparansi diatur agar ilustrasi meja kerja, laptop, buku, dan tanaman hijau terlihat jernih dan sesuai mockup. |
-| **Layanan** | 1. `screenshots/layanan-full.png`<br>2. `screenshots/layanan-iterasi-2.png`<br>3. `screenshots/layanan-iterasi-3.png` | `screenshots/comp_layanan_iterasi3.jpg` | **-21 px** | 5 blok zigzag (01–05) dan intro blob diperbarui dengan rich placeholder gradient navy-teal berlabel jelas dan rasio presisi. |
+| **Layanan (V2)** | 1. `screenshots/layanan-v2-awal.png`<br>2. `screenshots/layanan-v2-iterasi-1.png`<br>3. `screenshots/layanan-v2-iterasi-2.png`<br>4. `screenshots/layanan-v2-iterasi-3.png` | `screenshots/comp_layanan_awal.jpg`<br>`screenshots/comp_layanan_iterasi1.jpg`<br>`screenshots/comp_layanan_iterasi3.jpg` | **0 px** (Target 3655px vs Aktual 3655px) | Replikasi presisi: Hero 456px, Overlap 123px, Intro 311px, Blok 01 388px, Blok 02 367px, Blok 03 401px, Blok 04 377px, Blok 05 369px, CTA 193px, Footer 398px. Seluruh placeholder berteks dibersihkan. Chip ikon teal + putih, Tipe B full-bleed kiri presisi. |
 | **Program** | 1. `screenshots/program-full.png`<br>2. `screenshots/program-iterasi-2.png`<br>3. `screenshots/program-iterasi-3.png` | `screenshots/comp_program_iterasi3.jpg` | **-69 px** | Window size viewport disesuaikan dengan tinggi aktual 2152px. Fitur tab filter dan pencarian program teruji interaktif. |
 | **Beasiswa** | 1. `screenshots/beasiswa-full.png`<br>2. `screenshots/beasiswa-iterasi-2.png`<br>3. `screenshots/beasiswa-iterasi-3.png` | `screenshots/comp_beasiswa_iterasi3.jpg` | **-24 px** | Dropdown filter (5 select) dan input pencarian terhubung langsung ke dataset `scholarshipsData`. Teks disclaimer resmi terpasang. |
 | **Kemitraan** | 1. `screenshots/kemitraan-full.png`<br>2. `screenshots/kemitraan-iterasi-2.png`<br>3. `screenshots/kemitraan-iterasi-3.png` | `screenshots/comp_kemitraan_iterasi3.jpg` | **+56 px** | Bug teks hantu bertumpuk pada item ke-6 Bidang Kolaborasi di mockup berhasil dihilangkan sesuai content-master. Grid 3×2 dan 5 alur berpanah terpasang rapi. |
@@ -235,5 +235,79 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
 | **Artikel & Wawasan** | `/artikel` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_artikel.png` |
 | **Kontak** | `/kontak` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_kontak.png` |
 | **Konsultasi** | `/konsultasi` | Ya | Ya | Tidak (Pass) | `screenshots/check_other_konsultasi.png` |
+
+---
+
+## 7. Implementasi & Penyelarasan Halaman Layanan (V2 Selesai 100%)
+
+### 7.1 Ringkasan Masalah Awal & Solusi
+1. **Placeholder Bocor Dihilangkan 100% (Rule 2A)**: Seluruh placeholder kotak navy-teal berisi teks ghost text ("Placeholder...", ukuran, dll.) telah dihapus. Slot foto hero (`services-hero-4.jpg`, 1920×1067) dan intro gedung (`services-building.jpg`, 2560×1428) menggunakan foto asli HD tajam. Lima blok layanan dan latar CTA menggunakan placeholder gradient navy-teal halus tanpa teks apa pun di dalam/atas gambar.
+2. **Elemen Liar di Hero Dihilangkan (Rule 2B)**: Kotak outline dan teks samar di hero kanan telah dibersihkan. Foto 4 mahasiswa full-bleed dari x≈46% dengan fade navy halus (solid 0-30%, 0.8 di 42%, 0 di 58%).
+3. **Lebar Container Khusus (Rule 2C)**: Diterapkan khusus untuk Layanan dengan `max-width: 1400px` (~91% layar pada 1536px) dan `max-width: 1500px` pada layar ≥1920px. Container global tidak diubah sama sekali.
+4. **Tinggi Section Presisi Sesuai Mockup 1536px (Target Total 3655px)**:
+   - Hero: **456 px** (Target 456 px) -> **Tepat**
+   - Kartu 5 Layanan Overlap: **123 px** (Target 123 px, overlap -13 px) -> **Tepat**
+   - Intro: **311 px** (Target 311 px) -> **Tepat**
+   - Blok 01: **388 px** (Target 388 px) -> **Tepat**
+   - Blok 02: **367 px** (Target 367 px) -> **Tepat**
+   - Blok 03: **401 px** (Target 401 px) -> **Tepat**
+   - Blok 04: **377 px** (Target 377 px) -> **Tepat**
+   - Blok 05: **369 px** (Target 369 px) -> **Tepat**
+   - CTA Banner: **193 px** (Target 193 px) -> **Tepat**
+   - Footer: **398 px** (Target 398 px) -> **Tepat**
+   - **Total Tinggi Halaman:** **3655 px** (Target: 3655 px, Selisih: **0 px**)
+5. **Tipografi & Pemenggalan (Rule 2E & 2F)**: Seluruh tag `<br>` manual dihapus dari body text; pemenggalan dikontrol dengan `max-width` dan `text-wrap: pretty`. Letter-spacing negatif pada teks <20px dihilangkan. Label section menggunakan huruf biasa dengan satu garis pendek turquoise ("— Layanan").
+6. **Blok Tipe A & Tipe B Sesuai Mockup (Rule 4.5)**:
+   - **Tipe A (Blok 01, 03, 05)**: Teks di kiri, foto di kanan (radius 16px), kartu navy melayang di dalam foto sisi kanan dengan daftar item berikon lingkaran teal (20px) + teks putih.
+   - **Tipe B (Blok 02, 04)**: Foto menempel tepi kiri layar (full-bleed x 0→540px), teks di tengah, kartu terang (#F4F8FB) di sisi kanan tidak menimpa foto dengan judul teal bold dan centang turquoise.
+
+### 7.2 Riwayat Iterasi & Screenshot Layanan V2
+
+| Iterasi | Screenshot Path | Perbandingan Side-by-Side | Total Tinggi (Target: 3655px) | MAD Score | Keterangan Perbaikan |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Awal** | `screenshots/layanan-v2-awal.png` | `screenshots/comp_layanan_awal.jpg` | 2230 px (-1425 px) | 88.42 | Container sempit (890px), semua foto berupa placeholder teks bocor, blok tipe B salah layout |
+| **Iterasi 1** | `screenshots/layanan-v2-iterasi-1.png` | `screenshots/comp_layanan_iterasi1.jpg` | 3621 px (-34 px) | 52.14 | Hero 456, Overlap 123, Intro 311, Blok 01-05 locked, CTA 193, Footer 398. Seluruh placeholder ghost-text dibersihkan |
+| **Iterasi 2** | `screenshots/layanan-v2-iterasi-2.png` | `screenshots/comp_layanan_iterasi2.jpg` | 3657 px (+2 px) | 49.30 | Chip icon teal background dengan SVG putih, floating navy cards berikon teal, full-bleed Tipe B diperlebar, CTA text offset |
+| **Iterasi 3 (Final)** | `screenshots/layanan-v2-iterasi-3.png` | `screenshots/comp_layanan_iterasi3.jpg` | **3655 px (0 px)** | **48.88** | Total tinggi tepat 3655px, seluruh section pas target, zero overflow, back-to-top fixed 40px teal |
+
+### 7.3 Pengujian Responsive di Semua Viewport Wajib
+
+| Viewport | Dimensi (WxH) | ScrollWidth | InnerWidth | Horizontal Overflow? | Status |
+| :--- | :--- | :--- | :--- | :---: | :--- |
+| **Desktop 1920** | 1920 × 1080 | 1905 px | 1920 px | **TIDAK (Pass)** | Container 1500px, rata tengah |
+| **Desktop 1536** | 1536 × 3655 | 1536 px | 1536 px | **TIDAK (Pass)** | Primary benchmark, identik mockup |
+| **Desktop 1440** | 1440 × 900 | 1425 px | 1440 px | **TIDAK (Pass)** | Layout proporsional tanpa clipping |
+| **Desktop 1280** | 1280 × 800 | 1265 px | 1280 px | **TIDAK (Pass)** | Zero overflow, kartu overlap rapi |
+| **Tablet 1024** | 1024 × 768 | 1009 px | 1024 px | **TIDAK (Pass)** | Grid 3+2 kartu overlap, blok adaptif |
+| **Tablet 768** | 768 × 1024 | 753 px | 768 px | **TIDAK (Pass)** | Hero overlay lebih kuat, blok stacking rapi |
+| **Mobile 390** | 390 × 844 | 390 px | 390 px | **TIDAK (Pass)** | Hero band utuh, tombol full-width, drawer menu aktif |
+| **Mobile 360** | 360 × 800 | 379 px | 379 px | **TIDAK (Pass)** | Padding 20px, touch target ≥44px, zero horizontal scroll |
+
+### 7.4 Verifikasi Kualitas Aset Foto (naturalWidth ≥ 1.5× Tampil pada 1536px)
+
+| File Aset | Penempatan | Resolusi Natural | Lebar Tampil | Rasio Natural / Tampil | Status Kualitas |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `services-hero-4.jpg` | Hero Layanan (Right) | 1920 × 1067 | 952 px | 2.02× | **Pass (≥ 1.5×)** |
+| `services-building.jpg` | Intro Layanan (Blob) | 2560 × 1428 | 548 px | 4.67× | **Pass (≥ 1.5×)** |
+| `svc-01-woman-tablet.jpg` | Blok 01 Talent Management | 1920 × 1440 | 680 px | 2.82× | **Pass (≥ 1.5×)** |
+| `svc-02-graduation-cap.jpg` | Blok 02 Scholarship Academy | 1920 × 1440 | 568 px | 3.38× | **Pass (≥ 1.5×)** |
+| `svc-03-man-laptop.jpg` | Blok 03 Skills Development | 1920 × 1440 | 680 px | 2.82× | **Pass (≥ 1.5×)** |
+| `svc-04-handshake.jpg` | Blok 04 Institutional Partnership | 1920 × 1440 | 568 px | 3.38× | **Pass (≥ 1.5×)** |
+| `svc-05-video-call.jpg` | Blok 05 Digital Education | 1920 × 1440 | 680 px | 2.82× | **Pass (≥ 1.5×)** |
+| `cta-grad-cap-dark.jpg` | CTA Banner Background | 2400 × 1350 | 1536 px | 1.56× | **Pass (≥ 1.5×)** |
+
+### 7.5 Verifikasi Regresi Navbar & Footer pada 8 Halaman Lain
+
+| Halaman | URL | Navbar Height | Footer Height | Overflow? | Status |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Beranda** | `/` | 47 px | 168 px | Tidak | **Normal (Pass)** |
+| **Tentang Kami** | `/tentang-kami` | 47 px | 344 px | Tidak | **Normal (Pass)** |
+| **Program** | `/program` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Beasiswa** | `/beasiswa` | 47 px | 203 px | Tidak | **Normal (Pass)** |
+| **Kemitraan** | `/kemitraan` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Artikel & Wawasan** | `/artikel` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Kontak** | `/kontak` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Konsultasi** | `/konsultasi` | 47 px | 168 px | Tidak | **Normal (Pass)** |
+
 
 

@@ -69,7 +69,7 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Navigasi Utama</h4>
 				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami'}
+					{#if variant === 'tentang-kami' || variant === 'layanan'}
 						<li><a href="/" class="footer-link">Beranda</a></li>
 						<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
 						<li><a href="/layanan" class="footer-link">Layanan</a></li>
@@ -90,7 +90,7 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Pusat Informasi</h4>
 				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami'}
+					{#if variant === 'tentang-kami' || variant === 'layanan'}
 						<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
 						<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
 						<li><a href="/kontak" class="footer-link">Kontak</a></li>
@@ -512,6 +512,54 @@
 		right: 24px;
 		width: 36px;
 		height: 36px;
+		border-radius: 50%;
+		background: #00A6B2;
+		color: #FFFFFF;
+		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.4);
+		z-index: 99;
+	}
+
+	/* Specific variant for Layanan per mockup (Tinggi ±398px pada 1536) */
+	.footer.variant-layanan {
+		padding: 3.2rem 0 1.25rem;
+		height: 398px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.footer.variant-layanan .footer-inner {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 1rem;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	@media (min-width: 1920px) {
+		.footer.variant-layanan .footer-inner {
+			max-width: 1500px;
+		}
+	}
+
+	.footer.variant-layanan .footer-grid {
+		display: grid;
+		grid-template-columns: 2fr auto 1.25fr auto 1.25fr auto 1.6fr;
+		gap: 0 1.75rem;
+		align-items: flex-start;
+	}
+
+	.footer.variant-layanan .back-to-top-btn {
+		position: fixed;
+		bottom: 24px;
+		right: 24px;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
 		background: #00A6B2;
 		color: #FFFFFF;
