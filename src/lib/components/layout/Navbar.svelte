@@ -14,6 +14,9 @@
 	}
 
 	function isActive(href: string): boolean {
+		if (page.url.pathname === '/konsultasi') {
+			return false; // di halaman Konsultasi tidak ada item menu yang aktif per aturan 1.4
+		}
 		if (href === '/') {
 			return page.url.pathname === '/';
 		}
@@ -68,7 +71,7 @@
 		</ul>
 
 		<!-- CTA Button (x 1238→1325) -->
-		<a href="/kontak" class="btn-konsultasi {compact ? 'compact-btn' : ''}">
+		<a href="/konsultasi" class="btn-konsultasi {compact ? 'compact-btn' : ''} {page.url.pathname === '/konsultasi' ? 'btn-active' : ''}">
 			<svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 			</svg>
@@ -102,7 +105,7 @@
 					{item.label}
 				</a>
 			{/each}
-			<a href="/kontak" class="mobile-cta" onclick={() => mobileOpen = false}>
+			<a href="/konsultasi" class="mobile-cta" onclick={() => mobileOpen = false}>
 				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 				</svg>

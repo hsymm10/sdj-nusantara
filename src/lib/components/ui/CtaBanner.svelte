@@ -7,6 +7,8 @@
 		primaryHref: string;
 		secondaryText?: string;
 		secondaryHref?: string;
+		secondaryIcon?: 'whatsapp' | 'none';
+		secondaryTarget?: string;
 	}
 
 	let {
@@ -16,7 +18,9 @@
 		primaryText,
 		primaryHref,
 		secondaryText,
-		secondaryHref
+		secondaryHref,
+		secondaryIcon = 'none',
+		secondaryTarget = '_self'
 	}: Props = $props();
 </script>
 
@@ -38,7 +42,17 @@
 					<span>{primaryText}</span>
 				</a>
 				{#if secondaryText && secondaryHref}
-					<a href={secondaryHref} class="btn-outline">
+					<a
+						href={secondaryHref}
+						class="btn-outline"
+						target={secondaryTarget}
+						rel={secondaryTarget === '_blank' ? 'noopener noreferrer' : undefined}
+					>
+						{#if secondaryIcon === 'whatsapp'}
+							<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 5px;">
+								<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.122-.51-1.819-.751-2.99-2.6-3.08-2.72-.091-.121-.734-.977-.734-1.861 0-.885.464-1.32.629-1.498.165-.178.36-.223.48-.223.12 0 .241.002.346.007.11.005.257-.042.402.308.149.362.51 1.246.555 1.337.045.09.075.196.015.316-.06.12-.09.196-.18.301-.091.106-.191.236-.273.316-.091.091-.186.19-.08.372.105.181.468.772 1.005 1.25.69.615 1.272.806 1.453.896.18.09.285.076.39-.045.106-.12.451-.526.571-.707.12-.18.24-.15.405-.09.166.06 1.053.497 1.234.587.18.09.3.136.345.211.046.075.046.436-.098.841z"/>
+							</svg>
+						{/if}
 						<span>{secondaryText}</span>
 					</a>
 				{/if}

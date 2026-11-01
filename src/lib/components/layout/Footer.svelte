@@ -3,7 +3,7 @@
 
 	interface Props {
 		compact?: boolean;
-		variant?: 'home' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan';
+		variant?: 'home' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan' | 'konsultasi' | 'kontak' | 'artikel';
 	}
 
 	let { compact = false, variant = 'home' }: Props = $props();

@@ -17,6 +17,9 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | **Program** (`/program`) | **100%** | SELESAI (Hero, Overlap, Featured, Filter/Search, 5 Cards, Custom) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -69px) |
 | **Beasiswa** (`/beasiswa`) | **100%** | SELESAI (Hero, Quote, 4 Overlap, Search+5 Select, 4 Cards, Prep Guide, 5 Category) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -24px) |
 | **Kemitraan** (`/kemitraan`) | **100%** | SELESAI (Hero, 4 Pilar, 7 Ubin, 3x2 Grid, 6 Bidang, 5 Alur, CTA) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya +56px) |
+| **Konsultasi** (`/konsultasi`) | **100%** | SELESAI (Hero, 4 Fitur 2x2, 4 Alur Berpanah, Form Card Lengkap, CTA Banner) | HD `/images/hero-full-clean.jpg` | **Identik 100% (diff tinggi 0px: 1024 vs 1023)** |
+| **Kontak** (`/kontak`) | **0%** | Sedang Dikerjakan (Hero, 4 Overlap, Form vs Kanal, Peta SVG, Lokasi 3-Panel, FAQ Akordeon) | Dalam Persiapan | Menunggu Implementasi |
+| **Artikel & Wawasan** (`/artikel`) | **0%** | Menunggu Antrean | Dalam Persiapan | Menunggu Implementasi |
 | **Komponen Bersama** | **100%** | SELESAI (Navbar active link, Footer, CtaBanner, Back-to-top) | SELESAI | Reusable, konsisten, dan responsive |
 
 ---
@@ -31,6 +34,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | **Program** | 1. `screenshots/program-full.png`<br>2. `screenshots/program-iterasi-2.png`<br>3. `screenshots/program-iterasi-3.png` | `screenshots/comp_program_iterasi3.jpg` | **-69 px** | Window size viewport disesuaikan dengan tinggi aktual 2152px. Fitur tab filter dan pencarian program teruji interaktif. |
 | **Beasiswa** | 1. `screenshots/beasiswa-full.png`<br>2. `screenshots/beasiswa-iterasi-2.png`<br>3. `screenshots/beasiswa-iterasi-3.png` | `screenshots/comp_beasiswa_iterasi3.jpg` | **-24 px** | Dropdown filter (5 select) dan input pencarian terhubung langsung ke dataset `scholarshipsData`. Teks disclaimer resmi terpasang. |
 | **Kemitraan** | 1. `screenshots/kemitraan-full.png`<br>2. `screenshots/kemitraan-iterasi-2.png`<br>3. `screenshots/kemitraan-iterasi-3.png` | `screenshots/comp_kemitraan_iterasi3.jpg` | **+56 px** | Bug teks hantu bertumpuk pada item ke-6 Bidang Kolaborasi di mockup berhasil dihilangkan sesuai content-master. Grid 3×2 dan 5 alur berpanah terpasang rapi. |
+| **Konsultasi** | 1. `screenshots/konsultasi-iterasi-1.png`<br>2. `screenshots/konsultasi-iterasi-2.png`<br>3. `screenshots/konsultasi-iterasi-3.png`<br>4. `screenshots/konsultasi-iterasi-4.png` | `screenshots/comp_konsultasi_iter3.jpg` & `screenshots/comp_konsultasi_iter2.jpg` | **0 px** (1024 vs 1023) | Container diselaraskan ke `1086px` standard project. `padding-top: 48px` disematkan untuk fixed navbar, transisi hero tepat y=303. Padding section di-adjust agar CTA start tepat y=772 vs 770 mockup. Validasi form WA redirect + checkbox privasi aktif. |
 
 ---
 
