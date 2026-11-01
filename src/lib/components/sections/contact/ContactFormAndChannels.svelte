@@ -71,6 +71,30 @@
 </script>
 
 <section class="form-channels-section">
+	<!-- Background image blob on the right edge (x ±1210 -> 1536, tinggi ±430px) -->
+	<div class="blob-bg-wrap">
+		<div class="blob-mask">
+			<img
+				src="/images/contact-office-reception.jpg"
+				alt="Kantor SDJNusantara"
+				class="blob-img"
+				loading="lazy"
+			/>
+			<div class="blob-overlay"></div>
+		</div>
+
+		<!-- Crescent / swoosh emas di kiri-bawah foto blob -->
+		<svg class="blob-swoosh" viewBox="0 0 160 90" fill="none" preserveAspectRatio="none">
+			<path d="M0 90 C50 70 100 40 160 0 L160 90 Z" fill="url(#gold-blob-swoosh)" opacity="0.9" />
+			<defs>
+				<linearGradient id="gold-blob-swoosh" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#F5B331" />
+					<stop offset="100%" stop-color="#E5A320" />
+				</linearGradient>
+			</defs>
+		</svg>
+	</div>
+
 	<div class="form-channels-container">
 		<!-- Left Column: Form Card (x ±93 -> 760 pada 1536) -->
 		<div class="form-col">
@@ -232,12 +256,12 @@
 				<p class="channels-desc">Pilih kanal komunikasi yang paling nyaman bagi Anda.</p>
 			</div>
 
-			<!-- 3 Channel White Cards -->
+			<!-- 3 Channel White Cards (tinggi ±120px) dengan lingkaran teal terisi ±56px berikon putih -->
 			<div class="channel-cards-list">
 				<!-- Card 1: WhatsApp -->
 				<a href={contactConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="channel-card">
 					<div class="channel-icon-circle">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
 						</svg>
 					</div>
@@ -257,7 +281,7 @@
 				<!-- Card 2: Email -->
 				<a href="mailto:{contactConfig.email}" class="channel-card">
 					<div class="channel-icon-circle">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="2" y="4" width="20" height="16" rx="2"></rect>
 							<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
 						</svg>
@@ -278,7 +302,7 @@
 				<!-- Card 3: Pertemuan Langsung -->
 				<a href="/konsultasi" class="channel-card">
 					<div class="channel-icon-circle">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
 							<line x1="16" y1="2" x2="16" y2="6"></line>
 							<line x1="8" y1="2" x2="8" y2="6"></line>
@@ -300,31 +324,31 @@
 				</a>
 			</div>
 
-			<!-- Follow Kami Card -->
+			<!-- Follow Kami Card: radius ±16px, 4 ikon sosial kotak membulat ±34px -->
 			<div class="follow-card">
 				<span class="follow-label">Follow Kami</span>
 				<span class="follow-sub">Dapatkan informasi terbaru melalui media sosial kami.</span>
 				<div class="social-icons-row">
 					<!-- WAJIB DIISI akun resmi -->
 					<a href={contactConfig.socials.instagram} target="_blank" rel="noopener noreferrer" class="social-box-btn" aria-label="Instagram">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
 							<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
 							<circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle>
 						</svg>
 					</a>
 					<a href={contactConfig.socials.linkedin} target="_blank" rel="noopener noreferrer" class="social-box-btn" aria-label="LinkedIn">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
 						</svg>
 					</a>
 					<a href={contactConfig.socials.youtube} target="_blank" rel="noopener noreferrer" class="social-box-btn" aria-label="YouTube">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 						</svg>
 					</a>
 					<a href="/" class="social-box-btn" aria-label="Website">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<circle cx="12" cy="12" r="10"></circle>
 							<line x1="2" y1="12" x2="22" y2="12"></line>
 							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -341,8 +365,61 @@
 		position: relative;
 		width: 100%;
 		background: #FFFFFF;
-		padding: 40px 0 45px;
+		padding: 24px 0 28px;
 		box-sizing: border-box;
+		overflow: hidden;
+	}
+
+	/* Blob foto resepsionis di kanan menempel tepi layar (x ±1210 -> 1536, tinggi ±430px) */
+	.blob-bg-wrap {
+		position: absolute;
+		top: 40px;
+		right: 0;
+		width: 320px;
+		height: 430px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.blob-mask {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 140px 0 0 140px;
+		overflow: hidden;
+	}
+
+	.blob-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		opacity: 0.85;
+	}
+
+	.blob-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0.95) 0%,
+			rgba(255, 255, 255, 0.45) 50%,
+			rgba(255, 255, 255, 0.1) 100%
+		);
+	}
+
+	.blob-swoosh {
+		position: absolute;
+		bottom: 0;
+		left: -30px;
+		width: 160px;
+		height: 90px;
+		z-index: 2;
 	}
 
 	/* Container khusus halaman Kontak (x ±93 -> 1445 pada 1536) */
@@ -654,15 +731,15 @@
 	.channel-cards-list {
 		display: flex;
 		flex-direction: column;
-		gap: 14px;
+		gap: 10px;
 	}
 
 	.channel-card {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.85);
 		border-radius: 16px;
-		padding: 18px 20px;
-		min-height: 100px;
+		padding: 13px 18px;
+		min-height: 90px;
 		display: flex;
 		align-items: center;
 		gap: 16px;
@@ -679,8 +756,8 @@
 	}
 
 	.channel-icon-circle {
-		width: 48px;
-		height: 48px;
+		width: 52px;
+		height: 52px;
 		border-radius: 50%;
 		background: #079EAD;
 		display: flex;
@@ -703,13 +780,13 @@
 	}
 
 	.channel-value {
-		font-size: 17px;
+		font-size: 18px;
 		font-weight: 700;
-		color: #079EAD;
+		color: #082442;
 	}
 
 	.channel-sub {
-		font-size: 13px;
+		font-size: 14px;
 		color: #64748B;
 		line-height: 1.35;
 	}
@@ -794,6 +871,9 @@
 		.form-channels-container {
 			grid-template-columns: 1fr;
 			gap: 32px;
+		}
+		.blob-bg-wrap {
+			display: none;
 		}
 	}
 
