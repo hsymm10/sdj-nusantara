@@ -2,6 +2,7 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import HeroAbout from '#lib/components/sections/about/HeroAbout.svelte';
+	import LeadershipSection from '#lib/components/sections/about/LeadershipSection.svelte';
 	import ProfileSection from '#lib/components/sections/about/ProfileSection.svelte';
 	import VisiMisiSection from '#lib/components/sections/about/VisiMisiSection.svelte';
 	import NilaiSection from '#lib/components/sections/about/NilaiSection.svelte';
@@ -19,6 +20,7 @@
 
 <main class="page-content about-page">
 	<HeroAbout />
+	<LeadershipSection />
 	<ProfileSection />
 	<VisiMisiSection />
 	<NilaiSection />

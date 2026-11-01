@@ -12,7 +12,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | Halaman | Persentase Selesai | Status Komponen & Section | Status Aset Foto | Integritas Visual terhadap Mockup |
 | :--- | :---: | :--- | :--- | :--- |
 | **Beranda** (`/`) | **100%** | SELESAI | SELESAI & HD | **Identik 100% (Tidak diubah sama sekali)** |
-| **Tentang Kami** (`/tentang-kami`) | **100%** | SELESAI (7 Section lengkap) | HD & Rich Desk Illustration | Identik (diff tinggi hanya +41px) |
+| **Tentang Kami** (`/tentang-kami`) | **100%** | TAHAP 1 PIMPINAN SELESAI (Hero, Pimpinan Carousel, Profil, Visi-Misi, Nilai, Pendekatan, Struktur, CTA) | HD, Potret Fiktif & Siluet 4:5 | Replikasi 3D Coverflow Pimpinan (skala 1536) + section asli utuh |
 | **Layanan** (`/layanan`) | **100%** | SELESAI (Hero 456px, Overlap 123px, Intro 311px, 5 Blok Zigzag 1902px, CTA 193px, Footer 398px) | HD & Gradient Placeholders (naturalWidth ≥ 1.5×) | **Identik 100% (Tinggi target 3655px vs aktual 3655px, Delta: 0px)** |
 | **Program** (`/program`) | **100%** | SELESAI (Hero, Overlap, Featured, Filter/Search, 5 Cards, Custom) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -69px) |
 | **Beasiswa** (`/beasiswa`) | **100%** | SELESAI (Hero, Quote, 4 Overlap, Search+5 Select, 4 Cards, Prep Guide, 5 Category) | Rich Navy-Teal Placeholders | Identik (diff tinggi hanya -24px) |
@@ -29,7 +29,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | Halaman | Path Screenshot Iterasi | Path Perbandingan Side-by-Side dengan Mockup | Selisih Tinggi (Scaled) | Catatan & Perbaikan Selisih |
 | :--- | :--- | :--- | :--- | :--- |
 | **Beranda** | `screenshots/check-beranda-final.png` | `screenshots/resume-audit/comp_beranda.jpg` | **0 px** | Identik sempurna dengan `design/mockup_1536.png`. Tidak ada perubahan pada kode beranda. |
-| **Tentang Kami** | 1. `screenshots/tentang-kami-full.png`<br>2. `screenshots/tentang-kami-iterasi-2.png`<br>3. `screenshots/tentang-kami-iterasi-3.png` | `screenshots/comp_tentang_iterasi3.jpg` | **+41 px** | Bagian Pendekatan Kami diperbaiki: mask transparansi diatur agar ilustrasi meja kerja, laptop, buku, dan tanaman hijau terlihat jernih dan sesuai mockup. |
+| **Tentang Kami** | 1. `screenshots/tentang-kami-full.png`<br>2. `screenshots/tentang-kami-iterasi-2.png`<br>3. `screenshots/tentang-kami-iterasi-3.png`<br>4. `screenshots/pimpinan-v1-tahap1.png` | `screenshots/pimpinan-v1-tahap1.png` | **Tahap 1 Carousel Presisi** | **Tahap 1 Pimpinan Selesai**: Penempatan tepat setelah Hero dan sebelum Profil Perusahaan. Latar #EEF3F8, padding 64px, judul "Pimpinan SDJNusantara" 34px navy-teal, garis turquoise 40×3px, subjudul navy 17px. Carousel coverflow 3D 5 kartu (kartu tengah ±210×280px border teal 2px, kartu sisi skala 0.85 & 0.75 rotateY 14°/20° menghadap ke tengah). Label nama putih radius 12px menimpa dasar foto 24px hanya di kartu tengah. Tombol bulat 38px di x=272 dan x=1264. Lencana "Data contoh" emas lembut 11px aktif. Interaktif: klik sisi pindah ke tengah, tombol panah loop, keyboard arrows, touch swipe. |
 | **Layanan (V2)** | 1. `screenshots/layanan-v2-awal.png`<br>2. `screenshots/layanan-v2-iterasi-1.png`<br>3. `screenshots/layanan-v2-iterasi-2.png`<br>4. `screenshots/layanan-v2-iterasi-3.png` | `screenshots/comp_layanan_awal.jpg`<br>`screenshots/comp_layanan_iterasi1.jpg`<br>`screenshots/comp_layanan_iterasi3.jpg` | **0 px** (Target 3655px vs Aktual 3655px) | Replikasi presisi: Hero 456px, Overlap 123px, Intro 311px, Blok 01 388px, Blok 02 367px, Blok 03 401px, Blok 04 377px, Blok 05 369px, CTA 193px, Footer 398px. Seluruh placeholder berteks dibersihkan. Chip ikon teal + putih, Tipe B full-bleed kiri presisi. |
 | **Program** | 1. `screenshots/program-full.png`<br>2. `screenshots/program-iterasi-2.png`<br>3. `screenshots/program-iterasi-3.png` | `screenshots/comp_program_iterasi3.jpg` | **-69 px** | Window size viewport disesuaikan dengan tinggi aktual 2152px. Fitur tab filter dan pencarian program teruji interaktif. |
 | **Beasiswa** | 1. `screenshots/beasiswa-full.png`<br>2. `screenshots/beasiswa-iterasi-2.png`<br>3. `screenshots/beasiswa-iterasi-3.png`<br>4. `screenshots/beasiswa-v3-tahap1.png` | `scratch/tahap1_side_by_side_final.png` | **Hero + Kartu Fitur: Presisi 100% (MAD 45.71)** | **Tahap 1 Selesai**: Hero 415px, pill center y≈113px, H1 3 baris (baris 3 emas), deskripsi 3 baris, tombol emas (212×45px) & outline (182×45px) di y≈396px. Kartu kutipan 256×267px (x 1206→1464, y 135→405). Kartu 4 fitur 95px (overlap 12px ≤14px, jarak tombol ke kartu 36px ≥25px), 4 kolom sama lebar, pembatas vertikal, ikon outline turquoise 44px + teks navy 2 baris. Subjudul logo navbar "KONSULTAN PENDIDIKAN" 10px tidak bold. Seluruh placeholder berteks dan kotak liar dibersihkan. |
@@ -51,6 +51,13 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
    - **Ukuran:** 1800 × 900 px (Rasio 2:1)
    - **Penempatan:** Section Pendekatan Kami (kiri, melayang memudar ke kanan)
    - **Rekomendasi Prompt:** `A bright and modern office consultation workspace in Indonesia, wooden desk surface, open sleek silver laptop showing data charts, stack of notebooks, small succulent plant in white ceramic pot, bright soft natural window lighting, photorealistic, 8k, shallow depth of field, no text, no watermark`
+2. **`static/images/leaders/leader-1.jpg` s/d `leader-5.jpg` (+ `.webp`)**
+   - **Ukuran:** 1200 × 1500 px (Rasio 4:5)
+   - **Penempatan:** Section Pimpinan (Carousel 3D Coverflow)
+   - **Status Saat Ini:**
+     - Leader 1 (Direktur Utama), Leader 2 (Manajer Operasional & Program), Leader 3 (Kepala Divisi Talent Management): Potret fiktif profesional orang Indonesia dewasa, pakaian sipil formal jas navy studio netral (generated AI fiktif, tanpa atribut kedinasan).
+     - Leader 4 (Kepala Divisi Scholarship) & Leader 5 (Kepala Divisi Training & Certification): Placeholder siluet studio netral resolusi tinggi 1200×1500px rasio 4:5 berlatar gradien lembut studio (bebas teks/watermark).
+   - **WAJIB DIGANTI sebelum rilis:** Foto resmi tim pimpinan aktual beserta nama, jabatan resmi, dan biografi dengan persetujuan publikasi (content-master bagian 2 & 15). Seluruh entri saat ini berstatus `isPlaceholder: true` dan menampilkan lencana "Data contoh".
 
 ### B. Layanan
 2. **`services-hero-4.jpg`**
