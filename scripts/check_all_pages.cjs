@@ -3,6 +3,7 @@ const http = require('http');
 const pages = [
   '/',
   '/tentang-kami',
+  '/layanan',
   '/program',
   '/beasiswa',
   '/kemitraan',

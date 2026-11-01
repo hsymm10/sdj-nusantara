@@ -1,8 +1,9 @@
 <script lang="ts">
-	// HeroProgram.svelte - Faithful to design/program.png
+	// HeroProgram.svelte - Replikasi presisi sesuai design/program.png (1536x2304)
 </script>
 
 <section class="hero-program">
+	<!-- Full-bleed background photo on right -->
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/program-hero-3.jpg"
@@ -14,49 +15,52 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Wave decoration bottom-left -->
-	<svg class="hero-wave" viewBox="0 0 320 160" fill="none" preserveAspectRatio="none">
-		<path d="M0 40 C70 40 140 100 240 160 H0 Z" fill="#0A5E75" fill-opacity="0.9" />
-		<path d="M0 90 C80 90 150 130 220 160 H0 Z" fill="url(#teal-grad-prog)" />
-		<path d="M0 135 C60 135 120 150 170 160 H0 Z" fill="#FFFFFF" />
+	<!-- Wave decoration bottom-left (mockup zoom x 0-260, y 180-320) -->
+	<svg class="hero-wave-left" viewBox="0 0 320 180" fill="none" preserveAspectRatio="none">
+		<path d="M0 50 C70 50 140 110 260 180 H0 Z" fill="#0A5E75" fill-opacity="0.9" />
+		<path d="M0 95 C80 95 160 140 235 180 H0 Z" fill="url(#teal-grad-prog-left)" />
+		<path d="M0 145 C60 145 125 165 180 180 H0 Z" fill="#FFFFFF" />
 		<defs>
-			<linearGradient id="teal-grad-prog" x1="0" y1="0" x2="1" y2="1">
+			<linearGradient id="teal-grad-prog-left" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
 				<stop offset="100%" stop-color="#079EAD" />
 			</linearGradient>
 		</defs>
 	</svg>
 
-	<!-- Wave decoration bottom-right -->
-	<svg class="hero-wave-right" viewBox="0 0 160 160" fill="none" preserveAspectRatio="none">
-		<path d="M160 30 C120 70 80 120 40 160 H160 Z" fill="#079EAD" fill-opacity="0.85" />
-		<path d="M160 80 C130 110 100 135 70 160 H160 Z" fill="#16B6C1" />
-		<path d="M160 125 C140 140 120 150 100 160 H160 Z" fill="#FFFFFF" />
+	<!-- Wave decoration bottom-right (mockup x 900-1024, y 250-320) -->
+	<svg class="hero-wave-right" viewBox="0 0 200 180" fill="none" preserveAspectRatio="none">
+		<path d="M200 40 C150 85 100 135 40 180 H200 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M200 95 C160 125 120 155 80 180 H200 Z" fill="#16B6C1" />
+		<path d="M200 145 C175 160 145 170 115 180 H200 Z" fill="#FFFFFF" />
 	</svg>
 
 	<div class="hero-container">
 		<div class="hero-text-col">
-			<!-- Pill Tag -->
+			<!-- Pill Tag (pusat y≈111, ±54px di bawah batas atas hero) -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
 				<span class="pill-label">Program Kami</span>
 			</div>
 
-			<!-- Headline -->
+			<!-- Headline (H1 3 baris, baris 3 emas #F5B331) -->
 			<h1 class="hero-title">
 				Program Unggulan<br />
 				untuk Mengembangkan<br />
 				<span class="gold-text">Potensi Tanpa Batas.</span>
 			</h1>
 
-			<!-- Description -->
+			<!-- Description (4 baris wajib) -->
 			<p class="hero-desc">
-				SDJNusantara menghadirkan berbagai program pendidikan dan pengembangan talenta yang dirancang secara terstruktur, relevan dengan kebutuhan zaman, dan didukung oleh para ahli di bidangnya.
+				SDJNusantara menghadirkan berbagai program pendidikan<br />
+				dan pengembangan talenta yang dirancang secara terstruktur,<br />
+				relevan dengan kebutuhan zaman, dan didukung oleh para<br />
+				ahli di bidangnya.
 			</p>
 
-			<!-- Buttons -->
+			<!-- Buttons (berjarak ≥30px dari batas bawah hero) -->
 			<div class="hero-btn-row">
-				<a href="#daftar-program" class="btn-gold">
+				<a href="/konsultasi" class="btn-gold">
 					<span>Konsultasi Program</span>
 					<span class="btn-arrow">→</span>
 				</a>
@@ -72,11 +76,13 @@
 	.hero-program {
 		position: relative;
 		width: 100%;
-		height: 345px;
+		height: 408px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
+		padding-top: 52px;
+		box-sizing: border-box;
 	}
 
 	.hero-bg-wrap {
@@ -89,13 +95,17 @@
 	}
 
 	.hero-img {
-		width: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 66%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 30%;
+		object-position: right 24%;
 		display: block;
 	}
 
+	/* Fade navy halus dari kiri (solid 0-32%, ±0.8 di 42%, 0 di 58%) */
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -105,19 +115,20 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 35%,
-			rgba(8, 36, 66, 0.88) 52%,
-			rgba(8, 36, 66, 0.35) 75%,
-			rgba(8, 36, 66, 0.1) 100%
+			#082442 32%,
+			rgba(8, 36, 66, 0.92) 40%,
+			rgba(8, 36, 66, 0.78) 46%,
+			rgba(8, 36, 66, 0.25) 58%,
+			rgba(8, 36, 66, 0) 70%
 		);
 	}
 
-	.hero-wave {
+	.hero-wave-left {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 300px;
-		height: 140px;
+		width: 320px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -126,8 +137,8 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 180px;
-		height: 150px;
+		width: 200px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -136,10 +147,17 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1440px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 4rem;
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.hero-container {
+			max-width: 1500px;
+			padding: 0 4.5rem;
+		}
 	}
 
 	.hero-text-col {
@@ -150,7 +168,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		padding: 3px 10px;
+		padding: 3px 12px;
 		background: rgba(0, 166, 178, 0.2);
 		border: 1px solid rgba(0, 166, 178, 0.4);
 		border-radius: 20px;
@@ -158,59 +176,63 @@
 	}
 
 	.pill-dot {
-		width: 5px;
-		height: 5px;
-		background: #00A6B2;
+		width: 6px;
+		height: 6px;
 		border-radius: 50%;
+		background: #00A6B2;
 	}
 
 	.pill-label {
-		font-size: 10.5px;
-		font-weight: 600;
+		font-size: 11.5px;
+		font-weight: 700;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
 	.hero-title {
-		font-size: 32px;
-		line-height: 38px;
+		font-size: clamp(32px, 2.7vw, 42px);
+		line-height: 1.08;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 0.85rem 0;
-		letter-spacing: -0.01em;
+		margin: 0 0 1rem 0;
+		letter-spacing: -0.015em;
 	}
 
 	.gold-text {
-		color: #F4B334;
+		color: #F5B331;
 	}
 
 	.hero-desc {
-		font-size: 12px;
-		line-height: 18px;
-		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 1.25rem 0;
-		max-width: 480px;
+		font-size: 14px;
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 1.65rem 0;
+		max-width: 510px;
 	}
 
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 14px;
+		margin-bottom: 1.5rem;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: #F4B334;
+		justify-content: center;
+		gap: 8px;
+		background: #F5B331;
 		color: #071D36;
-		padding: 7px 18px;
-		font-size: 11px;
+		width: 196px;
+		height: 45px;
+		font-size: 14px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 10px;
 		text-decoration: none;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.3);
 		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-gold:hover {
@@ -218,37 +240,80 @@
 		transform: translateY(-1px);
 	}
 
+	.btn-arrow {
+		font-size: 15px;
+	}
+
 	.btn-outline {
 		display: inline-flex;
 		align-items: center;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.35);
+		justify-content: center;
+		background: transparent;
 		color: #FFFFFF;
-		padding: 7px 16px;
-		font-size: 11px;
-		font-weight: 600;
-		border-radius: 7px;
+		border: 1px solid rgba(255, 255, 255, 0.65);
+		width: 180px;
+		height: 45px;
+		font-size: 14px;
+		font-weight: 700;
+		border-radius: 10px;
 		text-decoration: none;
-		transition: all 0.2s;
+		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-outline:hover {
-		border-color: #00A6B2;
-		color: #00A6B2;
+		background: rgba(255, 255, 255, 0.12);
+		border-color: #FFFFFF;
 	}
 
-	.btn-arrow {
-		font-size: 12px;
-	}
-
-	@media (max-width: 768px) {
+	@media (max-width: 1099px) {
 		.hero-program {
 			height: auto;
-			padding: 4rem 1rem 3rem;
+			min-height: 408px;
+			padding-bottom: 3.5rem;
 		}
+
+		.hero-container {
+			padding: 0 2rem;
+		}
+
+		.hero-img {
+			width: 100%;
+			opacity: 0.35;
+		}
+
+		.hero-overlay {
+			background: rgba(8, 36, 66, 0.85);
+		}
+	}
+
+	@media (max-width: 767px) {
+		.hero-program {
+			padding-top: 36px;
+			padding-bottom: 2.5rem;
+		}
+
+		.hero-container {
+			padding: 0 1.25rem;
+		}
+
 		.hero-title {
-			font-size: 26px;
-			line-height: 32px;
+			font-size: 28px;
+		}
+
+		.hero-desc {
+			font-size: 13px;
+		}
+
+		.hero-btn-row {
+			flex-direction: column;
+			width: 100%;
+			gap: 10px;
+		}
+
+		.btn-gold,
+		.btn-outline {
+			width: 100%;
 		}
 	}
 </style>

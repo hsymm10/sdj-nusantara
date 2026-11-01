@@ -69,7 +69,7 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Navigasi Utama</h4>
 				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami' || variant === 'layanan'}
+					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program'}
 						<li><a href="/" class="footer-link">Beranda</a></li>
 						<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
 						<li><a href="/layanan" class="footer-link">Layanan</a></li>
@@ -90,7 +90,7 @@
 			<div class="footer-nav-col">
 				<h4 class="footer-col-title">Pusat Informasi</h4>
 				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami' || variant === 'layanan'}
+					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program'}
 						<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
 						<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
 						<li><a href="/kontak" class="footer-link">Kontak</a></li>
@@ -165,7 +165,7 @@
 		</div>
 
 		<!-- Bottom Bar for pages that have it -->
-		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kemitraan' || variant === 'program' || variant === 'kontak' || variant === 'artikel'}
+		{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'kemitraan' || variant === 'kontak' || variant === 'artikel'}
 			<div class="footer-bottom-bar">
 				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
 				<div class="footer-bottom-right">
@@ -181,6 +181,15 @@
 					</button>
 				</div>
 			</div>
+		{/if}
+
+		<!-- Floating Back-to-Top Button for Program per Mockup -->
+		{#if variant === 'program'}
+			<button class="back-to-top-btn floating-btt-program" onclick={scrollToTop} aria-label="Kembali ke atas">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="18 15 12 9 6 15"></polyline>
+				</svg>
+			</button>
 		{/if}
 	</div>
 </footer>
@@ -565,6 +574,65 @@
 		color: #FFFFFF;
 		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.4);
 		z-index: 99;
+	}
+
+	/* Specific variant for Program per mockup (Tinggi ±271px pada 1536) */
+	.footer.variant-program {
+		padding: 2.2rem 0 1rem;
+		height: 271px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.footer.variant-program .footer-inner {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	@media (min-width: 1920px) {
+		.footer.variant-program .footer-inner {
+			max-width: 1500px;
+		}
+	}
+
+	.footer.variant-program .footer-grid {
+		display: grid;
+		grid-template-columns: 2.1fr auto 1.15fr auto 1.25fr auto 1.45fr auto 1.45fr;
+		gap: 0 1.25rem;
+		align-items: flex-start;
+	}
+
+	.footer.variant-program .floating-btt-program {
+		position: fixed;
+		bottom: 30px;
+		right: 30px;
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background: #00A6B2;
+		color: #FFFFFF;
+		box-shadow: 0 4px 16px rgba(0, 166, 178, 0.45);
+		z-index: 99;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.footer.variant-program .floating-btt-program:hover {
+		background: #079EAD;
+		transform: translateY(-2px);
 	}
 
 	.tagline-tentang {

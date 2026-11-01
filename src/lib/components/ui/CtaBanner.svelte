@@ -9,7 +9,7 @@
 		secondaryHref?: string;
 		secondaryIcon?: 'whatsapp' | 'none';
 		secondaryTarget?: string;
-		variant?: 'default' | 'tentang-kami' | 'layanan';
+		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program';
 	}
 
 	let {
@@ -334,6 +334,85 @@
 	}
 
 	.cta-banner.variant-layanan .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(8, 36, 66, 0.72) 0%,
+			rgba(8, 36, 66, 0.88) 35%,
+			rgba(8, 36, 66, 0.96) 65%,
+			#082442 100%
+		);
+	}
+
+	/* Variant Program (131px height, wide container, toga silhouette on left) */
+	.cta-banner.variant-program {
+		height: 131px;
+	}
+
+	.cta-banner.variant-program .cta-container {
+		max-width: 1440px;
+		padding: 0 1.5rem;
+	}
+
+	@media (min-width: 1920px) {
+		.cta-banner.variant-program .cta-container {
+			max-width: 1500px;
+		}
+	}
+
+	.cta-banner.variant-program .cta-content {
+		align-items: center;
+	}
+
+	.cta-banner.variant-program .cta-text {
+		max-width: 580px;
+		margin-left: 270px; /* offset to give room for student silhouette on left */
+	}
+
+	@media (max-width: 1200px) {
+		.cta-banner.variant-program .cta-text {
+			margin-left: 0;
+		}
+	}
+
+	.cta-banner.variant-program .cta-title {
+		font-size: clamp(18px, 1.6vw, 22px);
+		line-height: 1.2;
+		font-weight: 800;
+		color: #FFFFFF;
+		margin-bottom: 0.35rem;
+	}
+
+	.cta-banner.variant-program .cta-desc {
+		font-size: 12px;
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.88);
+		text-wrap: pretty;
+	}
+
+	.cta-banner.variant-program .btn-gold {
+		padding: 8px 20px;
+		font-size: 12.5px;
+		font-weight: 700;
+		background: #F5B331;
+		color: #082442;
+		border-radius: 8px;
+		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.28);
+	}
+
+	.cta-banner.variant-program .btn-outline {
+		padding: 8px 18px;
+		font-size: 12.5px;
+		font-weight: 600;
+		border-color: rgba(255, 255, 255, 0.6);
+		border-radius: 8px;
+	}
+
+	.cta-banner.variant-program .cta-bg-img {
+		opacity: 0.25;
+		object-position: left center;
+	}
+
+	.cta-banner.variant-program .cta-overlay {
 		background: linear-gradient(
 			90deg,
 			rgba(8, 36, 66, 0.72) 0%,

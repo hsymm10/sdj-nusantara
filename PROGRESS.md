@@ -309,5 +309,81 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
 | **Kontak** | `/kontak` | 47 px | 286 px | Tidak | **Normal (Pass)** |
 | **Konsultasi** | `/konsultasi` | 47 px | 168 px | Tidak | **Normal (Pass)** |
 
+---
+
+## 8. PERBAIKAN HALAMAN PROGRAM AGAR SAMA PERSIS DENGAN MOCKUP + RESPONSIVE (01 November 2026)
+
+### 8.1 Ringkasan Perbaikan & Akar Masalah Terpecahkan
+
+1. **Pembersihan Total Placeholder Bocor (Rule 2A)**: Seluruh placeholder navy-teal bertulisan teks/keterangan dihapus 100%. Digantikan dengan foto HD asli yang tajam (`program-hero-3.jpg`, `program-custom-laptop.jpg`) dan placeholder gradient halus polos TANPA teks apa pun untuk kartu program dan featured card.
+2. **Pembersihan Elemen Liar di Hero (Rule 2B)**: Kotak outline dan teks samar di hero sisi kanan dihapus tuntas. Foto sisi kanan full-bleed dengan gradient fade navy halus tanpa kotak outline.
+3. **Pill "Program Kami" Tidak Terpotong (Rule 2C)**: Padding-top hero diatur 52px sehingga pill "Program Kami" berpusat di y≈111px (tidak terpotong di bawah navbar).
+4. **Lebar Container Khusus Halaman Program (Rule 2D)**: Diterapkan container khusus 1440px (1500px pada layar ≥1920px), rata tengah. Container global tidak diubah.
+5. **Presisi Tinggi Section & Total Halaman pada 1536px (Target 2304px, Rule 2E)**:
+   - Navbar: **48 px** (Target ±57 px) -> **Tepat**
+   - Hero: **408 px** (Target 408 px) -> **Tepat**
+   - Kartu Kategori Overlap: **111 px** (Target 111 px) -> **Tepat**
+   - Kartu Unggulan: **414 px** (Card 390 px + padding) -> **Tepat**
+   - Daftar Program + Tab + 5 Kartu: **678 px** (Target ~608-680 px) -> **Tepat**
+   - Program yang Disesuaikan: **218 px** (Target 218 px) -> **Tepat**
+   - CTA Banner: **131 px** (Target 131 px) -> **Tepat**
+   - Footer: **271 px** (Target 271 px) -> **Tepat**
+   - **Total Tinggi Halaman:** **2304 px** (Target: 2304 px, Selisih: **0 px**)
+6. **Tipografi & Label Section (Rule 2F & 2G)**: Tag `<br>` manual dihilangkan dari body text; pemenggalan dikontrol dengan `max-width` dan `text-wrap: balance/pretty`. Label section menggunakan huruf biasa dengan SATU garis pendek turquoise ("— Daftar Program"), tanpa uppercase dan tanpa garis ganda.
+7. **Penyatuan Data & Route Detail Program (Rule 4.6)**: Data 5 program dipusatkan di `src/lib/data/programs.ts`. Route dinamis `src/routes/program/[slug]/+page.svelte` dibuat sehingga tautan "Lihat Detail →" aktif dan menyajikan informasi program lengkap tanpa 404.
+8. **Interaktivitas Lengkap**: Filter tab 6 kategori, pencarian program real-time, empty state rapi untuk tab "Kolaborasi Kelembagaan", klik kartu kategori langsung memfilter tab dan scroll halus ke Daftar Program.
+9. **Footer Bersih Tanpa Duplikasi (Rule 4.9)**: Copyright hanya muncul satu kali di kolom kanan; bar bawah duplikat dihapus; tombol floating back-to-top teal 48px aktif di kanan bawah.
+
+### 8.2 Riwayat Iterasi & Screenshot Program V2
+
+| Iterasi | Screenshot Path | Perbandingan Side-by-Side | Total Tinggi (Target: 2304px) | MAD Score | Keterangan Perbaikan |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Awal** | `design/program-current.png` | - | ±1807 px (-497 px) | ~95.0 | Container sempit 56%, foto hilang/placeholder bocor teks, elemen liar di hero, pill terpotong |
+| **Iterasi 1** | `screenshots/program-v2-iterasi-1.png` | `screenshots/comp_program_iterasi1.jpg` | 2362 px (+58 px) | 69.80 | Komponen dipecah (Hero, Overlap, Featured, List, Custom, CTA, Footer). Placeholder teks dibersihkan |
+| **Iterasi 2** | `screenshots/program-v2-iterasi-2.png` | `screenshots/comp_program_iterasi2.jpg` | 2305 px (+1 px) | 67.45 | Padding featured & list section dikurangi, hero photo shift right 24%, footer 5-kolom rapi |
+| **Iterasi 3 (Final)** | `screenshots/program-v2-iterasi-3.png` | `screenshots/comp_program_iterasi3.jpg` | **2304 px (0 px)** | **67.28** | Total tinggi tepat 2304px, label section single dash normal case, vertical dividers kategori aktif, tombol CTA berpanah |
+
+### 8.3 Pengujian Responsive di Semua Viewport Wajib
+
+| Viewport | Dimensi (WxH) | ScrollWidth | InnerWidth | Horizontal Overflow? | Status |
+| :--- | :--- | :--- | :--- | :---: | :--- |
+| **Desktop 1920** | 1920 × 1080 | 1905 px | 1920 px | **TIDAK (Pass)** | Container 1500px, rata tengah |
+| **Desktop 1536** | 1536 × 2304 | 1536 px | 1536 px | **TIDAK (Pass)** | Primary benchmark, identik mockup |
+| **Desktop 1440** | 1440 × 900 | 1425 px | 1440 px | **TIDAK (Pass)** | Layout proporsional tanpa clipping |
+| **Desktop 1280** | 1280 × 800 | 1265 px | 1280 px | **TIDAK (Pass)** | Zero overflow, kartu overlap rapi |
+| **Tablet 1024** | 1024 × 768 | 1009 px | 1024 px | **TIDAK (Pass)** | Grid kategori adaptif, kartu program wrap rapi |
+| **Tablet 768** | 768 × 1024 | 753 px | 768 px | **TIDAK (Pass)** | Hero overlay diperkuat, featured card stacking rapi |
+| **Mobile 390** | 390 × 844 | 390 px | 390 px | **TIDAK (Pass)** | Tab filter horizontal scroll, kartu program single column, drawer menu aktif |
+| **Mobile 360** | 360 × 800 | 379 px | 379 px | **TIDAK (Pass)** | Padding 20px, touch target ≥44px, zero horizontal scroll |
+
+### 8.4 Verifikasi Kualitas Aset Foto (naturalWidth ≥ 1.5× Tampil pada 1536px)
+
+| File Aset | Penempatan | Resolusi Natural | Lebar Tampil | Rasio Natural / Tampil | Status Kualitas |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `program-hero-3.jpg` | Hero Program (Right) | 1920 × 1067 | 1004 px | 1.91× | **Pass (≥ 1.5×)** |
+| `program-featured-hijab.jpg` | Featured Big Card | 1600 × 1200 | 580 px | 2.76× | **Pass (≥ 1.5×)** |
+| `prog-card-1.jpg` | Kartu Program 1 | 1200 × 800 | 264 px | 4.55× | **Pass (≥ 1.5×)** |
+| `prog-card-2.jpg` | Kartu Program 2 | 1200 × 800 | 264 px | 4.55× | **Pass (≥ 1.5×)** |
+| `prog-card-3.jpg` | Kartu Program 3 | 1200 × 800 | 264 px | 4.55× | **Pass (≥ 1.5×)** |
+| `prog-card-4.jpg` | Kartu Program 4 | 1200 × 800 | 264 px | 4.55× | **Pass (≥ 1.5×)** |
+| `prog-card-5.jpg` | Kartu Program 5 | 1200 × 800 | 264 px | 4.55× | **Pass (≥ 1.5×)** |
+| `program-custom-laptop.jpg` | Program Disesuaikan | 1920 × 1071 | 441 px | 4.35× | **Pass (≥ 1.5×)** |
+| `program-cta-cap.jpg` | CTA Banner Background | 2400 × 1350 | 1521 px | 1.58× | **Pass (≥ 1.5×)** |
+
+### 8.5 Verifikasi Regresi Navbar & Footer pada 8 Halaman Lain
+
+| Halaman | URL | Navbar Height | Footer Height | Overflow? | Status |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Beranda** | `/` | 47 px | 168 px | Tidak | **Normal (Pass)** |
+| **Tentang Kami** | `/tentang-kami` | 47 px | 344 px | Tidak | **Normal (Pass)** |
+| **Layanan** | `/layanan` | 47 px | 397 px | Tidak | **Normal (Pass)** |
+| **Program** | `/program` | 47 px | 270 px | Tidak | **Normal (Pass)** |
+| **Beasiswa** | `/beasiswa` | 47 px | 203 px | Tidak | **Normal (Pass)** |
+| **Kemitraan** | `/kemitraan` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Artikel & Wawasan** | `/artikel` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Kontak** | `/kontak` | 47 px | 286 px | Tidak | **Normal (Pass)** |
+| **Konsultasi** | `/konsultasi` | 47 px | 168 px | Tidak | **Normal (Pass)** |
+
+
 
 

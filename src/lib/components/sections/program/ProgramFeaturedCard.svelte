@@ -1,145 +1,169 @@
 <script lang="ts">
-	// ProgramFeaturedCard.svelte - Faithful to design/program.png
+	// ProgramFeaturedCard.svelte - Replikasi presisi sesuai design/program.png
 </script>
 
 <section class="featured-program-section">
+	<!-- Outer decorative swooshes outside the card -->
+	<div class="outer-decor-layer">
+		<!-- Gold swoosh left (x 0→68, y 780→900) -->
+		<svg class="swoosh-gold-left" viewBox="0 0 70 120" fill="none" preserveAspectRatio="none">
+			<path d="M0 0 C35 30 65 70 70 120 H0 Z" fill="#F5B331" />
+		</svg>
+
+		<!-- Turquoise swoosh bottom-left (x 0→98, y 900→998) -->
+		<svg class="swoosh-teal-left" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none">
+			<path d="M0 0 C45 25 80 60 100 100 H0 Z" fill="#00A6B2" />
+		</svg>
+
+		<!-- Pale turquoise + gold line top-right (x 1425→1536, y 567→645) -->
+		<svg class="swoosh-right-top" viewBox="0 0 120 80" fill="none" preserveAspectRatio="none">
+			<path d="M120 0 C80 15 40 45 0 80 H120 Z" fill="#E0F7F9" />
+			<path d="M120 8 C85 22 45 52 10 80" stroke="#F5B331" stroke-width="2.5" />
+		</svg>
+	</div>
+
 	<div class="featured-container">
-		<!-- Outer gold/teal decorative accents -->
-		<div class="card-outer-wrap">
-			<!-- Gold accent left -->
-			<div class="deco-accent deco-gold-left"></div>
-			<!-- Teal accent bottom-left -->
-			<div class="deco-accent deco-teal-left"></div>
+		<div class="featured-navy-card">
+			<!-- Background Image in Center-Right -->
+			<div class="card-bg-wrap">
+				<img
+					src="/images/program-featured-hijab.jpg"
+					alt="Program Unggulan Persiapan Beasiswa"
+					class="card-bg-photo"
+					loading="lazy"
+				/>
+				<!-- Navy overlay fading from left -->
+				<div class="card-photo-overlay"></div>
+			</div>
 
-			<!-- Main Big Navy Card -->
-			<div class="featured-navy-card">
-				<!-- Left Text Column -->
-				<div class="card-left-col">
-					<div class="pill-tag">
-						<span class="pill-dot"></span>
-						<span class="pill-label">Program Unggulan</span>
-					</div>
+			<!-- Left Column: Content -->
+			<div class="card-left-col">
+				<!-- Pill -->
+				<div class="pill-tag">
+					<span class="pill-dot"></span>
+					<span class="pill-label">Program Unggulan</span>
+				</div>
 
-					<h2 class="card-title">
-						Program Persiapan Beasiswa Dalam dan Luar Negeri
-					</h2>
+				<!-- Title -->
+				<h2 class="card-title">
+					Program Persiapan Beasiswa<br />
+					Dalam dan Luar Negeri
+				</h2>
 
-					<p class="card-desc">
-						Pendampingan komprehensif untuk membantu peserta menempuh pendidikan di perguruan tinggi terbaik melalui jalur beasiswa.
-					</p>
+				<!-- Description -->
+				<p class="card-desc">
+					Pendampingan komprehensif untuk membantu peserta<br />
+					menempuh pendidikan di perguruan tinggi terbaik<br />
+					melalui jalur beasiswa.
+				</p>
 
-					<!-- 3 Meta Badges -->
-					<div class="meta-row">
-						<div class="meta-item">
-							<div class="meta-icon">
-								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-									<line x1="16" y1="2" x2="16" y2="6"></line>
-									<line x1="8" y1="2" x2="8" y2="6"></line>
-								</svg>
-							</div>
-							<div class="meta-text">
-								<span class="meta-val">12 Minggu</span>
-								<span class="meta-lbl">Durasi Program</span>
-							</div>
+				<!-- 3 Meta Items -->
+				<div class="meta-row">
+					<!-- Item 1 -->
+					<div class="meta-item">
+						<div class="meta-icon-teal">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<polyline points="12 6 12 12 16 14"></polyline>
+							</svg>
 						</div>
-
-						<div class="meta-item">
-							<div class="meta-icon">
-								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-									<circle cx="9" cy="7" r="4"></circle>
-								</svg>
-							</div>
-							<div class="meta-text">
-								<span class="meta-val">Siswa, Mahasiswa</span>
-								<span class="meta-lbl">dan Fresh Graduate</span>
-							</div>
-						</div>
-
-						<div class="meta-item">
-							<div class="meta-icon">
-								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-									<line x1="8" y1="21" x2="16" y2="21"></line>
-									<line x1="12" y1="17" x2="12" y2="21"></line>
-								</svg>
-							</div>
-							<div class="meta-text">
-								<span class="meta-val">Online &amp; Offline</span>
-								<span class="meta-lbl">Flexibel</span>
-							</div>
+						<div class="meta-text">
+							<span class="meta-line-1">12 Minggu</span>
+							<span class="meta-line-2">Durasi Program</span>
 						</div>
 					</div>
 
-					<!-- Button -->
-					<div class="btn-wrap">
-						<a href="#daftar-program" class="btn-gold">
-							<span>Lihat Detail Program</span>
-							<span class="btn-arrow">→</span>
-						</a>
+					<!-- Item 2 -->
+					<div class="meta-item">
+						<div class="meta-icon-teal">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+							</svg>
+						</div>
+						<div class="meta-text">
+							<span class="meta-line-1">Siswa, Mahasiswa</span>
+							<span class="meta-line-2">dan Fresh Graduate</span>
+						</div>
+					</div>
+
+					<!-- Item 3 -->
+					<div class="meta-item">
+						<div class="meta-icon-teal">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+								<line x1="8" y1="21" x2="16" y2="21"></line>
+								<line x1="12" y1="17" x2="12" y2="21"></line>
+							</svg>
+						</div>
+						<div class="meta-text">
+							<span class="meta-line-1">Online &amp; Offline</span>
+							<span class="meta-line-2">Flexibel</span>
+						</div>
 					</div>
 				</div>
 
-				<!-- Right Photo & Glass Feature Card -->
-				<div class="card-right-col">
-					<div class="featured-photo-box">
-						<img
-							src="/images/program-featured-hijab.jpg"
-							alt="Program Persiapan Beasiswa"
-							class="featured-photo"
-							loading="lazy"
-						/>
-					</div>
+				<!-- Button -->
+				<div class="btn-row">
+					<a href="/program/persiapan-beasiswa-dalam-negeri" class="btn-gold">
+						<span>Lihat Detail Program</span>
+						<span class="btn-arrow">→</span>
+					</a>
+				</div>
+			</div>
 
-					<!-- Glass Card: Keunggulan Program -->
-					<div class="glass-keunggulan-card">
-						<h4 class="keunggulan-title">Keunggulan Program</h4>
-						<ul class="keunggulan-list">
-							<li>
-								<div class="k-icon">
-									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-										<circle cx="12" cy="7" r="4"></circle>
-									</svg>
-								</div>
-								<span>Pendampingan personal</span>
-							</li>
-							<li>
-								<div class="k-icon">
-									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-									</svg>
-								</div>
-								<span>Simulasi wawancara</span>
-							</li>
-							<li>
-								<div class="k-icon">
-									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-									</svg>
-								</div>
-								<span>Review dokumen aplikasi</span>
-							</li>
-							<li>
-								<div class="k-icon">
-									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-										<circle cx="12" cy="12" r="10"></circle>
-										<line x1="2" y1="12" x2="22" y2="12"></line>
-									</svg>
-								</div>
-								<span>Strategi pemilihan beasiswa</span>
-							</li>
-							<li>
-								<div class="k-icon">
-									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-										<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-									</svg>
-								</div>
-								<span>Mentor berpengalaman</span>
-							</li>
-						</ul>
-					</div>
+			<!-- Right Column: Translucent Glass Card -->
+			<div class="card-right-col">
+				<div class="glass-keunggulan-card">
+					<h3 class="glass-title">Keunggulan Program</h3>
+					<ul class="glass-list">
+						<li>
+							<div class="glass-icon-teal">
+								<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+									<circle cx="12" cy="7" r="4"></circle>
+								</svg>
+							</div>
+							<span class="glass-item-text">Pendampingan personal</span>
+						</li>
+
+						<li>
+							<div class="glass-icon-teal">
+								<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+								</svg>
+							</div>
+							<span class="glass-item-text">Simulasi wawancara</span>
+						</li>
+
+						<li>
+							<div class="glass-icon-teal">
+								<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+								</svg>
+							</div>
+							<span class="glass-item-text">Review dokumen aplikasi</span>
+						</li>
+
+						<li>
+							<div class="glass-icon-teal">
+								<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10"></circle>
+									<line x1="2" y1="12" x2="22" y2="12"></line>
+								</svg>
+							</div>
+							<span class="glass-item-text">Strategi pemilihan beasiswa</span>
+						</li>
+
+						<li>
+							<div class="glass-icon-teal">
+								<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+								</svg>
+							</div>
+							<span class="glass-item-text">Mentor berpengalaman</span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -148,165 +172,216 @@
 
 <style>
 	.featured-program-section {
+		position: relative;
 		background: #FFFFFF;
-		padding: 1.5rem 0 3.5rem;
-	}
-
-	.featured-container {
 		width: 100%;
-		max-width: 1086px;
-		margin: 0 auto;
-		padding: 0 1.25rem;
+		padding: 10px 0 14px;
 		box-sizing: border-box;
 	}
 
-	.card-outer-wrap {
-		position: relative;
-		width: 100%;
-	}
-
-	.deco-accent {
+	.outer-decor-layer {
 		position: absolute;
-		border-radius: 50%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		pointer-events: none;
 		z-index: 1;
+		overflow: hidden;
 	}
 
-	.deco-gold-left {
-		top: -15px;
-		left: -20px;
-		width: 90px;
-		height: 90px;
-		background: #F4B334;
-		opacity: 0.85;
+	.swoosh-gold-left {
+		position: absolute;
+		top: 25%;
+		left: 0;
+		width: 68px;
+		height: 120px;
 	}
 
-	.deco-teal-left {
-		bottom: -15px;
-		left: -15px;
-		width: 70px;
-		height: 70px;
-		background: #00A6B2;
-		opacity: 0.85;
+	.swoosh-teal-left {
+		position: absolute;
+		bottom: 15px;
+		left: 0;
+		width: 98px;
+		height: 100px;
+	}
+
+	.swoosh-right-top {
+		position: absolute;
+		top: 8px;
+		right: 0;
+		width: 110px;
+		height: 80px;
+	}
+
+	.featured-container {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.featured-container {
+			max-width: 1500px;
+		}
 	}
 
 	.featured-navy-card {
 		position: relative;
-		z-index: 2;
-		background: #082442;
-		border-radius: 18px;
+		width: 100%;
+		height: 390px;
+		background: linear-gradient(135deg, #0B2948 0%, #082442 100%);
+		border-radius: 27px;
 		overflow: hidden;
+		box-shadow: 0 12px 36px rgba(11, 41, 72, 0.22);
 		display: grid;
-		grid-template-columns: 1.15fr 1fr;
+		grid-template-columns: 1.45fr 1fr;
 		align-items: center;
-		box-shadow: 0 12px 35px rgba(8, 36, 66, 0.2);
+		padding: 0 42px 0 54px;
+		box-sizing: border-box;
 	}
 
-	/* Left Col */
+	.card-bg-wrap {
+		position: absolute;
+		top: 0;
+		right: 280px;
+		bottom: 0;
+		width: 580px;
+		z-index: 1;
+		overflow: hidden;
+	}
+
+	.card-bg-photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+	}
+
+	.card-photo-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			90deg,
+			#0B2948 0%,
+			rgba(11, 41, 72, 0.94) 30%,
+			rgba(11, 41, 72, 0.55) 60%,
+			rgba(11, 41, 72, 0.15) 100%
+		);
+	}
+
 	.card-left-col {
-		padding: 2.5rem 2.2rem;
-		display: flex;
-		flex-direction: column;
+		position: relative;
+		z-index: 3;
+		max-width: 560px;
 	}
 
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		padding: 3px 10px;
+		padding: 3px 12px;
 		background: rgba(0, 166, 178, 0.2);
 		border: 1px solid rgba(0, 166, 178, 0.4);
 		border-radius: 20px;
-		margin-bottom: 0.85rem;
-		align-self: flex-start;
+		margin-bottom: 0.65rem;
 	}
 
 	.pill-dot {
-		width: 5px;
-		height: 5px;
-		background: #00A6B2;
+		width: 6px;
+		height: 6px;
 		border-radius: 50%;
+		background: #00A6B2;
 	}
 
 	.pill-label {
-		font-size: 10.5px;
-		font-weight: 600;
+		font-size: 11px;
+		font-weight: 700;
 		color: #FFFFFF;
-		letter-spacing: 0.02em;
 	}
 
 	.card-title {
-		font-size: 23px;
+		font-size: clamp(24px, 2.1vw, 32px);
+		line-height: 1.15;
 		font-weight: 800;
 		color: #FFFFFF;
-		line-height: 30px;
-		margin: 0 0 0.65rem 0;
-		letter-spacing: -0.01em;
+		margin: 0 0 0.75rem 0;
+		letter-spacing: -0.015em;
 	}
 
 	.card-desc {
-		font-size: 11.5px;
-		line-height: 18px;
-		color: rgba(255, 255, 255, 0.8);
-		margin: 0 0 1.5rem 0;
+		font-size: 13.5px;
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.88);
+		margin: 0 0 1.25rem 0;
 	}
 
-	/* Meta Badges */
 	.meta-row {
 		display: flex;
 		align-items: center;
-		gap: 1.25rem;
-		margin-bottom: 1.75rem;
+		gap: 20px;
+		margin-bottom: 1.5rem;
 	}
 
 	.meta-item {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 10px;
 	}
 
-	.meta-icon {
-		width: 28px;
-		height: 28px;
+	.meta-icon-teal {
+		width: 38px;
+		height: 38px;
 		border-radius: 50%;
-		background: rgba(0, 166, 178, 0.15);
+		background: #00A6B2;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		box-shadow: 0 3px 10px rgba(0, 166, 178, 0.3);
 	}
 
 	.meta-text {
 		display: flex;
 		flex-direction: column;
-		line-height: 1;
 	}
 
-	.meta-val {
-		font-size: 10.5px;
+	.meta-line-1 {
+		font-size: 12.5px;
 		font-weight: 700;
 		color: #FFFFFF;
-		margin-bottom: 2px;
+		line-height: 1.25;
 	}
 
-	.meta-lbl {
-		font-size: 9px;
-		color: rgba(255, 255, 255, 0.65);
+	.meta-line-2 {
+		font-size: 11px;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 0.75);
+		line-height: 1.25;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: #F4B334;
+		justify-content: center;
+		gap: 8px;
+		background: #F5B331;
 		color: #071D36;
-		padding: 7px 18px;
-		font-size: 11px;
+		width: 228px;
+		height: 44px;
+		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 10px;
 		text-decoration: none;
-		align-self: flex-start;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.3);
 		transition: all 0.2s ease;
 	}
 
@@ -316,93 +391,102 @@
 	}
 
 	.btn-arrow {
-		font-size: 12px;
+		font-size: 14px;
 	}
 
-	/* Right Col */
+	/* Right Glass Card */
 	.card-right-col {
 		position: relative;
-		width: 100%;
-		height: 320px;
-	}
-
-	.featured-photo-box {
-		width: 100%;
-		height: 100%;
-	}
-
-	.featured-photo {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center 20%;
-		display: block;
-	}
-
-	/* Floating Glass Card */
-	.glass-keunggulan-card {
-		position: absolute;
-		right: 1.5rem;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 185px;
-		background: rgba(11, 41, 72, 0.75);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 14px;
-		padding: 1.15rem 1rem;
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 		z-index: 3;
+		display: flex;
+		justify-content: flex-end;
 	}
 
-	.keunggulan-title {
-		font-size: 11px;
-		font-weight: 700;
+	.glass-keunggulan-card {
+		background: rgba(11, 41, 72, 0.65);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 21px;
+		padding: 22px 26px;
+		width: 100%;
+		max-width: 290px;
+		box-sizing: border-box;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+	}
+
+	.glass-title {
+		font-size: 14px;
+		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 0.75rem 0;
+		margin: 0 0 1rem 0;
+		letter-spacing: -0.01em;
 	}
 
-	.keunggulan-list {
+	.glass-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 10px;
 	}
 
-	.keunggulan-list li {
+	.glass-list li {
 		display: flex;
 		align-items: center;
-		gap: 8px;
-		font-size: 9.5px;
-		color: rgba(255, 255, 255, 0.9);
+		gap: 10px;
+		white-space: nowrap;
 	}
 
-	.k-icon {
-		width: 16px;
-		height: 16px;
+	.glass-icon-teal {
+		width: 26px;
+		height: 26px;
 		border-radius: 50%;
-		background: rgba(0, 166, 178, 0.2);
+		background: #00A6B2;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 900px) {
+	.glass-item-text {
+		font-size: 12.5px;
+		font-weight: 500;
+		color: #FFFFFF;
+		white-space: nowrap;
+	}
+
+	@media (max-width: 1099px) {
 		.featured-navy-card {
+			height: auto;
 			grid-template-columns: 1fr;
+			padding: 2rem 1.5rem;
+			gap: 2rem;
 		}
+
+		.card-bg-wrap {
+			display: none;
+		}
+
 		.card-right-col {
-			height: 260px;
+			justify-content: flex-start;
 		}
+
 		.glass-keunggulan-card {
-			position: static;
-			transform: none;
+			max-width: 100%;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.meta-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+		}
+
+		.btn-gold {
 			width: 100%;
-			border-radius: 0;
 		}
 	}
 </style>
