@@ -54,5 +54,6 @@
 		width: 100%;
 		overflow-x: hidden;
 		background: #FFFFFF;
+		padding-top: 48px; /* Fixed compact navbar height */
 	}
 </style>

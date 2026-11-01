@@ -1,8 +1,9 @@
 <script lang="ts">
-	// HeroScholarship.svelte - Faithful to design/beasiswa.png
+	// HeroScholarship.svelte - Replicated faithfully from design/beasiswa.png (1536px target)
 </script>
 
 <section class="hero-scholarship">
+	<!-- Background image & navy fade overlay -->
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/scholarship-hero-woman.jpg"
@@ -14,53 +15,63 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Wave decoration bottom-left -->
-	<svg class="hero-wave" viewBox="0 0 320 160" fill="none" preserveAspectRatio="none">
-		<path d="M0 40 C70 40 140 100 240 160 H0 Z" fill="#0A5E75" fill-opacity="0.9" />
-		<path d="M0 90 C80 90 150 130 220 160 H0 Z" fill="url(#teal-grad-sch)" />
-		<path d="M0 135 C60 135 120 150 170 160 H0 Z" fill="#FFFFFF" />
-		<defs>
-			<linearGradient id="teal-grad-sch" x1="0" y1="0" x2="1" y2="1">
-				<stop offset="0%" stop-color="#16B6C1" />
-				<stop offset="100%" stop-color="#079EAD" />
-			</linearGradient>
-		</defs>
+	<!-- Wave decoration bottom-left (Teal / Turquoise curves hugging left edge) -->
+	<svg class="hero-wave-left" viewBox="0 0 180 200" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path
+			d="M0,40 C30,70 60,130 95,200 L0,200 Z"
+			fill="#084252"
+			fill-opacity="0.75"
+		/>
+		<path
+			d="M0,75 C25,100 50,145 78,200 L0,200 Z"
+			fill="#00A6B2"
+		/>
 	</svg>
 
-	<!-- Wave decoration bottom-right -->
-	<svg class="hero-wave-right" viewBox="0 0 160 160" fill="none" preserveAspectRatio="none">
-		<path d="M160 40 C110 70 70 115 30 160 H160 Z" fill="#F4B334" fill-opacity="0.8" />
-		<path d="M160 85 C125 110 95 135 65 160 H160 Z" fill="#16B6C1" />
-		<path d="M160 130 C140 142 120 152 95 160 H160 Z" fill="#FFFFFF" />
+	<!-- Curved accents bottom-right (Turquoise & Gold in bottom right corner) -->
+	<svg class="hero-wave-right" viewBox="0 0 160 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<!-- Turquoise curved band -->
+		<path
+			d="M160,20 C110,60 70,105 40,150 L80,150 C105,115 130,80 160,50 Z"
+			fill="#00A6B2"
+		/>
+		<!-- Gold curved band in corner -->
+		<path
+			d="M160,75 C130,100 100,125 78,150 L160,150 Z"
+			fill="#F5B331"
+		/>
 	</svg>
 
+	<!-- Main Content Container (x 78→1458 on 1536px, max-width 1380px, 1500px on >=1920px) -->
 	<div class="hero-container">
 		<div class="hero-inner-row">
-			<!-- Left Text Column -->
+			<!-- Left Column: Pill, Title, Desc, Buttons -->
 			<div class="hero-text-col">
-				<!-- Pill Tag -->
+				<!-- Pill Tag (centered vertically at y≈113px on viewport 1536) -->
 				<div class="pill-tag">
 					<span class="pill-dot"></span>
 					<span class="pill-label">Beasiswa</span>
 				</div>
 
-				<!-- Headline -->
+				<!-- Title (3 lines, line 3 gold #F5B331) -->
 				<h1 class="hero-title">
-					Akses Informasi Beasiswa<br />
-					untuk Masa Depan<br />
-					<span class="gold-text">yang Lebih Luas.</span>
+					<span class="title-line">Akses Informasi Beasiswa</span>
+					<span class="title-line">untuk Masa Depan</span>
+					<span class="title-line gold-text">yang Lebih Luas.</span>
 				</h1>
 
-				<!-- Description -->
+				<!-- Description (3 lines, max-width 560px) -->
 				<p class="hero-desc">
-					SDJNusantara menghadirkan informasi beasiswa dari dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur untuk membantu Anda meraih peluang pendidikan terbaik.
+					SDJNusantara menghadirkan informasi beasiswa dari dalam<br />
+					dan luar negeri yang terpercaya, lengkap, dan terstruktur untuk<br />
+					membantu Anda meraih peluang pendidikan terbaik.
 				</p>
 
-				<!-- Buttons -->
+				<!-- Buttons (Gold "Konsultasi Beasiswa →" + Outline "Panduan Persiapan", center y≈396) -->
 				<div class="hero-btn-row">
-					<a href="#cari-beasiswa" class="btn-gold">
+					<a href="/konsultasi" class="btn-gold">
 						<span>Konsultasi Beasiswa</span>
-						<span class="btn-arrow">→</span>
+						<span class="btn-arrow" aria-hidden="true">→</span>
 					</a>
 					<a href="#panduan-persiapan" class="btn-outline">
 						<span>Panduan Persiapan</span>
@@ -68,13 +79,13 @@
 				</div>
 			</div>
 
-			<!-- Floating Quote Card on Right -->
+			<!-- Right Column: Floating Quote Card (x 1206→1464, y 135→405) -->
 			<div class="hero-quote-col">
 				<div class="quote-card">
-					<div class="quote-icon">
-						<svg width="22" height="16" viewBox="0 0 24 18" fill="none">
+					<div class="quote-icon" aria-hidden="true">
+						<svg width="26" height="20" viewBox="0 0 26 20" fill="none">
 							<path
-								d="M0 18V11.25C0 5.4 3.6 1.8 10.8 0L12 2.7C7.2 3.6 4.8 6.3 4.8 10.8H10.8V18H0ZM13.2 18V11.25C13.2 5.4 16.8 1.8 24 0L25.2 2.7C20.4 3.6 18 6.3 18 10.8H24V18H13.2Z"
+								d="M0 20V12.2C0 5.8 4 2 11.5 0L12.8 3C7.5 4 4.8 7 4.8 12H11.5V20H0ZM14.5 20V12.2C14.5 5.8 18.5 2 26 0L27.3 3C22 4 19.3 7 19.3 12H26V20H14.5Z"
 								fill="#00A6B2"
 							/>
 						</svg>
@@ -93,11 +104,13 @@
 	.hero-scholarship {
 		position: relative;
 		width: 100%;
-		height: 350px;
+		height: 415px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
+		box-sizing: border-box;
+		padding-top: 52px; /* Places pill center at y≈113px from viewport top with 48px fixed navbar */
 	}
 
 	.hero-bg-wrap {
@@ -110,13 +123,17 @@
 	}
 
 	.hero-img {
-		width: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 60%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 25%;
+		object-position: right 20%;
 		display: block;
 	}
 
+	/* Navy gradient overlay: solid 0–32%, ±0.8 at 42%, 0 at ±58% */
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -126,19 +143,20 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 38%,
-			rgba(8, 36, 66, 0.88) 55%,
-			rgba(8, 36, 66, 0.35) 75%,
-			rgba(8, 36, 66, 0.1) 100%
+			#082442 32%,
+			rgba(8, 36, 66, 0.82) 42%,
+			rgba(8, 36, 66, 0) 58%,
+			rgba(8, 36, 66, 0) 100%
 		);
 	}
 
-	.hero-wave {
+	/* SVG Waves */
+	.hero-wave-left {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 300px;
-		height: 140px;
+		width: 180px;
+		height: 200px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -147,171 +165,238 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 180px;
+		width: 160px;
 		height: 150px;
 		z-index: 2;
 		pointer-events: none;
 	}
 
+	/* Container: x 78→1458 on 1536 (width 1380px), max-width 1500px on >=1920px */
 	.hero-container {
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1380px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 0 54px; /* Left edge at 78 + 54 = 132px, matches mockup x=131 */
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.hero-container {
+			max-width: 1500px;
+		}
 	}
 
 	.hero-inner-row {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: space-between;
-		gap: 2rem;
+		gap: 2.5rem;
+		width: 100%;
 	}
 
 	.hero-text-col {
-		max-width: 520px;
+		max-width: 660px;
+		flex: 1;
 	}
 
+	/* Pill Tag: center at y≈113px from viewport top */
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		padding: 3px 10px;
-		background: rgba(0, 166, 178, 0.2);
-		border: 1px solid rgba(0, 166, 178, 0.4);
-		border-radius: 20px;
-		margin-bottom: 0.85rem;
+		gap: 7px;
+		padding: 4px 14px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.45);
+		border-radius: 999px;
+		margin-bottom: 10px;
 	}
 
 	.pill-dot {
-		width: 5px;
-		height: 5px;
+		width: 6px;
+		height: 6px;
 		background: #00A6B2;
 		border-radius: 50%;
 	}
 
 	.pill-label {
-		font-size: 10.5px;
+		font-size: 11.5px;
 		font-weight: 600;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
+	/* H1 3 lines, weight 800, line 3 gold #F5B331 */
 	.hero-title {
-		font-size: 32px;
-		line-height: 38px;
+		font-size: clamp(32px, 2.75vw, 42px);
+		line-height: 1.16;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 0.85rem 0;
-		letter-spacing: -0.01em;
+		margin: 0 0 14px 0;
+		letter-spacing: -0.015em;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.title-line {
+		display: block;
+		white-space: nowrap;
 	}
 
 	.gold-text {
-		color: #F4B334;
+		color: #F5B331;
 	}
 
+	/* Description 3 lines, max-width ±560px */
 	.hero-desc {
-		font-size: 12px;
-		line-height: 18px;
-		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 1.25rem 0;
-		max-width: 480px;
+		font-size: 13.5px;
+		line-height: 20px;
+		color: rgba(255, 255, 255, 0.88);
+		margin: 0 0 20px 0;
+		max-width: 560px;
 	}
 
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 16px;
 	}
 
+	/* Gold Button ±212×45px, center y≈396 */
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: #F4B334;
-		color: #071D36;
-		padding: 7px 18px;
-		font-size: 11px;
+		justify-content: center;
+		gap: 8px;
+		width: 212px;
+		height: 45px;
+		background: #F5B331;
+		color: #082442;
+		font-size: 14px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 2px 8px rgba(244, 179, 52, 0.25);
+		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.28);
+		box-sizing: border-box;
 		transition: all 0.2s ease;
 	}
 
 	.btn-gold:hover {
 		background: #e6a528;
 		transform: translateY(-1px);
+		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.35);
 	}
 
+	.btn-arrow {
+		font-size: 16px;
+		font-weight: 700;
+		transition: transform 0.2s ease;
+	}
+
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
+	}
+
+	/* Outline Button ±182×45px */
 	.btn-outline {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
+		width: 182px;
+		height: 45px;
 		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.35);
+		border: 1.5px solid rgba(255, 255, 255, 0.75);
 		color: #FFFFFF;
-		padding: 7px 16px;
-		font-size: 11px;
+		font-size: 14px;
 		font-weight: 600;
-		border-radius: 7px;
+		border-radius: 8px;
 		text-decoration: none;
-		transition: all 0.2s;
+		box-sizing: border-box;
+		transition: all 0.2s ease;
 	}
 
 	.btn-outline:hover {
 		border-color: #00A6B2;
 		color: #00A6B2;
+		background: rgba(0, 166, 178, 0.12);
 	}
 
-	.btn-arrow {
-		font-size: 12px;
-	}
-
-	/* Floating Quote Card */
+	/* Floating Quote Card: x 1206→1464 (width ~256px), y 135→405 (height ~267px) */
 	.hero-quote-col {
 		flex-shrink: 0;
+		margin-top: 36px; /* Aligns quote card at y=136 on 1536px */
 	}
 
 	.quote-card {
-		width: 190px;
+		width: 256px;
+		height: 267px;
 		background: #FFFFFF;
-		border-radius: 14px;
-		padding: 1.15rem 1rem;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+		border-radius: 18px;
+		padding: 24px 22px 20px 22px;
+		box-shadow: 0 14px 34px rgba(7, 26, 48, 0.22);
 		display: flex;
 		flex-direction: column;
+		box-sizing: border-box;
 	}
 
 	.quote-icon {
-		margin-bottom: 0.5rem;
+		margin-bottom: 12px;
 	}
 
 	.quote-text {
-		font-size: 10px;
-		line-height: 15px;
+		font-size: 12px;
+		line-height: 18px;
 		color: #1E293B;
 		font-weight: 500;
-		margin: 0 0 0.65rem 0;
+		margin: 0;
+		flex: 1;
 	}
 
 	.quote-author {
-		font-size: 9.5px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 800;
 		color: #082442;
+		margin-top: 12px;
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1024px) {
 		.hero-scholarship {
 			height: auto;
-			padding: 4rem 1rem 3rem;
+			min-height: 440px;
+			padding: 40px 1.5rem 48px;
+		}
+		.hero-container {
+			padding: 0 1rem;
 		}
 		.hero-inner-row {
 			flex-direction: column;
 			align-items: flex-start;
 		}
+		.hero-quote-col {
+			margin-top: 1.5rem;
+			width: 100%;
+		}
 		.quote-card {
+			width: 100%;
+			max-width: 420px;
+			height: auto;
+			min-height: auto;
+		}
+		.hero-img {
+			width: 100%;
+			opacity: 0.25;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-btn-row {
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
+		}
+		.btn-gold,
+		.btn-outline {
 			width: 100%;
 		}
 	}

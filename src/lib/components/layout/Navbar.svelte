@@ -250,17 +250,17 @@
 	}
 
 	.nav-brand-tagline {
-		font-size: 8px;
-		font-weight: 700;
+		font-size: 10px;
+		font-weight: 500;
 		color: #64748B;
-		letter-spacing: 0.08em;
-		margin-top: 2px;
+		letter-spacing: 0.05em;
+		margin-top: 1px;
 	}
 
 	.nav-brand-tagline.compact-tagline {
-		font-size: 8px;
+		font-size: 10px;
 		font-weight: 500;
-		letter-spacing: 0.03em;
+		letter-spacing: 0.04em;
 	}
 
 	.nav-list {
