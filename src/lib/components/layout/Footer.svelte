@@ -171,7 +171,7 @@
 
 <style>
 	.footer {
-		background-color: #081D34;
+		background-color: #0B2948;
 		color: #FFFFFF;
 		border-top: 1px solid rgba(255, 255, 255, 0.08);
 	}
@@ -213,15 +213,15 @@
 	.footer-vdivider {
 		width: 1px;
 		background: rgba(255, 255, 255, 0.12);
-		align-self: stretch;
-		min-height: 98px;
+		height: 98px;
+		flex-shrink: 0;
 	}
 
 	/* Brand Col */
 	.footer-brand-col {
 		display: flex;
 		flex-direction: column;
-		gap: 0.45rem;
+		gap: 0.35rem;
 	}
 
 	.footer-logo-link {
@@ -255,8 +255,8 @@
 
 	.footer-brand-tagline {
 		font-size: 7px;
-		font-weight: 700;
-		color: rgba(255, 255, 255, 0.7);
+		font-weight: 400; /* subjudul satu baris tidak bold */
+		color: rgba(255, 255, 255, 0.75);
 		letter-spacing: 0.02em;
 		white-space: nowrap;
 		margin-top: 2px;
@@ -274,7 +274,7 @@
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		margin-top: 0.35rem; /* Posisi di y≈993 */
+		margin-top: 14px; /* Posisi di y≈993 */
 	}
 
 	/* LINGKARAN OUTLINE putih tipis ±20px tanpa background kotak */
@@ -309,8 +309,9 @@
 		font-size: 10.5px;
 		font-weight: 700;
 		color: #FFFFFF;
-		margin: 0 0 0.55rem 0;
+		margin: 0 0 12px 0;
 		letter-spacing: 0;
+		white-space: nowrap;
 	}
 
 	.footer-links-list {
@@ -319,14 +320,23 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 19px; /* Jarak antar-link Navigasi Utama/Pusat Informasi ±19px */
+		gap: 8px; /* Jarak antar-link Navigasi Utama/Pusat Informasi ±19px antar baseline */
+	}
+
+	.footer-links-list li {
+		margin: 0;
+		padding: 0;
+		height: 11px;
+		display: flex;
+		align-items: center;
+		line-height: 11px;
 	}
 
 	.footer-link {
 		font-size: 10.5px;
 		color: rgba(255, 255, 255, 0.68);
 		text-decoration: none;
-		line-height: 1;
+		line-height: 11px;
 		letter-spacing: 0;
 		transition: color 0.2s ease;
 	}
@@ -341,14 +351,17 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 20px; /* Jarak item kontak ±20px */
+		gap: 7px; /* Jarak item kontak ±20px antar baseline */
 	}
 
 	.footer-contact-list li {
+		margin: 0;
+		padding: 0;
+		height: 13px;
 		display: flex;
 		align-items: center;
 		gap: 0.45rem;
-		line-height: 1;
+		line-height: 13px;
 	}
 
 	.footer-text {
@@ -362,7 +375,7 @@
 		font-size: 10px;
 		color: rgba(255, 255, 255, 0.65);
 		line-height: 14.5px;
-		margin: 0 0 0.9rem 0;
+		margin: 0 0 16px 0;
 		letter-spacing: 0;
 	}
 
@@ -507,24 +520,62 @@
 		transform: translateY(-2px);
 	}
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1099px) {
 		.footer.compact-footer {
 			height: auto;
-			padding: 2.5rem 1.5rem;
+			padding: 2.5rem 1.5rem 2rem;
 		}
-		.footer-grid {
+		.footer-grid,
+		.footer-grid.compact-grid {
 			grid-template-columns: 1fr 1fr;
-			gap: 2rem;
+			gap: 2rem 1.5rem;
 		}
 		.footer-vdivider {
 			display: none;
 		}
+		.footer-brand-col {
+			grid-column: 1 / -1;
+		}
 	}
 
-	@media (max-width: 640px) {
-		.footer-grid {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
+	@media (max-width: 767px) {
+		.footer.compact-footer {
+			padding: 2rem 1.25rem 1.75rem;
+		}
+		.footer-grid,
+		.footer-grid.compact-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem 1rem;
+		}
+		.footer-brand-col {
+			grid-column: 1 / -1;
+		}
+		.footer-contact-col {
+			grid-column: 1 / -1;
+		}
+		.footer-copy-col {
+			grid-column: 1 / -1;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+			padding-top: 1.25rem;
+			margin-top: 0.5rem;
+		}
+		.footer-col-title {
+			font-size: 13px;
+			white-space: nowrap;
+		}
+		.footer-link,
+		.footer-text,
+		.footer-copyright {
+			font-size: 12px;
+			line-height: 1.5;
+		}
+		.footer-legal-links {
+			gap: 16px;
+			flex-wrap: wrap;
+		}
+		.footer-legal-link {
+			font-size: 11.5px;
 		}
 	}
 </style>

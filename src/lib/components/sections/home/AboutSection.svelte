@@ -34,8 +34,8 @@
 			</h2>
 
 			<p class="about-desc">
-				SDJNusantara hadir untuk menghubungkan potensi individu<br />
-				dan institusi dengan kesempatan pendidikan, pengembangan<br />
+				SDJNusantara hadir untuk menghubungkan potensi individu
+				dan institusi dengan kesempatan pendidikan, pengembangan
 				kompetensi, dan jejaring profesional.
 			</p>
 
@@ -181,7 +181,7 @@
 		align-items: center;
 	}
 
-	/* Faint building line art on left-bottom (opacity 0.06) */
+	/* Faint building line art on left-bottom (opacity 0.06) - Masked so there is NO vertical line at x≈190 */
 	.about-bg-line-art {
 		position: absolute;
 		bottom: 0;
@@ -191,6 +191,8 @@
 		z-index: 1;
 		pointer-events: none;
 		opacity: 0.06;
+		-webkit-mask-image: linear-gradient(to right, black 50%, transparent 95%);
+		mask-image: linear-gradient(to right, black 50%, transparent 95%);
 	}
 
 	.line-art-img {
@@ -232,7 +234,7 @@
 
 	/* Left Column */
 	.about-left-text {
-		width: 335px;
+		width: 365px;
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
@@ -276,6 +278,8 @@
 		color: #183553; /* Warna #183553 (bukan abu-abu) */
 		margin-bottom: 0.55rem;
 		letter-spacing: 0;
+		max-width: 365px;
+		text-wrap: pretty;
 	}
 
 	.about-btn {
@@ -389,28 +393,81 @@
 		display: block;
 	}
 
-	@media (max-width: 1200px) {
+	@media (max-width: 1199px) {
 		.about-section {
 			height: auto;
-			padding: 2.5rem 1.5rem;
+			padding: 3rem 1.5rem;
 		}
 		.about-full-row {
 			height: auto;
 			flex-direction: column;
 			padding: 0;
-			gap: 1.5rem;
+			gap: 2rem;
 		}
 		.about-left-text {
 			width: 100%;
-			max-width: 500px;
+			max-width: 600px;
+			padding-right: 0;
+		}
+		.about-desc {
+			max-width: 100%;
+			font-size: 14px;
+			line-height: 1.6;
+		}
+		.about-btn {
+			padding: 0.6rem 1.25rem;
+			font-size: 13px;
 		}
 		.about-center-features {
 			width: 100%;
-			overflow-x: auto;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			gap: 1rem;
+		}
+		.feature-vdivider {
+			display: none;
 		}
 		.about-right-building-container {
 			width: 100%;
+			height: 240px;
 			justify-content: center;
+		}
+		.building-mask-box {
+			width: 100%;
+			height: 100%;
+			border-top-left-radius: 40px;
+			border-top-right-radius: 40px;
+		}
+		.yellow-crescent-svg {
+			display: none;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.about-section {
+			padding: 2.5rem 1.25rem;
+		}
+		.about-left-text {
+			width: 100%;
+		}
+		.about-title {
+			font-size: 1.45rem;
+		}
+		.about-btn {
+			width: 100%;
+			justify-content: center;
+			height: 44px;
+			font-size: 14px;
+		}
+		.about-center-features {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.25rem;
+		}
+		.feature-col:last-child {
+			grid-column: 1 / -1;
+		}
+		.about-right-building-container {
+			height: 200px;
 		}
 	}
 </style>

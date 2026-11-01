@@ -25,9 +25,10 @@
 			</div>
 			<div class="stat-details">
 				<span class="stat-num">200+</span>
-				<span class="stat-label">
-					Individu Pemetaan<br />Talenta
-				</span>
+				<div class="stat-label">
+					<span class="stat-line">Individu Pemetaan</span>
+					<span class="stat-line">Talenta</span>
+				</div>
 			</div>
 		</div>
 
@@ -53,9 +54,10 @@
 			</div>
 			<div class="stat-details">
 				<span class="stat-num">12</span>
-				<span class="stat-label">
-					Kegiatan Sosialisasi<br />Beasiswa
-				</span>
+				<div class="stat-label">
+					<span class="stat-line">Kegiatan Sosialisasi</span>
+					<span class="stat-line">Beasiswa</span>
+				</div>
 			</div>
 		</div>
 
@@ -73,9 +75,10 @@
 			</div>
 			<div class="stat-details">
 				<span class="stat-num">60</span>
-				<span class="stat-label">
-					Peserta Coaching<br />Intensif
-				</span>
+				<div class="stat-label">
+					<span class="stat-line">Peserta Coaching</span>
+					<span class="stat-line">Intensif</span>
+				</div>
 			</div>
 		</div>
 
@@ -164,12 +167,18 @@
 	}
 
 	.stat-label {
+		display: flex;
+		flex-direction: column;
 		font-size: 11px;
 		font-weight: 500;
 		color: #64748B;
 		line-height: 1.25;
 		margin-top: 1px;
 		letter-spacing: 0;
+	}
+
+	.stat-line {
+		white-space: nowrap;
 	}
 
 	/* Tombol panah: lingkaran outline turquoise ±22px berlatar putih */
@@ -195,32 +204,46 @@
 		stroke: #FFFFFF !important;
 	}
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1099px) {
+		.stats-wrapper {
+			height: auto;
+			margin: -15px auto 0;
+			padding: 0 1.5rem;
+		}
 		.stats-card {
 			height: auto;
-			padding: 0.75rem 1rem;
-			gap: 0.75rem;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.25rem;
+			padding: 1.25rem 1.5rem;
 		}
-		.stat-num {
-			font-size: 1.15rem;
+		.stats-heading {
+			grid-column: 1 / -1;
+			border-bottom: 1px solid #DCE6EE;
+			padding-bottom: 0.75rem;
+			flex-direction: row;
+			gap: 0.5rem;
+		}
+		.stat-divider {
+			display: none;
+		}
+		.stat-action-btn {
+			display: none;
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 640px) {
 		.stats-wrapper {
-			margin-top: -10px;
-			height: auto;
+			margin: -10px auto 0;
+			padding: 0 1rem;
 		}
 		.stats-card {
-			flex-direction: column;
-			align-items: flex-start;
+			grid-template-columns: 1fr;
 			gap: 1rem;
-			padding: 1.25rem;
-			height: auto;
+			padding: 1rem 1.25rem;
 		}
-		.stat-divider {
-			width: 100%;
-			height: 1px;
+		.stat-label {
+			max-width: 100%;
 		}
 	}
 </style>

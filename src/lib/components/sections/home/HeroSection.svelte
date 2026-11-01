@@ -4,11 +4,16 @@
 <section class="hero-section">
 	<!-- Full-width Background Image: seamless left foliage + right students -->
 	<div class="hero-bg-wrapper">
-		<img
-			src="/images/hero-full-clean.jpg"
-			alt="SDJNusantara Mahasiswa di Kampus"
-			class="hero-img"
-		/>
+		<picture>
+			<source srcset="/images/hero-students-composite@2x.jpg 2x, /images/hero-students-composite.jpg 1x" />
+			<img
+				src="/images/hero-students-composite.jpg"
+				alt="SDJNusantara Tiga Mahasiswa di Kampus"
+				class="hero-img"
+				loading="eager"
+				fetchpriority="high"
+			/>
+		</picture>
 	</div>
 
 	<!-- Navy Gradient Overlay: solid #082442 on 0-22%, ~0.85 on 40%, 0 on ~62% -->
@@ -62,9 +67,9 @@
 			</h1>
 
 			<p class="hero-description">
-				SDJNusantara adalah konsultan pendidikan dan pengembangan talenta<br />
-				yang membantu individu serta institusi merencanakan pendidikan,<br />
-				mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun<br />
+				SDJNusantara adalah konsultan pendidikan dan pengembangan talenta
+				yang membantu individu serta institusi merencanakan pendidikan,
+				mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun
 				jejaring kolaborasi.
 			</p>
 
@@ -80,6 +85,28 @@
 					<span>Jelajahi Program Kami</span>
 				</a>
 			</div>
+		</div>
+	</div>
+
+	<!-- Mobile-only student photo band below text (rasio ~4:3, ketiga wajah utuh, tanpa teks menimpa wajah) -->
+	<div class="hero-mobile-photo-band">
+		<picture>
+			<source srcset="/images/hero-students-composite@2x.jpg 2x, /images/hero-students-composite.jpg 1x" />
+			<img
+				src="/images/hero-students-composite.jpg"
+				alt="SDJNusantara Mahasiswa"
+				class="mobile-band-img"
+				loading="eager"
+			/>
+		</picture>
+		<div class="mobile-band-top-gradient"></div>
+		<!-- Scaled down bottom-left teal wave for mobile -->
+		<div class="mobile-band-wave">
+			<svg viewBox="0 0 160 80" fill="none" preserveAspectRatio="none">
+				<path d="M0 8 C40 18 85 45 105 80 L0 80 Z" fill="#0A5E75" fill-opacity="0.9"/>
+				<path d="M0 32 C35 40 75 62 90 80 L105 80 C90 52 48 24 0 15 Z" fill="#16B6C1"/>
+				<path d="M0 60 C30 65 70 75 105 80 L0 80 Z" fill="#FFFFFF"/>
+			</svg>
 		</div>
 	</div>
 </section>
@@ -122,6 +149,7 @@
 			rgba(8, 36, 66, 0.1) 58%,
 			transparent 62%
 		);
+		pointer-events: none;
 	}
 
 	/* Bottom-left decorative wave (width: 330px, height: 170px) */
@@ -154,7 +182,7 @@
 	}
 
 	.hero-content {
-		max-width: 440px;
+		max-width: 430px;
 		margin-top: 14px; /* Pusat baris headline y≈107, 145, 184 */
 	}
 
@@ -188,11 +216,12 @@
 	.hero-description {
 		font-size: 12.5px;
 		line-height: 16.5px;
-		color: rgba(255, 255, 255, 0.9);
+		color: rgba(255, 255, 255, 0.95);
 		margin-bottom: 0.85rem;
-		max-width: 410px;
+		max-width: 440px;
 		font-weight: 400;
 		letter-spacing: 0;
+		text-wrap: pretty;
 	}
 
 	.hero-buttons {
@@ -250,28 +279,113 @@
 		border-color: #FFFFFF;
 	}
 
-	@media (max-width: 1024px) {
+	.hero-mobile-photo-band {
+		display: none;
+	}
+
+	@media (max-width: 1099px) {
 		.hero-section {
 			height: auto;
-			min-height: 290px;
-			padding: 2rem 0 3rem;
+			min-height: 320px;
+			padding: 2.5rem 0 3.5rem;
+		}
+		.hero-container {
+			padding: 0 2rem;
+		}
+		.hero-content {
+			max-width: 480px;
+			margin-top: 0;
 		}
 		.hero-title {
-			font-size: 1.95rem;
-			line-height: 1.15;
+			font-size: 2.1rem;
+			line-height: 1.18;
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 767px) {
 		.hero-section {
 			height: auto;
-			padding: 2rem 0 3.5rem;
+			min-height: unset;
+			padding: 2rem 0 0;
+			flex-direction: column;
+			align-items: stretch;
 		}
-		.hero-img {
-			opacity: 0.35;
+		.hero-bg-wrapper,
+		.hero-gradient-overlay,
+		.hero-wave-container {
+			display: none;
 		}
-		.hero-gradient-overlay {
-			background: rgba(8, 36, 66, 0.92);
+		.hero-container {
+			height: auto;
+			padding: 0 1.25rem 2rem;
+		}
+		.hero-content {
+			max-width: 100%;
+			margin-top: 0;
+		}
+		.hero-title {
+			font-size: clamp(1.85rem, 7vw, 2.15rem);
+			line-height: 1.2;
+			margin-bottom: 0.85rem;
+		}
+		.title-line {
+			white-space: normal;
+		}
+		.line-1,
+		.line-3 {
+			width: auto;
+		}
+		.hero-description {
+			font-size: 14.5px;
+			line-height: 1.5;
+			max-width: 100%;
+			margin-bottom: 1.25rem;
+		}
+		.hero-buttons {
+			flex-direction: column;
+			width: 100%;
+			gap: 0.75rem;
+		}
+		.btn-primary-gold,
+		.btn-secondary-outline {
+			width: 100%;
+			height: 44px;
+			font-size: 14px;
+		}
+		.hero-mobile-photo-band {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 220px;
+			overflow: hidden;
+		}
+		.mobile-band-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 70% center;
+			display: block;
+		}
+		.mobile-band-top-gradient {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+			background: linear-gradient(to bottom, #082442 0%, transparent 100%);
+		}
+		.mobile-band-wave {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 160px;
+			height: 80px;
+			pointer-events: none;
+		}
+		.mobile-band-wave svg {
+			width: 100%;
+			height: 100%;
+			display: block;
 		}
 	}
 </style>

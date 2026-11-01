@@ -13,6 +13,29 @@
 		mobileOpen = !mobileOpen;
 	}
 
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape' && mobileOpen) {
+			mobileOpen = false;
+		}
+	}
+
+	// Kunci scroll body saat drawer terbuka
+	$effect(() => {
+		if (typeof document !== 'undefined') {
+			if (mobileOpen) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = '';
+			}
+		}
+	});
+
+	// Tutup drawer saat rute berpindah
+	$effect(() => {
+		const _ = page.url.pathname;
+		mobileOpen = false;
+	});
+
 	function isActive(href: string): boolean {
 		if (page.url.pathname === '/konsultasi') {
 			return false; // di halaman Konsultasi tidak ada item menu yang aktif per aturan 1.4
@@ -23,6 +46,8 @@
 		return page.url.pathname.startsWith(href);
 	}
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <nav class="navbar {compact ? 'compact' : ''}">
 	<!-- Swoosh abu-abu samar (#E5EAEE) di pojok kanan-atas navbar (x 1440–1536) -->
@@ -79,7 +104,12 @@
 		</a>
 
 		<!-- Mobile Hamburger -->
-		<button class="hamburger" onclick={toggleMobile} aria-label="Toggle menu">
+		<button
+			class="hamburger"
+			onclick={toggleMobile}
+			aria-label="Toggle navigasi"
+			aria-expanded={mobileOpen}
+		>
 			<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				{#if mobileOpen}
 					<line x1="18" y1="6" x2="6" y2="18"></line>
@@ -93,24 +123,30 @@
 		</button>
 	</div>
 
-	<!-- Mobile Menu -->
+	<!-- Mobile Menu Drawer (all 8 items, lock body scroll, full width) -->
 	{#if mobileOpen}
-		<div class="mobile-menu">
-			{#each navItems as item}
-				<a
-					href={item.href}
-					class="mobile-link {isActive(item.href) ? 'active' : ''}"
-					onclick={() => mobileOpen = false}
-				>
-					{item.label}
+		<div class="mobile-menu-backdrop" onclick={() => mobileOpen = false} role="presentation"></div>
+		<div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigasi mobile">
+			<div class="mobile-menu-inner">
+				{#each navItems as item}
+					<a
+						href={item.href}
+						class="mobile-link {isActive(item.href) ? 'active' : ''}"
+						onclick={() => mobileOpen = false}
+					>
+						<span>{item.label}</span>
+						{#if isActive(item.href)}
+							<span class="mobile-active-dot"></span>
+						{/if}
+					</a>
+				{/each}
+				<a href="/konsultasi" class="mobile-cta" onclick={() => mobileOpen = false}>
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+					</svg>
+					<span>Konsultasi</span>
 				</a>
-			{/each}
-			<a href="/konsultasi" class="mobile-cta" onclick={() => mobileOpen = false}>
-				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-				</svg>
-				<span>Konsultasi</span>
-			</a>
+			</div>
 		</div>
 	{/if}
 </nav>
@@ -323,25 +359,56 @@
 		border: none;
 		color: #0B2747;
 		cursor: pointer;
-		padding: 0.25rem;
+		padding: 0.5rem;
+		border-radius: 6px;
+	}
+
+	.hamburger:hover {
+		background: #F1F5F9;
+	}
+
+	.mobile-menu-backdrop {
+		position: fixed;
+		inset: 0;
+		top: 56px;
+		background: rgba(11, 39, 71, 0.45);
+		backdrop-filter: blur(2px);
+		z-index: 998;
 	}
 
 	.mobile-menu {
+		position: fixed;
+		top: 56px;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		background: #FFFFFF;
+		z-index: 999;
+		overflow-y: auto;
 		border-top: 1px solid #DCE6EE;
-		padding: 1rem 2rem 1.5rem;
+	}
+
+	.mobile-menu-inner {
+		padding: 1.25rem 1.5rem 2.5rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
+		gap: 0.25rem;
+		max-width: 480px;
+		margin: 0 auto;
 	}
 
 	.mobile-link {
-		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 1rem;
 		font-weight: 500;
 		color: #183553;
 		text-decoration: none;
-		padding: 0.6rem 0;
+		min-height: 48px;
+		padding: 0.5rem 0.25rem;
 		border-bottom: 1px solid #F1F5F9;
+		transition: color 0.15s ease;
 	}
 
 	.mobile-link.active {
@@ -349,28 +416,48 @@
 		font-weight: 700;
 	}
 
+	.mobile-active-dot {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #00A6B2;
+	}
+
 	.mobile-cta {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.4rem;
-		margin-top: 1rem;
-		padding: 0.65rem 1.25rem;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+		height: 48px;
 		background: #F4B334;
 		color: #071D36;
 		font-weight: 700;
-		font-size: 0.88rem;
-		border-radius: 6px;
+		font-size: 0.95rem;
+		border-radius: 8px;
 		text-decoration: none;
+		box-shadow: 0 3px 10px rgba(244, 179, 52, 0.3);
 	}
 
 	@media (max-width: 992px) {
+		.navbar,
+		.navbar.compact {
+			height: 56px;
+		}
+		.navbar-inner,
+		.navbar-inner.compact-inner {
+			height: 56px;
+			padding: 0 1.25rem;
+		}
 		.nav-list,
-		.btn-konsultasi {
+		.btn-konsultasi,
+		.nav-top-swoosh {
 			display: none;
 		}
 		.hamburger {
-			display: block;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 </style>

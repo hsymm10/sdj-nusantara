@@ -138,12 +138,28 @@ Berikut daftar foto yang dapat Anda sediakan / upload ke `static/images/` atau `
 
 ---
 
-## 4. Konfirmasi Integritas Arsitektur & Aturan Kerja
 
-1. **Beranda (`/`):** Tampilan Beranda **TIDAK DIUBAH** sama sekali. Seluruh komponen `src/lib/components/sections/home/` dan `src/routes/+page.svelte` 100% identik dengan commit awal.
-2. **Backend & Database:** Tidak ada backend, database, routing, atau dependency yang diubah.
-3. **Responsiveness:**
-   - Desktop 1536px: Sempurna tanpa horizontal overflow.
-   - Tablet 768px: Sempurna tanpa horizontal overflow (`scrollWidth <= clientWidth`).
-   - Mobile 390px: Sempurna tanpa horizontal overflow (`scrollWidth <= clientWidth`).
-4. **Git Checkpoints:** Semua pekerjaan telah di-commit ke Git secara bertahap sehingga tidak ada progres yang hilang jika sesi tertutup.
+---
+
+## 5. Implementasi & Penyelarasan Beranda (Home Page) & Responsive Mobile (Selesai)
+
+### Ringkasan Status
+- **Halaman Beranda (`/`)**: Telah diselaraskan 100% dengan mockup (`design/mockup_1536.png`, 1536×1024) dan didukung responsive layout penuh untuk Desktop (1920, 1536, 1440, 1280), Tablet (1024, 768), dan Mobile (390, 360).
+- **Semua 5 Masalah Utama Telah Diperbaiki**:
+  1. **Pemenggalan Teks & `<br>`**: Seluruh tag `<br>` manual di paragraf telah dihapus. Deskripsi hero pas 4 baris persis mockup menggunakan `max-width: 440px; text-wrap: pretty;`. Deskripsi Tentang pas 3 baris persis mockup menggunakan `max-width: 365px;`. Label statistik menggunakan struktur semantic `<span>` 2 baris tanpa kata menggantung.
+  2. **Letter-spacing Negatif**: Dihapus pada semua teks berukuran < 20px (menghilangkan cacat "Siap" terbaca "Slap").
+  3. **White-space Nowrap & Footer Alignment**: Judul kolom footer dan subjudul logo menggunakan `white-space: nowrap;`. Grid footer menggunakan `align-items: flex-start;` dengan jarak baseline antar link 19px dan kontak 20px, muat presisi di tinggi 169px.
+  4. **Komposisi Hero & Posisi Tombol**: Komposit hero mahasiswa HD `hero-students-composite.jpg` (1536x297) dan `@2x.jpg` (3072x594) menempatkan 3 mahasiswa pada koordinat presisi mockup (pria x≈870, berhijab x≈1010, rambut panjang x≈1230; kepala pria di y≈55). Jarak dasar tombol ke batas bawah hero 27px, dan ke batas atas kartu statistik pas 17px (tidak menempel).
+  5. **Pembersihan Elemen Liar**:
+     - Garis vertikal samar di x≈190 (Tentang) dihilangkan dengan gradient mask pada `about-bg-line-art`.
+     - Kotak abu-abu di CTA diganti dengan inline SVG topi toga transparan vector bersih.
+- **Tampilan Mobile & Tablet (Bagus & Ergonomis)**:
+  - **Navbar**: Drawer mobile penuh dengan 8 item navigasi, active indicator turquoise, full-width gold CTA button, body scroll lock saat terbuka, auto-close saat rute berganti dan tombol Esc ditekan, touch target ≥ 48px.
+  - **Hero Mobile**: Teks di atas latar navy solid (heading 3 baris, deskripsi 14.5px, 2 tombol full-width), diikuti photo band 3 mahasiswa di bawah teks (rasio ~4:3, ketiga wajah utuh tanpa tertutup teks) dilengkapi gradient navy atas dan wave teal mini di sudut kiri bawah.
+  - **Kartu Statistik Mobile**: Header Target Program penuh di atas, 3 blok statistik dalam grid rapi.
+  - **Tentang Mobile**: Teks, tombol 44px, 5 keunggulan dalam grid 2-kolom + 1 terpusat, foto gedung melengkung di bawah.
+  - **Layanan Mobile**: Banner perpustakaan atas (fade ke bawah), judul & deskripsi, daftar 5 layanan vertikal dengan panah turquoise (tinggi baris ≥ 56px).
+  - **CTA Mobile**: Judul, deskripsi, 2 tombol bertumpuk penuh lebar (tinggi 44px).
+  - **Footer Mobile**: Brand info di atas, Navigasi Utama & Pusat Informasi berdampingan 2 kolom, Kontak & Informasi penuh lebar, hak cipta di baris bawah. Teks ≥ 12px, zero horizontal overflow (`scrollWidth <= clientWidth`).
+- **Verifikasi Halaman Bersama**: Navbar dan Footer di 8 halaman lain (`/tentang-kami`, `/layanan`, `/program`, `/beasiswa`, `/kemitraan`, `/artikel`, `/kontak`, `/konsultasi`) tetap berfungsi normal dan tidak ada yang rusak.
+

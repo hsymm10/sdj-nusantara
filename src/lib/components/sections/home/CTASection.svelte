@@ -11,13 +11,19 @@
 		/>
 	</div>
 
-	<!-- Graduation Cap on the left: x≈110-215, y≈788-850 -->
+	<!-- Graduation Cap on the left: x≈110-215, y≈788-850 (Clean transparent SVG, NO gray box!) -->
 	<div class="cta-cap-wrap">
-		<img
-			src="/images/cta-cap-clean.png"
-			alt="Graduation cap"
-			class="cta-cap-image"
-		/>
+		<svg width="105" height="65" viewBox="0 0 105 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-cap-svg">
+			<!-- Cap skull under crown -->
+			<path d="M34 29 C34 40 46 47 60 47 C74 47 86 40 86 29 L86 33 C86 44 74 51 60 51 C46 51 34 44 34 33 Z" fill="rgba(8, 28, 52, 0.75)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="0.8"/>
+			<!-- Cap flat rhomboid crown -->
+			<polygon points="60,11 100,27 60,41 20,25" fill="rgba(10, 32, 58, 0.9)" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.2"/>
+			<!-- Center button on crown -->
+			<ellipse cx="60" cy="26" rx="3" ry="1.8" fill="rgba(255, 255, 255, 0.5)"/>
+			<!-- Tassel ribbon & hanging tassel on left side -->
+			<path d="M60 26 Q40 28 26 34 Q24 40 23 50" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+			<rect x="20" y="50" width="6" height="11" rx="1.5" fill="rgba(255, 255, 255, 0.4)"/>
+		</svg>
 	</div>
 
 	<!-- Navy Gradient Overlay: slightly brighter in the middle #16375A to #0B2948 -->
@@ -75,20 +81,18 @@
 	/* Topi toga (graduation cap) di kiri: x≈110–215, y≈788–850 */
 	.cta-cap-wrap {
 		position: absolute;
-		top: 5px;
+		top: 9px;
 		left: 110px;
-		width: 115px;
-		height: 72px;
+		width: 105px;
+		height: 65px;
 		z-index: 2;
 		pointer-events: none;
-		opacity: 0.85;
 	}
 
-	.cta-cap-image {
+	.cta-cap-svg {
 		width: 100%;
 		height: 100%;
-		object-fit: contain;
-		object-position: center;
+		display: block;
 	}
 
 	/* Navy Gradient: #0B2948 at ends, #16375A in middle */
@@ -195,15 +199,45 @@
 		border-color: #FFFFFF;
 	}
 
-	@media (max-width: 860px) {
+	@media (max-width: 1099px) {
 		.cta-banner {
 			height: auto;
-			padding: 1.5rem 1rem;
+			padding: 2rem 1.5rem;
 		}
 		.cta-container {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 1rem;
+			gap: 1.25rem;
+		}
+		.cta-cap-wrap {
+			display: none;
+		}
+		.cta-right-actions {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.cta-banner {
+			padding: 2rem 1.25rem;
+		}
+		.cta-title {
+			font-size: 1.25rem;
+		}
+		.cta-text {
+			font-size: 13.5px;
+			line-height: 1.5;
+		}
+		.cta-right-actions {
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+		.cta-btn-gold,
+		.cta-btn-outline {
+			width: 100%;
+			height: 44px;
+			justify-content: center;
+			font-size: 14px;
 		}
 	}
 </style>
