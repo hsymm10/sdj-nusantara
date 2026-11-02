@@ -18,7 +18,7 @@
 	/>
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="scholarship-detail-page">
 	<div class="detail-container">

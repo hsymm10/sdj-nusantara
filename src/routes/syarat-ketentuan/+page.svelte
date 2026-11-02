@@ -8,7 +8,7 @@
 	<meta name="description" content="Syarat dan Ketentuan Layanan SDJNusantara" />
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="legal-page">
 	<div class="legal-container">

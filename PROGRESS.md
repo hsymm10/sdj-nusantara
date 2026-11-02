@@ -764,3 +764,29 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 4. `screenshots/chatbot-v2-badge99.png`: Badge unread bertuliskan "99+" berbentuk pill merah yang rapi tanpa teks meluap.
 5. `screenshots/chatbot-v2-390.png`: Tampilan responsif mobile 390px (lebar layar penuh dikurangi margin 12px, header adaptif, chip 2 kolom rapi).
 6. `screenshots/check-tentang-kami-clean.png` & `screenshots/check-layanan-clean.png`: Verifikasi konsistensi tampilan launcher chatbot pada halaman Tentang Kami dan Layanan setelah tombol floating back-to-top dihapus total dari `Footer.svelte`. Launcher tampil bersih, mandiri, dan bebas tumpukan tombol di seluruh halaman website (identik dengan Gambar 1).
+
+---
+
+## 17. Standarisasi Tampilan & Ukuran Navbar Seluruh Halaman Mengikuti Navbar Tentang Kami (02 November 2026)
+
+### 17.1 Ringkasan Perubahan
+1. **Penyelarasan Dimensi & Kontainer Navbar**:
+   - Seluruh rute website (Beranda, Tentang Kami, Layanan, Program, Beasiswa, Kemitraan, Artikel & Wawasan, Kontak, Legal) distandardisasi menggunakan ukuran kontainer lebar (`max-width: 1312px; padding: 0 1rem;` dan `max-width: 1500px` pada layar lebar `min-width: 1920px`) persis seperti pada halaman Tentang Kami.
+   - Mengeliminasi perbedaan ukuran legacy di mana Beranda, Beasiswa, Kemitraan, dan Artikel sebelumnya menyempit ke `1086px`.
+2. **Refaktorisasi & Kerapihan Kode (`src/lib/components/layout/Navbar.svelte`)**:
+   - Menghapus percabangan class CSS yang tumpang-tindih (`compact`, `compact-inner`, `wide-inner`, `compact-logo`, dll.) menjadi satu set aturan CSS baku yang bersih, rapi, dan modular.
+   - Tinggi navbar: tepat `48px` fixed di seluruh halaman dengan `border-bottom: 1px solid #DCE6EE` dan shadow halus `0 1px 4px rgba(11, 39, 71, 0.03)`.
+   - Brand Logo: Gambar logo 28×28px, Brand Title 16px font-weight 800 navy `#0B2747`, Brand Tagline 10px `#64748B` font-weight 500.
+   - Menu Navigasi: Font 11px font-weight 500 `#183553`, gap 1.35rem, hover teal `#00A6B2`, active teal `#00A6B2` font-weight 700 dengan garis active indicator tebal 2.5px di dasar navbar.
+   - Ikon Chevron dropdown pada item yang memiliki submenu (`Layanan`).
+   - Aksen visual lengkungan swoosh abu-abu samar (`#E5EAEE`, opacity 0.75) di sudut kanan atas navbar.
+   - Mobile menu drawer yang bersih, responsif, dan mengunci scroll body saat terbuka.
+3. **Penyelarasan Pemanggilan Komponen**:
+   - 13 file rute (`+page.svelte`) diseragamkan memanggil `<Navbar compact={true} wide={true} />`.
+
+### 17.2 Bukti Screenshot Verifikasi
+1. `screenshots/nav-tentang-kami.png`: Navbar Tentang Kami sebagai acuan standar desain (lebar 1312px, logo di x≈112, menu berakhir di x≈1424).
+2. `screenshots/nav-beranda.png`: Navbar Beranda setelah standarisasi (posisi horizontal logo dan menu 100% sejajar dan identik dengan Tentang Kami).
+3. `screenshots/nav-beasiswa.png`: Navbar Beasiswa setelah standarisasi.
+4. `screenshots/nav-kemitraan.png`: Navbar Kemitraan setelah standarisasi.
+5. `screenshots/nav-artikel.png`: Navbar Artikel & Wawasan setelah standarisasi.

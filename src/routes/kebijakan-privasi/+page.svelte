@@ -8,7 +8,7 @@
 	<meta name="description" content="Kebijakan Privasi SDJNusantara" />
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="legal-page">
 	<div class="legal-container">

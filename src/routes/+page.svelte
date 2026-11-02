@@ -13,7 +13,7 @@
 	<meta name="description" content="SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, dan meningkatkan keterampilan." />
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="main-content">
 	<HeroSection />

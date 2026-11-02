@@ -15,7 +15,7 @@
 	<meta name="description" content={article.ringkasan} />
 </svelte:head>
 
-<Navbar compact={true} />
+<Navbar compact={true} wide={true} />
 
 <main class="article-reader-page">
 	<div class="reader-container">
