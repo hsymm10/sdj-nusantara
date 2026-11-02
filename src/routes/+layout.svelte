@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import type { LayoutProps } from './$types';
+	import ChatWidget from '#lib/components/chat/ChatWidget.svelte';
 
 	let { children }: LayoutProps = $props();
 </script>
@@ -12,3 +13,5 @@
 </svelte:head>
 
 {@render children()}
+
+<ChatWidget />
