@@ -2,7 +2,6 @@
 	import { page } from '$app/state';
 	import { navItems } from '#lib/data/navigation';
 	import logoSdj from '#lib/assets/logo_sdj.png';
-	import { chatStore } from '#lib/stores/chat.svelte';
 
 	interface Props {
 		compact?: boolean;
@@ -95,19 +94,6 @@
 			{/each}
 		</ul>
 
-		<!-- CTA Button (Membuka Chatbot Konsultasi) -->
-		<button
-			type="button"
-			class="btn-konsultasi {compact ? 'compact-btn' : ''}"
-			onclick={() => chatStore.open()}
-			aria-label="Konsultasi via Asisten Virtual"
-		>
-			<svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-			</svg>
-			<span>Konsultasi</span>
-		</button>
-
 		<!-- Mobile Hamburger -->
 		<button
 			class="hamburger"
@@ -145,17 +131,6 @@
 						{/if}
 					</a>
 				{/each}
-				<button
-					type="button"
-					class="mobile-cta"
-					onclick={() => { mobileOpen = false; chatStore.open(); }}
-					aria-label="Konsultasi via Asisten Virtual"
-				>
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-					</svg>
-					<span>Konsultasi</span>
-				</button>
 			</div>
 		</div>
 	{/if}
@@ -339,43 +314,6 @@
 		background: #00A6B2;
 		border-radius: 2px 2px 0 0;
 	}
-
-	.btn-konsultasi {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		padding: 0.5rem 1.15rem;
-		background: #F4B334;
-		color: #071D36;
-		font-weight: 700;
-		font-size: 0.82rem;
-		border-radius: 7px;
-		text-decoration: none;
-		box-shadow: 0 2px 6px rgba(244, 179, 52, 0.25);
-		transition: all 0.2s ease;
-		white-space: nowrap;
-		flex-shrink: 0;
-	}
-
-	.btn-konsultasi.compact-btn {
-		padding: 0.35rem 0.95rem;
-		font-size: 11px;
-		border-radius: 8px;
-		letter-spacing: 0;
-	}
-
-	.chat-icon {
-		width: 13px;
-		height: 13px;
-		stroke: #071D36;
-		fill: none;
-	}
-
-	.btn-konsultasi:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-	}
-
 	.hamburger {
 		display: none;
 		background: none;
@@ -446,22 +384,6 @@
 		background: #00A6B2;
 	}
 
-	.mobile-cta {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 1.5rem;
-		height: 48px;
-		background: #F4B334;
-		color: #071D36;
-		font-weight: 700;
-		font-size: 0.95rem;
-		border-radius: 8px;
-		text-decoration: none;
-		box-shadow: 0 3px 10px rgba(244, 179, 52, 0.3);
-	}
-
 	@media (max-width: 992px) {
 		.navbar,
 		.navbar.compact {
@@ -473,7 +395,6 @@
 			padding: 0 1.25rem;
 		}
 		.nav-list,
-		.btn-konsultasi,
 		.nav-top-swoosh {
 			display: none;
 		}
