@@ -60,7 +60,7 @@ Pelajari alur kerja sama selengkapnya di halaman /kemitraan.`
 			return {
 				replies: [
 					`Biaya bergantung ruang lingkup, durasi, format, dan jumlah peserta; penawaran resmi diberikan sebelum program disepakati.
-Untuk konsultasi kebutuhan spesifik Anda, silakan ajukan di halaman /konsultasi atau hubungi tim kami melalui WhatsApp https://wa.me/6285880724733.`
+Untuk konsultasi kebutuhan spesifik Anda, silakan tanyakan langsung di sini kepada Asisten Virtual atau hubungi tim kami melalui WhatsApp https://wa.me/6285880724733.`
 				],
 				suggestions: ['Layanan & Kontak', 'Info Program Pendidikan']
 			};
@@ -84,8 +84,8 @@ Kunjungi halaman /kontak untuk informasi saluran lengkap.`
 		if (q.includes('konsultasi') || q.includes('daftar') || q.includes('tanya')) {
 			return {
 				replies: [
-					`Anda dapat mengajukan konsultasi terarah bersama tim konsultan kami di halaman /konsultasi.
-Tim kami siap membantu merencanakan arahan pendidikan dan pengembangan talenta Anda secara personal dan objektif.`
+					`Anda dapat berkonsultasi langsung di sini bersama Asisten Virtual SDJNusantara, atau menghubungi tim konsultan kami via WhatsApp https://wa.me/6285880724733.
+Kami siap membantu merencanakan arahan pendidikan dan pengembangan talenta Anda secara personal dan objektif.`
 				],
 				suggestions: ['Layanan & Kontak', 'Beasiswa', 'Info Program Pendidikan']
 			};

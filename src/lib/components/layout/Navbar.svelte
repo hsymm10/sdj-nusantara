@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { navItems } from '#lib/data/navigation';
 	import logoSdj from '#lib/assets/logo_sdj.png';
+	import { chatStore } from '#lib/stores/chat.svelte';
 
 	interface Props {
 		compact?: boolean;
@@ -39,9 +40,6 @@
 	});
 
 	function isActive(href: string): boolean {
-		if (page.url.pathname === '/konsultasi') {
-			return false; // di halaman Konsultasi tidak ada item menu yang aktif per aturan 1.4
-		}
 		if (href === '/') {
 			return page.url.pathname === '/';
 		}
@@ -97,13 +95,18 @@
 			{/each}
 		</ul>
 
-		<!-- CTA Button (x 1238→1325) -->
-		<a href="/konsultasi" class="btn-konsultasi {compact ? 'compact-btn' : ''} {page.url.pathname === '/konsultasi' ? 'btn-active' : ''}">
+		<!-- CTA Button (Membuka Chatbot Konsultasi) -->
+		<button
+			type="button"
+			class="btn-konsultasi {compact ? 'compact-btn' : ''}"
+			onclick={() => chatStore.open()}
+			aria-label="Konsultasi via Asisten Virtual"
+		>
 			<svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 			</svg>
 			<span>Konsultasi</span>
-		</a>
+		</button>
 
 		<!-- Mobile Hamburger -->
 		<button
@@ -142,12 +145,17 @@
 						{/if}
 					</a>
 				{/each}
-				<a href="/konsultasi" class="mobile-cta" onclick={() => mobileOpen = false}>
+				<button
+					type="button"
+					class="mobile-cta"
+					onclick={() => { mobileOpen = false; chatStore.open(); }}
+					aria-label="Konsultasi via Asisten Virtual"
+				>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 					</svg>
 					<span>Konsultasi</span>
-				</a>
+				</button>
 			</div>
 		</div>
 	{/if}

@@ -20,10 +20,33 @@
 		}
 	});
 
+	// Buka chat otomatis jika URL mengandung ?chat=open atau hash #chat
+	$effect(() => {
+		if (page.url.searchParams.get('chat') === 'open' || page.url.hash === '#chat') {
+			chatStore.open();
+		}
+	});
+
+	// Tangkap klik global pada tombol/link konsultasi di seluruh website
+	function handleGlobalClick(e: MouseEvent) {
+		const target = (e.target as HTMLElement)?.closest('a, button');
+		if (!target) return;
+
+		const href = target.getAttribute('href');
+		const isOpenChat = target.hasAttribute('data-open-chat');
+
+		if (isOpenChat || href === '/konsultasi' || href === '#chat' || href?.includes('chat=open')) {
+			e.preventDefault();
+			chatStore.open();
+		}
+	}
+
 	function handleCloseFocus() {
 		launcherRef?.focus();
 	}
 </script>
+
+<svelte:window onclick={handleGlobalClick} />
 
 {#if isEnabled}
 	<aside class="sdj-chat-widget" aria-label="Widget Bantuan Asisten">
