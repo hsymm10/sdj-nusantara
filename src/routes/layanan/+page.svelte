@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Layanan — SDJNusantara Konsultan Pendidikan</title>
+	<title>Layanan — SDJNusantara Strategic Your Partner</title>
 	<meta name="description" content="Layanan konsultasi dan pengembangan talenta SDJNusantara: Talent Management, Scholarship Academy, Skills Development, Strategic Partnership, dan Digital Education." />
 </svelte:head>
 

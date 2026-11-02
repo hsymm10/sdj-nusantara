@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>SDJNusantara — Konsultan Pendidikan & Pengembangan Talenta</title>
+	<title>SDJNusantara — Strategic Your Partner</title>
 	<meta name="description" content="SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, dan meningkatkan keterampilan." />
 </svelte:head>
 

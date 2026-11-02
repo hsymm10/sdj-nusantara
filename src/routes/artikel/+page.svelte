@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>Artikel & Wawasan — SDJNusantara Konsultan Pendidikan</title>
+	<title>Artikel & Wawasan — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
 		content="Insight, analisis, panduan beasiswa, dan artikel pendidikan terkini dari tim konsultan ahli SDJNusantara."

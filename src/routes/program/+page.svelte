@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-	<title>Program — SDJNusantara Konsultan Pendidikan</title>
+	<title>Program — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
 		content="Program unggulan SDJNusantara untuk mengembangkan potensi tanpa batas: Persiapan Beasiswa, Pelatihan Keterampilan Digital, Manajemen Talenta, dan Pelatihan Khusus."

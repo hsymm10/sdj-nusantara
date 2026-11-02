@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>Konsultasi — SDJNusantara Konsultan Pendidikan</title>
+	<title>Konsultasi — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
 		content="Konsultasi pendidikan dan pengembangan talenta bersama SDJNusantara untuk merencanakan pendidikan, meraih beasiswa, dan meningkatkan karier masa depan."

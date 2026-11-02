@@ -60,7 +60,7 @@
 	{/if}
 
 	<div class="navbar-inner {compact ? 'compact-inner' : ''} {wide ? 'wide-inner' : ''}">
-		<!-- Logo (ikon ±28px, SDJNusantara ±16px bold, KONSULTAN PENDIDIKAN ±7px rapat) -->
+		<!-- Logo (ikon ±28px, SDJNusantara ±16px bold, Strategic Your Partner ±7px rapat) -->
 		<a href="/" class="logo-link">
 			<div class="nav-logo-box">
 				<img
@@ -70,7 +70,7 @@
 				/>
 				<div class="nav-logo-text">
 					<span class="nav-brand-title {compact ? 'compact-title' : ''}">SDJNusantara</span>
-					<span class="nav-brand-tagline {compact ? 'compact-tagline' : ''}">KONSULTAN PENDIDIKAN</span>
+					<span class="nav-brand-tagline {compact ? 'compact-tagline' : ''}">Strategic Your Partner</span>
 				</div>
 			</div>
 		</a>

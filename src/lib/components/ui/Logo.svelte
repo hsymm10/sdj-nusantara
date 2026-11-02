@@ -12,7 +12,7 @@
 		variant = 'dark',
 		size = 'md',
 		showTagline = true,
-		taglineText = 'KONSULTAN PENDIDIKAN'
+		taglineText = 'Strategic Your Partner'
 	}: Props = $props();
 
 	const isLight = $derived(variant === 'light');

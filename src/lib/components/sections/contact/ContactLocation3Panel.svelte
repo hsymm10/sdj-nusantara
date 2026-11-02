@@ -20,7 +20,7 @@
 					<img src={logoSdj} alt="Logo SDJNusantara" class="plaque-img" />
 					<div class="plaque-text">
 						<span class="plaque-brand">SDJNusantara</span>
-						<span class="plaque-sub">KONSULTAN PENDIDIKAN</span>
+						<span class="plaque-sub">Strategic Your Partner</span>
 					</div>
 				</div>
 			</div>

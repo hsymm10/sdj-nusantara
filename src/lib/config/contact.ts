@@ -3,21 +3,21 @@
 
 export const contactConfig = {
 	email: 'info@sdjnusantara.com',
-	phone: '+62 812-3456-7890',
-	whatsappNumber: '6281234567890',
-	whatsappUrl: 'https://wa.me/6281234567890',
+	phone: '+62 858-8072-4733',
+	whatsappNumber: '6285880724733',
+	whatsappUrl: 'https://wa.me/6285880724733',
 	
-	// WAJIB DIVERIFIKASI (content-master bagian 15) - Alamat Kantor
-	address: 'Jakarta, Indonesia',
-	addressDetail: 'Jakarta, Indonesia (Dapat disesuaikan sesuai lokasi sebenarnya)',
-	mapsUrl: 'https://maps.google.com/?q=Jakarta,+Indonesia',
+	// Alamat Kantor Resmi (Sesuai Kartu Nama Perusahaan)
+	address: 'Gedung Graha Aktiva, Jakarta Selatan',
+	addressDetail: 'Gedung Graha Aktiva Lt. GF (suite B3A), Jl. H. R. Rasuna Said No.6, Kuningan Tim., Jakarta Selatan 12950',
+	mapsUrl: 'https://maps.google.com/?q=Graha+Aktiva+Rasuna+Said+Jakarta+Selatan',
 	
-	// WAJIB DIVERIFIKASI (content-master bagian 15) - Jam Operasional
+	// Jam Operasional
 	jamOperasional: 'Senin – Jumat, 08.00 – 17.00 WIB',
 	
 	socials: {
-		youtube: 'https://youtube.com',
-		instagram: 'https://instagram.com',
-		linkedin: 'https://linkedin.com'
+		instagram: 'https://instagram.com/sdjnusantara',
+		tiktok: 'https://tiktok.com/@sdjnusantara',
+		email: 'mailto:info@sdjnusantara.com'
 	}
 };

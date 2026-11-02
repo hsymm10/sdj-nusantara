@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Kemitraan — SDJNusantara Konsultan Pendidikan</title>
+	<title>Kemitraan — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
 		content="Peluang kemitraan dan kolaborasi strategis bersama SDJNusantara untuk membangun ekosistem pendidikan dan pengembangan talenta yang lebih kuat."

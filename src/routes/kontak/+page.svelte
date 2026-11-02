@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>Kontak Kami — SDJNusantara Konsultan Pendidikan</title>
+	<title>Kontak Kami — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
 		content="Hubungi tim SDJNusantara untuk konsultasi pendidikan, beasiswa, pengembangan talenta, dan kemitraan institusi di seluruh Indonesia."

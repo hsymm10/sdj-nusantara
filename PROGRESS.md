@@ -638,6 +638,32 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 2. `screenshots/pimpinan-v3-modal.png`: Modal profil pimpinan desktop terbuka sempurna dengan detail profil, tab pendidikan/jabatan, dan navigasi 1 dari 5.
 3. `screenshots/pimpinan-v3-modal-390.png`: Modal profil pimpinan mobile (viewport 390px) berupa bottom sheet yang rapi dan ergonomis.
 
+---
+
+## 13. Pembaruan Tagline "Strategic Your Partner", Perampingan Navigasi Footer, Alamat Resmi & Ikon Sosial (02 November 2026)
+
+### 13.1 Ringkasan Perubahan
+1. **Tagline Logo Diperbarui Menjadi "Strategic Your Partner"**:
+   - Tagline pada logo Navbar (`Navbar.svelte`) dan Footer (`Footer.svelte`) telah diganti dari "KONSULTAN PENDIDIKAN" menjadi **"Strategic Your Partner"**.
+   - Default tagline pada komponen reusable `Logo.svelte`, papan signage 3D gedung di `HeroAbout.svelte`, dan plaque signage di `ContactLocation3Panel.svelte` juga diperbarui menjadi "Strategic Your Partner".
+   - Seluruh tag `<title>` pada 9 route halaman diperbarui menggunakan "Strategic Your Partner".
+2. **Pembersihan Kolom Navigasi Footer**:
+   - Kolom "Navigasi Utama" dan "Pusat Informasi" beserta garis pemisah vertikalnya telah dihapus dari `Footer.svelte` karena seluruh navigasi sudah tersedia di Navbar.
+   - Tata letak grid footer dirampingkan menjadi 3 kolom yang proporsional dan bersih: Info Brand & Alamat, Kontak & Informasi, serta Hak Cipta & Tautan Legal.
+3. **Ikon Sosial Terhubung (@iconify/svelte)**:
+   - Ikon sosial diperbarui menjadi 3 platform: **Instagram (IG)**, **TikTok**, dan **Email**.
+   - Menggunakan ikon `@iconify/svelte` (`ri:instagram-line`, `ri:tiktok-fill`, `ri:mail-line`) dengan tombol outline lingkaran 24px, hover color `#00A6B2`, dan tautan aktif (`https://instagram.com/sdjnusantara`, `https://tiktok.com/@sdjnusantara`, `mailto:info@sdjnusantara.com`).
+4. **Alamat Kantor Resmi & Nomor HP Perusahaan**:
+   - Teks deskripsi lama di footer diganti dengan alamat fisik resmi dan nomor HP sesuai kartu nama perusahaan (PT Sampurna Djaya Nusantara):
+     - **Alamat**: Gedung Graha Aktiva Lt. GF (suite B3A), Jl. H. R. Rasuna Said No.6, Kuningan Tim., Jakarta Selatan 12950
+     - **No. HP**: `+62 858-8072-4733` (tersedia link langsung `tel:` / WhatsApp).
+   - Konfigurasi terpusat `src/lib/config/contact.ts` juga diselaraskan dengan alamat dan nomor HP resmi ini.
+
+### 13.2 Bukti Screenshot Verifikasi
+1. `screenshots/footer-v3-desktop.png`: Tampilan desktop footer bersih dengan tagline Strategic Your Partner, alamat Graha Aktiva, No. HP, dan 3 ikon sosial aktif.
+2. `screenshots/footer-v3-mobile.png`: Tampilan mobile (390px) responsif rapi tanpa clipping atau horizontal overflow.
+
+
 
 
 

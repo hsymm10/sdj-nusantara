@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { footerNav } from '#lib/data/navigation';
+	import Icon from '@iconify/svelte';
 	import logoSdj from '#lib/assets/logo_sdj.png';
 
 	interface Props {
@@ -17,7 +17,7 @@
 <footer class="footer {compact || variant === 'home' ? 'compact-footer' : 'page-footer'} variant-{variant}">
 	<div class="footer-inner {compact || variant === 'home' ? 'compact-inner' : 'page-inner'}">
 		<div class="footer-grid {compact || variant === 'home' ? 'compact-grid' : 'page-grid'}">
-			<!-- Col 1: Brand Info -->
+			<!-- Col 1: Brand Info, Alamat Perusahaan & No. HP Resmi -->
 			<div class="footer-brand-col">
 				<a href="/" class="footer-logo-link">
 					<div class="footer-logo-wrap">
@@ -27,36 +27,35 @@
 						</div>
 						<div class="footer-logo-text">
 							<span class="footer-brand-title">SDJNusantara</span>
-							<span class="footer-brand-tagline {variant === 'tentang-kami' ? 'tagline-tentang' : ''}">{variant === 'tentang-kami' ? 'KONSULTAN PENDIDIKAN' : 'KONSULTAN PENDIDIKAN & PENGEMBANGAN TALENTA'}</span>
+							<span class="footer-brand-tagline">Strategic Your Partner</span>
 						</div>
 					</div>
 				</a>
 
-				<p class="footer-brand-desc">
-					Mendampingi individu dan institusi untuk<br />
-					mengenali potensi, merencanakan pendidikan,<br />
-					mengembangkan keterampilan, dan terhubung<br />
-					dengan peluang.
-				</p>
+				<!-- Alamat Perusahaan Resmi (Graha Aktiva) & No. HP dari Kartu Nama -->
+				<div class="footer-brand-address">
+					<p class="footer-address-text">
+						Gedung Graha Aktiva Lt. GF (suite B3A),<br />
+						Jl. H. R. Rasuna Said No.6, Kuningan Tim.,<br />
+						Jakarta Selatan 12950
+					</p>
+					<p class="footer-phone-text">
+						<a href="tel:+6285880724733" class="footer-phone-link" aria-label="Telepon / WhatsApp">
+							<span class="phone-label">No. HP:</span> +62 858-8072-4733
+						</a>
+					</p>
+				</div>
 
-				<!-- Ikon sosial: LINGKARAN OUTLINE putih tipis ±20px tanpa background kotak -->
+				<!-- Ikon sosial Iconify: Instagram, TikTok, Email terhubung aktif -->
 				<div class="footer-socials">
-					<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="YouTube">
-						<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-							<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-						</svg>
+					<a href="https://instagram.com/sdjnusantara" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="Instagram">
+						<Icon icon="ri:instagram-line" width="13" height="13" />
 					</a>
-					<a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="Instagram">
-						<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-							<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-							<circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle>
-						</svg>
+					<a href="https://tiktok.com/@sdjnusantara" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="TikTok">
+						<Icon icon="ri:tiktok-fill" width="13" height="13" />
 					</a>
-					<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="LinkedIn">
-						<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-						</svg>
+					<a href="mailto:info@sdjnusantara.com" class="social-outline-btn" aria-label="Email">
+						<Icon icon="ri:mail-line" width="13" height="13" />
 					</a>
 				</div>
 			</div>
@@ -64,49 +63,7 @@
 			<!-- Vertical Divider -->
 			<div class="footer-vdivider"></div>
 
-			<!-- Col 2: Navigasi Utama -->
-			<div class="footer-nav-col">
-				<h4 class="footer-col-title">Navigasi Utama</h4>
-				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program' || variant === 'kontak'}
-						<li><a href="/" class="footer-link">Beranda</a></li>
-						<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
-						<li><a href="/layanan" class="footer-link">Layanan</a></li>
-						<li><a href="/program" class="footer-link">Program</a></li>
-						<li><a href="/beasiswa" class="footer-link">Beasiswa</a></li>
-					{:else}
-						{#each footerNav.navigasiUtama as item}
-							<li><a href={item.href} class="footer-link">{item.label}</a></li>
-						{/each}
-					{/if}
-				</ul>
-			</div>
-
-			<!-- Vertical Divider -->
-			<div class="footer-vdivider"></div>
-
-			<!-- Col 3: Pusat Informasi -->
-			<div class="footer-nav-col">
-				<h4 class="footer-col-title">Pusat Informasi</h4>
-				<ul class="footer-links-list">
-					{#if variant === 'tentang-kami' || variant === 'layanan' || variant === 'program' || variant === 'kontak'}
-						<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
-						<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
-						<li><a href="/kontak" class="footer-link">Kontak</a></li>
-						<li><a href="/kebijakan-privasi" class="footer-link">Kebijakan Privasi</a></li>
-						<li><a href="/syarat-ketentuan" class="footer-link">Syarat & Ketentuan</a></li>
-					{:else}
-						{#each footerNav.pusatInformasi as item}
-							<li><a href={item.href} class="footer-link">{item.label}</a></li>
-						{/each}
-					{/if}
-				</ul>
-			</div>
-
-			<!-- Vertical Divider -->
-			<div class="footer-vdivider"></div>
-
-			<!-- Col 4: Kontak & Informasi -->
+			<!-- Col 2: Kontak & Informasi -->
 			<div class="footer-contact-col">
 				<h4 class="footer-col-title">Kontak & Informasi</h4>
 				<ul class="footer-contact-list">
@@ -121,14 +78,14 @@
 						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
 						</svg>
-						<a href="tel:+6281234567890" class="footer-link">+62 812-3456-7890</a>
+						<a href="tel:+6285880724733" class="footer-link">+62 858-8072-4733</a>
 					</li>
 					<li>
 						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
 							<circle cx="12" cy="10" r="3"></circle>
 						</svg>
-						<span class="footer-text">Jakarta, Indonesia</span>
+						<span class="footer-text">Gedung Graha Aktiva, Jakarta Selatan</span>
 					</li>
 				</ul>
 
@@ -145,7 +102,7 @@
 				{/if}
 			</div>
 
-			<!-- Col 5: For Home, Program, Beasiswa, Kemitraan, Artikel, Kontak (in-grid copyright) -->
+			<!-- Col 3: For Home, Program, Beasiswa, Kemitraan, Artikel, Kontak (in-grid copyright) -->
 			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel' || variant === 'kontak'}
 				<!-- Vertical Divider -->
 				<div class="footer-vdivider"></div>
@@ -201,11 +158,11 @@
 	}
 
 	.footer.compact-footer {
-		height: 169px;
+		min-height: 169px;
+		height: auto;
 		display: flex;
 		align-items: flex-start;
-		overflow: hidden;
-		padding-top: 24px; /* padding-top ±24px sehingga logo dan judul kolom di y≈887 */
+		padding: 24px 0 24px;
 		box-sizing: border-box;
 	}
 
@@ -224,20 +181,21 @@
 
 	.footer-grid {
 		display: grid;
-		grid-template-columns: 2.1fr auto 1fr auto 1fr auto 1.5fr auto 1.4fr;
-		gap: 0 1.25rem;
+		grid-template-columns: 2.2fr auto 1.5fr auto 1.3fr;
+		gap: 0 2rem;
 		align-items: start;
 	}
 
 	.footer-grid.compact-grid {
+		grid-template-columns: 2.2fr auto 1.5fr auto 1.3fr;
 		align-items: flex-start;
-		gap: 0 1.25rem;
+		gap: 0 2rem;
 	}
 
 	.footer-vdivider {
 		width: 1px;
 		background: rgba(255, 255, 255, 0.12);
-		height: 98px;
+		height: 110px;
 		flex-shrink: 0;
 	}
 
@@ -290,37 +248,67 @@
 	}
 
 	.footer-brand-tagline {
-		font-size: 7px;
-		font-weight: 400; /* subjudul satu baris tidak bold */
+		font-size: 8px;
+		font-weight: 500;
 		color: rgba(255, 255, 255, 0.75);
-		letter-spacing: 0.02em;
+		letter-spacing: 0.04em;
 		white-space: nowrap;
 		margin-top: 2px;
 	}
 
-	.footer-brand-desc {
-		font-size: 10.5px;
+	.footer-brand-address {
+		margin-top: 6px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.footer-address-text {
+		font-size: 10px;
 		line-height: 14.5px;
-		color: rgba(255, 255, 255, 0.65);
-		margin: 0.1rem 0 0 0;
+		color: rgba(255, 255, 255, 0.7);
+		margin: 0;
 		letter-spacing: 0;
+	}
+
+	.footer-phone-text {
+		margin: 2px 0 0 0;
+	}
+
+	.footer-phone-link {
+		font-size: 10px;
+		color: #16B6C1;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		transition: color 0.2s ease;
+	}
+
+	.footer-phone-link:hover {
+		color: #F5B331;
+		text-decoration: underline;
+	}
+
+	.phone-label {
+		color: rgba(255, 255, 255, 0.55);
 	}
 
 	.footer-socials {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-		margin-top: 14px; /* Posisi di y≈993 */
+		gap: 10px;
+		margin-top: 10px;
 	}
 
-	/* LINGKARAN OUTLINE putih tipis ±20px tanpa background kotak */
+	/* LINGKARAN OUTLINE putih tipis ±24px tanpa background kotak */
 	.social-outline-btn {
-		width: 20px;
-		height: 20px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
-		border: 1px solid rgba(255, 255, 255, 0.4);
-		background: transparent;
-		display: flex;
+		border: 1px solid rgba(255, 255, 255, 0.35);
+		background: rgba(255, 255, 255, 0.04);
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		color: rgba(255, 255, 255, 0.85);
@@ -331,6 +319,8 @@
 	.social-outline-btn:hover {
 		border-color: #00A6B2;
 		color: #00A6B2;
+		background: rgba(0, 166, 178, 0.15);
+		transform: translateY(-2px);
 	}
 
 	/* Nav & Link Cols */
@@ -517,8 +507,8 @@
 
 	.footer.variant-tentang-kami .footer-grid {
 		display: grid;
-		grid-template-columns: 2fr auto 1.2fr auto 1.2fr auto 1.8fr;
-		gap: 0 1.5rem;
+		grid-template-columns: 2fr auto 1.6fr;
+		gap: 0 2.5rem;
 		align-items: flex-start;
 	}
 
@@ -569,8 +559,8 @@
 
 	.footer.variant-layanan .footer-grid {
 		display: grid;
-		grid-template-columns: 2fr auto 1.25fr auto 1.25fr auto 1.6fr;
-		gap: 0 1.75rem;
+		grid-template-columns: 2fr auto 1.6fr;
+		gap: 0 2.5rem;
 		align-items: flex-start;
 	}
 
@@ -639,8 +629,8 @@
 	.footer.variant-kemitraan .footer-grid,
 	.footer.variant-kontak .footer-grid {
 		display: grid;
-		grid-template-columns: 2.1fr auto 1.15fr auto 1.25fr auto 1.45fr auto 1.45fr;
-		gap: 0 1.25rem;
+		grid-template-columns: 2.2fr auto 1.5fr auto 1.3fr;
+		gap: 0 2rem;
 		align-items: flex-start;
 	}
 
@@ -774,8 +764,8 @@
 		.footer-grid,
 		.footer-grid.compact-grid {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 1.5rem 1rem;
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
 		}
 		.footer-brand-col {
 			grid-column: 1 / -1;

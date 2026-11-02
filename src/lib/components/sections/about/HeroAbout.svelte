@@ -21,7 +21,7 @@
 			<img src={logoSdj} alt="Logo SDJNusantara" class="sign-logo" />
 			<div class="sign-text">
 				<span class="sign-title">SDJNusantara</span>
-				<span class="sign-subtitle">KONSULTAN PENDIDIKAN</span>
+				<span class="sign-subtitle">Strategic Your Partner</span>
 			</div>
 		</div>
 	</div>

@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>Tentang Kami — SDJNusantara Konsultan Pendidikan</title>
+	<title>Tentang Kami — SDJNusantara Strategic Your Partner</title>
 	<meta name="description" content="Profil, visi, misi, nilai luhur, dan struktur organisasi SDJNusantara sebagai konsultan pendidikan dan pengembangan talenta." />
 </svelte:head>
 

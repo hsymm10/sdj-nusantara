@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>Beasiswa — SDJNusantara Konsultan Pendidikan</title>
+	<title>Beasiswa — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
 		content="Akses informasi beasiswa dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur bersama SDJNusantara."
