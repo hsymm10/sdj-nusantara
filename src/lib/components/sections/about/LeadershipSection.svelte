@@ -5,7 +5,10 @@
 
 	// Svelte 5 runes
 	type Leader = (typeof leadersData)[0];
-	let { onOpenModal: externalOnOpenModal } = $props<{ onOpenModal?: (leader: Leader) => void }>();
+	interface Props {
+		onOpenModal?: (leader: Leader) => void;
+	}
+	let { onOpenModal: externalOnOpenModal }: Props = $props();
 
 	// Carousel state
 	let activeIndex = $state(0);

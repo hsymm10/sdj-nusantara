@@ -4,6 +4,17 @@
 
 	type Leader = (typeof leadersData)[0];
 
+	interface Props {
+		isOpen?: boolean;
+		leader: Leader | null;
+		currentIndex?: number;
+		totalCount?: number;
+		onClose: () => void;
+		onPrev: () => void;
+		onNext: () => void;
+		triggerElement?: HTMLElement | null;
+	}
+
 	let {
 		isOpen = false,
 		leader,
@@ -13,16 +24,7 @@
 		onPrev,
 		onNext,
 		triggerElement = null
-	} = $props<{
-		isOpen: boolean;
-		leader: Leader | null;
-		currentIndex: number;
-		totalCount: number;
-		onClose: () => void;
-		onPrev: () => void;
-		onNext: () => void;
-		triggerElement?: HTMLElement | null;
-	}>();
+	}: Props = $props();
 
 	let modalEl = $state<HTMLElement | null>(null);
 	let closeBtnEl = $state<HTMLButtonElement | null>(null);

@@ -1,7 +1,27 @@
 // Konfigurasi Terpusat Kontak & Informasi SDJNusantara
 // Sesuai Bagian 9 & 15 content-master SDJNusantara
 
-export const contactConfig = {
+export interface ContactSocials {
+	instagram: string;
+	tiktok: string;
+	email: string;
+	linkedin: string;
+	youtube: string;
+}
+
+export interface ContactConfig {
+	email: string;
+	phone: string;
+	whatsappNumber: string;
+	whatsappUrl: string;
+	address: string;
+	addressDetail: string;
+	mapsUrl: string;
+	jamOperasional: string;
+	socials: ContactSocials;
+}
+
+export const contactConfig: ContactConfig = {
 	email: 'info@sdjnusantara.com',
 	phone: '+62 858-8072-4733',
 	whatsappNumber: '6285880724733',
@@ -18,6 +38,8 @@ export const contactConfig = {
 	socials: {
 		instagram: 'https://instagram.com/sdjnusantara',
 		tiktok: 'https://tiktok.com/@sdjnusantara',
-		email: 'mailto:info@sdjnusantara.com'
+		email: 'mailto:info@sdjnusantara.com',
+		linkedin: 'https://linkedin.com/company/sdjnusantara',
+		youtube: 'https://youtube.com/@sdjnusantara'
 	}
 };
