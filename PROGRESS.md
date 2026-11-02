@@ -685,3 +685,39 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 ### 14.2 Bukti Screenshot Verifikasi
 1. `screenshots/pimpinan-modal-konsisten-leader1.png`: Modal pimpinan 1 (Nama Direktur Utama) dengan ukuran panel 828×512px yang presisi dan posisi navigasi stabil.
 2. `screenshots/pimpinan-modal-konsisten-leader2.png`: Modal pimpinan 2 (Nama Manajer Operasional & Program) dengan ukuran panel 828×512px yang identik dan tidak berubah sedikitpun.
+
+---
+
+## 15. Implementasi Floating Chatbot Widget (02 November 2026)
+
+### 15.1 Ringkasan Implementasi
+1. **Arsitektur Komponen Reusable & Lazy Loading (`src/lib/components/chat/`)**:
+   - `ChatWidget.svelte`: Komponen orkestrator yang dipasang satu kali di root layout (`src/routes/+layout.svelte`) sehingga status percakapan dan unread badge bertahan antar navigasi halaman. Memuat `ChatWindow.svelte` secara *lazy dynamic import* saat jendela dibuka untuk mempertahankan kinerja first load 100%.
+   - `ChatLauncher.svelte`: Tombol lingkaran fixed di pojok kanan bawah (64px desktop, 56px mobile) berwarna teal `#079EAD` dengan ikon robot ramah, lencana unread merah (`#E5484D`), dan transisi ikon tutup (X) saat jendela terbuka.
+   - `ChatTooltip.svelte`: Card ajakan putih radius 16px di atas launcher dengan ekor penunjuk, ikon bot, dan tombol tutup pesan. Muncul otomatis 2 detik setelah halaman dimuat dan status tertutup tersimpan di `sessionStorage`.
+   - `ChatWindow.svelte`: Jendela obrolan non-modal fixed (desktop 392×min(560px, 100dvh-130px), mobile calc(100vw-24px)) dengan banner penanda mode demo, penyesuaian `visualViewport` untuk keyboard virtual, dan penguncian scroll body di mobile.
+   - `ChatHeader.svelte`: Header teal `#079EAD` dengan avatar bot bulat 44px, status online hijau, tombol minimize, tombol close, menu hapus percakapan, serta aksen gelombang SVG halus di tepi bawah.
+   - `MessageList.svelte` & `MessageBubble.svelte`: Area percakapan berscroll internal, bubble bot di kiri (abu-abu `#F1F5F9`) dan bubble pengguna di kanan (teal `#079EAD`), timestamp 11px, auto-scroll cerdas (dengan tombol "Pesan baru ↓" jika pengguna sedang menggulir ke atas), dan tokenizer teks aman untuk tautan terdaftar (allowlist).
+   - `TypingIndicator.svelte`: Tiga titik animasi pantul dengan avatar bot dan label aksesibilitas.
+   - `QuickReplies.svelte`: Empat chip vertikal berikon garis teal (Info Program Pendidikan, Beasiswa, Kemitraan, Layanan & Kontak) yang otomatis hilang saat percakapan dimulai.
+   - `ChatInput.svelte`: Field input pill latar `#F4F8FB` (font 16px bebas zoom iOS), tombol kirim bulat teal 44px, proteksi Shift+Enter baris baru, dan peringatan privasi data sensitif di bagian bawah.
+
+2. **State Store & Logika Layanan (`src/lib/stores/chat.svelte.ts` & `src/lib/services/chat/`)**:
+   - Berbasis **Svelte 5 Runes** (`$state`, `$derived`, `$effect`) dengan pemulihan riwayat percakapan otomatis dari `sessionStorage` (`sdj_chat_v1`).
+   - `mockChatService.ts`: Menjawab berbasis kata kunci sesuai pedoman resmi `content-master.md` (Program, Beasiswa dengan disclaimer non-jaminan, Kemitraan, Layanan & Kontak resmi, serta Biaya tanpa janji gratis). Jeda respons acak 700–1400ms.
+   - `apiChatService.ts`: Kerangka kerja siap pakai untuk integrasi API backend mendatang.
+   - **Unread Counter**: Menghitung pesan bot masuk saat jendela ditutup/diminimalkan, menampilkan angka 1–99 dan "99+", serta otomatis reset saat jendela dibuka. Dilengkapi hook dev-only `window.__chatDebug` yang tereliminasi otomatis pada build produksi.
+
+3. **Harmonisasi Tombol Back to Top**:
+   - Tombol floating Back to Top pada `Footer.svelte` diposisikan ulang ke `bottom: 96px; right: 24px;` (desktop) dan `bottom: 84px; right: 16px;` (mobile), tepat di atas launcher chat.
+   - Otomatis disembunyikan saat jendela chatbot sedang terbuka agar tidak menumpuk.
+
+### 15.2 Bukti Screenshot & Verifikasi
+1. `screenshots/chatbot-v1-final-1536-closed.png` (dan `chatbot-v1-tahap1-closed-tooltip.png`): Launcher teal dan tooltip ajakan muncul rapi tanpa tabrakan di viewport desktop 1536px.
+2. `screenshots/chatbot-v1-final-1536-open.png` (dan `chatbot-v1-tahap1-open.png`): Jendela obrolan terbuka dengan header bergelombang, pesan sambutan lengkap, 4 quick reply chips, dan input bawah.
+3. `screenshots/chatbot-v1-final-1536-typing.png`: Tampilan bubble pengguna dan animasi mengetik 3 titik.
+4. `screenshots/chatbot-v1-final-1536-badge.png`: Simulasi 3 pesan masuk saat jendela tertutup memunculkan lencana merah counter unread dan posisi Back to Top di atas launcher.
+5. `screenshots/chatbot-v1-final-768.png`: Tampilan pada tablet 768px responsif dan rapi.
+6. `screenshots/chatbot-v1-final-390.png` & `screenshots/chatbot-v1-final-390-keyboard.png`: Tampilan mobile 390px fullscreen-docked dengan adaptasi ketinggian keyboard virtual.
+7. `screenshots/check-beranda-widget.png`, `screenshots/check-konsultasi-widget.png`, `screenshots/check-tentang-kami-widget.png`: Verifikasi halaman lain tetap utuh tanpa regresi struktur atau styling.
+
