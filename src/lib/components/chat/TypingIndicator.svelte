@@ -2,17 +2,26 @@
 </script>
 
 <div class="typing-row" role="status" aria-label="Asisten sedang mengetik">
+	<!-- Bot Avatar: Lingkaran Teal 36px Sesuai MessageBubble -->
 	<div class="bot-typing-avatar" aria-hidden="true">
-		<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-			<circle cx="12" cy="12" r="11" fill="#E6F7F8" />
-			<rect x="6" y="8" width="12" height="9" rx="3" fill="#079EAD" />
-			<circle cx="9" cy="11.5" r="1.2" fill="#FFFFFF" />
-			<circle cx="15" cy="11.5" r="1.2" fill="#FFFFFF" />
-			<path d="M10 14h4" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" />
-			<path d="M12 5.5v2.5" stroke="#079EAD" stroke-width="1.4" stroke-linecap="round" />
+		<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+			<!-- Head: Persegi membulat putih -->
+			<rect x="3.5" y="6" width="17" height="13" rx="4" stroke="#FFFFFF" stroke-width="1.8" fill="none" />
+			<!-- Eyes -->
+			<circle cx="8.5" cy="11.5" r="1.3" fill="#FFFFFF" />
+			<circle cx="15.5" cy="11.5" r="1.3" fill="#FFFFFF" />
+			<!-- Smile -->
+			<path d="M9.5 15c.8.7 1.7 1 2.5 1s1.7-.3 2.5-1" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" />
+			<!-- Antenna -->
+			<path d="M12 2.5v3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+			<circle cx="12" cy="2.5" r="1.1" fill="#FFFFFF" />
+			<!-- Ears -->
+			<rect x="1.5" y="10.5" width="2" height="4" rx="1" fill="#FFFFFF" />
+			<rect x="20.5" y="10.5" width="2" height="4" rx="1" fill="#FFFFFF" />
 		</svg>
 	</div>
 
+	<!-- Typing Bubble #EEF2F6 dengan Tiga Titik Teal -->
 	<div class="typing-bubble">
 		<span class="dot"></span>
 		<span class="dot"></span>
@@ -24,29 +33,31 @@
 	.typing-row {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 10px;
 		margin-bottom: 12px;
 	}
 
 	.bot-typing-avatar {
-		width: 28px;
-		height: 28px;
+		width: 36px;
+		height: 36px;
 		border-radius: 50%;
+		background: #079EAD;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		box-shadow: 0 3px 8px rgba(7, 158, 173, 0.28);
 	}
 
 	.typing-bubble {
 		display: flex;
 		align-items: center;
-		gap: 4px;
-		background: #F1F5F9;
-		padding: 10px 14px;
-		border-radius: 16px;
-		border-bottom-left-radius: 4px;
-		box-shadow: 0 1px 3px rgba(11, 39, 71, 0.04);
+		gap: 5px;
+		background: #EEF2F6;
+		padding: 12px 16px;
+		border-radius: 18px;
+		border-top-left-radius: 6px;
+		box-shadow: 0 1px 4px rgba(8, 36, 66, 0.04);
 	}
 
 	.dot {
@@ -75,7 +86,7 @@
 			opacity: 0.4;
 		}
 		40% {
-			transform: scale(1.1);
+			transform: scale(1.15);
 			opacity: 1;
 		}
 	}

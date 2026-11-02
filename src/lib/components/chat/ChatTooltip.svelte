@@ -24,11 +24,6 @@
 		visible = false;
 		chatStore.dismissTooltip();
 	}
-
-	function handleTooltipClick() {
-		// Klik card tooltip juga membuka chat
-		chatStore.open();
-	}
 </script>
 
 {#if visible && !chatStore.isOpen}
@@ -37,41 +32,48 @@
 		role="region"
 		aria-label="Pemberitahuan Asisten"
 	>
-		<!-- Card Tooltip -->
-		<div class="tooltip-card" onclick={handleTooltipClick} onkeydown={(e) => e.key === 'Enter' && handleTooltipClick()} role="button" tabindex="0">
-			<!-- Bot Icon -->
-			<div class="bot-badge" aria-hidden="true">
+		<!-- Card Tooltip Putih Radius 18px (Tidak membuka jendela saat card diklik) -->
+		<div class="tooltip-card">
+			<!-- Ikon Bintang Berkilau (Sparkle) Emas #F5B331 Sesuai Mockup -->
+			<div class="sparkle-icon-wrap" aria-hidden="true">
 				<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-					<circle cx="12" cy="12" r="10" fill="#E6F7F8" />
-					<rect x="7" y="9" width="10" height="8" rx="3" fill="#079EAD" />
-					<circle cx="9.5" cy="12.5" r="1.25" fill="#FFFFFF" />
-					<circle cx="14.5" cy="12.5" r="1.25" fill="#FFFFFF" />
-					<path d="M10 15h4" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" />
-					<path d="M12 6.5v2.5" stroke="#079EAD" stroke-width="1.5" stroke-linecap="round" />
-					<circle cx="12" cy="5.5" r="1" fill="#079EAD" />
+					<!-- Main 4-point sparkle star -->
+					<path
+						d="M10 2C10.5 6 12 7.5 16 8C12 8.5 10.5 10 10 14C9.5 10 8 8.5 4 8C8 7.5 9.5 6 10 2Z"
+						fill="#F5B331"
+					/>
+					<!-- Secondary smaller sparkle star -->
+					<path
+						d="M17 13C17.3 15 18 15.7 20 16C18 16.3 17.3 17 17 19C16.7 17 16 16.3 14 16C16 15.7 16.7 15 17 13Z"
+						fill="#F5B331"
+					/>
 				</svg>
 			</div>
 
-			<!-- Text Content -->
+			<!-- Text Content (Judul 15px bold navy & Deskripsi 13.5px abu-biru 2 baris) -->
 			<div class="tooltip-content">
-				<span class="tooltip-title">{chatConfig.tooltip.title}</span>
-				<span class="tooltip-desc">{chatConfig.tooltip.description}</span>
+				<h4 class="tooltip-title">
+					Butuh informasi seputar<br />pendidikan?
+				</h4>
+				<p class="tooltip-desc">
+					Tanyakan langsung kepada<br />Asisten SDJNusantara.
+				</p>
 			</div>
 
-			<!-- Close Button (Hit area ≥ 32px) -->
+			<!-- Close Button (Area sentuh ≥ 32px) -->
 			<button
 				type="button"
 				class="tooltip-close-btn"
 				onclick={handleDismiss}
 				aria-label="Tutup pesan"
 			>
-				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#082442" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="18" y1="6" x2="6" y2="18"></line>
 					<line x1="6" y1="6" x2="18" y2="18"></line>
 				</svg>
 			</button>
 
-			<!-- Triangle Pointer / Tail (menunjuk ke launcher kanan-bawah) -->
+			<!-- Ekor Segitiga Membulat Menunjuk ke Launcher di Kanan-Bawah -->
 			<div class="tooltip-tail" aria-hidden="true"></div>
 		</div>
 	</div>
@@ -80,7 +82,7 @@
 <style>
 	.chat-tooltip-wrapper {
 		position: fixed;
-		bottom: 96px;
+		bottom: 98px;
 		right: 24px;
 		z-index: 989;
 		animation: tooltipFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -91,110 +93,109 @@
 		position: relative;
 		display: flex;
 		align-items: flex-start;
-		gap: 10px;
+		gap: 12px;
 		background: #FFFFFF;
-		padding: 12px 14px;
-		border-radius: 16px;
-		max-width: 270px;
-		box-shadow: 0 8px 24px rgba(11, 39, 71, 0.12), 0 2px 6px rgba(11, 39, 71, 0.04);
-		border: 1px solid rgba(220, 230, 238, 0.9);
-		cursor: pointer;
-		user-select: none;
-		transition: transform 0.18s ease, box-shadow 0.18s ease;
+		padding: 14px 16px;
+		border-radius: 18px;
+		max-width: 272px;
+		box-shadow: 0 14px 35px rgba(8, 36, 66, 0.14), 0 2px 8px rgba(8, 36, 66, 0.05);
+		border: 1px solid rgba(220, 230, 238, 0.85);
+		box-sizing: border-box;
 	}
 
-	.tooltip-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 12px 28px rgba(11, 39, 71, 0.16);
-	}
-
-	.bot-badge {
+	.sparkle-icon-wrap {
 		flex-shrink: 0;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding-top: 1px;
 	}
 
 	.tooltip-content {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
-		padding-right: 18px; /* space for close button */
+		gap: 3px;
+		flex: 1;
+		padding-right: 4px;
 	}
 
 	.tooltip-title {
-		font-size: 13.5px;
+		font-size: 15px;
 		font-weight: 700;
 		color: #082442;
-		line-height: 1.35;
+		line-height: 1.25;
+		margin: 0;
+		letter-spacing: -0.01em;
 	}
 
 	.tooltip-desc {
-		font-size: 12px;
-		font-weight: 400;
-		color: #52647A;
-		line-height: 1.4;
+		font-size: 13.5px;
+		line-height: 1.35;
+		color: #5B6B7F;
+		margin: 0;
 	}
 
 	.tooltip-close-btn {
-		position: absolute;
-		top: 6px;
-		right: 6px;
 		width: 32px;
 		height: 32px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		background: transparent;
-		color: #8C9BAE;
-		border-radius: 50%;
 		border: none;
+		border-radius: 50%;
 		cursor: pointer;
-		transition: color 0.15s ease, background 0.15s ease;
+		color: #082442;
+		opacity: 0.65;
+		margin-top: -6px;
+		margin-right: -6px;
+		transition: opacity 0.15s ease, background-color 0.15s ease;
+		flex-shrink: 0;
+		padding: 0;
 	}
 
 	.tooltip-close-btn:hover {
-		color: #082442;
-		background: #F1F5F9;
+		opacity: 1;
+		background: rgba(8, 36, 66, 0.06);
 	}
 
+	.tooltip-close-btn:focus-visible {
+		outline: 2px solid #079EAD;
+		outline-offset: 1px;
+	}
+
+	/* Ekor Segitiga Membulat (±12px) di Kanan Bawah */
 	.tooltip-tail {
 		position: absolute;
-		bottom: -7px;
+		bottom: -9px;
 		right: 28px;
-		width: 14px;
-		height: 14px;
+		width: 16px;
+		height: 10px;
+		overflow: hidden;
+	}
+
+	.tooltip-tail::after {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: 2px;
+		width: 12px;
+		height: 12px;
 		background: #FFFFFF;
+		border-right: 1px solid rgba(220, 230, 238, 0.85);
+		border-bottom: 1px solid rgba(220, 230, 238, 0.85);
 		transform: rotate(45deg);
-		border-right: 1px solid rgba(220, 230, 238, 0.9);
-		border-bottom: 1px solid rgba(220, 230, 238, 0.9);
+		box-shadow: 2px 2px 4px rgba(8, 36, 66, 0.04);
 	}
 
 	@keyframes tooltipFadeIn {
-		from {
+		0% {
 			opacity: 0;
-			transform: translateY(8px) scale(0.96);
+			transform: translateY(8px);
 		}
-		to {
+		100% {
 			opacity: 1;
-			transform: translateY(0) scale(1);
-		}
-	}
-
-	@media (max-width: 640px) {
-		.chat-tooltip-wrapper {
-			right: 16px;
-			bottom: 84px;
-		}
-		.tooltip-card {
-			max-width: 250px;
-			padding: 10px 12px;
-		}
-		.tooltip-tail {
-			right: 22px;
+			transform: translateY(0);
 		}
 	}
 
@@ -202,8 +203,30 @@
 		.chat-tooltip-wrapper {
 			animation: none;
 		}
+	}
+
+	/* Mobile (<= 640px) */
+	@media (max-width: 640px) {
+		.chat-tooltip-wrapper {
+			bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+			right: 16px;
+		}
+
 		.tooltip-card {
-			transition: none;
+			max-width: 250px;
+			padding: 12px 14px;
+		}
+
+		.tooltip-title {
+			font-size: 14px;
+		}
+
+		.tooltip-desc {
+			font-size: 12.5px;
+		}
+
+		.tooltip-tail {
+			right: 22px;
 		}
 	}
 </style>

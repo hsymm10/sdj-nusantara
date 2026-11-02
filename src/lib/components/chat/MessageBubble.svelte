@@ -15,7 +15,6 @@
 	}
 
 	function parseSafeTokens(rawText: string): SafeToken[] {
-		// Regex mencari tautan yang diperbolehkan: https://wa.me/..., email, atau path internal (/...)
 		const allowlistRegex = /(https:\/\/wa\.me\/[0-9]+|mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9._%+-]+@sdjnusantara\.com|\/(?:program|beasiswa|kemitraan|kontak|konsultasi|layanan|tentang-kami))/g;
 
 		const tokens: SafeToken[] = [];
@@ -57,29 +56,57 @@
 		return tokens;
 	}
 
-	let tokens = $derived(parseSafeTokens(message.text));
+	// Pisahkan baris pertama sebagai headline tebal untuk bubble bot jika ada multi-baris
+	let parsedMessage = $derived.by(() => {
+		if (message.role === 'bot') {
+			const newlineIdx = message.text.indexOf('\n');
+			if (newlineIdx !== -1) {
+				const headline = message.text.substring(0, newlineIdx).trim();
+				const body = message.text.substring(newlineIdx + 1).trim();
+				return {
+					headline,
+					bodyTokens: parseSafeTokens(body)
+				};
+			}
+		}
+		return {
+			headline: '',
+			bodyTokens: parseSafeTokens(message.text)
+		};
+	});
 </script>
 
 <div class="message-row {message.role}">
-	<!-- Bot Avatar Icon on Left -->
+	<!-- Bot Avatar Icon on Left Top (Lingkaran Teal ±36px, Ikon Robot Putih) -->
 	{#if message.role === 'bot'}
 		<div class="bot-bubble-avatar" aria-hidden="true">
-			<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-				<circle cx="12" cy="12" r="11" fill="#E6F7F8" />
-				<rect x="6" y="8" width="12" height="9" rx="3" fill="#079EAD" />
-				<circle cx="9" cy="11.5" r="1.2" fill="#FFFFFF" />
-				<circle cx="15" cy="11.5" r="1.2" fill="#FFFFFF" />
-				<path d="M10 14h4" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" />
-				<path d="M12 5.5v2.5" stroke="#079EAD" stroke-width="1.4" stroke-linecap="round" />
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+				<!-- Head: Persegi membulat putih -->
+				<rect x="3.5" y="6" width="17" height="13" rx="4" stroke="#FFFFFF" stroke-width="1.8" fill="none" />
+				<!-- Eyes -->
+				<circle cx="8.5" cy="11.5" r="1.3" fill="#FFFFFF" />
+				<circle cx="15.5" cy="11.5" r="1.3" fill="#FFFFFF" />
+				<!-- Smile -->
+				<path d="M9.5 15c.8.7 1.7 1 2.5 1s1.7-.3 2.5-1" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" />
+				<!-- Antenna -->
+				<path d="M12 2.5v3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+				<circle cx="12" cy="2.5" r="1.1" fill="#FFFFFF" />
+				<!-- Ears -->
+				<rect x="1.5" y="10.5" width="2" height="4" rx="1" fill="#FFFFFF" />
+				<rect x="20.5" y="10.5" width="2" height="4" rx="1" fill="#FFFFFF" />
 			</svg>
 		</div>
 	{/if}
 
-	<div class="bubble-and-time">
-		<!-- Message Bubble -->
-		<div class="bubble {message.role}">
-			<div class="bubble-text">
-				{#each tokens as token}
+	<!-- Message Bubble Container -->
+	<div class="bubble {message.role}">
+		<div class="bubble-content">
+			{#if parsedMessage.headline}
+				<div class="bot-headline">{parsedMessage.headline}</div>
+			{/if}
+
+			<div class="bubble-body">
+				{#each parsedMessage.bodyTokens as token}
 					{#if token.type === 'link'}
 						<a
 							href={token.href}
@@ -96,20 +123,21 @@
 			</div>
 		</div>
 
-		<!-- Timestamp -->
-		<span class="message-timestamp">
-			{message.time}
-		</span>
+		<!-- Jam di Dalam Bubble Bagian Bawah Rata Kanan (±11px) Sesuai Mockup -->
+		<div class="bubble-time-row">
+			<span class="bubble-time">{message.time}</span>
+		</div>
 	</div>
 </div>
 
 <style>
 	.message-row {
 		display: flex;
-		align-items: flex-end;
-		gap: 8px;
+		align-items: flex-start;
+		gap: 10px;
 		margin-bottom: 12px;
 		width: 100%;
+		animation: messageFadeUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 	}
 
 	.message-row.user {
@@ -120,56 +148,76 @@
 		justify-content: flex-start;
 	}
 
+	/* Avatar Kecil Robot Lingkaran Teal ±36px di Kiri Atas */
 	.bot-bubble-avatar {
-		width: 28px;
-		height: 28px;
+		width: 36px;
+		height: 36px;
 		border-radius: 50%;
+		background: #079EAD;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		margin-bottom: 16px; /* align with bubble top */
+		box-shadow: 0 3px 8px rgba(7, 158, 173, 0.28);
+		margin-top: 2px;
 	}
 
-	.bubble-and-time {
+	/* Bubble Style */
+	.bubble {
+		position: relative;
+		padding: 13px 16px 8px;
+		border-radius: 18px;
+		max-width: 82%;
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
-		max-width: 82%;
 	}
 
-	.message-row.user .bubble-and-time {
-		align-items: flex-end;
+	/* Bubble Bot: Latar #EEF2F6 (abu-biru lembut), radius 18px (kiri-atas 6px) */
+	.bubble.bot {
+		background: #EEF2F6;
+		color: #082442;
+		border-top-left-radius: 6px;
+		box-shadow: 0 1px 4px rgba(8, 36, 66, 0.04);
 	}
 
-	.message-row.bot .bubble-and-time {
-		align-items: flex-start;
+	/* Bubble User: Latar Teal #079EAD, teks putih, radius 18px (kanan-bawah 6px) */
+	.bubble.user {
+		background: #079EAD;
+		color: #FFFFFF;
+		border-bottom-right-radius: 6px;
+		box-shadow: 0 3px 12px rgba(7, 158, 173, 0.25);
+		max-width: 80%;
 	}
 
-	.bubble {
-		padding: 10px 14px;
-		border-radius: 16px;
+	.bubble-content {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	/* Baris Pertama (Judul) BOLD Navy ±15.5px */
+	.bot-headline {
+		font-size: 15.5px;
+		font-weight: 700;
+		color: #082442;
+		line-height: 1.35;
+		letter-spacing: -0.01em;
+	}
+
+	.bubble-body {
 		font-size: 14.5px;
 		line-height: 1.5;
 		word-break: break-word;
 		white-space: pre-line;
 	}
 
-	.bubble.bot {
-		background: #F1F5F9;
-		color: #082442;
-		border-bottom-left-radius: 4px;
-		box-shadow: 0 1px 3px rgba(11, 39, 71, 0.04);
+	.bubble.bot .bubble-body {
+		color: #183553;
 	}
 
-	.bubble.user {
-		background: #079EAD;
+	.bubble.user .bubble-body {
 		color: #FFFFFF;
-		border-bottom-right-radius: 4px;
-		box-shadow: 0 1px 4px rgba(7, 158, 173, 0.25);
-	}
-
-	.bubble-text {
-		display: inline;
 	}
 
 	.message-inline-link {
@@ -189,10 +237,39 @@
 		opacity: 0.85;
 	}
 
-	.message-timestamp {
+	/* Jam ±11px di Dalam Bubble Rata Kanan */
+	.bubble-time-row {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 4px;
+	}
+
+	.bubble.bot .bubble-time {
 		font-size: 11px;
-		color: #8C9BAE;
-		margin-top: 3px;
-		padding: 0 4px;
+		color: #8A97A6;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.bubble.user .bubble-time {
+		font-size: 11px;
+		color: rgba(255, 255, 255, 0.72);
+		font-variant-numeric: tabular-nums;
+	}
+
+	@keyframes messageFadeUp {
+		0% {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.message-row {
+			animation: none;
+		}
 	}
 </style>

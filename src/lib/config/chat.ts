@@ -1,60 +1,66 @@
 // Konfigurasi Terpusat Floating Chatbot Widget SDJNusantara
-// Sesuai Spesifikasi Desain & content-master SDJNusantara
+// Sesuai Spesifikasi Desain Mockup design/chatbot-mockup.png & content-master SDJNusantara
 
 export interface QuickReplyItem {
 	id: string;
 	label: string;
-	icon: string;
+	iconType: 'program' | 'beasiswa' | 'talenta' | 'konsultasi' | 'kemitraan' | 'lainnya';
 	queryText: string;
 }
 
 export const chatConfig = {
 	title: 'Asisten SDJNusantara',
 	subtitle: 'Asisten Virtual • Siap Membantu',
-	demoNotice: 'Mode demo: jawaban otomatis sementara.',
-	sensitiveWarning: 'Jangan kirim data sensitif (NIK, kata sandi, nomor kartu).',
+	demoNotice: 'Mode demo: jawaban otomatis sementara. Jangan kirim data sensitif (NIK, kata sandi, nomor kartu).',
 	inputPlaceholder: 'Ketik pertanyaan Anda...',
 
 	tooltip: {
-		title: 'Butuh informasi seputar pendidikan?',
-		description: 'Tanyakan langsung kepada asisten SDJNusantara.',
+		title: 'Butuh informasi seputar\npendidikan?',
+		description: 'Tanyakan langsung kepada\nAsisten SDJNusantara.',
 		delayMs: 2000
 	},
 
-	welcomeMessage: `Halo! Selamat datang di SDJNusantara. Saya Asisten Virtual SDJNusantara. Ada yang bisa saya bantu hari ini?
+	welcomeMessage: `Halo! Selamat datang di SDJNusantara
+Saya Asisten Virtual SDJNusantara. Ada yang bisa saya bantu hari ini?
+Silakan pilih topik berikut atau ketik pertanyaan Anda.`,
 
-• Informasi layanan pendidikan
-• Program SDJNusantara
-• Beasiswa dan pendidikan
-• Kerja sama institusi
-• Konsultasi pengembangan talenta
-
-Saya siap membantu Anda.`,
-
+	// 6 Quick Reply Chips (Grid 2 Kolom x 3 Baris sesuai mockup)
 	quickReplies: [
 		{
 			id: 'program',
 			label: 'Info Program Pendidikan',
-			icon: 'ri:graduation-cap-line',
+			iconType: 'program',
 			queryText: 'Info Program Pendidikan'
 		},
 		{
 			id: 'beasiswa',
 			label: 'Beasiswa',
-			icon: 'ri:gift-line',
+			iconType: 'beasiswa',
 			queryText: 'Informasi Beasiswa'
 		},
 		{
-			id: 'kemitraan',
-			label: 'Kemitraan',
-			icon: 'ri:handshake-line',
-			queryText: 'Kemitraan dan Kerja Sama'
+			id: 'talenta',
+			label: 'Pengembangan Talenta',
+			iconType: 'talenta',
+			queryText: 'Pengembangan Talenta'
 		},
 		{
-			id: 'layanan',
-			label: 'Layanan & Kontak',
-			icon: 'ri:customer-service-2-line',
-			queryText: 'Layanan & Kontak'
+			id: 'konsultasi',
+			label: 'Konsultasi',
+			iconType: 'konsultasi',
+			queryText: 'Konsultasi Pendidikan'
+		},
+		{
+			id: 'kemitraan',
+			label: 'Kerja Sama Institusi',
+			iconType: 'kemitraan',
+			queryText: 'Kerja Sama Institusi'
+		},
+		{
+			id: 'lainnya',
+			label: 'Topik Lainnya',
+			iconType: 'lainnya',
+			queryText: 'Topik Lainnya'
 		}
 	] as QuickReplyItem[],
 

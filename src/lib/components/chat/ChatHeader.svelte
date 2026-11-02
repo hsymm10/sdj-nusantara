@@ -2,19 +2,6 @@
 	import { chatConfig } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
 
-	let menuOpen = $state(false);
-
-	function toggleMenu() {
-		menuOpen = !menuOpen;
-	}
-
-	function handleClear() {
-		menuOpen = false;
-		if (confirm('Hapus seluruh riwayat percakapan dan mulai dari awal?')) {
-			chatStore.clearConversation();
-		}
-	}
-
 	function handleMinimize() {
 		chatStore.close();
 	}
@@ -25,93 +12,79 @@
 </script>
 
 <header class="chat-header">
-	<!-- Left: Avatar + Title & Status -->
-	<div class="header-brand">
-		<div class="bot-avatar-circle" aria-hidden="true">
-			<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-				<rect x="4" y="6" width="16" height="12" rx="4" fill="#079EAD" />
-				<circle cx="9" cy="11.5" r="1.5" fill="#FFFFFF" />
-				<circle cx="15" cy="11.5" r="1.5" fill="#FFFFFF" />
-				<path d="M10 14.5c.7.6 1.7.9 2 .9s1.3-.3 2-.9" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
-				<path d="M12 2.5v3.5" stroke="#079EAD" stroke-width="2" stroke-linecap="round" />
-				<circle cx="12" cy="2.5" r="1.25" fill="#079EAD" />
-				<rect x="2" y="10" width="2" height="4" rx="1" fill="#079EAD" />
-				<rect x="20" y="10" width="2" height="4" rx="1" fill="#079EAD" />
-			</svg>
-		</div>
+	<!-- Top Row: Brand Info + Actions -->
+	<div class="header-main-row">
+		<!-- Left: White Circle Avatar + Title & Subtitle -->
+		<div class="header-brand">
+			<div class="bot-avatar-circle" aria-hidden="true">
+				<!-- Robot Icon Navy/Teal ±30px Sesuai Mockup -->
+				<svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+					<!-- Head: Persegi membulat outline tebal navy #082442 -->
+					<rect x="3.5" y="6" width="17" height="13" rx="4.5" stroke="#082442" stroke-width="2" fill="none" />
+					<!-- Two Eyes Navy -->
+					<circle cx="8.5" cy="11.5" r="1.5" fill="#082442" />
+					<circle cx="15.5" cy="11.5" r="1.5" fill="#082442" />
+					<!-- Smile Navy -->
+					<path d="M9.5 15c.8.8 1.7 1.1 2.5 1.1s1.7-.3 2.5-1.1" stroke="#082442" stroke-width="1.8" stroke-linecap="round" />
+					<!-- Antenna -->
+					<path d="M12 2.5v3.5" stroke="#082442" stroke-width="2" stroke-linecap="round" />
+					<circle cx="12" cy="2.5" r="1.25" fill="#082442" />
+					<!-- Ears -->
+					<rect x="1.5" y="10.5" width="2" height="4" rx="1" fill="#082442" />
+					<rect x="20.5" y="10.5" width="2" height="4" rx="1" fill="#082442" />
+				</svg>
+			</div>
 
-		<div class="brand-text">
-			<h2 class="assistant-name">{chatConfig.title}</h2>
-			<div class="assistant-status">
-				<span class="status-indicator" aria-hidden="true"></span>
-				<span class="status-label">{chatConfig.subtitle}</span>
+			<div class="brand-text">
+				<h2 class="assistant-name">{chatConfig.title}</h2>
+				<p class="assistant-subtitle">
+					<span>Asisten Virtual</span>
+					<span class="bullet">•</span>
+					<span>Siap Membantu</span>
+				</p>
 			</div>
 		</div>
-	</div>
 
-	<!-- Right: Actions (Menu, Minimize, Close) -->
-	<div class="header-actions">
-		<!-- Menu titik tiga / Opsi Hapus Percakapan -->
-		<div class="action-menu-wrap">
+		<!-- Right Actions: Minimize (-) & Close (X) Bersih Sesuai Mockup -->
+		<div class="header-actions">
 			<button
 				type="button"
 				class="header-icon-btn"
-				onclick={toggleMenu}
-				aria-label="Opsi percakapan"
-				aria-expanded={menuOpen}
+				onclick={handleMinimize}
+				aria-label="Perkecil"
+				title="Perkecil"
 			>
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<circle cx="12" cy="12" r="1"></circle>
-					<circle cx="12" cy="5" r="1"></circle>
-					<circle cx="12" cy="19" r="1"></circle>
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
 				</svg>
 			</button>
 
-			{#if menuOpen}
-				<div class="header-dropdown-menu" role="menu">
-					<button type="button" class="dropdown-item danger" onclick={handleClear} role="menuitem">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="3 6 5 6 21 6"></polyline>
-							<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-						</svg>
-						<span>Hapus Percakapan</span>
-					</button>
-				</div>
-			{/if}
+			<button
+				type="button"
+				class="header-icon-btn"
+				onclick={handleClose}
+				aria-label="Tutup asisten"
+				title="Tutup asisten"
+			>
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
 		</div>
-
-		<!-- Minimize Button (Hit area ≥ 40px) -->
-		<button
-			type="button"
-			class="header-icon-btn"
-			onclick={handleMinimize}
-			aria-label="Perkecil"
-			title="Perkecil"
-		>
-			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-				<line x1="5" y1="12" x2="19" y2="12"></line>
-			</svg>
-		</button>
-
-		<!-- Close Button (Hit area ≥ 40px) -->
-		<button
-			type="button"
-			class="header-icon-btn"
-			onclick={handleClose}
-			aria-label="Tutup"
-			title="Tutup"
-		>
-			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-				<line x1="18" y1="6" x2="6" y2="18"></line>
-				<line x1="6" y1="6" x2="18" y2="18"></line>
-			</svg>
-		</button>
 	</div>
 
-	<!-- Wave Shape Divider di Tepi Bawah Header (SVG Presisi seperti Referensi) -->
-	<div class="header-wave" aria-hidden="true">
-		<svg viewBox="0 0 392 16" fill="none" preserveAspectRatio="none">
-			<path d="M0 0 C120 12 260 14 392 0 V16 H0 Z" fill="#FFFFFF" />
+	<!-- Wave Decoration Berlapis Sesuai Mockup: Turquoise, Teal, & Pita Emas di Sisi Kanan -->
+	<div class="header-wave-wrap" aria-hidden="true">
+		<svg viewBox="0 0 392 36" fill="none" preserveAspectRatio="none" class="header-wave-svg" xmlns="http://www.w3.org/2000/svg">
+			<!-- Lapisan 1: Turquoise #16B6C1 (opacity 0.55) -->
+			<path d="M0 16 C 90 2, 190 26, 310 14 C 345 10, 375 14, 392 20 L 392 36 L 0 36 Z" fill="#16B6C1" opacity="0.55" />
+			<!-- Lapisan 2: Teal #079EAD -->
+			<path d="M0 24 C 80 12, 180 30, 290 18 C 330 14, 365 20, 392 26 L 392 36 L 0 36 Z" fill="#079EAD" />
+			<!-- Lapisan 3: Pita Emas #F5B331 yang naik melengkung di sisi kanan -->
+			<path d="M230 30 C 280 20, 340 14, 392 8 L 392 14 C 340 20, 280 26, 230 36 Z" fill="#F5B331" />
+			<!-- Lapisan 4: Dasar Putih Area Percakapan -->
+			<path d="M0 32 C 100 22, 220 34, 320 28 C 350 26, 375 28, 392 31 L 392 36 L 0 36 Z" fill="#FFFFFF" />
 		</svg>
 	</div>
 </header>
@@ -119,76 +92,88 @@
 <style>
 	.chat-header {
 		position: relative;
-		background: #079EAD;
+		width: 100%;
+		height: 112px;
+		background: #082442;
 		color: #FFFFFF;
-		padding: 14px 14px 22px 16px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 16px 16px 0;
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+
+	.header-main-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		border-radius: 20px 20px 0 0;
-		box-shadow: 0 2px 10px rgba(7, 158, 173, 0.25);
-		user-select: none;
+		z-index: 2;
 	}
 
 	.header-brand {
 		display: flex;
 		align-items: center;
 		gap: 12px;
+		min-width: 0;
 	}
 
+	/* Avatar Kiri: Lingkaran Putih ±54px, Ikon Robot ±30px Navy */
 	.bot-avatar-circle {
-		width: 44px;
-		height: 44px;
+		width: 52px;
+		height: 52px;
 		border-radius: 50%;
 		background: #FFFFFF;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 		flex-shrink: 0;
+		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.22);
+		border: 2px solid rgba(255, 255, 255, 0.95);
 	}
 
 	.brand-text {
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
+		min-width: 0;
 	}
 
 	.assistant-name {
-		font-size: 15.5px;
+		font-size: 18.5px;
 		font-weight: 700;
 		color: #FFFFFF;
-		line-height: 1.25;
 		margin: 0;
+		line-height: 1.2;
+		letter-spacing: -0.015em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
-	.assistant-status {
+	.assistant-subtitle {
+		font-size: 13.5px;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.88);
+		margin: 0;
+		line-height: 1.25;
+		white-space: nowrap;
 		display: flex;
 		align-items: center;
 		gap: 6px;
 	}
 
-	.status-indicator {
-		width: 7px;
-		height: 7px;
-		border-radius: 50%;
-		background: #22C55E; /* Hijau aktif */
-		box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
-	}
-
-	.status-label {
-		font-size: 12px;
-		font-weight: 400;
-		color: rgba(255, 255, 255, 0.92);
-		letter-spacing: 0.01em;
+	.bullet {
+		opacity: 0.7;
+		font-size: 11px;
 	}
 
 	.header-actions {
 		display: flex;
 		align-items: center;
-		gap: 2px;
-		position: relative;
-		z-index: 2;
+		gap: 4px;
+		flex-shrink: 0;
 	}
 
 	.header-icon-btn {
@@ -196,93 +181,66 @@
 		height: 40px;
 		border-radius: 50%;
 		background: transparent;
+		border: none;
 		color: #FFFFFF;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: none;
 		cursor: pointer;
-		transition: background-color 0.15s ease, opacity 0.15s ease;
-		opacity: 0.9;
+		transition: background-color 0.15s ease, transform 0.15s ease;
+		padding: 0;
 	}
 
 	.header-icon-btn:hover {
-		background: rgba(255, 255, 255, 0.18);
-		opacity: 1;
+		background: rgba(255, 255, 255, 0.14);
+		transform: scale(1.04);
 	}
 
 	.header-icon-btn:focus-visible {
-		outline: 2px solid #FFFFFF;
+		outline: 2px solid #16B6C1;
 		outline-offset: 1px;
 	}
 
-	.action-menu-wrap {
-		position: relative;
-	}
-
-	.header-dropdown-menu {
+	/* Wave Decoration Berlapis di Tepi Bawah */
+	.header-wave-wrap {
 		position: absolute;
-		top: 42px;
-		right: 0;
-		background: #FFFFFF;
-		color: #082442;
-		border-radius: 12px;
-		padding: 6px;
-		min-width: 170px;
-		box-shadow: 0 8px 24px rgba(11, 39, 71, 0.2);
-		border: 1px solid #DCE6EE;
-		z-index: 10;
-		animation: dropdownFade 0.15s ease forwards;
-	}
-
-	.dropdown-item {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 8px 12px;
-		border-radius: 8px;
-		font-size: 13px;
-		font-weight: 500;
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		text-align: left;
-		transition: background 0.12s ease;
-	}
-
-	.dropdown-item.danger {
-		color: #E5484D;
-	}
-
-	.dropdown-item.danger:hover {
-		background: #FEE2E2;
-	}
-
-	.header-wave {
-		position: absolute;
-		bottom: -1px;
 		left: 0;
 		right: 0;
-		height: 14px;
+		bottom: 0;
+		width: 100%;
+		height: 36px;
 		pointer-events: none;
 		z-index: 1;
 	}
 
-	.header-wave svg {
+	.header-wave-svg {
 		width: 100%;
 		height: 100%;
 		display: block;
 	}
 
-	@keyframes dropdownFade {
-		from {
-			opacity: 0;
-			transform: translateY(-4px);
+	/* Mobile (<= 640px) */
+	@media (max-width: 640px) {
+		.chat-header {
+			height: 98px;
+			padding: 12px 14px 0;
 		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
+
+		.bot-avatar-circle {
+			width: 46px;
+			height: 46px;
+		}
+
+		.assistant-name {
+			font-size: 16.5px;
+		}
+
+		.assistant-subtitle {
+			font-size: 12px;
+		}
+
+		.header-wave-wrap {
+			height: 28px;
 		}
 	}
 </style>

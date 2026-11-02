@@ -721,3 +721,47 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 6. `screenshots/chatbot-v1-final-390.png` & `screenshots/chatbot-v1-final-390-keyboard.png`: Tampilan mobile 390px fullscreen-docked dengan adaptasi ketinggian keyboard virtual.
 7. `screenshots/check-beranda-widget.png`, `screenshots/check-konsultasi-widget.png`, `screenshots/check-tentang-kami-widget.png`: Verifikasi halaman lain tetap utuh tanpa regresi struktur atau styling.
 
+---
+
+## 16. Revisi Tampilan Floating Chatbot Widget Sesuai Mockup V2 (02 November 2026)
+
+### 16.1 Ringkasan Perubahan Visual (Berdasarkan `design/chatbot-mockup.png`)
+1. **Chat Launcher & Unread Badge**:
+   - Launcher lingkaran teal `#079EAD` 64px (mobile 56px), ring putih 2px, shadow lembut berwarna teal (0 10px 24px rgba(7,158,173,.35)), ikon kepala robot persegi membulat putih 32px (stroke 2px outline) dengan transisi rotasi 90deg halus ke ikon X saat jendela dibuka.
+   - Badge unread merah `#E5484D` diameter 24px (angka putih bold 13px, border putih 2px, offset -4px), animasi muncul scale 0.6→1 overshoot.
+   - **Efek Percikan (Sparks)**: 3 garis pendek teal/turquoise memancar dari sudut kanan-atas badge (satu ke atas, satu diagonal, satu ke kanan) beranimasi fade+scale 500ms saat badge bertambah, menghormati `prefers-reduced-motion`.
+2. **Tooltip Ajakan**:
+   - Card putih radius 18px berbayang lembut di atas launcher rata kanan dengan ekor segitiga membulat 12px menunjuk ke launcher.
+   - Kiri: Ikon bintang berkilau (sparkle) emas `#F5B331` 22px (SVG murni, bukan emoji).
+   - Teks: Judul navy bold 15px 2 baris ("Butuh informasi seputar / pendidikan?"), deskripsi abu-biru 13.5px 2 baris ("Tanyakan langsung kepada / Asisten SDJNusantara.").
+   - Kanan atas: Tombol X 32px untuk menutup tooltip (tersimpan di `sessionStorage`), card tidak memicu pembukaan jendela chat.
+3. **Header Jendela Chat (Tinggi 112px)**:
+   - Latar Navy `#082442` dengan dekorasi gelombang SVG berlapis di tepi bawah: lapisan turquoise `#16B6C1` (opacity 0.55), lapisan teal `#079EAD`, dan pita emas tipis `#F5B331` yang naik melengkung di sisi kanan.
+   - Avatar kiri: Lingkaran putih 52px dengan ikon robot navy/teal 30px dan bayangan halus.
+   - Teks: Judul bold putih 18.5px "Asisten SDJNusantara", subjudul satu baris putih "Asisten Virtual • Siap Membantu" (13.5px nowrap).
+   - Tombol minimize (`—`) dan close (`×`) putih 22px dengan area sentuh 40px. Menu titik tiga dipindahkan dari header ke baris catatan bawah agar header bersih sesuai mockup.
+4. **Area Percakapan & Bubble Chat**:
+   - Avatar bot lingkaran teal 36px di kiri atas bubble bot.
+   - Bubble bot berlatar abu-biru lembut `#EEF2F6`, radius 18px (kiri-atas 6px), baris pertama bold navy 15.5px ("**Halo! Selamat datang di SDJNusantara**"), jam 11px abu-abu `#8A97A6` di pojok kanan bawah di dalam bubble bot.
+   - Bubble pengguna di kanan berlatar teal `#079EAD` dengan teks putih dan jam putih 70% di dalam bubble.
+   - Pesan sambutan bersih tanpa emoji dan daftar bullet panjang digantikan oleh quick reply chips.
+5. **Quick Reply Chips (Grid 2 Kolom × 3 Baris)**:
+   - 6 chip disusun dalam grid 2 kolom dengan jarak gap 10px, tinggi 42px pill, latar `#F4F8FB`, border 1px `#D6E6EC`, ikon teal 20px di kiri + teks navy bold 13.5px, hover latar `#EAF7F9` border teal:
+     - Baris 1: `Info Program Pendidikan` (topi toga), `Beasiswa` (kado)
+     - Baris 2: `Pengembangan Talenta` (kelompok orang), `Konsultasi` (headset)
+     - Baris 3: `Kerja Sama Institusi` (jabat tangan), `Topik Lainnya` (tiga titik)
+   - Muncul dengan animasi berurutan (stagger 40ms) dan otomatis hilang saat pesan pertama dikirim.
+   - Mock service diperluas untuk merespons otomatis topik: Pengembangan Talenta (asesmen minat-bakat, IDP, coaching tanpa janji hasil), Konsultasi (diarahkan ke WhatsApp/halaman Kontak tanpa klaim gratis/SLA instan), Kerja Sama Institusi (tahapan mitra dan link /kemitraan), dan Topik Lainnya.
+6. **Input & Catatan Bawah**:
+   - Field input pill 46px `#F6F9FB` border `#DCE6EC`, placeholder "Ketik pertanyaan Anda..." (font 16px bebas auto-zoom iOS), tombol kirim bulat teal 46px dengan pesawat kertas putih.
+   - Tanpa ikon klip kertas (karena fitur unggah berkas belum didukung backend).
+   - Banner mode demo lama yang besar dihapus; dipadatkan menjadi catatan bawah rapi 11px abu-abu: *"Mode demo: jawaban otomatis sementara. Jangan kirim data sensitif (NIK, kata sandi, nomor kartu)."* disertai tautan kecil teal *"Hapus percakapan"* (dengan modal konfirmasi).
+
+### 16.2 Bukti Screenshot Verifikasi
+1. `screenshots/chatbot-v2-closed.png`: Launcher teal 64px, ring putih, dan card tooltip ajakan dengan sparkle emas + teks 2 baris + ekor penunjuk.
+2. `screenshots/chatbot-v2-open.png`: Jendela chat 392px dengan header navy, gelombang berlapis pita emas, bubble bot jam internal, 6 chip grid 2x3, dan input pill 46px.
+3. `screenshots/chatbot-v2-badge.png`: Badge unread merah 24px bertuliskan "2" dengan 3 garis percikan teal/turquoise yang memancar.
+4. `screenshots/chatbot-v2-badge99.png`: Badge unread bertuliskan "99+" berbentuk pill merah yang rapi tanpa teks meluap.
+5. `screenshots/chatbot-v2-390.png`: Tampilan responsif mobile 390px (lebar layar penuh dikurangi margin 12px, header adaptif, chip 2 kolom rapi).
+
+
