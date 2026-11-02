@@ -62,7 +62,7 @@ export const leadersData = [
 		nama: 'Nama Kepala Divisi Scholarship',
 		jabatan: 'Kepala Divisi Scholarship',
 		jabatanDetail: 'Kepala Divisi Scholarship & Edukasi Global',
-		foto: '/images/leaders/leader-4.webp',
+		foto: '/images/leaders/leader-4.webp?v=2',
 		fotoAlt: 'Potret Kepala Divisi Scholarship SDJNusantara',
 		profilSingkat:
 			'Mengelola program kurasi beasiswa prestisius, bimbingan persiapan studi lanjut, dan kolaborasi dengan penyedia beasiswa global.',
@@ -79,7 +79,7 @@ export const leadersData = [
 		nama: 'Nama Kepala Divisi Training & Certification',
 		jabatan: 'Kepala Divisi Training & Certification',
 		jabatanDetail: 'Kepala Divisi Training, Certification & Standarisasi Kompetensi',
-		foto: '/images/leaders/leader-5.webp',
+		foto: '/images/leaders/leader-5.webp?v=2',
 		fotoAlt: 'Potret Kepala Divisi Training & Certification SDJNusantara',
 		profilSingkat:
 			'Memimpin standarisasi silabus pelatihan profesional, akreditasi sertifikasi kompetensi, serta kesiapan kerja praktis talenta.',
