@@ -1,5 +1,21 @@
 <script lang="ts">
-	// ContactServiceArea.svelte - Faithful implementation of design/kontak.png Wilayah Layanan section
+	// ContactServiceArea.svelte - Section Wilayah Layanan & Lokasi SDJNusantara
+	// Menggunakan data geografis nyata kepulauan Indonesia (Natural Earth 1:50m, Public Domain)
+	// dan data resmi alamat kantor SDJNusantara dari contact.ts
+	import { contactConfig } from '#lib/config/contact';
+	import { INDONESIA_MAP_PATH } from '#lib/assets/maps/indonesiaPath';
+
+	// ilustrasi jangkauan layanan, bukan lokasi kantor (maksimal ±9 titik bersama Jakarta)
+	const serviceCities = [
+		{ name: 'Medan', x: 83.4, y: 58.1 },
+		{ name: 'Palembang', x: 205.5, y: 189.5 },
+		{ name: 'Surabaya', x: 365.0, y: 275.2 },
+		{ name: 'Pontianak', x: 296.9, y: 130.5 },
+		{ name: 'Balikpapan', x: 446.6, y: 155.3 },
+		{ name: 'Makassar', x: 498.7, y: 233.0 },
+		{ name: 'Denpasar', x: 414.3, y: 303.4 },
+		{ name: 'Jayapura', x: 924.4, y: 180.7 }
+	];
 </script>
 
 <section class="service-area-section">
@@ -55,26 +71,46 @@
 			</a>
 		</div>
 
-		<!-- Right Column: Interactive Indonesia Vector Map (x ±555 -> 1445) -->
+		<!-- Right Column: Interactive Indonesia Vector Map & Lokasi SDJNusantara -->
 		<div class="area-map-col">
-			<!-- Floating Glass/White Card on Top-Right (x ±1115 -> 1465) -->
+			<!-- Floating Card: Informasi LOKASI SDJNUSANTARA (menggantikan teks lama) -->
 			<div class="map-floating-card">
-				<div class="floating-icon">
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2">
-						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+				<div class="floating-icon" aria-hidden="true">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+						<circle cx="12" cy="10" r="3"></circle>
 					</svg>
 				</div>
 				<div class="floating-text">
-					<h3 class="floating-title">Layanan Dapat Diakses dari Berbagai Daerah</h3>
-					<p class="floating-desc">
-						Kami siap berkolaborasi dengan institusi pendidikan di berbagai daerah untuk menciptakan dampak yang lebih luas.
+					<h3 class="floating-title">Lokasi SDJNusantara</h3>
+					<p class="floating-address">
+						{contactConfig.addressDetail}
 					</p>
+					<a 
+						href={contactConfig.mapsUrl} 
+						target="_blank" 
+						rel="noopener noreferrer" 
+						class="floating-maps-link"
+					>
+						<span>Buka di Google Maps</span>
+						<span class="link-arrow">→</span>
+					</a>
 				</div>
 			</div>
 
-			<!-- SVG Map of Indonesia (Vektor Tajam, Kepulauan Jelas) -->
+			<!-- SVG Map of Indonesia (Data Geografis Nyata Natural Earth Skala 1:50m) -->
 			<div class="map-svg-wrap">
-				<svg viewBox="0 0 680 280" fill="none" class="indonesia-svg" xmlns="http://www.w3.org/2000/svg">
+				<svg 
+					viewBox="0 0 940 360" 
+					fill="none" 
+					class="indonesia-svg" 
+					xmlns="http://www.w3.org/2000/svg"
+					role="img"
+					aria-labelledby="map-title map-desc"
+				>
+					<title id="map-title">Peta Indonesia</title>
+					<desc id="map-desc">Peta Kepulauan Nusantara Sumber Data Natural Earth Skala 1:50m Proyeksi Equirectangular dengan Penanda Lokasi Kantor SDJNusantara di Jakarta dan Titik Jangkauan Layanan Nasional</desc>
+					
 					<defs>
 						<!-- Teal Gradient for islands -->
 						<linearGradient id="mapTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -84,93 +120,90 @@
 						<!-- Soft background water ripple -->
 						<linearGradient id="mapWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
 							<stop offset="0%" stop-color="rgba(22, 182, 193, 0.02)" />
-							<stop offset="50%" stop-color="rgba(22, 182, 193, 0.1)" />
+							<stop offset="50%" stop-color="rgba(22, 182, 193, 0.12)" />
 							<stop offset="100%" stop-color="rgba(22, 182, 193, 0.02)" />
 						</linearGradient>
 					</defs>
 
-					<!-- Subtle background marine curves -->
-					<path d="M-10 240 C100 200 250 270 420 225 C540 195 620 235 690 245" stroke="url(#mapWaveGrad)" stroke-width="24" fill="none" />
-					<path d="M-5 130 C120 100 280 170 450 115 C550 90 630 135 690 145" stroke="url(#mapWaveGrad)" stroke-width="18" fill="none" />
+					<!-- Latar Laut Putih-Kebiruan Bersih #F4F8FB -->
+					<rect width="940" height="360" rx="16" fill="#F4F8FB" />
 
-					<!-- Island 1: Sumatra (Diagonal Northwest to Southeast) -->
-					<path d="M30 45 C42 36 68 62 82 90 C96 118 116 142 142 165 C147 172 139 184 128 178 C113 166 94 138 75 110 C56 82 26 58 30 45 Z" fill="url(#mapTealGrad)" opacity="0.95" />
-					<!-- Nias, Mentawai, Bangka, Belitung -->
-					<path d="M22 92 C25 88 29 96 27 101 Z" fill="url(#mapTealGrad)" />
-					<path d="M40 124 C43 120 48 131 45 135 Z" fill="url(#mapTealGrad)" />
-					<path d="M62 160 C64 156 69 167 66 170 Z" fill="url(#mapTealGrad)" />
-					<path d="M144 138 C150 134 155 146 148 151 Z" fill="url(#mapTealGrad)" />
-					<path d="M166 146 C171 143 175 152 170 156 Z" fill="url(#mapTealGrad)" />
+					<!-- 2-3 Garis Gelombang Sangat Tipis (Opacity ±0.08) Tanpa Blob -->
+					<path d="M0 315 C 220 285, 480 345, 940 305" stroke="#16B6C1" stroke-width="2" opacity="0.08" fill="none" />
+					<path d="M0 165 C 260 125, 560 195, 940 145" stroke="#16B6C1" stroke-width="1.8" opacity="0.08" fill="none" />
+					<path d="M0 65 C 300 25, 620 95, 940 55" stroke="#16B6C1" stroke-width="1.5" opacity="0.06" fill="none" />
 
-					<!-- Island 2: Java & Madura (Horizontal South) -->
-					<path d="M148 190 C166 190 205 198 238 201 C272 203 302 207 330 208 C335 212 325 219 302 217 C264 215 224 212 186 207 C161 203 146 198 148 190 Z" fill="url(#mapTealGrad)" opacity="0.95" />
-					<path d="M308 196 C322 192 331 197 326 201 C317 203 308 200 308 196 Z" fill="url(#mapTealGrad)" />
+					<!-- Garis Penghubung Titik Jakarta ke Arah Kartu Lokasi SDJNusantara -->
+					<path 
+						class="jakarta-card-line"
+						d="M246.9 254.2 C 280 140, 520 60, 720 50" 
+						stroke="#F5B331" 
+						stroke-width="1.6" 
+						stroke-dasharray="4 4" 
+						opacity="0.75" 
+						fill="none" 
+					/>
 
-					<!-- Island 3: Kalimantan / Borneo (Large Central Island) -->
-					<path d="M205 80 C224 71 262 66 282 80 C301 93 306 116 301 134 C296 152 277 161 253 161 C228 161 214 152 209 134 C204 116 190 93 205 80 Z" fill="url(#mapTealGrad)" opacity="0.95" />
+					<!-- Jalur Geometri Kepulauan Nusantara (Sumatra, Jawa, Bali, Nusa Tenggara, Kalimantan, Sulawesi, Maluku, Papua) -->
+					<path 
+						d={INDONESIA_MAP_PATH} 
+						fill="url(#mapTealGrad)" 
+						stroke="#FFFFFF" 
+						stroke-width="0.6" 
+						stroke-linejoin="round"
+						class="island-paths"
+					/>
 
-					<!-- Island 4: Sulawesi (Distinct K-shape) -->
-					<path d="M342 98 C352 93 366 100 361 109 C356 115 347 120 342 127 C337 133 344 146 356 150 C366 153 376 146 385 146 C376 155 361 159 351 156 C342 155 337 163 337 176 C337 185 330 188 327 179 C324 168 330 155 330 142 C330 129 334 111 342 98 Z" fill="url(#mapTealGrad)" opacity="0.95" />
+					<!-- ilustrasi jangkauan layanan, bukan lokasi kantor -->
+					<!-- Garis Lengkung Putus-putus Tipis dari Jakarta ke Titik Kota Lain (Opacity ±0.45) -->
+					<g class="service-routes" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.45" fill="none">
+						<!-- Jakarta -> Medan -->
+						<path d="M246.9 254.2 Q 135 180 83.4 58.1" />
+						<!-- Jakarta -> Palembang -->
+						<path d="M246.9 254.2 Q 220 220 205.5 189.5" />
+						<!-- Jakarta -> Surabaya -->
+						<path d="M246.9 254.2 Q 305 250 365.0 275.2" />
+						<!-- Jakarta -> Pontianak -->
+						<path d="M246.9 254.2 Q 260 180 296.9 130.5" />
+						<!-- Jakarta -> Balikpapan -->
+						<path d="M246.9 254.2 Q 340 180 446.6 155.3" />
+						<!-- Jakarta -> Makassar -->
+						<path d="M246.9 254.2 Q 370 230 498.7 233.0" />
+						<!-- Jakarta -> Denpasar -->
+						<path d="M246.9 254.2 Q 330 290 414.3 303.4" />
+						<!-- Jakarta -> Jayapura -->
+						<path d="M246.9 254.2 Q 580 140 924.4 180.7" />
+					</g>
 
-					<!-- Island 5: Nusa Tenggara (Bali, Lombok, Sumbawa, Flores, Timor) -->
-					<path d="M338 215 C345 213 348 218 342 220 Z" fill="url(#mapTealGrad)" />
-					<path d="M352 216 C359 214 362 219 356 221 Z" fill="url(#mapTealGrad)" />
-					<path d="M367 217 C380 215 383 222 371 223 Z" fill="url(#mapTealGrad)" />
-					<path d="M390 218 C411 216 414 223 398 224 Z" fill="url(#mapTealGrad)" />
-					<path d="M424 220 C440 218 450 224 436 227 Z" fill="url(#mapTealGrad)" />
+					<!-- ilustrasi jangkauan layanan, bukan lokasi kantor -->
+					<!-- Titik Penanda Putih Bercincin (±8px, ring turquoise) di Kota-Kota Besar -->
+					<g class="city-markers">
+						{#each serviceCities as city}
+							<g class="city-marker" transform="translate({city.x}, {city.y})">
+								<circle r="4" fill="#FFFFFF" stroke="#079EAD" stroke-width="2" class="city-dot" />
+								<title>{city.name} (Jangkauan Layanan)</title>
+							</g>
+						{/each}
+					</g>
 
-					<!-- Island 6: Maluku & Halmahera -->
-					<path d="M408 102 C415 98 419 107 415 115 C411 124 417 132 412 137 C408 132 406 119 403 111 Z" fill="url(#mapTealGrad)" />
-					<path d="M398 150 C408 147 412 156 406 159 Z" fill="url(#mapTealGrad)" />
-					<path d="M416 161 C425 158 429 166 422 168 Z" fill="url(#mapTealGrad)" />
-
-					<!-- Island 7: Papua (Large Island in East) -->
-					<path d="M458 126 C477 120 515 114 554 120 C592 126 621 132 626 141 C621 154 602 166 578 175 C554 184 525 179 505 171 C486 162 467 154 462 141 C457 132 448 129 458 126 Z" fill="url(#mapTealGrad)" opacity="0.95" />
-
-					<!-- Dotted Curved Connecting Lines -->
-					<path d="M60 75 Q108 118 174 196" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none" />
-					<path d="M174 196 Q224 168 272 124" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none" />
-					<path d="M174 196 Q234 203 292 210" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none" />
-					<path d="M272 124 Q306 142 330 172" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none" />
-					<path d="M292 210 Q321 190 330 172" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none" />
-					<path d="M330 172 Q437 150 544 145" stroke="#16B6C1" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none" />
-
-					<!-- 9 Ringed Pin Dots on Major Locations -->
-					<!-- 1. Medan -->
-					<circle cx="60" cy="75" r="5" fill="#FFFFFF" filter="drop-shadow(0 2px 4px rgba(7,158,173,0.35))" />
-					<circle cx="60" cy="75" r="2.2" fill="#079EAD" />
-
-					<!-- 2. Padang -->
-					<circle cx="98" cy="118" r="4.5" fill="#FFFFFF" />
-					<circle cx="98" cy="118" r="2" fill="#079EAD" />
-
-					<!-- 3. Palembang -->
-					<circle cx="132" cy="152" r="4.5" fill="#FFFFFF" />
-					<circle cx="132" cy="152" r="2" fill="#079EAD" />
-
-					<!-- 4. Jakarta -->
-					<circle cx="174" cy="196" r="6" fill="#FFFFFF" filter="drop-shadow(0 2px 6px rgba(7,158,173,0.45))" />
-					<circle cx="174" cy="196" r="2.8" fill="#F5B331" />
-
-					<!-- 5. Surabaya -->
-					<circle cx="292" cy="210" r="4.5" fill="#FFFFFF" />
-					<circle cx="292" cy="210" r="2" fill="#079EAD" />
-
-					<!-- 6. Pontianak / Banjarmasin -->
-					<circle cx="272" cy="124" r="5" fill="#FFFFFF" />
-					<circle cx="272" cy="124" r="2.2" fill="#079EAD" />
-
-					<!-- 7. Makassar -->
-					<circle cx="330" cy="172" r="5" fill="#FFFFFF" />
-					<circle cx="330" cy="172" r="2.2" fill="#079EAD" />
-
-					<!-- 8. Denpasar / Bali -->
-					<circle cx="342" cy="217" r="4.5" fill="#FFFFFF" />
-					<circle cx="342" cy="217" r="2" fill="#079EAD" />
-
-					<!-- 9. Jayapura / Papua -->
-					<circle cx="544" cy="145" r="5.5" fill="#FFFFFF" filter="drop-shadow(0 2px 5px rgba(7,158,173,0.4))" />
-					<circle cx="544" cy="145" r="2.5" fill="#079EAD" />
+					<!-- Titik JAKARTA (Lokasi Kantor Resmi SDJNusantara): ±14px Emas #F5B331 dengan Ring Putih & Pulse Halus -->
+					<g class="jakarta-marker-group" transform="translate(246.9, 254.2)">
+						<!-- Pulse Ring Halus (Hormati prefers-reduced-motion) -->
+						<circle class="jakarta-pulse" r="16" fill="rgba(245, 179, 49, 0.25)" />
+						<circle class="jakarta-pulse-outer" r="22" fill="none" stroke="#F5B331" stroke-width="1.2" opacity="0.4" />
+						<!-- Lingkaran Luar Putih 14px (r=7) + Shadow Lembut -->
+						<circle r="7" fill="#FFFFFF" filter="drop-shadow(0 2px 5px rgba(245, 179, 49, 0.6))" />
+						<!-- Inti Emas #F5B331 (10px, r=5) -->
+						<circle r="5" fill="#F5B331" />
+						<!-- Titik Pusat Putih -->
+						<circle r="1.8" fill="#FFFFFF" />
+						<!-- Label Kota Jakarta -->
+						<g class="jakarta-badge" transform="translate(0, 16)">
+							<rect x="-34" y="-8.5" width="68" height="17" rx="8.5" fill="#082442" opacity="0.92" />
+							<text x="0" y="3.2" fill="#FFFFFF" font-size="8.5" font-weight="700" text-anchor="middle" font-family="inherit">Jakarta</text>
+						</g>
+						<title>Jakarta: Lokasi Kantor SDJNusantara</title>
+					</g>
 				</svg>
 			</div>
 		</div>
@@ -181,13 +214,13 @@
 	.service-area-section {
 		width: 100%;
 		background: #F4F8FA;
-		padding: 16px 0 18px;
+		padding: 20px 0 24px;
 		box-sizing: border-box;
 		position: relative;
 		overflow: hidden;
 	}
 
-	/* Container khusus halaman Kontak (x ±93 -> 1445 pada 1536) */
+	/* Container Wilayah Layanan (x ±93 -> 1445 pada 1536) */
 	.area-container {
 		width: 100%;
 		max-width: 1352px;
@@ -202,7 +235,7 @@
 	.area-text-col {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 10px;
 	}
 
 	.section-dash-line {
@@ -322,75 +355,161 @@
 		transform: translateX(3px);
 	}
 
-	/* Right Map Column */
+	/* Right Map Column (x ±555 -> 1445 pada 1536) */
 	.area-map-col {
 		position: relative;
 		width: 100%;
-		height: 255px;
 		display: flex;
+		flex-direction: column;
 		align-items: flex-end;
-		justify-content: flex-end;
+		justify-content: center;
 	}
 
+	/* Floating Card: Lokasi SDJNusantara */
 	.map-floating-card {
 		position: absolute;
-		top: 0;
-		right: 20px;
-		z-index: 2;
-		background: rgba(255, 255, 255, 0.95);
-		backdrop-filter: blur(8px);
-		border: 1px solid rgba(226, 232, 240, 0.9);
-		border-radius: 14px;
-		padding: 10px 14px;
+		top: 10px;
+		right: 14px;
+		z-index: 4;
+		background: rgba(255, 255, 255, 0.96);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(226, 232, 240, 0.95);
+		border-radius: 16px;
+		padding: 12px 14px;
 		display: flex;
 		align-items: flex-start;
 		gap: 12px;
-		max-width: 330px;
+		max-width: 320px;
 		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.08);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		box-sizing: border-box;
+	}
+
+	.map-floating-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 12px 28px rgba(8, 36, 66, 0.12);
 	}
 
 	.floating-icon {
 		background: #079EAD;
-		width: 34px;
-		height: 34px;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		box-shadow: 0 4px 12px rgba(7, 158, 173, 0.3);
 	}
 
 	.floating-text {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: 3px;
 	}
 
 	.floating-title {
-		font-size: 12.5px;
+		font-size: 14.5px;
 		font-weight: 700;
 		color: #082442;
 		margin: 0;
-		line-height: 1.3;
+		line-height: 1.25;
 	}
 
-	.floating-desc {
-		font-size: 11px;
-		line-height: 1.35;
-		color: #64748B;
+	.floating-address {
+		font-size: 12.5px;
+		line-height: 1.4;
+		color: #183553;
 		margin: 0;
 	}
 
+	.floating-maps-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		font-size: 12px;
+		font-weight: 700;
+		color: #079EAD;
+		text-decoration: none;
+		margin-top: 2px;
+		transition: color 0.15s ease;
+	}
+
+	.floating-maps-link:hover {
+		color: #056a74;
+		text-decoration: underline;
+	}
+
+	.link-arrow {
+		font-size: 12px;
+		transition: transform 0.2s ease;
+	}
+
+	.floating-maps-link:hover .link-arrow {
+		transform: translateX(2px);
+	}
+
+	/* SVG Map Container */
 	.map-svg-wrap {
 		width: 100%;
-		max-width: 660px;
-		height: 215px;
+		max-width: 780px;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 4px 20px rgba(8, 36, 66, 0.04);
+		background: #F4F8FB;
+		border: 1px solid rgba(226, 232, 240, 0.7);
 	}
 
 	.indonesia-svg {
 		width: 100%;
-		height: 100%;
+		height: auto;
 		display: block;
+		aspect-ratio: 940 / 360;
+	}
+
+	/* Animasi Pulse Halus Titik Jakarta */
+	@keyframes pulseMarker {
+		0% {
+			r: 7px;
+			opacity: 0.8;
+		}
+		50% {
+			r: 18px;
+			opacity: 0.25;
+		}
+		100% {
+			r: 24px;
+			opacity: 0;
+		}
+	}
+
+	@keyframes pulseOuter {
+		0% {
+			r: 12px;
+			opacity: 0.6;
+		}
+		100% {
+			r: 28px;
+			opacity: 0;
+		}
+	}
+
+	.jakarta-pulse {
+		animation: pulseMarker 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+		transform-origin: center;
+	}
+
+	.jakarta-pulse-outer {
+		animation: pulseOuter 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) 0.6s infinite;
+		transform-origin: center;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.jakarta-pulse,
+		.jakarta-pulse-outer {
+			animation: none;
+			opacity: 0.2;
+		}
 	}
 
 	@media (max-width: 1440px) {
@@ -399,24 +518,38 @@
 		}
 	}
 
-	@media (max-width: 1024px) {
+	/* Tablet Responsive (<= 1023px) */
+	@media (max-width: 1023px) {
 		.area-container {
 			grid-template-columns: 1fr;
-			gap: 32px;
+			gap: 28px;
 		}
 		.area-map-col {
-			align-items: center;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 16px;
+		}
+		.map-svg-wrap {
+			order: 1;
+			max-width: 100%;
 		}
 		.map-floating-card {
-			margin-right: 0;
-			margin-bottom: 16px;
+			order: 2;
+			position: static;
+			margin: 0;
 			max-width: 100%;
 		}
 	}
 
-	@media (max-width: 640px) {
+	/* Mobile Responsive (<= 767px) */
+	@media (max-width: 767px) {
+		.area-container {
+			padding: 0 20px;
+			gap: 24px;
+		}
 		.area-title {
-			font-size: 24px;
+			font-size: 22px;
 		}
 		.mini-cards-row {
 			flex-direction: column;
@@ -425,7 +558,26 @@
 			width: 100%;
 		}
 		.map-svg-wrap {
-			height: 180px;
+			order: 1;
+		}
+		.map-floating-card {
+			order: 2;
+			padding: 14px 16px;
+			border-radius: 14px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.floating-title {
+			font-size: 15px;
+		}
+		.floating-address {
+			font-size: 13px;
+		}
+		.floating-maps-link {
+			font-size: 13px;
+		}
+		.city-dot {
+			r: 3px;
 		}
 	}
 </style>
