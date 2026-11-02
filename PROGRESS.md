@@ -3,38 +3,35 @@
 Tanggal: 2 November 2026  
 Status Build: **PASS (0 Error, 0 Warning)**  
 Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5173`)  
-Status Git: Tahap 2 Selesai (Commit "navbar: hapus program/beasiswa, dropdown layanan")
+Status Git: Verifikasi Akhir Selesai (Commit "navigasi: verifikasi akhir")
 
 ---
 
-### UPDATE: Restrukturisasi Navigasi & Rute (Tahap 1 & 2 Selesai)
+### UPDATE: Restrukturisasi Navigasi & Rute (Verifikasi Akhir Selesai)
 1. **Rute Baru**:
    - `/layanan`: Hub pemilih layanan (Hero ringkas, H1 "Pilih Layanan yang Anda Butuhkan", deskripsi 1 kalimat, 2 kartu besar: "Pendidikan" dengan ikon topi toga dan "Hukum" dengan ikon timbangan).
    - `/layanan/pendidikan`: Halaman terpadu menggabungkan Layanan, Program, dan Beasiswa yang sudah ada, memakai ulang komponen section. Dilengkapi hero tunggal, sticky anchor subnav bar (`#layanan`, `#program`, `#beasiswa`) dengan `scroll-margin-top: 106px` dan smooth scroll, filter/pencarian program dan beasiswa aktif, 1 CTA di akhir, dan 1 Footer.
    - `/layanan/hukum`: Halaman kerangka jujur "Informasi layanan hukum sedang disiapkan." dengan tombol "Hubungi Kami" ke `/kontak`, meta robots `noindex, nofollow`, komentar panduan pengisian pemilik, serta skema `src/lib/data/legal-services.ts`.
    - `/layanan/pendidikan/program/[slug]` dan `/layanan/pendidikan/beasiswa/[slug]`: Rute detail baru menggantikan rute lama, dengan tombol kembali ke anchor induk.
-2. **Redirect Permanen (HTTP 301)**:
-   - `/program` → `/layanan/pendidikan#program` (301)
-   - `/program/[slug]` → `/layanan/pendidikan/program/[slug]` (301)
-   - `/beasiswa` → `/layanan/pendidikan#beasiswa` (301)
-   - `/beasiswa/[slug]` → `/layanan/pendidikan/beasiswa/[slug]` (301)
+2. **Redirect Permanen (HTTP 301) Teruji 100%**:
+   - `/program` → `/layanan/pendidikan#program` (301 PASS)
+   - `/program/[slug]` → `/layanan/pendidikan/program/[slug]` (301 PASS)
+   - `/beasiswa` → `/layanan/pendidikan#beasiswa` (301 PASS)
+   - `/beasiswa/[slug]` → `/layanan/pendidikan/beasiswa/[slug]` (301 PASS)
    - Diimplementasikan di level middleware server (`src/hooks.server.ts`), level route loader (`+page.server.ts`), dan client-side fallback `onMount` (`+page.svelte`).
-3. **Pembaruan Navbar & Dropdown "Layanan" (Tahap 2)**:
+3. **Pembaruan Navbar & Dropdown "Layanan"**:
    - Menu baru: Beranda, Tentang Kami, Layanan (dropdown), Kemitraan, Artikel & Wawasan, Kontak. Menu "Program" dan "Beasiswa" telah dihapus dari Navbar desktop, drawer mobile, dan Footer.
    - Data navigasi terpusat di `src/lib/config/navigation.ts`.
    - Desain Dropdown Desktop: Panel ±440px, latar putih, radius 18px, border `#E3EAF1`, shadow bertingkat lembut, padding 10px, jarak 8px dari navbar dengan jembatan hover tak terlihat. 2 kartu pilihan vertikal (Pendidikan: ikon topi toga teal `#E3F6F8`/`#079EAD`, Hukum: ikon timbangan emas `#FDF1D3`/`#B7791F` dengan badge "Segera hadir"). Border kiri aksen muncul saat hover/fokus. Link "Lihat semua layanan →" di bawah garis tipis.
    - Aksesibilitas & Keyboard: Pemicu teks membuka halaman `/layanan`, chevron button terpisah membuka dropdown, navigasi panah atas/bawah/Home/End antar kartu, ESC menutup dan mengembalikan fokus.
    - Mobile Drawer: Akordeon Layanan dengan chevron berputar, membuka sub-item berindentasi garis teal tipis di kiri dengan target sentuh ≥48px.
-4. **Screenshot**:
+4. **Verifikasi Tautan & Integritas**:
+   - Seluruh project telah bersih dari tautan mati atau hardcoded `/program` / `/beasiswa`.
+   - Seluruh rute publik mengembalikan HTTP 200 OK.
+   - Build produksi sukses tanpa error/warning baru (`npm run build` PASS).
+5. **Daftar Screenshot Tersimpan**:
    - Tahap 1: `screenshots/nav-v1-tahap1-*.png` (layanan, pendidikan, hukum di 1536 dan 390)
-   - Tahap 2:
-     - `screenshots/nav-v1-tahap2-1536-closed.png`
-     - `screenshots/nav-v1-tahap2-1536-open.png`
-     - `screenshots/nav-v1-tahap2-1536-hover-pendidikan.png`
-     - `screenshots/nav-v1-tahap2-1536-hover-hukum.png`
-     - `screenshots/nav-v1-tahap2-1024.png`
-     - `screenshots/nav-v1-tahap2-390-drawer.png`
-     - `screenshots/nav-v1-tahap2-390-accordion-open.png`
+   - Tahap 2: `screenshots/nav-v1-tahap2-*.png` (1536 closed, open, hover pendidikan, hover hukum, 1024, 390 drawer, 390 accordion open)
 
 ---
 

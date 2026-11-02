@@ -30,7 +30,7 @@
 		<nav class="breadcrumb">
 			<a href="/">Beranda</a>
 			<span class="bc-sep">/</span>
-			<a href="/program">Program</a>
+			<a href="/layanan/pendidikan#program">Program</a>
 			<span class="bc-sep">/</span>
 			<span class="bc-current">{program.title}</span>
 		</nav>
@@ -64,7 +64,7 @@
 						<span>Konsultasikan Program Ini</span>
 						<span class="btn-arrow">→</span>
 					</a>
-					<a href="/program" class="btn-outline">
+					<a href="/layanan/pendidikan#program" class="btn-outline">
 						<span>Kembali ke Daftar Program</span>
 					</a>
 				</div>
