@@ -331,14 +331,16 @@
 		}
 	}
 
-	/* Modal Panel */
+	/* Modal Panel - Fixed & Consistent Dimensions */
 	.modal-panel {
 		background: #FFFFFF;
 		border-radius: 18px;
 		box-shadow: 0 24px 60px rgba(8, 36, 66, 0.28);
 		width: 828px;
+		height: 512px;
+		min-height: 512px;
 		max-width: min(900px, 92vw);
-		max-height: 88vh;
+		max-height: 90vh;
 		position: relative;
 		overflow: hidden;
 		display: flex;
@@ -422,17 +424,19 @@
 		grid-template-columns: 280px 1fr;
 		position: relative;
 		z-index: 2;
+		height: 100%;
 		overflow: hidden;
-		max-height: 88vh;
+		box-sizing: border-box;
 	}
 
 	/* Left Column */
 	.left-col {
-		padding: 38px 0 38px 38px;
+		padding: 34px 0 34px 34px;
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
+		height: 100%;
 	}
 
 	.photo-frame {
@@ -455,12 +459,12 @@
 
 	/* Right Column */
 	.right-col {
-		padding: 36px 40px 32px 34px;
+		padding: 32px 38px 24px 30px;
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
+		height: 100%;
 		overflow-y: auto;
-		max-height: 88vh;
 	}
 
 	/* Pills Row */
@@ -468,7 +472,8 @@
 		display: flex;
 		align-items: center;
 		gap: 8px;
-		margin-bottom: 12px;
+		margin-bottom: 10px;
+		flex-shrink: 0;
 	}
 
 	.profile-pill {
@@ -495,14 +500,18 @@
 		border: 1px solid #FCD34D;
 	}
 
-	/* Leader Name H2 */
+	/* Leader Name H2 - Consistent 2-line height so content below never shifts */
 	.leader-name {
-		font-size: 27px;
+		font-size: 26px;
 		font-weight: 800;
 		color: #082442;
 		margin: 0 0 6px 0;
 		line-height: 1.25;
 		letter-spacing: -0.01em;
+		min-height: 65px;
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
 	}
 
 	/* Leader Role Row */
@@ -511,9 +520,11 @@
 		align-items: center;
 		gap: 8px;
 		color: #183553;
-		font-size: 15.5px;
+		font-size: 15px;
 		font-weight: 500;
-		margin-bottom: 14px;
+		margin-bottom: 12px;
+		min-height: 22px;
+		flex-shrink: 0;
 	}
 
 	.role-icon {
@@ -528,29 +539,32 @@
 	.modal-divider {
 		height: 1px;
 		background: #D9E2EC;
-		margin: 0 0 16px 0;
+		margin: 0 0 14px 0;
 		width: 100%;
+		flex-shrink: 0;
 	}
 
 	/* Bio Section */
 	.bio-section {
-		margin-bottom: 18px;
+		margin-bottom: 14px;
+		flex-shrink: 0;
 	}
 
 	.bio-title {
-		font-size: 15px;
+		font-size: 14.5px;
 		font-weight: 700;
 		color: #082442;
-		margin: 0 0 6px 0;
+		margin: 0 0 5px 0;
 	}
 
 	.bio-text {
-		font-size: 14px;
-		line-height: 1.55;
+		font-size: 13.5px;
+		line-height: 1.5;
 		color: #183553;
 		margin: 0;
+		min-height: 40px;
 		display: -webkit-box;
-		-webkit-line-clamp: 5;
+		-webkit-line-clamp: 3;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
@@ -559,16 +573,18 @@
 	.info-rows {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
-		margin-bottom: 22px;
+		gap: 8px;
+		margin-bottom: auto;
+		flex-shrink: 0;
 	}
 
 	.info-row {
 		display: flex;
-		align-items: flex-start;
-		font-size: 13.5px;
-		padding: 4px 0;
+		align-items: center;
+		font-size: 13px;
+		padding: 3px 0;
 		border-bottom: 1px dashed #E2E8F0;
+		min-height: 26px;
 	}
 
 	.info-label-box {
@@ -588,7 +604,7 @@
 	.info-value {
 		flex: 1;
 		color: #183553;
-		line-height: 1.4;
+		line-height: 1.35;
 	}
 
 	/* Footer Navigation */
@@ -597,8 +613,9 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-top: auto;
-		padding-top: 12px;
+		padding-top: 10px;
 		border-top: 1px solid #F1F5F9;
+		flex-shrink: 0;
 	}
 
 	.counter-text {

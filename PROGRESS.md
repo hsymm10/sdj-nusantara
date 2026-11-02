@@ -663,11 +663,25 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 1. `screenshots/footer-v3-desktop.png`: Tampilan desktop footer bersih dengan tagline Strategic Your Partner, alamat Graha Aktiva, No. HP, dan 3 ikon sosial aktif.
 2. `screenshots/footer-v3-mobile.png`: Tampilan mobile (390px) responsif rapi tanpa clipping atau horizontal overflow.
 
+---
 
+## 14. Konsistensi Ukuran Modal Profil Pimpinan (02 November 2026)
 
+### 14.1 Ringkasan Masalah & Solusi
+- **Masalah**: Sebelumnya tinggi modal profil pimpinan (`LeaderModal.svelte`) berubah-ubah secara dinamis saat menavigasi antar pimpinan (1 s/d 5) karena panjang teks nama pimpinan (1 baris vs 2 baris) dan ringkasan profil berbeda-beda, menyebabkan bingkai modal dan tombol navigasi panah (`<` dan `>`) meloncat naik-turun.
+- **Solusi**:
+  1. **Dimensi Modal Terkunci (Locked Dimensions)**:
+     - Mengunci dimensi panel modal desktop secara konsisten: `width: 828px; height: 512px; min-height: 512px; max-height: 90vh;` dengan `overflow: hidden;`.
+  2. **Struktur Grid & Kolom Rata Sempurna**:
+     - `.modal-body` dan kedua kolom (`.left-col` dan `.right-col`) disetel `height: 100%`.
+     - `.left-col` memusatkan foto pimpinan 246×305px tepat di tengah secara vertikal (`align-items: center`).
+  3. **Standardisasi Vertical Footprint Konten**:
+     - Judul pimpinan (`.leader-name`) diberikan `min-height: 65px; display: flex; align-items: center; flex-shrink: 0;` sehingga nama 1 baris maupun 2 baris memesan tinggi yang sama persis tanpa menggeser elemen di bawahnya.
+     - Role row (`min-height: 22px`), bio title, dan bio text (`min-height: 40px; -webkit-line-clamp: 3;`) diseragamkan.
+     - Baris info pendidikan & jabatan (`.info-row`) distandardisasi dengan `min-height: 26px`.
+  4. **Navigasi Footer Terikat di Dasar (Anchored Footer)**:
+     - `.modal-nav-footer` menggunakan `margin-top: auto; padding-top: 10px; border-top: 1px solid #F1F5F9; flex-shrink: 0;` sehingga indikator counter ("X dari 5") dan tombol navigasi panah `<` `>` selalu berada pada koordinat piksel yang persis sama di setiap kartu pimpinan.
 
-
-
-
-
-
+### 14.2 Bukti Screenshot Verifikasi
+1. `screenshots/pimpinan-modal-konsisten-leader1.png`: Modal pimpinan 1 (Nama Direktur Utama) dengan ukuran panel 828×512px yang presisi dan posisi navigasi stabil.
+2. `screenshots/pimpinan-modal-konsisten-leader2.png`: Modal pimpinan 2 (Nama Manajer Operasional & Program) dengan ukuran panel 828×512px yang identik dan tidak berubah sedikitpun.
