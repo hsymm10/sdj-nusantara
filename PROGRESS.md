@@ -763,5 +763,4 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 3. `screenshots/chatbot-v2-badge.png`: Badge unread merah 24px bertuliskan "2" dengan 3 garis percikan teal/turquoise yang memancar.
 4. `screenshots/chatbot-v2-badge99.png`: Badge unread bertuliskan "99+" berbentuk pill merah yang rapi tanpa teks meluap.
 5. `screenshots/chatbot-v2-390.png`: Tampilan responsif mobile 390px (lebar layar penuh dikurangi margin 12px, header adaptif, chip 2 kolom rapi).
-
-
+6. `screenshots/check-tentang-kami-clean.png` & `screenshots/check-layanan-clean.png`: Verifikasi konsistensi tampilan launcher chatbot pada halaman Tentang Kami dan Layanan setelah tombol floating back-to-top dihapus total dari `Footer.svelte`. Launcher tampil bersih, mandiri, dan bebas tumpukan tombol di seluruh halaman website (identik dengan Gambar 1).

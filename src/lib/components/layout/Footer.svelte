@@ -1,18 +1,12 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import logoSdj from '#lib/assets/logo_sdj.png';
-	import { chatStore } from '#lib/stores/chat.svelte';
-
 	interface Props {
 		compact?: boolean;
 		variant?: 'home' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan' | 'konsultasi' | 'kontak' | 'artikel';
 	}
 
 	let { compact = false, variant = 'home' }: Props = $props();
-
-	function scrollToTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
 </script>
 
 <footer class="footer {compact || variant === 'home' ? 'compact-footer' : 'page-footer'} variant-{variant}">
@@ -131,11 +125,6 @@
 						<span class="footer-bottom-sep">|</span>
 						<a href="/syarat-ketentuan" class="footer-bottom-link">Syarat & Ketentuan</a>
 					</div>
-					<button class="back-to-top-btn" onclick={scrollToTop} aria-label="Kembali ke atas">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="18 15 12 9 6 15"></polyline>
-						</svg>
-					</button>
 				</div>
 			</div>
 		{/if}
@@ -509,19 +498,6 @@
 		max-width: 100%;
 	}
 
-	.footer.variant-tentang-kami .back-to-top-btn {
-		position: fixed;
-		bottom: 24px;
-		right: 24px;
-		width: 36px;
-		height: 36px;
-		border-radius: 50%;
-		background: #00A6B2;
-		color: #FFFFFF;
-		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.4);
-		z-index: 99;
-	}
-
 	/* Specific variant for Layanan per mockup (Tinggi ±398px pada 1536) */
 	.footer.variant-layanan {
 		padding: 3.2rem 0 1.25rem;
@@ -555,19 +531,6 @@
 		grid-template-columns: 2fr auto 1.6fr;
 		gap: 0 2.5rem;
 		align-items: flex-start;
-	}
-
-	.footer.variant-layanan .back-to-top-btn {
-		position: fixed;
-		bottom: 24px;
-		right: 24px;
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		background: #00A6B2;
-		color: #FFFFFF;
-		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.4);
-		z-index: 99;
 	}
 
 	/* Specific variant for Program per mockup (Tinggi ±271px pada 1536) */
@@ -682,26 +645,6 @@
 	.footer-bottom-sep {
 		font-size: 9.5px;
 		color: rgba(255, 255, 255, 0.3);
-	}
-
-	.back-to-top-btn {
-		width: 28px;
-		height: 28px;
-		border-radius: 50%;
-		background: #00A6B2;
-		border: none;
-		color: #FFFFFF;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		box-shadow: 0 2px 8px rgba(0, 166, 178, 0.35);
-		transition: transform 0.2s, background 0.2s;
-	}
-
-	.back-to-top-btn:hover {
-		background: #16B6C1;
-		transform: translateY(-2px);
 	}
 
 	@media (max-width: 1099px) {
