@@ -279,7 +279,7 @@
 									<span class="soft-gold-badge">{sch.kategori}</span>
 									<span class="updated-date">{sch.updatedAt}</span>
 								</div>
-								<a href="/beasiswa/{sch.id}" class="detail-action-link">
+								<a href="/layanan/pendidikan/beasiswa/{sch.id}" class="detail-action-link">
 									<span>Lihat Detail</span>
 									<span class="arrow-glyph" aria-hidden="true">→</span>
 								</a>

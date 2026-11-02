@@ -4,8 +4,17 @@
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { programsData } from '#lib/data/programs';
 
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+
 	const slug = $derived(page.params.slug);
 	const program = $derived(programsData.find((p) => p.slug === slug) || programsData[0]);
+
+	onMount(() => {
+		if (slug) {
+			goto(`/layanan/pendidikan/program/${slug}`, { replaceState: true });
+		}
+	});
 </script>
 
 <svelte:head>

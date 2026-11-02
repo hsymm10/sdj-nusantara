@@ -24,7 +24,7 @@ export const mockChatService: IChatService = {
 2. Individual Development Plan (IDP): Penyusunan rencana aksi dan target belajar yang terstruktur.
 3. Mentoring & Coaching Berkala: Pendampingan bersama mentor dan praktisi profesional di bidangnya.
 
-Program ini berfokus pada proses pendampingan terarah tanpa janji hasil instan. Pelajari detailnya di /program.`
+Program ini berfokus pada proses pendampingan terarah tanpa janji hasil instan. Pelajari detailnya di /layanan/pendidikan#program.`
 				],
 				suggestions: ['Info Program Pendidikan', 'Konsultasi Pendidikan']
 			};
@@ -86,7 +86,7 @@ Anda juga dapat menghubungi tim representatif kami melalui halaman /kontak atau 
 4. Institutional Partnership Services (sesuai kontrak)
 5. Corporate & Campus Training (sesuai kebutuhan)
 
-Durasi bersifat indikatif. Pelajari selengkapnya di /program.`
+Durasi bersifat indikatif. Pelajari selengkapnya di /layanan/pendidikan#program.`
 				],
 				suggestions: ['Informasi Beasiswa', 'Pengembangan Talenta', 'Konsultasi Pendidikan']
 			};
@@ -98,7 +98,7 @@ Durasi bersifat indikatif. Pelajari selengkapnya di /program.`
 				replies: [
 					`SDJNusantara mendampingi persiapan beasiswa melalui pemetaan strategi, review dokumen esai/CV, dan simulasi wawancara.
 
-SDJNusantara tidak menjanjikan kelulusan, LoA, atau penerimaan beasiswa. Informasi beasiswa resmi harus diverifikasi langsung ke situs penyelenggara terkait. Kunjungi halaman /beasiswa untuk panduan dan kurasi informasi.`
+SDJNusantara tidak menjanjikan kelulusan, LoA, atau penerimaan beasiswa. Informasi beasiswa resmi harus diverifikasi langsung ke situs penyelenggara terkait. Kunjungi halaman /layanan/pendidikan#beasiswa untuk panduan dan kurasi informasi.`
 				],
 				suggestions: ['Info Program Pendidikan', 'Konsultasi Pendidikan']
 			};

@@ -140,7 +140,7 @@
 										<span>{prog.target}</span>
 									</div>
 
-									<a href="/program/{prog.slug}" class="detail-link">
+									<a href="/layanan/pendidikan/program/{prog.slug}" class="detail-link">
 										<span>Lihat Detail</span>
 										<span class="detail-arrow">→</span>
 									</a>

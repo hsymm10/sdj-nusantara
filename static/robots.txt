@@ -1,3 +1,5 @@
-# allow crawling everything by default
+# allow crawling everything by default, exclude draft legal services
 User-agent: *
-Disallow:
+Disallow: /layanan/hukum
+
+Sitemap: https://sdjnusantara.com/sitemap.xml

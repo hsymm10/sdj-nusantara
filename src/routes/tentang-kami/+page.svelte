@@ -32,7 +32,7 @@
 		primaryText="Hubungi Kami Sekarang →"
 		primaryHref="/kontak"
 		secondaryText="Pelajari Program Kami"
-		secondaryHref="/program"
+		secondaryHref="/layanan/pendidikan#program"
 		bgImage="/images/cta-building-glass.jpg"
 		variant="tentang-kami"
 	/>

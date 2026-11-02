@@ -1,9 +1,36 @@
 # Laporan Progres & Dokumentasi Final Implementasi SDJNusantara
 
-Tanggal: 1 November 2026  
+Tanggal: 2 November 2026  
 Status Build: **PASS (0 Error, 0 Warning)**  
 Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5173`)  
-Status Git: Checkpoint commits tersimpan rapi di master branch.
+Status Git: Restrukturisasi Rute Selesai (Commit "navigasi: gabung program+beasiswa ke layanan, rute baru, redirect")
+
+---
+
+### UPDATE: Restrukturisasi Navigasi & Rute (Tahap 1 Selesai)
+1. **Rute Baru**:
+   - `/layanan`: Hub pemilih layanan (Hero ringkas, H1 "Pilih Layanan yang Anda Butuhkan", deskripsi 1 kalimat, 2 kartu besar: "Pendidikan" dengan ikon topi toga dan "Hukum" dengan ikon timbangan).
+   - `/layanan/pendidikan`: Halaman terpadu menggabungkan Layanan, Program, dan Beasiswa yang sudah ada, memakai ulang komponen section. Dilengkapi hero tunggal, sticky anchor subnav bar (`#layanan`, `#program`, `#beasiswa`) dengan `scroll-margin-top: 106px` dan smooth scroll, filter/pencarian program dan beasiswa aktif, 1 CTA di akhir, dan 1 Footer.
+   - `/layanan/hukum`: Halaman kerangka jujur "Informasi layanan hukum sedang disiapkan." dengan tombol "Hubungi Kami" ke `/kontak`, meta robots `noindex, nofollow`, komentar panduan pengisian pemilik, serta skema `src/lib/data/legal-services.ts`.
+   - `/layanan/pendidikan/program/[slug]` dan `/layanan/pendidikan/beasiswa/[slug]`: Rute detail baru menggantikan rute lama, dengan tombol kembali ke anchor induk.
+2. **Redirect Permanen (HTTP 301)**:
+   - `/program` → `/layanan/pendidikan#program` (301)
+   - `/program/[slug]` → `/layanan/pendidikan/program/[slug]` (301)
+   - `/beasiswa` → `/layanan/pendidikan#beasiswa` (301)
+   - `/beasiswa/[slug]` → `/layanan/pendidikan/beasiswa/[slug]` (301)
+   - Diimplementasikan di level middleware server (`src/hooks.server.ts`), level route loader (`+page.server.ts`), dan client-side fallback `onMount` (`+page.svelte`).
+3. **Pembaruan Tautan Internal & SEO**:
+   - Tautan detail program di kartu featured dan list diarahkan ke `/layanan/pendidikan/program/...`.
+   - Tautan detail beasiswa di pencarian diarahkan ke `/layanan/pendidikan/beasiswa/...`.
+   - Tautan di `ServicesZigzag`, `StatsBar`, `tentang-kami`, dan respons `mockChatService` diperbarui ke `#program` dan `#beasiswa`.
+   - Endpoint `src/routes/sitemap.xml` dinamis dan `static/robots.txt` diperbarui.
+4. **Screenshot**:
+   - `screenshots/nav-v1-tahap1-layanan-1536.png`
+   - `screenshots/nav-v1-tahap1-layanan-390.png`
+   - `screenshots/nav-v1-tahap1-pendidikan-1536.png`
+   - `screenshots/nav-v1-tahap1-pendidikan-390.png`
+   - `screenshots/nav-v1-tahap1-hukum-1536.png`
+   - `screenshots/nav-v1-tahap1-hukum-390.png`
 
 ---
 

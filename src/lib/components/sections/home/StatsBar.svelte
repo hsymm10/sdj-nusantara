@@ -86,7 +86,7 @@
 		<div class="stat-divider"></div>
 
 		<!-- Action Circle Arrow Button: lingkaran outline turquoise ±22px berlatar putih -->
-		<a href="/program" class="stat-action-btn" aria-label="Lihat Program">
+		<a href="/layanan/pendidikan#program" class="stat-action-btn" aria-label="Lihat Program">
 			<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="5" y1="12" x2="19" y2="12"></line>
 				<polyline points="12 5 19 12 12 19"></polyline>

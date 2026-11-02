@@ -6,7 +6,13 @@
 	import ScholarshipSearchSection from '#lib/components/sections/scholarship/ScholarshipSearchSection.svelte';
 	import ScholarshipPrepGuide from '#lib/components/sections/scholarship/ScholarshipPrepGuide.svelte';
 	import ScholarshipCategorySection from '#lib/components/sections/scholarship/ScholarshipCategorySection.svelte';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+
+	onMount(() => {
+		goto('/layanan/pendidikan#beasiswa', { replaceState: true });
+	});
 
 	let activeCategory = $state('Semua Kategori');
 

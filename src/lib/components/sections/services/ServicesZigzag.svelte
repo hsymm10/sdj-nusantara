@@ -196,7 +196,7 @@
 						</div>
 					</div>
 
-					<a href="/beasiswa" class="btn-gold">
+					<a href="/layanan/pendidikan#beasiswa" class="btn-gold">
 						<span>Pelajari Lebih Lanjut</span>
 						<span class="btn-arrow">→</span>
 					</a>
@@ -293,7 +293,7 @@
 						</div>
 					</div>
 
-					<a href="/program" class="btn-gold">
+					<a href="/layanan/pendidikan#program" class="btn-gold">
 						<span>Lihat Program Pelatihan</span>
 						<span class="btn-arrow">→</span>
 					</a>

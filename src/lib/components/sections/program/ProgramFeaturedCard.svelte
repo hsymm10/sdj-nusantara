@@ -105,7 +105,7 @@
 
 				<!-- Button -->
 				<div class="btn-row">
-					<a href="/program/persiapan-beasiswa-dalam-negeri" class="btn-gold">
+					<a href="/layanan/pendidikan/program/persiapan-beasiswa-dalam-negeri" class="btn-gold">
 						<span>Lihat Detail Program</span>
 						<span class="btn-arrow">→</span>
 					</a>

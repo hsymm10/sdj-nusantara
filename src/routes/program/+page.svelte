@@ -6,7 +6,13 @@
 	import ProgramFeaturedCard from '#lib/components/sections/program/ProgramFeaturedCard.svelte';
 	import ProgramListSection from '#lib/components/sections/program/ProgramListSection.svelte';
 	import ProgramCustomSection from '#lib/components/sections/program/ProgramCustomSection.svelte';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+
+	onMount(() => {
+		goto('/layanan/pendidikan#program', { replaceState: true });
+	});
 
 	let activeCategory = $state('Semua Program');
 

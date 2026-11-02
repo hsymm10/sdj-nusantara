@@ -4,10 +4,19 @@
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { scholarshipsData, scholarshipDisclaimer } from '#lib/data/scholarships';
 
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+
 	const slug = $derived(page.params.slug);
 	const scholarship = $derived(
 		scholarshipsData.find((s) => s.id === slug) || scholarshipsData[0]
 	);
+
+	onMount(() => {
+		if (slug) {
+			goto(`/layanan/pendidikan/beasiswa/${slug}`, { replaceState: true });
+		}
+	});
 </script>
 
 <svelte:head>
