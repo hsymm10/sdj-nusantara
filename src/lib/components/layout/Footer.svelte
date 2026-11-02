@@ -140,14 +140,6 @@
 			</div>
 		{/if}
 
-		<!-- Floating Back-to-Top Button for Program, Beasiswa, Kemitraan, Artikel & Kontak per Mockup (Disembunyikan saat chat terbuka) -->
-		{#if (variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel' || variant === 'kontak') && !chatStore.isOpen}
-			<button class="back-to-top-btn floating-btt-program" onclick={scrollToTop} aria-label="Kembali ke atas">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="18 15 12 9 6 15"></polyline>
-				</svg>
-			</button>
-		{/if}
 	</div>
 </footer>
 
@@ -635,50 +627,7 @@
 		align-items: flex-start;
 	}
 
-	.footer.variant-program .floating-btt-program,
-	.footer.variant-beasiswa .floating-btt-program,
-	.footer.variant-kemitraan .floating-btt-program,
-	.footer.variant-artikel .floating-btt-program,
-	.footer.variant-kontak .floating-btt-program {
-		position: fixed;
-		bottom: 96px;
-		right: 24px;
-		width: 48px;
-		height: 48px;
-		border-radius: 50%;
-		background: #00A6B2;
-		color: #FFFFFF;
-		box-shadow: 0 4px 16px rgba(0, 166, 178, 0.45);
-		z-index: 99;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: none;
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
 
-	.footer.variant-program .floating-btt-program:hover,
-	.footer.variant-beasiswa .floating-btt-program:hover,
-	.footer.variant-kemitraan .floating-btt-program:hover,
-	.footer.variant-artikel .floating-btt-program:hover,
-	.footer.variant-kontak .floating-btt-program:hover {
-		background: #079EAD;
-		transform: translateY(-2px);
-	}
-
-	@media (max-width: 640px) {
-		.footer.variant-program .floating-btt-program,
-		.footer.variant-beasiswa .floating-btt-program,
-		.footer.variant-kemitraan .floating-btt-program,
-		.footer.variant-artikel .floating-btt-program,
-		.footer.variant-kontak .floating-btt-program {
-			bottom: calc(84px + env(safe-area-inset-bottom, 0px));
-			right: 16px;
-			width: 44px;
-			height: 44px;
-		}
-	}
 
 	.tagline-tentang {
 		font-size: 8px !important;
