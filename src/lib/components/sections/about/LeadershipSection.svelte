@@ -16,16 +16,24 @@
 	let selectedLeader = $state<Leader | null>(null);
 	let triggerElement = $state<HTMLElement | null>(null);
 
-	// Pointer Drag & Swipe state
+	// DOM Elements
+	let trackWrapperEl: HTMLElement | null = null;
+	let cardElements: HTMLElement[] = [];
+
+	// Pointer Drag & Swipe state (Stored in standard non-reactive variables for 60fps performance)
 	let isPointerDown = false;
-	let isDragging = $state(false);
+	let didDrag = false;
 	let dragStartX = 0;
 	let dragStartY = 0;
 	let dragStartTime = 0;
-	let dragDeltaX = $state(0);
+	let currentDragX = 0;
+	let lastMoveTime = 0;
+	let lastMoveX = 0;
+	let velocityX = 0;
+	let rafId: number | null = null;
 	let lastWheelTime = 0;
 
-	// Spacing in pixels between cards for continuous drag calculation
+	// Visual spacing in pixels between cards for continuous drag interpolation
 	const CARD_SPACING = 195;
 
 	function next() {
@@ -65,14 +73,14 @@
 	}
 
 	function handleCardClick(index: number, e: MouseEvent) {
-		// If user was dragging, do not treat as click
-		if (isDragging) {
+		// If user was dragging, suppress the click
+		if (didDrag) {
 			return;
 		}
 
 		if (index === activeIndex) {
 			// Center card clicked -> OPEN MODAL!
-			openModalForLeader(leadersData[index], e.currentTarget as HTMLElement);
+			openModalForLeader(leadersData[index], cardElements[index]);
 		} else {
 			// Side card clicked -> shift to center
 			activeIndex = index;
@@ -89,7 +97,7 @@
 		} else if (e.key === 'Enter' || e.key === ' ') {
 			if (index === activeIndex) {
 				e.preventDefault();
-				openModalForLeader(leadersData[index], e.currentTarget as HTMLElement);
+				openModalForLeader(leadersData[index], cardElements[index]);
 			} else {
 				e.preventDefault();
 				activeIndex = index;
@@ -97,23 +105,21 @@
 		}
 	}
 
-	// Pointer Events for Dragging (Mouse & Touch)
+	// Pointer Drag Events (attached ONLY to cards-track-wrapper, NOT the arrow buttons)
 	function handlePointerDown(e: PointerEvent) {
-		// Only primary button
 		if (e.button !== 0) return;
+		// Ignore clicks originating from interactive buttons or links
+		if ((e.target as HTMLElement).closest('button.nav-btn, a, input')) return;
 
 		isPointerDown = true;
-		isDragging = false;
+		didDrag = false;
 		dragStartX = e.clientX;
 		dragStartY = e.clientY;
 		dragStartTime = performance.now();
-		dragDeltaX = 0;
-
-		try {
-			(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-		} catch {
-			// fallback
-		}
+		lastMoveTime = dragStartTime;
+		lastMoveX = dragStartX;
+		currentDragX = 0;
+		velocityX = 0;
 	}
 
 	function handlePointerMove(e: PointerEvent) {
@@ -122,60 +128,97 @@
 		const dx = e.clientX - dragStartX;
 		const dy = e.clientY - dragStartY;
 
-		if (!isDragging) {
+		// Check if drag threshold is crossed (±6px)
+		if (!didDrag) {
 			if (Math.abs(dx) > 6) {
-				isDragging = true;
+				didDrag = true;
+				// Capture pointer ONLY after confirmed drag
+				try {
+					(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+				} catch {
+					// fallback
+				}
 			} else if (Math.abs(dy) > 12) {
-				// vertical scrolling
+				// Vertical scrolling, leave it to browser
 				return;
 			}
 		}
 
-		if (isDragging) {
-			dragDeltaX = dx;
+		if (didDrag) {
+			currentDragX = dx;
+			const now = performance.now();
+			const dt = now - lastMoveTime;
+			if (dt > 16) {
+				velocityX = (e.clientX - lastMoveX) / dt;
+				lastMoveTime = now;
+				lastMoveX = e.clientX;
+			}
+
+			// Render via requestAnimationFrame for silky 60fps tracking
+			if (!rafId) {
+				rafId = requestAnimationFrame(renderDragFrame);
+			}
 		}
+	}
+
+	function renderDragFrame() {
+		rafId = null;
+		if (!didDrag) return;
+		applyDirectTransforms(currentDragX, true);
 	}
 
 	function handlePointerUp(e: PointerEvent) {
 		if (!isPointerDown) return;
 		isPointerDown = false;
 
-		const dt = performance.now() - dragStartTime;
-		const dx = dragDeltaX;
+		if (rafId) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		}
 
-		if (isDragging) {
-			// Threshold: ±20% card width (~42px) OR quick flick velocity
-			const velocity = Math.abs(dx) / Math.max(1, dt);
-			const isFlick = velocity > 0.35 && Math.abs(dx) > 20;
-			const isPastThreshold = Math.abs(dx) >= 42;
+		if (didDrag) {
+			const dx = currentDragX;
+			const absDx = Math.abs(dx);
+			const isFlick = Math.abs(velocityX) > 0.32 && absDx > 20;
+			const isPastThreshold = absDx >= 42; // ≥20% card width
 
 			if (isPastThreshold || isFlick) {
-				// Calculate number of cards to step
-				const rawSteps = Math.round(Math.abs(dx) / CARD_SPACING);
+				const rawSteps = Math.round(absDx / CARD_SPACING);
 				const steps = Math.min(2, Math.max(1, rawSteps));
-				if (dx < 0) {
+				if (dx < 0 || velocityX < -0.32) {
 					shiftBy(steps);
 				} else {
 					shiftBy(-steps);
 				}
 			}
 
-			dragDeltaX = 0;
+			// Release pointer capture
+			try {
+				(e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+			} catch {
+				// fallback
+			}
 
-			// Keep isDragging true briefly to suppress trailing click event
+			// Smooth snap back
+			applyDirectTransforms(0, false);
+
+			// Keep didDrag true for a short moment to suppress trailing click
 			setTimeout(() => {
-				isDragging = false;
-			}, 60);
+				didDrag = false;
+			}, 75);
 		} else {
-			dragDeltaX = 0;
-			isDragging = false;
+			applyDirectTransforms(0, false);
 		}
 	}
 
 	function handlePointerCancel() {
 		isPointerDown = false;
-		isDragging = false;
-		dragDeltaX = 0;
+		didDrag = false;
+		if (rafId) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		}
+		applyDirectTransforms(0, false);
 	}
 
 	// Horizontal wheel / trackpad support
@@ -193,7 +236,7 @@
 		}
 	}
 
-	// Circular relative offset from active index [-2, -1, 0, 1, 2]
+	// Calculate base circular relative offset [-2, -1, 0, 1, 2]
 	function getBaseOffset(index: number, current: number, total: number) {
 		let diff = (index - current) % total;
 		if (diff > total / 2) diff -= total;
@@ -201,37 +244,162 @@
 		return diff;
 	}
 
-	// Compute continuous style transform based on real-time dragDeltaX
-	function getCardTransform(offset: number, deltaX: number, dragging: boolean) {
-		// Drag fraction (-1 to 1 per card spacing)
-		const dragRatio = dragging ? Math.max(-1.5, Math.min(1.5, deltaX / CARD_SPACING)) : 0;
-		const effOffset = offset + dragRatio;
-		const absEff = Math.abs(effOffset);
+	// Directly apply CSS transforms to DOM cards to avoid Svelte reactive state thrashing
+	function applyDirectTransforms(deltaX: number, isDraggingActive: boolean) {
+		const dragRatio = isDraggingActive ? Math.max(-1.5, Math.min(1.5, deltaX / CARD_SPACING)) : 0;
 
-		// Interpolated properties
-		let translateX = effOffset * CARD_SPACING;
-		let scale = 1 - absEff * 0.14;
-		if (scale < 0.65) scale = 0.65;
-		let rotateY = -effOffset * 14;
-		if (rotateY > 24) rotateY = 24;
-		if (rotateY < -24) rotateY = -24;
+		for (let i = 0; i < count; i++) {
+			const el = cardElements[i];
+			if (!el) continue;
 
-		let translateZ = 60 - absEff * 45;
-		let opacity = 1 - absEff * 0.12;
-		if (opacity < 0) opacity = 0;
-		if (opacity > 1) opacity = 1;
+			const baseOffset = getBaseOffset(i, activeIndex, count);
+			const isVisible = Math.abs(baseOffset) <= 2;
 
-		let zIndex = Math.round(10 - absEff * 2);
+			if (!isVisible) {
+				el.style.opacity = '0';
+				el.style.pointerEvents = 'none';
+				continue;
+			}
 
-		return {
-			transform: `translateX(${translateX.toFixed(1)}px) translateZ(${translateZ.toFixed(1)}px) scale(${scale.toFixed(3)}) rotateY(${rotateY.toFixed(1)}deg)`,
-			opacity: opacity.toFixed(2),
-			zIndex
-		};
+			const effOffset = baseOffset + dragRatio;
+			const absEff = Math.abs(effOffset);
+
+			const translateX = effOffset * CARD_SPACING;
+			let scale = 1 - absEff * 0.14;
+			if (scale < 0.65) scale = 0.65;
+			let rotateY = -effOffset * 14;
+			if (rotateY > 24) rotateY = 24;
+			if (rotateY < -24) rotateY = -24;
+
+			const translateZ = 60 - absEff * 45;
+			let opacity = 1 - absEff * 0.12;
+			if (opacity < 0) opacity = 0;
+			if (opacity > 1) opacity = 1;
+
+			const zIndex = Math.round(10 - absEff * 2);
+
+			if (isDraggingActive) {
+				el.style.transition = 'none';
+			} else {
+				el.style.transition = 'transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 450ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+			}
+
+			el.style.transform = `translateX(${translateX.toFixed(1)}px) translateZ(${translateZ.toFixed(1)}px) scale(${scale.toFixed(3)}) rotateY(${rotateY.toFixed(1)}deg)`;
+			el.style.opacity = opacity.toFixed(2);
+			el.style.zIndex = zIndex.toString();
+			el.style.pointerEvents = Math.abs(baseOffset) <= 1 ? 'auto' : 'none';
+		}
 	}
+
+	// Trigger direct transforms when activeIndex changes
+	$effect(() => {
+		// Read activeIndex reactively
+		const _ = activeIndex;
+		applyDirectTransforms(0, false);
+	});
 </script>
 
 <section class="leadership-section" id="pimpinan">
+	<!-- Background Glass Building Illustration (Right, opacity 0.12) -->
+	<img
+		src="/images/tentang-building-hero-hd.jpg"
+		alt=""
+		class="bg-building-art"
+		aria-hidden="true"
+		loading="lazy"
+		decoding="async"
+	/>
+
+	<!-- Background Thin Wave Lines (Left) -->
+	<svg
+		class="bg-wave-lines"
+		width="360"
+		height="280"
+		viewBox="0 0 360 280"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+	>
+		<path
+			d="M-20 180 C80 140, 180 220, 260 160 C320 115, 350 70, 380 20"
+			stroke="#079EAD"
+			stroke-width="1.5"
+			stroke-opacity="0.22"
+			fill="none"
+		/>
+		<path
+			d="M-20 210 C90 170, 190 250, 280 190 C340 145, 370 100, 400 50"
+			stroke="#16B6C1"
+			stroke-width="1.2"
+			stroke-opacity="0.18"
+			fill="none"
+		/>
+		<path
+			d="M-20 240 C100 200, 200 270, 300 220 C360 180, 390 130, 420 80"
+			stroke="#F5B331"
+			stroke-width="1.2"
+			stroke-opacity="0.15"
+			fill="none"
+		/>
+	</svg>
+
+	<!-- Background Organic Curves (Bottom-Left: Teal + Gold) -->
+	<svg
+		class="bg-corner-teal-gold"
+		width="320"
+		height="150"
+		viewBox="0 0 320 150"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+	>
+		<path
+			d="M0 150 C80 140, 160 110, 210 60 C260 10, 290 0, 320 0 L320 150 Z"
+			fill="url(#goldGradLeft)"
+			opacity="0.18"
+		/>
+		<path
+			d="M0 150 C60 130, 130 90, 180 40 C220 0, 250 -10, 270 -10 L270 150 Z"
+			fill="url(#tealGradLeft)"
+			opacity="0.28"
+		/>
+		<defs>
+			<linearGradient id="tealGradLeft" x1="0" y1="150" x2="270" y2="0" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#079EAD" />
+				<stop offset="1" stop-color="#16B6C1" />
+			</linearGradient>
+			<linearGradient id="goldGradLeft" x1="0" y1="150" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#F5B331" />
+				<stop offset="1" stop-color="#FCD34D" />
+			</linearGradient>
+		</defs>
+	</svg>
+
+	<!-- Background Organic Curves (Bottom-Right: Gold + Light Blue) -->
+	<svg
+		class="bg-corner-gold-cyan"
+		width="320"
+		height="130"
+		viewBox="0 0 320 130"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+	>
+		<path
+			d="M320 130 C240 120, 160 90, 110 45 C70 10, 40 0, 0 0 L0 130 Z"
+			fill="url(#goldGradRight)"
+			opacity="0.20"
+		/>
+		<defs>
+			<linearGradient id="goldGradRight" x1="320" y1="130" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#F5B331" />
+				<stop offset="0.6" stop-color="#16B6C1" stop-opacity="0.3" />
+				<stop offset="1" stop-color="#079EAD" stop-opacity="0.1" />
+			</linearGradient>
+		</defs>
+	</svg>
+
+	<!-- Foreground Content Container -->
 	<div class="leadership-container">
 		<!-- Section Header -->
 		<div class="header-box">
@@ -242,23 +410,13 @@
 			<p class="section-subtitle">Jajaran Pimpinan SDJNusantara.</p>
 		</div>
 
-		<!-- Carousel Stage with Pointer Drag Events -->
-		<div
-			class="carousel-wrapper {isDragging ? 'is-dragging' : ''}"
-			role="region"
-			aria-roledescription="carousel"
-			aria-label="Pimpinan SDJNusantara"
-			onpointerdown={handlePointerDown}
-			onpointermove={handlePointerMove}
-			onpointerup={handlePointerUp}
-			onpointercancel={handlePointerCancel}
-			onwheel={handleWheel}
-		>
-			<!-- Navigation Prev Button -->
+		<!-- Carousel Outer Stage: Navigation buttons sit OUTSIDE the drag wrapper -->
+		<div class="carousel-outer-stage">
+			<!-- Prev Button (Outside drag track, always clickable) -->
 			<button
 				type="button"
 				class="nav-btn prev-btn"
-				onclick={(e) => { e.stopPropagation(); prev(); }}
+				onclick={prev}
 				aria-label="Pimpinan sebelumnya"
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -266,65 +424,77 @@
 				</svg>
 			</button>
 
-			<!-- 3D Perspective Stage -->
-			<div class="cards-stage" role="group" aria-label="Daftar foto pimpinan">
-				{#each leadersData as leader, i (leader.id)}
-					{@const baseOffset = getBaseOffset(i, activeIndex, count)}
-					{@const isCenter = baseOffset === 0}
-					{@const isVisible = Math.abs(baseOffset) <= 2}
-					{@const cardStyle = getCardTransform(baseOffset, dragDeltaX, isDragging)}
-					{#if isVisible}
-						<button
-							type="button"
-							class="leader-card pos-{baseOffset} {isCenter ? 'is-active' : ''} {isDragging ? 'no-transition' : ''}"
-							style="transform: {cardStyle.transform}; opacity: {cardStyle.opacity}; z-index: {cardStyle.zIndex};"
-							onclick={(e) => handleCardClick(i, e)}
-							onkeydown={(e) => handleKeydown(e, i)}
-							tabindex={Math.abs(baseOffset) <= 1 ? 0 : -1}
-							aria-label="{leader.nama}, {leader.jabatan}{isCenter ? ' (Klik untuk membuka profil)' : ''}"
-							aria-hidden={false}
-							draggable="false"
-						>
-							<div class="photo-wrapper {isCenter ? 'center-photo' : ''}">
-								<picture>
-									<source srcset={leader.foto} type="image/webp" />
-									<img
-										src={leader.foto.replace('.webp', '.jpg')}
-										alt={leader.fotoAlt}
-										class="leader-photo"
-										loading="lazy"
-										width="210"
-										height="280"
-										draggable="false"
-									/>
-								</picture>
+			<!-- Drag Track Wrapper (Contains only the cards, isolated from buttons) -->
+			<div
+				bind:this={trackWrapperEl}
+				class="cards-track-wrapper"
+				role="region"
+				aria-roledescription="carousel"
+				aria-label="Pimpinan SDJNusantara"
+				onpointerdown={handlePointerDown}
+				onpointermove={handlePointerMove}
+				onpointerup={handlePointerUp}
+				onpointercancel={handlePointerCancel}
+				onwheel={handleWheel}
+			>
+				<div class="cards-stage" role="group" aria-label="Daftar foto pimpinan">
+					{#each leadersData as leader, i (leader.id)}
+						{@const baseOffset = getBaseOffset(i, activeIndex, count)}
+						{@const isCenter = baseOffset === 0}
+						{@const isVisible = Math.abs(baseOffset) <= 2}
+						{#if isVisible}
+							<button
+								bind:this={cardElements[i]}
+								type="button"
+								class="leader-card pos-{baseOffset} {isCenter ? 'is-active' : ''}"
+								onclick={(e) => handleCardClick(i, e)}
+								onkeydown={(e) => handleKeydown(e, i)}
+								tabindex={Math.abs(baseOffset) <= 1 ? 0 : -1}
+								aria-label="{leader.nama}, {leader.jabatan}{isCenter ? ' (Klik untuk membuka profil)' : ''}"
+								aria-hidden={false}
+								draggable="false"
+							>
+								<div class="photo-wrapper {isCenter ? 'center-photo' : ''}">
+									<picture>
+										<source srcset={leader.foto} type="image/webp" />
+										<img
+											src={leader.foto.replace('.webp', '.jpg')}
+											alt={leader.fotoAlt}
+											class="leader-photo"
+											loading="lazy"
+											width="210"
+											height="280"
+											draggable="false"
+										/>
+									</picture>
 
-								<!-- Data Contoh Badge (Moved to top-left with z-index to protect faces) -->
-								{#if leader.isPlaceholder}
-									<span class="placeholder-badge" title="Data contoh sementara">
-										Data contoh
-									</span>
-								{/if}
-							</div>
-
-							<!-- Floating Name Label on Center Card (No text cutting, up to 2 lines) -->
-							{#if isCenter && !isDragging}
-								<div class="name-label-card" aria-hidden="true">
-									<div class="leader-name" title={leader.nama}>{leader.nama}</div>
-									<div class="leader-role" title={leader.jabatan}>{leader.jabatan}</div>
-									<div class="card-teal-line"></div>
+									<!-- Data Contoh Badge: top-left position to leave faces unobstructed -->
+									{#if leader.isPlaceholder}
+										<span class="placeholder-badge" title="Data contoh sementara">
+											Data contoh
+										</span>
+									{/if}
 								</div>
-							{/if}
-						</button>
-					{/if}
-				{/each}
+
+								<!-- Floating Name Label on Center Card (Allows up to 2 lines, no ellipsis) -->
+								{#if isCenter}
+									<div class="name-label-card" aria-hidden="true">
+										<div class="leader-name" title={leader.nama}>{leader.nama}</div>
+										<div class="leader-role" title={leader.jabatan}>{leader.jabatan}</div>
+										<div class="card-teal-line"></div>
+									</div>
+								{/if}
+							</button>
+						{/if}
+					{/each}
+				</div>
 			</div>
 
-			<!-- Navigation Next Button -->
+			<!-- Next Button (Outside drag track, always clickable) -->
 			<button
 				type="button"
 				class="nav-btn next-btn"
-				onclick={(e) => { e.stopPropagation(); next(); }}
+				onclick={next}
 				aria-label="Pimpinan berikutnya"
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -363,14 +533,60 @@
 <style>
 	/* Section Container */
 	.leadership-section {
-		background-color: #EEF3F8; /* Soft blue-gray */
+		background: linear-gradient(180deg, #F8FAFD 0%, #EEF4F9 50%, #F5F9FC 100%);
 		padding: 64px 0 68px 0;
 		width: 100%;
 		position: relative;
-		overflow: hidden;
+		overflow-x: clip;
+		overflow-y: visible;
 		box-sizing: border-box;
 	}
 
+	/* Decorative Background Elements (pointer-events: none, z-index: 0) */
+	.bg-building-art {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 48%;
+		height: 100%;
+		object-fit: cover;
+		object-position: left center;
+		opacity: 0.12;
+		mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 85%);
+		-webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 85%);
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+	}
+
+	.bg-wave-lines {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+	}
+
+	.bg-corner-teal-gold {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+	}
+
+	.bg-corner-gold-cyan {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+	}
+
+	/* Foreground Container */
 	.leadership-container {
 		width: 100%;
 		max-width: 1312px;
@@ -378,6 +594,7 @@
 		padding: 0 1rem;
 		box-sizing: border-box;
 		position: relative;
+		z-index: 2;
 	}
 
 	@media (min-width: 1920px) {
@@ -390,6 +607,8 @@
 	.header-box {
 		text-align: center;
 		margin-bottom: 34px;
+		position: relative;
+		z-index: 3;
 	}
 
 	.section-title {
@@ -421,23 +640,33 @@
 		line-height: 1.5;
 	}
 
-	/* Carousel Wrapper & Stage */
-	.carousel-wrapper {
+	/* Outer Stage for Carousel & Navigation Buttons */
+	.carousel-outer-stage {
 		position: relative;
 		width: 100%;
-		max-width: 1040px; /* Aligns arrows at x ±272 and ±1264 on 1536px */
+		max-width: 1140px;
 		margin: 0 auto;
-		height: 384px; /* Fixed height to prevent vertical jumping between 1 & 2-line labels */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Drag Track Wrapper: isolates dragging events from the navigation buttons */
+	.cards-track-wrapper {
+		position: relative;
+		width: 100%;
+		max-width: 1040px;
+		height: 384px; /* Fixed height ensures zero vertical jump */
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: grab;
 		user-select: none;
 		-webkit-user-select: none;
-		touch-action: pan-y; /* Allows vertical scrolling while enabling horizontal drag */
+		touch-action: pan-y;
 	}
 
-	.carousel-wrapper.is-dragging {
+	.cards-track-wrapper:active {
 		cursor: grabbing;
 	}
 
@@ -453,7 +682,7 @@
 		touch-action: pan-y;
 	}
 
-	/* Common Card Styles */
+	/* Card Button */
 	.leader-card {
 		position: absolute;
 		width: 210px;
@@ -467,15 +696,10 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		transition: transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1),
-			opacity 450ms cubic-bezier(0.22, 0.61, 0.36, 1);
 		user-select: none;
 		-webkit-user-select: none;
 		-webkit-tap-highlight-color: transparent;
-	}
-
-	.leader-card.no-transition {
-		transition: none !important;
+		will-change: transform;
 	}
 
 	.leader-card:focus-visible {
@@ -510,7 +734,7 @@
 		-webkit-user-drag: none;
 	}
 
-	/* Data Contoh Badge: top-left position to leave faces unobstructed */
+	/* Data Contoh Badge */
 	.placeholder-badge {
 		position: absolute;
 		top: 10px;
@@ -529,7 +753,7 @@
 		letter-spacing: 0.01em;
 	}
 
-	/* Floating Name Label on Center Card */
+	/* Floating Name Label on Center Card (allows 2 lines, no ellipsis) */
 	.name-label-card {
 		position: absolute;
 		bottom: -24px;
@@ -545,8 +769,9 @@
 		text-align: center;
 		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.14);
 		z-index: 15;
+		pointer-events: auto; /* Clickable as part of the card button */
+		cursor: pointer;
 		animation: labelAppear 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
-		pointer-events: none;
 	}
 
 	@keyframes labelAppear {
@@ -560,7 +785,6 @@
 		}
 	}
 
-	/* Leader name: NO ellipsis, allows up to 2 lines comfortably */
 	.leader-name {
 		font-size: 13.5px;
 		font-weight: 700;
@@ -572,7 +796,6 @@
 		overflow-wrap: break-word;
 	}
 
-	/* Leader role: NO ellipsis, allows up to 2 lines */
 	.leader-role {
 		font-size: 11.5px;
 		font-weight: 500;
@@ -592,13 +815,13 @@
 		border-radius: 2px;
 	}
 
-	/* Navigation Round Buttons - ±38px */
+	/* Navigation Round Buttons - Positioned outside drag wrapper, always clickable */
 	.nav-btn {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		width: 38px;
-		height: 38px;
+		width: 44px;
+		height: 44px;
 		border-radius: 50%;
 		background: #FFFFFF;
 		border: 1px solid #CBD5E1;
@@ -607,9 +830,10 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		box-shadow: 0 3px 10px rgba(8, 36, 66, 0.10);
-		z-index: 20;
-		transition: all 200ms ease;
+		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.12);
+		z-index: 30;
+		pointer-events: auto;
+		transition: all 180ms ease;
 		outline: none;
 	}
 
@@ -617,12 +841,12 @@
 		background: #F8FAFC;
 		border-color: #079EAD;
 		color: #079EAD;
-		box-shadow: 0 4px 14px rgba(7, 158, 173, 0.22);
-		transform: translateY(-50%) scale(1.05);
+		box-shadow: 0 6px 18px rgba(7, 158, 173, 0.25);
+		transform: translateY(-50%) scale(1.06);
 	}
 
 	.nav-btn:active {
-		transform: translateY(-50%) scale(0.96);
+		transform: translateY(-50%) scale(0.94);
 	}
 
 	.nav-btn:focus-visible {
@@ -630,11 +854,11 @@
 	}
 
 	.prev-btn {
-		left: 24px;
+		left: 4px;
 	}
 
 	.next-btn {
-		right: 24px;
+		right: 4px;
 	}
 
 	/* Dots for Mobile & Quick Indicator */
@@ -644,6 +868,8 @@
 		justify-content: center;
 		gap: 8px;
 		margin-top: 24px;
+		position: relative;
+		z-index: 4;
 	}
 
 	.dot-indicator {
@@ -665,7 +891,7 @@
 
 	/* Responsive Media Queries */
 	@media (max-width: 1024px) {
-		.carousel-wrapper {
+		.cards-track-wrapper {
 			height: 350px;
 		}
 
@@ -681,11 +907,16 @@
 		}
 
 		.prev-btn {
-			left: 10px;
+			left: 0;
 		}
 
 		.next-btn {
-			right: 10px;
+			right: 0;
+		}
+
+		.bg-building-art {
+			width: 55%;
+			opacity: 0.09;
 		}
 	}
 
@@ -698,7 +929,7 @@
 			font-size: 28px;
 		}
 
-		.carousel-wrapper {
+		.cards-track-wrapper {
 			height: 340px;
 		}
 
@@ -712,11 +943,24 @@
 		}
 
 		.prev-btn {
-			left: 4px;
+			left: -4px;
+			width: 40px;
+			height: 40px;
 		}
 
 		.next-btn {
-			right: 4px;
+			right: -4px;
+			width: 40px;
+			height: 40px;
+		}
+
+		.bg-building-art {
+			width: 65%;
+			opacity: 0.07;
+		}
+
+		.bg-wave-lines {
+			width: 240px;
 		}
 	}
 
@@ -729,7 +973,7 @@
 			font-size: 15px;
 		}
 
-		.carousel-wrapper {
+		.cards-track-wrapper {
 			height: 340px;
 		}
 
@@ -751,12 +995,20 @@
 		.leader-role {
 			font-size: 11px;
 		}
+
+		.prev-btn {
+			display: none; /* Mobile uses touch swipe & dots */
+		}
+
+		.next-btn {
+			display: none;
+		}
 	}
 
 	/* Respect prefers-reduced-motion */
 	@media (prefers-reduced-motion: reduce) {
 		.leader-card {
-			transition: opacity 200ms ease;
+			transition: opacity 200ms ease !important;
 		}
 
 		.name-label-card {

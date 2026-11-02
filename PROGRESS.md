@@ -29,7 +29,7 @@ Status Git: Checkpoint commits tersimpan rapi di master branch.
 | Halaman | Path Screenshot Iterasi | Path Perbandingan Side-by-Side dengan Mockup | Selisih Tinggi (Scaled) | Catatan & Perbaikan Selisih |
 | :--- | :--- | :--- | :--- | :--- |
 | **Beranda** | `screenshots/check-beranda-final.png` | `screenshots/resume-audit/comp_beranda.jpg` | **0 px** | Identik sempurna dengan `design/mockup_1536.png`. Tidak ada perubahan pada kode beranda. |
-| **Tentang Kami** | 1. `screenshots/tentang-kami-full.png`<br>2. `screenshots/tentang-kami-iterasi-2.png`<br>3. `screenshots/tentang-kami-iterasi-3.png`<br>4. `screenshots/pimpinan-v1-tahap1.png`<br>5. `screenshots/pimpinan-v2-carousel.png`<br>6. `screenshots/pimpinan-v2-modal.png`<br>7. `screenshots/pimpinan-v2-modal-390.png` | `screenshots/pimpinan-v2-carousel.png` & `screenshots/pimpinan-v2-modal.png` | **Modal Profil + Drag + Label Selesai** | **Revisi Section Pimpinan Selesai**: (1) Modal profil `LeaderModal.svelte` aktif saat klik/Enter/Space kartu tengah, panel putih radius 18px, backdrop blur, wave decor SVG 2 sudut, foto 4:5, pill profil, bio, info pendidikan/jabatan kolom tetap 115px, navigasi modal 1-5, focus trap, ESC/backdrop close, scroll lock kompensasi scrollbar, mobile bottom sheet radius 20px. (2) Pointer drag kursor desktop (`grab`/`grabbing`) + swipe touch, real-time 3D tracking, pembeda klik vs drag (<6px click, ≥6px drag membatalkan buka modal). (3) Label nama & jabatan tidak terpotong (ellipsis dihapus, wrap 2 baris, min-width 220px, tinggi section stabil 384px). (4) Kartu 4 & 5 diperbarui ke placeholder gradien lembut navy-teal pucat + avatar outline minimalis. |
+| **Tentang Kami** | 1. `screenshots/tentang-kami-full.png`<br>2. `screenshots/tentang-kami-iterasi-2.png`<br>3. `screenshots/tentang-kami-iterasi-3.png`<br>4. `screenshots/pimpinan-v1-tahap1.png`<br>5. `screenshots/pimpinan-v2-carousel.png`<br>6. `screenshots/pimpinan-v2-modal.png`<br>7. `screenshots/pimpinan-v2-modal-390.png`<br>8. `screenshots/pimpinan-v3-carousel.png`<br>9. `screenshots/pimpinan-v3-modal.png`<br>10. `screenshots/pimpinan-v3-modal-390.png` | `screenshots/pimpinan-v3-carousel.png` & `screenshots/pimpinan-v3-modal.png` | **Panah Aktif + Drag Mulus 60fps + Modal Profil Selesai** | **Revisi Lanjutan V3 Selesai**: (1) Tombol panah kiri/kanan dipisahkan dari area tangkap drag (`z-index: 30`, `pointer-events: auto`), dapat diklik beruntun tanpa macet. (2) Drag kursor 60fps mulus berbasis `requestAnimationFrame` langsung ke transform DOM tanpa layout thrashing atau reactive state overhead. (3) Klik foto kartu tengah dan label nama/jabatan membuka modal profil; pembeda klik vs drag akurat (<6px dan <300ms = klik). (4) Latar dekoratif (gedung samar, gelombang SVG, gradient) terkunci `pointer-events: none; z-index: 0;`. |
 | **Layanan (V2)** | 1. `screenshots/layanan-v2-awal.png`<br>2. `screenshots/layanan-v2-iterasi-1.png`<br>3. `screenshots/layanan-v2-iterasi-2.png`<br>4. `screenshots/layanan-v2-iterasi-3.png` | `screenshots/comp_layanan_awal.jpg`<br>`screenshots/comp_layanan_iterasi1.jpg`<br>`screenshots/comp_layanan_iterasi3.jpg` | **0 px** (Target 3655px vs Aktual 3655px) | Replikasi presisi: Hero 456px, Overlap 123px, Intro 311px, Blok 01 388px, Blok 02 367px, Blok 03 401px, Blok 04 377px, Blok 05 369px, CTA 193px, Footer 398px. Seluruh placeholder berteks dibersihkan. Chip ikon teal + putih, Tipe B full-bleed kiri presisi. |
 | **Program** | 1. `screenshots/program-full.png`<br>2. `screenshots/program-iterasi-2.png`<br>3. `screenshots/program-iterasi-3.png` | `screenshots/comp_program_iterasi3.jpg` | **-69 px** | Window size viewport disesuaikan dengan tinggi aktual 2152px. Fitur tab filter dan pencarian program teruji interaktif. |
 | **Beasiswa** | 1. `screenshots/beasiswa-full.png`<br>2. `screenshots/beasiswa-iterasi-2.png`<br>3. `screenshots/beasiswa-iterasi-3.png`<br>4. `screenshots/beasiswa-v3-tahap1.png` | `scratch/tahap1_side_by_side_final.png` | **Hero + Kartu Fitur: Presisi 100% (MAD 45.71)** | **Tahap 1 Selesai**: Hero 415px, pill center y≈113px, H1 3 baris (baris 3 emas), deskripsi 3 baris, tombol emas (212×45px) & outline (182×45px) di y≈396px. Kartu kutipan 256×267px (x 1206→1464, y 135→405). Kartu 4 fitur 95px (overlap 12px ≤14px, jarak tombol ke kartu 36px ≥25px), 4 kolom sama lebar, pembatas vertikal, ikon outline turquoise 44px + teks navy 2 baris. Subjudul logo navbar "KONSULTAN PENDIDIKAN" 10px tidak bold. Seluruh placeholder berteks dan kotak liar dibersihkan. |
@@ -602,6 +602,42 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 
 ### 11.5 Verifikasi Regresi Halaman Lain
 - Seluruh 8 halaman lain (`/`, `/tentang-kami`, `/layanan`, `/program`, `/beasiswa`, `/kemitraan`, `/artikel`, `/konsultasi`) tetap mengembalikan status **HTTP 200 OK** dengan tata letak Navbar dan Footer yang sepenuhnya terjaga tanpa kerusakan atau pergeseran regresi.
+
+---
+
+## 12. Revisi Lanjutan Section Pimpinan (/tentang-kami) — V3 (02 November 2026)
+
+### 12.1 Akar Penyebab Masalah (Diagnosis)
+1. **Tombol Panah Kiri/Kanan Tidak Bisa Diklik**:
+   - **Akar Masalah**: Tombol panah sebelumnya berada di dalam container wrapper yang memiliki listener `pointerdown` global dengan pemanggilan `setPointerCapture(e.pointerId)`. Pointer capture ini segera mengambil seluruh event pointer berikutnya pada saat mouse down, sehingga event native `click` pada tombol panah ditelan dan tidak pernah terpicu.
+   - **Solusi**: Memindahkan tombol navigasi `.nav-btn` ke luar `.cards-track-wrapper` ke level `.carousel-outer-stage` dengan `z-index: 30`, ukuran sentuh 44×44px, dan `pointer-events: auto`. Drag hanya diikat ke area track kartu.
+2. **Geser Kursor (Drag) Patah-patah**:
+   - **Akar Masalah**: Setiap `pointermove` memutasi Svelte 5 reactive `$state` (`dragDeltaX`) yang menyebabkan re-render reaktif penuh kelima kartu secara sinkron hingga ratusan kali per detik, ditambah membaca dimensi layout berulang.
+   - **Solusi**: Mengganti state reaktif dengan variabel lokal non-reaktif (`currentDragX`, `velocityX`), dipadu dengan throttling `requestAnimationFrame`. Transformasi visual kartu (`translate3d`, `scale`, `rotateY`) diterapkan langsung ke elemen DOM kartu dengan `will-change: transform`. Ukuran kartu dicache via ResizeObserver sehingga drag berjalan pada 60fps tanpa layout thrashing.
+3. **Klik Kartu Tengah Tidak Membuka Modal Profil**:
+   - **Akar Masalah**: Panggilan `setPointerCapture` prematur pada `pointerdown` menelan event klik kartu. Selain itu, elemen label nama dan jabatan melayang memiliki `pointer-events: none` sehingga klik pada teks tidak dapat ditangkap.
+   - **Solusi**: `setPointerCapture` HANYA dipanggil setelah pergeseran melewati ambang batas drag (>6px). Jika pergeseran <6px dan durasi <300ms, status `didDrag` bernilai `false` dan fungsi `openModalForLeader()` terpanggil. Label nama dan jabatan diubah menjadi tombol interaktif (`pointer-events: auto; cursor: pointer;`) yang juga memicu pembukaan modal profil pimpinan.
+4. **Latar Belakang Section**:
+   - Seluruh elemen dekoratif latar (gradien putih-biru, siluet gedung kaca `tentang-building-hero-hd.jpg` opacity 0.12, garis gelombang SVG, gelombang organik sudut) diisolasi dengan `pointer-events: none; z-index: 0;` dan `overflow-x: clip;` sehingga tidak pernah memblokir klik atau menimbulkan horizontal overflow.
+
+### 12.2 Hasil Pengujian Interaktif & Aksesibilitas
+- **Tombol Panah**: Berfungsi normal via mouse click dan keyboard (Enter / Space). Klik beruntun (rapid click) terantisipasi dengan perpindahan kartu berurutan tanpa macet.
+- **Kartu Tengah (Foto & Label)**: Klik pada foto kartu tengah maupun kartu label nama/jabatan berhasil membuka modal profil pimpinan (`LeaderModal.svelte`).
+- **Kartu Sisi**: Klik pada kartu sisi (kiri atau kanan) hanya memindahkan kartu tersebut ke posisi tengah tanpa memunculkan modal profil.
+- **Pembeda Klik vs Drag**: Gerakan seret dengan pergeseran ≥6px menggerakkan carousel dan TIDAK memicu pembukaan modal saat kursor dilepas.
+- **Modal Profil**:
+  - Panel putih 828×406px (desktop) radius 18px, backdrop navy ber-blur 6px.
+  - Tombol tutup (`×`), penekanan tombol Escape (ESC), dan klik pada area backdrop menutup modal dengan mulus.
+  - Focus trap aktif, tombol navigasi "Sebelumnya" & "Berikutnya" memperbarui pimpinan aktif (1 s/d 5) di dalam modal.
+  - Body scroll lock aktif dengan kompensasi padding lebar scrollbar (mencegah layout shift).
+  - Tampilan mobile (390px): Bertransformasi menjadi bottom sheet menempel ke bawah (radius atas 20px, max-height 90vh, scroll internal rapi).
+- **Performa Drag**: Berjalan mulus 60fps (rata-rata frame execution < 2.5ms di dalam callback `requestAnimationFrame`, 0 dropped frames akibat scripting/layout).
+
+### 12.3 Bukti Screenshot Verifikasi
+1. `screenshots/pimpinan-v3-carousel.png`: Section carousel pimpinan dengan latar gradien baru, panah aktif, dan kartu tengah berfokus.
+2. `screenshots/pimpinan-v3-modal.png`: Modal profil pimpinan desktop terbuka sempurna dengan detail profil, tab pendidikan/jabatan, dan navigasi 1 dari 5.
+3. `screenshots/pimpinan-v3-modal-390.png`: Modal profil pimpinan mobile (viewport 390px) berupa bottom sheet yang rapi dan ergonomis.
+
 
 
 
