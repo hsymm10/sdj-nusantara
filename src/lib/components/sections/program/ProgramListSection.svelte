@@ -1,6 +1,9 @@
 <script lang="ts">
 	// ProgramListSection.svelte - Replikasi presisi sesuai design/program.png
+	import { onMount } from 'svelte';
 	import { programsData, type ProgramItem } from '#lib/data/programs';
+	import DetailModal from '#lib/components/ui/DetailModal.svelte';
+	import ProgramDetail from '#lib/components/sections/program/ProgramDetail.svelte';
 
 	interface Props {
 		activeCategory?: string;
@@ -37,6 +40,63 @@
 			return matchTab && matchQuery;
 		})
 	);
+
+	// Modal state
+	let selectedProgramModal = $state<ProgramItem | null>(null);
+	let activeTriggerElement = $state<HTMLElement | null>(null);
+
+	let currentIndex = $derived(
+		selectedProgramModal
+			? filteredPrograms.findIndex((p) => p.slug === selectedProgramModal?.slug)
+			: -1
+	);
+
+	function openModal(prog: ProgramItem, triggerEl?: HTMLElement) {
+		selectedProgramModal = prog;
+		if (triggerEl) activeTriggerElement = triggerEl;
+		if (typeof window !== 'undefined') {
+			history.replaceState(null, '', `#program-${prog.slug}`);
+		}
+	}
+
+	function closeModal() {
+		selectedProgramModal = null;
+		if (typeof window !== 'undefined') {
+			const cleanUrl = window.location.pathname + window.location.search;
+			history.replaceState(null, '', cleanUrl);
+		}
+	}
+
+	function goToPrev() {
+		if (filteredPrograms.length <= 1 || currentIndex < 0) return;
+		const nextIdx = (currentIndex - 1 + filteredPrograms.length) % filteredPrograms.length;
+		const prevProg = filteredPrograms[nextIdx];
+		if (prevProg) {
+			openModal(prevProg, activeTriggerElement ?? undefined);
+		}
+	}
+
+	function goToNext() {
+		if (filteredPrograms.length <= 1 || currentIndex < 0) return;
+		const nextIdx = (currentIndex + 1) % filteredPrograms.length;
+		const nextProg = filteredPrograms[nextIdx];
+		if (nextProg) {
+			openModal(nextProg, activeTriggerElement ?? undefined);
+		}
+	}
+
+	onMount(() => {
+		if (typeof window !== 'undefined') {
+			const hash = window.location.hash;
+			if (hash.startsWith('#program-')) {
+				const slug = hash.replace('#program-', '');
+				const targetProg = programsData.find((p) => p.slug === slug);
+				if (targetProg) {
+					openModal(targetProg);
+				}
+			}
+		}
+	});
 </script>
 
 <section id="daftar-program" class="program-list-section">
@@ -140,10 +200,15 @@
 										<span><strong>Cocok untuk:</strong> {prog.target}</span>
 									</div>
 
-									<a href="/layanan/pendidikan/program/{prog.slug}" class="detail-link">
+									<button
+										type="button"
+										class="detail-link"
+										onclick={(e) => openModal(prog, e.currentTarget)}
+										aria-label="Lihat detail program {prog.title}"
+									>
 										<span>Lihat Detail</span>
-										<span class="detail-arrow">→</span>
-									</a>
+										<span class="detail-arrow" aria-hidden="true">→</span>
+									</button>
 								</div>
 							</div>
 						</div>
@@ -158,6 +223,27 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modal Detail Program -->
+{#if selectedProgramModal}
+	<DetailModal
+		isOpen={true}
+		title={selectedProgramModal.title}
+		categoryLabel={selectedProgramModal.category}
+		imageSrc={selectedProgramModal.image}
+		imageAlt={selectedProgramModal.title}
+		fullPageRoute={`/layanan/pendidikan/program/${selectedProgramModal.slug}`}
+		chatQuestion={`Halo, saya ingin menanyakan lebih detail mengenai program ${selectedProgramModal.title}.`}
+		currentIndex={currentIndex >= 0 ? currentIndex : undefined}
+		totalCount={filteredPrograms.length}
+		onClose={closeModal}
+		onPrev={goToPrev}
+		onNext={goToNext}
+		triggerElement={activeTriggerElement}
+	>
+		<ProgramDetail program={selectedProgramModal} />
+	</DetailModal>
+{/if}
 
 <style>
 	.program-list-section {
@@ -426,6 +512,10 @@
 		font-size: 12.5px;
 		font-weight: 700;
 		text-decoration: none;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
 		margin-top: 6px;
 		transition: gap 0.2s;
 	}

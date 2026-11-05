@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { scholarshipsData, scholarshipDisclaimer } from '#lib/data/scholarships';
+	import { onMount } from 'svelte';
+	import { scholarshipsData, scholarshipDisclaimer, type Scholarship } from '#lib/data/scholarships';
+	import DetailModal from '#lib/components/ui/DetailModal.svelte';
+	import ScholarshipDetail from '#lib/components/sections/scholarship/ScholarshipDetail.svelte';
 
 	interface Props {
 		selectedCategory?: string;
@@ -64,6 +67,63 @@
 		selectedPendanaan = 'Semua Jenis';
 		selectedStatus = 'Semua Status';
 	}
+
+	// Modal State
+	let selectedScholarshipModal = $state<Scholarship | null>(null);
+	let activeTriggerElement = $state<HTMLElement | null>(null);
+
+	let currentIndex = $derived(
+		selectedScholarshipModal
+			? filteredScholarships.findIndex((s) => s.id === selectedScholarshipModal?.id)
+			: -1
+	);
+
+	function openModal(sch: Scholarship, triggerEl?: HTMLElement) {
+		selectedScholarshipModal = sch;
+		if (triggerEl) activeTriggerElement = triggerEl;
+		if (typeof window !== 'undefined') {
+			history.replaceState(null, '', `#beasiswa-${sch.id}`);
+		}
+	}
+
+	function closeModal() {
+		selectedScholarshipModal = null;
+		if (typeof window !== 'undefined') {
+			const cleanUrl = window.location.pathname + window.location.search;
+			history.replaceState(null, '', cleanUrl);
+		}
+	}
+
+	function goToPrev() {
+		if (filteredScholarships.length <= 1 || currentIndex < 0) return;
+		const nextIdx = (currentIndex - 1 + filteredScholarships.length) % filteredScholarships.length;
+		const prevSch = filteredScholarships[nextIdx];
+		if (prevSch) {
+			openModal(prevSch, activeTriggerElement ?? undefined);
+		}
+	}
+
+	function goToNext() {
+		if (filteredScholarships.length <= 1 || currentIndex < 0) return;
+		const nextIdx = (currentIndex + 1) % filteredScholarships.length;
+		const nextSch = filteredScholarships[nextIdx];
+		if (nextSch) {
+			openModal(nextSch, activeTriggerElement ?? undefined);
+		}
+	}
+
+	onMount(() => {
+		if (typeof window !== 'undefined') {
+			const hash = window.location.hash;
+			if (hash.startsWith('#beasiswa-')) {
+				const id = hash.replace('#beasiswa-', '');
+				const targetSch = scholarshipsData.find((s) => s.id === id);
+				if (targetSch) {
+					openModal(targetSch);
+				}
+			}
+		}
+	});
 </script>
 
 <section id="cari-beasiswa" class="sch-search-section">
@@ -279,10 +339,15 @@
 									<span class="soft-gold-badge">{sch.kategori}</span>
 									<span class="updated-date">{sch.updatedAt}</span>
 								</div>
-								<a href="/layanan/pendidikan/beasiswa/{sch.id}" class="detail-action-link">
+								<button
+									type="button"
+									class="detail-action-link"
+									onclick={(e) => openModal(sch, e.currentTarget)}
+									aria-label="Lihat detail beasiswa {sch.nama}"
+								>
 									<span>Lihat Detail</span>
 									<span class="arrow-glyph" aria-hidden="true">→</span>
-								</a>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -298,6 +363,29 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modal Detail Beasiswa -->
+{#if selectedScholarshipModal}
+	<DetailModal
+		isOpen={true}
+		title={selectedScholarshipModal.nama}
+		categoryLabel={selectedScholarshipModal.kategori}
+		imageSrc={selectedScholarshipModal.image}
+		imageAlt={selectedScholarshipModal.nama}
+		fullPageRoute={`/layanan/pendidikan/beasiswa/${selectedScholarshipModal.id}`}
+		chatQuestion={`Halo, saya ingin menanyakan mengenai persiapan pendaftaran beasiswa ${selectedScholarshipModal.nama}.`}
+		currentIndex={currentIndex >= 0 ? currentIndex : undefined}
+		totalCount={filteredScholarships.length}
+		onClose={closeModal}
+		onPrev={goToPrev}
+		onNext={goToNext}
+		triggerElement={activeTriggerElement}
+		bookmarked={!!bookmarked[selectedScholarshipModal.id]}
+		onToggleBookmark={() => selectedScholarshipModal && toggleBookmark(selectedScholarshipModal.id)}
+	>
+		<ScholarshipDetail scholarship={selectedScholarshipModal} />
+	</DetailModal>
+{/if}
 
 <style>
 	.sch-search-section {
@@ -748,6 +836,10 @@
 		align-items: center;
 		gap: 5px;
 		text-decoration: none;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
 		transition: color 0.2s ease;
 	}
 
