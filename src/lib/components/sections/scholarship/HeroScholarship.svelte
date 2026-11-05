@@ -1,12 +1,12 @@
 <script lang="ts">
-	// HeroScholarship.svelte - Replicated faithfully from design/beasiswa.png (1536px target)
+	// HeroScholarship.svelte - Standardized consistent with HeroPartner
 </script>
 
 <section class="hero-scholarship">
 	<!-- Background image & navy fade overlay -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/scholarship-hero-woman.jpg"
+			src="/images/partner-hero-5.jpg"
 			alt="Beasiswa SDJNusantara"
 			class="hero-img"
 			loading="eager"
@@ -15,86 +15,56 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Wave decoration bottom-left (Teal / Turquoise curves hugging left edge) -->
-	<svg class="hero-wave-left" viewBox="0 0 180 200" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path
-			d="M0,40 C30,70 60,130 95,200 L0,200 Z"
-			fill="#084252"
-			fill-opacity="0.75"
-		/>
-		<path
-			d="M0,75 C25,100 50,145 78,200 L0,200 Z"
-			fill="#00A6B2"
-		/>
+	<!-- Wave decoration bottom-left -->
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-sch)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
+		<defs>
+			<linearGradient id="teal-grad-sch" x1="0" y1="0" x2="1" y2="1">
+				<stop offset="0%" stop-color="#16B6C1" />
+				<stop offset="100%" stop-color="#079EAD" />
+			</linearGradient>
+		</defs>
 	</svg>
 
-	<!-- Curved accents bottom-right (Turquoise & Gold in bottom right corner) -->
-	<svg class="hero-wave-right" viewBox="0 0 160 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<!-- Turquoise curved band -->
-		<path
-			d="M160,20 C110,60 70,105 40,150 L80,150 C105,115 130,80 160,50 Z"
-			fill="#00A6B2"
-		/>
-		<!-- Gold curved band in corner -->
-		<path
-			d="M160,75 C130,100 100,125 78,150 L160,150 Z"
-			fill="#F5B331"
-		/>
+	<!-- Curved accents bottom-right -->
+	<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
 
-	<!-- Main Content Container (x 78→1458 on 1536px, max-width 1380px, 1500px on >=1920px) -->
+	<!-- Main Content Container -->
 	<div class="hero-container">
-		<div class="hero-inner-row">
-			<!-- Left Column: Pill, Title, Desc, Buttons -->
-			<div class="hero-text-col">
-				<!-- Pill Tag (centered vertically at y≈113px on viewport 1536) -->
-				<div class="pill-tag">
-					<span class="pill-dot"></span>
-					<span class="pill-label">Beasiswa</span>
-				</div>
-
-				<!-- Title (3 lines, line 3 gold #F5B331) -->
-				<h1 class="hero-title">
-					<span class="title-line">Akses Informasi Beasiswa</span>
-					<span class="title-line">untuk Masa Depan</span>
-					<span class="title-line gold-text">yang Lebih Luas.</span>
-				</h1>
-
-				<!-- Description (3 lines, max-width 560px) -->
-				<p class="hero-desc">
-					SDJNusantara menghadirkan informasi beasiswa dari dalam<br />
-					dan luar negeri yang terpercaya, lengkap, dan terstruktur untuk<br />
-					membantu Anda meraih peluang pendidikan terbaik.
-				</p>
-
-				<!-- Buttons (Gold "Konsultasi Beasiswa →" + Outline "Panduan Persiapan", center y≈396) -->
-				<div class="hero-btn-row">
-					<a href="/konsultasi" class="btn-gold">
-						<span>Konsultasi Beasiswa</span>
-						<span class="btn-arrow" aria-hidden="true">→</span>
-					</a>
-					<a href="#panduan-persiapan" class="btn-outline">
-						<span>Panduan Persiapan</span>
-					</a>
-				</div>
+		<div class="hero-text-col">
+			<!-- Pill Tag -->
+			<div class="pill-tag">
+				<span class="pill-dot"></span>
+				<span class="pill-label">Beasiswa</span>
 			</div>
 
-			<!-- Right Column: Floating Quote Card (x 1206→1464, y 135→405) -->
-			<div class="hero-quote-col">
-				<div class="quote-card">
-					<div class="quote-icon" aria-hidden="true">
-						<svg width="26" height="20" viewBox="0 0 26 20" fill="none">
-							<path
-								d="M0 20V12.2C0 5.8 4 2 11.5 0L12.8 3C7.5 4 4.8 7 4.8 12H11.5V20H0ZM14.5 20V12.2C14.5 5.8 18.5 2 26 0L27.3 3C22 4 19.3 7 19.3 12H26V20H14.5Z"
-								fill="#00A6B2"
-							/>
-						</svg>
-					</div>
-					<p class="quote-text">
-						Pendidikan membuka peluang, beasiswa memperluas jangkauan, dan persiapan yang tepat membawa Anda lebih dekat pada masa depan yang diimpikan.
-					</p>
-					<span class="quote-author">SDJNusantara</span>
-				</div>
+			<!-- Title -->
+			<h1 class="hero-title">
+				Akses Informasi Beasiswa<br />
+				untuk Masa Depan<br />
+				<span class="gold-text">yang Lebih Luas.</span>
+			</h1>
+
+			<!-- Description -->
+			<p class="hero-desc">
+				SDJNusantara menghadirkan informasi beasiswa dari dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur untuk membantu Anda meraih peluang pendidikan terbaik.
+			</p>
+
+			<!-- Buttons -->
+			<div class="hero-btn-row">
+				<a href="/konsultasi" class="btn-gold">
+					<span>Konsultasi Beasiswa</span>
+					<span class="btn-arrow" aria-hidden="true">→</span>
+				</a>
+				<a href="#panduan-persiapan" class="btn-outline">
+					<span>Panduan Persiapan</span>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -104,13 +74,14 @@
 	.hero-scholarship {
 		position: relative;
 		width: 100%;
-		height: 415px;
+		height: 445px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: flex-start;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 48px;
 		box-sizing: border-box;
-		padding-top: 52px; /* Places pill center at y≈113px from viewport top with 48px fixed navbar */
 	}
 
 	.hero-bg-wrap {
@@ -123,17 +94,14 @@
 	}
 
 	.hero-img {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 60%;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 20%;
+		object-position: 82% 24%;
 		display: block;
 	}
 
-	/* Navy gradient overlay: solid 0–32%, ±0.8 at 42%, 0 at ±58% */
+	/* Fade navy halus: solid 0–34%, smooth transition to 70% */
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -143,20 +111,20 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 32%,
-			rgba(8, 36, 66, 0.82) 42%,
-			rgba(8, 36, 66, 0) 58%,
-			rgba(8, 36, 66, 0) 100%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
-	/* SVG Waves */
-	.hero-wave-left {
+	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 180px;
-		height: 200px;
+		width: 380px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -165,20 +133,19 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 160px;
-		height: 150px;
+		width: 260px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
 
-	/* Container: x 78→1458 on 1536 (width 1380px), max-width 1500px on >=1920px */
 	.hero-container {
 		position: relative;
 		z-index: 3;
 		width: 100%;
 		max-width: 1380px;
 		margin: 0 auto;
-		padding: 0 54px; /* Left edge at 78 + 54 = 132px, matches mockup x=131 */
+		padding: 0 54px;
 		box-sizing: border-box;
 	}
 
@@ -188,29 +155,21 @@
 		}
 	}
 
-	.hero-inner-row {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 2.5rem;
-		width: 100%;
-	}
-
 	.hero-text-col {
-		max-width: 660px;
-		flex: 1;
+		max-width: 590px;
 	}
 
-	/* Pill Tag: center at y≈113px from viewport top */
+	/* Pill Tag */
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
 		padding: 4px 14px;
 		background: rgba(0, 166, 178, 0.18);
-		border: 1px solid rgba(0, 166, 178, 0.45);
+		border: 1px solid rgba(0, 166, 178, 0.5);
 		border-radius: 999px;
-		margin-bottom: 10px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
 	}
 
 	.pill-dot {
@@ -221,76 +180,67 @@
 	}
 
 	.pill-label {
-		font-size: 11.5px;
+		font-size: 12px;
 		font-weight: 600;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
-	/* H1 3 lines, weight 800, line 3 gold #F5B331 */
+	/* Headline */
 	.hero-title {
-		font-size: clamp(32px, 2.75vw, 42px);
-		line-height: 1.16;
+		font-size: clamp(30px, 2.6vw, 39px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 14px 0;
-		letter-spacing: -0.015em;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.title-line {
-		display: block;
-		white-space: nowrap;
+		margin: 0 0 0.85rem 0;
 	}
 
 	.gold-text {
 		color: #F5B331;
 	}
 
-	/* Description 3 lines, max-width ±560px */
+	/* Description */
 	.hero-desc {
-		font-size: 13.5px;
-		line-height: 20px;
-		color: rgba(255, 255, 255, 0.88);
-		margin: 0 0 20px 0;
-		max-width: 560px;
+		font-size: 14px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
+		text-wrap: pretty;
 	}
 
+	/* Buttons Row */
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: 14px;
 	}
 
-	/* Gold Button ±212×45px, center y≈396 */
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
-		width: 212px;
-		height: 45px;
+		width: 210px;
+		height: 42px;
 		background: #F5B331;
 		color: #082442;
-		font-size: 14px;
+		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.28);
-		box-sizing: border-box;
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-gold:hover {
 		background: #e6a528;
 		transform: translateY(-1px);
-		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.35);
 	}
 
 	.btn-arrow {
-		font-size: 16px;
-		font-weight: 700;
+		font-size: 14px;
 		transition: transform 0.2s ease;
 	}
 
@@ -298,106 +248,69 @@
 		transform: translateX(3px);
 	}
 
-	/* Outline Button ±182×45px */
 	.btn-outline {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 182px;
-		height: 45px;
+		width: 178px;
+		height: 42px;
 		background: rgba(255, 255, 255, 0.08);
-		border: 1.5px solid rgba(255, 255, 255, 0.75);
+		border: 1.5px solid rgba(255, 255, 255, 0.65);
 		color: #FFFFFF;
-		font-size: 14px;
+		font-size: 13.5px;
 		font-weight: 600;
 		border-radius: 8px;
 		text-decoration: none;
-		box-sizing: border-box;
 		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-outline:hover {
 		border-color: #00A6B2;
-		color: #00A6B2;
 		background: rgba(0, 166, 178, 0.12);
+		color: #FFFFFF;
 	}
 
-	/* Floating Quote Card: x 1206→1464 (width ~256px), y 135→405 (height ~267px) */
-	.hero-quote-col {
-		flex-shrink: 0;
-		margin-top: 36px; /* Aligns quote card at y=136 on 1536px */
-	}
-
-	.quote-card {
-		width: 256px;
-		height: 267px;
-		background: #FFFFFF;
-		border-radius: 18px;
-		padding: 24px 22px 20px 22px;
-		box-shadow: 0 14px 34px rgba(7, 26, 48, 0.22);
-		display: flex;
-		flex-direction: column;
-		box-sizing: border-box;
-	}
-
-	.quote-icon {
-		margin-bottom: 12px;
-	}
-
-	.quote-text {
-		font-size: 12px;
-		line-height: 18px;
-		color: #1E293B;
-		font-weight: 500;
-		margin: 0;
-		flex: 1;
-	}
-
-	.quote-author {
-		font-size: 13px;
-		font-weight: 800;
-		color: #082442;
-		margin-top: 12px;
-	}
-
-	@media (max-width: 1024px) {
+	@media (max-width: 900px) {
 		.hero-scholarship {
 			height: auto;
-			min-height: 440px;
-			padding: 40px 1.5rem 48px;
+			padding: 4.5rem 0 3rem;
 		}
 		.hero-container {
-			padding: 0 1rem;
+			padding: 0 1.5rem;
 		}
-		.hero-inner-row {
-			flex-direction: column;
-			align-items: flex-start;
+		.hero-overlay {
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.92) 60%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
 		}
-		.hero-quote-col {
-			margin-top: 1.5rem;
-			width: 100%;
-		}
-		.quote-card {
-			width: 100%;
-			max-width: 420px;
-			height: auto;
-			min-height: auto;
-		}
-		.hero-img {
-			width: 100%;
-			opacity: 0.25;
+		.hero-wave,
+		.hero-wave-right {
+			display: none;
 		}
 	}
 
 	@media (max-width: 640px) {
+		.hero-bg-wrap {
+			display: none;
+		}
+		.hero-title {
+			font-size: 30px;
+			line-height: 1.25;
+		}
 		.hero-btn-row {
 			flex-direction: column;
 			align-items: stretch;
 			width: 100%;
+			gap: 10px;
 		}
 		.btn-gold,
 		.btn-outline {
 			width: 100%;
+			height: 44px;
 		}
 	}
 </style>

@@ -64,16 +64,16 @@
 		<!-- Photo full-bleed di kanan mulai ±x 42% dengan fade navy halus dari kiri -->
 		<div class="hero-bg-wrapper" aria-hidden="true">
 			<picture>
-				<source srcset="/images/layanan-hub-hero.webp" type="image/webp" />
+				<source srcset="/images/partner-hero-5.jpg" type="image/jpeg" />
 				<img
-					src="/images/layanan-hub-hero.jpg"
-					alt="Tiga mahasiswa SDJNusantara berdiskusi"
+					src="/images/partner-hero-5.jpg"
+					alt="Tim SDJNusantara"
 					class="hero-img"
 					loading="eager"
 					decoding="async"
 				/>
 			</picture>
-			<!-- Fade navy halus dari kiri (solid 0-32%, ±0.8 pada 42%, 0 pada ±60%) tanpa garis sambungan keras -->
+			<!-- Fade navy halus dari kiri -->
 			<div class="hero-gradient-overlay"></div>
 		</div>
 
@@ -732,10 +732,11 @@
 	.hub-hero {
 		position: relative;
 		background-color: #082442;
-		height: 360px;
+		height: 445px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		padding-top: 48px;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
@@ -751,21 +752,19 @@
 		overflow: hidden;
 	}
 
-	/* Foto full-bleed di kanan mulai ±x 42% dengan ketiga wajah utuh & puncak kepala tidak terpotong */
+	/* Foto full-bleed di kanan */
 	.hero-img {
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 62%;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 18%;
+		object-position: 82% 24%;
 		display: block;
-		mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 12%, black 36%);
-		-webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 12%, black 36%);
 	}
 
-	/* Fade navy halus dari kiri (solid 0-32%, ±0.8 pada 42%, 0 pada ±60%) tanpa garis sambungan keras */
+	/* Fade navy halus dari kiri */
 	.hero-gradient-overlay {
 		position: absolute;
 		top: 0;
@@ -775,11 +774,11 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 32%,
-			rgba(8, 36, 66, 0.94) 42%,
-			rgba(8, 36, 66, 0.45) 52%,
-			rgba(8, 36, 66, 0.08) 60%,
-			rgba(8, 36, 66, 0) 72%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 		pointer-events: none;
 	}
@@ -1639,7 +1638,8 @@
 	     ========================================== */
 	@media (max-width: 1024px) {
 		.hub-hero {
-			height: 300px;
+			height: auto;
+			padding: 4.5rem 0 3rem;
 		}
 
 		.intro-grid {

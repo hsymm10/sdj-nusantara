@@ -1,13 +1,13 @@
 <script lang="ts">
-	import logoSdj from '#lib/assets/logo_sdj.png';
+	// HeroAbout.svelte - Standardized consistent with HeroPartner
 </script>
 
 <section class="hero-about">
 	<!-- Background image right -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/tentang-building-hero-hd.jpg"
-			alt="Gedung Kampus SDJNusantara"
+			src="/images/partner-hero-5.jpg"
+			alt="Tim SDJNusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -15,22 +15,11 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- 3D Signboard mounted on facade at top right per mockup -->
-	<div class="building-signboard">
-		<div class="sign-inner">
-			<img src={logoSdj} alt="Logo SDJNusantara" class="sign-logo" />
-			<div class="sign-text">
-				<span class="sign-title">SDJNusantara</span>
-				<span class="sign-subtitle">Strategic Your Partner</span>
-			</div>
-		</div>
-	</div>
-
 	<!-- Wave decoration bottom-left -->
-	<svg class="hero-wave" viewBox="0 0 320 160" fill="none" preserveAspectRatio="none">
-		<path d="M0 40 C70 40 140 100 240 160 H0 Z" fill="#0A5E75" fill-opacity="0.9" />
-		<path d="M0 90 C80 90 150 130 220 160 H0 Z" fill="url(#teal-grad-about)" />
-		<path d="M0 135 C60 135 120 150 170 160 H0 Z" fill="#FFFFFF" />
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-about)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
 		<defs>
 			<linearGradient id="teal-grad-about" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
@@ -39,9 +28,11 @@
 		</defs>
 	</svg>
 
-	<!-- Swoosh decoration bottom-right -->
-	<svg class="hero-swoosh-right" viewBox="0 0 200 100" fill="none" preserveAspectRatio="none">
-		<path d="M0 100 C70 50 140 20 200 0 V100 H0 Z" fill="#00A6B2" fill-opacity="0.75" />
+	<!-- Accent decoration bottom-right -->
+	<svg class="hero-swoosh-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
 
 	<div class="hero-container">
@@ -79,11 +70,14 @@
 	.hero-about {
 		position: relative;
 		width: 100%;
-		height: 369px;
+		height: 445px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 48px;
+		box-sizing: border-box;
 	}
 
 	.hero-bg-wrap {
@@ -99,7 +93,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 30%;
+		object-position: 82% 24%;
 		display: block;
 	}
 
@@ -113,90 +107,31 @@
 			90deg,
 			#082442 0%,
 			#082442 34%,
-			rgba(8, 36, 66, 0.82) 48%,
-			rgba(8, 36, 66, 0.22) 68%,
-			rgba(8, 36, 66, 0.0) 85%,
-			rgba(8, 36, 66, 0.0) 100%
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
-	/* Signboard mounted on facade */
-	.building-signboard {
-		position: absolute;
-		top: 42px;
-		right: calc((100% - 1312px) / 2 + 35px);
-		z-index: 2;
-		pointer-events: none;
-		transform: perspective(900px) rotateY(-10deg) rotateX(2deg) skewY(-1deg);
-	}
-
-	@media (max-width: 1400px) {
-		.building-signboard {
-			right: 3rem;
-		}
-	}
-
-	@media (max-width: 860px) {
-		.building-signboard {
-			display: none;
-		}
-	}
-
-	.sign-inner {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
-	}
-
-	.sign-logo {
-		width: 52px;
-		height: 52px;
-		object-fit: contain;
-		flex-shrink: 0;
-		filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.35));
-		border-radius: 8px;
-	}
-
-	.sign-text {
-		display: flex;
-		flex-direction: column;
-		line-height: 1.05;
-	}
-
-	.sign-title {
-		font-size: 28px;
-		font-weight: 900;
-		color: #07223D;
-		letter-spacing: -0.01em;
-		text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 1px 2px 4px rgba(0, 0, 0, 0.25);
-	}
-
-	.sign-subtitle {
-		font-size: 11px;
-		font-weight: 800;
-		color: #07223D;
-		letter-spacing: 0.12em;
-		margin-top: 2px;
-		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-	}
-
+	/* Gelombang SVG kiri-bawah */
 	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 360px;
+		width: 380px;
 		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
 
+	/* Accent decoration bottom-right */
 	.hero-swoosh-right {
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 180px;
-		height: 90px;
+		width: 260px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -205,9 +140,9 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1312px;
+		max-width: 1380px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0 54px;
 		box-sizing: border-box;
 	}
 
@@ -215,81 +150,85 @@
 		.hero-container {
 			max-width: 1500px;
 		}
-		.building-signboard {
-			right: calc((100% - 1500px) / 2 + 10px);
-		}
 	}
 
 	.hero-text-col {
-		max-width: 600px;
+		max-width: 590px;
 	}
 
+	/* Pill Tag */
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		padding: 4px 12px;
-		background: rgba(0, 166, 178, 0.2);
-		border: 1px solid rgba(0, 166, 178, 0.4);
-		border-radius: 20px;
-		margin-bottom: 0.85rem;
+		gap: 7px;
+		padding: 4px 14px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.5);
+		border-radius: 999px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
 	}
 
 	.pill-dot {
-		width: 5px;
-		height: 5px;
+		width: 6px;
+		height: 6px;
 		background: #00A6B2;
 		border-radius: 50%;
 	}
 
 	.pill-label {
-		font-size: 11px;
+		font-size: 12px;
 		font-weight: 600;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
+	/* Headline */
 	.hero-title {
-		font-size: clamp(30px, 2.87vw, 44px);
+		font-size: clamp(30px, 2.6vw, 39px);
 		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 1rem 0;
-		letter-spacing: -0.01em;
+		margin: 0 0 0.85rem 0;
 	}
 
 	.gold-text {
 		color: #F5B331;
 	}
 
+	/* Description */
 	.hero-desc {
-		font-size: 13px;
-		line-height: 1.55;
-		color: rgba(255, 255, 255, 0.88);
-		margin: 0 0 1.35rem 0;
-		max-width: 560px;
+		font-size: 14px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
 		text-wrap: pretty;
 	}
 
+	/* Buttons Row */
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 14px;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 8px;
+		width: 210px;
+		height: 42px;
 		background: #F5B331;
-		color: #071D36;
-		padding: 8px 20px;
-		font-size: 12px;
+		color: #082442;
+		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.28);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-gold:hover {
@@ -298,21 +237,47 @@
 	}
 
 	.btn-arrow {
-		font-size: 13px;
+		font-size: 14px;
+		transition: transform 0.2s ease;
 	}
 
-	@media (max-width: 768px) {
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
+	}
+
+	@media (max-width: 900px) {
 		.hero-about {
 			height: auto;
-			padding: 4rem 1rem 3rem;
+			padding: 4.5rem 0 3rem;
+		}
+		.hero-container {
+			padding: 0 1.5rem;
+		}
+		.hero-overlay {
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.92) 60%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
+		}
+		.hero-wave,
+		.hero-swoosh-right {
+			display: none;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-bg-wrap {
+			display: none;
 		}
 		.hero-title {
-			font-size: 26px;
-			line-height: 32px;
+			font-size: 30px;
+			line-height: 1.25;
 		}
 		.btn-gold {
 			width: 100%;
-			justify-content: center;
+			height: 44px;
 		}
 	}
 </style>

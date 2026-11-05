@@ -1,12 +1,12 @@
 <script lang="ts">
-	// HeroProgram.svelte - Replikasi presisi sesuai design/program.png (1536x2304)
+	// HeroProgram.svelte - Standardized consistent with HeroPartner
 </script>
 
 <section class="hero-program">
 	<!-- Full-bleed background photo on right -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/program-hero-3.jpg"
+			src="/images/partner-hero-5.jpg"
 			alt="Program SDJNusantara"
 			class="hero-img"
 			loading="eager"
@@ -15,11 +15,11 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Wave decoration bottom-left (mockup zoom x 0-260, y 180-320) -->
-	<svg class="hero-wave-left" viewBox="0 0 320 180" fill="none" preserveAspectRatio="none">
-		<path d="M0 50 C70 50 140 110 260 180 H0 Z" fill="#0A5E75" fill-opacity="0.9" />
-		<path d="M0 95 C80 95 160 140 235 180 H0 Z" fill="url(#teal-grad-prog-left)" />
-		<path d="M0 145 C60 145 125 165 180 180 H0 Z" fill="#FFFFFF" />
+	<!-- Wave decoration bottom-left -->
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-prog-left)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
 		<defs>
 			<linearGradient id="teal-grad-prog-left" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
@@ -28,16 +28,16 @@
 		</defs>
 	</svg>
 
-	<!-- Wave decoration bottom-right (mockup x 900-1024, y 250-320) -->
-	<svg class="hero-wave-right" viewBox="0 0 200 180" fill="none" preserveAspectRatio="none">
-		<path d="M200 40 C150 85 100 135 40 180 H200 Z" fill="#079EAD" fill-opacity="0.85" />
-		<path d="M200 95 C160 125 120 155 80 180 H200 Z" fill="#16B6C1" />
-		<path d="M200 145 C175 160 145 170 115 180 H200 Z" fill="#FFFFFF" />
+	<!-- Wave decoration bottom-right -->
+	<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
 
 	<div class="hero-container">
 		<div class="hero-text-col">
-			<!-- Pill Tag (pusat y≈111, ±54px di bawah batas atas hero) -->
+			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
 				<span class="pill-label">Program Kami</span>
@@ -50,15 +50,12 @@
 				<span class="gold-text">Potensi Tanpa Batas.</span>
 			</h1>
 
-			<!-- Description (4 baris wajib) -->
+			<!-- Description -->
 			<p class="hero-desc">
-				SDJNusantara menghadirkan berbagai program pendidikan<br />
-				dan pengembangan talenta yang dirancang secara terstruktur,<br />
-				relevan dengan kebutuhan zaman, dan didukung oleh para<br />
-				ahli di bidangnya.
+				SDJNusantara menghadirkan berbagai program pendidikan dan pengembangan talenta yang dirancang secara terstruktur, relevan dengan kebutuhan zaman, dan didukung oleh para praktisi terpercaya.
 			</p>
 
-			<!-- Buttons (berjarak ≥30px dari batas bawah hero) -->
+			<!-- Buttons -->
 			<div class="hero-btn-row">
 				<a href="/konsultasi" class="btn-gold">
 					<span>Konsultasi Program</span>
@@ -76,12 +73,13 @@
 	.hero-program {
 		position: relative;
 		width: 100%;
-		height: 408px;
+		height: 445px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: flex-start;
-		padding-top: 52px;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 48px;
 		box-sizing: border-box;
 	}
 
@@ -95,17 +93,14 @@
 	}
 
 	.hero-img {
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 66%;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 24%;
+		object-position: 82% 24%;
 		display: block;
 	}
 
-	/* Fade navy halus dari kiri (solid 0-32%, ±0.8 di 42%, 0 di 58%) */
+	/* Fade navy halus: solid 0–34%, smooth transition to 70% */
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -115,19 +110,19 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 32%,
-			rgba(8, 36, 66, 0.92) 40%,
-			rgba(8, 36, 66, 0.78) 46%,
-			rgba(8, 36, 66, 0.25) 58%,
-			rgba(8, 36, 66, 0) 70%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
-	.hero-wave-left {
+	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 320px;
+		width: 380px;
 		height: 160px;
 		z-index: 2;
 		pointer-events: none;
@@ -137,7 +132,7 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 200px;
+		width: 260px;
 		height: 160px;
 		z-index: 2;
 		pointer-events: none;
@@ -147,74 +142,77 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1440px;
+		max-width: 1380px;
 		margin: 0 auto;
-		padding: 0 4rem;
+		padding: 0 54px;
 		box-sizing: border-box;
 	}
 
 	@media (min-width: 1920px) {
 		.hero-container {
 			max-width: 1500px;
-			padding: 0 4.5rem;
 		}
 	}
 
 	.hero-text-col {
-		max-width: 530px;
+		max-width: 590px;
 	}
 
+	/* Pill Tag */
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		padding: 3px 12px;
-		background: rgba(0, 166, 178, 0.2);
-		border: 1px solid rgba(0, 166, 178, 0.4);
-		border-radius: 20px;
-		margin-bottom: 0.85rem;
+		gap: 7px;
+		padding: 4px 14px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.5);
+		border-radius: 999px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
 	}
 
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		border-radius: 50%;
 		background: #00A6B2;
+		border-radius: 50%;
 	}
 
 	.pill-label {
-		font-size: 11.5px;
-		font-weight: 700;
+		font-size: 12px;
+		font-weight: 600;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
+	/* Headline */
 	.hero-title {
-		font-size: clamp(32px, 2.7vw, 42px);
-		line-height: 1.08;
+		font-size: clamp(30px, 2.6vw, 39px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 1rem 0;
-		letter-spacing: -0.015em;
+		margin: 0 0 0.85rem 0;
 	}
 
 	.gold-text {
 		color: #F5B331;
 	}
 
+	/* Description */
 	.hero-desc {
 		font-size: 14px;
-		line-height: 1.45;
+		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.65rem 0;
-		max-width: 510px;
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
+		text-wrap: pretty;
 	}
 
+	/* Buttons Row */
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
 		gap: 14px;
-		margin-bottom: 1.5rem;
 	}
 
 	.btn-gold {
@@ -222,15 +220,15 @@
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
+		width: 210px;
+		height: 42px;
 		background: #F5B331;
-		color: #071D36;
-		width: 196px;
-		height: 45px;
-		font-size: 14px;
+		color: #082442;
+		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 10px;
+		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.3);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
 		box-sizing: border-box;
 	}
@@ -241,79 +239,77 @@
 	}
 
 	.btn-arrow {
-		font-size: 15px;
+		font-size: 14px;
+		transition: transform 0.2s ease;
+	}
+
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
 	}
 
 	.btn-outline {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		background: transparent;
+		width: 178px;
+		height: 42px;
+		background: rgba(255, 255, 255, 0.08);
+		border: 1.5px solid rgba(255, 255, 255, 0.65);
 		color: #FFFFFF;
-		border: 1px solid rgba(255, 255, 255, 0.65);
-		width: 180px;
-		height: 45px;
-		font-size: 14px;
-		font-weight: 700;
-		border-radius: 10px;
+		font-size: 13.5px;
+		font-weight: 600;
+		border-radius: 8px;
 		text-decoration: none;
 		transition: all 0.2s ease;
 		box-sizing: border-box;
 	}
 
 	.btn-outline:hover {
-		background: rgba(255, 255, 255, 0.12);
-		border-color: #FFFFFF;
+		border-color: #00A6B2;
+		background: rgba(0, 166, 178, 0.12);
+		color: #FFFFFF;
 	}
 
-	@media (max-width: 1099px) {
+	@media (max-width: 900px) {
 		.hero-program {
 			height: auto;
-			min-height: 408px;
-			padding-bottom: 3.5rem;
+			padding: 4.5rem 0 3rem;
 		}
-
 		.hero-container {
-			padding: 0 2rem;
+			padding: 0 1.5rem;
 		}
-
-		.hero-img {
-			width: 100%;
-			opacity: 0.35;
-		}
-
 		.hero-overlay {
-			background: rgba(8, 36, 66, 0.85);
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.92) 60%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
+		}
+		.hero-wave,
+		.hero-wave-right {
+			display: none;
 		}
 	}
 
-	@media (max-width: 767px) {
-		.hero-program {
-			padding-top: 36px;
-			padding-bottom: 2.5rem;
+	@media (max-width: 640px) {
+		.hero-bg-wrap {
+			display: none;
 		}
-
-		.hero-container {
-			padding: 0 1.25rem;
-		}
-
 		.hero-title {
-			font-size: 28px;
+			font-size: 30px;
+			line-height: 1.25;
 		}
-
-		.hero-desc {
-			font-size: 13px;
-		}
-
 		.hero-btn-row {
 			flex-direction: column;
+			align-items: stretch;
 			width: 100%;
 			gap: 10px;
 		}
-
 		.btn-gold,
 		.btn-outline {
 			width: 100%;
+			height: 44px;
 		}
 	}
 </style>

@@ -1,13 +1,13 @@
 <script lang="ts">
-	// HeroServices.svelte - Replikasi presisi sesuai design/layanan.png (Tinggi ±456px pada 1536)
+	// HeroServices.svelte - Standardized consistent with HeroPartner
 </script>
 
 <section class="hero-services">
-	<!-- Background image full-bleed right starting x ~46% with smooth navy fade -->
+	<!-- Background image full-bleed right with smooth navy fade -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/services-hero-4.jpg"
-			alt="Layanan Mahasiswa SDJNusantara"
+			src="/images/partner-hero-5.jpg"
+			alt="Layanan SDJNusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -15,11 +15,11 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Wave decoration bottom-left (lapisan teal gelap, pita turquoise, lengkung putih) -->
-	<svg class="hero-wave" viewBox="0 0 420 180" fill="none" preserveAspectRatio="none">
-		<path d="M0 35 C110 35 190 110 320 180 H0 Z" fill="#0A5E75" fill-opacity="0.95" />
-		<path d="M0 80 C120 80 200 135 290 180 H0 Z" fill="url(#teal-grad-svc)" />
-		<path d="M0 145 C80 145 150 165 210 180 H0 Z" fill="#FFFFFF" />
+	<!-- Wave decoration bottom-left -->
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-svc)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
 		<defs>
 			<linearGradient id="teal-grad-svc" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
@@ -28,9 +28,11 @@
 		</defs>
 	</svg>
 
-	<!-- Accent teal bottom-right -->
-	<svg class="hero-accent-right" viewBox="0 0 160 80" fill="none" preserveAspectRatio="none">
-		<path d="M0 80 C60 50 110 20 160 0 V80 H0 Z" fill="#00A6B2" fill-opacity="0.6" />
+	<!-- Accent decoration bottom-right -->
+	<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
 
 	<div class="hero-container">
@@ -41,19 +43,19 @@
 				<span class="pill-label">Layanan</span>
 			</div>
 
-			<!-- Headline: 3 baris ±44-46px, weight 800, line 3 gold #F5B331 -->
+			<!-- Headline -->
 			<h1 class="hero-title">
 				Layanan Kami untuk<br />
 				Pendidikan yang Lebih Baik<br />
 				<span class="gold-text">dan Talenta yang Lebih Unggul.</span>
 			</h1>
 
-			<!-- Description: 3 baris, max-width ~640px -->
+			<!-- Description -->
 			<p class="hero-desc">
 				SDJNusantara menyediakan layanan konsultasi dan pengembangan talenta yang dirancang untuk individu, institusi, dan organisasi agar mampu menghadapi tantangan pendidikan di masa depan.
 			</p>
 
-			<!-- Buttons: base ±70px above hero bottom -->
+			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="/konsultasi" class="btn-gold">
 					<span>Konsultasikan Kebutuhan Anda</span>
@@ -71,11 +73,13 @@
 	.hero-services {
 		position: relative;
 		width: 100%;
-		height: 456px;
+		height: 445px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 48px;
 		box-sizing: border-box;
 	}
 
@@ -89,16 +93,14 @@
 	}
 
 	.hero-img {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 62%;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: 75% 20%;
+		object-position: 82% 24%;
 		display: block;
 	}
 
+	/* Fade navy halus: solid 0–34%, smooth transition to 70% */
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -108,11 +110,11 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 28%,
-			rgba(8, 36, 66, 0.82) 40%,
-			rgba(8, 36, 66, 0.22) 52%,
-			rgba(8, 36, 66, 0.0) 65%,
-			rgba(8, 36, 66, 0.0) 100%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
@@ -120,18 +122,18 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 440px;
-		height: 185px;
+		width: 380px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
 
-	.hero-accent-right {
+	.hero-wave-right {
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 160px;
-		height: 80px;
+		width: 260px;
+		height: 160px;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -140,9 +142,9 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1400px;
+		max-width: 1380px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0 54px;
 		box-sizing: border-box;
 	}
 
@@ -153,19 +155,20 @@
 	}
 
 	.hero-text-col {
-		max-width: 680px;
-		margin-bottom: 25px; /* Memberi jarak dasar tombol ±70px dari bawah hero */
+		max-width: 590px;
 	}
 
+	/* Pill Tag */
 	.pill-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		padding: 4px 12px;
-		background: rgba(0, 166, 178, 0.2);
-		border: 1px solid rgba(0, 166, 178, 0.45);
-		border-radius: 20px;
-		margin-bottom: 1.1rem;
+		gap: 7px;
+		padding: 4px 14px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.5);
+		border-radius: 999px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
 	}
 
 	.pill-dot {
@@ -176,53 +179,58 @@
 	}
 
 	.pill-label {
-		font-size: 11.5px;
+		font-size: 12px;
 		font-weight: 600;
 		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
+	/* Headline */
 	.hero-title {
-		font-size: clamp(34px, 3.2vw, 45px);
-		line-height: 1.12;
+		font-size: clamp(30px, 2.6vw, 39px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 1rem 0;
-		letter-spacing: -0.01em;
+		margin: 0 0 0.85rem 0;
 	}
 
 	.gold-text {
 		color: #F5B331;
 	}
 
+	/* Description */
 	.hero-desc {
-		font-size: 13.5px;
-		line-height: 1.55;
+		font-size: 14px;
+		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.6rem 0;
-		max-width: 620px;
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
 		text-wrap: pretty;
 	}
 
+	/* Buttons Row */
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 14px;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 8px;
+		width: 250px;
+		height: 42px;
 		background: #F5B331;
-		color: #071D36;
-		padding: 10px 22px;
-		font-size: 12.5px;
+		color: #082442;
+		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.3);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-gold:hover {
@@ -230,52 +238,78 @@
 		transform: translateY(-1px);
 	}
 
+	.btn-arrow {
+		font-size: 14px;
+		transition: transform 0.2s ease;
+	}
+
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
+	}
+
 	.btn-outline {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
+		width: 178px;
+		height: 42px;
 		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.35);
+		border: 1.5px solid rgba(255, 255, 255, 0.65);
 		color: #FFFFFF;
-		padding: 10px 20px;
-		font-size: 12.5px;
+		font-size: 13.5px;
 		font-weight: 600;
 		border-radius: 8px;
 		text-decoration: none;
-		transition: all 0.2s;
+		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
 	.btn-outline:hover {
 		border-color: #00A6B2;
-		color: #00A6B2;
-		background: rgba(0, 166, 178, 0.1);
-	}
-
-	.btn-arrow {
-		font-size: 14px;
+		background: rgba(0, 166, 178, 0.12);
+		color: #FFFFFF;
 	}
 
 	@media (max-width: 900px) {
 		.hero-services {
 			height: auto;
-			padding: 4rem 1rem 3.5rem;
+			padding: 4.5rem 0 3rem;
 		}
-		.hero-img {
-			width: 100%;
-			opacity: 0.25;
+		.hero-container {
+			padding: 0 1.5rem;
 		}
 		.hero-overlay {
-			background: rgba(8, 36, 66, 0.85);
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.92) 60%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
+		}
+		.hero-wave,
+		.hero-wave-right {
+			display: none;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-bg-wrap {
+			display: none;
 		}
 		.hero-title {
-			font-size: 28px;
-			line-height: 1.2;
+			font-size: 30px;
+			line-height: 1.25;
 		}
 		.hero-btn-row {
 			flex-direction: column;
 			align-items: stretch;
+			width: 100%;
+			gap: 10px;
 		}
-		.btn-gold, .btn-outline {
-			justify-content: center;
+		.btn-gold,
+		.btn-outline {
+			width: 100%;
+			height: 44px;
 		}
 	}
 </style>
