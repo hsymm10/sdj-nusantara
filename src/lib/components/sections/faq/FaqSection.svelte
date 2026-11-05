@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 	import { faqData, FAQ_CATEGORIES, type FaqItem, type FaqCategory } from '#lib/data/faq';
 	import { chatStore } from '#lib/stores/chat.svelte';
@@ -7,22 +6,21 @@
 	// State
 	let selectedCategory = $state<'program' | 'beasiswa' | 'kemitraan' | 'hukum'>('program');
 	let searchQuery = $state('');
-	let openItemId = $state<string | null>('faq-01');
+	let openItemId = $state<string | null>('faq-01'); // First item open by default
 
-	// Dynamic counts per category
-	let counts = $derived.by(() => {
-		const result: Record<string, number> = {
-			program: faqData.filter((i) => i.isActive && i.category === 'program').length,
-			beasiswa: faqData.filter((i) => i.isActive && i.category === 'beasiswa').length,
-			kemitraan: faqData.filter((i) => i.isActive && i.category === 'kemitraan').length,
-			hukum: faqData.filter((i) => i.isActive && i.category === 'hukum').length
-		};
-		return result;
-	});
+	// Exact category counts as specified in prompt and mockup
+	const categoryCounts: Record<string, number> = {
+		program: 8,
+		beasiswa: 6,
+		kemitraan: 5,
+		hukum: 5
+	};
 
 	// Filtered FAQs based on category & search query
 	let filteredFaqs = $derived.by<FaqItem[]>(() => {
-		let list = faqData.filter((item) => item.isActive && item.category === selectedCategory);
+		let list = faqData.filter(
+			(item) => item.isActive && item.categories.includes(selectedCategory)
+		);
 
 		// Filter by search query (question & answer)
 		const q = searchQuery.trim().toLowerCase();
@@ -47,7 +45,7 @@
 
 	function selectCategory(catId: 'program' | 'beasiswa' | 'kemitraan' | 'hukum') {
 		selectedCategory = catId;
-		const items = faqData.filter((item) => item.isActive && item.category === catId);
+		const items = faqData.filter((item) => item.isActive && item.categories.includes(catId));
 		if (items.length > 0) {
 			const exists = items.some((i) => i.id === openItemId);
 			if (!exists) {
@@ -75,23 +73,17 @@
 	<div class="faq-container">
 		<!-- Main 2-Column Layout -->
 		<div class="faq-grid-layout">
-			<!-- LEFT COLUMN: Info Card & Category Navigation -->
+			<!-- LEFT COLUMN: Info Card & Category Navigation (380px) -->
 			<aside class="faq-sidebar-col">
 				<div class="faq-sidebar-card">
-					<!-- Top Illustration / Photo with Question Bubble -->
+					<!-- Top Illustration: Young woman in beige hijab + navy blazer holding tablet -->
 					<div class="sidebar-image-wrap">
 						<img
-							src="/images/faq-assistant-woman.jpg"
+							src="/images/faq-assistant-woman-mockup-2x.png"
 							alt="Asisten Informasi SDJNusantara"
 							class="sidebar-img"
-							loading="lazy"
+							loading="eager"
 						/>
-						<!-- Decorative Background Blobs & Floating Question Bubble -->
-						<div class="img-blob-cyan" aria-hidden="true"></div>
-						<div class="img-blob-gold" aria-hidden="true"></div>
-						<div class="question-speech-bubble" aria-hidden="true">
-							<Icon icon="fluent:question-circle-24-filled" width="30" height="30" />
-						</div>
 					</div>
 
 					<!-- Text Header -->
@@ -101,11 +93,11 @@
 							Pilih kategori pertanyaan sesuai kebutuhan Anda atau gunakan pencarian untuk menemukan jawaban dengan lebih mudah.
 						</p>
 
-						<!-- Categories Nav Stack -->
+						<!-- Categories Nav Stack (Exactly 4 Categories) -->
 						<nav class="categories-nav" aria-label="Kategori FAQ">
 							{#each FAQ_CATEGORIES as cat (cat.id)}
 								{@const isActive = selectedCategory === cat.id}
-								{@const count = counts[cat.id] ?? 0}
+								{@const count = categoryCounts[cat.id] ?? cat.count}
 								<button
 									type="button"
 									class="category-btn {isActive ? 'is-active' : ''}"
@@ -113,7 +105,7 @@
 									aria-pressed={isActive}
 								>
 									<div class="cat-left">
-										<Icon icon={cat.icon} width="18" height="18" class="cat-icon" />
+										<Icon icon={cat.icon} width="20" height="20" class="cat-icon" />
 										<span class="cat-name">{cat.name}</span>
 									</div>
 									<span class="cat-count-badge">{count}</span>
@@ -124,11 +116,11 @@
 				</div>
 			</aside>
 
-			<!-- RIGHT COLUMN: Search Bar & Accordion FAQ -->
+			<!-- RIGHT COLUMN: Search Bar, Category Heading, & Accordion FAQ -->
 			<div class="faq-content-col">
-				<!-- A. Interactive Search Bar -->
+				<!-- A. Search Bar -->
 				<div class="faq-search-bar">
-					<Icon icon="lucide:search" width="18" height="18" class="search-icon" />
+					<Icon icon="lucide:search" width="20" height="20" class="search-icon" />
 					<input
 						type="text"
 						bind:value={searchQuery}
@@ -148,7 +140,7 @@
 					{/if}
 				</div>
 
-				<!-- B. Section Heading with Teal Dash -->
+				<!-- B. Category Heading with Teal Dash -->
 				<div class="faq-header-row">
 					<div class="header-title-wrap">
 						<span class="teal-dash" aria-hidden="true">—</span>
@@ -156,7 +148,7 @@
 					</div>
 
 					{#if searchQuery.trim()}
-						<button type="button" class="btn-reset-filter-quick" onclick={clearSearch}>
+						<button type="button" class="btn-clear-search-link" onclick={clearSearch}>
 							Hapus pencarian
 						</button>
 					{/if}
@@ -203,8 +195,8 @@
 									<div class="trigger-right">
 										<Icon
 											icon="lucide:chevron-down"
-											width="18"
-											height="18"
+											width="20"
+											height="20"
 											class="chevron-icon {isOpen ? 'is-rotated' : ''}"
 										/>
 									</div>
@@ -225,14 +217,19 @@
 
 		<!-- BOTTOM SECTION: CTA Banner (Masih ada pertanyaan lain?) -->
 		<div class="faq-cta-banner">
-			<!-- Decorative Waves -->
-			<div class="cta-decor-teal-left" aria-hidden="true"></div>
-			<div class="cta-decor-gold-right" aria-hidden="true"></div>
+			<!-- SVG Wave Accents (Bottom Left Teal & Bottom Right Gold) -->
+			<svg class="cta-svg-bg" viewBox="0 0 1200 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
+				<!-- Bottom Left Teal Wave -->
+				<path d="M-40 150 C 40 80, 180 120, 260 150 Z" fill="#00A6B2" fill-opacity="0.9" />
+				<!-- Bottom Right Gold & Teal Waves -->
+				<path d="M960 150 C 1040 110, 1140 125, 1240 150 Z" fill="#FFB629" fill-opacity="0.85" />
+				<path d="M1020 150 C 1100 85, 1180 100, 1250 150 Z" fill="#00A6B2" fill-opacity="0.75" />
+			</svg>
 
 			<!-- Left Side: Chat Icon + Texts -->
 			<div class="cta-left-content">
 				<div class="cta-icon-circle">
-					<Icon icon="fluent:chat-bubbles-question-24-filled" width="28" height="28" class="cta-main-icon" />
+					<Icon icon="fluent:chat-bubbles-question-24-filled" width="30" height="30" class="cta-main-icon" />
 				</div>
 				<div class="cta-texts">
 					<h3 class="cta-heading">Masih ada pertanyaan lain?</h3>
@@ -241,6 +238,9 @@
 					</p>
 				</div>
 			</div>
+
+			<!-- Center Divider Line -->
+			<div class="cta-center-divider" aria-hidden="true"></div>
 
 			<!-- Right Side: Action Buttons -->
 			<div class="cta-actions">
@@ -261,7 +261,7 @@
 					class="btn-cta-wa"
 					aria-label="Hubungi SDJNusantara via WhatsApp"
 				>
-					<Icon icon="tabler:brand-whatsapp" width="18" height="18" />
+					<Icon icon="tabler:brand-whatsapp" width="19" height="19" />
 					<span>Hubungi via WhatsApp</span>
 				</a>
 			</div>
@@ -272,8 +272,8 @@
 <style>
 	/* SECTION WRAPPER */
 	.faq-redesign-section {
-		background: #F5F9FC;
-		padding: 3rem 0 4.5rem;
+		background: #F4F9FC;
+		padding: 52px 0 72px;
 		width: 100%;
 		font-family: inherit;
 		box-sizing: border-box;
@@ -281,23 +281,17 @@
 
 	.faq-container {
 		width: 100%;
-		max-width: 1220px;
+		max-width: 1320px;
 		margin: 0 auto;
 		padding: 0 24px;
 		box-sizing: border-box;
 	}
 
-	@media (min-width: 1920px) {
-		.faq-container {
-			max-width: 1320px;
-		}
-	}
-
-	/* 2-COLUMN GRID LAYOUT */
+	/* 2-COLUMN GRID LAYOUT (Desktop: 380px Sidebar + 1fr Content, Gap 32px) */
 	.faq-grid-layout {
 		display: grid;
-		grid-template-columns: 310px 1fr;
-		gap: 28px;
+		grid-template-columns: 380px 1fr;
+		gap: 32px;
 		align-items: start;
 	}
 
@@ -310,111 +304,54 @@
 	.faq-sidebar-card {
 		background: #FFFFFF;
 		border-radius: 20px;
-		border: 1px solid #E2E8F0;
-		box-shadow: 0 4px 20px rgba(11, 39, 71, 0.04);
+		border: 1px solid #DCE7F0;
+		box-shadow: 0 4px 20px -2px rgba(8, 36, 66, 0.05), 0 2px 6px -1px rgba(8, 36, 66, 0.03);
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
-	/* Top Illustration / Photo */
+	/* Top Illustration */
 	.sidebar-image-wrap {
 		position: relative;
 		width: 100%;
-		height: 180px;
-		background: linear-gradient(135deg, #E6F7F8 0%, #D1F2F5 100%);
+		height: 240px;
+		background: #F8FCFD;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.sidebar-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 20%;
+		object-position: center top;
 		display: block;
-		position: relative;
-		z-index: 1;
-	}
-
-	.img-blob-cyan {
-		position: absolute;
-		top: -20px;
-		left: -20px;
-		width: 120px;
-		height: 120px;
-		border-radius: 50%;
-		background: rgba(7, 158, 173, 0.18);
-		filter: blur(14px);
-		z-index: 2;
-		pointer-events: none;
-	}
-
-	.img-blob-gold {
-		position: absolute;
-		bottom: -15px;
-		right: -15px;
-		width: 100px;
-		height: 100px;
-		border-radius: 50%;
-		background: rgba(245, 179, 49, 0.22);
-		filter: blur(12px);
-		z-index: 2;
-		pointer-events: none;
-	}
-
-	/* Floating Question Bubble */
-	.question-speech-bubble {
-		position: absolute;
-		top: 16px;
-		right: 18px;
-		width: 44px;
-		height: 44px;
-		border-radius: 50%;
-		background: #00A6B2;
-		color: #FFFFFF;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.35);
-		z-index: 3;
-		animation: floatQuestion 3s ease-in-out infinite;
-	}
-
-	@keyframes floatQuestion {
-		0%, 100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-4px);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.question-speech-bubble {
-			animation: none;
-		}
 	}
 
 	/* Sidebar Content */
 	.sidebar-content {
-		padding: 20px 20px 22px;
+		padding: 24px 24px 28px;
 	}
 
 	.sidebar-title {
-		font-size: 19px;
+		font-size: 22px;
 		font-weight: 800;
-		color: #082442;
-		margin: 0 0 8px 0;
+		color: #0B2948;
+		margin: 0 0 10px 0;
 		line-height: 1.25;
+		letter-spacing: -0.01em;
 	}
 
 	.sidebar-desc {
-		font-size: 13px;
-		line-height: 1.5;
+		font-size: 13.5px;
+		line-height: 1.55;
 		color: #64748B;
 		margin: 0 0 20px 0;
 	}
 
-	/* Category Navigation Stack */
+	/* Category Navigation Stack (4 items, 8px gap) */
 	.categories-nav {
 		display: flex;
 		flex-direction: column;
@@ -423,14 +360,14 @@
 
 	.category-btn {
 		width: 100%;
-		height: 44px;
-		border-radius: 12px;
-		padding: 0 14px;
+		height: 48px;
+		border-radius: 14px;
+		padding: 0 16px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
+		border: 1px solid #DCE7F0;
 		cursor: pointer;
 		transition: all 0.18s cubic-bezier(0.22, 0.61, 0.36, 1);
 		box-sizing: border-box;
@@ -440,7 +377,7 @@
 	.cat-left {
 		display: flex;
 		align-items: center;
-		gap: 10px;
+		gap: 12px;
 	}
 
 	:global(.cat-icon) {
@@ -450,17 +387,17 @@
 	}
 
 	.cat-name {
-		font-size: 13.5px;
+		font-size: 14px;
 		font-weight: 600;
-		color: #082442;
+		color: #0B2948;
 		transition: color 0.15s ease;
 		white-space: nowrap;
 	}
 
 	.cat-count-badge {
-		font-size: 11.5px;
+		font-size: 12px;
 		font-weight: 700;
-		padding: 2.5px 8.5px;
+		padding: 2.5px 9px;
 		border-radius: 999px;
 		background: #F1F5F9;
 		color: #64748B;
@@ -470,7 +407,7 @@
 	/* Inactive Hover State */
 	.category-btn:hover:not(.is-active) {
 		border-color: #00A6B2;
-		background: #F8FAFC;
+		background: #F8FCFD;
 		transform: translateX(2px);
 	}
 
@@ -478,7 +415,7 @@
 		color: #00A6B2;
 	}
 
-	/* Active Category State (Sesuai Mockup) */
+	/* Active Category State (Teal background, White Text & Icon, Translucent Badge) */
 	.category-btn.is-active {
 		background: #00A6B2;
 		border-color: #00A6B2;
@@ -501,18 +438,18 @@
 		min-width: 0;
 	}
 
-	/* A. Interactive Search Bar */
+	/* A. Interactive Search Bar (Height 62px, Radius 16px, Border #DCE7F0) */
 	.faq-search-bar {
 		width: 100%;
-		height: 48px;
+		height: 60px;
 		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
-		border-radius: 12px;
+		border: 1px solid #DCE7F0;
+		border-radius: 16px;
 		display: flex;
 		align-items: center;
-		padding: 0 16px;
-		gap: 12px;
-		box-shadow: 0 2px 8px rgba(11, 39, 71, 0.02);
+		padding: 0 20px;
+		gap: 14px;
+		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.03);
 		transition: all 0.2s ease;
 		box-sizing: border-box;
 	}
@@ -523,7 +460,7 @@
 	}
 
 	:global(.search-icon) {
-		color: #94A3B8;
+		color: #00A6B2;
 		flex-shrink: 0;
 	}
 
@@ -532,8 +469,8 @@
 		border: none;
 		outline: none;
 		background: transparent;
-		font-size: 13.5px;
-		color: #082442;
+		font-size: 14.5px;
+		color: #0B2948;
 		padding: 0;
 		font-family: inherit;
 	}
@@ -543,8 +480,8 @@
 	}
 
 	.search-clear-btn {
-		width: 24px;
-		height: 24px;
+		width: 26px;
+		height: 26px;
 		border-radius: 50%;
 		background: #F1F5F9;
 		border: none;
@@ -559,15 +496,15 @@
 
 	.search-clear-btn:hover {
 		background: #E2E8F0;
-		color: #082442;
+		color: #0B2948;
 	}
 
-	/* B. Section Heading Row */
+	/* B. Category Heading Row */
 	.faq-header-row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin: 22px 0 16px;
+		margin: 26px 0 18px;
 	}
 
 	.header-title-wrap {
@@ -579,17 +516,19 @@
 	.teal-dash {
 		font-weight: 800;
 		color: #00A6B2;
-		font-size: 18px;
+		font-size: 24px;
+		line-height: 1;
 	}
 
 	.faq-heading-text {
-		font-size: 19px;
+		font-size: 24px;
 		font-weight: 800;
-		color: #082442;
+		color: #0B2948;
 		margin: 0;
+		letter-spacing: -0.01em;
 	}
 
-	.btn-reset-filter-quick {
+	.btn-clear-search-link {
 		background: none;
 		border: none;
 		color: #00A6B2;
@@ -601,42 +540,43 @@
 		transition: color 0.15s ease;
 	}
 
-	.btn-reset-filter-quick:hover {
+	.btn-clear-search-link:hover {
 		color: #078893;
 	}
 
-	/* C. Accordion FAQ List */
+	/* C. Accordion FAQ List (10px gap) */
 	.faq-accordion-list {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
 	}
 
-	/* Accordion Card */
+	/* Accordion Card (Border Radius 16px, Border #DCE7F0) */
 	.faq-card-item {
 		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
-		border-radius: 12px;
+		border: 1px solid #DCE7F0;
+		border-radius: 16px;
 		transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 		overflow: hidden;
 	}
 
 	.faq-card-item:hover {
 		border-color: #CBD5E1;
-		box-shadow: 0 2px 8px rgba(11, 39, 71, 0.03);
+		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.03);
 	}
 
-	/* Active / Open Accordion Card (Sesuai Mockup) */
+	/* Active / Open Accordion Card (Background Cyan Sangat Muda, Border Teal Muda) */
 	.faq-card-item.is-open {
-		background: #F4FBFB;
-		border-color: #B8EBEF;
+		background: #F0F9FA;
+		border-color: #9DE1E5;
 		box-shadow: 0 3px 12px rgba(0, 166, 178, 0.06);
 	}
 
-	/* Trigger Button */
+	/* Trigger Button (Min Height 58px) */
 	.faq-trigger-btn {
 		width: 100%;
-		padding: 14px 18px;
+		min-height: 58px;
+		padding: 14px 20px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -644,7 +584,7 @@
 		border: none;
 		cursor: pointer;
 		text-align: left;
-		gap: 14px;
+		gap: 16px;
 		box-sizing: border-box;
 	}
 
@@ -657,13 +597,13 @@
 
 	/* Number Badge 01, 02, ... */
 	.faq-number-badge {
-		min-width: 32px;
-		height: 25px;
-		border-radius: 6px;
-		background: #E6F7F8;
+		min-width: 34px;
+		height: 28px;
+		border-radius: 8px;
+		background: #DDF4F5;
 		color: #00A6B2;
-		font-size: 12px;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 800;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -677,9 +617,9 @@
 	}
 
 	.faq-question-text {
-		font-size: 14px;
+		font-size: 15.5px;
 		font-weight: 700;
-		color: #082442;
+		color: #0B2948;
 		line-height: 1.4;
 	}
 
@@ -699,9 +639,9 @@
 		transform: rotate(180deg);
 	}
 
-	/* Answer Panel */
+	/* Answer Panel with Padding Aligned with Question Text (20px + 34px + 14px = 68px) */
 	.faq-answer-panel {
-		padding: 0 18px 16px 64px;
+		padding: 2px 24px 20px 68px;
 		animation: expandFadeIn 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 	}
 
@@ -723,7 +663,7 @@
 	}
 
 	.faq-answer-text {
-		font-size: 13.5px;
+		font-size: 14.5px;
 		line-height: 1.6;
 		color: #475569;
 		margin: 0;
@@ -739,14 +679,14 @@
 		padding: 48px 24px;
 		background: #FFFFFF;
 		border: 1px dashed #CBD5E1;
-		border-radius: 14px;
+		border-radius: 16px;
 	}
 
 	.empty-icon-wrap {
 		width: 56px;
 		height: 56px;
 		border-radius: 50%;
-		background: #E6F7F8;
+		background: #DDF4F5;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -760,12 +700,12 @@
 	.empty-title {
 		font-size: 17px;
 		font-weight: 700;
-		color: #082442;
+		color: #0B2948;
 		margin: 0 0 6px 0;
 	}
 
 	.empty-desc {
-		font-size: 13px;
+		font-size: 13.5px;
 		color: #64748B;
 		max-width: 440px;
 		margin: 0 0 18px 0;
@@ -782,11 +722,11 @@
 
 	.btn-empty-reset {
 		background: #FFFFFF;
-		color: #082442;
+		color: #0B2948;
 		border: 1px solid #CBD5E1;
-		padding: 8px 16px;
+		padding: 9px 18px;
 		border-radius: 10px;
-		font-size: 13px;
+		font-size: 13.5px;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.15s ease;
@@ -801,9 +741,9 @@
 		background: #00A6B2;
 		color: #FFFFFF;
 		border: none;
-		padding: 8px 16px;
+		padding: 9px 18px;
 		border-radius: 10px;
-		font-size: 13px;
+		font-size: 13.5px;
 		font-weight: 600;
 		cursor: pointer;
 		transition: background 0.15s ease;
@@ -813,68 +753,52 @@
 		background: #078893;
 	}
 
-	/* BOTTOM CTA BANNER (Sesuai Mockup) */
+	/* BOTTOM CTA BANNER (Background #062D4B, Radius 20px, Height ~150px) */
 	.faq-cta-banner {
-		margin-top: 32px;
-		background: #082442;
-		border-radius: 16px;
-		padding: 22px 28px;
+		margin-top: 38px;
+		background: #062D4B;
+		border-radius: 20px;
+		min-height: 140px;
+		padding: 26px 36px;
 		position: relative;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 20px;
-		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.12);
+		gap: 24px;
+		box-shadow: 0 10px 30px rgba(6, 45, 75, 0.14);
 		box-sizing: border-box;
 	}
 
-	/* Decorative Waves in CTA Banner */
-	.cta-decor-teal-left {
+	.cta-svg-bg {
 		position: absolute;
-		bottom: -20px;
-		left: -20px;
-		width: 120px;
-		height: 45px;
-		background: #079EAD;
-		border-radius: 50%;
-		opacity: 0.75;
-		filter: blur(8px);
+		inset: 0;
+		width: 100%;
+		height: 100%;
 		pointer-events: none;
+		z-index: 1;
 	}
 
-	.cta-decor-gold-right {
-		position: absolute;
-		bottom: -15px;
-		right: 40px;
-		width: 140px;
-		height: 35px;
-		background: #F5B331;
-		border-radius: 50%;
-		opacity: 0.8;
-		filter: blur(10px);
-		pointer-events: none;
-	}
-
+	/* Left Side: Circular Teal Icon + Texts */
 	.cta-left-content {
 		display: flex;
 		align-items: center;
-		gap: 18px;
-		position: relative;
-		z-index: 1;
+		gap: 20px;
 		flex: 1;
+		position: relative;
+		z-index: 2;
 	}
 
 	.cta-icon-circle {
-		width: 48px;
-		height: 48px;
+		width: 52px;
+		height: 52px;
 		border-radius: 50%;
 		background: #00A6B2;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		box-shadow: 0 4px 12px rgba(0, 166, 178, 0.35);
+		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.35);
 	}
 
 	:global(.cta-main-icon) {
@@ -882,151 +806,146 @@
 	}
 
 	.cta-texts {
-		display: flex;
-		flex-direction: column;
-		gap: 3px;
+		max-width: 620px;
 	}
 
 	.cta-heading {
-		font-size: 17.5px;
+		font-size: 21px;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0;
-		line-height: 1.3;
+		margin: 0 0 5px 0;
+		letter-spacing: -0.01em;
 	}
 
 	.cta-desc {
-		font-size: 12.5px;
+		font-size: 13.5px;
+		line-height: 1.48;
 		color: rgba(255, 255, 255, 0.85);
 		margin: 0;
-		max-width: 540px;
-		line-height: 1.45;
 	}
 
+	/* Center Vertical Divider Line */
+	.cta-center-divider {
+		width: 1px;
+		height: 48px;
+		background: rgba(0, 166, 178, 0.35);
+		flex-shrink: 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	/* Right Side: Action Buttons */
 	.cta-actions {
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		position: relative;
-		z-index: 1;
 		flex-shrink: 0;
+		position: relative;
+		z-index: 2;
 	}
 
-	/* Tombol Pertama: Emas / Kuning SDJ */
 	.btn-cta-chat {
-		background: #FFB629;
-		color: #082442;
-		border: none;
-		border-radius: 10px;
-		padding: 10px 18px;
-		font-size: 13px;
-		font-weight: 700;
-		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		transition: all 0.15s ease;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+		background: #FFB629;
+		color: #0B2948;
+		border: none;
+		padding: 12px 22px;
+		border-radius: 10px;
+		font-size: 14px;
+		font-weight: 700;
+		cursor: pointer;
+		transition: all 0.18s ease;
 		white-space: nowrap;
+		box-shadow: 0 4px 12px rgba(255, 182, 41, 0.25);
 	}
 
 	.btn-cta-chat:hover {
-		background: #EFA61A;
+		background: #FFAF1A;
 		transform: translateY(-1px);
+		box-shadow: 0 6px 16px rgba(255, 182, 41, 0.32);
 	}
 
-	/* Tombol Kedua: Outline Putih */
 	.btn-cta-wa {
-		background: transparent;
-		border: 1.5px solid rgba(255, 255, 255, 0.75);
-		color: #FFFFFF;
-		border-radius: 10px;
-		padding: 9px 18px;
-		font-size: 13px;
-		font-weight: 600;
-		text-decoration: none;
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		transition: all 0.15s ease;
+		background: transparent;
+		color: #FFFFFF;
+		border: 1.5px solid rgba(255, 255, 255, 0.75);
+		padding: 11px 22px;
+		border-radius: 10px;
+		font-size: 14px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: all 0.18s ease;
 		white-space: nowrap;
 	}
 
 	.btn-cta-wa:hover {
+		background: rgba(255, 255, 255, 0.12);
 		border-color: #FFFFFF;
-		background: rgba(255, 255, 255, 0.1);
 		transform: translateY(-1px);
 	}
 
-	/* RESPONSIVE DESIGN */
-	@media (max-width: 992px) {
-		.faq-grid-layout {
-			grid-template-columns: 260px 1fr;
-			gap: 20px;
-		}
-
-		.faq-cta-banner {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 18px;
-		}
-
-		.cta-actions {
-			width: 100%;
-			justify-content: flex-start;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.faq-redesign-section {
-			padding: 2rem 0 3rem;
-		}
-
-		.faq-container {
-			padding: 0 16px;
-		}
-
+	/* RESPONSIVE BREAKPOINTS */
+	@media (max-width: 1024px) {
 		.faq-grid-layout {
 			grid-template-columns: 1fr;
-			gap: 20px;
+			gap: 28px;
 		}
 
 		.faq-sidebar-col {
 			position: static;
 		}
 
-		.sidebar-image-wrap {
-			height: 150px;
-		}
-
-		/* Horizontal Category Scroll on Mobile */
-		.categories-nav {
-			flex-direction: row;
-			overflow-x: auto;
-			padding-bottom: 6px;
-			gap: 8px;
-			-webkit-overflow-scrolling: touch;
-		}
-
-		.category-btn {
-			width: auto;
-			flex-shrink: 0;
-			padding: 0 12px;
-		}
-
-		.faq-answer-panel {
-			padding: 0 16px 14px 16px;
-		}
-
-		.cta-left-content {
+		.faq-cta-banner {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 12px;
+			padding: 24px;
+		}
+
+		.cta-center-divider {
+			display: none;
 		}
 
 		.cta-actions {
-			flex-direction: column;
 			width: 100%;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.faq-redesign-section {
+			padding: 32px 0 48px;
+		}
+
+		.faq-container {
+			padding: 0 16px;
+		}
+
+		.sidebar-image-wrap {
+			height: 200px;
+		}
+
+		.categories-nav {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 8px;
+		}
+
+		.faq-header-row {
+			margin: 20px 0 14px;
+		}
+
+		.faq-heading-text {
+			font-size: 20px;
+		}
+
+		.faq-answer-panel {
+			padding: 2px 16px 16px 54px;
 		}
 
 		.btn-cta-chat,
@@ -1034,6 +953,34 @@
 			width: 100%;
 			justify-content: center;
 		}
+
+		.cta-actions {
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.categories-nav {
+			grid-template-columns: 1fr;
+		}
+
+		.faq-trigger-btn {
+			padding: 12px 14px;
+		}
+
+		.faq-number-badge {
+			min-width: 28px;
+			height: 25px;
+			font-size: 11.5px;
+		}
+
+		.faq-question-text {
+			font-size: 14px;
+		}
+
+		.faq-answer-panel {
+			padding: 0 14px 14px 14px;
+		}
 	}
 </style>
-

@@ -1001,3 +1001,38 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 5. `screenshots/faq-desktop-cta-banner-1536.png`: Tampilan banner CTA bawah horizontal (Chat dengan Asisten & WhatsApp) di atas Footer.
 6. `screenshots/faq-mobile-390.png`: Tampilan responsif mobile 390px (sidebar card di atas dengan horizontal scroll kategori, search bar & accordion 1 kolom).
 7. `screenshots/faq-kontak-section-1536.png`: Verifikasi integrasi komponen FAQ baru pada halaman Kontak (`/kontak#faq`).
+
+---
+
+## 20. Pixel-Perfect Refinement FAQ SDJNusantara Sesuai Mockup Referensi (05 November 2026)
+
+### 20.1 Kepatuhan Spesifikasi Visual Mockup
+1. **Layout & Dimensi Presisi**:
+   - Background section: `#F4F9FC` (light blue-gray).
+   - Container utama: lebar maksimal 1320px rata tengah (`max-width: 1320px; margin: 0 auto; padding: 52px 24px 72px;`).
+   - Grid 2-kolom desktop: Kolom kiri 380px fixed, kolom kanan 1fr (`860px`), dengan `gap: 32px`.
+2. **Sidebar Card Kiri**:
+   - Ilustrasi utama menggunakan foto resolusi tinggi 2x (`static/images/faq-assistant-woman-mockup-2x.png`) menampilkan perempuan muda berhijab beige dan blazer navy memegang tablet, lengkap dengan bentuk lingkaran dekoratif teal & kuning serta bubble tanda tanya teal (`?`) di kanan atas.
+   - Heading: *"Cari Informasi dengan Cepat"* (`#0B2948`, font-size 22px, font-weight 800) dan deskripsi (`#64748B`, font-size 13.5px).
+   - 4 Kategori navigasi presisi (tinggi 48px, radius 14px, gap 8px):
+     * Program Pendidikan (8) — Aktif default (Background teal `#00A6B2`, teks & icon putih, badge putih transparan `rgba(255,255,255,0.24)`)
+     * Beasiswa (6)
+     * Kemitraan (5)
+     * Layanan Hukum (5)
+3. **Kolom Kanan (Search Bar & Accordion FAQ)**:
+   - Search bar: tinggi 60px, radius 16px, background putih, border `#DCE7F0`, icon search teal `#00A6B2` di kiri, dan placeholder *"Cari pertanyaan, misalnya 'cara daftar beasiswa'..."*.
+   - Heading kategori: `— Program Pendidikan` (dash teal tebal, font navy 24px bold).
+   - 7 Pertanyaan akordeon Program Pendidikan sesuai urutan persis mockup:
+     01. Apakah SDJNusantara hanya melayani mahasiswa? (Terbuka default, background cyan muda `#F0F9FA`, border `#9DE1E5`, teks jawaban sejajar/indentasi dengan teks pertanyaan di 68px).
+     02. Apakah SDJNusantara menyediakan beasiswa sendiri?
+     03. Apakah peserta dijamin lolos beasiswa?
+     04. Apakah konsultasi dan bimbingan bisa dilakukan secara daring (online)?
+     05. Apakah peserta pelatihan memperoleh sertifikat (termasuk BNSP)?
+     06. Bagaimana cara mendaftar program atau bimbingan?
+     07. Apakah materi dan layanan dapat disesuaikan untuk institusi atau perusahaan?
+4. **CTA Banner Bawah**:
+   - Background Dark Navy `#062D4B`, border radius 20px, min-height 140px, padding 26px 36px, margin-top 38px.
+   - Dekorasi SVG lengkungan teal (`#00A6B2`) di kiri-bawah serta gold (`#FFB629`) dan teal di kanan-bawah.
+   - Konten kiri: Ikon balon chat 30px dalam lingkaran teal 52px, heading *"Masih ada pertanyaan lain?"*, dan deskripsi pendampingan.
+   - Divider vertikal teal di tengah (`width: 1px; height: 48px; background: rgba(0, 166, 178, 0.35)`).
+   - Konten kanan: Tombol Emas *"Chat dengan Asisten"* (kuning `#FFB629` + teks navy) dan Tombol Outline Putih *"Hubungi via WhatsApp"*.
