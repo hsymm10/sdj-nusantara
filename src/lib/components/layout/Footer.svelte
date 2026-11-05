@@ -1,17 +1,18 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import logoSdj from '#lib/assets/logo_sdj.png';
+
 	interface Props {
 		compact?: boolean;
-		variant?: 'home' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan' | 'konsultasi' | 'kontak' | 'artikel';
+		variant?: string;
 	}
 
-	let { compact = false, variant = 'home' }: Props = $props();
+	let { compact = true, variant = 'home' }: Props = $props();
 </script>
 
-<footer class="footer {compact || variant === 'home' || variant === 'layanan' ? 'compact-footer' : 'page-footer'} variant-{variant}">
-	<div class="footer-inner {compact || variant === 'home' || variant === 'layanan' ? 'compact-inner' : 'page-inner'}">
-		<div class="footer-grid {compact || variant === 'home' || variant === 'layanan' ? 'compact-grid' : 'page-grid'}">
+<footer class="footer compact-footer">
+	<div class="footer-inner compact-inner">
+		<div class="footer-grid compact-grid">
 			<!-- Col 1: Brand Info, Alamat Perusahaan & No. HP Resmi -->
 			<div class="footer-brand-col">
 				<a href="/" class="footer-logo-link">
@@ -99,18 +100,6 @@
 						<span class="footer-text">Gedung Graha Aktiva, Jakarta Selatan</span>
 					</li>
 				</ul>
-
-				<!-- Newsletter input for Tentang Kami -->
-				{#if variant === 'tentang-kami'}
-					<form class="footer-newsletter" onsubmit={(e) => e.preventDefault()}>
-						<input type="email" placeholder="Daftar newsletter..." class="newsletter-input" />
-						<button type="submit" class="newsletter-submit-btn" aria-label="Kirim">
-							<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-								<polyline points="9 18 15 12 9 6"></polyline>
-							</svg>
-						</button>
-					</form>
-				{/if}
 			</div>
 
 			<!-- Vertical Divider -->
@@ -129,21 +118,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Bottom Bar for pages that have it (tentang-kami only) -->
-		{#if variant === 'tentang-kami'}
-			<div class="footer-bottom-bar">
-				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
-				<div class="footer-bottom-right">
-					<div class="footer-bottom-links">
-						<a href="/kebijakan-privasi" class="footer-bottom-link">Kebijakan Privasi</a>
-						<span class="footer-bottom-sep">|</span>
-						<a href="/syarat-ketentuan" class="footer-bottom-link">Syarat & Ketentuan</a>
-					</div>
-				</div>
-			</div>
-		{/if}
-
 	</div>
 </footer>
 
@@ -152,25 +126,17 @@
 		background-color: #0B2948;
 		color: #FFFFFF;
 		border-top: 1px solid rgba(255, 255, 255, 0.08);
-	}
-
-	.footer.compact-footer {
 		min-height: 220px;
 		height: auto;
 		display: flex;
 		align-items: flex-start;
 		padding: 24px 0 24px;
 		box-sizing: border-box;
+		width: 100%;
 	}
 
 	.footer-inner {
 		width: 100%;
-		max-width: 1360px;
-		margin: 0 auto;
-		padding: 3rem 2rem 2.5rem;
-	}
-
-	.footer-inner.compact-inner {
 		max-width: 1312px;
 		margin: 0 auto;
 		padding: 24px 1rem 24px;
@@ -178,7 +144,7 @@
 	}
 
 	@media (min-width: 1920px) {
-		.footer-inner.compact-inner {
+		.footer-inner {
 			max-width: 1500px;
 		}
 	}
@@ -187,13 +153,7 @@
 		display: grid;
 		grid-template-columns: 2.1fr auto 1.2fr auto 1.8fr auto 1.6fr;
 		gap: 0 1.5rem;
-		align-items: start;
-	}
-
-	.footer-grid.compact-grid {
-		grid-template-columns: 2.1fr auto 1.2fr auto 1.8fr auto 1.6fr;
 		align-items: flex-start;
-		gap: 0 1.5rem;
 	}
 
 	.footer-vdivider {
@@ -430,257 +390,12 @@
 		transition: color 0.2s;
 	}
 
-	/* Newsletter Input for Tentang Kami */
-	.footer-newsletter {
-		display: flex;
-		align-items: center;
-		margin-top: 0.85rem;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.18);
-		border-radius: 6px;
-		overflow: hidden;
-		width: 100%;
-		max-width: 220px;
-	}
-
-	.newsletter-input {
-		flex: 1;
-		background: transparent;
-		border: none;
-		padding: 0.4rem 0.6rem;
-		font-size: 10px;
-		color: #FFFFFF;
-		outline: none;
-	}
-
-	.newsletter-input::placeholder {
-		color: rgba(255, 255, 255, 0.45);
-	}
-
-	.newsletter-submit-btn {
-		background: #00A6B2;
-		border: none;
-		color: #FFFFFF;
-		width: 28px;
-		height: 28px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		transition: background 0.2s;
-	}
-
-	.newsletter-submit-btn:hover {
-		background: #16B6C1;
-	}
-
-	/* Page Footer (Tentang, Layanan, Program, Beasiswa, Kemitraan) */
-	.footer.page-footer {
-		padding: 3rem 0 1.5rem;
-		box-sizing: border-box;
-	}
-
-	.footer-inner.page-inner {
-		max-width: 1086px;
-		margin: 0 auto;
-		padding: 0 0.5rem;
-	}
-
-	/* Specific variant for Tentang Kami per mockup */
-	.footer.variant-tentang-kami {
-		padding: 2.8rem 0 1.25rem;
-		height: 345px;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.footer.variant-tentang-kami .footer-inner {
-		max-width: 1312px;
-		margin: 0 auto;
-		padding: 0 1rem;
-		width: 100%;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 100%;
-	}
-
-	@media (min-width: 1920px) {
-		.footer.variant-tentang-kami .footer-inner {
-			max-width: 1500px;
-		}
-	}
-
-	.footer.variant-tentang-kami .footer-grid {
-		display: grid;
-		grid-template-columns: 2fr auto 1.6fr;
-		gap: 0 2.5rem;
-		align-items: flex-start;
-	}
-
-	.footer.variant-tentang-kami .footer-newsletter {
-		max-width: 100%;
-	}
-
-	/* Specific variant for Layanan per mockup (Tinggi ±398px pada 1536) */
-	.footer.variant-layanan {
-		padding: 3.2rem 0 1.25rem;
-		height: 398px;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.footer.variant-layanan .footer-inner {
-		max-width: 1400px;
-		margin: 0 auto;
-		padding: 0 1rem;
-		width: 100%;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 100%;
-	}
-
-	@media (min-width: 1920px) {
-		.footer.variant-layanan .footer-inner {
-			max-width: 1500px;
-		}
-	}
-
-	.footer.variant-layanan .footer-grid {
-		display: grid;
-		grid-template-columns: 2fr auto 1.6fr;
-		gap: 0 2.5rem;
-		align-items: flex-start;
-	}
-
-	/* Specific variant for Program per mockup (Tinggi ±271px pada 1536) */
-	/* Specific variant for Program, Beasiswa & Kemitraan per mockup (Tinggi ±271px pada 1536) */
-	.footer.variant-program,
-	.footer.variant-beasiswa,
-	.footer.variant-kemitraan {
-		padding: 2.2rem 0 1rem;
-		height: 271px;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	/* Specific variant for Kontak per mockup (Tinggi ±240px pada 1536) */
-	.footer.variant-kontak {
-		padding: 1.8rem 0 1rem;
-		height: 240px;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.footer.variant-program .footer-inner,
-	.footer.variant-beasiswa .footer-inner,
-	.footer.variant-kemitraan .footer-inner,
-	.footer.variant-kontak .footer-inner {
-		max-width: 1440px;
-		margin: 0 auto;
-		padding: 0 1.5rem;
-		width: 100%;
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 100%;
-	}
-
-	@media (min-width: 1920px) {
-		.footer.variant-program .footer-inner,
-		.footer.variant-beasiswa .footer-inner,
-		.footer.variant-kemitraan .footer-inner,
-		.footer.variant-kontak .footer-inner {
-			max-width: 1500px;
-		}
-	}
-
-	.footer.variant-program .footer-grid,
-	.footer.variant-beasiswa .footer-grid,
-	.footer.variant-kemitraan .footer-grid,
-	.footer.variant-kontak .footer-grid {
-		display: grid;
-		grid-template-columns: 2.2fr auto 1.5fr auto 1.3fr;
-		gap: 0 2rem;
-		align-items: flex-start;
-	}
-
-
-
-	.tagline-tentang {
-		font-size: 8px !important;
-		font-weight: 500 !important;
-		letter-spacing: 0.03em !important;
-	}
-
-	.footer-grid.page-grid {
-		align-items: flex-start;
-		gap: 0 1.25rem;
-	}
-
-	/* Bottom Bar */
-	.footer-bottom-bar {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		border-top: 1px solid rgba(255, 255, 255, 0.12);
-		margin-top: 2.2rem;
-		padding-top: 1.2rem;
-	}
-
-	.footer-bottom-copy {
-		font-size: 9.5px;
-		color: rgba(255, 255, 255, 0.55);
-		margin: 0;
-	}
-
-	.footer-bottom-right {
-		display: flex;
-		align-items: center;
-		gap: 1.25rem;
-	}
-
-	.footer-bottom-links {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.footer-bottom-link {
-		font-size: 9.5px;
-		color: rgba(255, 255, 255, 0.55);
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	.footer-bottom-link:hover {
-		color: #00A6B2;
-	}
-
-	.footer-bottom-sep {
-		font-size: 9.5px;
-		color: rgba(255, 255, 255, 0.3);
-	}
-
 	@media (max-width: 1099px) {
-		.footer.compact-footer {
+		.footer {
 			height: auto;
 			padding: 2.5rem 1.5rem 2rem;
 		}
-		.footer-grid,
-		.footer-grid.compact-grid {
+		.footer-grid {
 			grid-template-columns: 1fr 1fr;
 			gap: 2rem 1.5rem;
 		}
@@ -693,11 +408,10 @@
 	}
 
 	@media (max-width: 767px) {
-		.footer.compact-footer {
+		.footer {
 			padding: 2rem 1.25rem 1.75rem;
 		}
-		.footer-grid,
-		.footer-grid.compact-grid {
+		.footer-grid {
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 1.75rem;
