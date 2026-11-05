@@ -1,9 +1,36 @@
 # Laporan Progres & Dokumentasi Final Implementasi SDJNusantara
 
-Tanggal: 2 November 2026  
-Status Build: **PASS (0 Error, 0 Warning)**  
+Tanggal: 5 November 2026  
+Status Build: **PASS (0 Error, 0 Warning pada rute aktif)**  
 Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5173`)  
-Status Git: Verifikasi Akhir Selesai (Commit "navigasi: verifikasi akhir")
+Status Git: Tahap 2 Selesai (Commit "layanan: kartu layanan + mengapa memilih")
+
+---
+
+### UPDATE: Replikasi Halaman Hub Portofolio Layanan (`/layanan`) Sesuai Mockup
+1. **Dasar Desain**:
+   - Berdasarkan acuan mockup `design/layanan-hub.png` (lebar dasar 1024px diskalakan $\times 1.5$ ke desktop 1536px).
+   - Menjaga Navbar dan Footer bersih tanpa Program dan Beasiswa.
+   - Container konten khusus `max-width: 1100px`.
+2. **Tahap 1 (Hero, Bar Tab Overlap, Section Intro)**:
+   - Hero section (tinggi ~540px di 1536px) berlatar navy `#082442` dengan foto 3 mahasiswa HD `static/images/layanan-hub-hero.jpg` (WebP + JPG fallback), pill "Portofolio Layanan", H1 dengan highlight emas "Talenta" dan "untuk Masa Depan.", deskripsi, tombol "Jelajahi Layanan" (scroll halus ke daftar layanan) dan "Konsultasi dengan Kami".
+   - Wave SVG teal & turquoise di kaki hero dengan aksen garis emas.
+   - Bar tab overlap (tinggi ~75px) berlatar putih dengan border radius melengkung dan 4 kategori tab: "Semua Layanan", "Program Pendidikan", "Beasiswa", dan "Layanan Hukum".
+   - Section Intro: Split teks heading di kiri dengan dash turquoise dan 4 feature tiles di kanan dengan outline icon turquoise.
+   - Screenshot tersimpan: `screenshots/layanan-hub-tahap1-1536.png` dan `screenshots/layanan-hub-tahap1-390.png`.
+   - Commit: `"layanan: hero, tab, intro"`.
+3. **Tahap 2 (Kartu Layanan, Panel Mengapa Memilih, Split CTA & FAQ)**:
+   - Grid 2×2 kartu layanan:
+     - Kartu 1: **Program Pendidikan** dengan icon toga, checklist fitur, tombol gold "Jelajahi Semua Program →" ke `/layanan/pendidikan`, dan foto HD mentor `layanan-hub-program.jpg` beraksen lengkung.
+     - Kartu 2: **Program Beasiswa** dengan icon beasiswa, checklist fitur, tombol gold "Temukan Semua Beasiswa →" ke `/layanan/pendidikan#beasiswa`, disclaimer kepatuhan, dan foto HD wisudawati `layanan-hub-beasiswa.jpg`.
+     - Kartu 3: **Layanan Hukum** dengan icon timbangan, badge "Segera hadir", checklist legal, tombol gold "Pelajari Layanan Hukum →" ke `/layanan/hukum`, foto Lady Justice `layanan-hub-hukum.jpg`, serta komentar verifikasi kode.
+     - Kartu 4: **Panel Mengapa Memilih SDJNusantara?** dengan latar soft cyan `#EAF7F9` dan 3 feature cards putih (Tim Profesional, Pendampingan Terarah, Solusi Terintegrasi).
+   - Filter Tab Reaktif: Mengklik tab menyaring kartu secara dinamis (`activeTab`).
+   - Split CTA & FAQ:
+     - Kartu CTA Dark Navy dengan latar halus palu sidang `layanan-hub-gavel.jpg`, tombol gold "Hubungi Kami →", dan tombol "Chat dengan Asisten SDJNusantara" yang memicu `chatStore.open()`.
+     - FAQ Accordion 4 pertanyaan umum interaktif yang dapat dibuka/tutup secara responsif.
+   - Screenshot tersimpan: `screenshots/layanan-hub-tahap2-1536.png` dan `screenshots/layanan-hub-tahap2-390.png`.
+   - Commit: `"layanan: kartu layanan + mengapa memilih"`.
 
 ---
 
