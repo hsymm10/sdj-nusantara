@@ -303,6 +303,14 @@
 			{/each}
 		</ul>
 
+		<!-- Tombol Konsultasi Emas Desktop -->
+		<a href="/konsultasi" class="nav-cta-btn">
+			<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+			</svg>
+			<span>Konsultasi</span>
+		</a>
+
 		<!-- Mobile Hamburger -->
 		<button
 			class="hamburger"
@@ -831,6 +839,36 @@
 
 	.dropdown-footer-link:hover .footer-link-arrow {
 		transform: translateX(3px);
+	}
+
+	/* Tombol Konsultasi Emas Desktop */
+	.nav-cta-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		background: #F5B331;
+		color: #082442;
+		font-size: 11px;
+		font-weight: 700;
+		padding: 6px 14px;
+		border-radius: 8px;
+		text-decoration: none;
+		box-shadow: 0 2px 6px rgba(245, 179, 49, 0.25);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.nav-cta-btn:hover {
+		background: #e6a528;
+		transform: translateY(-1px);
+		box-shadow: 0 4px 10px rgba(245, 179, 49, 0.32);
+	}
+
+	@media (max-width: 992px) {
+		.nav-cta-btn {
+			display: none;
+		}
 	}
 
 	/* Hamburger Button */

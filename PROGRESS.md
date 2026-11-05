@@ -3,7 +3,47 @@
 Tanggal: 5 November 2026  
 Status Build: **PASS (0 Error, 0 Warning pada rute aktif)**  
 Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5173`)  
-Status Git: Tahap 2 Selesai (Commit "layanan: kartu layanan + mengapa memilih")
+Status Git: Verifikasi Final Selesai (Commit "layanan: sesuai mockup (final)")
+
+---
+
+### UPDATE: Penyempurnaan Pixel-Faithful Halaman `/layanan` Sesuai Mockup `design/layanan-hub.png` (×1.5)
+1. **Navbar Desktop Bersama**:
+   - Menambahkan kembali tombol CTA emas *"Konsultasi"* berikon pesan chat (radius 8px, `#F5B331`, text navy `#082442`, font bold 11px) di sebelah kanan menu navigasi desktop.
+   - Menu desktop: Beranda, Tentang Kami, Layanan (dropdown), Kemitraan, Artikel & Wawasan, Kontak (bebas dari item Program dan Beasiswa).
+   - Verifikasi halaman lain: Beranda, Tentang Kami, Kemitraan, Artikel, Kontak tetap rapi dan tidak terpengaruh secara negatif.
+2. **Footer Kompak 4 Area**:
+   - Format 1 baris grid kompak rapat (tinggi ±255px pada 1536px, padding vertikal 24px) dengan 3 garis pemisah vertikal tipis (`#ffffff1f`):
+     - Area 1 (Brand): Logo SDJNusantara, alamat kantor Gedung Graha Aktiva, No. HP WhatsApp, dan 3 tombol sosial lingkaran outline putih.
+     - Area 2 (Navigasi Utama): Judul kolom + 6 link terpusat (Beranda, Tentang Kami, Layanan, Kemitraan, Artikel & Wawasan, Kontak).
+     - Area 3 (Kontak & Informasi): Email info@sdjnusantara.com, telepon +62 858-8072-4733, alamat Graha Aktiva dari `src/lib/config/contact.ts`.
+     - Area 4 (Kolom Kanan): Hak cipta "© 2026 SDJNusantara. Seluruh hak cipta dilindungi." dan link legal Kebijakan Privasi | Syarat & Ketentuan.
+   - Menghapus bar bawah terpisah (`footer-bottom-bar`) dan ruang bengkak.
+3. **Hero Section & Foto HD**:
+   - Mengganti foto hero dengan foto 3 mahasiswa Indonesia utuh berlatar perpustakaan rak buku beresolusi tinggi (2752×1536 px, `naturalWidth ≥ 2400px`).
+   - Penempatan foto full-bleed di kanan mulai x ≈ 42% dengan CSS mask fade halus dari kiri (`linear-gradient`) menyatu dengan navy overlay `#082442` tanpa garis sambungan keras.
+   - Ketiga wajah dan puncak kepala mahasiswa tampil utuh tanpa terpotong.
+   - Tinggi hero presisi ±360px di 1536px (teks mulai x ≈ 160px). H1 3 baris dengan aksen emas `#F5B331` pada "Talenta" dan baris 3. Tombol aksi ramping: emas "Jelajahi Layanan →" (152×40px) dan outline putih "Konsultasi dengan Kami" (195×40px).
+   - Gelombang SVG teal/turquoise besar di kiri-bawah dan aksen emas di kanan-bawah.
+4. **Tab Bar, Intro, & Kartu Layanan**:
+   - Tab bar melayang (tinggi 105px di 1536px, radius 24px, overlap 20px) dengan 4 tab proporsional, ikon outline 24px, dan tab aktif terisi gradien teal `#079EAD`→`#16B6C1`.
+   - Intro section: label "— LAYANAN SDJNUSANTARA", H2 2 baris 36px, deskripsi natural 15px max-width 520px, dan 4 ubin fitur putih (160×115px) dengan ikon outline 40px.
+   - Kartu layanan (tinggi konsisten 330px per kartu, grid 2×2):
+     - Foto di sisi kanan memenuhi tinggi kartu dengan sisi kiri melengkung anggun (`border-top-left-radius: 80px; border-bottom-left-radius: 35px`), aksen lingkaran cyan di belakang foto.
+     - Checklist 3 poin centang turquoise, tombol aksi emas.
+     - Kartu Beasiswa: catatan kecil disclaimer diletakkan rapi di bawah tombol dengan tinggi kartu tetap sama persis dengan kartu Program Pendidikan.
+     - Kartu Layanan Hukum: foto patung Dewi Keadilan close-up latar hangat buram mengisi tinggi kartu, lencana "Segera hadir", dan komentar verifikasi pemilik.
+5. **Panel "Mengapa Memilih SDJNusantara?"**:
+   - Latar `#EAF7F9`, tinggi 330px sejajar dengan kartu Hukum, dekorasi swoosh SVG turquoise di kanan.
+   - H2 24px, deskripsi 14.5px, dan 3 ubin putih sejajar sama tinggi (155px) berisi ikon outline 32px + judul bold 14px + deskripsi 12.5px.
+6. **Band Bawah CTA & FAQ**:
+   - Kiri (55%): kartu navy `#0B2948` menempel ke tepi kiri layar dengan sudut kanan membulat 24px, latar foto palu hakim kayu navy ambient, teks mulai x ≈ 340px, H2 2 baris (baris 2 emas), tombol emas "Hubungi Kami →" dan tombol chat "Chat dengan Asisten SDJNusantara" yang memicu `chatStore.open()`.
+   - Kanan (45%): "Pertanyaan Umum" dengan 4 akordeon interaktif (50px, latar `#F4F8FB`, radius 10px).
+7. **Daftar Screenshot Pengujian**:
+   - `screenshots/layanan-hub-v2-tahap1-1536.png` & `390.png`
+   - `screenshots/layanan-hub-v2-tahap2-1536.png` & `390.png`
+   - `screenshots/layanan-hub-v2-final-1536.png`, `768.png`, & `390.png`
+   - Verifikasi halaman lain: `screenshots/after-home-1536.png`, `after-tentang-1536.png`, `after-kemitraan-1536.png`, `after-artikel-1536.png`, `after-kontak-1536.png`.
 
 ---
 

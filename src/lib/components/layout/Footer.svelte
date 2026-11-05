@@ -9,9 +9,9 @@
 	let { compact = false, variant = 'home' }: Props = $props();
 </script>
 
-<footer class="footer {compact || variant === 'home' ? 'compact-footer' : 'page-footer'} variant-{variant}">
-	<div class="footer-inner {compact || variant === 'home' ? 'compact-inner' : 'page-inner'}">
-		<div class="footer-grid {compact || variant === 'home' ? 'compact-grid' : 'page-grid'}">
+<footer class="footer {compact || variant === 'home' || variant === 'layanan' ? 'compact-footer' : 'page-footer'} variant-{variant}">
+	<div class="footer-inner {compact || variant === 'home' || variant === 'layanan' ? 'compact-inner' : 'page-inner'}">
+		<div class="footer-grid {compact || variant === 'home' || variant === 'layanan' ? 'compact-grid' : 'page-grid'}">
 			<!-- Col 1: Brand Info, Alamat Perusahaan & No. HP Resmi -->
 			<div class="footer-brand-col">
 				<a href="/" class="footer-logo-link">
@@ -58,7 +58,23 @@
 			<!-- Vertical Divider -->
 			<div class="footer-vdivider"></div>
 
-			<!-- Col 2: Kontak & Informasi -->
+			<!-- Col 2: Navigasi Utama -->
+			<div class="footer-nav-col">
+				<h4 class="footer-col-title">Navigasi Utama</h4>
+				<ul class="footer-links-list">
+					<li><a href="/" class="footer-link">Beranda</a></li>
+					<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
+					<li><a href="/layanan" class="footer-link">Layanan</a></li>
+					<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
+					<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
+					<li><a href="/kontak" class="footer-link">Kontak</a></li>
+				</ul>
+			</div>
+
+			<!-- Vertical Divider -->
+			<div class="footer-vdivider"></div>
+
+			<!-- Col 3: Kontak & Informasi -->
 			<div class="footer-contact-col">
 				<h4 class="footer-col-title">Kontak & Informasi</h4>
 				<ul class="footer-contact-list">
@@ -97,26 +113,25 @@
 				{/if}
 			</div>
 
-			<!-- Col 3: For Home, Program, Beasiswa, Kemitraan, Artikel, Kontak (in-grid copyright) -->
-			{#if compact || variant === 'home' || variant === 'program' || variant === 'beasiswa' || variant === 'kemitraan' || variant === 'artikel' || variant === 'kontak'}
-				<!-- Vertical Divider -->
-				<div class="footer-vdivider"></div>
+			<!-- Vertical Divider -->
+			<div class="footer-vdivider"></div>
 
-				<div class="footer-copy-col">
-					<p class="footer-copyright">
-						© 2026 SDJNusantara.<br />
-						Seluruh hak cipta dilindungi.
-					</p>
-					<div class="footer-legal-links">
-						<a href="/kebijakan-privasi" class="footer-legal-link">Kebijakan Privasi</a>
-						<a href="/syarat-ketentuan" class="footer-legal-link">Syarat & Ketentuan</a>
-					</div>
+			<!-- Col 4: Hak Cipta & Legalitas -->
+			<div class="footer-copy-col">
+				<p class="footer-copyright">
+					© 2026 SDJNusantara.<br />
+					Seluruh hak cipta dilindungi.
+				</p>
+				<div class="footer-legal-links">
+					<a href="/kebijakan-privasi" class="footer-legal-link">Kebijakan Privasi</a>
+					<span class="footer-legal-sep" aria-hidden="true">|</span>
+					<a href="/syarat-ketentuan" class="footer-legal-link">Syarat & Ketentuan</a>
 				</div>
-			{/if}
+			</div>
 		</div>
 
-		<!-- Bottom Bar for pages that have it -->
-		{#if variant === 'tentang-kami' || variant === 'layanan'}
+		<!-- Bottom Bar for pages that have it (tentang-kami only) -->
+		{#if variant === 'tentang-kami'}
 			<div class="footer-bottom-bar">
 				<p class="footer-bottom-copy">© 2026 SDJNusantara. Seluruh hak cipta dilindungi.</p>
 				<div class="footer-bottom-right">
@@ -140,7 +155,7 @@
 	}
 
 	.footer.compact-footer {
-		min-height: 169px;
+		min-height: 220px;
 		height: auto;
 		display: flex;
 		align-items: flex-start;
@@ -156,22 +171,29 @@
 	}
 
 	.footer-inner.compact-inner {
-		max-width: 1086px;
+		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
+		padding: 24px 1rem 24px;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.footer-inner.compact-inner {
+			max-width: 1500px;
+		}
 	}
 
 	.footer-grid {
 		display: grid;
-		grid-template-columns: 2.2fr auto 1.5fr auto 1.3fr;
-		gap: 0 2rem;
+		grid-template-columns: 2.1fr auto 1.2fr auto 1.8fr auto 1.6fr;
+		gap: 0 1.5rem;
 		align-items: start;
 	}
 
 	.footer-grid.compact-grid {
-		grid-template-columns: 2.2fr auto 1.5fr auto 1.3fr;
+		grid-template-columns: 2.1fr auto 1.2fr auto 1.8fr auto 1.6fr;
 		align-items: flex-start;
-		gap: 0 2rem;
+		gap: 0 1.5rem;
 	}
 
 	.footer-vdivider {
@@ -387,12 +409,17 @@
 		letter-spacing: 0;
 	}
 
-	/* Kebijakan Privasi & Syarat Ketentuan sejajar dalam 1 baris jarak 20px tanpa | */
+	/* Kebijakan Privasi & Syarat Ketentuan */
 	.footer-legal-links {
 		display: flex;
 		align-items: center;
-		gap: 20px;
+		gap: 8px;
 		white-space: nowrap;
+	}
+
+	.footer-legal-sep {
+		font-size: 9px;
+		color: rgba(255, 255, 255, 0.35);
 	}
 
 	.footer-legal-link {

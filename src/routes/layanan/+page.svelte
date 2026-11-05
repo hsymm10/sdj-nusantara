@@ -26,19 +26,19 @@
 	const faqs = [
 		{
 			question: 'Bagaimana cara mengajukan kerja sama?',
-			answer: 'Anda dapat menghubungi kami melalui formulir kontak atau WhatsApp resmi kami. Tim kami akan menjadwalkan diskusi awal untuk memahami kebutuhan institusi Anda.'
+			answer: 'Anda dapat menghubungi kami melalui formulir kontak atau WhatsApp resmi SDJNusantara. Tim kami akan menjadwalkan diskusi awal untuk memahami kebutuhan dan profil institusi Anda.'
 		},
 		{
 			question: 'Apakah layanan SDJNusantara hanya untuk sekolah?',
-			answer: 'Tidak. Kami melayani siswa, mahasiswa, profesional, perguruan tinggi, sekolah, yayasan pendidikan, hingga korporasi dan lembaga pemerintah.'
+			answer: 'Tidak. Kami melayani siswa, mahasiswa, profesional mandiri, sekolah, perguruan tinggi, yayasan pendidikan, serta korporasi dan institusi mitra.'
 		},
 		{
 			question: 'Apakah tersedia konsultasi online?',
-			answer: 'Ya, seluruh sesi konsultasi, pendampingan, dan bimbingan dapat dilaksanakan secara daring maupun luring sesuai kesepakatan.'
+			answer: 'Ya, seluruh sesi konsultasi, pendampingan, dan bimbingan dapat dilaksanakan secara daring maupun tatap muka langsung sesuai kesepakatan bersama.'
 		},
 		{
 			question: 'Berapa lama proses layanan berlangsung?',
-			answer: 'Durasi layanan bervariasi bergantung pada jenis program yang dipilih, mulai dari workshop intensif 1 hari hingga program pendampingan komprehensif selama beberapa bulan.'
+			answer: 'Durasi layanan bervariasi bergantung pada jenis program, mulai dari sesi bimbingan tematik 1 hari hingga pendampingan terstruktur selama beberapa bulan.'
 		}
 	];
 </script>
@@ -56,51 +56,59 @@
 
 <main class="services-hub-page">
 	<!-- ==========================================
-	     1. HERO SECTION (Tinggi ±540px skala 1536)
+	     1. HERO SECTION (Tinggi ±360px skala 1536, ±240px skala 1024)
 	     ========================================== -->
 	<header class="hub-hero">
-		<!-- Photo full-bleed di kanan mulai ±x 42% -->
+		<!-- Photo full-bleed di kanan mulai ±x 42% dengan fade navy halus dari kiri -->
 		<div class="hero-bg-wrapper" aria-hidden="true">
 			<picture>
 				<source srcset="/images/layanan-hub-hero.webp" type="image/webp" />
 				<img
 					src="/images/layanan-hub-hero.jpg"
-					alt="Mahasiswa SDJNusantara berdiskusi"
+					alt="Tiga mahasiswa SDJNusantara berdiskusi"
 					class="hero-img"
 					loading="eager"
 					decoding="async"
 				/>
 			</picture>
-			<!-- Fade navy halus dari kiri (solid 0-32%, ±0.8 pada 42%, 0 pada ±60%) -->
+			<!-- Fade navy halus dari kiri (solid 0-32%, ±0.8 pada 42%, 0 pada ±60%) tanpa garis sambungan keras -->
 			<div class="hero-gradient-overlay"></div>
 		</div>
 
-		<!-- Gelombang teal/turquoise SVG besar di kiri-bawah dan aksen emas kanan-bawah -->
+		<!-- Gelombang teal/turquoise SVG besar di kiri-bawah dan aksen emas di kanan-bawah -->
 		<div class="hero-wave-container" aria-hidden="true">
-			<svg class="hero-wave-svg" viewBox="0 0 1536 120" fill="none" preserveAspectRatio="none">
-				<!-- Gelombang teal kiri-bawah -->
+			<svg class="hero-wave-svg" viewBox="0 0 1536 96" fill="none" preserveAspectRatio="none">
+				<!-- Lapisan teal gelap #0A5E75 -->
 				<path
-					d="M0,45 C280,115 540,110 780,55 C960,15 1180,35 1536,10 L1536,120 L0,120 Z"
-					fill="#079EAD"
-					opacity="0.9"
+					d="M0,28 C260,82 500,80 740,42 C920,12 1140,28 1536,8 L1536,96 L0,96 Z"
+					fill="#0A5E75"
+					opacity="0.95"
 				/>
-				<!-- Gelombang turquoise aksen -->
+				<!-- Pita teal/turquoise #16B6C1 -> #079EAD -->
 				<path
-					d="M0,65 C320,125 600,105 880,50 C1080,10 1320,25 1536,15 L1536,120 L0,120 Z"
+					d="M0,45 C300,92 560,78 840,36 C1040,6 1280,20 1536,12 L1536,96 L0,96 Z"
 					fill="#16B6C1"
-					opacity="0.85"
+					opacity="0.9"
 				/>
 				<!-- Aksen lengkung emas kanan-bawah -->
 				<path
-					d="M1020,85 C1180,45 1380,48 1536,35"
+					d="M1000,68 C1160,35 1350,38 1536,25"
 					stroke="#F5B331"
 					stroke-width="3"
 					stroke-linecap="round"
 					fill="none"
 				/>
-				<!-- Lengkung putih sudut bawah menyatu dengan section berikutnya -->
+				<!-- Aksen turquoise kanan-bawah -->
 				<path
-					d="M0,88 C340,132 640,115 920,68 C1140,32 1360,45 1536,40 L1536,120 L0,120 Z"
+					d="M1120,78 C1240,55 1400,52 1536,40"
+					stroke="#16B6C1"
+					stroke-width="2.5"
+					stroke-linecap="round"
+					fill="none"
+				/>
+				<!-- Lengkung putih sudut bawah menyatu dengan canvas konten -->
+				<path
+					d="M0,66 C320,105 600,90 880,52 C1100,24 1320,35 1536,30 L1536,96 L0,96 Z"
 					fill="#FFFFFF"
 				/>
 			</svg>
@@ -114,26 +122,26 @@
 					<span class="pill-text">Portofolio Layanan</span>
 				</div>
 
-				<!-- H1 3 baris dengan 'Talenta' dan baris 3 warna emas -->
+				<!-- H1 3 baris ±46px weight 800: "Solusi Pendidikan / dan Pengembangan Talenta / untuk Masa Depan." -->
 				<h1 class="hero-title">
 					<span class="title-line">Solusi Pendidikan</span>
 					<span class="title-line">dan Pengembangan <span class="highlight-gold">Talenta</span></span>
 					<span class="title-line highlight-gold">untuk Masa Depan.</span>
 				</h1>
 
-				<!-- Deskripsi putih -->
+				<!-- Deskripsi putih ±14px 3 baris max-width ±540px -->
 				<p class="hero-desc">
-					SDJNusantara menyediakan berbagai layanan pendidikan, program beasiswa, dan layanan hukum untuk mendukung potensi individu dan institusi.
+					SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, beasiswa, dan layanan hukum untuk mendukung potensi terbaik Anda.
 				</p>
 
-				<!-- Tombol aksi (dasar tombol ≥45px di atas batas bawah hero) -->
+				<!-- Tombol aksi ramping: emas "Jelajahi Layanan →" ±150x40px, outline putih ±195x40px -->
 				<div class="hero-actions">
-					<button type="button" class="btn-gold" onclick={scrollToCards}>
+					<button type="button" class="btn-hero-gold" onclick={scrollToCards}>
 						<span>Jelajahi Layanan</span>
 						<span class="btn-arrow" aria-hidden="true">→</span>
 					</button>
 
-					<a href="/kontak" class="btn-outline">
+					<a href="/kontak" class="btn-hero-outline">
 						<span>Konsultasi dengan Kami</span>
 					</a>
 				</div>
@@ -142,7 +150,7 @@
 	</header>
 
 	<!-- ==========================================
-	     2. BAR TAB OVERLAP (Tinggi ±75px, overlap hero ≤20px, lebar ±1100px)
+	     2. TAB BAR (Tinggi ±110px pada 1536, overlap hero ≤20px, radius ±24px)
 	     ========================================== -->
 	<section class="tab-overlap-section" aria-label="Filter Layanan">
 		<div class="hub-container">
@@ -156,7 +164,7 @@
 					onclick={() => setTab('semua')}
 				>
 					<span class="tab-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="3" y="3" width="7" height="7"></rect>
 							<rect x="14" y="3" width="7" height="7"></rect>
 							<rect x="14" y="14" width="7" height="7"></rect>
@@ -177,7 +185,7 @@
 					onclick={() => setTab('program')}
 				>
 					<span class="tab-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
 							<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
 						</svg>
@@ -196,7 +204,7 @@
 					onclick={() => setTab('beasiswa')}
 				>
 					<span class="tab-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="20 12 20 22 4 22 4 12"></polyline>
 							<rect x="2" y="7" width="20" height="5"></rect>
 							<line x1="12" y1="22" x2="12" y2="7"></line>
@@ -218,7 +226,7 @@
 					onclick={() => setTab('hukum')}
 				>
 					<span class="tab-icon">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
 							<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
 							<path d="M7 21h10"></path>
@@ -233,7 +241,7 @@
 	</section>
 
 	<!-- ==========================================
-	     3. INTRO SECTION (Tinggi ±230px, split teks kiri & 4 ubin kanan)
+	     3. INTRO SECTION (Teks kiri & 4 ubin putih kanan)
 	     ========================================== -->
 	<section class="hub-intro-section" aria-labelledby="intro-heading">
 		<div class="hub-container intro-grid">
@@ -244,19 +252,18 @@
 					<span class="label-text">LAYANAN SDJNUSANTARA</span>
 				</div>
 				<h2 id="intro-heading" class="intro-title">
-					Layanan Pendidikan dan Pengembangan Talenta
+					Layanan Pendidikan dan<br />Pengembangan Talenta
 				</h2>
 				<p class="intro-desc">
 					Pendampingan terintegrasi untuk membantu individu dan institusi dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan yang lebih baik.
 				</p>
 			</div>
 
-			<!-- Kanan: 4 ubin putih dengan ikon outline turquoise -->
+			<!-- Kanan: 4 ubin putih (±160×115px, radius ±14px) ikon outline turquoise ±44px -->
 			<div class="intro-tiles-col">
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<!-- Kelompok orang -->
-						<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 							<circle cx="9" cy="7" r="4"></circle>
 							<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -268,31 +275,28 @@
 
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<!-- Target / Bullseye -->
-						<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="12" cy="12" r="10"></circle>
 							<circle cx="12" cy="12" r="6"></circle>
 							<circle cx="12" cy="12" r="2"></circle>
 						</svg>
 					</div>
-					<span class="tile-label">Program Berkualitas</span>
+					<span class="tile-label">Program Terstruktur</span>
 				</div>
 
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<!-- Buku terbuka -->
-						<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
 							<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
 						</svg>
 					</div>
-					<span class="tile-label">Akses Beasiswa Luas</span>
+					<span class="tile-label">Informasi Beasiswa</span>
 				</div>
 
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<!-- Grafik batang -->
-						<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="20" x2="18" y2="10"></line>
 							<line x1="12" y1="20" x2="12" y2="4"></line>
 							<line x1="6" y1="20" x2="6" y2="14"></line>
@@ -305,7 +309,7 @@
 	</section>
 
 	<!-- ==========================================
-	     4. SECTION DAFTAR KARTU LAYANAN (Grid 2x2)
+	     4. SECTION DAFTAR KARTU LAYANAN & PANEL (Tinggi ±330px per kartu)
 	     ========================================== -->
 	<section id="daftar-layanan" class="hub-cards-section" aria-label="Daftar Layanan">
 		<div class="hub-container">
@@ -314,47 +318,49 @@
 				{#if activeTab === 'semua' || activeTab === 'program'}
 					<article class="service-card card-program">
 						<div class="card-body">
-							<div class="card-pill">
-								<span class="card-pill-icon" aria-hidden="true">
-									<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-										<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-									</svg>
-								</span>
-								<span>Program Pendidikan</span>
+							<div>
+								<div class="card-pill">
+									<span class="card-pill-icon" aria-hidden="true">
+										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+											<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+										</svg>
+									</span>
+									<span>Program Pendidikan</span>
+								</div>
+
+								<h3 class="card-title">Program Pendidikan</h3>
+								<p class="card-desc">
+									Berbagai program pengembangan kompetensi, pelatihan, dan kegiatan akademik yang dirancang untuk meningkatkan kapasitas individu maupun institusi.
+								</p>
+
+								<ul class="card-checklist" aria-label="Fitur Program Pendidikan">
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Konsultasi & Manajemen Talenta</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Scholarship Academy & Kurasi Beasiswa</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Pelatihan Khusus & Kemitraan Kampus</span>
+									</li>
+								</ul>
 							</div>
-
-							<h3 class="card-title">Program Pendidikan</h3>
-							<p class="card-desc">
-								Berbagai program pengembangan kompetensi, pelatihan, dan kegiatan akademik yang dirancang untuk meningkatkan kapasitas individu maupun institusi.
-							</p>
-
-							<ul class="card-checklist" aria-label="Fitur Program Pendidikan">
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Konsultasi & Manajemen Talenta</span>
-								</li>
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Scholarship Academy & Kurasi Beasiswa</span>
-								</li>
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Pelatihan Khusus & Kemitraan Kampus</span>
-								</li>
-							</ul>
 
 							<div class="card-action">
 								<a href="/layanan/pendidikan" class="btn-card-gold">
@@ -365,13 +371,13 @@
 						</div>
 
 						<div class="card-media" aria-hidden="true">
-							<div class="media-accent-circle"></div>
+							<div class="card-media-accent"></div>
 							<picture>
 								<source srcset="/images/layanan-hub-program.webp" type="image/webp" />
 								<img
 									src="/images/layanan-hub-program.jpg"
 									alt="Program Pendidikan SDJNusantara"
-									class="card-img"
+									class="card-img-curved"
 									loading="lazy"
 									decoding="async"
 								/>
@@ -384,71 +390,72 @@
 				{#if activeTab === 'semua' || activeTab === 'beasiswa'}
 					<article class="service-card card-beasiswa">
 						<div class="card-body">
-							<div class="card-pill">
-								<span class="card-pill-icon" aria-hidden="true">
-									<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<polyline points="20 12 20 22 4 22 4 12"></polyline>
-										<rect x="2" y="7" width="20" height="5"></rect>
-										<line x1="12" y1="22" x2="12" y2="7"></line>
-										<path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-										<path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-									</svg>
-								</span>
-								<span>Beasiswa</span>
+							<div>
+								<div class="card-pill">
+									<span class="card-pill-icon" aria-hidden="true">
+										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 12 20 22 4 22 4 12"></polyline>
+											<rect x="2" y="7" width="20" height="5"></rect>
+											<line x1="12" y1="22" x2="12" y2="7"></line>
+											<path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+											<path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+										</svg>
+									</span>
+									<span>Beasiswa</span>
+								</div>
+
+								<h3 class="card-title">Program Beasiswa</h3>
+								<p class="card-desc">
+									Akses informasi dan pendampingan beasiswa dalam dan luar negeri, dengan dukungan persiapan yang komprehensif dan terarah.
+								</p>
+
+								<ul class="card-checklist" aria-label="Fitur Program Beasiswa">
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Informasi Beasiswa Dalam & Luar Negeri</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Pendampingan Persiapan & Seleksi</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Kurasi Beasiswa Sesuai Profil</span>
+									</li>
+								</ul>
 							</div>
 
-							<h3 class="card-title">Program Beasiswa</h3>
-							<p class="card-desc">
-								Akses informasi dan pendampingan beasiswa dalam dan luar negeri, dengan dukungan persiapan yang komprehensif dan terarah.
-							</p>
-
-							<ul class="card-checklist" aria-label="Fitur Program Beasiswa">
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Informasi Beasiswa Dalam & Luar Negeri</span>
-								</li>
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Pendampingan Persiapan & Seleksi</span>
-								</li>
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Kurasi Beasiswa Sesuai Profil</span>
-								</li>
-							</ul>
-
-							<div class="card-action">
+							<div class="card-action card-action-with-note">
 								<a href="/layanan/pendidikan#beasiswa" class="btn-card-gold">
 									<span>Temukan Semua Beasiswa</span>
 									<span class="btn-arrow" aria-hidden="true">→</span>
 								</a>
+								<p class="card-disclaimer">
+									SDJNusantara tidak menjanjikan kelulusan atau perolehan beasiswa.
+								</p>
 							</div>
-
-							<p class="card-disclaimer">
-								SDJNusantara tidak menjanjikan kelulusan atau perolehan beasiswa.
-							</p>
 						</div>
 
 						<div class="card-media" aria-hidden="true">
-							<div class="media-accent-circle"></div>
+							<div class="card-media-accent"></div>
 							<picture>
 								<source srcset="/images/layanan-hub-beasiswa.webp" type="image/webp" />
 								<img
 									src="/images/layanan-hub-beasiswa.jpg"
 									alt="Program Beasiswa SDJNusantara"
-									class="card-img"
+									class="card-img-curved"
 									loading="lazy"
 									decoding="async"
 								/>
@@ -462,53 +469,55 @@
 				{#if activeTab === 'semua' || activeTab === 'hukum'}
 					<article class="service-card card-hukum">
 						<div class="card-body">
-							<div class="card-pill-row">
-								<div class="card-pill">
-									<span class="card-pill-icon" aria-hidden="true">
-										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-											<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-											<path d="M7 21h10"></path>
-											<path d="M12 3v18"></path>
-											<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
-										</svg>
-									</span>
-									<span>Layanan Hukum</span>
+							<div>
+								<div class="card-pill-row">
+									<div class="card-pill">
+										<span class="card-pill-icon" aria-hidden="true">
+											<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+												<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+												<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+												<path d="M7 21h10"></path>
+												<path d="M12 3v18"></path>
+												<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+											</svg>
+										</span>
+										<span>Layanan Hukum</span>
+									</div>
+									<span class="badge-soon">Segera hadir</span>
 								</div>
-								<span class="badge-soon">Segera hadir</span>
+
+								<h3 class="card-title">Layanan Hukum</h3>
+								<p class="card-desc">
+									Layanan konsultasi regulasi, telaah kepatuhan, serta pendampingan tata kelola hukum bagi institusi pendidikan dan korporasi.
+								</p>
+
+								<ul class="card-checklist" aria-label="Fitur Layanan Hukum">
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Penyusunan & Penelaahan Kontrak/MOU</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Kepatuhan Regulasi & Kebijakan Kampus</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>Pendampingan Hukum Terstruktur</span>
+									</li>
+								</ul>
 							</div>
-
-							<h3 class="card-title">Layanan Hukum</h3>
-							<p class="card-desc">
-								Layanan konsultasi regulasi, telaah kepatuhan, serta pendampingan tata kelola hukum bagi institusi pendidikan dan korporasi.
-							</p>
-
-							<ul class="card-checklist" aria-label="Fitur Layanan Hukum">
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Penyusunan & Penelaahan Kontrak/MOU</span>
-								</li>
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Kepatuhan Regulasi & Kebijakan Kampus</span>
-								</li>
-								<li>
-									<span class="check-icon" aria-hidden="true">
-										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-											<polyline points="20 6 9 17 4 12"></polyline>
-										</svg>
-									</span>
-									<span>Pendampingan Hukum Terstruktur</span>
-								</li>
-							</ul>
 
 							<div class="card-action">
 								<a href="/layanan/hukum" class="btn-card-gold">
@@ -519,13 +528,13 @@
 						</div>
 
 						<div class="card-media" aria-hidden="true">
-							<div class="media-accent-circle"></div>
+							<div class="card-media-accent"></div>
 							<picture>
 								<source srcset="/images/layanan-hub-hukum.webp" type="image/webp" />
 								<img
 									src="/images/layanan-hub-hukum.jpg"
-									alt="Layanan Hukum SDJNusantara"
-									class="card-img"
+									alt="Patung Dewi Keadilan Layanan Hukum"
+									class="card-img-curved"
 									loading="lazy"
 									decoding="async"
 								/>
@@ -537,17 +546,33 @@
 				<!-- KARTU 4: Mengapa Memilih SDJNusantara? -->
 				{#if activeTab === 'semua'}
 					<aside class="why-us-card" aria-labelledby="why-us-heading">
-						<div>
+						<!-- Swoosh SVG dekorasi kanan -->
+						<div class="why-swoosh-wrap" aria-hidden="true">
+							<svg class="why-swoosh-svg" viewBox="0 0 160 330" fill="none" preserveAspectRatio="none">
+								<path
+									d="M30,0 C90,80 150,140 160,330 L160,0 Z"
+									fill="#16B6C1"
+									opacity="0.16"
+								/>
+								<path
+									d="M70,0 C120,70 150,150 160,260 L160,0 Z"
+									fill="#079EAD"
+									opacity="0.12"
+								/>
+							</svg>
+						</div>
+
+						<div class="why-header">
 							<h3 id="why-us-heading" class="why-title">Mengapa Memilih SDJNusantara?</h3>
 							<p class="why-desc">
-								Kami memberikan pendampingan yang strategis, terpercaya, dan berorientasi pada hasil nyata.
+								Kami mendampingi dengan pendekatan yang terarah, transparan, dan berorientasi pada kebutuhan Anda.
 							</p>
 						</div>
 
 						<div class="why-tiles-row">
 							<div class="why-tile">
 								<div class="why-icon" aria-hidden="true">
-									<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 										<circle cx="9" cy="7" r="4"></circle>
 										<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -555,12 +580,12 @@
 									</svg>
 								</div>
 								<h4 class="why-tile-title">Tim Profesional</h4>
-								<p class="why-tile-desc">Didukung konsultan di bidang pendidikan dan hukum.</p>
+								<p class="why-tile-desc">Didampingi konsultan dan mentor sesuai bidangnya.</p>
 							</div>
 
 							<div class="why-tile">
 								<div class="why-icon" aria-hidden="true">
-									<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
 										<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
 									</svg>
@@ -571,14 +596,14 @@
 
 							<div class="why-tile">
 								<div class="why-icon" aria-hidden="true">
-									<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<circle cx="12" cy="12" r="10"></circle>
 										<circle cx="12" cy="12" r="6"></circle>
 										<circle cx="12" cy="12" r="2"></circle>
 									</svg>
 								</div>
 								<h4 class="why-tile-title">Solusi Terintegrasi</h4>
-								<p class="why-tile-desc">Fokus pada dampak nyata dan keberlanjutan pengembangan talenta.</p>
+								<p class="why-tile-desc">Layanan saling terhubung untuk kebutuhan pendidikan Anda.</p>
 							</div>
 						</div>
 					</aside>
@@ -588,13 +613,13 @@
 	</section>
 
 	<!-- ==========================================
-	     5. SPLIT CTA BANNER & FAQ ACCORDION
+	     5. BAND BAWAH DUA KOLOM (Tinggi ±330px pada 1536)
 	     ========================================== -->
 	<section class="hub-bottom-section" aria-label="Bantuan dan Pertanyaan">
-		<div class="hub-container bottom-grid">
-			<!-- CTA Card Kiri -->
+		<div class="bottom-split-container">
+			<!-- Kiri (lebar ±55%): Kartu navy menempel tepi kiri layar dengan sudut kanan membulat ±24px -->
 			<div class="cta-banner-card">
-				<!-- Background image gavel with navy overlay -->
+				<!-- Background foto palu hakim di sisi kiri dengan overlay navy ke kanan -->
 				<div class="cta-bg-wrapper" aria-hidden="true">
 					<picture>
 						<source srcset="/images/layanan-hub-gavel.webp" type="image/webp" />
@@ -610,22 +635,24 @@
 				</div>
 
 				<div class="cta-content">
-					<h3 class="cta-title">
-						Masih Bingung Menentukan <span class="highlight-gold">Layanan yang Tepat?</span>
-					</h3>
+					<!-- H2 2 baris "Masih Bingung Menentukan / Layanan yang Tepat?" (baris 2 emas) -->
+					<h2 class="cta-title">
+						Masih Bingung Menentukan<br />
+						<span class="highlight-gold">Layanan yang Tepat?</span>
+					</h2>
 					<p class="cta-desc">
 						Tim SDJNusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
 					</p>
 
 					<div class="cta-buttons">
-						<a href="/kontak" class="btn-gold">
+						<a href="/kontak" class="btn-cta-gold">
 							<span>Hubungi Kami</span>
 							<span class="btn-arrow" aria-hidden="true">→</span>
 						</a>
 
-						<button type="button" class="btn-chat" onclick={() => chatStore.open()}>
+						<button type="button" class="btn-cta-chat" onclick={() => chatStore.open()}>
 							<span class="chat-icon" aria-hidden="true">
-								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
 							</span>
@@ -635,7 +662,7 @@
 				</div>
 			</div>
 
-			<!-- FAQ Accordion Kanan -->
+			<!-- Kanan (lebar ±45%): "Pertanyaan Umum" + akordeon 4 baris -->
 			<div class="faq-card" aria-labelledby="faq-heading">
 				<h3 id="faq-heading" class="faq-title">Pertanyaan Umum</h3>
 				<p class="faq-subtitle">Temukan jawaban dari pertanyaan yang paling sering ditanyakan.</p>
@@ -651,7 +678,7 @@
 							>
 								<span class="question-text">{item.question}</span>
 								<span class="faq-chevron" aria-hidden="true">
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 										<polyline points="6 9 12 15 18 9"></polyline>
 									</svg>
 								</span>
@@ -670,7 +697,7 @@
 	</section>
 </main>
 
-<Footer variant="layanan" />
+<Footer compact={true} variant="layanan" />
 
 <style>
 	:global(html) {
@@ -683,22 +710,27 @@
 		overflow-x: hidden;
 	}
 
-	/* Container khusus halaman ini: ±1100px konten */
+	/* Container khusus halaman ini: ±93% layar (x 87->1448 pada 1536), max-width ±1500px rata tengah di ≥1920 */
 	.hub-container {
-		width: 100%;
-		max-width: 1100px;
+		width: 93%;
+		max-width: 1420px;
 		margin: 0 auto;
-		padding: 0 1rem;
 		box-sizing: border-box;
 	}
 
+	@media (min-width: 1920px) {
+		.hub-container {
+			max-width: 1500px;
+		}
+	}
+
 	/* ==========================================
-	     1. HERO STYLING (Tinggi ±540px skala 1536)
+	     1. HERO STYLING (Tinggi ±360px skala 1536, ±240px skala 1024)
 	     ========================================== */
 	.hub-hero {
 		position: relative;
 		background-color: #082442;
-		min-height: 540px;
+		height: 360px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -714,20 +746,24 @@
 		left: 0;
 		z-index: 1;
 		pointer-events: none;
+		overflow: hidden;
 	}
 
+	/* Foto full-bleed di kanan mulai ±x 42% dengan ketiga wajah utuh & puncak kepala tidak terpotong */
 	.hero-img {
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 58%;
+		width: 62%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center top;
+		object-position: right 18%;
 		display: block;
+		mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 12%, black 36%);
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 12%, black 36%);
 	}
 
-	/* Fade navy halus dari kiri (solid 0-32%, ±0.8 pada 42%, 0 pada ±60%) */
+	/* Fade navy halus dari kiri (solid 0-32%, ±0.8 pada 42%, 0 pada ±60%) tanpa garis sambungan keras */
 	.hero-gradient-overlay {
 		position: absolute;
 		top: 0;
@@ -738,11 +774,12 @@
 			90deg,
 			#082442 0%,
 			#082442 32%,
-			rgba(8, 36, 66, 0.88) 42%,
-			rgba(8, 36, 66, 0.45) 54%,
-			rgba(8, 36, 66, 0.05) 64%,
-			rgba(8, 36, 66, 0) 100%
+			rgba(8, 36, 66, 0.94) 42%,
+			rgba(8, 36, 66, 0.45) 52%,
+			rgba(8, 36, 66, 0.08) 60%,
+			rgba(8, 36, 66, 0) 72%
 		);
+		pointer-events: none;
 	}
 
 	.hero-wave-container {
@@ -750,7 +787,7 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: 115px;
+		height: 96px;
 		z-index: 3;
 		pointer-events: none;
 	}
@@ -764,12 +801,12 @@
 	.hero-container {
 		position: relative;
 		z-index: 4;
-		padding-top: 50px;
-		padding-bottom: 95px; /* Dasar tombol ≥45px di atas batas bawah hero */
+		padding-left: clamp(20px, 6.2vw, 95px); /* Teks mulai di x ≈ 160px pada 1536 */
+		padding-bottom: 24px;
 	}
 
 	.hero-content {
-		max-width: 620px;
+		max-width: 580px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -777,36 +814,36 @@
 	.hero-pill {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
+		gap: 7px;
 		background: rgba(7, 158, 173, 0.18);
-		border: 1px solid rgba(226, 182, 193, 0.35);
-		padding: 5px 14px;
+		border: 1px solid rgba(22, 182, 193, 0.4);
+		padding: 4px 12px;
 		border-radius: 9999px;
 		width: fit-content;
-		margin-bottom: 18px;
+		margin-bottom: 12px;
 	}
 
 	.pill-dot {
-		width: 7px;
-		height: 7px;
+		width: 6px;
+		height: 6px;
 		border-radius: 50%;
 		background: #16B6C1;
-		box-shadow: 0 0 8px #16B6C1;
+		box-shadow: 0 0 6px #16B6C1;
 	}
 
 	.pill-text {
 		color: #E6F7F9;
-		font-size: 12.5px;
+		font-size: 11.5px;
 		font-weight: 700;
 		letter-spacing: 0.03em;
 	}
 
 	.hero-title {
-		font-size: clamp(32px, 3.2vw, 46px);
-		line-height: 1.2;
+		font-size: clamp(28px, 2.8vw, 44px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 16px 0;
+		margin: 0 0 12px 0;
 		display: flex;
 		flex-direction: column;
 	}
@@ -820,92 +857,101 @@
 	}
 
 	.hero-desc {
-		font-size: 15px;
-		line-height: 1.6;
-		color: rgba(255, 255, 255, 0.88);
-		max-width: 560px;
-		margin: 0 0 28px 0;
+		font-size: 14px;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.9);
+		max-width: 540px;
+		margin: 0 0 20px 0;
 	}
 
 	.hero-actions {
 		display: flex;
 		align-items: center;
-		gap: 14px;
+		gap: 12px;
 		flex-wrap: wrap;
 	}
 
-	.btn-gold {
+	.btn-hero-gold {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 8px;
 		background: #F5B331;
 		color: #082442;
-		padding: 12px 24px;
+		width: 152px;
+		height: 40px;
 		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 10px;
+		border-radius: 9px;
 		border: none;
 		cursor: pointer;
 		text-decoration: none;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.28);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		box-sizing: border-box;
 	}
 
-	.btn-gold:hover {
+	.btn-hero-gold:hover {
 		background: #e6a528;
 		transform: translateY(-2px);
-		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.35);
+		box-shadow: 0 5px 16px rgba(245, 179, 49, 0.36);
 	}
 
 	.btn-arrow {
-		font-size: 15px;
+		font-size: 14px;
 		line-height: 1;
 		transition: transform 0.2s ease;
 	}
 
-	.btn-gold:hover .btn-arrow {
+	.btn-hero-gold:hover .btn-arrow {
 		transform: translateX(3px);
 	}
 
-	.btn-outline {
+	.btn-hero-outline {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		background: transparent;
 		color: #FFFFFF;
-		border: 1.5px solid rgba(255, 255, 255, 0.7);
-		padding: 11px 22px;
+		border: 1.5px solid rgba(255, 255, 255, 0.85);
+		width: 195px;
+		height: 40px;
 		font-size: 13.5px;
-		font-weight: 600;
-		border-radius: 10px;
+		font-weight: 700;
+		border-radius: 9px;
 		cursor: pointer;
 		text-decoration: none;
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		box-sizing: border-box;
 	}
 
-	.btn-outline:hover {
-		background: rgba(255, 255, 255, 0.12);
+	.btn-hero-outline:hover {
+		background: rgba(255, 255, 255, 0.14);
 		border-color: #FFFFFF;
 		transform: translateY(-2px);
 	}
 
 	/* ==========================================
-	     2. BAR TAB OVERLAP (Tinggi ±75px, overlap ≤20px)
+	     2. TAB BAR OVERLAP (Tinggi ±110px, overlap ≤20px, radius ±24px)
 	     ========================================== */
 	.tab-overlap-section {
 		position: relative;
 		z-index: 10;
-		margin-top: -18px; /* overlap hero ≤20px */
-		margin-bottom: 24px;
+		margin-top: -20px; /* Overlap hero ≤20px */
+		margin-bottom: 28px;
 	}
 
 	.tab-overlap-card {
 		background: #FFFFFF;
-		border-radius: 20px;
-		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
-		border: 1px solid rgba(226, 232, 240, 0.85);
+		border-radius: 24px;
+		box-shadow: 0 12px 36px rgba(8, 36, 66, 0.08);
+		border: 1px solid rgba(226, 232, 240, 0.9);
 		display: flex;
 		align-items: center;
-		padding: 10px 14px;
+		height: 105px;
+		max-width: 1370px;
+		margin: 0 auto;
+		padding: 12px 16px;
 		box-sizing: border-box;
 		overflow-x: auto;
 		scrollbar-width: none;
@@ -920,17 +966,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 10px;
-		min-height: 56px;
-		padding: 10px 18px;
-		border-radius: 12px;
+		gap: 12px;
+		height: 100%;
+		border-radius: 16px;
 		border: none;
 		background: transparent;
 		color: #475569;
-		font-size: 14px;
+		font-size: 16px;
 		font-weight: 600;
 		cursor: pointer;
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
 	}
 
@@ -940,9 +985,9 @@
 	}
 
 	.tab-btn.active {
-		background: #079EAD;
+		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
 		color: #FFFFFF;
-		box-shadow: 0 4px 14px rgba(7, 158, 173, 0.25);
+		box-shadow: 0 4px 18px rgba(7, 158, 173, 0.28);
 	}
 
 	.tab-icon {
@@ -954,9 +999,9 @@
 
 	.tab-vdivider {
 		width: 1px;
-		height: 38px;
+		height: 48px;
 		background: #E2E8F0;
-		margin: 0 4px;
+		margin: 0 6px;
 		flex-shrink: 0;
 	}
 
@@ -964,14 +1009,14 @@
 	     3. INTRO SECTION
 	     ========================================== */
 	.hub-intro-section {
-		padding: 36px 0 34px;
+		padding: 24px 0 32px;
 		background: #FFFFFF;
 	}
 
 	.intro-grid {
 		display: grid;
-		grid-template-columns: 1.15fr 1fr;
-		gap: 2.5rem;
+		grid-template-columns: 1fr auto;
+		gap: 36px;
 		align-items: center;
 	}
 
@@ -983,12 +1028,12 @@
 	.section-badge-label {
 		display: flex;
 		align-items: center;
-		gap: 10px;
-		margin-bottom: 12px;
+		gap: 8px;
+		margin-bottom: 10px;
 	}
 
 	.label-dash {
-		width: 22px;
+		width: 20px;
 		height: 2.5px;
 		background: #16B6C1;
 		border-radius: 2px;
@@ -1002,7 +1047,7 @@
 	}
 
 	.intro-title {
-		font-size: clamp(26px, 2.4vw, 36px);
+		font-size: clamp(26px, 2.5vw, 36px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #082442;
@@ -1011,37 +1056,38 @@
 
 	.intro-desc {
 		font-size: 15px;
-		line-height: 1.6;
+		line-height: 1.65;
 		color: #183553;
 		margin: 0;
-		max-width: 540px;
+		max-width: 520px;
 	}
 
 	.intro-tiles-col {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 12px;
+		display: flex;
+		gap: 14px;
+		align-items: center;
 	}
 
 	.feature-tile {
+		width: 160px;
+		height: 115px;
 		background: #FFFFFF;
-		border: 1px solid rgba(226, 232, 240, 0.9);
+		border: 1px solid rgba(226, 232, 240, 0.95);
 		border-radius: 14px;
-		padding: 16px 10px;
+		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.05);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.04);
-		transition: all 0.2s ease;
-		min-height: 110px;
+		padding: 10px 12px;
 		box-sizing: border-box;
+		flex-shrink: 0;
+		transition: transform 0.2s ease, border-color 0.2s ease;
 	}
 
 	.feature-tile:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 8px 22px rgba(8, 36, 66, 0.08);
 		border-color: #16B6C1;
 	}
 
@@ -1051,22 +1097,22 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 10px;
+		margin-bottom: 6px;
 	}
 
 	.tile-label {
-		font-size: 13px;
-		line-height: 1.35;
-		font-weight: 600;
+		font-size: 14px;
+		line-height: 1.3;
+		font-weight: 700;
 		color: #082442;
 		display: block;
 	}
 
 	/* ==========================================
-	     4. SECTION DAFTAR KARTU LAYANAN
+	     4. SECTION DAFTAR KARTU LAYANAN & PANEL (Tinggi ±330px per kartu)
 	     ========================================== */
 	.hub-cards-section {
-		padding: 16px 0 44px;
+		padding: 10px 0 44px;
 		background: #FFFFFF;
 	}
 
@@ -1078,31 +1124,32 @@
 
 	.cards-grid.single-filtered {
 		grid-template-columns: 1fr;
-		max-width: 800px;
+		max-width: 820px;
 		margin: 0 auto;
 	}
 
 	.service-card {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.95);
-		border-radius: 20px;
-		box-shadow: 0 8px 28px rgba(8, 36, 66, 0.05);
+		border-radius: 22px;
+		box-shadow: 0 8px 30px rgba(8, 36, 66, 0.06);
 		display: flex;
 		justify-content: space-between;
 		overflow: hidden;
 		position: relative;
-		min-height: 350px;
+		height: 330px;
+		box-sizing: border-box;
 		transition: transform 0.25s ease, box-shadow 0.25s ease;
 	}
 
 	.service-card:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 12px 34px rgba(8, 36, 66, 0.09);
+		box-shadow: 0 12px 36px rgba(8, 36, 66, 0.09);
 	}
 
 	.card-body {
-		flex: 1;
-		padding: 28px 24px 24px;
+		width: 62%;
+		padding: 24px 22px 20px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -1113,8 +1160,8 @@
 	.card-pill-row {
 		display: flex;
 		align-items: center;
-		gap: 10px;
-		margin-bottom: 12px;
+		gap: 8px;
+		margin-bottom: 8px;
 	}
 
 	.card-pill {
@@ -1125,9 +1172,9 @@
 		color: #079EAD;
 		font-size: 12px;
 		font-weight: 700;
-		padding: 4px 12px;
+		padding: 3.5px 10px;
 		border-radius: 9999px;
-		margin-bottom: 12px;
+		margin-bottom: 8px;
 		width: fit-content;
 	}
 
@@ -1143,59 +1190,64 @@
 	.badge-soon {
 		font-size: 11px;
 		font-weight: 600;
-		color: #082442;
-		background: #E2E8F0;
-		padding: 3px 10px;
+		color: #64748B;
+		background: #F1F5F9;
+		border: 1px solid #E2E8F0;
+		padding: 2px 8px;
 		border-radius: 9999px;
 	}
 
 	.card-title {
-		font-size: 21px;
+		font-size: 20px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 10px 0;
-		line-height: 1.3;
+		margin: 0 0 6px 0;
+		line-height: 1.25;
 	}
 
 	.card-desc {
-		font-size: 13.5px;
-		line-height: 1.55;
-		color: #475569;
-		margin: 0 0 16px 0;
+		font-size: 14.5px;
+		line-height: 1.5;
+		color: #183553;
+		margin: 0 0 14px 0;
 	}
 
 	.card-checklist {
 		list-style: none;
 		padding: 0;
-		margin: 0 0 20px 0;
+		margin: 0 0 14px 0;
 		display: flex;
 		flex-direction: column;
-		gap: 9px;
+		gap: 6px;
 	}
 
 	.card-checklist li {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 8px;
-		font-size: 13px;
+		font-size: 13.5px;
 		font-weight: 600;
 		color: #082442;
-		line-height: 1.4;
+		line-height: 1.35;
 	}
 
 	.check-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 16px;
-		height: 16px;
+		width: 15px;
+		height: 15px;
 		flex-shrink: 0;
-		margin-top: 1px;
 	}
 
 	.card-action {
 		margin-top: auto;
-		padding-top: 6px;
+	}
+
+	.card-action-with-note {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
 	}
 
 	.btn-card-gold {
@@ -1204,10 +1256,10 @@
 		gap: 8px;
 		background: #F5B331;
 		color: #082442;
-		padding: 10px 20px;
+		padding: 9px 18px;
 		font-size: 13px;
 		font-weight: 700;
-		border-radius: 10px;
+		border-radius: 9px;
 		text-decoration: none;
 		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.22);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1221,93 +1273,118 @@
 	}
 
 	.card-disclaimer {
-		font-size: 11px;
+		font-size: 11.5px;
 		color: #94A3B8;
-		margin: 10px 0 0 0;
-		line-height: 1.4;
+		margin: 0;
+		line-height: 1.35;
 		font-style: italic;
 	}
 
+	/* FOTO BERBENTUK: Tepi kiri miring / melengkung memenuhi tinggi kartu */
 	.card-media {
 		position: relative;
-		width: 36%;
-		min-width: 170px;
-		display: flex;
-		align-items: stretch;
+		width: 38%;
+		height: 100%;
 		overflow: hidden;
 		flex-shrink: 0;
 	}
 
-	.media-accent-circle {
+	.card-media-accent {
 		position: absolute;
-		top: -12px;
-		right: -12px;
-		width: 70px;
-		height: 70px;
+		top: -15px;
+		right: -15px;
+		width: 90px;
+		height: 90px;
 		border-radius: 50%;
 		background: #16B6C1;
-		opacity: 0.18;
+		opacity: 0.24;
 		pointer-events: none;
 		z-index: 1;
 	}
 
-	.card-img {
+	.card-img-curved {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center top;
-		border-top-left-radius: 65px;
-		border-bottom-left-radius: 65px;
+		object-position: center 20%;
 		display: block;
+		position: relative;
+		z-index: 2;
+		border-top-left-radius: 80px;
+		border-bottom-left-radius: 35px;
+	}
+
+	/* Mengapa Memilih SDJNusantara Panel */
+	.why-us-card {
+		background: #EAF7F9;
+		border: 1px solid #D2EFF2;
+		border-radius: 22px;
+		position: relative;
+		overflow: hidden;
+		padding: 24px 26px 20px;
+		height: 330px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		box-shadow: 0 8px 28px rgba(8, 36, 66, 0.04);
+	}
+
+	.why-swoosh-wrap {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 150px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.why-swoosh-svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.why-header {
 		position: relative;
 		z-index: 2;
 	}
 
-	/* Mengapa Memilih SDJNusantara Card */
-	.why-us-card {
-		background: #EAF7F9;
-		border: 1px solid #D2EFF2;
-		border-radius: 20px;
-		padding: 28px 24px 24px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		min-height: 350px;
-		box-sizing: border-box;
-		box-shadow: 0 8px 28px rgba(8, 36, 66, 0.03);
-	}
-
 	.why-title {
-		font-size: 21px;
+		font-size: 24px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 8px 0;
-		line-height: 1.3;
+		margin: 0 0 6px 0;
+		line-height: 1.25;
 	}
 
 	.why-desc {
-		font-size: 13.5px;
+		font-size: 14.5px;
 		line-height: 1.5;
-		color: #475569;
-		margin: 0 0 20px 0;
+		color: #183553;
+		margin: 0 0 18px 0;
 	}
 
 	.why-tiles-row {
+		position: relative;
+		z-index: 2;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 12px;
-		margin-top: auto;
 	}
 
 	.why-tile {
 		background: #FFFFFF;
-		border: 1px solid rgba(226, 232, 240, 0.85);
-		border-radius: 12px;
+		border: 1px solid rgba(226, 232, 240, 0.9);
+		border-radius: 14px;
 		padding: 14px 12px;
+		height: 155px;
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
-		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.03);
-		transition: transform 0.2s ease;
+		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.03);
+		transition: transform 0.2s ease, border-color 0.2s ease;
 	}
 
 	.why-tile:hover {
@@ -1322,7 +1399,7 @@
 	}
 
 	.why-tile-title {
-		font-size: 12.5px;
+		font-size: 14px;
 		font-weight: 700;
 		color: #082442;
 		margin: 0 0 4px 0;
@@ -1330,37 +1407,41 @@
 	}
 
 	.why-tile-desc {
-		font-size: 11px;
+		font-size: 12.5px;
 		line-height: 1.45;
 		color: #64748B;
 		margin: 0;
 	}
 
 	/* ==========================================
-	     5. SPLIT CTA BANNER & FAQ ACCORDION
+	     5. BAND BAWAH DUA KOLOM (Tinggi ±330px pada 1536)
 	     ========================================== */
 	.hub-bottom-section {
-		padding: 16px 0 60px;
+		padding: 16px 0 48px;
 		background: #FFFFFF;
 	}
 
-	.bottom-grid {
+	.bottom-split-container {
+		width: 100%;
 		display: grid;
-		grid-template-columns: 1.05fr 0.95fr;
-		gap: 26px;
+		grid-template-columns: 55% 45%;
 		align-items: stretch;
+		min-height: 330px;
 	}
 
 	.cta-banner-card {
 		position: relative;
-		background: #082442;
-		border-radius: 20px;
+		background: #0B2948;
+		border-top-right-radius: 24px;
+		border-bottom-right-radius: 24px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 		overflow: hidden;
-		padding: 38px 32px;
+		padding: 38px 48px 38px clamp(30px, 12vw, 190px); /* Teks mulai di x ≈ 340px pada 1536 */
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.12);
+		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.12);
 	}
 
 	.cta-bg-wrapper {
@@ -1373,11 +1454,11 @@
 	}
 
 	.cta-bg-img {
-		width: 100%;
+		width: 50%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center;
-		opacity: 0.22;
+		object-position: left center;
+		opacity: 0.25;
 		display: block;
 	}
 
@@ -1387,28 +1468,28 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(135deg, rgba(8, 36, 66, 0.94) 0%, rgba(8, 36, 66, 0.82) 100%);
+		background: linear-gradient(90deg, rgba(11, 41, 72, 0.85) 0%, rgba(11, 41, 72, 0.94) 45%, #0B2948 100%);
 	}
 
 	.cta-content {
 		position: relative;
 		z-index: 2;
+		max-width: 520px;
 	}
 
 	.cta-title {
-		font-size: clamp(22px, 2.2vw, 28px);
+		font-size: clamp(24px, 2.3vw, 34px);
 		font-weight: 800;
 		color: #FFFFFF;
-		line-height: 1.3;
+		line-height: 1.25;
 		margin: 0 0 12px 0;
 	}
 
 	.cta-desc {
-		font-size: 14px;
+		font-size: 15px;
 		line-height: 1.6;
-		color: rgba(255, 255, 255, 0.85);
+		color: rgba(255, 255, 255, 0.88);
 		margin: 0 0 24px 0;
-		max-width: 480px;
 	}
 
 	.cta-buttons {
@@ -1418,22 +1499,43 @@
 		flex-wrap: wrap;
 	}
 
-	.btn-chat {
+	.btn-cta-gold {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		background: #F5B331;
+		color: #082442;
+		padding: 11px 22px;
+		font-size: 13.5px;
+		font-weight: 700;
+		border-radius: 9px;
+		text-decoration: none;
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.btn-cta-gold:hover {
+		background: #e6a528;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 16px rgba(245, 179, 49, 0.36);
+	}
+
+	.btn-cta-chat {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
 		background: rgba(255, 255, 255, 0.12);
-		border: 1.5px solid rgba(255, 255, 255, 0.4);
+		border: 1.5px solid rgba(255, 255, 255, 0.45);
 		color: #FFFFFF;
-		padding: 11px 18px;
-		font-size: 13px;
+		padding: 10px 20px;
+		font-size: 13.5px;
 		font-weight: 600;
-		border-radius: 10px;
+		border-radius: 9px;
 		cursor: pointer;
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
-	.btn-chat:hover {
+	.btn-cta-chat:hover {
 		background: rgba(255, 255, 255, 0.22);
 		border-color: #FFFFFF;
 		transform: translateY(-2px);
@@ -1444,50 +1546,54 @@
 		align-items: center;
 	}
 
+	/* Kanan: FAQ */
 	.faq-card {
+		padding: 24px clamp(20px, 4vw, 60px) 24px clamp(20px, 3vw, 48px);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		box-sizing: border-box;
 	}
 
 	.faq-title {
-		font-size: 22px;
+		font-size: 24px;
 		font-weight: 800;
 		color: #082442;
 		margin: 0 0 6px 0;
 	}
 
 	.faq-subtitle {
-		font-size: 13.5px;
+		font-size: 14px;
 		color: #64748B;
-		margin: 0 0 18px 0;
+		margin: 0 0 16px 0;
 	}
 
 	.faq-list {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 9px;
 	}
 
 	.faq-item {
-		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
-		border-radius: 12px;
+		background: #F4F8FB;
+		border: 1px solid rgba(226, 232, 240, 0.85);
+		border-radius: 10px;
 		overflow: hidden;
 		transition: all 0.2s ease;
 	}
 
 	.faq-item.is-open {
 		border-color: #16B6C1;
-		box-shadow: 0 4px 16px rgba(22, 182, 193, 0.08);
+		box-shadow: 0 4px 14px rgba(22, 182, 193, 0.08);
 	}
 
 	.faq-question-btn {
 		width: 100%;
+		height: 50px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 14px 18px;
+		padding: 0 18px;
 		background: none;
 		border: none;
 		text-align: left;
@@ -1496,6 +1602,7 @@
 		font-size: 14px;
 		font-weight: 700;
 		gap: 12px;
+		box-sizing: border-box;
 	}
 
 	.faq-chevron {
@@ -1513,8 +1620,8 @@
 
 	.faq-answer-panel {
 		padding: 0 18px 14px;
-		border-top: 1px solid #F1F5F9;
-		margin-top: 2px;
+		border-top: 1px solid #E2E8F0;
+		margin-top: 0;
 		padding-top: 10px;
 	}
 
@@ -1529,32 +1636,54 @@
 	     RESPONSIVE
 	     ========================================== */
 	@media (max-width: 1024px) {
-		.intro-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
+		.hub-hero {
+			height: 300px;
 		}
 
-		.hero-img {
-			width: 65%;
-			opacity: 0.85;
+		.intro-grid {
+			grid-template-columns: 1fr;
+			gap: 24px;
 		}
 
 		.intro-tiles-col {
+			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 		}
 
-		.bottom-grid {
+		.feature-tile {
+			width: 100%;
+		}
+
+		.bottom-split-container {
 			grid-template-columns: 1fr;
+		}
+
+		.cta-banner-card {
+			border-radius: 0;
+			padding: 36px 24px;
+		}
+
+		.faq-card {
+			padding: 32px 24px;
 		}
 	}
 
 	@media (max-width: 768px) {
+		.hub-hero {
+			height: auto;
+			padding: 40px 0 30px;
+		}
+
 		.hero-img {
 			display: none;
 		}
 
 		.hero-gradient-overlay {
 			background: #082442;
+		}
+
+		.hero-container {
+			padding-left: 0;
 		}
 
 		.hero-title {
@@ -1570,18 +1699,24 @@
 			align-items: stretch;
 		}
 
-		.btn-gold,
-		.btn-outline {
-			justify-content: center;
+		.btn-hero-gold,
+		.btn-hero-outline {
+			width: 100%;
+		}
+
+		.tab-overlap-card {
+			height: auto;
+			padding: 10px;
+			gap: 8px;
+		}
+
+		.tab-btn {
+			padding: 10px 14px;
+			font-size: 13.5px;
 		}
 
 		.intro-tiles-col {
 			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.tab-btn {
-			padding: 8px 12px;
-			font-size: 13px;
 		}
 
 		.cards-grid {
@@ -1589,20 +1724,35 @@
 		}
 
 		.service-card {
+			height: auto;
 			flex-direction: column-reverse;
+		}
+
+		.card-body {
+			width: 100%;
+			padding: 20px 18px;
 		}
 
 		.card-media {
 			width: 100%;
-			height: 200px;
+			height: 180px;
 		}
 
-		.card-img {
+		.card-img-curved {
 			border-radius: 0;
+		}
+
+		.why-us-card {
+			height: auto;
+			padding: 20px 18px;
 		}
 
 		.why-tiles-row {
 			grid-template-columns: 1fr;
+		}
+
+		.why-tile {
+			height: auto;
 		}
 
 		.cta-buttons {
@@ -1610,8 +1760,9 @@
 			align-items: stretch;
 		}
 
-		.btn-gold,
-		.btn-chat {
+		.btn-cta-gold,
+		.btn-cta-chat {
+			width: 100%;
 			justify-content: center;
 		}
 	}
