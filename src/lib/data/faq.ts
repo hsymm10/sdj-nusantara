@@ -13,13 +13,12 @@ export interface FaqItem {
 }
 
 export interface FaqCategory {
-	id: 'all' | 'program' | 'beasiswa' | 'kemitraan' | 'hukum';
+	id: 'program' | 'beasiswa' | 'kemitraan' | 'hukum';
 	name: string;
 	icon: string;
 }
 
 export const FAQ_CATEGORIES: FaqCategory[] = [
-	{ id: 'all', name: 'Semua Pertanyaan', icon: 'ph:graduation-cap-fill' },
 	{ id: 'program', name: 'Program Pendidikan', icon: 'ph:student-bold' },
 	{ id: 'beasiswa', name: 'Beasiswa', icon: 'ph:gift-bold' },
 	{ id: 'kemitraan', name: 'Kemitraan', icon: 'ph:handshake-bold' },
@@ -277,3 +276,4 @@ export const faqData: FaqItem[] = [
 		order: 24
 	}
 ];
+

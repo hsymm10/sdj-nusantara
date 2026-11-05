@@ -5,14 +5,13 @@
 	import { chatStore } from '#lib/stores/chat.svelte';
 
 	// State
-	let selectedCategory = $state<'all' | 'program' | 'beasiswa' | 'kemitraan' | 'hukum'>('all');
+	let selectedCategory = $state<'program' | 'beasiswa' | 'kemitraan' | 'hukum'>('program');
 	let searchQuery = $state('');
-	let openItemId = $state<string | null>('faq-01'); // Default: first popular question open as in mockup
+	let openItemId = $state<string | null>('faq-01');
 
 	// Dynamic counts per category
 	let counts = $derived.by(() => {
 		const result: Record<string, number> = {
-			all: faqData.filter((i) => i.isActive).length,
 			program: faqData.filter((i) => i.isActive && i.category === 'program').length,
 			beasiswa: faqData.filter((i) => i.isActive && i.category === 'beasiswa').length,
 			kemitraan: faqData.filter((i) => i.isActive && i.category === 'kemitraan').length,
@@ -23,17 +22,7 @@
 
 	// Filtered FAQs based on category & search query
 	let filteredFaqs = $derived.by<FaqItem[]>(() => {
-		let list = faqData.filter((item) => item.isActive);
-
-		// If category is not 'all', filter by category
-		if (selectedCategory !== 'all') {
-			list = list.filter((item) => item.category === selectedCategory);
-		} else if (!searchQuery.trim()) {
-			// When 'all' and no search query: prioritize popular questions as shown in mockup
-			const populars = list.filter((item) => item.isPopular);
-			const others = list.filter((item) => !item.isPopular);
-			list = [...populars, ...others];
-		}
+		let list = faqData.filter((item) => item.isActive && item.category === selectedCategory);
 
 		// Filter by search query (question & answer)
 		const q = searchQuery.trim().toLowerCase();
@@ -52,23 +41,20 @@
 		if (searchQuery.trim()) {
 			return `Hasil Pencarian (${filteredFaqs.length})`;
 		}
-		if (selectedCategory === 'all') {
-			return 'Pertanyaan Populer';
-		}
 		const cat = FAQ_CATEGORIES.find((c) => c.id === selectedCategory);
 		return cat ? cat.name : 'Daftar Pertanyaan';
 	});
 
-	let showPopularBadge = $derived(
-		selectedCategory === 'all' && !searchQuery.trim()
-	);
-
-	function selectCategory(catId: 'all' | 'program' | 'beasiswa' | 'kemitraan' | 'hukum') {
+	function selectCategory(catId: 'program' | 'beasiswa' | 'kemitraan' | 'hukum') {
 		selectedCategory = catId;
-		// Keep open item if present in filtered list, else open first
-		const match = filteredFaqs.find((item) => item.id === openItemId);
-		if (!match && filteredFaqs.length > 0) {
-			openItemId = filteredFaqs[0].id;
+		const items = faqData.filter((item) => item.isActive && item.category === catId);
+		if (items.length > 0) {
+			const exists = items.some((i) => i.id === openItemId);
+			if (!exists) {
+				openItemId = items[0].id;
+			}
+		} else {
+			openItemId = null;
 		}
 	}
 
@@ -82,12 +68,6 @@
 
 	function clearSearch() {
 		searchQuery = '';
-	}
-
-	function resetAll() {
-		searchQuery = '';
-		selectedCategory = 'all';
-		openItemId = 'faq-01';
 	}
 </script>
 
@@ -168,22 +148,16 @@
 					{/if}
 				</div>
 
-				<!-- B. Section Heading with Teal Dash & Popular Badge -->
+				<!-- B. Section Heading with Teal Dash -->
 				<div class="faq-header-row">
 					<div class="header-title-wrap">
 						<span class="teal-dash" aria-hidden="true">—</span>
 						<h2 id="faq-section-heading" class="faq-heading-text">{headingTitle}</h2>
-						{#if showPopularBadge}
-							<div class="popular-badge" aria-label="Kategori Populer">
-								<Icon icon="tabler:star-filled" width="11" height="11" class="star-icon" />
-								<span>Populer</span>
-							</div>
-						{/if}
 					</div>
 
-					{#if searchQuery.trim() || selectedCategory !== 'all'}
-						<button type="button" class="btn-reset-filter-quick" onclick={resetAll}>
-							Tampilkan semua
+					{#if searchQuery.trim()}
+						<button type="button" class="btn-reset-filter-quick" onclick={clearSearch}>
+							Hapus pencarian
 						</button>
 					{/if}
 				</div>
@@ -198,10 +172,10 @@
 							</div>
 							<h4 class="empty-title">Pertanyaan tidak ditemukan</h4>
 							<p class="empty-desc">
-								Kami tidak menemukan pertanyaan yang cocok dengan "{searchQuery}". Coba kata kunci lain atau pilih kategori Semua Pertanyaan.
+								Kami tidak menemukan pertanyaan yang cocok dengan "{searchQuery}". Coba kata kunci lain atau hubungi asisten kami.
 							</p>
 							<div class="empty-actions">
-								<button type="button" class="btn-empty-reset" onclick={resetAll}>
+								<button type="button" class="btn-empty-reset" onclick={clearSearch}>
 									Atur Ulang Pencarian
 								</button>
 								<button type="button" class="btn-empty-chat" onclick={() => chatStore.open()}>
@@ -613,24 +587,6 @@
 		font-weight: 800;
 		color: #082442;
 		margin: 0;
-	}
-
-	/* Popular Badge with Star */
-	.popular-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 4px;
-		background: #FEF3C7;
-		border: 1px solid #FDE68A;
-		color: #92400E;
-		padding: 2.5px 8.5px;
-		border-radius: 999px;
-		font-size: 11px;
-		font-weight: 700;
-	}
-
-	:global(.star-icon) {
-		color: #D97706;
 	}
 
 	.btn-reset-filter-quick {
@@ -1080,3 +1036,4 @@
 		}
 	}
 </style>
+

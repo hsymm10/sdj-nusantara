@@ -963,11 +963,11 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 1. **Model Data FAQ Terpusat (`src/lib/data/faq.ts`)**:
    - Membangun struktur data resmi FAQ: `id`, `question`, `answer`, `category` (`program` | `beasiswa` | `kemitraan` | `hukum`), `isActive`, `isPopular`, dan `order`.
    - Mengintegrasikan 24 pertanyaan terstruktur yang merefleksikan 4 pilar utama layanan SDJNusantara:
-     * Semua Pertanyaan (24)
-     * Program Pendidikan (8)
+     * Program Pendidikan (8) — Kategori aktif default
      * Beasiswa (6)
      * Kemitraan (5)
      * Layanan Hukum (5)
+   - Kategori "Semua Pertanyaan" dihilangkan sesuai permintaan dan tombol "Tampilkan semua" dihapus.
    - 7 Pertanyaan Populer diprioritaskan pada tampilan awal sesuai persis dengan urutan dan redaksi pada mockup referensi (`media_1793889787792_df081cbd.jpg`).
    - Seluruh konten mematuhi etika dan kebijakan komunikasi SDJNusantara: bebas klaim kelulusan mutlak, bebas kata terlarang, serta memuat batasan hukum non-litigasi yang jelas.
 
