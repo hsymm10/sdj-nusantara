@@ -1036,3 +1036,20 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
    - Konten kiri: Ikon balon chat 30px dalam lingkaran teal 52px, heading *"Masih ada pertanyaan lain?"*, dan deskripsi pendampingan.
    - Divider vertikal teal di tengah (`width: 1px; height: 48px; background: rgba(0, 166, 178, 0.35)`).
    - Konten kanan: Tombol Emas *"Chat dengan Asisten"* (kuning `#FFB629` + teks navy) dan Tombol Outline Putih *"Hubungi via WhatsApp"*.
+
+---
+
+## 21. Penerapan Desain FAQ Interaktif Dua Kolom pada Fitur Layanan (/layanan/pendidikan) (05 November 2026)
+
+### 21.1 Ringkasan Perubahan
+1. **Penyelarasan Desain dengan Fitur Kontak**:
+   - Menerapkan komponen terpadu `FaqSection.svelte` pada halaman `/layanan/pendidikan`, menggantikan akordeon polos 1-kolom sebelumnya.
+   - Mengusung layout 2-kolom modern dengan background `#F4F9FC`, container 1320px, card sidebar kiri 380px (foto asisten memegang tablet, navigasi 4 kategori terstruktur), live search bar 60px di kanan, dan akordeon dengan nomor badge `01`–`07`.
+   - Mengintegrasikan CTA Banner bawah horizontal navy `#062D4B` (*"Masih ada pertanyaan lain?"* dengan tombol Chat Asisten dan WhatsApp) sehingga konsisten dengan halaman Kontak.
+2. **Kepatuhan & Integritas Konten Layanan**:
+   - Seluruh teks dan isi dari 7 pertanyaan resmi layanan pendidikan dipertahankan secara utuh, termasuk ringkasan jawaban (`ringkas`) dan poin-poin penjelasan mendalam (`detail` bullet points).
+   - Indentasi teks jawaban panel akordeon selaras rapi dengan teks judul pertanyaan (`padding-left: 68px`).
+3. **Verifikasi Visual & Build**:
+   - `svelte-check`: 0 error
+   - `vite build`: Sukses
+   - Bukti screenshot: `screenshots/layanan-pendidikan-faq-1536.png` & `screenshots/layanan-pendidikan-faq-390.png`.

@@ -24,7 +24,7 @@
 	import ScholarshipCategorySection from '#lib/components/sections/scholarship/ScholarshipCategorySection.svelte';
 
 	// Knowledge Base Integration
-	import { faqKnowledge } from '#lib/data/knowledge/faq';
+	import FaqSection from '#lib/components/sections/faq/FaqSection.svelte';
 	import { getKnowledgeById } from '#lib/data/knowledge/index';
 
 	const caraKerjaData = getKnowledgeById('cara-kerja');
@@ -55,11 +55,6 @@
 			desc: 'Pendampingan berkelanjutan hingga proses pendaftaran atau implementasi selesai.'
 		}
 	];
-
-	let openFaqIndex = $state<number | null>(null);
-	function toggleFaq(index: number) {
-		openFaqIndex = openFaqIndex === index ? null : index;
-	}
 
 	// State internal program & beasiswa
 	let activeProgramCategory = $state('Semua Program');
@@ -310,66 +305,8 @@
 		</div>
 	</section>
 
-	<!-- SECTION 5: FAQ ACCORDION (7 Pertanyaan Resmi) -->
-	<section class="faq-accordion-section" aria-labelledby="faq-section-heading">
-		<div class="faq-container">
-			<div class="section-label-center">
-				<span class="label-dash">—</span>
-				<span class="label-text">TANYA JAWAB</span>
-			</div>
-			<h2 id="faq-section-heading" class="faq-main-title">
-				Pertanyaan yang Sering Diajukan
-			</h2>
-			<p class="faq-main-desc">
-				Informasi penting seputar layanan pendidikan, pendampingan beasiswa, serta kerja sama kelembagaan.
-			</p>
-
-			<div class="faq-accordion-list">
-				{#each faqKnowledge as item, idx}
-					<div class="faq-row {openFaqIndex === idx ? 'open' : ''}">
-						<button
-							type="button"
-							class="faq-trigger"
-							aria-expanded={openFaqIndex === idx}
-							onclick={() => toggleFaq(idx)}
-						>
-							<span class="faq-q-text">{item.judul}</span>
-							<span class="faq-arrow-icon" aria-hidden="true">
-								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="6 9 12 15 18 9"></polyline>
-								</svg>
-							</span>
-						</button>
-
-						{#if openFaqIndex === idx}
-							<div class="faq-body-panel">
-								<p class="faq-ringkas-text">{item.ringkas}</p>
-								{#if item.detail && item.detail.length > 0}
-									<ul class="faq-detail-bullets">
-										{#each item.detail as bullet}
-											<li>{bullet}</li>
-										{/each}
-									</ul>
-								{/if}
-							</div>
-						{/if}
-					</div>
-				{/each}
-			</div>
-		</div>
-	</section>
-
-	<!-- 6. Single CTA Banner di Akhir Halaman -->
-	<CtaBanner
-		title="Siap Mengembangkan Potensi Anda?"
-		description="Konsultasikan kebutuhan pendidikan, program pelatihan, atau rencana studi beasiswa bersama konsultan pendidikan SDJNusantara."
-		primaryText="Jadwalkan Konsultasi →"
-		primaryHref="/kontak"
-		secondaryText="Hubungi Kami"
-		secondaryHref="/kontak"
-		bgImage="/images/cta-grad-cap-dark.jpg"
-		variant="layanan"
-	/>
+	<!-- SECTION 5: FAQ SDJNUSANTARA & CTA (Desain Interaktif 2-Kolom Sesuai Fitur Kontak) -->
+	<FaqSection />
 </main>
 
 <Footer variant="layanan" />
@@ -667,116 +604,6 @@
 		margin: 0;
 	}
 
-	/* SECTION 5: FAQ (7 Pertanyaan Resmi) */
-	.faq-accordion-section {
-		background: #FFFFFF;
-		padding: 80px 20px 96px;
-	}
-
-	.faq-container {
-		width: 93%;
-		max-width: 980px;
-		margin: 0 auto;
-		text-align: center;
-	}
-
-	.faq-main-title {
-		font-size: clamp(24px, 2.2vw, 34px);
-		font-weight: 800;
-		color: #082442;
-		margin: 0 0 12px;
-		letter-spacing: -0.02em;
-	}
-
-	.faq-main-desc {
-		font-size: 15px;
-		color: #64748B;
-		max-width: 680px;
-		margin: 0 auto 40px;
-		line-height: 1.6;
-	}
-
-	.faq-accordion-list {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-		text-align: left;
-	}
-
-	.faq-row {
-		border: 1px solid #E2E8F0;
-		border-radius: 14px;
-		background: #FFFFFF;
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
-		overflow: hidden;
-	}
-
-	.faq-row.open {
-		border-color: #16B6C1;
-		box-shadow: 0 6px 20px rgba(7, 158, 173, 0.08);
-	}
-
-	.faq-trigger {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 20px 24px;
-		background: none;
-		border: none;
-		cursor: pointer;
-		text-align: left;
-		gap: 16px;
-	}
-
-	.faq-q-text {
-		font-size: 16.5px;
-		font-weight: 700;
-		color: #082442;
-		line-height: 1.4;
-	}
-
-	.faq-row.open .faq-q-text {
-		color: #079EAD;
-	}
-
-	.faq-arrow-icon {
-		flex-shrink: 0;
-		color: #64748B;
-		transition: transform 0.25s ease, color 0.2s ease;
-	}
-
-	.faq-row.open .faq-arrow-icon {
-		transform: rotate(180deg);
-		color: #079EAD;
-	}
-
-	.faq-body-panel {
-		padding: 0 24px 22px;
-		border-top: 1px solid #F1F5F9;
-	}
-
-	.faq-ringkas-text {
-		font-size: 14.5px;
-		line-height: 1.65;
-		color: #334155;
-		margin: 16px 0 10px;
-	}
-
-	.faq-detail-bullets {
-		margin: 0;
-		padding-left: 20px;
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-	}
-
-	.faq-detail-bullets li {
-		font-size: 13.5px;
-		line-height: 1.55;
-		color: #475569;
-	}
-
 	@media (max-width: 1024px) {
 		.steps-grid {
 			grid-template-columns: repeat(2, 1fr);
@@ -786,18 +613,6 @@
 	@media (max-width: 640px) {
 		.steps-grid {
 			grid-template-columns: 1fr;
-		}
-
-		.faq-trigger {
-			padding: 16px 18px;
-		}
-
-		.faq-q-text {
-			font-size: 15px;
-		}
-
-		.faq-body-panel {
-			padding: 0 18px 18px;
 		}
 	}
 </style>

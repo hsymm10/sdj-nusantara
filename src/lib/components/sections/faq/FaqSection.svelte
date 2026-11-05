@@ -1,12 +1,27 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 	import { faqData, FAQ_CATEGORIES, type FaqItem, type FaqCategory } from '#lib/data/faq';
 	import { chatStore } from '#lib/stores/chat.svelte';
+
+	let {
+		showCtaBanner = true,
+		defaultCategory = 'program'
+	}: {
+		showCtaBanner?: boolean;
+		defaultCategory?: 'program' | 'beasiswa' | 'kemitraan' | 'hukum';
+	} = $props();
 
 	// State
 	let selectedCategory = $state<'program' | 'beasiswa' | 'kemitraan' | 'hukum'>('program');
 	let searchQuery = $state('');
 	let openItemId = $state<string | null>('faq-01'); // First item open by default
+
+	onMount(() => {
+		if (defaultCategory && defaultCategory !== 'program') {
+			selectedCategory = defaultCategory;
+		}
+	});
 
 	// Exact category counts as specified in prompt and mockup
 	const categoryCounts: Record<string, number> = {
@@ -206,6 +221,13 @@
 								{#if isOpen}
 									<div id="faq-ans-{item.id}" class="faq-answer-panel">
 										<p class="faq-answer-text">{item.answer}</p>
+										{#if item.detail && item.detail.length > 0}
+											<ul class="faq-answer-bullets">
+												{#each item.detail as bullet}
+													<li>{bullet}</li>
+												{/each}
+											</ul>
+										{/if}
 									</div>
 								{/if}
 							</div>
@@ -215,8 +237,9 @@
 			</div>
 		</div>
 
-		<!-- BOTTOM SECTION: CTA Banner (Masih ada pertanyaan lain?) -->
-		<div class="faq-cta-banner">
+		{#if showCtaBanner}
+			<!-- BOTTOM SECTION: CTA Banner (Masih ada pertanyaan lain?) -->
+			<div class="faq-cta-banner">
 			<!-- SVG Wave Accents (Bottom Left Teal & Bottom Right Gold) -->
 			<svg class="cta-svg-bg" viewBox="0 0 1200 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
 				<!-- Bottom Left Teal Wave -->
@@ -266,6 +289,7 @@
 				</a>
 			</div>
 		</div>
+		{/if}
 	</div>
 </section>
 
@@ -667,6 +691,21 @@
 		line-height: 1.6;
 		color: #475569;
 		margin: 0;
+	}
+
+	.faq-answer-bullets {
+		margin: 10px 0 0;
+		padding-left: 18px;
+		list-style-type: disc;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.faq-answer-bullets li {
+		font-size: 13.5px;
+		line-height: 1.55;
+		color: #64748B;
 	}
 
 	/* Empty State */

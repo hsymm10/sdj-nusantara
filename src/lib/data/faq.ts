@@ -6,6 +6,7 @@ export interface FaqItem {
 	id: string;
 	question: string;
 	answer: string;
+	detail?: string[];
 	categories: ('program' | 'beasiswa' | 'kemitraan' | 'hukum')[];
 	isActive: boolean;
 	isPopular: boolean;
@@ -27,12 +28,17 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 ];
 
 export const faqData: FaqItem[] = [
-	// --- KATEGORI: PROGRAM PENDIDIKAN (7 Pertanyaan Utama Sesuai Mockup) ---
+	// --- KATEGORI: PROGRAM PENDIDIKAN (7 Pertanyaan Resmi Sesuai Konten Layanan Pendidikan) ---
 	{
 		id: 'faq-01',
 		question: 'Apakah SDJNusantara hanya melayani mahasiswa?',
 		answer:
-			'Tidak. SDJNusantara melayani mahasiswa, pelajar, tenaga pendidik, institusi pendidikan, organisasi, maupun perusahaan yang membutuhkan layanan pendidikan, pelatihan, beasiswa, kemitraan, dan konsultasi regulasi.',
+			'Tidak. Layanan kami terbuka untuk pelajar sekolah menengah, mahasiswa, lulusan baru, profesional, pendidik, komunitas, hingga institusi.',
+		detail: [
+			'Pelajar SMA/SMK: Pemetaan minat jurusan dan persiapan beasiswa sarjana.',
+			'Mahasiswa S1/S2/S3: Bimbingan beasiswa pascasarjana, publikasi, dan persiapan karier.',
+			'Profesional & Lembaga: Pelatihan komunikasi, AI produktivitas, serta kemitraan institusi.'
+		],
 		categories: ['program'],
 		isActive: true,
 		isPopular: true,
@@ -43,6 +49,10 @@ export const faqData: FaqItem[] = [
 		question: 'Apakah SDJNusantara menyediakan beasiswa sendiri?',
 		answer:
 			'SDJNusantara berfokus pada kurasi informasi dan pendampingan persiapan aplikasi beasiswa, bukan sebagai lembaga penyandang dana beasiswa langsung.',
+		detail: [
+			'Ketersediaan dana dan penetapan beasiswa sepenuhnya ditentukan oleh masing-masing lembaga penyedia (pemerintah, universitas, yayasan, atau lembaga donor internasional).',
+			'Kami membimbing Anda memilih beasiswa yang sesuai serta mendampingi penguatan berkas agar peluang bersaing Anda optimal.'
+		],
 		categories: ['program', 'beasiswa'],
 		isActive: true,
 		isPopular: true,
@@ -52,7 +62,11 @@ export const faqData: FaqItem[] = [
 		id: 'faq-03',
 		question: 'Apakah peserta dijamin lolos beasiswa?',
 		answer:
-			'Tidak. Kami tidak menjanjikan kelulusan, penerbitan LoA, maupun perolehan beasiswa karena keputusan akhir sepenuhnya berada pada komite seleksi resmi masing-masing penyelenggara beasiswa.',
+			'Tidak. Kami tidak menjanjikan kelulusan, penerbitan LoA, maupun perolehan beasiswa karena keputusan akhir sepenuhnya berada pada komite seleksi resmi.',
+		detail: [
+			'Komitmen kami adalah membantu Anda mempersiapkan aplikasi secara terarah, meningkatkan mutu esai dan CV, serta melatih kesiapan wawancara secara maksimal.',
+			'Pendampingan kami mengutamakan proses belajar yang etis, terstruktur, dan objektif tanpa klaim instan.'
+		],
 		categories: ['program', 'beasiswa'],
 		isActive: true,
 		isPopular: true,
@@ -62,7 +76,11 @@ export const faqData: FaqItem[] = [
 		id: 'faq-04',
 		question: 'Apakah konsultasi dan bimbingan bisa dilakukan secara daring (online)?',
 		answer:
-			'Ya. Seluruh sesi konsultasi, bimbingan, dan pelatihan dapat diselenggarakan secara daring melalui video conference interaktif maupun tatap muka langsung sesuai kesepakatan.',
+			'Ya, seluruh sesi konsultasi, bimbingan, dan pelatihan dapat diselenggarakan secara daring melalui video conference interaktif maupun tatap muka langsung sesuai kesepakatan.',
+		detail: [
+			'Konsultasi Privat Daring: Jadwal fleksibel via platform temu video dengan dokumen kolaboratif.',
+			'Sesi Tatap Muka: Tersedia untuk pelatihan institusi, workshop kelompok, atau perjanjian khusus di kantor kami.'
+		],
 		categories: ['program'],
 		isActive: true,
 		isPopular: true,
@@ -73,6 +91,10 @@ export const faqData: FaqItem[] = [
 		question: 'Apakah peserta pelatihan memperoleh sertifikat (termasuk BNSP)?',
 		answer:
 			'Peserta memperoleh sertifikat keikutsertaan pelatihan resmi dari SDJNusantara. Untuk sertifikat kompetensi profesi, penerbitan dilakukan oleh badan sertifikasi berwenang (seperti BNSP) sesuai skema uji kompetensi yang terdaftar.',
+		detail: [
+			'Sertifikat Pelatihan SDJNusantara: Bukti keikutsertaan dan penyelesaian jam pelatihan profesional.',
+			'Sertifikasi Profesi/BNSP: Mengikuti uji kompetensi resmi melalui Lembaga Sertifikasi Profesi (LSP) berlisensi mitra kami.'
+		],
 		categories: ['program'],
 		isActive: true,
 		isPopular: true,
@@ -83,6 +105,11 @@ export const faqData: FaqItem[] = [
 		question: 'Bagaimana cara mendaftar program atau bimbingan?',
 		answer:
 			'Pilih program yang Anda minati di website SDJNusantara, lalu isi formulir kontak atau hubungi WhatsApp resmi kami untuk memulai konsultasi awal pemetaan kebutuhan.',
+		detail: [
+			'Konsultasi Kebutuhan: Kami memetakan sasaran belajar atau kebutuhan pelatihan Anda.',
+			'Rencana & Penawaran: Penyampaian silabus, jadwal, dan skema biaya transparan.',
+			'Mulai Pendampingan: Sesi bimbingan berjalan sesuai kesepakatan.'
+		],
 		categories: ['program'],
 		isActive: true,
 		isPopular: true,
@@ -93,18 +120,26 @@ export const faqData: FaqItem[] = [
 		question: 'Apakah materi dan layanan dapat disesuaikan untuk institusi atau perusahaan?',
 		answer:
 			'Ya. Kami dapat merancang program, silabus, dan jadwal pelatihan khusus yang disesuaikan dengan kebutuhan, sasaran kompetensi, dan anggaran lembaga mitra.',
+		detail: [
+			'In-House Training: Pelatihan eksklusif untuk staf, pendidik, atau mahasiswa di kampus mitra.',
+			'Kolaborasi Program: Pengembangan kurikulum talenta bersama industri dan perguruan tinggi.'
+		],
 		categories: ['program', 'kemitraan'],
 		isActive: true,
 		isPopular: true,
 		order: 7
 	},
 
-	// --- KATEGORI: BEASISWA (4 Pertanyaan Tambahan untuk melengkapi 6 Beasiswa) ---
+	// --- KATEGORI: BEASISWA (Pertanyaan Tambahan untuk melengkapi 6 Beasiswa) ---
 	{
 		id: 'faq-sch-08',
 		question: 'Apa saja beasiswa yang didampingi dalam Scholarship Academy?',
 		answer:
 			'Kami mendampingi persiapan beasiswa dalam dan luar negeri, termasuk BPI (Kemdikbudristek), LPDP (Kemenkeu), Chevening (Inggris), MEXT (Jepang), AAS (Australia), serta beasiswa universitas dunia.',
+		detail: [
+			'Beasiswa Pemerintah: BPI, LPDP, IISMA, dan program afirmasi daerah.',
+			'Beasiswa Internasional: Chevening, MEXT, Fulbright, DAAD, dan Eiffel Excellence.'
+		],
 		categories: ['beasiswa'],
 		isActive: true,
 		isPopular: false,
@@ -141,7 +176,7 @@ export const faqData: FaqItem[] = [
 		order: 11
 	},
 
-	// --- KATEGORI: KEMITRAAN (4 Pertanyaan Tambahan untuk melengkapi 5 Kemitraan) ---
+	// --- KATEGORI: KEMITRAAN (Pertanyaan Tambahan untuk melengkapi 5 Kemitraan) ---
 	{
 		id: 'faq-part-12',
 		question: 'Bagaimana cara mengajukan kerja sama kemitraan institusi?',
