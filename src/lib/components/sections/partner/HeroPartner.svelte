@@ -98,16 +98,16 @@
 		z-index: 1;
 	}
 
-	/* Full-bleed photo on right starting ±x 38%, facing left, intact faces */
+	/* Full-bleed photo on right starting ±x 40%, facing left, intact faces */
 	.hero-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right 35%;
+		object-position: 82% 24%;
 		display: block;
 	}
 
-	/* Fade navy halus: solid 0–30%, ±0.8 pada 40%, 0 pada ±58% */
+	/* Fade navy halus: solid 0–34%, smooth transition to 70% */
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -117,10 +117,11 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 30%,
-			rgba(8, 36, 66, 0.82) 40%,
-			rgba(8, 36, 66, 0.1) 56%,
-			rgba(8, 36, 66, 0) 65%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
@@ -316,7 +317,7 @@
 		.hero-mobile-photo-band {
 			display: block;
 			width: 100%;
-			height: 180px;
+			height: 200px;
 			border-radius: 12px;
 			overflow: hidden;
 			margin: 1.25rem 0;
@@ -326,7 +327,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			object-position: center;
+			object-position: 82% 25%;
 			display: block;
 		}
 		.hero-btn-row {
