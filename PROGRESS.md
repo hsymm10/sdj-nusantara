@@ -2,8 +2,32 @@
 
 Tanggal: 5 November 2026  
 Status Build: **PASS (0 Error, 0 Warning pada rute aktif)**  
-Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5173`)  
-Status Git: Verifikasi Final Selesai (Commit "layanan: sesuai mockup (final)")
+Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5174`)  
+Status Git: Basis Pengetahuan Pendidikan dan Beasiswa Selesai
+
+---
+
+### UPDATE: Basis Pengetahuan Tunggal (Knowledge Base) Pendidikan dan Beasiswa
+1. **Struktur Modul Terpusat (`src/lib/data/knowledge/`)**:
+   - `index.js`: Titik ekspor terpusat, registri seluruh 27 entri pengetahuan, fungsi pencarian `getKnowledgeById`, `getKnowledgeByCategory`, serta validasi skema.
+   - `umum.js` (6 entri): Profil SDJNusantara, 5 tahap cara kerja (Kenali, Petakan, Rancang, Dampingi, Evaluasi), 6 segmen sasaran penerima manfaat, 4 langkah alur mengakses layanan, informasi kontak Graha Aktiva & WhatsApp, serta panduan transparansi biaya dan jadwal.
+   - `pendidikan.js` (4 pilar): 4 pilar utama layanan pendidikan (*Talent Management & Development Center*, *Scholarship Academy*, *Skills Development & Certification*, *Institutional & Strategic Partnership*). Dilengkapi situasi nyata "Cocok untuk Anda jika...", ruang lingkup, hasil layanan, dan langkah awal. Flag `showDigitalEducation = false` diterapkan.
+   - `beasiswa.js` (4 entri): Detail *Scholarship Academy* dengan alur 6 langkah, ruang lingkup, catatan layanan jujur (tanpa jaminan lolos/LoA), panduan beasiswa pemerintah/populer, serta klausul jujur ketentuan sertifikat pelatihan vs sertifikat kompetensi BNSP (status `perlu-verifikasi`).
+   - `program.js` (5 program): 5 program unggulan sesuai naskah (*Scholarship Academy*, *Talent Accelerator* 1–3 bulan, *AI & Digital Skills Academy*, *Institutional Partnership Services*, *Corporate & Campus Training*). Durasi dan biaya diisi jujur "Dibahas saat konsultasi awal" (kecuali Talent Accelerator 1–3 bulan).
+   - `faq.js` (7 entri): 7 FAQ resmi dari naskah §8 dengan bahasa sederhana dan santun.
+   - `hukum.js` (1 entri): Placeholder netral layanan hukum dengan status `perlu-verifikasi`.
+   - `policies.js`: Kebijakan konten, regex kata terlarang (*terbaik*, *pasti*, *jaminan*, *terpercaya*, *aman*, *berpengalaman*, *gratis*, *100% lulus*), pencegahan data sensitif, dan kebijakan pengalihan.
+   - `synonyms.js`: Kamus sinonim bahasa Indonesia sehari-hari untuk normalisasi kueri chatbot.
+2. **Validasi Otomatis (`scripts/validate_knowledge.cjs`)**:
+   - 27 entri lulus validasi tanpa error: field wajib lengkap, variasi pertanyaan ≥ 4, bebas kata terlarang, seluruh tautan `href` valid.
+3. **Rekapitulasi Entri**:
+   - Umum: 6 entri
+   - Pendidikan: 4 entri
+   - Beasiswa: 4 entri
+   - Program: 5 entri
+   - FAQ: 7 entri
+   - Hukum: 1 entri
+   - **Total: 27 entri**
 
 ---
 
