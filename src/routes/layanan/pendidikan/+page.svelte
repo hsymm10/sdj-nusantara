@@ -23,6 +23,44 @@
 	import ScholarshipPrepGuide from '#lib/components/sections/scholarship/ScholarshipPrepGuide.svelte';
 	import ScholarshipCategorySection from '#lib/components/sections/scholarship/ScholarshipCategorySection.svelte';
 
+	// Knowledge Base Integration
+	import { faqKnowledge } from '#lib/data/knowledge/faq';
+	import { getKnowledgeById } from '#lib/data/knowledge/index';
+
+	const caraKerjaData = getKnowledgeById('cara-kerja');
+	const steps = [
+		{
+			step: '01',
+			title: 'Konsultasi & Asesmen Awal',
+			desc: 'Mendiskusikan kebutuhan, target, dan profil awal Anda atau institusi secara terarah.'
+		},
+		{
+			step: '02',
+			title: 'Perencanaan Program',
+			desc: 'Menyusun rencana aksi, linimasa kegiatan, kurikulum pelatihan, atau daftar target beasiswa.'
+		},
+		{
+			step: '03',
+			title: 'Pelaksanaan Terstruktur',
+			desc: 'Menjalankan bimbingan, pelatihan, telaah dokumen, atau simulasi secara intensif.'
+		},
+		{
+			step: '04',
+			title: 'Evaluasi & Umpan Balik',
+			desc: 'Meninjau progres, menguji kesiapan dokumen/keterampilan, dan memberikan catatan perbaikan.'
+		},
+		{
+			step: '05',
+			title: 'Tindak Lanjut & Monitoring',
+			desc: 'Pendampingan berkelanjutan hingga proses pendaftaran atau implementasi selesai.'
+		}
+	];
+
+	let openFaqIndex = $state<number | null>(null);
+	function toggleFaq(index: number) {
+		openFaqIndex = openFaqIndex === index ? null : index;
+	}
+
 	// State internal program & beasiswa
 	let activeProgramCategory = $state('Semua Program');
 	let activeScholarshipCategory = $state('Semua Kategori');
@@ -53,9 +91,13 @@
 	function scrollToSection(id: 'layanan' | 'program' | 'beasiswa') {
 		activeSection = id;
 		if (typeof document !== 'undefined') {
-			const target = document.getElementById(id);
-			if (target) {
-				target.scrollIntoView({ behavior: 'smooth' });
+			if (id === 'layanan') {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			} else {
+				const target = document.getElementById(id);
+				if (target) {
+					target.scrollIntoView({ behavior: 'smooth' });
+				}
 			}
 		}
 	}
@@ -118,79 +160,82 @@
 <Navbar compact={true} wide={true} />
 
 <main class="page-content">
-	<!-- 1. Hero Layanan Pendidikan Tunggal -->
-	<HeroServices />
-
-	<!-- 2. Sticky Subnav Bar (Layanan, Program, Beasiswa) -->
-	<nav class="subnav-sticky" aria-label="Navigasi Bagian Layanan Pendidikan">
-		<div class="subnav-container">
-			<div class="subnav-pills" role="tablist">
-				<a
-					href="#layanan"
-					class="subnav-btn {activeSection === 'layanan' ? 'active' : ''}"
-					role="tab"
-					aria-selected={activeSection === 'layanan'}
-					onclick={(e) => {
-						e.preventDefault();
-						scrollToSection('layanan');
-						history.replaceState(null, '', '#layanan');
-					}}
-				>
-					<span class="subnav-icon">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-							<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-						</svg>
-					</span>
-					<span>Layanan</span>
-				</a>
-
-				<a
-					href="#program"
-					class="subnav-btn {activeSection === 'program' ? 'active' : ''}"
-					role="tab"
-					aria-selected={activeSection === 'program'}
-					onclick={(e) => {
-						e.preventDefault();
-						scrollToSection('program');
-						history.replaceState(null, '', '#program');
-					}}
-				>
-					<span class="subnav-icon">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-							<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-						</svg>
-					</span>
-					<span>Program</span>
-				</a>
-
-				<a
-					href="#beasiswa"
-					class="subnav-btn {activeSection === 'beasiswa' ? 'active' : ''}"
-					role="tab"
-					aria-selected={activeSection === 'beasiswa'}
-					onclick={(e) => {
-						e.preventDefault();
-						scrollToSection('beasiswa');
-						history.replaceState(null, '', '#beasiswa');
-					}}
-				>
-					<span class="subnav-icon">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="8" r="7"></circle>
-							<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-						</svg>
-					</span>
-					<span>Beasiswa</span>
-				</a>
-			</div>
-		</div>
-	</nav>
-
 	<!-- SECTION 1: LAYANAN -->
 	<section id="layanan" class="anchor-section">
+		<!-- 1. Hero Layanan Pendidikan Tunggal -->
+		<HeroServices />
+
+		<!-- 2. Services Stats Overlap (Overlap Hero wave -13px sesuai mockup) -->
 		<ServicesStatsOverlap />
+
+		<!-- 3. Sticky Subnav Bar (Layanan, Program, Beasiswa) -->
+		<nav class="subnav-sticky" aria-label="Navigasi Bagian Layanan Pendidikan">
+			<div class="subnav-container">
+				<div class="subnav-pills" role="tablist">
+					<a
+						href="#layanan"
+						class="subnav-btn {activeSection === 'layanan' ? 'active' : ''}"
+						role="tab"
+						aria-selected={activeSection === 'layanan'}
+						onclick={(e) => {
+							e.preventDefault();
+							scrollToSection('layanan');
+							history.replaceState(null, '', '#layanan');
+						}}
+					>
+						<span class="subnav-icon">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+								<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+							</svg>
+						</span>
+						<span>Portofolio Layanan</span>
+					</a>
+
+					<a
+						href="#program"
+						class="subnav-btn {activeSection === 'program' ? 'active' : ''}"
+						role="tab"
+						aria-selected={activeSection === 'program'}
+						onclick={(e) => {
+							e.preventDefault();
+							scrollToSection('program');
+							history.replaceState(null, '', '#program');
+						}}
+					>
+						<span class="subnav-icon">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+								<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+							</svg>
+						</span>
+						<span>Program Pelatihan</span>
+					</a>
+
+					<a
+						href="#beasiswa"
+						class="subnav-btn {activeSection === 'beasiswa' ? 'active' : ''}"
+						role="tab"
+						aria-selected={activeSection === 'beasiswa'}
+						onclick={(e) => {
+							e.preventDefault();
+							scrollToSection('beasiswa');
+							history.replaceState(null, '', '#beasiswa');
+						}}
+					>
+						<span class="subnav-icon">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="8" r="7"></circle>
+								<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+							</svg>
+						</span>
+						<span>Direktori Beasiswa</span>
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- 4. Intro & 5 Zigzag Blocks -->
 		<ServicesIntro />
 		<ServicesZigzag />
 	</section>
@@ -201,7 +246,7 @@
 			<div class="divider-inner">
 				<span class="divider-pill">Program Unggulan</span>
 				<h2 class="divider-title">Kembangkan Potensi Bersama Program Terstruktur</h2>
-				<p class="divider-desc">Pilihan program akselerasi kompetensi, bimbingan beasiswa, dan pengembangan talenta masa depan.</p>
+				<p class="divider-desc">Pilihan program akselerasi kompetensi, bimbingan beasiswa, dan pengembangan talenta masa depan yang siap menjawab tantangan global.</p>
 			</div>
 		</div>
 
@@ -225,8 +270,8 @@
 		<div class="section-divider-bar scholarship-divider">
 			<div class="divider-inner">
 				<span class="divider-pill">Direktori Beasiswa</span>
-				<h2 class="divider-title">Akses Beasiswa Terpercaya & Terkurasi</h2>
-				<p class="divider-desc">Informasi lengkap peluang beasiswa studi dalam dan luar negeri serta panduan persiapan yang teruji.</p>
+				<h2 class="divider-title">Akses Beasiswa Terkurasi</h2>
+				<p class="divider-desc">Informasi lengkap peluang beasiswa studi dalam dan luar negeri serta panduan persiapan yang sistematis bersama konsultan pendidikan SDJNusantara.</p>
 			</div>
 		</div>
 
@@ -239,12 +284,87 @@
 		<ScholarshipCategorySection onSelectCategory={handleScholarshipCategorySelect} />
 	</section>
 
-	<!-- 7. Single CTA Banner di Akhir Halaman -->
+	<!-- SECTION 4: CARA KERJA KAMI (5 Tahap) -->
+	<section class="workflow-section" aria-labelledby="workflow-heading">
+		<div class="workflow-container">
+			<div class="section-label-center">
+				<span class="label-dash">—</span>
+				<span class="label-text">ALUR LAYANAN</span>
+			</div>
+			<h2 id="workflow-heading" class="workflow-title">
+				5 Tahap Pelaksanaan Pendampingan Kami
+			</h2>
+			<p class="workflow-desc">
+				Setiap program dan bimbingan di SDJNusantara dijalankan melalui alur kerja yang terarah, transparan, dan berkesinambungan.
+			</p>
+
+			<div class="steps-grid">
+				{#each steps as s}
+					<div class="step-card">
+						<div class="step-num-badge">{s.step}</div>
+						<h3 class="step-card-title">{s.title}</h3>
+						<p class="step-card-desc">{s.desc}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 5: FAQ ACCORDION (7 Pertanyaan Resmi) -->
+	<section class="faq-accordion-section" aria-labelledby="faq-section-heading">
+		<div class="faq-container">
+			<div class="section-label-center">
+				<span class="label-dash">—</span>
+				<span class="label-text">TANYA JAWAB</span>
+			</div>
+			<h2 id="faq-section-heading" class="faq-main-title">
+				Pertanyaan yang Sering Diajukan
+			</h2>
+			<p class="faq-main-desc">
+				Informasi penting seputar layanan pendidikan, pendampingan beasiswa, serta kerja sama kelembagaan.
+			</p>
+
+			<div class="faq-accordion-list">
+				{#each faqKnowledge as item, idx}
+					<div class="faq-row {openFaqIndex === idx ? 'open' : ''}">
+						<button
+							type="button"
+							class="faq-trigger"
+							aria-expanded={openFaqIndex === idx}
+							onclick={() => toggleFaq(idx)}
+						>
+							<span class="faq-q-text">{item.judul}</span>
+							<span class="faq-arrow-icon" aria-hidden="true">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="6 9 12 15 18 9"></polyline>
+								</svg>
+							</span>
+						</button>
+
+						{#if openFaqIndex === idx}
+							<div class="faq-body-panel">
+								<p class="faq-ringkas-text">{item.ringkas}</p>
+								{#if item.detail && item.detail.length > 0}
+									<ul class="faq-detail-bullets">
+										{#each item.detail as bullet}
+											<li>{bullet}</li>
+										{/each}
+									</ul>
+								{/if}
+							</div>
+						{/if}
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- 6. Single CTA Banner di Akhir Halaman -->
 	<CtaBanner
 		title="Siap Mengembangkan Potensi Anda?"
-		description="Konsultasikan kebutuhan pendidikan, program pelatihan, atau rencana studi beasiswa bersama tim ahli SDJNusantara."
+		description="Konsultasikan kebutuhan pendidikan, program pelatihan, atau rencana studi beasiswa bersama konsultan pendidikan SDJNusantara."
 		primaryText="Jadwalkan Konsultasi →"
-		primaryHref="/konsultasi"
+		primaryHref="/kontak"
 		secondaryText="Hubungi Kami"
 		secondaryHref="/kontak"
 		bgImage="/images/cta-grad-cap-dark.jpg"
@@ -264,7 +384,7 @@
 		overflow-x: hidden;
 	}
 
-	/* Anchor Scroll Margin Top setinggi Navbar (48px) + Subnav (~54px) */
+	/* Anchor Scroll Margin Top setinggi Navbar (48px) + Subnav (~58px) */
 	.anchor-section {
 		scroll-margin-top: 106px;
 	}
@@ -274,18 +394,19 @@
 		position: sticky;
 		top: 48px;
 		z-index: 35;
-		background: rgba(255, 255, 255, 0.95);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border-bottom: 1px solid #E2E8F0;
-		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.04);
+		background: rgba(255, 255, 255, 0.94);
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		border-top: 1px solid rgba(226, 232, 240, 0.8);
+		border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+		box-shadow: 0 4px 18px rgba(8, 36, 66, 0.05);
 		transition: all 0.25s ease;
 	}
 
 	.subnav-container {
 		max-width: 1312px;
 		margin: 0 auto;
-		padding: 8px 16px;
+		padding: 10px 16px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -300,42 +421,44 @@
 	.subnav-pills {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 10px;
 		background: #F1F5F9;
-		padding: 4px;
+		padding: 5px;
 		border-radius: 9999px;
 		border: 1px solid #E2E8F0;
+		box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 	}
 
 	.subnav-btn {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		padding: 8px 20px;
+		padding: 9px 22px;
 		border-radius: 9999px;
 		font-size: 13.5px;
 		font-weight: 600;
 		color: #475569;
 		text-decoration: none;
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
 	}
 
 	.subnav-btn:hover {
 		color: #082442;
-		background: rgba(255, 255, 255, 0.6);
+		background: rgba(255, 255, 255, 0.8);
 	}
 
 	.subnav-btn.active {
 		background: #082442;
 		color: #FFFFFF;
-		box-shadow: 0 4px 10px rgba(8, 36, 66, 0.15);
+		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.2);
 	}
 
 	.subnav-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		opacity: 0.85;
+		opacity: 0.8;
 	}
 
 	.subnav-btn.active .subnav-icon {
@@ -345,16 +468,17 @@
 
 	/* Section Dividers to blend Program & Beasiswa smoothly */
 	.section-divider-bar {
-		background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-		padding: 56px 20px 24px;
-		border-top: 1px solid #EAEFF5;
+		background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+		padding: 64px 20px 28px;
+		border-top: 1px solid #E2E8F0;
 		text-align: center;
+		position: relative;
 	}
 
 	.scholarship-divider {
-		background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+		background: linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%);
 		border-top: 1px solid #E2E8F0;
-		margin-top: 40px;
+		margin-top: 48px;
 	}
 
 	.divider-inner {
@@ -363,41 +487,69 @@
 	}
 
 	.divider-pill {
-		display: inline-block;
-		padding: 4px 14px;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 5px 16px;
 		background: #E6F7F8;
 		color: #079EAD;
 		font-size: 12px;
 		font-weight: 700;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		border-radius: 9999px;
-		margin-bottom: 12px;
+		margin-bottom: 14px;
+		border: 1px solid rgba(0, 166, 178, 0.2);
 	}
 
 	.scholarship-divider .divider-pill {
 		background: #FEF3C7;
 		color: #B45309;
+		border: 1px solid rgba(245, 179, 49, 0.3);
 	}
 
 	.divider-title {
-		font-size: 28px;
+		font-size: 32px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 10px;
-		letter-spacing: -0.02em;
+		margin: 0 0 12px;
+		letter-spacing: -0.025em;
+		line-height: 1.25;
 	}
 
 	.divider-desc {
-		font-size: 15px;
+		font-size: 15.5px;
 		color: #64748B;
 		margin: 0;
 		line-height: 1.6;
 	}
 
+	/* Prevent overlap collision in embedded sections */
+	.program-section-wrap :global(.category-overlap-wrap) {
+		margin-top: 24px;
+		margin-bottom: 2.25rem;
+	}
+
+	.scholarship-section-wrap :global(.sch-feature-overlap-wrap) {
+		margin-top: 24px;
+		margin-bottom: 2.5rem;
+	}
+
 	@media (max-width: 768px) {
+		.subnav-container {
+			padding: 8px 12px;
+			overflow-x: auto;
+			justify-content: flex-start;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+		}
+
+		.subnav-container::-webkit-scrollbar {
+			display: none;
+		}
+
 		.subnav-btn {
-			padding: 6px 14px;
+			padding: 7px 16px;
 			font-size: 12.5px;
 			gap: 6px;
 		}
@@ -407,12 +559,245 @@
 			height: 15px;
 		}
 
+		.section-divider-bar {
+			padding: 44px 16px 20px;
+		}
+
 		.divider-title {
-			font-size: 22px;
+			font-size: 24px;
 		}
 
 		.divider-desc {
-			font-size: 13.5px;
+			font-size: 14px;
+		}
+	}
+
+	/* SECTION 4: WORKFLOW (5 Tahap) */
+	.workflow-section {
+		background: #F8FAFC;
+		padding: 72px 20px 80px;
+		border-top: 1px solid #E2E8F0;
+		border-bottom: 1px solid #E2E8F0;
+	}
+
+	.workflow-container {
+		width: 93%;
+		max-width: 1360px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.section-label-center {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		color: #00A6B2;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+	}
+
+	.workflow-title {
+		font-size: clamp(24px, 2.2vw, 34px);
+		font-weight: 800;
+		color: #082442;
+		margin: 0 0 12px;
+		letter-spacing: -0.02em;
+	}
+
+	.workflow-desc {
+		font-size: 15px;
+		color: #64748B;
+		max-width: 720px;
+		margin: 0 auto 48px;
+		line-height: 1.6;
+	}
+
+	.steps-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 18px;
+		text-align: left;
+	}
+
+	.step-card {
+		background: #FFFFFF;
+		border: 1px solid #E2E8F0;
+		border-radius: 16px;
+		padding: 24px 20px;
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 4px 16px rgba(8, 36, 66, 0.04);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.step-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 24px rgba(8, 36, 66, 0.08);
+	}
+
+	.step-num-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		background: #082442;
+		color: #F5B331;
+		font-size: 14px;
+		font-weight: 800;
+		border-radius: 10px;
+		margin-bottom: 16px;
+	}
+
+	.step-card-title {
+		font-size: 16px;
+		font-weight: 700;
+		color: #082442;
+		margin: 0 0 10px;
+		line-height: 1.35;
+	}
+
+	.step-card-desc {
+		font-size: 13.5px;
+		color: #64748B;
+		line-height: 1.55;
+		margin: 0;
+	}
+
+	/* SECTION 5: FAQ (7 Pertanyaan Resmi) */
+	.faq-accordion-section {
+		background: #FFFFFF;
+		padding: 80px 20px 96px;
+	}
+
+	.faq-container {
+		width: 93%;
+		max-width: 980px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.faq-main-title {
+		font-size: clamp(24px, 2.2vw, 34px);
+		font-weight: 800;
+		color: #082442;
+		margin: 0 0 12px;
+		letter-spacing: -0.02em;
+	}
+
+	.faq-main-desc {
+		font-size: 15px;
+		color: #64748B;
+		max-width: 680px;
+		margin: 0 auto 40px;
+		line-height: 1.6;
+	}
+
+	.faq-accordion-list {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		text-align: left;
+	}
+
+	.faq-row {
+		border: 1px solid #E2E8F0;
+		border-radius: 14px;
+		background: #FFFFFF;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		overflow: hidden;
+	}
+
+	.faq-row.open {
+		border-color: #16B6C1;
+		box-shadow: 0 6px 20px rgba(7, 158, 173, 0.08);
+	}
+
+	.faq-trigger {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px 24px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		gap: 16px;
+	}
+
+	.faq-q-text {
+		font-size: 16.5px;
+		font-weight: 700;
+		color: #082442;
+		line-height: 1.4;
+	}
+
+	.faq-row.open .faq-q-text {
+		color: #079EAD;
+	}
+
+	.faq-arrow-icon {
+		flex-shrink: 0;
+		color: #64748B;
+		transition: transform 0.25s ease, color 0.2s ease;
+	}
+
+	.faq-row.open .faq-arrow-icon {
+		transform: rotate(180deg);
+		color: #079EAD;
+	}
+
+	.faq-body-panel {
+		padding: 0 24px 22px;
+		border-top: 1px solid #F1F5F9;
+	}
+
+	.faq-ringkas-text {
+		font-size: 14.5px;
+		line-height: 1.65;
+		color: #334155;
+		margin: 16px 0 10px;
+	}
+
+	.faq-detail-bullets {
+		margin: 0;
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.faq-detail-bullets li {
+		font-size: 13.5px;
+		line-height: 1.55;
+		color: #475569;
+	}
+
+	@media (max-width: 1024px) {
+		.steps-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.steps-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.faq-trigger {
+			padding: 16px 18px;
+		}
+
+		.faq-q-text {
+			font-size: 15px;
+		}
+
+		.faq-body-panel {
+			padding: 0 18px 18px;
 		}
 	}
 </style>

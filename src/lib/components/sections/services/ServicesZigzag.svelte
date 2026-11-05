@@ -1,7 +1,13 @@
 <script lang="ts">
-	// ServicesZigzag.svelte - Replikasi presisi 5 blok layanan sesuai design/layanan.png
+	// ServicesZigzag.svelte - 4 Pilar Layanan Pendidikan Utama sesuai Basis Pengetahuan SDJNusantara
 	// Tipe A (01, 03, 05): Teks Kiri, Foto Kanan dengan Kartu Navy di dalam foto
 	// Tipe B (02, 04): Foto Kiri Menempel Tepi Layar, Teks Tengah, Kartu Terang di Kanan
+	import { pendidikanKnowledge, showDigitalEducation } from '#lib/data/knowledge/pendidikan';
+
+	const p1 = pendidikanKnowledge[0];
+	const p2 = pendidikanKnowledge[1];
+	const p3 = pendidikanKnowledge[2];
+	const p4 = pendidikanKnowledge[3];
 </script>
 
 <div class="services-zigzag-wrap" id="daftar-layanan">
@@ -24,7 +30,7 @@
 					</div>
 
 					<p class="service-desc">
-						Program pengembangan talenta yang terstruktur untuk membantu individu mengenali potensi, merencanakan pendidikan, dan mempersiapkan karier yang lebih baik.
+						{p1.ringkas}
 					</p>
 
 					<!-- 4 Chips 2x2 -->
@@ -153,7 +159,7 @@
 					</div>
 
 					<p class="service-desc">
-						Layanan pendampingan persiapan beasiswa dalam dan luar negeri dengan pendekatan terarah dan berbasis pengalaman.
+						{p2.ringkas}
 					</p>
 
 					<!-- 4 Chips -->
@@ -209,15 +215,15 @@
 						<ul class="card-light-list">
 							<li>
 								<span class="check-mark">✓</span>
-								<span>Strategi aplikasi beasiswa</span>
+								<span>Strategi aplikasi beasiswa terarah</span>
 							</li>
 							<li>
 								<span class="check-mark">✓</span>
-								<span>Dokumen siap submit</span>
+								<span>Dokumen aplikasi siap submit</span>
 							</li>
 							<li>
 								<span class="check-mark">✓</span>
-								<span>Peningkatan peluang lolos</span>
+								<span>Simulasi &amp; evaluasi wawancara</span>
 							</li>
 							<li>
 								<span class="check-mark">✓</span>
@@ -249,7 +255,7 @@
 					</div>
 
 					<p class="service-desc">
-						Pelatihan dan sertifikasi untuk meningkatkan keterampilan teknis dan non-teknis yang relevan dengan kebutuhan industri dan dunia pendidikan.
+						{p3.ringkas}
 					</p>
 
 					<!-- 4 Chips -->
@@ -257,19 +263,24 @@
 						<div class="chip-item">
 							<div class="chip-icon">
 								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+									<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+									<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+									<line x1="12" y1="19" x2="12" y2="23"></line>
+									<line x1="8" y1="23" x2="16" y2="23"></line>
 								</svg>
 							</div>
-							<span>Pelatihan Keterampilan Digital</span>
+							<span>Public Speaking &amp; Komunikasi</span>
 						</div>
 
 						<div class="chip-item">
 							<div class="chip-icon">
 								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+									<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+									<line x1="8" y1="21" x2="16" y2="21"></line>
+									<line x1="12" y1="17" x2="12" y2="21"></line>
 								</svg>
 							</div>
-							<span>Workshop &amp; Bootcamp</span>
+							<span>AI untuk Pendidikan &amp; Riset</span>
 						</div>
 
 						<div class="chip-item">
@@ -279,7 +290,7 @@
 									<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
 								</svg>
 							</div>
-							<span>Sertifikasi Kompetensi</span>
+							<span>Keterampilan Digital &amp; Data</span>
 						</div>
 
 						<div class="chip-item">
@@ -289,7 +300,7 @@
 									<polyline points="7 7 17 7 17 17"></polyline>
 								</svg>
 							</div>
-							<span>Program Upskilling &amp; Reskilling</span>
+							<span>Kepemimpinan &amp; Karier</span>
 						</div>
 					</div>
 
@@ -383,7 +394,7 @@
 					</div>
 
 					<p class="service-desc">
-						Membangun kolaborasi strategis dengan institusi pendidikan, lembaga pemerintah, perusahaan, dan organisasi untuk menciptakan dampak yang lebih luas.
+						{p4.ringkas}
 					</p>
 
 					<!-- 4 Chips -->
@@ -469,6 +480,7 @@
 	</section>
 
 
+	{#if showDigitalEducation}
 	<!-- ==========================================
 	     BLOK 05: Digital Education & Learning Platform (Tipe A)
 	     Target tinggi: ±369px pada 1536
@@ -593,6 +605,7 @@
 			</div>
 		</div>
 	</section>
+	{/if}
 
 </div>
 
@@ -848,18 +861,29 @@
 		left: 0;
 		top: 0;
 		bottom: 0;
-		width: calc((100% - 1400px) / 2 + 500px);
-		min-width: 460px;
-		border-top-right-radius: 16px;
-		border-bottom-right-radius: 16px;
+		width: calc(max(0px, (100% - 1400px) / 2) + 1rem + 460px);
+		border-top-right-radius: 18px;
+		border-bottom-right-radius: 18px;
 		overflow: hidden;
-		box-shadow: 8px 0 24px rgba(11, 39, 71, 0.08);
+		box-shadow: 6px 0 24px rgba(11, 39, 71, 0.08);
 		z-index: 1;
 	}
 
-	@media (max-width: 1440px) {
+	@media (min-width: 1920px) {
 		.fullbleed-photo-left {
-			width: 480px;
+			width: calc(max(0px, (100% - 1500px) / 2) + 1rem + 500px);
+		}
+	}
+
+	@media (max-width: 1366px) {
+		.fullbleed-photo-left {
+			width: calc(max(0px, (100% - 1400px) / 2) + 1rem + 390px);
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.fullbleed-photo-left {
+			width: calc(max(0px, (100% - 1400px) / 2) + 1rem + 340px);
 		}
 	}
 
@@ -867,15 +891,36 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center;
+		object-position: center 22%;
 		display: block;
 	}
 
 	.grid-type-b {
 		display: grid;
-		grid-template-columns: 480px 1.22fr 1fr;
+		grid-template-columns: 460px 1fr 370px;
 		gap: 2.25rem;
 		align-items: center;
+	}
+
+	@media (min-width: 1920px) {
+		.grid-type-b {
+			grid-template-columns: 500px 1fr 390px;
+			gap: 2.75rem;
+		}
+	}
+
+	@media (max-width: 1366px) {
+		.grid-type-b {
+			grid-template-columns: 390px 1fr 330px;
+			gap: 1.75rem;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.grid-type-b {
+			grid-template-columns: 340px 1fr 290px;
+			gap: 1.25rem;
+		}
 	}
 
 	.photo-spacer-b {
@@ -885,31 +930,32 @@
 	.text-col-b {
 		display: flex;
 		flex-direction: column;
-		max-width: 490px;
+		width: 100%;
 	}
 
-	/* Light Card (#F4F8FB) on far right */
+	/* Light Card (#F4F8FB) on right */
 	.card-col-b {
 		display: flex;
-		justify-content: flex-end;
+		align-items: center;
+		width: 100%;
 	}
 
 	.card-light-output {
 		background: #F4F8FB;
-		border-radius: 14px;
-		padding: 1.4rem 1.4rem;
+		border-radius: 16px;
+		padding: 1.65rem 1.6rem;
 		width: 100%;
-		max-width: 250px;
 		box-shadow: 0 6px 20px rgba(11, 39, 71, 0.05);
-		border: 1px solid rgba(226, 232, 240, 0.7);
+		border: 1px solid rgba(226, 232, 240, 0.85);
 		box-sizing: border-box;
 	}
 
 	.card-light-title {
-		font-size: 13.5px;
+		font-size: 15px;
 		font-weight: 800;
 		color: #079EAD;
-		margin: 0 0 0.85rem 0;
+		margin: 0 0 1rem 0;
+		letter-spacing: -0.01em;
 	}
 
 	.card-light-list {
@@ -918,31 +964,39 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.65rem;
+		gap: 0.75rem;
 	}
 
 	.card-light-list li {
 		display: flex;
 		align-items: flex-start;
-		gap: 8px;
-		font-size: 12px;
+		gap: 10px;
+		font-size: 12.5px;
 		color: #082442;
-		line-height: 1.35;
+		line-height: 1.45;
 	}
 
 	.check-mark {
-		color: #00A6B2;
+		color: #079EAD;
 		font-weight: 800;
 		font-size: 13px;
-		line-height: 1.1;
+		line-height: 1;
 		flex-shrink: 0;
+		background: #E0F7F9;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 1px;
 	}
 
 	/* ==================== RESPONSIVE ==================== */
 	@media (max-width: 1024px) {
 		.block-01, .block-02, .block-03, .block-04, .block-05 {
-			height: auto;
-			padding: 2.5rem 0;
+			height: auto !important;
+			padding: 2.25rem 0;
 		}
 
 		.grid-type-a {
@@ -952,16 +1006,20 @@
 
 		.photo-col-a {
 			max-width: 100%;
-			height: 280px;
+			height: 300px;
 		}
 
 		.fullbleed-photo-left {
-			display: none;
+			position: relative;
+			width: 100%;
+			height: 300px;
+			border-radius: 16px;
+			margin-bottom: 1.5rem;
 		}
 
 		.grid-type-b {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 1.75rem;
 		}
 
 		.photo-spacer-b {
@@ -969,7 +1027,7 @@
 		}
 
 		.card-col-b {
-			justify-content: flex-start;
+			width: 100%;
 		}
 
 		.card-light-output {

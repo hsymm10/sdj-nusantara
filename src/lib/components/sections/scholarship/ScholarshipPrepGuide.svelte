@@ -1,11 +1,11 @@
 <script lang="ts">
-	// ScholarshipPrepGuide.svelte - Replicated faithfully from design/beasiswa.png
+	// ScholarshipPrepGuide.svelte - Pendampingan terarah persiapan beasiswa dari Basis Pengetahuan SDJNusantara
 	const checklist = [
-		'Strategi memilih beasiswa',
-		'Persiapan dokumen',
-		'Tips menulis esai dan motivation letter',
-		'Persiapan wawancara',
-		'Simulasi dan mentoring'
+		'Pemetaan profil & target beasiswa',
+		'Persiapan dokumen akademik & CV',
+		'Bimbingan esai & motivation letter',
+		'Simulasi wawancara terarah',
+		'Pemeriksaan kelengkapan berkas'
 	];
 </script>
 
@@ -52,12 +52,12 @@
 		<h2 class="prep-title">Persiapkan Diri untuk Meraih Beasiswa Impian</h2>
 
 		<p class="prep-desc">
-			Dapatkan panduan, tips, dan strategi persiapan beasiswa dari tim profesional<br />
-			SDJNusantara agar peluang Anda semakin besar.
+			Dapatkan panduan, strategi dokumen, dan simulasi wawancara terarah dari konsultan<br />
+			pendidikan SDJNusantara untuk mendukung persiapan studi Anda.
 		</p>
 
-		<a href="/konsultasi" class="btn-gold-guide">
-			<span>Lihat Panduan Lengkap</span>
+		<a href="/kontak" class="btn-gold-guide">
+			<span>Konsultasi Persiapan Beasiswa</span>
 			<span class="arrow-glyph" aria-hidden="true">→</span>
 		</a>
 	</div>

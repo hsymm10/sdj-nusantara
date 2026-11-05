@@ -2,6 +2,8 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { pendidikanKnowledge } from '#lib/data/knowledge/pendidikan';
+	import { beasiswaKnowledge } from '#lib/data/knowledge/beasiswa';
 
 	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
 	let openFaq = $state<number | null>(null);
@@ -331,7 +333,7 @@
 
 								<h3 class="card-title">Program Pendidikan</h3>
 								<p class="card-desc">
-									Berbagai program pengembangan kompetensi, pelatihan, dan kegiatan akademik yang dirancang untuk meningkatkan kapasitas individu maupun institusi.
+									{pendidikanKnowledge[0].ringkas}
 								</p>
 
 								<ul class="card-checklist" aria-label="Fitur Program Pendidikan">
@@ -406,7 +408,7 @@
 
 								<h3 class="card-title">Program Beasiswa</h3>
 								<p class="card-desc">
-									Akses informasi dan pendampingan beasiswa dalam dan luar negeri, dengan dukungan persiapan yang komprehensif dan terarah.
+									{beasiswaKnowledge[0].ringkas}
 								</p>
 
 								<ul class="card-checklist" aria-label="Fitur Program Beasiswa">

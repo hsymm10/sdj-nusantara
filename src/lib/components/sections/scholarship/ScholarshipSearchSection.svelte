@@ -293,7 +293,7 @@
 		<!-- Disclaimer (2 lines italic tipis ±13px) -->
 		<div class="disclaimer-wrap">
 			<p class="disclaimer-text">
-				*{scholarshipDisclaimer}
+				*Contoh data referensi. Verifikasi informasi dan persyaratan terbaru selalu melalui situs resmi masing-masing penyelenggara beasiswa. SDJNusantara tidak menjanjikan kelulusan beasiswa; keputusan mutlak berada pada pihak penyelenggara.
 			</p>
 		</div>
 	</div>

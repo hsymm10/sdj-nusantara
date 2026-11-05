@@ -1,5 +1,6 @@
 <script lang="ts">
-	// ServicesStatsOverlap.svelte - Overlap 5 kartu layanan sesuai design/layanan.png (Tinggi ±123px, overlap ±13px)
+	// ServicesStatsOverlap.svelte - Overlap kartu layanan sesuai design/layanan.png
+	import { showDigitalEducation } from '#lib/data/knowledge/index.js';
 </script>
 
 <div class="stats-overlap-wrap">
@@ -78,24 +79,26 @@
 				</div>
 			</a>
 
-			<div class="vdivider"></div>
+			{#if showDigitalEducation}
+				<div class="vdivider"></div>
 
-			<!-- 05 Digital Education & Learning Platform -->
-			<a href="#layanan-5" class="service-item">
-				<div class="service-icon">
-					<!-- Outline icon 44px: Layar Monitor / Platform Digital -->
-					<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-						<line x1="8" y1="21" x2="16" y2="21"></line>
-						<line x1="12" y1="17" x2="12" y2="21"></line>
-						<path d="M7 8h10M7 12h6"></path>
-					</svg>
-				</div>
-				<div class="service-meta">
-					<span class="service-num">05</span>
-					<span class="service-title">Digital Education<br />&amp; Learning Platform</span>
-				</div>
-			</a>
+				<!-- 05 Digital Education & Learning Platform -->
+				<a href="#layanan-5" class="service-item">
+					<div class="service-icon">
+						<!-- Outline icon 44px: Layar Monitor / Platform Digital -->
+						<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+							<line x1="8" y1="21" x2="16" y2="21"></line>
+							<line x1="12" y1="17" x2="12" y2="21"></line>
+							<path d="M7 8h10M7 12h6"></path>
+						</svg>
+					</div>
+					<div class="service-meta">
+						<span class="service-num">05</span>
+						<span class="service-title">Digital Education<br />&amp; Learning Platform</span>
+					</div>
+				</a>
+			{/if}
 		</div>
 	</div>
 </div>

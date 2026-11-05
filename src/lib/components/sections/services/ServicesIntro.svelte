@@ -20,7 +20,7 @@
 				</h2>
 
 				<p class="intro-desc">
-					Kami menghadirkan lima layanan utama yang dirancang secara terintegrasi untuk menjawab kebutuhan pendidikan, pengembangan talenta, dan kolaborasi strategis.
+					Kami menghadirkan empat pilar layanan pendidikan utama yang dirancang secara terintegrasi untuk menjawab kebutuhan pendidikan, persiapan beasiswa, dan pengembangan talenta.
 				</p>
 			</div>
 

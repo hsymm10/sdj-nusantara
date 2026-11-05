@@ -83,6 +83,21 @@
 				</ul>
 			</div>
 		{/if}
+
+		<!-- Format Block -->
+		{#if program.format && program.format.length > 0}
+			<div class="features-card format-card">
+				<h2 class="features-title">Format Pembelajaran yang Ditawarkan</h2>
+				<ul class="features-list">
+					{#each program.format as fmt}
+						<li>
+							<span class="check-icon">✓</span>
+							<span>{fmt}</span>
+						</li>
+					{/each}
+				</ul>
+			</div>
+		{/if}
 	</div>
 </main>
 

@@ -90,7 +90,7 @@
 
 		<!-- Cards Grid (x 37→1500, tinggi ±458px) -->
 		<div class="cards-grid-wrap">
-			{#if activeCategory === 'Kolaborasi Kelembagaan' || filteredPrograms.length === 0}
+			{#if filteredPrograms.length === 0}
 				<div class="empty-state-card">
 					<div class="empty-icon-wrap">
 						<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -98,11 +98,11 @@
 							<path d="M9 9v.01M9 13v.01M9 17v.01"></path>
 						</svg>
 					</div>
-					<h3 class="empty-title">Belum ada program pada kategori ini.</h3>
+					<h3 class="empty-title">Program tidak ditemukan.</h3>
 					<p class="empty-desc">
-						Diskusikan kebutuhan program kolaborasi khusus institusi Anda bersama tim kami.
+						Silakan gunakan kata kunci lain atau konsultasikan langsung kebutuhan program Anda bersama tim kami.
 					</p>
-					<a href="/konsultasi" class="empty-btn-gold">
+					<a href="/kontak" class="empty-btn-gold">
 						<span>Konsultasikan Kebutuhan Anda</span>
 						<span>→</span>
 					</a>
@@ -129,7 +129,7 @@
 											<circle cx="12" cy="12" r="10"></circle>
 											<polyline points="12 6 12 12 16 14"></polyline>
 										</svg>
-										<span>{prog.duration}</span>
+										<span><strong>Durasi:</strong> {prog.duration}</span>
 									</div>
 
 									<div class="meta-line">
@@ -137,7 +137,7 @@
 											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
 											<circle cx="12" cy="7" r="4"></circle>
 										</svg>
-										<span>{prog.target}</span>
+										<span><strong>Cocok untuk:</strong> {prog.target}</span>
 									</div>
 
 									<a href="/layanan/pendidikan/program/{prog.slug}" class="detail-link">
@@ -153,7 +153,7 @@
 
 			<!-- Content Compliance Note -->
 			<div class="indicative-note">
-				<p>Durasi bersifat indikatif dan dapat disesuaikan berdasarkan kurikulum serta kesepakatan layanan.</p>
+				<p>Jadwal dan biaya dijelaskan saat konsultasi awal.</p>
 			</div>
 		</div>
 	</div>
