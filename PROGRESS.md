@@ -954,3 +954,50 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 10. `screenshots/filter-toolbar-mobile-390.png`: Toolbar Cari & Filter pada mobile 390px.
 11. `screenshots/filter-toolbar-mobile-popover-390.png`: Filter popover sebagai bottom-sheet mobile 390px.
 12. `screenshots/program-search-toggle-1536.png`: Tombol Cari terintegrasi pada Daftar Program.
+
+---
+
+## 19. Redesign & Implementasi Halaman FAQ Interaktif SDJNusantara (05 November 2026)
+
+### 19.1 Ringkasan Perubahan
+1. **Model Data FAQ Terpusat (`src/lib/data/faq.ts`)**:
+   - Membangun struktur data resmi FAQ: `id`, `question`, `answer`, `category` (`program` | `beasiswa` | `kemitraan` | `hukum`), `isActive`, `isPopular`, dan `order`.
+   - Mengintegrasikan 24 pertanyaan terstruktur yang merefleksikan 4 pilar utama layanan SDJNusantara:
+     * Semua Pertanyaan (24)
+     * Program Pendidikan (8)
+     * Beasiswa (6)
+     * Kemitraan (5)
+     * Layanan Hukum (5)
+   - 7 Pertanyaan Populer diprioritaskan pada tampilan awal sesuai persis dengan urutan dan redaksi pada mockup referensi (`media_1793889787792_df081cbd.jpg`).
+   - Seluruh konten mematuhi etika dan kebijakan komunikasi SDJNusantara: bebas klaim kelulusan mutlak, bebas kata terlarang, serta memuat batasan hukum non-litigasi yang jelas.
+
+2. **Komponen Interaktif 2 Kolom (`src/lib/components/sections/faq/FaqSection.svelte`)**:
+   - **Sidebar Kiri (Navigasi Kategori)**:
+     - Card putih dengan sudut membulat 20px, border abu-abu kebiruan tipis, dan bayangan lembut.
+     - Header visual potret konsultan wanita muda berhijab ramah memegang tablet (`static/images/faq-assistant-woman.jpg`) dilengkapi ornamen gelembung tanya (*floating question bubble*) warna teal `#00A6B2`.
+     - Heading: *"Cari Informasi dengan Cepat"* dan deskripsi fungsi FAQ.
+     - 5 tombol navigasi kategori dengan Iconify (`ph:graduation-cap-fill`, `ph:student-bold`, `ph:gift-bold`, `ph:handshake-bold`, `ph:scales-bold`) dan badge counter jumlah pertanyaan aktual yang terhitung secara dinamis dari data.
+     - Status aktif: latar belakang teal `#00A6B2` dengan teks & ikon putih; status tidak aktif: latar putih dengan border tipis dan efek hover transisi lembut.
+   - **Kolom Kanan (Pencarian & Accordion FAQ)**:
+     - Search Bar interaktif di bagian atas berikon Iconify `lucide:search`, placeholder *"Cari pertanyaan, misalnya 'cara daftar beasiswa'..."*, tombol clear (x), serta filter real-time terhadap judul pertanyaan dan isi jawaban.
+     - Heading dinamis: menampilkan *"— Pertanyaan Populer"* berikon badge emas `★ Populer` pada kategori awal, serta beradaptasi sesuai kategori atau kueri pencarian.
+     - Accordion card horizontal ber-border tipis `#E2E8F0`, badge nomor urut teal muda (`01`, `02`, ...), font semibold, ikon chevron berotasi mulus, dan latar belakang aktif teal sangat muda (`#F4FBFB`).
+     - Sistem single accordion (membuka satu pertanyaan otomatis menutup pertanyaan lainnya) dengan pertanyaan pertama terbuka secara default.
+     - Empty state informatif jika hasil pencarian tidak ditemukan, dilengkapi tombol *"Atur Ulang Pencarian"* dan *"Tanya Asisten SDJ"*.
+   - **Banner CTA Bawah**:
+     - Card horizontal gelap navy `#082442` dengan lengkungan ornamen teal dan aksen emas.
+     - Ikon balon chat teal di sisi kiri, judul *"Masih ada pertanyaan lain?"*, dan deskripsi pendampingan.
+     - Dua tombol aksi terpadu: Tombol Emas *"Chat dengan Asisten"* (memicu `chatStore.open()`) dan Tombol Outline Putih *"Hubungi via WhatsApp"* (mengarah ke WhatsApp resmi SDJNusantara).
+
+3. **Integrasi Rute**:
+   - Memperbarui [`ContactFaqSection.svelte`](file:///var/www/html/SDJ_NUSANTARA/src/lib/components/sections/contact/ContactFaqSection.svelte) sehingga bagian FAQ di halaman Kontak (`/kontak#faq`) otomatis menggunakan desain 2 kolom baru.
+   - Menambahkan rute mandiri [`src/routes/faq/+page.svelte`](file:///var/www/html/SDJ_NUSANTARA/src/routes/faq/+page.svelte) lengkap dengan Navbar, meta SEO, FaqSection, dan Footer.
+
+### 19.2 Bukti Screenshot Verifikasi
+1. `screenshots/faq-desktop-default-1536.png`: Tampilan FAQ 2 kolom desktop 1536px (kategori Semua Pertanyaan aktif, 7 pertanyaan populer, nomor 01 terbuka).
+2. `screenshots/faq-category-beasiswa-1536.png`: Filter kategori Beasiswa aktif (6 pertanyaan tersaring, badge Beasiswa aktif).
+3. `screenshots/faq-search-lpdp-1536.png`: Pencarian interaktif dengan kata kunci "LPDP" (1 hasil beasiswa yang relevan).
+4. `screenshots/faq-empty-state-1536.png`: Tampilan empty state saat kata kunci tidak ditemukan dengan tombol atur ulang.
+5. `screenshots/faq-desktop-cta-banner-1536.png`: Tampilan banner CTA bawah horizontal (Chat dengan Asisten & WhatsApp) di atas Footer.
+6. `screenshots/faq-mobile-390.png`: Tampilan responsif mobile 390px (sidebar card di atas dengan horizontal scroll kategori, search bar & accordion 1 kolom).
+7. `screenshots/faq-kontak-section-1536.png`: Verifikasi integrasi komponen FAQ baru pada halaman Kontak (`/kontak#faq`).
