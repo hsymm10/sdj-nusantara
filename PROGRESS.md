@@ -909,3 +909,48 @@ Status Visual: **Identik 100% terhadap `design/kontak.png` (Skala 1.5× / 2.2522
 3. `screenshots/nav-beasiswa.png`: Navbar Beasiswa setelah standarisasi.
 4. `screenshots/nav-kemitraan.png`: Navbar Kemitraan setelah standarisasi.
 5. `screenshots/nav-artikel.png`: Navbar Artikel & Wawasan setelah standarisasi.
+
+---
+
+## 18. Implementasi Modal Detail Beasiswa & Program dan Toolbar Cari & Filter Popover (05 November 2026)
+
+### 18.1 Ringkasan Perubahan
+1. **Modal Detail Reusable (`src/lib/components/ui/DetailModal.svelte`)**:
+   - Menghubungkan tombol "Lihat Detail" pada kartu Beasiswa (`ScholarshipSearchSection.svelte`) dan kartu Program (`ProgramListSection.svelte`) ke dialog modal interaktif tanpa berpindah halaman.
+   - Menggunakan portal render (`document.body`), scroll-lock body tanpa layout shift (kompensasi `scrollbar-width`), serta focus trap penuh (`role="dialog"`, `aria-modal="true"`, inisialisasi fokus ke tombol tutup, dan pengembalian fokus ke elemen pemantik saat modal ditutup).
+   - Sinkronisasi URL hash (`#beasiswa-<id>` dan `#program-<slug>`) via `history.replaceState` untuk deep-linking langsung ke modal.
+   - Navigasi antar-kartu ("Sebelumnya", "Berikutnya", dan indikator "X dari N") yang menghormati hasil filter/pencarian aktif.
+   - Sticky action footer: tombol "Konsultasi Persiapan", tombol "Tanya Asisten" (membuka chatbot dengan pertanyaan terisi otomatis ke `chatStore`), dan tautan "Buka halaman penuh" ke rute detail independen yang tetap berfungsi.
+   - Tampilan adaptif mobile ($\le 767\text{px}$) yang bertransformasi menjadi bottom-sheet dengan drag handle.
+
+2. **Komponen Isi Modal**:
+   - `src/lib/components/sections/scholarship/ScholarshipDetail.svelte`: Menampilkan rincian beasiswa 2 kolom, cakupan pendanaan (*Tuition Fee*, Biaya Hidup, Tiket PP, dsb.), checklist persiapan umum, bentuk pendampingan SDJ, serta catatan kepatuhan bahwa data bersifat referensi.
+   - `src/lib/components/sections/program/ProgramDetail.svelte`: Menampilkan detail program yang terhubung ke basis data `programKnowledge` (format program, sasaran peserta, hasil belajar, 3 langkah awal, serta klausul jujur konsultasi jadwal dan biaya).
+
+3. **Toolbar Cari & Filter Popover**:
+   - **`SearchToggle.svelte`**: Tombol pencarian kompak lebar 260px (ikon loop, placeholder "Cari beasiswa...", dan shortcut keyboard `/`) yang mengembang halus menjadi input aktif dengan debounce 200ms, tombol hapus (x), dan tombol kirim navy. Diterapkan pula secara konsisten pada bagian Daftar Program (`ProgramListSection.svelte`).
+   - **`FilterPopover.svelte`**: Tombol "Filter" berikon funnel dan badge counter aktif (`Filter (N)`) yang membuka floating popover card tepat di bawah tombol dengan notch segitiga. Memuat grid 2 kolom $\times$ 3 baris dropdown:
+     * Kategori (Pemerintah, Universitas, Lembaga Internasional, Swasta, Daerah)
+     * Jenjang Pendidikan (S1, S2, S3)
+     * Negara Tujuan (Dalam Negeri, Luar Negeri, Inggris, Jepang)
+     * Jenis Pendanaan (Fully Funded, Partial Funded)
+     * Status Pendaftaran (Buka, Segera Dibuka, Ditutup)
+     * Penyelenggara (Pemerintah RI / Kemdikbud, UK Government, Government of Japan, LPDP Kemenkeu)
+   - Preview dinamis pada tombol "Terapkan Filter (N)", tombol "Reset" draft, penutupan klik luar dan tombol Escape. Pada mobile ($\le 767\text{px}$), bertransformasi menjadi modal bottom-sheet.
+   - **`ActiveChips.svelte`**: Bar filter horizontal aktif di bawah toolbar dengan tag per opsi (`[Kategori: ...]`, `[Jenjang: ...]`, `[Cari: ...]`) yang dapat dihapus individual maupun sekaligus ("Hapus semua").
+   - Informasi hasil: Teks *"Menampilkan N beasiswa"* di kanan toolbar dan link *"Reset semua"* saat ada filter yang aktif.
+   - Tampilan status kosong (empty state) ramah dengan ikon kaca pembesar, pesan penyesuaian filter, tombol *"Atur Ulang Filter"*, dan tombol emas *"Konsultasikan Beasiswa yang Anda Cari"*.
+
+### 18.2 Bukti Screenshot Verifikasi
+1. `screenshots/modal-detail-beasiswa-1536.png`: Modal detail beasiswa desktop 1536px (banner, header, info grid 2 kolom, cakupan pendanaan, sticky footer).
+2. `screenshots/modal-detail-beasiswa-390.png`: Modal detail beasiswa mobile 390px bottom-sheet.
+3. `screenshots/modal-detail-program-1536.png`: Modal detail program desktop 1536px.
+4. `screenshots/modal-detail-program-390.png`: Modal detail program mobile 390px bottom-sheet.
+5. `screenshots/filter-toolbar-default-1536.png`: Toolbar Cari & Filter default berdampingan di desktop 1536px.
+6. `screenshots/filter-toolbar-search-expanded-1536.png`: Toolbar Cari mengembang dengan teks kueri dan chip aktif.
+7. `screenshots/filter-toolbar-popover-open-1536.png`: Popover Filter terbuka melayang dengan grid 2x3 dan tombol Terapkan Filter (N).
+8. `screenshots/filter-toolbar-chips-active-1536.png`: Bar chip filter aktif di bawah toolbar.
+9. `screenshots/filter-toolbar-empty-1536.png`: Tampilan empty state saat tidak ada beasiswa yang cocok.
+10. `screenshots/filter-toolbar-mobile-390.png`: Toolbar Cari & Filter pada mobile 390px.
+11. `screenshots/filter-toolbar-mobile-popover-390.png`: Filter popover sebagai bottom-sheet mobile 390px.
+12. `screenshots/program-search-toggle-1536.png`: Tombol Cari terintegrasi pada Daftar Program.

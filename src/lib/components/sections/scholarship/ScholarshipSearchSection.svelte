@@ -3,6 +3,9 @@
 	import { scholarshipsData, scholarshipDisclaimer, type Scholarship } from '#lib/data/scholarships';
 	import DetailModal from '#lib/components/ui/DetailModal.svelte';
 	import ScholarshipDetail from '#lib/components/sections/scholarship/ScholarshipDetail.svelte';
+	import SearchToggle from '#lib/components/ui/SearchToggle.svelte';
+	import FilterPopover, { type FilterValues } from '#lib/components/ui/FilterPopover.svelte';
+	import ActiveChips from '#lib/components/ui/ActiveChips.svelte';
 
 	interface Props {
 		selectedCategory?: string;
@@ -15,6 +18,7 @@
 	let selectedNegara = $state('Semua Negara');
 	let selectedPendanaan = $state('Semua Jenis');
 	let selectedStatus = $state('Semua Status');
+	let selectedPenyelenggara = $state('Semua Penyelenggara');
 
 	// Local bookmark toggle state
 	let bookmarked = $state<Record<string, boolean>>({});
@@ -22,6 +26,29 @@
 	function toggleBookmark(id: string) {
 		bookmarked[id] = !bookmarked[id];
 	}
+
+	// Filter values representation
+	let filterValues = $derived<FilterValues>({
+		kategori: selectedCategory,
+		jenjang: selectedJenjang,
+		negara: selectedNegara,
+		pendanaan: selectedPendanaan,
+		status: selectedStatus,
+		penyelenggara: selectedPenyelenggara
+	});
+
+	let activeFilterCount = $derived(
+		(selectedCategory !== 'Semua Kategori' ? 1 : 0) +
+		(selectedJenjang !== 'Semua Jenjang' ? 1 : 0) +
+		(selectedNegara !== 'Semua Negara' ? 1 : 0) +
+		(selectedPendanaan !== 'Semua Jenis' ? 1 : 0) +
+		(selectedStatus !== 'Semua Status' ? 1 : 0) +
+		(selectedPenyelenggara !== 'Semua Penyelenggara' ? 1 : 0)
+	);
+
+	let hasActiveFilters = $derived(
+		activeFilterCount > 0 || searchQuery.trim().length > 0
+	);
 
 	// Filter data
 	let filteredScholarships = $derived(
@@ -53,19 +80,119 @@
 			const matchStatus =
 				selectedStatus === 'Semua Status' || sch.status === selectedStatus;
 
+			const matchPenyelenggara =
+				selectedPenyelenggara === 'Semua Penyelenggara' ||
+				sch.penyelenggara.toLowerCase().includes(selectedPenyelenggara.toLowerCase());
+
 			return (
-				matchQuery && matchCat && matchJenjang && matchNegara && matchPendanaan && matchStatus
+				matchQuery && matchCat && matchJenjang && matchNegara && matchPendanaan && matchStatus && matchPenyelenggara
 			);
 		})
 	);
 
-	function resetFilters() {
+	function calculateDraftMatches(draft: FilterValues): number {
+		return scholarshipsData.filter((sch) => {
+			const q = searchQuery.trim().toLowerCase();
+			const matchQuery =
+				q === '' ||
+				sch.nama.toLowerCase().includes(q) ||
+				sch.penyelenggara.toLowerCase().includes(q) ||
+				sch.negara.toLowerCase().includes(q) ||
+				sch.jenjang.toLowerCase().includes(q) ||
+				sch.pendanaan.toLowerCase().includes(q);
+
+			const matchCat =
+				draft.kategori === 'Semua Kategori' || sch.kategori === draft.kategori;
+
+			const matchJenjang =
+				draft.jenjang === 'Semua Jenjang' || sch.jenjang.includes(draft.jenjang);
+
+			const matchNegara =
+				draft.negara === 'Semua Negara' ||
+				(draft.negara === 'Dalam Negeri' && sch.cakupan === 'Dalam Negeri') ||
+				(draft.negara === 'Luar Negeri' && sch.cakupan === 'Luar Negeri') ||
+				sch.negara.toLowerCase().includes(draft.negara.toLowerCase());
+
+			const matchPendanaan =
+				draft.pendanaan === 'Semua Jenis' || sch.jenisPendanaan === draft.pendanaan;
+
+			const matchStatus =
+				draft.status === 'Semua Status' || sch.status === draft.status;
+
+			const matchPenyelenggara =
+				!draft.penyelenggara ||
+				draft.penyelenggara === 'Semua Penyelenggara' ||
+				sch.penyelenggara.toLowerCase().includes(draft.penyelenggara.toLowerCase());
+
+			return (
+				matchQuery && matchCat && matchJenjang && matchNegara && matchPendanaan && matchStatus && matchPenyelenggara
+			);
+		}).length;
+	}
+
+	function handleApplyFilters(applied: FilterValues) {
+		selectedCategory = applied.kategori;
+		selectedJenjang = applied.jenjang;
+		selectedNegara = applied.negara;
+		selectedPendanaan = applied.pendanaan;
+		selectedStatus = applied.status;
+		selectedPenyelenggara = applied.penyelenggara || 'Semua Penyelenggara';
+	}
+
+	function handleResetFilters() {
+		resetAllFilters();
+	}
+
+	function resetAllFilters() {
 		searchQuery = '';
 		selectedCategory = 'Semua Kategori';
 		selectedJenjang = 'Semua Jenjang';
 		selectedNegara = 'Semua Negara';
 		selectedPendanaan = 'Semua Jenis';
 		selectedStatus = 'Semua Status';
+		selectedPenyelenggara = 'Semua Penyelenggara';
+	}
+
+	interface ChipItem {
+		id: string;
+		label: string;
+		type: string;
+	}
+
+	let activeChipsList = $derived.by<ChipItem[]>(() => {
+		const list: ChipItem[] = [];
+		if (searchQuery.trim()) {
+			list.push({ id: 'search', label: `Cari: "${searchQuery.trim()}"`, type: 'search' });
+		}
+		if (selectedCategory !== 'Semua Kategori') {
+			list.push({ id: 'kategori', label: `Kategori: ${selectedCategory}`, type: 'kategori' });
+		}
+		if (selectedJenjang !== 'Semua Jenjang') {
+			list.push({ id: 'jenjang', label: `Jenjang: ${selectedJenjang}`, type: 'jenjang' });
+		}
+		if (selectedNegara !== 'Semua Negara') {
+			list.push({ id: 'negara', label: `Negara: ${selectedNegara}`, type: 'negara' });
+		}
+		if (selectedPendanaan !== 'Semua Jenis') {
+			list.push({ id: 'pendanaan', label: `Pendanaan: ${selectedPendanaan}`, type: 'pendanaan' });
+		}
+		if (selectedStatus !== 'Semua Status') {
+			list.push({ id: 'status', label: `Status: ${selectedStatus}`, type: 'status' });
+		}
+		if (selectedPenyelenggara !== 'Semua Penyelenggara') {
+			list.push({ id: 'penyelenggara', label: `Penyelenggara: ${selectedPenyelenggara}`, type: 'penyelenggara' });
+		}
+		return list;
+	});
+
+	function handleRemoveChip(id: string, type: string) {
+		if (type === 'search') searchQuery = '';
+		else if (type === 'kategori') selectedCategory = 'Semua Kategori';
+		else if (type === 'jenjang') selectedJenjang = 'Semua Jenjang';
+		else if (type === 'negara') selectedNegara = 'Semua Negara';
+		else if (type === 'pendanaan') selectedPendanaan = 'Semua Jenis';
+		else if (type === 'status') selectedStatus = 'Semua Status';
+		else if (type === 'penyelenggara') selectedPenyelenggara = 'Semua Penyelenggara';
 	}
 
 	// Modal State
@@ -140,93 +267,42 @@
 			</p>
 		</div>
 
-		<!-- Wide Search Input (Pill height ±50px, icon left, round navy button right) -->
-		<div class="wide-search-bar">
-			<div class="search-input-wrap">
-				<svg class="search-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<circle cx="11" cy="11" r="8"></circle>
-					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-				</svg>
-				<input
-					type="text"
-					placeholder="Cari nama beasiswa, penyelenggara, atau kata kunci..."
-					bind:value={searchQuery}
-					class="search-text-input"
-					aria-label="Cari beasiswa"
+		<!-- Toolbar Cari & Filter Popover -->
+		<div class="sch-toolbar-row">
+			<div class="sch-toolbar-controls">
+				<SearchToggle
+					value={searchQuery}
+					onChange={(val) => (searchQuery = val)}
+					placeholderClosed="Cari beasiswa..."
+					placeholderOpen="Cari nama beasiswa, penyelenggara, atau kata kunci..."
+				/>
+				<FilterPopover
+					values={filterValues}
+					activeCount={activeFilterCount}
+					calculateCount={calculateDraftMatches}
+					onApply={handleApplyFilters}
+					onReset={handleResetFilters}
 				/>
 			</div>
-			<button type="button" class="btn-search-round" aria-label="Tombol cari beasiswa">
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<circle cx="11" cy="11" r="8"></circle>
-					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-				</svg>
-			</button>
-		</div>
 
-		<!-- 5 Select Filters (Equal width, gap ±16px, bold label above) -->
-		<div class="filters-row">
-			<div class="filter-group">
-				<label for="filter-cat" class="filter-lbl">Kategori</label>
-				<div class="select-wrapper">
-					<select id="filter-cat" bind:value={selectedCategory} class="filter-select">
-						<option value="Semua Kategori">Semua Kategori</option>
-						<option value="Pemerintah">Pemerintah</option>
-						<option value="Universitas">Universitas</option>
-						<option value="Lembaga Internasional">Lembaga Internasional</option>
-						<option value="Swasta">Swasta</option>
-						<option value="Daerah">Daerah</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="filter-group">
-				<label for="filter-jenjang" class="filter-lbl">Jenjang Pendidikan</label>
-				<div class="select-wrapper">
-					<select id="filter-jenjang" bind:value={selectedJenjang} class="filter-select">
-						<option value="Semua Jenjang">Semua Jenjang</option>
-						<option value="S1">S1</option>
-						<option value="S2">S2</option>
-						<option value="S3">S3</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="filter-group">
-				<label for="filter-negara" class="filter-lbl">Negara Tujuan</label>
-				<div class="select-wrapper">
-					<select id="filter-negara" bind:value={selectedNegara} class="filter-select">
-						<option value="Semua Negara">Semua Negara</option>
-						<option value="Dalam Negeri">Dalam Negeri</option>
-						<option value="Luar Negeri">Luar Negeri</option>
-						<option value="Inggris">Inggris</option>
-						<option value="Jepang">Jepang</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="filter-group">
-				<label for="filter-pendanaan" class="filter-lbl">Jenis Pendanaan</label>
-				<div class="select-wrapper">
-					<select id="filter-pendanaan" bind:value={selectedPendanaan} class="filter-select">
-						<option value="Semua Jenis">Semua Jenis</option>
-						<option value="Fully Funded">Fully Funded</option>
-						<option value="Partial Funded">Partial Funded</option>
-					</select>
-				</div>
-			</div>
-
-			<div class="filter-group">
-				<label for="filter-status" class="filter-lbl">Status Pendaftaran</label>
-				<div class="select-wrapper">
-					<select id="filter-status" bind:value={selectedStatus} class="filter-select">
-						<option value="Semua Status">Semua Status</option>
-						<option value="Buka">Buka</option>
-						<option value="Segera Dibuka">Segera Dibuka</option>
-						<option value="Ditutup">Ditutup</option>
-					</select>
-				</div>
+			<div class="sch-toolbar-meta">
+				<span class="results-count-text">
+					Menampilkan <strong>{filteredScholarships.length}</strong> beasiswa
+				</span>
+				{#if hasActiveFilters}
+					<button type="button" class="btn-quick-reset" onclick={resetAllFilters}>
+						Reset semua
+					</button>
+				{/if}
 			</div>
 		</div>
+
+		<!-- Active Filter Chips -->
+		<ActiveChips
+			chips={activeChipsList}
+			onRemove={handleRemoveChip}
+			onClearAll={resetAllFilters}
+		/>
 
 		<!-- Beasiswa Terbaru Header (±y 878 on 1536) -->
 		<div class="terbaru-header">
@@ -234,7 +310,7 @@
 				<h3 class="terbaru-title">Beasiswa Terbaru</h3>
 				<p class="terbaru-sub">Informasi beasiswa terbaru dari berbagai penyelenggara terpercaya.</p>
 			</div>
-			<button type="button" class="terbaru-link-btn" onclick={resetFilters}>
+			<button type="button" class="terbaru-link-btn" onclick={resetAllFilters}>
 				<span>Lihat Semua Beasiswa</span>
 				<span class="link-arrow">→</span>
 			</button>
@@ -244,11 +320,22 @@
 		<div class="sch-cards-grid">
 			{#if filteredScholarships.length === 0}
 				<div class="no-sch-box">
-					<p class="no-sch-title">Tidak ada beasiswa yang cocok dengan filter yang dipilih.</p>
-					<p class="no-sch-sub">Coba sesuaikan kata kunci atau atur ulang pilihan filter di atas.</p>
-					<button type="button" class="btn-reset-filters" onclick={resetFilters}>
-						Atur Ulang Filter
-					</button>
+					<div class="no-sch-icon-wrap">
+						<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="11" cy="11" r="8"></circle>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+						</svg>
+					</div>
+					<h3 class="no-sch-title">Belum ada beasiswa yang cocok</h3>
+					<p class="no-sch-sub">Coba sesuaikan kata kunci pencarian atau atur ulang filter Anda untuk melihat peluang lainnya.</p>
+					<div class="no-sch-actions">
+						<button type="button" class="btn-reset-filters" onclick={resetAllFilters}>
+							Atur Ulang Filter
+						</button>
+						<a href="/kontak" class="btn-consult-empty">
+							Konsultasikan Beasiswa yang Anda Cari
+						</a>
+					</div>
 				</div>
 			{:else}
 				{#each filteredScholarships as sch (sch.id)}
@@ -446,113 +533,140 @@
 		white-space: nowrap;
 	}
 
-	/* Wide Search Input (Height ±50px, pill shape, navy round button) */
-	.wide-search-bar {
+	/* Toolbar Cari & Filter Popover */
+	.sch-toolbar-row {
 		display: flex;
 		align-items: center;
-		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
-		border-radius: 999px;
-		height: 50px;
-		padding: 3px 4px 3px 18px;
-		box-shadow: 0 2px 10px rgba(11, 39, 71, 0.04);
-		margin-top: 0.75rem;
-		margin-bottom: 0.85rem;
-		box-sizing: border-box;
+		justify-content: space-between;
+		gap: 16px;
+		margin-top: 0.85rem;
+		margin-bottom: 0.75rem;
+		width: 100%;
+		flex-wrap: wrap;
 	}
 
-	.search-input-wrap {
+	.sch-toolbar-controls {
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		flex: 1;
-		height: 100%;
+		flex-wrap: nowrap;
 	}
 
-	.search-text-input {
-		flex: 1;
-		border: none;
-		outline: none;
-		background: transparent;
-		font-size: 14px;
+	.sch-toolbar-meta {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.results-count-text {
+		font-size: 13.5px;
+		color: #64748B;
+	}
+
+	.results-count-text strong {
 		color: #082442;
+		font-weight: 700;
 	}
 
-	.search-text-input::placeholder {
-		color: #94A3B8;
-	}
-
-	.btn-search-round {
-		width: 44px;
-		height: 44px;
-		border-radius: 50%;
-		background: #0B2747;
+	.btn-quick-reset {
+		background: none;
 		border: none;
+		color: #079EAD;
+		font-size: 13px;
+		font-weight: 600;
+		cursor: pointer;
+		padding: 4px 8px;
+		border-radius: 6px;
+		text-decoration: underline;
+		transition: color 0.15s ease;
+	}
+
+	.btn-quick-reset:hover {
+		color: #057A85;
+	}
+
+	/* Empty State */
+	.no-sch-box {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 48px 24px;
+		background: #F8FAFC;
+		border: 1px dashed #CBD5E1;
+		border-radius: 16px;
+		margin: 16px 0;
+	}
+
+	.no-sch-icon-wrap {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: #E6F7F8;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		cursor: pointer;
-		flex-shrink: 0;
-		transition: background 0.2s ease;
+		margin-bottom: 14px;
 	}
 
-	.btn-search-round:hover {
-		background: #00A6B2;
-	}
-
-	/* 5 Filters Row (Equal width, gap ±16px, bold label above) */
-	.filters-row {
-		display: flex;
-		align-items: flex-end;
-		gap: 16px;
-		margin-bottom: 1.15rem;
-		width: 100%;
-	}
-
-	.filter-group {
-		flex: 1;
-		min-width: 0;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.filter-lbl {
-		font-size: 12.5px;
+	.no-sch-title {
+		font-size: 18px;
 		font-weight: 700;
 		color: #082442;
-		margin-bottom: 5px;
+		margin: 0 0 6px 0;
 	}
 
-	.select-wrapper {
-		position: relative;
-		width: 100%;
-	}
-
-	/* Custom select: appearance none, white, border tipis, radius ±12px, tinggi ±50px, chevron navy */
-	.filter-select {
-		width: 100%;
-		height: 48px;
-		background-color: #FFFFFF;
-		border: 1px solid #E2E8F0;
-		border-radius: 12px;
-		padding: 0 38px 0 16px;
+	.no-sch-sub {
 		font-size: 13.5px;
-		font-weight: 500;
-		color: #082442;
-		appearance: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		outline: none;
-		cursor: pointer;
-		box-sizing: border-box;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23082442' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: right 14px center;
-		transition: border-color 0.2s ease;
+		color: #64748B;
+		max-width: 440px;
+		margin: 0 0 18px 0;
+		line-height: 1.5;
 	}
 
-	.filter-select:focus {
-		border-color: #00A6B2;
+	.no-sch-actions {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.btn-reset-filters {
+		background: #FFFFFF;
+		color: #082442;
+		border: 1px solid #CBD5E1;
+		padding: 9px 16px;
+		border-radius: 10px;
+		font-size: 13px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.15s ease;
+	}
+
+	.btn-reset-filters:hover {
+		background: #F1F5F9;
+		border-color: #94A3B8;
+	}
+
+	.btn-consult-empty {
+		background: #F5B331;
+		color: #082442;
+		border: none;
+		padding: 9px 18px;
+		border-radius: 10px;
+		font-size: 13px;
+		font-weight: 700;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		transition: background 0.15s ease;
+	}
+
+	.btn-consult-empty:hover {
+		background: #E5A320;
 	}
 
 	/* Beasiswa Terbaru Header (±y 878 on 1536) */
@@ -878,23 +992,30 @@
 		.section-desc {
 			white-space: normal;
 		}
-		.filters-row {
-			flex-wrap: wrap;
-		}
-		.filter-group {
-			flex: 1 1 calc(33.333% - 16px);
-		}
 		.sch-cards-grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
+	@media (max-width: 767px) {
+		.sch-toolbar-row {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 12px;
+		}
+		.sch-toolbar-controls {
+			width: 100%;
+			justify-content: flex-start;
+		}
+		.sch-toolbar-meta {
+			justify-content: space-between;
+			width: 100%;
+		}
+	}
+
 	@media (max-width: 640px) {
 		.sch-search-section {
-			padding: 2rem 0;
-		}
-		.filter-group {
-			flex: 1 1 100%;
+			padding: 1.5rem 0;
 		}
 		.sch-cards-grid {
 			grid-template-columns: 1fr;

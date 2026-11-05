@@ -4,6 +4,7 @@
 	import { programsData, type ProgramItem } from '#lib/data/programs';
 	import DetailModal from '#lib/components/ui/DetailModal.svelte';
 	import ProgramDetail from '#lib/components/sections/program/ProgramDetail.svelte';
+	import SearchToggle from '#lib/components/ui/SearchToggle.svelte';
 
 	interface Props {
 		activeCategory?: string;
@@ -115,20 +116,12 @@
 			</div>
 
 			<div class="search-col">
-				<div class="search-box">
-					<input
-						type="text"
-						placeholder="Cari program..."
-						bind:value={searchQuery}
-						class="search-input"
-					/>
-					<button type="button" class="search-btn" aria-label="Cari">
-						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="11" cy="11" r="8"></circle>
-							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-						</svg>
-					</button>
-				</div>
+				<SearchToggle
+					value={searchQuery}
+					onChange={(val) => (searchQuery = val)}
+					placeholderClosed="Cari program..."
+					placeholderOpen="Cari nama program, bidang, atau kata kunci..."
+				/>
 			</div>
 		</div>
 
@@ -309,49 +302,9 @@
 	}
 
 	/* Search Col */
-	.search-box {
-		position: relative;
+	.search-col {
 		display: flex;
 		align-items: center;
-		width: 290px;
-		height: 46px;
-		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
-		border-radius: 24px;
-		box-shadow: 0 2px 8px rgba(11, 39, 71, 0.04);
-		padding: 0 4px 0 16px;
-		box-sizing: border-box;
-	}
-
-	.search-input {
-		flex: 1;
-		border: none;
-		outline: none;
-		background: transparent;
-		font-size: 12.5px;
-		color: #082442;
-	}
-
-	.search-input::placeholder {
-		color: #94A3B8;
-	}
-
-	.search-btn {
-		width: 38px;
-		height: 38px;
-		border-radius: 50%;
-		background: #0B2948;
-		border: none;
-		color: #FFFFFF;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		transition: background 0.2s;
-	}
-
-	.search-btn:hover {
-		background: #00A6B2;
 	}
 
 	/* Tabs Bar (tinggi ±50px, background #F4F8FB) */
@@ -601,7 +554,7 @@
 			align-items: flex-start;
 		}
 
-		.search-box {
+		.search-col {
 			width: 100%;
 		}
 
