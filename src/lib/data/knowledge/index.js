@@ -46,6 +46,8 @@ export const knowledgeEntries = [
 	...hukumKnowledge
 ];
 
+export const allKnowledge = knowledgeEntries;
+
 /**
  * Ambil entri berdasarkan ID unik
  * @param {string} id

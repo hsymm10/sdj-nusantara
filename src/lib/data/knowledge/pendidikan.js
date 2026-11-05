@@ -16,6 +16,8 @@ export const pendidikanKnowledge = [
 			'apa itu talent management',
 			'layanan pemetaan bakat dan minat',
 			'bimbingan arah karier',
+			'bimbingan bwt maba yg bingung milih karir',
+			'bimbingan mahasiswa baru yang bingung karier',
 			'cara membuat rencana pengembangan diri idp',
 			'tes bakat dan minat anak'
 		],

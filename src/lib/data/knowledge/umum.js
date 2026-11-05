@@ -10,6 +10,9 @@ export const umumKnowledge = [
 		kategori: 'umum',
 		judul: 'Mengenal SDJNusantara',
 		pertanyaan: [
+			'info program pendidikan',
+			'informasi program pendidikan',
+			'program pendidikan',
 			'apa itu sdjnusantara',
 			'sdjnusantara itu lembaga apa',
 			'profil sdjnusantara',

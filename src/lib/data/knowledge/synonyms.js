@@ -22,7 +22,9 @@ export const SYNONYMS_MAP = {
 	'dalam negeri': ['dn', 'domestik', 'indonesia', 'lokal'],
 	'kerja sama': ['kemitraan', 'kolaborasi', 'partnership', 'mou', 'pks', 'kerjasama institusi', 'ajukan kerja sama'],
 	beasiswa: ['scholarship', 'bantuan dana', 'pendanaan studi', 'beasiswa penuh', 'fully funded'],
-	talenta: ['bakat', 'minat', 'potensi', 'talent', 'pengembangan diri', 'arah karier', 'jurusan'],
+	talenta: ['bakat', 'minat', 'potensi', 'talent', 'pengembangan diri', 'arah karier', 'jurusan', 'karir', 'maba', 'bwt'],
+	karier: ['karir', 'career', 'profesi', 'pekerjaan', 'dunia kerja'],
+	mahasiswa: ['maba', 'mhs', 'anak kuliahan', 'fresh graduate', 'alumni'],
 	konsultasi: ['konsul', 'tanya konsultan', 'diskusi', 'ngobrol', 'tanya jawab', 'bimbingan']
 };
 
