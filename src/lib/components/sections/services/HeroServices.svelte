@@ -40,7 +40,7 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Layanan</span>
+				<span class="pill-label">Fokus Pendidikan</span>
 			</div>
 
 			<!-- Headline -->
@@ -52,17 +52,17 @@
 
 			<!-- Description -->
 			<p class="hero-desc">
-				SDJNusantara menyediakan layanan konsultasi dan pengembangan talenta yang dirancang untuk individu, institusi, dan organisasi agar mampu menghadapi tantangan pendidikan di masa depan.
+				SDJNusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.
 			</p>
 
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
-				<a href="/konsultasi" class="btn-gold">
+				<a href="/kontak" class="btn-gold">
 					<span>Konsultasikan Kebutuhan Anda</span>
 					<span class="btn-arrow">→</span>
 				</a>
-				<a href="#layanan-1" class="btn-outline">
-					<span>Pelajari Layanan Kami</span>
+				<a href="#layanan-unggulan" class="btn-outline">
+					<span>Jelajahi Layanan Kami</span>
 				</a>
 			</div>
 		</div>
