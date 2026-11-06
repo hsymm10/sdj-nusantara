@@ -303,14 +303,6 @@
 			{/each}
 		</ul>
 
-		<!-- Tombol Konsultasi Emas Desktop -->
-		<a href="/konsultasi" class="nav-cta-btn">
-			<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-				<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-			</svg>
-			<span>Konsultasi</span>
-		</a>
-
 		<!-- Mobile Hamburger -->
 		<button
 			class="hamburger"
@@ -423,18 +415,6 @@
 						</a>
 					{/if}
 				{/each}
-
-				<!-- Tombol Konsultasi Emas di drawer mobile -->
-				<div class="mobile-action-wrap">
-					<a
-						href="/konsultasi"
-						class="mobile-btn-consultation"
-						onclick={() => (mobileOpen = false)}
-					>
-						<span>Konsultasi Sekarang</span>
-						<span class="btn-arrow">→</span>
-					</a>
-				</div>
 			</div>
 		</div>
 	{/if}
@@ -527,9 +507,9 @@
 	.nav-list {
 		display: flex;
 		align-items: center;
-		gap: 1.35rem;
+		gap: 1.6rem;
 		list-style: none;
-		margin: 0;
+		margin: 0 0 0 auto;
 		padding: 0;
 		height: 100%;
 	}
@@ -545,10 +525,10 @@
 		position: relative;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.2rem;
+		gap: 0.25rem;
 		height: 100%;
-		padding: 0 0.15rem;
-		font-size: 11px;
+		padding: 0 0.2rem;
+		font-size: 12.5px;
 		font-weight: 500;
 		color: #183553;
 		text-decoration: none;
@@ -841,36 +821,6 @@
 		transform: translateX(3px);
 	}
 
-	/* Tombol Konsultasi Emas Desktop */
-	.nav-cta-btn {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		background: #F5B331;
-		color: #082442;
-		font-size: 11px;
-		font-weight: 700;
-		padding: 6px 14px;
-		border-radius: 8px;
-		text-decoration: none;
-		box-shadow: 0 2px 6px rgba(245, 179, 49, 0.25);
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-		white-space: nowrap;
-		flex-shrink: 0;
-	}
-
-	.nav-cta-btn:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-		box-shadow: 0 4px 10px rgba(245, 179, 49, 0.32);
-	}
-
-	@media (max-width: 992px) {
-		.nav-cta-btn {
-			display: none;
-		}
-	}
-
 	/* Hamburger Button */
 	.hamburger {
 		display: none;
@@ -1083,31 +1033,6 @@
 		font-weight: 600;
 		color: #079EAD;
 		text-decoration: none;
-	}
-
-	.mobile-action-wrap {
-		margin-top: 1.5rem;
-		padding-top: 1rem;
-	}
-
-	.mobile-btn-consultation {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		background: #F5B331;
-		color: #082442;
-		font-size: 14.5px;
-		font-weight: 700;
-		min-height: 48px;
-		border-radius: 12px;
-		text-decoration: none;
-		box-shadow: 0 4px 12px rgba(245, 179, 49, 0.25);
-		transition: background 0.15s ease;
-	}
-
-	.mobile-btn-consultation:hover {
-		background: #E5A321;
 	}
 
 	/* Responsive Media Queries (Drawer aktif di ≤1023px) */

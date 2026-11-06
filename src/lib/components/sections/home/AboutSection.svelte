@@ -2,21 +2,12 @@
 </script>
 
 <section class="about-section">
-	<!-- Background line art ilustrasi gedung sangat samar (opacity 0.06) di kiri-bawah (x 0–190, y 470–612) -->
-	<div class="about-bg-line-art">
+	<!-- Background line art ilustrasi gedung transparan di kiri-bawah sesuai Gambar 2 -->
+	<div class="about-bg-line-art" aria-hidden="true">
 		<img
 			src="/images/tentang-line-art.png"
 			alt=""
 			class="line-art-img"
-		/>
-	</div>
-
-	<!-- Top-right swoosh (turquoise + gold ribbon) -->
-	<div class="about-top-swoosh-wrap">
-		<img
-			src="/images/tentang-top-swoosh.png"
-			alt=""
-			class="top-swoosh-img"
 		/>
 	</div>
 
@@ -143,29 +134,14 @@
 			</div>
 		</div>
 
-		<!-- Right: Large Curved Campus Building + Yellow Crescent Moon (x≈1085→1536) -->
-		<div class="about-right-building-container">
-			<!-- Bulan sabit kuning (#F5B331) di kiri-bawah foto (x≈1010–1100, y≈540–613) -->
-			<svg
-				class="yellow-crescent-svg"
-				viewBox="0 0 100 85"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M0 85 C35 70 70 40 100 0 C75 35 40 65 0 85 Z"
-					fill="#F5B331"
-				/>
-			</svg>
-
-			<!-- Foto Gedung: border-top-left-radius 190px cembung besar, menempel tepi kanan layar -->
-			<div class="building-mask-box">
-				<img
-					src="/images/building-pure.jpg"
-					alt="Gedung Kampus SDJNusantara"
-					class="building-img"
-				/>
-			</div>
+		<!-- Right: Large Curved Campus Building composite image matching Gambar 2 -->
+		<div class="about-right-building-container" aria-hidden="true">
+			<img
+				src="/images/about-building-composite.png"
+				alt="Gedung Kampus SDJNusantara"
+				class="building-composite-img"
+				loading="eager"
+			/>
 		</div>
 	</div>
 </section>
@@ -174,25 +150,26 @@
 	.about-section {
 		position: relative;
 		background: #FFFFFF;
-		height: 206px; /* y 407→613 (tinggi tepat 206px) */
+		min-height: 250px;
+		height: auto;
 		width: 100%;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
+		padding: 42px 0 18px 0;
+		box-sizing: border-box;
 	}
 
-	/* Faint building line art on left-bottom (opacity 0.06) - Masked so there is NO vertical line at x≈190 */
+	/* Faint building line art on left-bottom */
 	.about-bg-line-art {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 190px;
-		height: 143px;
+		width: clamp(220px, 20vw, 320px);
+		height: 100%;
 		z-index: 1;
 		pointer-events: none;
-		opacity: 0.06;
-		-webkit-mask-image: linear-gradient(to right, black 50%, transparent 95%);
-		mask-image: linear-gradient(to right, black 50%, transparent 95%);
+		opacity: 0.25;
 	}
 
 	.line-art-img {
@@ -200,24 +177,6 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: left bottom;
-	}
-
-	/* Top-right turquoise + gold ribbon swoosh */
-	.about-top-swoosh-wrap {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 156px;
-		height: 70px;
-		z-index: 2;
-		pointer-events: none;
-	}
-
-	.top-swoosh-img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		object-position: right top;
 	}
 
 	.about-full-row {
@@ -228,8 +187,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-left: max(1.5rem, calc((100vw - 1160px) / 2)); /* Posisi kiri x≈187 */
+		padding-left: max(1.5rem, calc((100vw - 1240px) / 2));
 		padding-right: 0;
+		box-sizing: border-box;
 	}
 
 	/* Left Column */
@@ -246,19 +206,19 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		margin-bottom: 0.2rem;
+		margin-bottom: 0.35rem;
 	}
 
 	.badge-dash {
 		width: 16px;
-		height: 2px;
+		height: 2.5px;
 		background: #00A6B2;
 		border-radius: 2px;
 	}
 
 	.badge-text {
 		color: #00A6B2;
-		font-size: 11px;
+		font-size: 11.5px;
 		font-weight: 700;
 		letter-spacing: 0.02em;
 	}
@@ -267,34 +227,33 @@
 		font-size: 22px;
 		font-weight: 800;
 		color: #0B2747;
-		line-height: 1.18;
+		line-height: 1.2;
 		letter-spacing: -0.01em;
-		margin-bottom: 0.25rem;
+		margin: 0 0 0.35rem 0;
 	}
 
 	.about-desc {
-		font-size: 12.5px;
-		line-height: 15.5px;
-		color: #183553; /* Warna #183553 (bukan abu-abu) */
-		margin-bottom: 0.55rem;
+		font-size: 12px;
+		line-height: 1.5;
+		color: #183553;
+		margin: 0 0 0.75rem 0;
 		letter-spacing: 0;
-		max-width: 365px;
-		text-wrap: pretty;
+		max-width: 360px;
 	}
 
 	.about-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		padding: 0.35rem 0.85rem;
-		background: #F5B331;
+		gap: 0.45rem;
+		padding: 0.45rem 1.15rem;
+		background: #F9B52B;
 		color: #0B2747;
 		font-weight: 700;
-		font-size: 11px;
-		border-radius: 6px;
+		font-size: 11.5px;
+		border-radius: 999px;
 		text-decoration: none;
-		box-shadow: 0 3px 8px rgba(245, 179, 49, 0.22);
-		transition: all 0.2s ease;
+		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.25);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
 		letter-spacing: 0;
 	}
@@ -304,12 +263,12 @@
 		transform: translateY(-1px);
 	}
 
-	/* Center Features (Horizontal 1-line, x 577→1060) */
+	/* Center Features */
 	.about-center-features {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		width: 483px;
+		width: 470px;
 		flex-shrink: 0;
 		padding: 0 0.5rem;
 	}
@@ -324,11 +283,11 @@
 	}
 
 	.feature-icon-box {
-		margin-bottom: 0.4rem;
+		margin-bottom: 0.45rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 30px;
+		height: 32px;
 	}
 
 	.feature-text {
@@ -339,7 +298,7 @@
 
 	.feat-line {
 		font-size: 11px;
-		font-weight: 500; /* weight 500 (bukan bold) */
+		font-weight: 500;
 		color: #0B2747;
 		line-height: 1.25;
 		white-space: nowrap;
@@ -348,48 +307,28 @@
 
 	.feature-vdivider {
 		width: 1px;
-		height: 70px; /* tinggi ±70px, y 475–545 */
+		height: 65px;
 		background: #DCE6EE;
 		flex-shrink: 0;
 	}
 
-	/* Right Column - Large Curved Campus Building touching right edge */
+	/* Right Column - Large Curved Campus Building composite touching right edge */
 	.about-right-building-container {
 		position: relative;
-		height: 183px; /* y 430→613 (tinggi ±183px) */
-		width: 450px;
+		height: 100%;
+		width: clamp(380px, 32vw, 520px);
 		flex-shrink: 0;
 		display: flex;
 		align-items: flex-end;
 		justify-content: flex-end;
-	}
-
-	/* Bulan sabit kuning (#F5B331) di kiri-bawah foto: x≈1010–1100, y≈540–613 */
-	.yellow-crescent-svg {
-		position: absolute;
-		left: -40px;
-		bottom: 0;
-		width: 100px;
-		height: 85px;
-		z-index: 1;
-		pointer-events: none;
-	}
-
-	/* Kurva cembung besar border-top-left-radius ±190px */
-	.building-mask-box {
-		position: relative;
-		z-index: 2;
-		height: 183px;
-		width: 420px;
-		border-top-left-radius: 190px;
 		overflow: hidden;
 	}
 
-	.building-img {
+	.building-composite-img {
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
-		object-position: 45% center;
+		object-position: right bottom;
 		display: block;
 	}
 
@@ -431,15 +370,6 @@
 			width: 100%;
 			height: 240px;
 			justify-content: center;
-		}
-		.building-mask-box {
-			width: 100%;
-			height: 100%;
-			border-top-left-radius: 40px;
-			border-top-right-radius: 40px;
-		}
-		.yellow-crescent-svg {
-			display: none;
 		}
 	}
 

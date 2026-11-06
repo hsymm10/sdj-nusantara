@@ -27,7 +27,7 @@
 
 <style>
 	.main-content {
-		padding-top: 48px; /* Navbar height is exactly 48px */
+		padding-top: 0;
 		overflow-x: hidden;
 	}
 </style>

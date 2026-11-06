@@ -85,9 +85,9 @@
 		<!-- Divider 4 (x≈1239) -->
 		<div class="stat-divider"></div>
 
-		<!-- Action Circle Arrow Button: lingkaran outline turquoise ±22px berlatar putih -->
+		<!-- Action Circle Arrow Button: lingkaran outline turquoise ±28px berlatar putih -->
 		<a href="/layanan/pendidikan#program" class="stat-action-btn" aria-label="Lihat Program">
-			<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="5" y1="12" x2="19" y2="12"></line>
 				<polyline points="12 5 19 12 12 19"></polyline>
 			</svg>
@@ -99,23 +99,25 @@
 	.stats-wrapper {
 		position: relative;
 		z-index: 20;
-		max-width: 1086px;
-		margin: -10px auto 0; /* Overlap ke hero hanya 10px, top y=335 */
-		padding: 0 0.5rem;
-		height: 72px;
+		max-width: 1220px;
+		margin: -36px auto 0; /* Proporsional overlap ke Hero sesuai Gambar 2 */
+		padding: 0 1rem;
+		height: 74px;
+		box-sizing: border-box;
 	}
 
 	.stats-card {
 		background: #FFFFFF;
-		border-radius: 14px;
-		box-shadow: 0 6px 22px rgba(11, 39, 71, 0.08);
-		border: 1px solid rgba(220, 230, 238, 0.9);
-		padding: 0.65rem 1.6rem;
-		height: 72px;
+		border-radius: 16px;
+		box-shadow: 0 8px 30px rgba(11, 39, 71, 0.08);
+		border: 1px solid rgba(220, 230, 238, 0.85);
+		padding: 0.75rem 2rem;
+		height: 74px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 1.25rem;
+		box-sizing: border-box;
 	}
 
 	.stats-heading {
@@ -181,10 +183,10 @@
 		white-space: nowrap;
 	}
 
-	/* Tombol panah: lingkaran outline turquoise ±22px berlatar putih */
+	/* Tombol panah: lingkaran outline turquoise ±28px berlatar putih */
 	.stat-action-btn {
-		width: 22px;
-		height: 22px;
+		width: 28px;
+		height: 28px;
 		border-radius: 50%;
 		border: 1.5px solid #00A6B2;
 		background: #FFFFFF;

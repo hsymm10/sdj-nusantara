@@ -211,14 +211,14 @@
 		}
 	}
 
-	/* Variant Tentang Kami (117px height, wide container, crisp typography) */
+	/* Variant Tentang Kami (Sleek professional banner matching Gambar 4) */
 	.cta-banner.variant-tentang-kami {
-		height: 117px;
+		height: 96px;
 	}
 
 	.cta-banner.variant-tentang-kami .cta-container {
 		max-width: 1312px;
-		padding: 0 1rem;
+		padding: 0 1.5rem;
 	}
 
 	@media (min-width: 1920px) {
@@ -228,39 +228,60 @@
 	}
 
 	.cta-banner.variant-tentang-kami .cta-title {
-		font-size: clamp(19px, 1.6vw, 24px);
+		font-size: clamp(17px, 1.45vw, 21px);
 		font-weight: 800;
+		color: #FFFFFF;
+		margin: 0 0 3px 0;
+		letter-spacing: -0.01em;
 	}
 
 	.cta-banner.variant-tentang-kami .cta-desc {
-		font-size: 11.5px;
-		color: rgba(255, 255, 255, 0.85);
+		font-size: clamp(11.5px, 0.9vw, 12.5px);
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
 	}
 
 	.cta-banner.variant-tentang-kami .btn-gold {
-		padding: 8px 22px;
-		font-size: 12px;
-		background: #F5B331;
+		padding: 0 1.25rem;
+		height: 36px;
+		font-size: 11.5px;
+		font-weight: 700;
+		background: #F9B52B;
 		color: #082442;
+		border-radius: 7px;
+		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.28);
 	}
 
 	.cta-banner.variant-tentang-kami .btn-outline {
-		padding: 8px 20px;
-		font-size: 12px;
-		border-color: rgba(255, 255, 255, 0.6);
+		padding: 0 1.25rem;
+		height: 36px;
+		font-size: 11.5px;
+		font-weight: 700;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1.5px solid rgba(255, 255, 255, 0.75);
+		color: #FFFFFF;
+		border-radius: 7px;
+	}
+
+	.cta-banner.variant-tentang-kami .btn-outline:hover {
+		background: rgba(255, 255, 255, 0.16);
+		border-color: #FFFFFF;
+		color: #FFFFFF;
 	}
 
 	.cta-banner.variant-tentang-kami .cta-bg-img {
-		opacity: 0.35;
-		object-position: right 40%;
+		opacity: 0.95;
+		object-position: center 38%;
 	}
 
 	.cta-banner.variant-tentang-kami .cta-overlay {
 		background: linear-gradient(
 			90deg,
-			#0B2948 0%,
-			rgba(11, 41, 72, 0.9) 45%,
-			rgba(11, 41, 72, 0.72) 100%
+			rgba(11, 41, 72, 0.97) 0%,
+			rgba(11, 41, 72, 0.92) 28%,
+			rgba(11, 41, 72, 0.65) 50%,
+			rgba(11, 41, 72, 0.28) 75%,
+			rgba(11, 41, 72, 0.15) 100%
 		);
 	}
 

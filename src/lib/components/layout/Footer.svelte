@@ -59,23 +59,7 @@
 			<!-- Vertical Divider -->
 			<div class="footer-vdivider"></div>
 
-			<!-- Col 2: Navigasi Utama -->
-			<div class="footer-nav-col">
-				<h4 class="footer-col-title">Navigasi Utama</h4>
-				<ul class="footer-links-list">
-					<li><a href="/" class="footer-link">Beranda</a></li>
-					<li><a href="/tentang-kami" class="footer-link">Tentang Kami</a></li>
-					<li><a href="/layanan" class="footer-link">Layanan</a></li>
-					<li><a href="/kemitraan" class="footer-link">Kemitraan</a></li>
-					<li><a href="/artikel" class="footer-link">Artikel & Wawasan</a></li>
-					<li><a href="/kontak" class="footer-link">Kontak</a></li>
-				</ul>
-			</div>
-
-			<!-- Vertical Divider -->
-			<div class="footer-vdivider"></div>
-
-			<!-- Col 3: Kontak & Informasi -->
+			<!-- Col 2: Kontak & Informasi -->
 			<div class="footer-contact-col">
 				<h4 class="footer-col-title">Kontak & Informasi</h4>
 				<ul class="footer-contact-list">
@@ -105,7 +89,7 @@
 			<!-- Vertical Divider -->
 			<div class="footer-vdivider"></div>
 
-			<!-- Col 4: Hak Cipta & Legalitas -->
+			<!-- Col 3: Hak Cipta & Legalitas -->
 			<div class="footer-copy-col">
 				<p class="footer-copyright">
 					© 2026 SDJNusantara.<br />
@@ -151,8 +135,8 @@
 
 	.footer-grid {
 		display: grid;
-		grid-template-columns: 2.1fr auto 1.2fr auto 1.8fr auto 1.6fr;
-		gap: 0 1.5rem;
+		grid-template-columns: 2fr auto 1.6fr auto 1.5fr;
+		gap: 0 2.5rem;
 		align-items: flex-start;
 	}
 
@@ -287,8 +271,7 @@
 		transform: translateY(-2px);
 	}
 
-	/* Nav & Link Cols */
-	.footer-nav-col,
+	/* Contact & Copy Cols */
 	.footer-contact-col,
 	.footer-copy-col {
 		display: flex;
@@ -302,24 +285,6 @@
 		margin: 0 0 12px 0;
 		letter-spacing: 0;
 		white-space: nowrap;
-	}
-
-	.footer-links-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 8px; /* Jarak antar-link Navigasi Utama/Pusat Informasi ±19px antar baseline */
-	}
-
-	.footer-links-list li {
-		margin: 0;
-		padding: 0;
-		height: 11px;
-		display: flex;
-		align-items: center;
-		line-height: 11px;
 	}
 
 	.footer-link {

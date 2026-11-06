@@ -67,7 +67,7 @@
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="/kontak" class="btn-gold">
-					<span>Konsultasikan Kebutuhan</span>
+					<span>Konsultasikan Kebutuhan Anda</span>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="/layanan" class="btn-outline">
@@ -224,7 +224,8 @@
 	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 14px;
+		gap: 16px;
+		margin-top: 1.25rem;
 	}
 
 	.btn-gold {
@@ -232,18 +233,18 @@
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
-		min-width: 210px;
-		height: 42px;
-		padding: 0 22px;
-		background: #F5B331;
+		height: 40px;
+		padding: 0 24px;
+		background: #F9B52B;
 		color: #082442;
-		font-size: 13.5px;
+		font-size: 13px;
 		font-weight: 700;
-		border-radius: 8px;
+		border-radius: 999px;
 		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
+		box-shadow: 0 3px 12px rgba(249, 181, 43, 0.28);
 		transition: all 0.2s ease;
 		box-sizing: border-box;
+		white-space: nowrap;
 	}
 
 	.btn-gold:hover {
@@ -264,18 +265,18 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-width: 178px;
-		height: 42px;
-		padding: 0 20px;
+		height: 40px;
+		padding: 0 22px;
 		background: rgba(255, 255, 255, 0.08);
-		border: 1.5px solid rgba(255, 255, 255, 0.65);
+		border: 1.5px solid rgba(255, 255, 255, 0.7);
 		color: #FFFFFF;
-		font-size: 13.5px;
+		font-size: 13px;
 		font-weight: 600;
-		border-radius: 8px;
+		border-radius: 999px;
 		text-decoration: none;
 		transition: all 0.2s ease;
 		box-sizing: border-box;
+		white-space: nowrap;
 	}
 
 	.btn-outline:hover {
