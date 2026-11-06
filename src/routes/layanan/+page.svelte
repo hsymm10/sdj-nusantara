@@ -596,84 +596,95 @@
 	</section>
 
 	<!-- ==========================================
-	     5. BAND BAWAH DUA KOLOM (Tinggi ±330px pada 1536)
+	     5. BAND BAWAH DUA KOLOM (CTA & FAQ)
 	     ========================================== -->
 	<section class="hub-bottom-section" aria-label="Bantuan dan Pertanyaan">
-		<div class="bottom-split-container">
-			<!-- Kiri (lebar ±55%): Kartu navy menempel tepi kiri layar dengan sudut kanan membulat ±24px -->
-			<div class="cta-banner-card">
-				<!-- Background foto palu hakim di sisi kiri dengan overlay navy ke kanan -->
-				<div class="cta-bg-wrapper" aria-hidden="true">
-					<picture>
-						<source srcset="/images/layanan-hub-gavel.webp" type="image/webp" />
-						<img
-							src="/images/layanan-hub-gavel.jpg"
-							alt=""
-							class="cta-bg-img"
-							loading="lazy"
-							decoding="async"
-						/>
-					</picture>
-					<div class="cta-overlay"></div>
-				</div>
-
-				<div class="cta-content">
-					<!-- H2 2 baris "Masih Bingung Menentukan / Layanan yang Tepat?" (baris 2 emas) -->
-					<h2 class="cta-title">
-						Masih Bingung Menentukan<br />
-						<span class="highlight-gold">Layanan yang Tepat?</span>
-					</h2>
-					<p class="cta-desc">
-						Tim SDJNusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
-					</p>
-
-					<div class="cta-buttons">
-						<a href="/kontak" class="btn-cta-gold">
-							<span>Hubungi Kami</span>
-							<span class="btn-arrow" aria-hidden="true">→</span>
-						</a>
-
-						<button type="button" class="btn-cta-chat" onclick={() => chatStore.open()}>
-							<span class="chat-icon" aria-hidden="true">
-								<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-								</svg>
-							</span>
-							<span>Chat dengan Asisten SDJNusantara</span>
-						</button>
+		<div class="hub-container">
+			<div class="bottom-split-container">
+				<!-- Kiri (lebar ±56%): Panel Navy CTA dengan foto Palu Hakim (Gavel) & dekorasi geometris -->
+				<div class="cta-banner-card">
+					<!-- Background foto palu hakim di sisi kiri dengan overlay navy halus ke kanan -->
+					<div class="cta-bg-wrapper" aria-hidden="true">
+						<picture>
+							<source srcset="/images/layanan-hub-gavel-left.webp" type="image/webp" />
+							<img
+								src="/images/layanan-hub-gavel-left.jpg"
+								alt=""
+								class="cta-bg-img"
+								loading="eager"
+								decoding="async"
+							/>
+						</picture>
+						<div class="cta-overlay"></div>
 					</div>
-				</div>
-			</div>
 
-			<!-- Kanan (lebar ±45%): "Pertanyaan Umum" + akordeon 4 baris -->
-			<div class="faq-card" aria-labelledby="faq-heading">
-				<h3 id="faq-heading" class="faq-title">Pertanyaan Umum</h3>
-				<p class="faq-subtitle">Temukan jawaban dari pertanyaan yang paling sering ditanyakan.</p>
+					<!-- Dekorasi lengkungan geometris SDJNusantara di sudut bawah kiri -->
+					<div class="cta-bottom-curves" aria-hidden="true">
+						<svg viewBox="0 0 280 110" fill="none" preserveAspectRatio="none">
+							<path d="M0 110 C 60 110, 110 75, 170 55 C 220 38, 260 48, 280 20 L 280 110 Z" fill="#00A9B7" fill-opacity="0.28"/>
+							<path d="M0 110 C 50 110, 95 85, 145 68 C 190 52, 225 60, 250 35 L 250 110 Z" fill="#00A9B7" fill-opacity="0.85"/>
+							<path d="M0 110 C 40 110, 75 92, 115 78 C 150 66, 180 72, 205 50 L 205 110 Z" fill="#F9B52B" fill-opacity="0.95"/>
+						</svg>
+					</div>
 
-				<div class="faq-list">
-					{#each faqs as item, index}
-						<div class="faq-item {openFaq === index ? 'is-open' : ''}">
-							<button
-								type="button"
-								class="faq-question-btn"
-								aria-expanded={openFaq === index}
-								onclick={() => toggleFaq(index)}
-							>
-								<span class="question-text">{item.question}</span>
-								<span class="faq-chevron" aria-hidden="true">
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<polyline points="6 9 12 15 18 9"></polyline>
+					<div class="cta-content">
+						<!-- H2 2 baris "Masih Bingung Menentukan / Layanan yang Tepat?" (baris 2 emas #F9B52B) -->
+						<h2 class="cta-title">
+							Masih Bingung Menentukan<br />
+							<span class="highlight-gold">Layanan yang Tepat?</span>
+						</h2>
+						<p class="cta-desc">
+							Tim SDJNusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
+						</p>
+
+						<div class="cta-buttons">
+							<a href="/kontak" class="btn-cta-gold">
+								<span>Hubungi Kami</span>
+								<span class="btn-arrow" aria-hidden="true">→</span>
+							</a>
+
+							<button type="button" class="btn-cta-chat" onclick={() => chatStore.open()}>
+								<span class="chat-icon" aria-hidden="true">
+									<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 									</svg>
 								</span>
+								<span>Chat dengan Asisten SDJNusantara</span>
 							</button>
-
-							{#if openFaq === index}
-								<div class="faq-answer-panel">
-									<p class="faq-answer-text">{item.answer}</p>
-								</div>
-							{/if}
 						</div>
-					{/each}
+					</div>
+				</div>
+
+				<!-- Kanan (lebar ±44%): Container "Pertanyaan Umum" background light blue-gray & white cards -->
+				<div class="faq-card" aria-labelledby="faq-heading">
+					<h3 id="faq-heading" class="faq-title">Pertanyaan Umum</h3>
+					<p class="faq-subtitle">Temukan jawaban dari pertanyaan yang paling sering ditanyakan.</p>
+
+					<div class="faq-list">
+						{#each faqs as item, index}
+							<div class="faq-item {openFaq === index ? 'is-open' : ''}">
+								<button
+									type="button"
+									class="faq-question-btn"
+									aria-expanded={openFaq === index}
+									onclick={() => toggleFaq(index)}
+								>
+									<span class="question-text">{item.question}</span>
+									<span class="faq-chevron" aria-hidden="true">
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="6 9 12 15 18 9"></polyline>
+										</svg>
+									</span>
+								</button>
+
+								{#if openFaq === index}
+									<div class="faq-answer-panel">
+										<p class="faq-answer-text">{item.answer}</p>
+									</div>
+								{/if}
+							</div>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1417,17 +1428,18 @@
 	}
 
 	/* ==========================================
-	     5. BAND BAWAH DUA KOLOM (Tinggi ±330px pada 1536)
+	     5. BAND BAWAH DUA KOLOM (CTA & FAQ)
 	     ========================================== */
 	.hub-bottom-section {
-		padding: 16px 0 48px;
+		padding: 24px 0 56px;
 		background: #FFFFFF;
 	}
 
 	.bottom-split-container {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 55% 45%;
+		grid-template-columns: 1.16fr 0.84fr;
+		gap: 26px;
 		align-items: stretch;
 		min-height: 330px;
 	}
@@ -1435,16 +1447,14 @@
 	.cta-banner-card {
 		position: relative;
 		background: #0B2948;
-		border-top-right-radius: 24px;
-		border-bottom-right-radius: 24px;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
+		border-radius: 20px;
 		overflow: hidden;
-		padding: 38px 48px 38px clamp(30px, 12vw, 190px); /* Teks mulai di x ≈ 340px pada 1536 */
+		padding: 40px 38px 40px 38px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.12);
+		box-sizing: border-box;
 	}
 
 	.cta-bg-wrapper {
@@ -1454,14 +1464,18 @@
 		right: 0;
 		bottom: 0;
 		pointer-events: none;
+		overflow: hidden;
 	}
 
 	.cta-bg-img {
-		width: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: left center;
-		opacity: 0.25;
+		opacity: 1;
 		display: block;
 	}
 
@@ -1471,27 +1485,51 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(90deg, rgba(11, 41, 72, 0.85) 0%, rgba(11, 41, 72, 0.94) 45%, #0B2948 100%);
+		background: linear-gradient(90deg, transparent 0%, rgba(11, 41, 72, 0.05) 25%, rgba(11, 41, 72, 0.6) 45%, #0B2948 62%, #0B2948 100%);
+	}
+
+	.cta-bottom-curves {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 220px;
+		height: 85px;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	.cta-bottom-curves svg {
+		width: 100%;
+		height: 100%;
+		display: block;
 	}
 
 	.cta-content {
 		position: relative;
-		z-index: 2;
-		max-width: 520px;
+		z-index: 3;
+		max-width: 440px;
+		margin-left: auto;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.cta-title {
-		font-size: clamp(24px, 2.3vw, 34px);
+		font-size: clamp(23px, 2.1vw, 32px);
 		font-weight: 800;
 		color: #FFFFFF;
 		line-height: 1.25;
 		margin: 0 0 12px 0;
+		letter-spacing: -0.01em;
+	}
+
+	.cta-title .highlight-gold {
+		color: #F9B52B;
 	}
 
 	.cta-desc {
-		font-size: 15px;
+		font-size: 14.5px;
 		line-height: 1.6;
-		color: rgba(255, 255, 255, 0.88);
+		color: rgba(255, 255, 255, 0.9);
 		margin: 0 0 24px 0;
 	}
 
@@ -1506,28 +1544,28 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		background: #F5B331;
+		background: #F9B52B;
 		color: #082442;
 		padding: 11px 22px;
 		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 9px;
 		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
+		box-shadow: 0 3px 12px rgba(249, 181, 43, 0.3);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.btn-cta-gold:hover {
 		background: #e6a528;
 		transform: translateY(-2px);
-		box-shadow: 0 5px 16px rgba(245, 179, 49, 0.36);
+		box-shadow: 0 5px 16px rgba(249, 181, 43, 0.4);
 	}
 
 	.btn-cta-chat {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		background: rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.1);
 		border: 1.5px solid rgba(255, 255, 255, 0.45);
 		color: #FFFFFF;
 		padding: 10px 20px;
@@ -1539,7 +1577,7 @@
 	}
 
 	.btn-cta-chat:hover {
-		background: rgba(255, 255, 255, 0.22);
+		background: rgba(255, 255, 255, 0.2);
 		border-color: #FFFFFF;
 		transform: translateY(-2px);
 	}
@@ -1551,11 +1589,15 @@
 
 	/* Kanan: FAQ */
 	.faq-card {
-		padding: 24px clamp(20px, 4vw, 60px) 24px clamp(20px, 3vw, 48px);
+		background: #F3F7FA;
+		border: 1px solid #E2EBF2;
+		border-radius: 20px;
+		padding: 34px 34px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		box-sizing: border-box;
+		box-shadow: 0 4px 20px rgba(8, 36, 66, 0.04);
 	}
 
 	.faq-title {
@@ -1563,53 +1605,64 @@
 		font-weight: 800;
 		color: #082442;
 		margin: 0 0 6px 0;
+		letter-spacing: -0.01em;
 	}
 
 	.faq-subtitle {
 		font-size: 14px;
-		color: #64748B;
-		margin: 0 0 16px 0;
+		color: #5A7184;
+		margin: 0 0 18px 0;
+		line-height: 1.5;
 	}
 
 	.faq-list {
 		display: flex;
 		flex-direction: column;
-		gap: 9px;
+		gap: 10px;
 	}
 
 	.faq-item {
-		background: #F4F8FB;
-		border: 1px solid rgba(226, 232, 240, 0.85);
-		border-radius: 10px;
+		background: #FFFFFF;
+		border: 1px solid #E2E8F0;
+		border-radius: 12px;
 		overflow: hidden;
+		box-shadow: 0 2px 6px rgba(8, 36, 66, 0.025);
 		transition: all 0.2s ease;
 	}
 
+	.faq-item:hover {
+		border-color: #CBD5E1;
+	}
+
 	.faq-item.is-open {
-		border-color: #16B6C1;
-		box-shadow: 0 4px 14px rgba(22, 182, 193, 0.08);
+		border-color: #00A9B7;
+		box-shadow: 0 4px 14px rgba(0, 169, 183, 0.12);
 	}
 
 	.faq-question-btn {
 		width: 100%;
-		height: 50px;
+		min-height: 52px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 18px;
+		padding: 12px 18px;
 		background: none;
 		border: none;
 		text-align: left;
 		cursor: pointer;
 		color: #082442;
-		font-size: 14px;
+		font-size: 14.5px;
 		font-weight: 700;
 		gap: 12px;
 		box-sizing: border-box;
 	}
 
+	.question-text {
+		line-height: 1.4;
+	}
+
 	.faq-chevron {
-		transition: transform 0.2s ease;
+		transition: transform 0.2s ease, color 0.2s ease;
 		display: flex;
 		align-items: center;
 		color: #64748B;
@@ -1618,14 +1671,14 @@
 
 	.faq-item.is-open .faq-chevron {
 		transform: rotate(180deg);
-		color: #079EAD;
+		color: #00A9B7;
 	}
 
 	.faq-answer-panel {
-		padding: 0 18px 14px;
-		border-top: 1px solid #E2E8F0;
+		padding: 0 18px 16px;
+		border-top: 1px solid #F1F5F9;
 		margin-top: 0;
-		padding-top: 10px;
+		padding-top: 12px;
 	}
 
 	.faq-answer-text {
@@ -1678,15 +1731,23 @@
 
 		.bottom-split-container {
 			grid-template-columns: 1fr;
+			gap: 24px;
 		}
 
 		.cta-banner-card {
-			border-radius: 0;
-			padding: 36px 24px;
+			border-radius: 20px;
+			padding: 38px 32px;
+		}
+
+		.cta-content {
+			max-width: 100%;
+			margin-left: 0;
+			padding-left: clamp(0px, 14vw, 110px);
 		}
 
 		.faq-card {
-			padding: 32px 24px;
+			border-radius: 20px;
+			padding: 32px 28px;
 		}
 	}
 
@@ -1789,6 +1850,42 @@
 
 		.why-tile {
 			height: auto;
+		}
+
+		.cta-banner-card {
+			padding: 32px 20px;
+		}
+
+		.cta-bg-img {
+			width: 100%;
+			opacity: 0.28;
+			object-position: center top;
+		}
+
+		.cta-overlay {
+			background: linear-gradient(180deg, rgba(11, 41, 72, 0.72) 0%, rgba(11, 41, 72, 0.94) 40%, #0B2948 100%);
+		}
+
+		.cta-content {
+			padding-left: 0;
+		}
+
+		.cta-bottom-curves {
+			width: 160px;
+			height: 60px;
+		}
+
+		.faq-card {
+			padding: 26px 18px;
+		}
+
+		.faq-question-btn {
+			padding: 12px 14px;
+			font-size: 14px;
+		}
+
+		.faq-answer-panel {
+			padding: 0 14px 14px;
 		}
 
 		.cta-buttons {
