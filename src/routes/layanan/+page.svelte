@@ -788,7 +788,8 @@
 		position: relative;
 		z-index: 4;
 		padding-left: clamp(20px, 6.2vw, 95px); /* Teks mulai di x ≈ 160px pada 1536 */
-		padding-bottom: 24px;
+		padding-bottom: 0;
+		margin-top: -22px;
 	}
 
 	.hero-content {
@@ -802,7 +803,7 @@
 		align-items: center;
 		gap: 7px;
 		background: rgba(7, 158, 173, 0.18);
-		border: 1px solid rgba(22, 182, 193, 0.4);
+		border: 1px solid rgba(226, 232, 240, 0.4);
 		padding: 4px 12px;
 		border-radius: 9999px;
 		width: fit-content;
@@ -825,11 +826,11 @@
 	}
 
 	.hero-title {
-		font-size: clamp(28px, 2.8vw, 44px);
+		font-size: clamp(30px, 2.6vw, 39px);
 		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 12px 0;
+		margin: 0 0 10px 0;
 		display: flex;
 		flex-direction: column;
 	}
@@ -844,10 +845,10 @@
 
 	.hero-desc {
 		font-size: 14px;
-		line-height: 1.55;
+		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
-		max-width: 540px;
-		margin: 0 0 20px 0;
+		max-width: 550px;
+		margin: 0 0 16px 0;
 	}
 
 	.hero-actions {
@@ -923,8 +924,8 @@
 	.tab-overlap-section {
 		position: relative;
 		z-index: 10;
-		margin-top: -24px;
-		margin-bottom: 32px;
+		margin-top: -16px; /* Floating overlap yang aman tanpa menempel pada CTA */
+		margin-bottom: 36px;
 	}
 
 	.tab-overlap-card {
