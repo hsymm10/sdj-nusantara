@@ -918,26 +918,27 @@
 	}
 
 	/* ==========================================
-	     2. TAB BAR OVERLAP (Tinggi ±110px, overlap ≤20px, radius ±24px)
+	     2. TAB BAR OVERLAP
 	     ========================================== */
 	.tab-overlap-section {
 		position: relative;
 		z-index: 10;
-		margin-top: -20px; /* Overlap hero ≤20px */
-		margin-bottom: 28px;
+		margin-top: -24px;
+		margin-bottom: 32px;
 	}
 
 	.tab-overlap-card {
 		background: #FFFFFF;
-		border-radius: 24px;
-		box-shadow: 0 12px 36px rgba(8, 36, 66, 0.08);
+		border-radius: 20px;
+		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
 		border: 1px solid rgba(226, 232, 240, 0.9);
 		display: flex;
 		align-items: center;
-		height: 105px;
-		max-width: 1370px;
+		justify-content: space-between;
+		height: 84px;
+		max-width: 1380px;
 		margin: 0 auto;
-		padding: 12px 16px;
+		padding: 12px 18px;
 		box-sizing: border-box;
 		overflow-x: auto;
 		scrollbar-width: none;
@@ -949,45 +950,60 @@
 
 	.tab-btn {
 		flex: 1;
-		display: flex;
+		min-width: 0;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		gap: 12px;
-		height: 100%;
-		border-radius: 16px;
+		height: 60px;
+		padding: 0 20px;
+		margin: 0 6px;
+		border-radius: 14px;
 		border: none;
 		background: transparent;
-		color: #475569;
-		font-size: 16px;
+		color: #082442;
+		font-size: 15px;
 		font-weight: 600;
 		cursor: pointer;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
+		box-sizing: border-box;
 	}
 
-	.tab-btn:hover {
-		background: #F8FAFC;
-		color: #082442;
+	.tab-btn:hover:not(.active) {
+		background: rgba(7, 158, 173, 0.07);
+		color: #079EAD;
+		transform: translateY(-1px);
 	}
 
 	.tab-btn.active {
 		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
 		color: #FFFFFF;
-		box-shadow: 0 4px 18px rgba(7, 158, 173, 0.28);
+		font-weight: 700;
+		box-shadow: 0 4px 16px rgba(7, 158, 173, 0.26);
+		transform: translateY(-1px);
 	}
 
 	.tab-icon {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		line-height: 1;
+	}
+
+	.tab-label {
+		display: inline-flex;
+		align-items: center;
+		line-height: 1.2;
+		letter-spacing: 0.01em;
 	}
 
 	.tab-vdivider {
 		width: 1px;
-		height: 48px;
+		height: 38px;
 		background: #E2E8F0;
-		margin: 0 6px;
+		margin: 0 16px;
 		flex-shrink: 0;
 	}
 
@@ -1627,6 +1643,24 @@
 			padding: 4.5rem 0 3rem;
 		}
 
+		.tab-overlap-card {
+			height: 74px;
+			padding: 10px 14px;
+		}
+
+		.tab-btn {
+			height: 54px;
+			padding: 0 14px;
+			margin: 0 4px;
+			font-size: 14px;
+			gap: 9px;
+		}
+
+		.tab-vdivider {
+			height: 32px;
+			margin: 0 10px;
+		}
+
 		.intro-grid {
 			grid-template-columns: 1fr;
 			gap: 24px;
@@ -1693,13 +1727,27 @@
 
 		.tab-overlap-card {
 			height: auto;
-			padding: 10px;
-			gap: 8px;
+			padding: 8px 12px;
+			gap: 10px;
+			justify-content: flex-start;
+			border-radius: 16px;
+			margin-top: -16px;
+			margin-bottom: 24px;
+			-webkit-overflow-scrolling: touch;
 		}
 
 		.tab-btn {
-			padding: 10px 14px;
+			flex: 0 0 auto;
+			height: 48px;
+			padding: 0 18px;
+			margin: 0;
 			font-size: 13.5px;
+			border-radius: 12px;
+			gap: 8px;
+		}
+
+		.tab-vdivider {
+			display: none;
 		}
 
 		.intro-tiles-col {
