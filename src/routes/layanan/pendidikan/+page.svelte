@@ -2,20 +2,20 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 
-	// 13 Sections sesuai Mockup Resmi /layanan/pendidikan
-	import HeroServices from '#lib/components/sections/services/HeroServices.svelte';
-	import StatsBar from '#lib/components/sections/home/StatsBar.svelte';
-	import AboutSection from '#lib/components/sections/home/AboutSection.svelte';
-	import ServicesUnggulSection from '#lib/components/sections/home/ServicesUnggulSection.svelte';
-	import StepsSection from '#lib/components/sections/home/StepsSection.svelte';
-	import ImpactSection from '#lib/components/sections/home/ImpactSection.svelte';
-	import ProgramSection from '#lib/components/sections/home/ProgramSection.svelte';
-	import ScholarshipCategoriesSection from '#lib/components/sections/home/ScholarshipCategoriesSection.svelte';
-	import ScholarshipPrepSection from '#lib/components/sections/home/ScholarshipPrepSection.svelte';
-	import ArticlesPreviewSection from '#lib/components/sections/home/ArticlesPreviewSection.svelte';
-	import FAQHomeSection from '#lib/components/sections/home/FAQHomeSection.svelte';
-	import CTAHomeSection from '#lib/components/sections/home/CTAHomeSection.svelte';
-	import PartnersSection from '#lib/components/sections/home/PartnersSection.svelte';
+	// 13 Komponen Sections Presisi Sesuai Mockup Resmi (GAMBAR 2)
+	import HeroEducation from '#lib/components/sections/education/HeroEducation.svelte';
+	import StatsBarEducation from '#lib/components/sections/education/StatsBarEducation.svelte';
+	import AboutEducation from '#lib/components/sections/education/AboutEducation.svelte';
+	import ServicesUnggulEducation from '#lib/components/sections/education/ServicesUnggulEducation.svelte';
+	import StepsEducation from '#lib/components/sections/education/StepsEducation.svelte';
+	import ImpactEducation from '#lib/components/sections/education/ImpactEducation.svelte';
+	import ProgramEducation from '#lib/components/sections/education/ProgramEducation.svelte';
+	import ScholarshipCategoriesEducation from '#lib/components/sections/education/ScholarshipCategoriesEducation.svelte';
+	import ScholarshipPrepEducation from '#lib/components/sections/education/ScholarshipPrepEducation.svelte';
+	import ArticlesEducation from '#lib/components/sections/education/ArticlesEducation.svelte';
+	import FAQEducation from '#lib/components/sections/education/FAQEducation.svelte';
+	import CTAEducation from '#lib/components/sections/education/CTAEducation.svelte';
+	import PartnersEducation from '#lib/components/sections/education/PartnersEducation.svelte';
 </script>
 
 <svelte:head>
@@ -29,44 +29,44 @@
 <Navbar compact={true} wide={true} />
 
 <main class="pendidikan-main-content">
-	<!-- 01: Hero Section (Master Design Kemitraan: Fokus Pendidikan) -->
-	<HeroServices />
+	<!-- 01: Hero Section (Fokus Pendidikan) -->
+	<HeroEducation />
 
-	<!-- 02: Stats Bar (Target Program, 200+ Talenta, 12 Sosialisasi, 60 Coaching) -->
-	<StatsBar />
+	<!-- 02: Stats Bar (Overlap -12px, 4 Metrik) -->
+	<StatsBarEducation />
 
-	<!-- 03: Tentang SDJNusantara (Menjembatani Potensi & 5 Keunggulan) -->
-	<AboutSection />
+	<!-- 03: Tentang SDJNusantara (3-Kolom: Info, 5 Keunggulan, Foto Gedung Melengkung) -->
+	<AboutEducation />
 
-	<!-- 04: Layanan Unggulan (4 Cards Solusi Terintegrasi) -->
-	<ServicesUnggulSection />
+	<!-- 04: Solusi Terintegrasi untuk Pengembangan Potensi (4 Cards Unggulan) -->
+	<ServicesUnggulEducation />
 
-	<!-- 05: 5 Tahap Pelaksanaan (Navy banner + horizontal steps) -->
-	<StepsSection />
+	<!-- 05: 5 Tahap Pelaksanaan Pendampingan Kami (Navy banner + Horizontal 5 Steps) -->
+	<StepsEducation />
 
-	<!-- 06: Komitmen & Dampak (4 Metrik: 200+, 12, 60, 20+) -->
-	<ImpactSection />
+	<!-- 06: Komitmen Nyata untuk Dampak yang Terukur (4 Cards: 1 Solid Teal) -->
+	<ImpactEducation />
 
-	<!-- 07: Program Pendidikan (2-col dengan foto mahasiswa kampus & aksen pita) -->
-	<ProgramSection />
+	<!-- 07: Program Pendidikan untuk Meningkatkan Daya Saing (2 Kolom + Foto Kampus) -->
+	<ProgramEducation />
 
-	<!-- 08: Akses Beasiswa Terkurasi (5 Kategori Horizontal) -->
-	<ScholarshipCategoriesSection />
+	<!-- 08: Temukan Beasiswa yang Sesuai dengan Tujuan Anda (5 Kapsul Horizontal) -->
+	<ScholarshipCategoriesEducation />
 
-	<!-- 09: Persiapan Beasiswa (3-col: Foto, Bimbingan, Checklist Berkas) -->
-	<ScholarshipPrepSection />
+	<!-- 09: Persiapkan Diri untuk Meraih Beasiswa Impian (3 Kolom: Foto, Info, Checklist) -->
+	<ScholarshipPrepEducation />
 
-	<!-- 10: Artikel & Wawasan (4 Artikel + 1 Lihat Lebih Banyak) -->
-	<ArticlesPreviewSection />
+	<!-- 10: Temukan Insight dan Inspirasi Terbaru (5 Cards: 4 Artikel + 1 Lihat Lebih Banyak) -->
+	<ArticlesEducation />
 
-	<!-- 11: Pertanyaan Umum / FAQ (Foto Konsultan Wanita + Accordion) -->
-	<FAQHomeSection />
+	<!-- 11: Pertanyaan Umum / FAQ (Foto Konsultan Hijab + Bubble ? + 4 Accordion) -->
+	<FAQEducation />
 
-	<!-- 12: CTA Konsultasi (Card Navy + Aksen Sudut Emas & Teal) -->
-	<CTAHomeSection />
+	<!-- 12: Masih Bingung Menentukan Layanan yang Tepat? (Card Navy + Tombol Chat Emas) -->
+	<CTAEducation />
 
-	<!-- 13: Mitra & Kolaborasi (Strip Logo Mitra Institusi) -->
-	<PartnersSection />
+	<!-- 13: Mitra & Kolaborasi (Carousel Logo Resmi Institusi) -->
+	<PartnersEducation />
 </main>
 
 <Footer compact={true} />
@@ -75,5 +75,6 @@
 	.pendidikan-main-content {
 		padding-top: 0;
 		overflow-x: hidden;
+		background: #ffffff;
 	}
 </style>

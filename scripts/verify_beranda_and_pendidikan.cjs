@@ -141,10 +141,11 @@ async function captureUrl(url, width, outputPath) {
 
 async function main() {
   console.log('Capturing Beranda (restored)...');
-  await captureUrl('http://127.0.0.1:4173/', 1440, 'screenshots/beranda_restored_1440.png');
+  await captureUrl('http://127.0.0.1:5173/', 1440, 'screenshots/beranda_restored_1440.png');
 
   console.log('Capturing /layanan/pendidikan (redesigned 13 sections)...');
-  await captureUrl('http://127.0.0.1:4173/layanan/pendidikan', 1440, 'screenshots/layanan_pendidikan_1440.png');
+  await captureUrl('http://127.0.0.1:5173/layanan/pendidikan', 1440, 'screenshots/layanan_pendidikan_1440.png');
 }
 
 main().catch(console.error);
+
