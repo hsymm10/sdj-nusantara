@@ -1,9 +1,10 @@
 <script lang="ts">
+	// HeroSection.svelte (Beranda) - Standardized to Master Hero Banner specification
 </script>
 
-<section class="hero-section">
-	<!-- Full-width Background Image: seamless left foliage + right students -->
-	<div class="hero-bg-wrapper">
+<section id="hero-beranda" class="hero-section">
+	<!-- Background Image & Gradient Overlays -->
+	<div class="hero-bg-wrap">
 		<picture>
 			<source srcset="/images/hero-students-composite@2x.jpg 2x, /images/hero-students-composite.jpg 1x" />
 			<img
@@ -14,99 +15,65 @@
 				fetchpriority="high"
 			/>
 		</picture>
+		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Navy Gradient Overlay: solid #082442 on 0-22%, ~0.85 on 40%, 0 on ~62% -->
-	<div class="hero-gradient-overlay"></div>
+	<!-- Wave decoration bottom-left (Teal gelap, pita turquoise, lengkung putih) -->
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-home)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
+		<defs>
+			<linearGradient id="teal-grad-home" x1="0" y1="0" x2="1" y2="1">
+				<stop offset="0%" stop-color="#16B6C1" />
+				<stop offset="100%" stop-color="#079EAD" />
+			</linearGradient>
+		</defs>
+	</svg>
 
-	<!-- 3-Layer Organic Curved Decorative Waves at bottom-left (lebar 330px, tinggi 170px) -->
-	<div class="hero-wave-container">
-		<svg
-			class="bottom-left-wave-svg"
-			viewBox="0 0 330 170"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			preserveAspectRatio="none"
-		>
-			<defs>
-				<linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-					<stop offset="0%" stop-color="#16B6C1" />
-					<stop offset="100%" stop-color="#079EAD" />
-				</linearGradient>
-			</defs>
+	<!-- Accent decoration bottom-right (Emas tipis & turquoise) -->
+	<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
+	</svg>
 
-			<!-- Layer 1: Gelombang teal gelap #0A5E75 (opacity 0.9) -->
-			<path
-				d="M0 15 C80 35 175 92 215 170 L0 170 Z"
-				fill="#0A5E75"
-				fill-opacity="0.9"
-			/>
-
-			<!-- Layer 2: Pita turquoise gradient (#16B6C1 -> #079EAD) -->
-			<path
-				d="M0 65 C70 82 150 126 185 170 L215 170 C180 110 95 50 0 30 Z"
-				fill="url(#tealGrad)"
-				fill-opacity="0.95"
-			/>
-
-			<!-- Layer 3: Lapisan putih #FFFFFF di sudut kiri-bawah -->
-			<path
-				d="M0 120 C60 130 140 152 215 170 L0 170 Z"
-				fill="#FFFFFF"
-			/>
-		</svg>
-	</div>
-
-	<!-- Hero Text Content (x kiri 235) -->
-	<div class="hero-container">
+	<!-- Master Container (max-width 1380px, 1500px on >=1920px, padding 0 54px) -->
+	<div class="sch-hero-container">
 		<div class="hero-content">
+			<!-- Pill Tag -->
+			<div class="pill-tag">
+				<span class="pill-dot"></span>
+				<span class="pill-label">Mitra Strategis Pendidikan</span>
+			</div>
+
+			<!-- Headline: 3 baris weight 800, baris 3 emas #F5B331 -->
 			<h1 class="hero-title">
-				<span class="title-line line-1">Kembangkan Potensi.</span>
-				<span class="title-line line-2">Raih Peluang.</span>
-				<span class="title-line line-3 gold-highlight">Bangun Masa Depan.</span>
+				Kembangkan Potensi.<br />
+				Raih Peluang.<br />
+				<span class="gold-text">Bangun Masa Depan.</span>
 			</h1>
 
-			<p class="hero-description">
-				SDJNusantara adalah konsultan pendidikan dan pengembangan talenta
-				yang membantu individu serta institusi merencanakan pendidikan,
-				mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun
-				jejaring kolaborasi.
+			<!-- Description: max-width 575px -->
+			<p class="hero-desc">
+				SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.
 			</p>
 
-			<div class="hero-buttons">
-				<a href="/kontak" class="btn-primary-gold">
-					<span>Konsultasikan Kebutuhan Anda</span>
-					<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-						<line x1="5" y1="12" x2="19" y2="12"></line>
-						<polyline points="12 5 19 12 12 19"></polyline>
-					</svg>
+			<!-- Mobile Photo Band (Only visible on mobile <= 640px) -->
+			<div class="hero-mobile-photo-band" aria-hidden="true">
+				<img src="/images/hero-students-composite.jpg" alt="Mahasiswa Beranda" class="mobile-band-img" />
+			</div>
+
+			<!-- Buttons Row -->
+			<div class="hero-btn-row">
+				<a href="/kontak" class="btn-gold">
+					<span>Konsultasikan Kebutuhan</span>
+					<span class="btn-arrow">→</span>
 				</a>
-				<a href="/layanan" class="btn-secondary-outline">
+				<a href="/layanan" class="btn-outline">
 					<span>Jelajahi Program Kami</span>
 				</a>
 			</div>
-		</div>
-	</div>
-
-	<!-- Mobile-only student photo band below text (rasio ~4:3, ketiga wajah utuh, tanpa teks menimpa wajah) -->
-	<div class="hero-mobile-photo-band">
-		<picture>
-			<source srcset="/images/hero-students-composite@2x.jpg 2x, /images/hero-students-composite.jpg 1x" />
-			<img
-				src="/images/hero-students-composite.jpg"
-				alt="SDJNusantara Mahasiswa"
-				class="mobile-band-img"
-				loading="eager"
-			/>
-		</picture>
-		<div class="mobile-band-top-gradient"></div>
-		<!-- Scaled down bottom-left teal wave for mobile -->
-		<div class="mobile-band-wave">
-			<svg viewBox="0 0 160 80" fill="none" preserveAspectRatio="none">
-				<path d="M0 8 C40 18 85 45 105 80 L0 80 Z" fill="#0A5E75" fill-opacity="0.9"/>
-				<path d="M0 32 C35 40 75 62 90 80 L105 80 C90 52 48 24 0 15 Z" fill="#16B6C1"/>
-				<path d="M0 60 C30 65 70 75 105 80 L0 80 Z" fill="#FFFFFF"/>
-			</svg>
 		</div>
 	</div>
 </section>
@@ -114,278 +81,287 @@
 <style>
 	.hero-section {
 		position: relative;
-		height: 297px;
-		background-color: #082442;
+		width: 100%;
+		height: 445px;
+		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 48px; /* Offset for fixed navbar */
+		box-sizing: border-box;
 	}
 
-	.hero-bg-wrapper {
+	.hero-bg-wrap {
 		position: absolute;
-		inset: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		z-index: 1;
-		overflow: hidden;
 	}
 
 	.hero-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right center;
+		object-position: 82% center;
 		display: block;
 	}
 
-	/* Overlay gradient navy: solid #082442 pada 0-22%, ~0.85 pada 40%, 0 pada ~62% */
-	.hero-gradient-overlay {
+	/* Fade navy halus: solid 0-34%, smooth transition to 70% */
+	.hero-overlay {
 		position: absolute;
-		inset: 0;
-		z-index: 2;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 22%,
-			rgba(8, 36, 66, 0.85) 40%,
-			rgba(8, 36, 66, 0.1) 58%,
-			transparent 62%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
-		pointer-events: none;
 	}
 
-	/* Bottom-left decorative wave (width: 330px, height: 170px) */
-	.hero-wave-container {
+	/* Gelombang SVG kiri-bawah */
+	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 330px;
-		height: 170px;
-		z-index: 3;
+		width: 380px;
+		height: 160px;
+		z-index: 2;
 		pointer-events: none;
 	}
 
-	.bottom-left-wave-svg {
-		width: 100%;
-		height: 100%;
-		display: block;
+	/* Gelombang SVG kanan-bawah */
+	.hero-wave-right {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 260px;
+		height: 160px;
+		z-index: 2;
+		pointer-events: none;
 	}
 
-	.hero-container {
+	/* Container Khusus: max-width 1380px, 1500px on >=1920px */
+	.sch-hero-container {
 		position: relative;
-		z-index: 4;
+		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1380px;
 		margin: 0 auto;
-		padding: 0 0.5rem;
-		height: 100%;
-		display: flex;
-		align-items: center;
+		padding: 0 54px;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.sch-hero-container {
+			max-width: 1500px;
+		}
 	}
 
 	.hero-content {
-		max-width: 430px;
-		margin-top: 14px; /* Pusat baris headline y≈107, 145, 184 */
+		max-width: 590px;
 	}
 
+	/* Pill Tag */
+	.pill-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 4px 14px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.5);
+		border-radius: 999px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
+	}
+
+	.pill-dot {
+		width: 6px;
+		height: 6px;
+		background: #00A6B2;
+		border-radius: 50%;
+	}
+
+	.pill-label {
+		font-size: 12px;
+		font-weight: 600;
+		color: #FFFFFF;
+		letter-spacing: 0.02em;
+	}
+
+	/* H1 Headline */
 	.hero-title {
-		display: flex;
-		flex-direction: column;
-		font-size: 2.35rem; /* ~44px */
+		font-size: clamp(30px, 2.6vw, 39px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		line-height: 38.5px;
-		letter-spacing: -0.015em;
-		margin-bottom: 0.55rem;
+		margin: 0 0 0.85rem 0;
 	}
 
-	.title-line {
-		white-space: nowrap;
-	}
-
-	.line-1 {
-		width: 410px;
-	}
-
-	.line-3 {
-		width: 402px;
-	}
-
-	.gold-highlight {
+	.gold-text {
 		color: #F5B331;
 	}
 
-	.hero-description {
-		font-size: 12.5px;
-		line-height: 16.5px;
-		color: rgba(255, 255, 255, 0.95);
-		margin-bottom: 0.85rem;
-		max-width: 440px;
-		font-weight: 400;
-		letter-spacing: 0;
+	/* Description */
+	.hero-desc {
+		font-size: 14px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
 		text-wrap: pretty;
 	}
 
-	.hero-buttons {
+	/* Buttons Row */
+	.hero-btn-row {
 		display: flex;
 		align-items: center;
-		gap: 0.65rem;
+		gap: 14px;
 	}
 
-	/* Tombol "Konsultasikan Kebutuhan Anda →" ±186×29px (x 235–421) */
-	.btn-primary-gold {
+	.btn-gold {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.35rem;
-		width: 186px;
-		height: 29px;
+		gap: 8px;
+		min-width: 210px;
+		height: 42px;
+		padding: 0 22px;
 		background: #F5B331;
-		color: #071D36;
+		color: #082442;
+		font-size: 13.5px;
 		font-weight: 700;
-		font-size: 10.5px;
 		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 3px 8px rgba(245, 179, 49, 0.25);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
-		white-space: nowrap;
-		letter-spacing: 0;
+		box-sizing: border-box;
 	}
 
-	.btn-primary-gold:hover {
+	.btn-gold:hover {
 		background: #e6a528;
 		transform: translateY(-1px);
 	}
 
-	/* Tombol "Jelajahi Program Kami" ±130×29px (x 430–560) */
-	.btn-secondary-outline {
+	.btn-arrow {
+		font-size: 14px;
+		transition: transform 0.2s ease;
+	}
+
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
+	}
+
+	.btn-outline {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 130px;
-		height: 29px;
-		background: rgba(255, 255, 255, 0.04);
+		min-width: 178px;
+		height: 42px;
+		padding: 0 20px;
+		background: rgba(255, 255, 255, 0.08);
 		border: 1.5px solid rgba(255, 255, 255, 0.65);
 		color: #FFFFFF;
-		font-weight: 700;
-		font-size: 10.5px;
+		font-size: 13.5px;
+		font-weight: 600;
 		border-radius: 8px;
 		text-decoration: none;
 		transition: all 0.2s ease;
-		white-space: nowrap;
-		letter-spacing: 0;
+		box-sizing: border-box;
 	}
 
-	.btn-secondary-outline:hover {
-		background: rgba(255, 255, 255, 0.15);
+	.btn-outline:hover {
+		background: rgba(255, 255, 255, 0.18);
 		border-color: #FFFFFF;
+		color: #FFFFFF;
+		transform: translateY(-1px);
 	}
 
 	.hero-mobile-photo-band {
 		display: none;
 	}
 
-	@media (max-width: 1099px) {
+	/* Responsive Tablet & Mobile */
+	@media (max-width: 1024px) {
 		.hero-section {
 			height: auto;
-			min-height: 320px;
-			padding: 2.5rem 0 3.5rem;
+			min-height: 420px;
+			padding: 56px 0 40px;
 		}
-		.hero-container {
-			padding: 0 2rem;
+
+		.sch-hero-container {
+			padding: 0 28px;
 		}
-		.hero-content {
-			max-width: 480px;
-			margin-top: 0;
-		}
+
 		.hero-title {
-			font-size: 2.1rem;
-			line-height: 1.18;
+			font-size: 28px;
+		}
+
+		.hero-overlay {
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.95) 50%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
 		}
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 640px) {
 		.hero-section {
 			height: auto;
-			min-height: unset;
-			padding: 2rem 0 0;
-			flex-direction: column;
-			align-items: stretch;
+			min-height: 0;
+			padding: 48px 0 32px;
 		}
-		.hero-bg-wrapper,
-		.hero-gradient-overlay,
-		.hero-wave-container {
-			display: none;
+
+		.sch-hero-container {
+			padding: 0 20px;
 		}
-		.hero-container {
-			height: auto;
-			padding: 0 1.25rem 2rem;
-		}
-		.hero-content {
-			max-width: 100%;
-			margin-top: 0;
-		}
+
 		.hero-title {
-			font-size: clamp(1.85rem, 7vw, 2.15rem);
-			line-height: 1.2;
-			margin-bottom: 0.85rem;
+			font-size: 24px;
+			line-height: 1.25;
 		}
-		.title-line {
-			white-space: normal;
-		}
-		.line-1,
-		.line-3 {
-			width: auto;
-		}
-		.hero-description {
-			font-size: 14.5px;
-			line-height: 1.5;
-			max-width: 100%;
+
+		.hero-desc {
+			font-size: 13px;
 			margin-bottom: 1.25rem;
 		}
-		.hero-buttons {
-			flex-direction: column;
-			width: 100%;
-			gap: 0.75rem;
-		}
-		.btn-primary-gold,
-		.btn-secondary-outline {
-			width: 100%;
-			height: 44px;
-			font-size: 14px;
-		}
+
 		.hero-mobile-photo-band {
 			display: block;
-			position: relative;
 			width: 100%;
-			height: 220px;
+			height: 180px;
+			border-radius: 12px;
 			overflow: hidden;
+			margin: 0 0 1.25rem 0;
+			border: 1px solid rgba(22, 182, 193, 0.3);
 		}
+
 		.mobile-band-img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			object-position: 70% center;
-			display: block;
 		}
-		.mobile-band-top-gradient {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 50px;
-			background: linear-gradient(to bottom, #082442 0%, transparent 100%);
-		}
-		.mobile-band-wave {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 160px;
-			height: 80px;
-			pointer-events: none;
-		}
-		.mobile-band-wave svg {
+
+		.hero-btn-row {
+			flex-direction: column;
+			gap: 10px;
 			width: 100%;
-			height: 100%;
-			display: block;
+		}
+
+		.btn-gold,
+		.btn-outline {
+			width: 100%;
+			min-width: 0;
 		}
 	}
 </style>

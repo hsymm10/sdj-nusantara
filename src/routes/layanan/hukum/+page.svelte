@@ -27,9 +27,10 @@
 <Navbar compact={true} wide={true} />
 
 <main class="legal-page">
-	<!-- 1. HERO SECTION -->
+	<!-- 1. HERO SECTION (Standardized Master Hero) -->
 	<section class="legal-hero">
-		<div class="legal-hero-bg">
+		<!-- Background Image & Gradient Overlays -->
+		<div class="hero-bg-wrap">
 			<picture>
 				<source srcset="/images/layanan-hukum-hero.webp" type="image/webp" />
 				<img
@@ -37,56 +38,63 @@
 					alt="Layanan Hukum dan Regulasi Pendidikan SDJNusantara"
 					class="hero-img"
 					loading="eager"
-					decoding="async"
+					fetchpriority="high"
 				/>
 			</picture>
 			<div class="hero-overlay"></div>
 		</div>
 
-		<div class="legal-container hero-content-wrapper">
-			<div class="hero-left-col">
-				<div class="hero-breadcrumb-pill">
+		<!-- Wave decoration bottom-left (Teal gelap, pita turquoise, lengkung putih) -->
+		<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+			<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+			<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-legal)" />
+			<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
+			<defs>
+				<linearGradient id="teal-grad-legal" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#16B6C1" />
+					<stop offset="100%" stop-color="#079EAD" />
+				</linearGradient>
+			</defs>
+		</svg>
+
+		<!-- Accent decoration bottom-right (Emas tipis & turquoise) -->
+		<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+			<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+			<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+			<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
+		</svg>
+
+		<!-- Master Container (max-width 1380px, 1500px on >=1920px, padding 0 54px) -->
+		<div class="sch-legal-container">
+			<div class="hero-content">
+				<!-- Pill Tag -->
+				<div class="pill-tag">
 					<span class="pill-dot"></span>
-					<span class="pill-text">Layanan &rsaquo; Layanan Hukum</span>
+					<span class="pill-label">Layanan Hukum</span>
 				</div>
 
-				<h1 class="hero-heading">
-					<span>Layanan Hukum &</span>
-					<span class="text-gold">Konsultasi Regulasi</span>
+				<!-- Headline -->
+				<h1 class="hero-title">
+					Layanan Hukum &<br />
+					<span class="gold-text">Konsultasi Regulasi.</span>
 				</h1>
 
-				<p class="hero-lead">
+				<!-- Description -->
+				<p class="hero-desc">
 					Pendampingan hukum yang terarah dan selaras dengan regulasi di bidang pendidikan bagi institusi, organisasi, maupun korporasi.
 				</p>
 
-				<div class="hero-cta-group">
-					<a href="/konsultasi" class="btn-hero-gold">
+				<!-- Buttons Row -->
+				<div class="hero-btn-row">
+					<a href="/konsultasi" class="btn-gold">
 						<span>Ajukan Konsultasi</span>
-						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-							<line x1="5" y1="12" x2="19" y2="12"></line>
-							<polyline points="12 5 19 12 12 19"></polyline>
-						</svg>
+						<span class="btn-arrow">→</span>
 					</a>
-					<a href="#ruang-lingkup" class="btn-hero-outline">
+					<a href="#ruang-lingkup" class="btn-outline">
 						<span>Lihat Paket Layanan</span>
 					</a>
 				</div>
 			</div>
-		</div>
-
-		<!-- Decorative bottom wave transition -->
-		<div class="hero-wave-wrap" aria-hidden="true">
-			<svg viewBox="0 0 1536 80" fill="none" preserveAspectRatio="none" class="hero-wave-svg">
-				<path
-					d="M0,45 C320,80 580,20 920,50 C1200,75 1400,30 1536,45 L1536,80 L0,80 Z"
-					fill="#16B6C1"
-					fill-opacity="0.25"
-				/>
-				<path
-					d="M0,55 C380,85 700,35 1060,65 C1320,85 1460,45 1536,55 L1536,80 L0,80 Z"
-					fill="#F4F8FB"
-				/>
-			</svg>
 		</div>
 	</section>
 
@@ -302,164 +310,243 @@
 		margin-right: auto;
 	}
 
-	/* === 1. HERO SECTION === */
+	/* === 1. HERO SECTION (Standardized Master Hero) === */
 	.legal-hero {
 		position: relative;
-		background: linear-gradient(135deg, #082442 0%, #0B2948 100%);
-		min-height: 380px;
+		width: 100%;
+		height: 445px;
+		background: #082442;
+		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		overflow: hidden;
-		padding: 48px 0 72px;
+		padding-top: 48px; /* Offset for fixed navbar */
+		box-sizing: border-box;
 	}
 
-	.legal-hero-bg {
-		position: absolute;
-		inset: 0;
-		overflow: hidden;
-		pointer-events: none;
-	}
-
-	.hero-img {
+	.hero-bg-wrap {
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 62%;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	.hero-img {
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center right;
-		opacity: 0.92;
-		filter: saturate(1.05);
+		object-position: 82% 24%;
+		display: block;
 	}
 
 	.hero-overlay {
 		position: absolute;
-		inset: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 42%,
-			rgba(8, 36, 66, 0.85) 60%,
-			rgba(8, 36, 66, 0.4) 100%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
-	.hero-content-wrapper {
-		position: relative;
+	.hero-wave {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 380px;
+		height: 160px;
 		z-index: 2;
+		pointer-events: none;
 	}
 
-	.hero-left-col {
-		max-width: 580px;
+	.hero-wave-right {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 260px;
+		height: 160px;
+		z-index: 2;
+		pointer-events: none;
 	}
 
-	.hero-breadcrumb-pill {
+	.sch-legal-container {
+		position: relative;
+		z-index: 3;
+		width: 100%;
+		max-width: 1380px;
+		margin: 0 auto;
+		padding: 0 54px;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.sch-legal-container {
+			max-width: 1500px;
+		}
+	}
+
+	.hero-content {
+		max-width: 590px;
+	}
+
+	.pill-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		padding: 6px 14px;
-		background: rgba(22, 182, 193, 0.15);
-		border: 1px solid rgba(22, 182, 193, 0.35);
+		gap: 7px;
+		padding: 4px 14px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.5);
 		border-radius: 999px;
-		margin-bottom: 18px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
 	}
 
 	.pill-dot {
-		width: 7px;
-		height: 7px;
+		width: 6px;
+		height: 6px;
+		background: #00A6B2;
 		border-radius: 50%;
-		background: #16B6C1;
 	}
 
-	.pill-text {
+	.pill-label {
 		font-size: 12px;
 		font-weight: 600;
-		color: #E0F2FE;
+		color: #FFFFFF;
 		letter-spacing: 0.02em;
 	}
 
-	.hero-heading {
-		font-size: 40px;
+	.hero-title {
+		font-size: clamp(30px, 2.6vw, 39px);
+		line-height: 1.18;
 		font-weight: 800;
-		line-height: 1.2;
 		color: #FFFFFF;
-		margin: 0 0 16px;
-		display: flex;
-		flex-direction: column;
+		margin: 0 0 0.85rem 0;
 	}
 
-	.text-gold {
+	.gold-text {
 		color: #F5B331;
 	}
 
-	.hero-lead {
-		font-size: 14.5px;
-		line-height: 1.65;
-		color: #C3D4E6;
-		margin: 0 0 28px;
-		max-width: 520px;
+	.hero-desc {
+		font-size: 14px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
+		text-wrap: pretty;
 	}
 
-	.hero-cta-group {
+	.hero-btn-row {
 		display: flex;
 		align-items: center;
 		gap: 14px;
-		flex-wrap: wrap;
 	}
 
-	.btn-hero-gold {
+	.btn-gold {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 8px;
+		min-width: 190px;
+		height: 42px;
+		padding: 0 22px;
 		background: #F5B331;
 		color: #082442;
 		font-size: 13.5px;
 		font-weight: 700;
-		padding: 11px 22px;
 		border-radius: 8px;
 		text-decoration: none;
-		transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.28);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
+		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
-	.btn-hero-gold:hover {
-		background: #E5A320;
+	.btn-gold:hover {
+		background: #e6a528;
 		transform: translateY(-1px);
 	}
 
-	.btn-hero-outline {
+	.btn-arrow {
+		font-size: 14px;
+		transition: transform 0.2s ease;
+	}
+
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
+	}
+
+	.btn-outline {
 		display: inline-flex;
 		align-items: center;
-		background: transparent;
+		justify-content: center;
+		min-width: 178px;
+		height: 42px;
+		padding: 0 20px;
+		background: rgba(255, 255, 255, 0.08);
+		border: 1.5px solid rgba(255, 255, 255, 0.65);
 		color: #FFFFFF;
 		font-size: 13.5px;
 		font-weight: 600;
-		padding: 10px 20px;
 		border-radius: 8px;
-		border: 1px solid rgba(255, 255, 255, 0.4);
 		text-decoration: none;
-		transition: background 0.2s, border-color 0.2s;
+		transition: all 0.2s ease;
+		box-sizing: border-box;
 	}
 
-	.btn-hero-outline:hover {
-		background: rgba(255, 255, 255, 0.12);
+	.btn-outline:hover {
+		background: rgba(255, 255, 255, 0.18);
 		border-color: #FFFFFF;
+		color: #FFFFFF;
+		transform: translateY(-1px);
 	}
 
-	.hero-wave-wrap {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		line-height: 0;
-		pointer-events: none;
+	@media (max-width: 900px) {
+		.legal-hero {
+			height: auto;
+			padding: 4.5rem 0 3rem;
+		}
+		.sch-legal-container {
+			padding: 0 1.5rem;
+		}
+		.hero-overlay {
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.92) 60%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
+		}
+		.hero-wave,
+		.hero-wave-right {
+			display: none;
+		}
 	}
 
-	.hero-wave-svg {
-		width: 100%;
-		height: 48px;
-		display: block;
+	@media (max-width: 640px) {
+		.hero-title {
+			font-size: 30px;
+			line-height: 1.25;
+		}
+		.hero-btn-row {
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
+			gap: 10px;
+		}
+		.btn-gold,
+		.btn-outline {
+			width: 100%;
+			height: 44px;
+		}
 	}
 
 	/* === 2. TABS SECTION === */
@@ -979,28 +1066,6 @@
 	}
 
 	@media (max-width: 768px) {
-		.legal-hero {
-			padding: 36px 0 56px;
-			min-height: auto;
-		}
-
-		.hero-img {
-			width: 100%;
-			opacity: 0.35;
-		}
-
-		.hero-overlay {
-			background: linear-gradient(
-				180deg,
-				rgba(8, 36, 66, 0.85) 0%,
-				#082442 80%
-			);
-		}
-
-		.hero-heading {
-			font-size: 28px;
-		}
-
 		.tabs-wrapper {
 			margin-top: -16px;
 			overflow-x: auto;

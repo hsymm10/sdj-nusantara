@@ -77,44 +77,25 @@
 			<div class="hero-gradient-overlay"></div>
 		</div>
 
-		<!-- Gelombang teal/turquoise SVG besar di kiri-bawah dan aksen emas di kanan-bawah -->
-		<div class="hero-wave-container" aria-hidden="true">
-			<svg class="hero-wave-svg" viewBox="0 0 1536 96" fill="none" preserveAspectRatio="none">
-				<!-- Lapisan teal gelap #0A5E75 -->
-				<path
-					d="M0,28 C260,82 500,80 740,42 C920,12 1140,28 1536,8 L1536,96 L0,96 Z"
-					fill="#0A5E75"
-					opacity="0.95"
-				/>
-				<!-- Pita teal/turquoise #16B6C1 -> #079EAD -->
-				<path
-					d="M0,45 C300,92 560,78 840,36 C1040,6 1280,20 1536,12 L1536,96 L0,96 Z"
-					fill="#16B6C1"
-					opacity="0.9"
-				/>
-				<!-- Aksen lengkung emas kanan-bawah -->
-				<path
-					d="M1000,68 C1160,35 1350,38 1536,25"
-					stroke="#F5B331"
-					stroke-width="3"
-					stroke-linecap="round"
-					fill="none"
-				/>
-				<!-- Aksen turquoise kanan-bawah -->
-				<path
-					d="M1120,78 C1240,55 1400,52 1536,40"
-					stroke="#16B6C1"
-					stroke-width="2.5"
-					stroke-linecap="round"
-					fill="none"
-				/>
-				<!-- Lengkung putih sudut bawah menyatu dengan canvas konten -->
-				<path
-					d="M0,66 C320,105 600,90 880,52 C1100,24 1320,35 1536,30 L1536,96 L0,96 Z"
-					fill="#FFFFFF"
-				/>
-			</svg>
-		</div>
+		<!-- Wave decoration bottom-left (Teal gelap, pita turquoise, lengkung putih) -->
+		<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+			<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+			<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-hub)" />
+			<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
+			<defs>
+				<linearGradient id="teal-grad-hub" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#16B6C1" />
+					<stop offset="100%" stop-color="#079EAD" />
+				</linearGradient>
+			</defs>
+		</svg>
+
+		<!-- Accent decoration bottom-right (Emas tipis & turquoise) -->
+		<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+			<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+			<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+			<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
+		</svg>
 
 		<div class="hub-container hero-container">
 			<div class="hero-content">
@@ -783,20 +764,24 @@
 		pointer-events: none;
 	}
 
-	.hero-wave-container {
+	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 100%;
-		height: 96px;
-		z-index: 3;
+		width: 380px;
+		height: 160px;
+		z-index: 2;
 		pointer-events: none;
 	}
 
-	.hero-wave-svg {
-		width: 100%;
-		height: 100%;
-		display: block;
+	.hero-wave-right {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 260px;
+		height: 160px;
+		z-index: 2;
+		pointer-events: none;
 	}
 
 	.hero-container {
