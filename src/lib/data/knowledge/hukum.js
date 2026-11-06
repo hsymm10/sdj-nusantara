@@ -37,3 +37,4 @@ export const hukumKnowledge = [
 		updatedAt: '2026-11-05'
 	}
 ];
+

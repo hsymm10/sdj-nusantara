@@ -218,3 +218,4 @@ export const faqKnowledge = [
 		updatedAt: '2026-11-05'
 	}
 ];
+
