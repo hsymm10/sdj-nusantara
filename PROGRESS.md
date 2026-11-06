@@ -1,9 +1,44 @@
 # Laporan Progres & Dokumentasi Final Implementasi SDJNusantara
 
-Tanggal: 5 November 2026  
-Status Build: **PASS (0 Error, 0 Warning pada rute aktif)**  
-Status Server: Running (HTTP 200 OK di `http://127.0.0.1:5174`)  
-Status Git: Basis Pengetahuan Pendidikan dan Beasiswa Selesai
+Tanggal: 6 November 2026  
+Status Build: **PASS (0 Error, Vite Production Build Success)**  
+Status Server: Running (HTTP 200 OK di `http://localhost:5173`)  
+Status Git: Beranda Tepi Hero Gelombang, Kartu Statistik, dan Section Tentang Selesai
+
+---
+
+### UPDATE: Perbaikan Presisi Beranda — Tepi Bawah Hero, Kartu Statistik, dan Section Tentang (Sesuai Mockup 1536px)
+1. **Tepi Bawah Hero Bergelombang**:
+   - Mengganti SVG terpisah di dasar hero dengan satu SVG tunggal kontinu (`width: 100%`, tinggi 72px pada 1536px).
+   - Menambahkan lapisan putih (`#FFFFFF`) berkurva lembut: melengkung naik di kiri, melandai di tengah, dan sedikit naik di kanan sehingga menyatu tanpa garis batas/seam dengan latar section di bawahnya.
+   - Mengintegrasikan gelombang teal gelap (`#0A5E75`) dan pita turquoise (`#16B6C1→#079EAD`) di kiri-bawah, serta pita turquoise dan emas (`#F5B331`) di kanan-bawah.
+   - Menghapus blok putih terputus di sudut-sudut; seluruh dekorasi `pointer-events: none`.
+2. **Kartu Statistik Target Program**:
+   - Lebar disesuaikan tepat 1086px pada 1536px (x 232→1318), terpusat di container dengan overlap hero ±12px.
+   - Jarak dasar tombol hero ke atas kartu statistik dijamin lega (≥28px), sehingga tombol tidak menempel atau tertutup kartu.
+   - Dimensi kartu: tinggi 72px, radius 16px, shadow lembut (`0 10px 30px rgba(8,36,66,.10)`).
+   - 4 kolom pemisah vertikal tipis (`#E3EAF1`): "Target Program / Tahun Pertama" (2 baris bold 13.5px navy), "200+ Individu Pemetaan Talenta", "12 Kegiatan Sosialisasi Beasiswa", "60 Peserta Coaching Intensif".
+   - Ikon outline turquoise ±34px (kelompok orang, kalender, topi toga), angka 20px bold navy, label 11px.
+   - Tombol panah ujung kanan: lingkaran putih 24px berbayangan lembut dengan ikon panah turquoise.
+3. **Section Tentang SDJNusantara**:
+   - Jarak label "— Tentang SDJNusantara" ±34px di bawah kartu statistik; kolom kiri dan 5 ikon sejajar vertikal.
+   - Kolom kiri: badge teal `#079EAD`, heading 2 baris 22px "Menjembatani Potensi dengan / Peluang Pendidikan & Karier", deskripsi tanpa `<br>` (`max-width: 350px`), tombol emas `#F5B331` (radius 12px) dengan panah.
+   - Lima keunggulan (x 577→1060 pada 1536px): baris horizontal dengan pemisah vertikal tipis (`#E3EAF1`), ikon outline turquoise 30px:
+     * Pendekatan Terintegrasi = berlian (diamond)
+     * Pendampingan Terarah = jabat tangan (handshake)
+     * Program Aplikatif = grafik batang dengan tren naik
+     * Jaringan Kolaborasi = kelompok orang (3 figur)
+     * Etika & Transparansi = perisai dengan centang
+   - Foto gedung modern blob: menempel tepi kanan layar, lengkungan kiri cembung besar (`border-top-left-radius: 190px`), foto kampus modern kaca UTUH (`about-campus-hd.jpg`, 1920×896) dengan langit biru berawan dan pohon hijau di bawah.
+   - Dekorasi di belakang foto: bulan sabit emas `#F5B331` di kiri-bawah kurva foto, serta swoosh turquoise dan pita emas tipis di kanan-atas.
+   - Ilustrasi garis gedung samar (kiri-bawah): SVG vektor murni bergaris tipis (`#0B2948` opacity 0.08) dengan mask gradient memudar halus ke putih pada seluruh tepinya, bebas noise/raster.
+4. **Responsive Layout**:
+   - Desktop (≥1100px): Presisi mengikuti mockup `design/mockup_1536.png`.
+   - Tablet (768–1099px): Kartu statistik grid 2×2, 5 ikon grid proporsional, foto gedung di bawah dengan sudut melengkung.
+   - Mobile (≤767px): Teks hero di atas foto, gelombang bawah hero tinggi 36px, kartu statistik kolom Target Program penuh lebar di atas, foto gedung penuh lebar dengan sudut atas melengkung, ilustrasi garis samar disembunyikan, target sentuh ≥44px, bebas overflow horizontal.
+5. **Verifikasi**:
+   - Screenshot 1536px disimpan di `screenshots/beranda-bawah-hero-v2.png`.
+   - Build produksi (`npm run build`) sukses tanpa error.
 
 ---
 

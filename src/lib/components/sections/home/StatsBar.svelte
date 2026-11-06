@@ -85,9 +85,9 @@
 		<!-- Divider 4 (x≈1239) -->
 		<div class="stat-divider"></div>
 
-		<!-- Action Circle Arrow Button: lingkaran outline turquoise ±28px berlatar putih -->
+		<!-- Action Circle Arrow Button: lingkaran putih ±24px dengan ikon panah turquoise dan bayangan lembut -->
 		<a href="/layanan/pendidikan#program" class="stat-action-btn" aria-label="Lihat Program">
-			<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="5" y1="12" x2="19" y2="12"></line>
 				<polyline points="12 5 19 12 12 19"></polyline>
 			</svg>
@@ -99,20 +99,20 @@
 	.stats-wrapper {
 		position: relative;
 		z-index: 20;
-		max-width: 1220px;
-		margin: -36px auto 0; /* Proporsional overlap ke Hero sesuai Gambar 2 */
+		max-width: 1086px;
+		margin: -12px auto 0; /* Overlap hero ±12px sesuai spesifikasi mockup */
 		padding: 0 1rem;
-		height: 74px;
+		height: 72px;
 		box-sizing: border-box;
 	}
 
 	.stats-card {
 		background: #FFFFFF;
 		border-radius: 16px;
-		box-shadow: 0 8px 30px rgba(11, 39, 71, 0.08);
-		border: 1px solid rgba(220, 230, 238, 0.85);
-		padding: 0.75rem 2rem;
-		height: 74px;
+		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.10);
+		border: 1px solid #E3EAF1;
+		padding: 0 1.75rem;
+		height: 72px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -129,22 +129,22 @@
 	.heading-line-bold {
 		font-size: 13.5px;
 		font-weight: 800;
-		color: #0B2747;
+		color: #082442;
 		line-height: 1.22;
 		letter-spacing: 0;
 	}
 
 	.stat-divider {
 		width: 1px;
-		height: 44px;
-		background: #DCE6EE;
+		height: 38px;
+		background: #E3EAF1;
 		flex-shrink: 0;
 	}
 
 	.stat-block {
 		display: flex;
 		align-items: center;
-		gap: 0.85rem;
+		gap: 0.75rem;
 		flex: 1;
 	}
 
@@ -163,7 +163,7 @@
 	.stat-num {
 		font-size: 20px;
 		font-weight: 800;
-		color: #0B2747;
+		color: #082442;
 		line-height: 1.05;
 		letter-spacing: -0.01em;
 	}
@@ -173,7 +173,7 @@
 		flex-direction: column;
 		font-size: 11px;
 		font-weight: 500;
-		color: #64748B;
+		color: #183553;
 		line-height: 1.25;
 		margin-top: 1px;
 		letter-spacing: 0;
@@ -183,13 +183,14 @@
 		white-space: nowrap;
 	}
 
-	/* Tombol panah: lingkaran outline turquoise ±28px berlatar putih */
+	/* Tombol panah: lingkaran putih ±24px dengan ikon panah turquoise dan bayangan lembut */
 	.stat-action-btn {
-		width: 28px;
-		height: 28px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
-		border: 1.5px solid #00A6B2;
+		border: 1px solid #E3EAF1;
 		background: #FFFFFF;
+		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.12);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -199,7 +200,8 @@
 	}
 
 	.stat-action-btn:hover {
-		background: #00A6B2;
+		background: #079EAD;
+		border-color: #079EAD;
 	}
 
 	.stat-action-btn:hover svg {

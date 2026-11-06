@@ -18,24 +18,33 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Wave decoration bottom-left (Teal gelap, pita turquoise, lengkung putih) -->
-	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
-		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-home)" />
-		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
+	<!-- Single unified bottom wave (SVG tunggal di dasar hero, width 100%, tinggi ±70px pada 1536) -->
+	<svg class="hero-bottom-wave" viewBox="0 0 1536 72" fill="none" preserveAspectRatio="none" aria-hidden="true">
 		<defs>
-			<linearGradient id="teal-grad-home" x1="0" y1="0" x2="1" y2="1">
+			<linearGradient id="teal-ribbon-left" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
 				<stop offset="100%" stop-color="#079EAD" />
 			</linearGradient>
+			<linearGradient id="teal-ribbon-right" x1="0" y1="1" x2="1" y2="0">
+				<stop offset="0%" stop-color="#079EAD" />
+				<stop offset="100%" stop-color="#16B6C1" />
+			</linearGradient>
 		</defs>
-	</svg>
 
-	<!-- Accent decoration bottom-right (Emas tipis & turquoise) -->
-	<svg class="hero-wave-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
-		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
-		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
+		<!-- 1. Left Dark Teal Curve (#0A5E75) -->
+		<path d="M0,0 C90,2 170,22 250,72 L0,72 Z" fill="#0A5E75" />
+
+		<!-- 2. Left Turquoise Ribbon (#16B6C1 -> #079EAD) -->
+		<path d="M0,16 C95,18 190,36 290,72 L0,72 Z" fill="url(#teal-ribbon-left)" />
+
+		<!-- 3. Right Turquoise Wave -->
+		<path d="M1260,72 C1350,56 1445,26 1536,12 L1536,72 Z" fill="url(#teal-ribbon-right)" />
+
+		<!-- 4. Right Gold Ribbon (#F5B331) -->
+		<path d="M1380,72 C1445,62 1495,46 1536,34 L1536,72 Z" fill="#F5B331" />
+
+		<!-- 5. Continuous White Layer (#FFFFFF) - seamless with section below -->
+		<path d="M0,34 C70,20 150,18 230,38 C330,62 490,68 768,68 C1046,68 1210,58 1330,42 C1415,32 1475,38 1536,46 L1536,72 L0,72 Z" fill="#FFFFFF" />
 	</svg>
 
 	<!-- Master Container (max-width 1380px, 1500px on >=1920px, padding 0 54px) -->
@@ -127,26 +136,16 @@
 		);
 	}
 
-	/* Gelombang SVG kiri-bawah */
-	.hero-wave {
+	/* Gelombang SVG tunggal dasar hero */
+	.hero-bottom-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 380px;
-		height: 160px;
+		width: 100%;
+		height: 72px;
 		z-index: 2;
 		pointer-events: none;
-	}
-
-	/* Gelombang SVG kanan-bawah */
-	.hero-wave-right {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: 260px;
-		height: 160px;
-		z-index: 2;
-		pointer-events: none;
+		display: block;
 	}
 
 	/* Container Khusus: max-width 1380px, 1500px on >=1920px */
@@ -351,6 +350,10 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+		}
+
+		.hero-bottom-wave {
+			height: 36px;
 		}
 
 		.hero-btn-row {
