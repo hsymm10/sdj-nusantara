@@ -1,12 +1,12 @@
-<!-- Section G: CTA Konsultasi Hukum (Sesuai Mockup Referensi) -->
+<!-- Section G: CTA Konsultasi Hukum (Presisi 1:1 Mockup Referensi) -->
 <script lang="ts">
-	// Props or static links
+	// CTA Section
 </script>
 
 <section class="cta-legal-section">
 	<div class="cta-legal-container">
 		<div class="cta-box-card">
-			<!-- Left: Lawyer Writing Photo with Oval Cutout & Ribbon Accent -->
+			<!-- Part 1: Professional Lawyer Photo with Oval Right Curve and Geometric Ribbons -->
 			<div class="cta-photo-col">
 				<div class="cta-img-wrap">
 					<img
@@ -14,26 +14,28 @@
 						alt="Konsultasi Hukum SDJNusantara"
 						class="cta-lawyer-img"
 					/>
-					<!-- Corner Ribbon Accent on top-right of image -->
-					<svg class="cta-photo-ribbon" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<path d="M100 0C65 5 35 25 20 65H100V0Z" fill="#F5B331"/>
-						<path d="M100 0C80 4 55 18 40 45H100V0Z" fill="#00AAB5"/>
+					<!-- SDJNusantara Geometric Ribbon Accent on top-right curve of photo -->
+					<svg class="cta-corner-ribbon" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<!-- Yellow Gold Ribbon -->
+						<path d="M100 0C60 4 25 30 10 80H100V0Z" fill="#F5B331" />
+						<!-- Turquoise Ribbon -->
+						<path d="M100 0C78 3 48 22 32 60H100V0Z" fill="#00AAB5" />
 					</svg>
 				</div>
 			</div>
 
-			<!-- Center: Title and Description -->
+			<!-- Part 2: Center Headline & Description -->
 			<div class="cta-text-col">
 				<h2 class="cta-main-title">
 					Konsultasikan Kebutuhan<br />
-					<span class="gold-text">Hukum Institusi Anda</span>
+					<span class="gold-highlight">Hukum Institusi Anda</span>
 				</h2>
 				<p class="cta-sub-text">
 					Dapatkan solusi hukum yang terarah dan sesuai dengan regulasi pendidikan.
 				</p>
 			</div>
 
-			<!-- Right: Action Button and Disclaimer Note -->
+			<!-- Part 3: Right Action Button & Disclaimer -->
 			<div class="cta-action-col">
 				<a href="/konsultasi" class="btn-cta-gold">
 					<span>Ajukan Konsultasi</span>
@@ -63,7 +65,7 @@
 <style>
 	.cta-legal-section {
 		background: #ffffff;
-		padding: 24px 0 60px;
+		padding: 24px 0 64px;
 	}
 
 	.cta-legal-container {
@@ -74,28 +76,30 @@
 
 	.cta-box-card {
 		background: #082442;
-		border-radius: 18px;
+		border-radius: 16px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 28px;
+		gap: 32px;
 		overflow: hidden;
-		box-shadow: 0 12px 30px rgba(8, 36, 66, 0.22);
+		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.2);
 		position: relative;
+		min-height: 180px;
 	}
 
-	/* Left Photo */
+	/* Part 1: Left Photo */
 	.cta-photo-col {
-		flex: 0 0 280px;
+		flex: 0 0 270px;
 		align-self: stretch;
 		min-height: 180px;
+		position: relative;
 	}
 
 	.cta-img-wrap {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		border-radius: 0 70px 70px 0;
+		border-radius: 0 80px 80px 0;
 		overflow: hidden;
 	}
 
@@ -103,26 +107,28 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center;
 		display: block;
 	}
 
-	.cta-photo-ribbon {
+	.cta-corner-ribbon {
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 80px;
-		height: 50px;
+		width: 85px;
+		height: 60px;
 		pointer-events: none;
+		z-index: 2;
 	}
 
-	/* Center Text */
+	/* Part 2: Center Headline & Description */
 	.cta-text-col {
 		flex: 1.2;
-		padding: 20px 0;
+		padding: 22px 0;
 	}
 
 	.cta-main-title {
-		font-size: 23px;
+		font-size: 22px;
 		line-height: 1.25;
 		font-weight: 800;
 		color: #ffffff;
@@ -130,22 +136,22 @@
 		letter-spacing: -0.3px;
 	}
 
-	.gold-text {
+	.gold-highlight {
 		color: #f5b331;
 	}
 
 	.cta-sub-text {
-		font-size: 12px;
+		font-size: 11.5px;
 		line-height: 1.55;
 		color: #cbd5e1;
 		margin: 0;
 		max-width: 380px;
 	}
 
-	/* Right Action */
+	/* Part 3: Right Action Button & Disclaimer */
 	.cta-action-col {
 		flex: 0 0 280px;
-		padding: 20px 28px 20px 0;
+		padding: 22px 30px 22px 0;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -160,7 +166,7 @@
 		color: #082442;
 		font-size: 12px;
 		font-weight: 700;
-		padding: 10px 20px;
+		padding: 9.5px 20px;
 		border-radius: 6px;
 		text-decoration: none;
 		transition: background 0.2s, transform 0.2s;
