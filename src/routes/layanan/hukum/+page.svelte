@@ -16,7 +16,7 @@
 	<title>Layanan Hukum & Konsultasi Regulasi — SDJNusantara</title>
 	<meta
 		name="description"
-		content="Pendampingan hukum yang terarah dan selaras dengan regulasi di bidang pendidikan bagi institusi, organisasi, maupun korporasi."
+		content="Pendampingan hukum yang terarah dan sesuai regulasi di bidang pendidikan bagi institusi, organisasi, maupun korporasi."
 	/>
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>

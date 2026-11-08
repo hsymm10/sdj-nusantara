@@ -1,4 +1,4 @@
-<!-- Section B: Floating Category Navigation (Sesuai Mockup Referensi) -->
+<!-- Section B: Floating Category Navigation (Sesuai Mockup) -->
 <script lang="ts">
 	const navItems = [
 		{
@@ -41,7 +41,7 @@
 					<div class="tab-icon">
 						{#if item.icon === 'grid'}
 							<!-- Grid 2x2 icon -->
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 								<rect x="3" y="3" width="7" height="7"/>
 								<rect x="14" y="3" width="7" height="7"/>
 								<rect x="14" y="14" width="7" height="7"/>
@@ -49,19 +49,19 @@
 							</svg>
 						{:else if item.icon === 'grad'}
 							<!-- Graduation cap -->
-							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
 								<path d="M6 12v5c3 3 9 3 12 0v-5"/>
 							</svg>
 						{:else if item.icon === 'medal'}
 							<!-- Ribbon / Medal -->
-							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 								<circle cx="12" cy="8" r="6"/>
 								<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
 							</svg>
 						{:else}
 							<!-- Scales of Justice -->
-							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6l-3-7zm12 0l-3 7h6l-3-7z"/>
 								<path d="M4 21h16"/>
 							</svg>
@@ -83,24 +83,24 @@
 		position: relative;
 		z-index: 10;
 		margin-top: -26px;
-		margin-bottom: 34px;
+		margin-bottom: 30px;
 	}
 
 	.category-nav-container {
-		max-width: 1086px;
+		width: 93%;
+		max-width: 1360px;
 		margin: 0 auto;
-		padding: 0 24px;
 	}
 
 	.category-card {
 		background: #ffffff;
-		border-radius: 12px;
+		border-radius: 14px;
 		padding: 6px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-		border: 1px solid rgba(226, 232, 240, 0.8);
+		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.08);
+		border: 1px solid rgba(226, 232, 240, 0.85);
 	}
 
 	.nav-tab {
@@ -108,12 +108,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
-		padding: 10px 16px;
-		border-radius: 8px;
+		gap: 10px;
+		padding: 11px 18px;
+		border-radius: 10px;
 		text-decoration: none;
 		color: #082442;
-		font-size: 12px;
+		font-size: 13.5px;
 		font-weight: 600;
 		transition: all 0.2s ease;
 	}
@@ -138,13 +138,13 @@
 
 	.nav-divider {
 		width: 1px;
-		height: 22px;
+		height: 24px;
 		background: #e2e8f0;
 		margin: 0 4px;
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 868px) {
 		.category-card {
 			flex-wrap: wrap;
 			gap: 6px;
@@ -153,8 +153,8 @@
 
 		.nav-tab {
 			flex: 1 1 calc(50% - 6px);
-			padding: 8px 10px;
-			font-size: 11.5px;
+			padding: 10px;
+			font-size: 12px;
 		}
 
 		.nav-divider {
@@ -162,4 +162,3 @@
 		}
 	}
 </style>
-

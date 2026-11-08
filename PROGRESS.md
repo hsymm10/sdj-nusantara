@@ -1,9 +1,60 @@
 # Laporan Progres & Dokumentasi Final Implementasi SDJNusantara
 
-Tanggal: 6 November 2026  
+Tanggal: 8 November 2026  
 Status Build: **PASS (0 Error, Vite Production Build Success)**  
 Status Server: Running (HTTP 200 OK di `http://localhost:5173`)  
-Status Git: Beranda Tepi Hero Gelombang, Kartu Statistik, dan Section Tentang Selesai
+Status Git: Halaman Layanan Hukum (`/layanan/hukum`) Presisi Sesuai Mockup (Tentang Layanan, CTA, dan Seluruh Section)
+
+---
+
+### UPDATE: Implementasi & Penyelarasan Presisi Halaman Layanan Hukum (`/layanan/hukum`)
+Berdasarkan acuan mockup mutlak `design/layanan-hukum-mockup.png` dan audit visual menyeluruh:
+
+#### 1. Status Implementasi Tiap Section
+| Section | Komponen | Status | Catatan Implementasi |
+| :--- | :--- | :--- | :--- |
+| **Hero** | `HeroLegal.svelte` | **100% Selesai** | Breadcrumb pill `Layanan › Layanan Hukum`, H1 emas 2 baris, deskripsi netral tanpa klaim berlebihan, tombol emas "Ajukan Konsultasi" (`/konsultasi`) + outline putih "Hubungi Kami" (`/kontak`), continuous bottom wave decoration (teal, turquoise, gold). |
+| **Kategori Tab** | `CategoryNavLegal.svelte` | **100% Selesai** | Floating tab bar 4 item (Semua Layanan, Program Pendidikan, Beasiswa, Layanan Hukum), tab Layanan Hukum aktif dengan latar teal `#00AAB5` dan teks putih, overlap hero proporsional. |
+| **Tentang Layanan** | `AboutLegal.svelte` | **100% Selesai** | Susunan 2 kolom horizontal: Kiri (±42%) teks + kotak disclaimer `#EAF7F9` (garis kiri teal 3.5px, ikon info solid teal `#079EAD`); Kanan (±58%) satu blok gabungan foto gedung kaca (`/images/about-campus-hd.jpg`) dengan sudut kiri-atas melengkung 120px + panel putih menimpa tepi foto 32px berisi 3 baris dipisah divider `#E3EAF1` (Pendampingan Terarah, Pendekatan Berbasis Kebutuhan, Sesuai Regulasi Pendidikan) didukung kurva teal & emas di belakang foto. |
+| **Ruang Lingkup** | `ScopeLegal.svelte` | **100% Selesai** | Header terpusat dengan badge teal, 3 card putih horizontal seragam berbayangan lembut, ikon teal dalam kotak `#EAF7F9`, deskripsi profesional netral, tombol panah bulat tosca mengarah ke `/kontak`. |
+| **Keunggulan** | `AdvantagesLegal.svelte` | **100% Selesai** | Layout 2 kolom: Kiri judul 2 baris & deskripsi dipisah garis vertikal tipis `rgba(8,36,66,0.12)` dari grid 2×2 di kanan; 4 item keunggulan dengan ikon dalam lingkaran teal pucat 52px; lengkung emas halus di kiri-bawah section. |
+| **Alur Layanan** | `ProcessLegal.svelte` | **100% Selesai** | Panel soft-cyan `#EAF7F9` radius 24px, 4 tahapan horizontal dengan lingkaran putih 68px berbayangan lembut, badge nomor teal bulat `01`–`04` di bawah ikon, panah transisi turquoise. |
+| **CTA Konsultasi** | `CTALegal.svelte` | **100% Selesai** | Wadah navy `#082442` (91% max 1360px) radius 24px: Kiri foto close-up tanpa wajah (`/images/legal-faceless-writing.jpg`) dengan sisi kanan melengkung radius 100px dan garis kurva emas `#F5B331` (3px); Tengah H2 2 baris putih-emas + deskripsi netral; Pemisah vertikal tipis `rgba(255,255,255,0.18)`; Kanan tombol emas "Ajukan Konsultasi" (`/konsultasi`) + kotak disclaimer lebar 340px dengan ikon solid teal. |
+| **Page Wrapper** | `src/routes/layanan/hukum/+page.svelte` | **100% Selesai** | Mengintegrasikan ke-7 section, mempertahankan Navbar dan Footer global (tanpa submenu terlarang), meta robots `noindex, nofollow`. |
+
+#### 2. Daftar File yang Diubah
+- `src/lib/components/sections/legal/HeroLegal.svelte`
+- `src/lib/components/sections/legal/CategoryNavLegal.svelte`
+- `src/lib/components/sections/legal/AboutLegal.svelte`
+- `src/lib/components/sections/legal/ScopeLegal.svelte`
+- `src/lib/components/sections/legal/AdvantagesLegal.svelte`
+- `src/lib/components/sections/legal/ProcessLegal.svelte`
+- `src/lib/components/sections/legal/CTALegal.svelte`
+- `src/routes/layanan/hukum/+page.svelte`
+- `scripts/capture_hukum.cjs`
+- `PROGRESS.md`
+
+#### 3. Aset Gambar yang Digunakan
+1. `static/images/layanan-hukum-hero.jpg`: Palu hakim kayu dan timbangan kuningan berlatar rak buku hukum klasik (aset foto legal tanpa wajah/orang).
+2. `static/images/about-campus-hd.jpg`: Gedung institusi pendidikan kaca modern HD (digunakan pada section Tentang Layanan).
+3. `static/images/legal-faceless-writing.jpg`: Close-up tangan berjas navy menulis dokumen hukum dengan pulpen dan timbangan keadilan di latar buram (dihasilkan khusus untuk mematuhi regulasi ketat tanpa menampilkan wajah orang).
+
+#### 4. Tabel Verifikasi Kepatuhan Regulasi & Standar
+| Kriteria Pengujian | Status | Bukti / Catatan |
+| :--- | :---: | :--- |
+| **Klaim Mutu Superlatif** | **LOLOS** | Seluruh kata terlarang (*terbaik*, *terpercaya*, *efektif*, *berpengalaman*) telah dibersihkan 100%. Redaksi diubah netral: *"yang terarah dan sesuai regulasi"*, *"secara profesional"*. |
+| **Klaim Jaminan Hasil** | **LOLOS** | Tidak ada klaim *pasti*, *jaminan*, *aman*, atau klaim keberhasilan kasus/klien. |
+| **Disclaimer Nasihat Hukum** | **LOLOS** | Tampil eksplisit di 2 lokasi strategis: Section Tentang Layanan dan Section CTA (*"Informasi pada halaman ini bersifat umum dan bukan nasihat hukum. Hubungan penasihat-klien baru terbentuk setelah ada kesepakatan tertulis."*). |
+| **Meta Robots Noindex** | **LOLOS** | Terdapat `<meta name="robots" content="noindex, nofollow" />` pada `<svelte:head>` halaman `/layanan/hukum`. |
+| **Foto Orang Bermuka** | **LOLOS** | Tidak ada foto yang menampilkan wajah orang di seluruh halaman hukum. Semua foto adalah objek (palu/timbangan, arsitektur gedung) atau close-up tangan menulis (*faceless*). |
+| **Tombol Aksi ke-2 Hero** | **LOLOS** | Tombol kedua di hero diganti menjadi "Hubungi Kami" yang mengarah ke `/kontak`. |
+| **Integritas Global** | **LOLOS** | Navbar, Footer global, Beranda (`/`), dan Layanan Pendidikan (`/layanan/pendidikan`) tidak terpengaruh sedikit pun. |
+
+#### 5. Catatan Legalitas yang Wajib Diisi Pemilik Sebelum Tayang Publik
+Sebelum halaman ini dipublikasikan secara komersial luas (dan sebelum tag `noindex` dicabut), pemilik situs wajib melengkapi:
+1. **Nomor Izin Konsultan Hukum / Kantor Hukum Mitra**: Pencantuman legalitas badan usaha atau kantor hukum mitra pendamping resmi.
+2. **Nama Advokat / Konsultan Hukum Penanggung Jawab**: Jika bekerja sama dengan kantor advokat (Law Firm), pastikan terdapat penandatanganan Perjanjian Kerja Sama (PKS) tertulis dan penunjukan nama Advokat penanggung jawab yang berizin PERADI/Kemenkumham.
+3. **Izin Operasional & Perjanjian Layanan (Engagement Letter)**: Standar format Surat Kuasa Khusus / Perjanjian Layanan Konsultasi Hukum Tertulis untuk setiap klien institusi sebelum nasihat hukum konkret diberikan.
 
 ---
 

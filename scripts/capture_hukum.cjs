@@ -102,7 +102,9 @@ async function captureUrl(url, width, outputPath) {
 
 async function main() {
   console.log('Capturing /layanan/hukum...');
+  await captureUrl('http://127.0.0.1:5173/layanan/hukum', 1536, 'screenshots/current_layanan_hukum_1536.png');
   await captureUrl('http://127.0.0.1:5173/layanan/hukum', 1440, 'screenshots/current_layanan_hukum_1440.png');
+  await captureUrl('http://127.0.0.1:5173/layanan/hukum', 390, 'screenshots/current_layanan_hukum_390.png');
 }
 
 main().catch(console.error);

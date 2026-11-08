@@ -1,4 +1,4 @@
-<!-- Section C: Tentang Layanan Hukum — 3 Kolom Horizontal (Sesuai Mockup Referensi) -->
+<!-- Section C: Tentang Layanan Hukum — Susunan Satu Blok Gabungan Foto + Panel Menimpa (Sesuai Mockup) -->
 <script lang="ts">
 	const features = [
 		{
@@ -18,7 +18,7 @@
 
 <section class="about-legal-section">
 	<div class="about-legal-container">
-		<!-- Kolom 1 (Kiri ~42%): Label, Heading, Deskripsi, Disclaimer -->
+		<!-- KIRI (±42%): Label, H2, Deskripsi, Disclaimer -->
 		<div class="about-col-left">
 			<div class="section-tag">
 				<span class="tag-dash"></span>
@@ -31,13 +31,11 @@
 				Layanan konsultasi regulasi, telaah kepatuhan, serta pendampingan tata kelola hukum bagi institusi pendidikan, organisasi, maupun korporasi di bidang pendidikan.
 			</p>
 
-			<!-- Disclaimer Box with Left Cyan Border -->
+			<!-- Kotak Disclaimer: latar #EAF7F9, garis kiri teal 3px, radius 10px, ikon info SOLID teal 18px -->
 			<div class="disclaimer-box">
 				<div class="disclaimer-icon-wrap" aria-hidden="true">
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="10"/>
-						<line x1="12" y1="16" x2="12" y2="12"/>
-						<line x1="12" y1="8" x2="12.01" y2="8"/>
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="#079EAD">
+						<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
 					</svg>
 				</div>
 				<p class="disclaimer-text">
@@ -46,56 +44,73 @@
 			</div>
 		</div>
 
-		<!-- Kolom 2 (Tengah ~28%): Gambar Gedung Institusi Pendidikan dengan Lengkungan Khas & Pita Sudut -->
-		<div class="about-col-center">
-			<div class="building-photo-frame">
-				<img
-					src="/images/about-campus-hd.jpg"
-					alt="Gedung Institusi Pendidikan SDJNusantara"
-					class="building-img"
-				/>
-				<!-- Ornamen pita lengkung kuning emas & tosca di sudut kanan bawah -->
-				<svg class="building-corner-ribbon" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<path d="M35 65C65 60 90 42 100 12V65H35Z" fill="#F5B331" />
-					<path d="M60 65C80 63 94 52 100 32V65H60Z" fill="#00AAB5" />
-				</svg>
-			</div>
-		</div>
-
-		<!-- Kolom 3 (Kanan ~28%): Tiga Card Keunggulan Vertikal Ramping & Seragam -->
+		<!-- KANAN (±58%): SATU BLOK GABUNGAN FOTO + PANEL MENIMPA -->
 		<div class="about-col-right">
-			<div class="features-vertical-list">
-				{#each features as feat}
-					<div class="feat-card">
-						<div class="feat-icon-box">
-							{#if feat.icon === 'shield'}
-								<!-- Shield check -->
-								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-									<polyline points="9 12 11 14 15 10"/>
-								</svg>
-							{:else if feat.icon === 'users'}
-								<!-- Users / team -->
-								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-									<circle cx="9" cy="7" r="4"/>
-									<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-									<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-								</svg>
-							{:else}
-								<!-- Document / regulation -->
-								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-									<polyline points="14 2 14 8 20 8"/>
-									<line x1="16" y1="13" x2="8" y2="13"/>
-									<line x1="16" y1="17" x2="8" y2="17"/>
-									<polyline points="10 9 9 9 8 9"/>
-								</svg>
-							{/if}
+			<div class="photo-panel-combo">
+				<!-- Dekorasi Swoosh di BELAKANG foto (z-index 1) -->
+				<div class="swoosh-bg-layer" aria-hidden="true">
+					<!-- Swoosh turquoise melengkung di kiri-atas -->
+					<svg class="swoosh-top-left" viewBox="0 0 160 120" fill="none">
+						<path d="M0 120C0 50 50 0 160 0C100 0 0 30 0 120Z" fill="url(#teal-grad-swoosh)"/>
+						<defs>
+							<linearGradient id="teal-grad-swoosh" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0%" stop-color="#16B6C1"/>
+								<stop offset="100%" stop-color="#079EAD"/>
+							</linearGradient>
+						</defs>
+					</svg>
+					<!-- Lengkung emas di kiri-bawah/sudut bawah -->
+					<svg class="swoosh-bottom-gold" viewBox="0 0 140 100" fill="none">
+						<path d="M0 100C40 100 90 80 140 0C90 60 40 85 0 100Z" fill="#F5B331"/>
+					</svg>
+				</div>
+
+				<!-- Foto Gedung (z-index 2): Sudut kiri-atas melengkung besar 120px -->
+				<div class="building-photo-box">
+					<img
+						src="/images/about-campus-hd.jpg"
+						alt="Gedung Institusi Pendidikan SDJNusantara"
+						class="building-img"
+					/>
+					<!-- Lengkung emas tipis di sudut kanan bawah foto -->
+					<svg class="building-deco-gold" viewBox="0 0 110 70" fill="none" aria-hidden="true">
+						<path d="M40 70C70 65 95 45 110 15V70H40Z" fill="#F5B331" />
+					</svg>
+				</div>
+
+				<!-- Panel Putih MENIMPA TEPI KANAN FOTO ±30px (z-index 3) -->
+				<div class="overlapping-white-panel">
+					{#each features as feat, idx}
+						<div class="feature-row" class:border-bottom={idx < features.length - 1}>
+							<div class="feat-icon-wrap">
+								{#if feat.icon === 'shield'}
+									<!-- Perisai centang outline teal 26px -->
+									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+										<polyline points="9 12 11 14 15 10"/>
+									</svg>
+								{:else if feat.icon === 'users'}
+									<!-- Kelompok orang outline teal 26px -->
+									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+										<circle cx="9" cy="7" r="4"/>
+										<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+										<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+									</svg>
+								{:else}
+									<!-- Dokumen outline teal 26px -->
+									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+										<polyline points="14 2 14 8 20 8"/>
+										<line x1="16" y1="13" x2="8" y2="13"/>
+										<line x1="16" y1="17" x2="8" y2="17"/>
+									</svg>
+								{/if}
+							</div>
+							<span class="feat-text">{feat.title}</span>
 						</div>
-						<div class="feat-title">{feat.title}</div>
-					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -104,100 +119,143 @@
 <style>
 	.about-legal-section {
 		background: #ffffff;
-		padding: 24px 0 46px;
+		padding: 44px 0 52px;
 	}
 
 	.about-legal-container {
-		max-width: 1086px;
+		width: 93%;
+		max-width: 1360px;
 		margin: 0 auto;
-		padding: 0 24px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 24px;
+		gap: 36px;
 	}
 
-	/* Kolom 1 (Kiri ~42%) */
+	/* === KIRI (±42%) === */
 	.about-col-left {
-		flex: 1.4;
-		max-width: 440px;
+		flex: 0 0 42%;
+		max-width: 520px;
 	}
 
 	.section-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		margin-bottom: 8px;
+		gap: 8px;
+		margin-bottom: 10px;
 	}
 
 	.tag-dash {
 		display: inline-block;
-		width: 14px;
-		height: 2px;
-		background: #079ead;
+		width: 16px;
+		height: 2.5px;
+		background: #16b6c1;
 		border-radius: 2px;
 	}
 
 	.tag-label {
-		font-size: 11px;
+		font-size: 12px;
 		font-weight: 700;
 		color: #079ead;
-		letter-spacing: 0.5px;
+		letter-spacing: 0.8px;
+		text-transform: uppercase;
 	}
 
 	.about-title {
-		font-size: 23px;
+		font-size: 32px;
 		line-height: 1.25;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 10px;
-		letter-spacing: -0.3px;
+		margin: 0 0 14px;
 	}
 
 	.about-desc {
-		font-size: 11.5px;
-		line-height: 1.6;
-		color: #64748b;
-		margin: 0 0 16px;
+		font-size: 14.5px;
+		line-height: 1.65;
+		color: #183553;
+		margin: 0 0 20px;
+		max-width: 470px;
 	}
 
-	/* Disclaimer Box */
+	/* Kotak Disclaimer */
 	.disclaimer-box {
-		background: #f4f8fb;
-		border-left: 3px solid #00aab5;
-		border-radius: 0 6px 6px 0;
-		padding: 10px 14px;
+		background: #eaf7f9;
+		border-left: 3.5px solid #079ead;
+		border-radius: 10px;
+		padding: 12px 16px;
 		display: flex;
 		align-items: flex-start;
-		gap: 10px;
+		gap: 12px;
+		max-width: 480px;
 	}
 
 	.disclaimer-icon-wrap {
 		flex-shrink: 0;
-		margin-top: 1px;
+		margin-top: 2px;
 	}
 
 	.disclaimer-text {
-		font-size: 10px;
-		line-height: 1.5;
-		color: #475569;
+		font-size: 12.5px;
+		line-height: 1.55;
+		color: #183553;
 		margin: 0;
 	}
 
-	/* Kolom 2 (Tengah ~28%): Gambar Gedung */
-	.about-col-center {
-		flex: 0.95;
-		max-width: 290px;
-		height: 175px;
+	/* === KANAN (±58%): BLOK GABUNGAN FOTO + PANEL MENIMPA === */
+	.about-col-right {
+		flex: 0 0 55%;
+		display: flex;
+		justify-content: flex-end;
 	}
 
-	.building-photo-frame {
+	.photo-panel-combo {
 		position: relative;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		max-width: 660px;
+		height: 235px;
+	}
+
+	/* Swoosh di belakang foto */
+	.swoosh-bg-layer {
+		position: absolute;
+		inset: -12px auto auto -20px;
 		width: 100%;
 		height: 100%;
-		border-radius: 70px 10px 10px 10px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.swoosh-top-left {
+		position: absolute;
+		top: -8px;
+		left: -12px;
+		width: 140px;
+		height: 100px;
+	}
+
+	.swoosh-bottom-gold {
+		position: absolute;
+		bottom: -10px;
+		left: 20px;
+		width: 120px;
+		height: 80px;
+	}
+
+	/* Foto Gedung */
+	.building-photo-box {
+		position: relative;
+		z-index: 2;
+		width: 385px;
+		height: 235px;
+		border-top-left-radius: 120px;
+		border-top-right-radius: 20px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 		overflow: hidden;
-		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 10px 24px rgba(8, 36, 66, 0.12);
+		flex-shrink: 0;
 	}
 
 	.building-img {
@@ -207,87 +265,104 @@
 		display: block;
 	}
 
-	.building-corner-ribbon {
+	.building-deco-gold {
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 85px;
-		height: 52px;
+		width: 90px;
+		height: 55px;
 		pointer-events: none;
 	}
 
-	/* Kolom 3 (Kanan ~28%): 3 Cards Vertikal */
-	.about-col-right {
-		flex: 0.95;
-		max-width: 280px;
-	}
-
-	.features-vertical-list {
+	/* Panel Putih Menimpa Tepi Kanan Foto ±30px */
+	.overlapping-white-panel {
+		position: relative;
+		z-index: 3;
+		margin-left: -32px;
+		width: 270px;
+		height: 235px;
+		background: #ffffff;
+		border-radius: 18px;
+		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.12);
+		border: 1px solid #e3eaf1;
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
-		height: 175px;
 		justify-content: space-between;
+		overflow: hidden;
 	}
 
-	.feat-card {
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
-		border-radius: 8px;
-		padding: 8px 12px;
+	.feature-row {
+		flex: 1;
 		display: flex;
 		align-items: center;
-		gap: 10px;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-		transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-		flex: 1;
+		gap: 14px;
+		padding: 0 20px;
 	}
 
-	.feat-card:hover {
-		transform: translateY(-1px);
-		border-color: #00aab5;
-		box-shadow: 0 4px 12px rgba(0, 170, 181, 0.1);
+	.feature-row.border-bottom {
+		border-bottom: 1px solid #e3eaf1;
 	}
 
-	.feat-icon-box {
-		width: 30px;
-		height: 30px;
-		border-radius: 6px;
-		background: #e6f7f8;
+	.feat-icon-wrap {
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		flex-shrink: 0;
 	}
 
-	.feat-title {
-		font-size: 11px;
+	.feat-text {
+		font-size: 14.5px;
 		font-weight: 700;
 		color: #082442;
-		line-height: 1.3;
-		margin: 0;
+		line-height: 1.35;
 	}
 
-	@media (max-width: 900px) {
+	/* === RESPONSIVE === */
+	@media (max-width: 1100px) {
 		.about-legal-container {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 24px;
+			gap: 36px;
 		}
 
-		.about-col-left,
-		.about-col-center,
-		.about-col-right {
+		.about-col-left {
 			max-width: 100%;
+			flex: auto;
+		}
+
+		.about-col-right {
 			width: 100%;
+			flex: auto;
+			justify-content: flex-start;
 		}
 
-		.about-col-center {
-			height: 200px;
+		.photo-panel-combo {
+			max-width: 100%;
 		}
+	}
 
-		.features-vertical-list {
+	@media (max-width: 680px) {
+		.photo-panel-combo {
+			flex-direction: column;
 			height: auto;
+			align-items: stretch;
+		}
+
+		.building-photo-box {
+			width: 100%;
+			height: 200px;
+			border-top-left-radius: 80px;
+		}
+
+		.overlapping-white-panel {
+			margin-left: 0;
+			margin-top: 16px;
+			width: 100%;
+			height: auto;
+		}
+
+		.feature-row {
+			padding: 16px 20px;
 		}
 	}
 </style>

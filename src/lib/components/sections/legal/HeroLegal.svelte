@@ -1,4 +1,4 @@
-<!-- Section A: Hero Section Layanan Hukum (Sesuai Mockup Referensi) -->
+<!-- Section A: Hero Section Layanan Hukum (Sesuai Mockup & Kepatuhan) -->
 <script lang="ts">
 	// Props or static data
 </script>
@@ -8,7 +8,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/layanan-hukum-hero.jpg"
-			alt="Layanan Hukum dan Konsultasi Regulasi SDJNusantara"
+			alt="Palu Hakim dan Timbangan Keadilan Layanan Hukum SDJNusantara"
 			class="hero-bg-img"
 			loading="eager"
 			fetchpriority="high"
@@ -16,7 +16,7 @@
 		<div class="hero-gradient-overlay"></div>
 	</div>
 
-	<!-- Continuous bottom wave decoration (Lapisan putih, pita tosca, dan aksen emas) -->
+	<!-- Continuous bottom wave decoration -->
 	<div class="hero-wave-container" aria-hidden="true">
 		<svg class="hero-wave-svg" viewBox="0 0 1440 85" fill="none" preserveAspectRatio="none">
 			<!-- White base curve cutting left-bottom of hero -->
@@ -35,10 +35,10 @@
 	<!-- Content Container -->
 	<div class="legal-hero-container">
 		<div class="hero-left-content">
-			<!-- Pill Badge -->
+			<!-- Pill Badge: Breadcrumb netral -->
 			<div class="pill-badge">
 				<span class="pill-dot"></span>
-				<span class="pill-text">Layanan Hukum</span>
+				<span class="pill-text">Layanan › Layanan Hukum</span>
 			</div>
 
 			<!-- Headline -->
@@ -47,12 +47,12 @@
 				<span class="gold-highlight">Konsultasi Regulasi.</span>
 			</h1>
 
-			<!-- Subtitle / Description -->
+			<!-- Subtitle / Description Netral (Kepatuhan: tanpa kata klaim) -->
 			<p class="hero-description">
-				Pendampingan hukum yang terarah dan selaras dengan regulasi di bidang pendidikan bagi institusi, organisasi, maupun korporasi.
+				Pendampingan hukum yang terarah dan sesuai regulasi di bidang pendidikan bagi institusi, organisasi, maupun korporasi.
 			</p>
 
-			<!-- Action Buttons -->
+			<!-- Action Buttons: Tombol 2 adalah "Hubungi Kami" ke /kontak -->
 			<div class="hero-buttons">
 				<a href="/konsultasi" class="btn-primary-gold">
 					<span>Ajukan Konsultasi</span>
@@ -61,8 +61,8 @@
 						<polyline points="12 5 19 12 12 19" />
 					</svg>
 				</a>
-				<a href="#ruang-lingkup" class="btn-outline-white">
-					<span>Lihat Paket Layanan</span>
+				<a href="/kontak" class="btn-outline-white">
+					<span>Hubungi Kami</span>
 				</a>
 			</div>
 		</div>
@@ -73,13 +73,13 @@
 	.legal-hero {
 		position: relative;
 		width: 100%;
-		min-height: 440px;
+		min-height: 400px;
 		background: #082442;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
-		padding-top: 50px;
-		padding-bottom: 70px;
+		padding-top: 40px;
+		padding-bottom: 75px;
 	}
 
 	.hero-bg-wrap {
@@ -118,14 +118,13 @@
 	.legal-hero-container {
 		position: relative;
 		z-index: 3;
-		max-width: 1086px;
-		width: 100%;
+		width: 93%;
+		max-width: 1360px;
 		margin: 0 auto;
-		padding: 0 24px;
 	}
 
 	.hero-left-content {
-		max-width: 530px;
+		max-width: 540px;
 	}
 
 	/* Pill Badge */
@@ -148,20 +147,18 @@
 	}
 
 	.pill-text {
-		font-size: 11.5px;
+		font-size: 12px;
 		font-weight: 700;
 		color: #16b6c1;
-		letter-spacing: 0.2px;
 	}
 
 	/* Headline */
 	.hero-headline {
-		font-size: 34px;
+		font-size: 36px;
 		line-height: 1.2;
 		font-weight: 800;
 		color: #ffffff;
 		margin: 0 0 14px;
-		letter-spacing: -0.4px;
 	}
 
 	.gold-highlight {
@@ -170,10 +167,10 @@
 
 	/* Description */
 	.hero-description {
-		font-size: 13px;
+		font-size: 14.5px;
 		line-height: 1.6;
 		color: #cbd5e1;
-		margin: 0 0 26px;
+		margin: 0 0 24px;
 		max-width: 480px;
 	}
 
@@ -190,9 +187,9 @@
 		gap: 8px;
 		background: #f5b331;
 		color: #082442;
-		font-size: 12.5px;
+		font-size: 13.5px;
 		font-weight: 700;
-		padding: 10px 20px;
+		padding: 10px 22px;
 		border-radius: 6px;
 		text-decoration: none;
 		transition: background 0.2s, transform 0.2s;
@@ -210,9 +207,9 @@
 		background: transparent;
 		color: #ffffff;
 		border: 1.5px solid rgba(255, 255, 255, 0.45);
-		font-size: 12.5px;
+		font-size: 13.5px;
 		font-weight: 600;
-		padding: 9.5px 18px;
+		padding: 9.5px 20px;
 		border-radius: 6px;
 		text-decoration: none;
 		transition: background 0.2s, border-color 0.2s;
@@ -266,4 +263,3 @@
 		}
 	}
 </style>
-
