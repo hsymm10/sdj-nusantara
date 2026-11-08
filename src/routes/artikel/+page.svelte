@@ -47,7 +47,7 @@
 		primaryHref="/kontak"
 		secondaryText="Hubungi Kami"
 		secondaryHref="/kontak"
-		bgImage="/images/article-cta-bg.jpg"
+		bgImage="/images/cta-building-glass.jpg"
 		variant="artikel"
 	/>
 </main>

@@ -211,23 +211,27 @@
 		}
 	}
 
-	/* Variant Tentang Kami (Sleek professional banner matching Gambar 4) */
-	.cta-banner.variant-tentang-kami {
+	/* Variant Tentang Kami & Artikel (Sleek professional banner matching Gambar 2) */
+	.cta-banner.variant-tentang-kami,
+	.cta-banner.variant-artikel {
 		height: 96px;
 	}
 
-	.cta-banner.variant-tentang-kami .cta-container {
+	.cta-banner.variant-tentang-kami .cta-container,
+	.cta-banner.variant-artikel .cta-container {
 		max-width: 1312px;
 		padding: 0 1.5rem;
 	}
 
 	@media (min-width: 1920px) {
-		.cta-banner.variant-tentang-kami .cta-container {
+		.cta-banner.variant-tentang-kami .cta-container,
+		.cta-banner.variant-artikel .cta-container {
 			max-width: 1500px;
 		}
 	}
 
-	.cta-banner.variant-tentang-kami .cta-title {
+	.cta-banner.variant-tentang-kami .cta-title,
+	.cta-banner.variant-artikel .cta-title {
 		font-size: clamp(17px, 1.45vw, 21px);
 		font-weight: 800;
 		color: #FFFFFF;
@@ -235,13 +239,15 @@
 		letter-spacing: -0.01em;
 	}
 
-	.cta-banner.variant-tentang-kami .cta-desc {
+	.cta-banner.variant-tentang-kami .cta-desc,
+	.cta-banner.variant-artikel .cta-desc {
 		font-size: clamp(11.5px, 0.9vw, 12.5px);
 		color: rgba(255, 255, 255, 0.9);
 		margin: 0;
 	}
 
-	.cta-banner.variant-tentang-kami .btn-gold {
+	.cta-banner.variant-tentang-kami .btn-gold,
+	.cta-banner.variant-artikel .btn-gold {
 		padding: 0 1.25rem;
 		height: 36px;
 		font-size: 11.5px;
@@ -252,7 +258,8 @@
 		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.28);
 	}
 
-	.cta-banner.variant-tentang-kami .btn-outline {
+	.cta-banner.variant-tentang-kami .btn-outline,
+	.cta-banner.variant-artikel .btn-outline {
 		padding: 0 1.25rem;
 		height: 36px;
 		font-size: 11.5px;
@@ -263,18 +270,22 @@
 		border-radius: 7px;
 	}
 
-	.cta-banner.variant-tentang-kami .btn-outline:hover {
+	.cta-banner.variant-tentang-kami .btn-outline:hover,
+	.cta-banner.variant-artikel .btn-outline:hover {
 		background: rgba(255, 255, 255, 0.16);
 		border-color: #FFFFFF;
 		color: #FFFFFF;
 	}
 
-	.cta-banner.variant-tentang-kami .cta-bg-img {
+	.cta-banner.variant-tentang-kami .cta-bg-img,
+	.cta-banner.variant-artikel .cta-bg-img {
 		opacity: 0.95;
+		width: 100%;
 		object-position: center 38%;
 	}
 
-	.cta-banner.variant-tentang-kami .cta-overlay {
+	.cta-banner.variant-tentang-kami .cta-overlay,
+	.cta-banner.variant-artikel .cta-overlay {
 		background: linear-gradient(
 			90deg,
 			rgba(11, 41, 72, 0.97) 0%,
@@ -283,6 +294,14 @@
 			rgba(11, 41, 72, 0.28) 75%,
 			rgba(11, 41, 72, 0.15) 100%
 		);
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.variant-tentang-kami,
+		.cta-banner.variant-artikel {
+			height: auto;
+			padding: 1.5rem 0;
+		}
 	}
 
 	/* Variant Layanan (193px height, wide container, toga silhouette on left) */
@@ -433,21 +452,15 @@
 		object-position: left center;
 	}
 
-	/* Variant Beasiswa, Kemitraan & Artikel */
+	/* Variant Beasiswa & Kemitraan */
 	.cta-banner.variant-beasiswa,
 	.cta-banner.variant-kemitraan {
 		height: 120px;
 		background: #082442;
 	}
 
-	.cta-banner.variant-artikel {
-		height: 100px;
-		background: #082442;
-	}
-
 	.cta-banner.variant-beasiswa .cta-container,
-	.cta-banner.variant-kemitraan .cta-container,
-	.cta-banner.variant-artikel .cta-container {
+	.cta-banner.variant-kemitraan .cta-container {
 		width: 100%;
 		max-width: 1425px;
 		margin: 0 auto;
@@ -457,37 +470,32 @@
 
 	@media (min-width: 1920px) {
 		.cta-banner.variant-beasiswa .cta-container,
-		.cta-banner.variant-kemitraan .cta-container,
-		.cta-banner.variant-artikel .cta-container {
+		.cta-banner.variant-kemitraan .cta-container {
 			max-width: 1500px;
 		}
 	}
 
 	.cta-banner.variant-beasiswa .cta-content,
-	.cta-banner.variant-kemitraan .cta-content,
-	.cta-banner.variant-artikel .cta-content {
+	.cta-banner.variant-kemitraan .cta-content {
 		align-items: center;
 		justify-content: space-between;
 	}
 
 	.cta-banner.variant-beasiswa .cta-text,
-	.cta-banner.variant-kemitraan .cta-text,
-	.cta-banner.variant-artikel .cta-text {
+	.cta-banner.variant-kemitraan .cta-text {
 		max-width: 620px;
 		margin-left: 350px; /* text starts at x≈423-425px */
 	}
 
 	@media (max-width: 1200px) {
 		.cta-banner.variant-beasiswa .cta-text,
-		.cta-banner.variant-kemitraan .cta-text,
-		.cta-banner.variant-artikel .cta-text {
+		.cta-banner.variant-kemitraan .cta-text {
 			margin-left: 0;
 		}
 	}
 
 	.cta-banner.variant-beasiswa .cta-title,
-	.cta-banner.variant-kemitraan .cta-title,
-	.cta-banner.variant-artikel .cta-title {
+	.cta-banner.variant-kemitraan .cta-title {
 		font-size: clamp(20px, 1.8vw, 24px);
 		line-height: 1.2;
 		font-weight: 800;
@@ -496,16 +504,14 @@
 	}
 
 	.cta-banner.variant-beasiswa .cta-desc,
-	.cta-banner.variant-kemitraan .cta-desc,
-	.cta-banner.variant-artikel .cta-desc {
+	.cta-banner.variant-kemitraan .cta-desc {
 		font-size: 13.5px;
 		line-height: 19px;
 		color: rgba(255, 255, 255, 0.88);
 	}
 
 	.cta-banner.variant-beasiswa .btn-gold,
-	.cta-banner.variant-kemitraan .btn-gold,
-	.cta-banner.variant-artikel .btn-gold {
+	.cta-banner.variant-kemitraan .btn-gold {
 		padding: 9px 22px;
 		font-size: 13px;
 		font-weight: 700;
@@ -516,8 +522,7 @@
 	}
 
 	.cta-banner.variant-beasiswa .btn-outline,
-	.cta-banner.variant-kemitraan .btn-outline,
-	.cta-banner.variant-artikel .btn-outline {
+	.cta-banner.variant-kemitraan .btn-outline {
 		padding: 9px 20px;
 		font-size: 13px;
 		font-weight: 600;
@@ -526,16 +531,14 @@
 	}
 
 	.cta-banner.variant-beasiswa .cta-bg-img,
-	.cta-banner.variant-kemitraan .cta-bg-img,
-	.cta-banner.variant-artikel .cta-bg-img {
+	.cta-banner.variant-kemitraan .cta-bg-img {
 		opacity: 0.75;
 		width: 440px;
 		object-position: left center;
 	}
 
 	.cta-banner.variant-beasiswa .cta-overlay,
-	.cta-banner.variant-kemitraan .cta-overlay,
-	.cta-banner.variant-artikel .cta-overlay {
+	.cta-banner.variant-kemitraan .cta-overlay {
 		background: linear-gradient(
 			90deg,
 			rgba(8, 36, 66, 0.45) 0%,
