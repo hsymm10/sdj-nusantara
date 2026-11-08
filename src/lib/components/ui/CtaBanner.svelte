@@ -452,15 +452,13 @@
 		object-position: left center;
 	}
 
-	/* Variant Beasiswa & Kemitraan */
-	.cta-banner.variant-beasiswa,
-	.cta-banner.variant-kemitraan {
+	/* Variant Beasiswa */
+	.cta-banner.variant-beasiswa {
 		height: 120px;
 		background: #082442;
 	}
 
-	.cta-banner.variant-beasiswa .cta-container,
-	.cta-banner.variant-kemitraan .cta-container {
+	.cta-banner.variant-beasiswa .cta-container {
 		width: 100%;
 		max-width: 1425px;
 		margin: 0 auto;
@@ -469,33 +467,28 @@
 	}
 
 	@media (min-width: 1920px) {
-		.cta-banner.variant-beasiswa .cta-container,
-		.cta-banner.variant-kemitraan .cta-container {
+		.cta-banner.variant-beasiswa .cta-container {
 			max-width: 1500px;
 		}
 	}
 
-	.cta-banner.variant-beasiswa .cta-content,
-	.cta-banner.variant-kemitraan .cta-content {
+	.cta-banner.variant-beasiswa .cta-content {
 		align-items: center;
 		justify-content: space-between;
 	}
 
-	.cta-banner.variant-beasiswa .cta-text,
-	.cta-banner.variant-kemitraan .cta-text {
+	.cta-banner.variant-beasiswa .cta-text {
 		max-width: 620px;
-		margin-left: 350px; /* text starts at x≈423-425px */
+		margin-left: 350px;
 	}
 
 	@media (max-width: 1200px) {
-		.cta-banner.variant-beasiswa .cta-text,
-		.cta-banner.variant-kemitraan .cta-text {
+		.cta-banner.variant-beasiswa .cta-text {
 			margin-left: 0;
 		}
 	}
 
-	.cta-banner.variant-beasiswa .cta-title,
-	.cta-banner.variant-kemitraan .cta-title {
+	.cta-banner.variant-beasiswa .cta-title {
 		font-size: clamp(20px, 1.8vw, 24px);
 		line-height: 1.2;
 		font-weight: 800;
@@ -503,15 +496,13 @@
 		margin-bottom: 0.35rem;
 	}
 
-	.cta-banner.variant-beasiswa .cta-desc,
-	.cta-banner.variant-kemitraan .cta-desc {
+	.cta-banner.variant-beasiswa .cta-desc {
 		font-size: 13.5px;
 		line-height: 19px;
 		color: rgba(255, 255, 255, 0.88);
 	}
 
-	.cta-banner.variant-beasiswa .btn-gold,
-	.cta-banner.variant-kemitraan .btn-gold {
+	.cta-banner.variant-beasiswa .btn-gold {
 		padding: 9px 22px;
 		font-size: 13px;
 		font-weight: 700;
@@ -521,8 +512,7 @@
 		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.28);
 	}
 
-	.cta-banner.variant-beasiswa .btn-outline,
-	.cta-banner.variant-kemitraan .btn-outline {
+	.cta-banner.variant-beasiswa .btn-outline {
 		padding: 9px 20px;
 		font-size: 13px;
 		font-weight: 600;
@@ -530,15 +520,13 @@
 		border-radius: 8px;
 	}
 
-	.cta-banner.variant-beasiswa .cta-bg-img,
-	.cta-banner.variant-kemitraan .cta-bg-img {
+	.cta-banner.variant-beasiswa .cta-bg-img {
 		opacity: 0.75;
 		width: 440px;
 		object-position: left center;
 	}
 
-	.cta-banner.variant-beasiswa .cta-overlay,
-	.cta-banner.variant-kemitraan .cta-overlay {
+	.cta-banner.variant-beasiswa .cta-overlay {
 		background: linear-gradient(
 			90deg,
 			rgba(8, 36, 66, 0.45) 0%,
@@ -546,5 +534,112 @@
 			#082442 42%,
 			#082442 100%
 		);
+	}
+
+	/* Variant Kemitraan (Konsep Gambar 2: Gambar gedung kaca di KIRI, teks tetap di kanan) */
+	.cta-banner.variant-kemitraan {
+		height: 100px;
+		background: #082442;
+	}
+
+	.cta-banner.variant-kemitraan .cta-container {
+		width: 100%;
+		max-width: 1312px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.cta-banner.variant-kemitraan .cta-container {
+			max-width: 1500px;
+		}
+	}
+
+	.cta-banner.variant-kemitraan .cta-content {
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.cta-banner.variant-kemitraan .cta-text {
+		max-width: 650px;
+		margin-left: 360px;
+	}
+
+	@media (max-width: 1200px) {
+		.cta-banner.variant-kemitraan .cta-text {
+			margin-left: 0;
+		}
+	}
+
+	.cta-banner.variant-kemitraan .cta-title {
+		font-size: clamp(17px, 1.45vw, 21px);
+		line-height: 1.25;
+		font-weight: 800;
+		color: #FFFFFF;
+		margin-bottom: 3px;
+		letter-spacing: -0.01em;
+	}
+
+	.cta-banner.variant-kemitraan .cta-desc {
+		font-size: clamp(11.5px, 0.9vw, 12.5px);
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
+	}
+
+	.cta-banner.variant-kemitraan .btn-gold {
+		padding: 0 1.25rem;
+		height: 36px;
+		font-size: 11.5px;
+		font-weight: 700;
+		background: #F9B52B;
+		color: #082442;
+		border-radius: 7px;
+		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.28);
+	}
+
+	.cta-banner.variant-kemitraan .btn-outline {
+		padding: 0 1.25rem;
+		height: 36px;
+		font-size: 11.5px;
+		font-weight: 700;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1.5px solid rgba(255, 255, 255, 0.75);
+		color: #FFFFFF;
+		border-radius: 7px;
+	}
+
+	.cta-banner.variant-kemitraan .btn-outline:hover {
+		background: rgba(255, 255, 255, 0.16);
+		border-color: #FFFFFF;
+		color: #FFFFFF;
+	}
+
+	.cta-banner.variant-kemitraan .cta-bg-img {
+		opacity: 0.95;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: left center;
+	}
+
+	.cta-banner.variant-kemitraan .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(11, 41, 72, 0.15) 0%,
+			rgba(11, 41, 72, 0.28) 22%,
+			rgba(11, 41, 72, 0.65) 36%,
+			rgba(11, 41, 72, 0.92) 50%,
+			rgba(11, 41, 72, 0.97) 65%,
+			rgba(11, 41, 72, 0.98) 100%
+		);
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.variant-kemitraan {
+			height: auto;
+			padding: 1.5rem 0;
+		}
 	}
 </style>

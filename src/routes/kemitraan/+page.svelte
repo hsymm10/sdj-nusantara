@@ -47,7 +47,7 @@
 		primaryHref="/konsultasi"
 		secondaryText="Hubungi Kami"
 		secondaryHref="/kontak"
-		bgImage="/images/partner-cta-handshake.jpg"
+		bgImage="/images/cta-building-glass-left.jpg"
 		variant="kemitraan"
 	/>
 </main>
