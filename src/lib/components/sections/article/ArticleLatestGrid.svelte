@@ -468,12 +468,12 @@
 		gap: 16px;
 	}
 
-	/* Newsletter Card */
+	/* Newsletter Card (Sesuai Gambar 2: Background Perpustakaan Hangat, Input & Button Pill) */
 	.newsletter-card {
 		position: relative;
-		border-radius: 14px;
+		border-radius: 18px;
 		overflow: hidden;
-		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.12);
+		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.14);
 		background: #082442;
 	}
 
@@ -490,7 +490,8 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		opacity: 0.35;
+		object-position: center;
+		opacity: 0.95;
 	}
 
 	.newsletter-overlay {
@@ -499,73 +500,85 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(135deg, rgba(8, 36, 66, 0.95) 0%, rgba(11, 41, 72, 0.9) 100%);
+		background: linear-gradient(
+			145deg,
+			rgba(8, 36, 66, 0.88) 0%,
+			rgba(8, 36, 66, 0.72) 48%,
+			rgba(8, 36, 66, 0.50) 100%
+		);
 	}
 
 	.newsletter-content {
 		position: relative;
 		z-index: 2;
-		padding: 20px 18px;
+		padding: 22px 20px;
 		box-sizing: border-box;
 	}
 
 	.newsletter-title {
-		font-size: 13.5px;
+		font-size: 15px;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 6px;
-		line-height: 1.35;
+		margin: 0 0 8px;
+		line-height: 1.3;
 		letter-spacing: -0.01em;
 	}
 
 	.newsletter-desc {
-		font-size: 10px;
+		font-size: 11px;
 		line-height: 1.45;
-		color: rgba(255, 255, 255, 0.8);
-		margin: 0 0 14px;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 16px;
 	}
 
 	.newsletter-form {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 10px;
 	}
 
 	.newsletter-input {
 		width: 100%;
 		background: #FFFFFF;
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		border-radius: 7px;
-		padding: 7px 11px;
-		font-size: 10.5px;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 999px;
+		padding: 9px 16px;
+		font-size: 11.5px;
 		color: #082442;
 		box-sizing: border-box;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.newsletter-input::placeholder {
+		color: #64748B;
 	}
 
 	.newsletter-input:focus {
 		outline: none;
-		border-color: #16B6C1;
+		border-color: #00A6B2;
+		box-shadow: 0 0 0 3px rgba(0, 166, 178, 0.28);
 	}
 
 	.btn-subscribe {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 5px;
-		background: #079EAD;
+		gap: 6px;
+		background: #00A6B2;
 		color: #FFFFFF;
 		border: none;
-		border-radius: 7px;
-		padding: 8px 14px;
-		font-size: 10.5px;
+		border-radius: 999px;
+		padding: 9px 16px;
+		font-size: 12px;
 		font-weight: 700;
 		cursor: pointer;
-		box-shadow: 0 3px 10px rgba(7, 158, 173, 0.3);
+		box-shadow: 0 4px 12px rgba(0, 166, 178, 0.35);
 		transition: all 0.2s;
 	}
 
 	.btn-subscribe:hover {
-		background: #16B6C1;
+		background: #079EAD;
+		transform: translateY(-1px);
 	}
 
 	.newsletter-success {

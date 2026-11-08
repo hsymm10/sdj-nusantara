@@ -1045,13 +1045,16 @@
 		color: #64748B;
 	}
 
-	/* Newsletter Card */
+	/* Newsletter Card (Sesuai Gambar 2: Background Perpustakaan Hangat, Input & Button Pill) */
 	.newsletter-card {
 		position: relative;
 		background: #082442;
 		color: #FFFFFF;
 		border: none;
+		border-radius: 20px;
+		padding: 26px 22px 24px;
 		overflow: hidden;
+		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.12);
 	}
 
 	.nl-bg-overlay {
@@ -1067,7 +1070,9 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center;
 		display: block;
+		opacity: 0.95;
 	}
 
 	.nl-dark-mask {
@@ -1076,7 +1081,12 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: rgba(8, 36, 66, 0.88);
+		background: linear-gradient(
+			145deg,
+			rgba(8, 36, 66, 0.88) 0%,
+			rgba(8, 36, 66, 0.72) 48%,
+			rgba(8, 36, 66, 0.50) 100%
+		);
 	}
 
 	.nl-content-wrap {
@@ -1085,37 +1095,51 @@
 	}
 
 	.nl-title {
-		font-size: 23px;
+		font-size: 21px;
 		line-height: 1.25;
 		font-weight: 800;
 		color: #FFFFFF;
 		margin: 0 0 10px 0;
+		letter-spacing: -0.01em;
 	}
 
 	.nl-desc {
-		font-size: 13.5px;
+		font-size: 12.5px;
 		line-height: 1.5;
-		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 16px 0;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 18px 0;
 		text-wrap: pretty;
 	}
 
 	.nl-form {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 12px;
 	}
 
 	.nl-input-pill {
 		width: 100%;
 		height: 44px;
 		border-radius: 999px;
-		border: none;
-		padding: 0 18px;
-		font-size: 13.5px;
+		background: #FFFFFF;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		padding: 0 20px;
+		font-size: 13px;
 		color: #082442;
 		box-sizing: border-box;
 		outline: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		transition: all 0.2s ease;
+	}
+
+	.nl-input-pill::placeholder {
+		color: #64748B;
+		font-size: 13px;
+	}
+
+	.nl-input-pill:focus {
+		border-color: #00A6B2;
+		box-shadow: 0 0 0 3px rgba(0, 166, 178, 0.28);
 	}
 
 	.btn-nl-submit {
@@ -1125,18 +1149,21 @@
 		gap: 8px;
 		width: 100%;
 		height: 44px;
-		border-radius: 8px;
+		border-radius: 999px;
 		background: #00A6B2;
 		color: #FFFFFF;
 		font-size: 13.5px;
 		font-weight: 700;
 		border: none;
 		cursor: pointer;
-		transition: background 0.2s ease;
+		transition: all 0.2s ease;
+		box-shadow: 0 4px 12px rgba(0, 166, 178, 0.35);
 	}
 
 	.btn-nl-submit:hover {
 		background: #079EAD;
+		transform: translateY(-1px);
+		box-shadow: 0 6px 16px rgba(0, 166, 178, 0.45);
 	}
 
 	.nl-success-box {
