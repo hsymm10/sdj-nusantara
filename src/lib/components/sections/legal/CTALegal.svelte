@@ -1,12 +1,12 @@
 <!-- Section G: CTA Konsultasi Hukum (Presisi 1:1 Mockup Referensi) -->
 <script lang="ts">
-	// CTA Section
+	// Props or static links
 </script>
 
 <section class="cta-legal-section">
 	<div class="cta-legal-container">
 		<div class="cta-box-card">
-			<!-- Part 1: Professional Lawyer Photo with Oval Right Curve and Geometric Ribbons -->
+			<!-- Bagian 1: Kiri — Gambar Profesional Hukum (270 x 180 px) dengan Crop Lengkung Oval & Pita Geometris -->
 			<div class="cta-photo-col">
 				<div class="cta-img-wrap">
 					<img
@@ -14,28 +14,28 @@
 						alt="Konsultasi Hukum SDJNusantara"
 						class="cta-lawyer-img"
 					/>
-					<!-- SDJNusantara Geometric Ribbon Accent on top-right curve of photo -->
-					<svg class="cta-corner-ribbon" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<!-- Dekorasi Geometris Teal dan Kuning pada sudut kanan atas gambar -->
+					<svg class="cta-photo-ribbon" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<!-- Yellow Gold Ribbon -->
 						<path d="M100 0C60 4 25 30 10 80H100V0Z" fill="#F5B331" />
-						<!-- Turquoise Ribbon -->
+						<!-- Teal Ribbon -->
 						<path d="M100 0C78 3 48 22 32 60H100V0Z" fill="#00AAB5" />
 					</svg>
 				</div>
 			</div>
 
-			<!-- Part 2: Center Headline & Description -->
-			<div class="cta-text-col">
+			<!-- Bagian 2: Tengah — Heading & Deskripsi Singkat -->
+			<div class="cta-info-col">
 				<h2 class="cta-main-title">
 					Konsultasikan Kebutuhan<br />
-					<span class="gold-highlight">Hukum Institusi Anda</span>
+					<span class="gold-text">Hukum Institusi Anda</span>
 				</h2>
 				<p class="cta-sub-text">
 					Dapatkan solusi hukum yang terarah dan sesuai dengan regulasi pendidikan.
 				</p>
 			</div>
 
-			<!-- Part 3: Right Action Button & Disclaimer -->
+			<!-- Bagian 3: Kanan — Tombol CTA & Disclaimer Hukum Lebar Proporsional -->
 			<div class="cta-action-col">
 				<a href="/konsultasi" class="btn-cta-gold">
 					<span>Ajukan Konsultasi</span>
@@ -45,15 +45,16 @@
 					</svg>
 				</a>
 
-				<div class="cta-mini-disclaimer">
-					<div class="mini-info-icon" aria-hidden="true">
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<!-- Disclaimer Hukum tepat di bawah tombol dengan lebar yang cukup agar tidak sempit -->
+				<div class="cta-disclaimer-wrap">
+					<div class="disclaimer-teal-icon" aria-hidden="true">
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="12" cy="12" r="10"/>
 							<line x1="12" y1="16" x2="12" y2="12"/>
 							<line x1="12" y1="8" x2="12.01" y2="8"/>
 						</svg>
 					</div>
-					<p class="mini-disclaimer-text">
+					<p class="disclaimer-content">
 						Informasi pada halaman ini bersifat umum dan bukan nasihat hukum. Hubungan penasihat-klien baru terbentuk setelah ada kesepakatan tertulis.
 					</p>
 				</div>
@@ -80,26 +81,27 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 32px;
+		gap: 28px;
 		overflow: hidden;
 		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.2);
 		position: relative;
 		min-height: 180px;
 	}
 
-	/* Part 1: Left Photo */
+	/* Bagian 1: Kiri — Gambar (270 x 180 px pada desktop) */
 	.cta-photo-col {
 		flex: 0 0 270px;
-		align-self: stretch;
-		min-height: 180px;
+		width: 270px;
+		height: 180px;
 		position: relative;
+		flex-shrink: 0;
 	}
 
 	.cta-img-wrap {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		border-radius: 0 80px 80px 0;
+		border-radius: 0 75px 75px 0;
 		overflow: hidden;
 	}
 
@@ -111,7 +113,7 @@
 		display: block;
 	}
 
-	.cta-corner-ribbon {
+	.cta-photo-ribbon {
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -121,14 +123,14 @@
 		z-index: 2;
 	}
 
-	/* Part 2: Center Headline & Description */
-	.cta-text-col {
-		flex: 1.2;
-		padding: 22px 0;
+	/* Bagian 2: Tengah — Informasi */
+	.cta-info-col {
+		flex: 1.15;
+		padding: 16px 0;
 	}
 
 	.cta-main-title {
-		font-size: 22px;
+		font-size: 21.5px;
 		line-height: 1.25;
 		font-weight: 800;
 		color: #ffffff;
@@ -136,7 +138,7 @@
 		letter-spacing: -0.3px;
 	}
 
-	.gold-highlight {
+	.gold-text {
 		color: #f5b331;
 	}
 
@@ -145,13 +147,14 @@
 		line-height: 1.55;
 		color: #cbd5e1;
 		margin: 0;
-		max-width: 380px;
+		max-width: 360px;
 	}
 
-	/* Part 3: Right Action Button & Disclaimer */
+	/* Bagian 3: Kanan — CTA & Disclaimer */
 	.cta-action-col {
-		flex: 0 0 280px;
-		padding: 22px 30px 22px 0;
+		flex: 0 0 340px;
+		max-width: 340px;
+		padding: 20px 28px 20px 0;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -178,25 +181,26 @@
 		transform: translateY(-1px);
 	}
 
-	.cta-mini-disclaimer {
+	.cta-disclaimer-wrap {
 		display: flex;
 		align-items: flex-start;
-		gap: 6px;
+		gap: 8px;
+		width: 100%;
 	}
 
-	.mini-info-icon {
+	.disclaimer-teal-icon {
 		flex-shrink: 0;
-		margin-top: 1px;
+		margin-top: 1.5px;
 	}
 
-	.mini-disclaimer-text {
-		font-size: 9.5px;
-		line-height: 1.45;
+	.disclaimer-content {
+		font-size: 10px;
+		line-height: 1.5;
 		color: #94a3b8;
 		margin: 0;
 	}
 
-	@media (max-width: 960px) {
+	@media (max-width: 992px) {
 		.cta-box-card {
 			flex-direction: column;
 			align-items: flex-start;
@@ -213,12 +217,13 @@
 			border-radius: 0;
 		}
 
-		.cta-text-col {
+		.cta-info-col {
 			padding: 0 24px;
 		}
 
 		.cta-action-col {
 			padding: 0 24px;
+			max-width: 100%;
 			width: 100%;
 		}
 	}
