@@ -540,44 +540,44 @@
 		margin: 0 auto;
 	}
 
-	/* Capsule Outer Wrap with Crescent Accents: width ~88-90% */
+	/* Capsule Outer Wrap with Crescent Accents: width ~90-95% */
 	.capsule-outer-wrap {
 		position: relative;
-		width: 90%;
+		width: 92%;
 		max-width: 1260px;
-		margin: 0 auto 28px;
+		margin: 0 auto 24px;
 	}
 
 	/* Bold Crescent Accents Hugging Capsule Ends */
 	.crescent-accent-left {
 		position: absolute;
-		left: -24px;
-		bottom: -22px;
-		width: 96px;
-		height: 96px;
+		left: -18px;
+		bottom: -14px;
+		width: 70px;
+		height: 70px;
 		pointer-events: none;
 		z-index: 1;
 	}
 
 	.crescent-accent-right {
 		position: absolute;
-		right: -24px;
-		top: -22px;
-		width: 96px;
-		height: 96px;
+		right: -18px;
+		top: -14px;
+		width: 70px;
+		height: 70px;
 		pointer-events: none;
 		z-index: 1;
 	}
 
-	/* Capsule Container Card: 175px-185px height on desktop */
+	/* Capsule Container Card: 110-120px height on desktop (115px) */
 	.partners-capsule-card {
 		position: relative;
 		z-index: 2;
 		background: #FFFFFF;
 		border: 1.5px solid #E2E8F0;
 		border-radius: 9999px;
-		height: 178px;
-		box-shadow: 0 14px 38px rgba(11, 41, 72, 0.05), 0 2px 8px rgba(11, 41, 72, 0.03);
+		height: 115px;
+		box-shadow: 0 10px 30px rgba(11, 41, 72, 0.05), 0 2px 6px rgba(11, 41, 72, 0.02);
 		overflow: hidden;
 		user-select: none;
 		touch-action: pan-y;
@@ -612,7 +612,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
-		padding: 0 28px;
+		padding: 0 36px;
 		box-sizing: border-box;
 	}
 
@@ -622,7 +622,7 @@
 		align-items: center;
 		justify-content: center;
 		height: 100%;
-		padding: 0 14px;
+		padding: 0 10px;
 		box-sizing: border-box;
 	}
 
@@ -630,7 +630,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 60px;
+		height: 42px;
 		width: 100%;
 		max-width: 100%;
 		transition: transform 0.25s ease;
@@ -639,7 +639,7 @@
 	.logo-svg-wrap :global(svg) {
 		max-width: 100%;
 		height: auto;
-		max-height: 48px;
+		max-height: 38px;
 		display: block;
 	}
 
@@ -647,26 +647,26 @@
 		transform: scale(1.05);
 	}
 
-	/* Vertical Divider: 65%-75% of container height (approx 124px) */
+	/* Vertical Divider: 45-55px height (approx 50px), #E5EAF2 */
 	.vertical-divider {
-		flex: 0 0 1.5px;
-		width: 1.5px;
-		height: 124px;
-		background: #EAEFF5;
+		flex: 0 0 1px;
+		width: 1px;
+		height: 50px;
+		background: #E5EAF2;
 	}
 
-	/* Pagination Dots (14px diameter, 12px gap) */
+	/* Pagination Dots (9-11px diameter, 12px gap, active: #FFB900) */
 	.pagination-dots-wrap {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 12px;
-		margin-top: 24px;
+		margin-top: 20px;
 	}
 
 	.page-dot {
-		width: 14px;
-		height: 14px;
+		width: 10px;
+		height: 10px;
 		border-radius: 50%;
 		background: #E2E8F0;
 		border: none;
@@ -681,8 +681,8 @@
 	}
 
 	.page-dot.active {
-		background: #FBBF24;
-		box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+		background: #FFB900;
+		box-shadow: 0 2px 6px rgba(255, 185, 0, 0.4);
 		transform: scale(1.1);
 	}
 
@@ -693,7 +693,7 @@
 		}
 
 		.partners-header {
-			margin-bottom: 42px;
+			margin-bottom: 40px;
 		}
 
 		.capsule-outer-wrap {
@@ -701,9 +701,9 @@
 		}
 
 		.partners-capsule-card {
-			height: 140px;
+			height: 100px;
 			border-radius: 9999px;
-			padding: 0 20px;
+			padding: 0 16px;
 		}
 
 		.slider-page {
@@ -715,30 +715,30 @@
 		}
 
 		.logo-svg-wrap {
-			height: 44px;
-			transform: scale(0.85);
+			height: 36px;
+			transform: scale(0.9);
 		}
 
 		.logo-svg-wrap :global(svg) {
-			max-height: 40px;
+			max-height: 32px;
 		}
 
 		.vertical-divider {
-			height: 90px;
+			height: 44px;
 		}
 
 		.crescent-accent-left {
-			left: -18px;
-			bottom: -16px;
-			width: 76px;
-			height: 76px;
+			left: -14px;
+			bottom: -10px;
+			width: 58px;
+			height: 58px;
 		}
 
 		.crescent-accent-right {
-			right: -18px;
-			top: -16px;
-			width: 76px;
-			height: 76px;
+			right: -14px;
+			top: -10px;
+			width: 58px;
+			height: 58px;
 		}
 
 		.dot-matrix-top-left,
@@ -759,7 +759,7 @@
 		}
 
 		.partners-header {
-			margin-bottom: 32px;
+			margin-bottom: 30px;
 		}
 
 		.partners-badge-capsule {
@@ -780,12 +780,12 @@
 
 		.capsule-outer-wrap {
 			width: 100%;
-			margin: 0 auto 20px;
+			margin: 0 auto 18px;
 		}
 
 		.partners-capsule-card {
-			height: 110px;
-			border-radius: 32px;
+			height: 84px;
+			border-radius: 9999px;
 			padding: 0 10px;
 		}
 
@@ -795,16 +795,20 @@
 		}
 
 		.logo-slot {
-			padding: 0 6px;
+			padding: 0 4px;
 		}
 
 		.logo-svg-wrap {
-			height: 38px;
+			height: 30px;
 			transform: scale(0.85);
 		}
 
+		.logo-svg-wrap :global(svg) {
+			max-height: 26px;
+		}
+
 		.vertical-divider {
-			height: 70px;
+			height: 34px;
 		}
 
 		.crescent-accent-left,
@@ -813,13 +817,13 @@
 		}
 
 		.page-dot {
-			width: 11px;
-			height: 11px;
+			width: 9px;
+			height: 9px;
 		}
 
 		.pagination-dots-wrap {
 			gap: 10px;
-			margin-top: 18px;
+			margin-top: 16px;
 		}
 	}
 </style>
