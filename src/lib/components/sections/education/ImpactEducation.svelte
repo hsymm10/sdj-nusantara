@@ -97,9 +97,9 @@
 
 					{#if item.isHighlight}
 						<!-- Corner swoosh ribbons on bottom-right of first card (Mockup SDJNusantara) -->
-						<svg class="card-corner-ribbon" viewBox="0 0 80 50" fill="none" preserveAspectRatio="none" aria-hidden="true">
-							<path d="M0 50 C25 48 55 36 80 12 V50 H0 Z" fill="#FFB928" />
-							<path d="M20 50 C40 48 62 38 80 26 V50 H20 Z" fill="#00B7C7" />
+						<svg class="card-corner-ribbon" viewBox="0 0 90 56" fill="none" preserveAspectRatio="none" aria-hidden="true">
+							<path d="M0 56 C28 54 62 40 90 14 V56 H0 Z" fill="#FFB928" />
+							<path d="M22 56 C44 54 69 42 90 29 V56 H22 Z" fill="#00B7C7" />
 						</svg>
 					{/if}
 				</div>
@@ -111,7 +111,7 @@
 <style>
 	.impact-edu-section {
 		background: #FFFFFF;
-		padding: 72px 0 68px;
+		padding: 76px 0 72px;
 		width: 100%;
 		position: relative;
 		overflow: hidden;
@@ -129,31 +129,31 @@
 
 	.decor-curve-left {
 		position: absolute;
-		top: -10%;
-		left: -8%;
-		width: 420px;
-		height: 380px;
-		background: radial-gradient(ellipse at center, rgba(8, 166, 181, 0.16) 0%, rgba(8, 166, 181, 0.04) 50%, transparent 70%);
+		top: -15%;
+		left: -6%;
+		width: 520px;
+		height: 440px;
+		background: radial-gradient(ellipse at center, rgba(8, 166, 181, 0.18) 0%, rgba(8, 166, 181, 0.05) 50%, transparent 72%);
 		border-radius: 50%;
-		filter: blur(20px);
+		filter: blur(28px);
 	}
 
 	.decor-curve-right {
 		position: absolute;
-		bottom: -15%;
+		bottom: -20%;
 		right: -6%;
-		width: 460px;
-		height: 360px;
-		background: radial-gradient(ellipse at center, rgba(255, 185, 40, 0.18) 0%, rgba(255, 185, 40, 0.05) 50%, transparent 70%);
+		width: 560px;
+		height: 440px;
+		background: radial-gradient(ellipse at center, rgba(255, 185, 40, 0.22) 0%, rgba(255, 185, 40, 0.06) 50%, transparent 72%);
 		border-radius: 50%;
-		filter: blur(24px);
+		filter: blur(32px);
 	}
 
 	.impact-edu-container {
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1320px;
 		margin: 0 auto;
-		padding: 0 32px;
+		padding: 0 24px;
 		box-sizing: border-box;
 		position: relative;
 		z-index: 2;
@@ -161,19 +161,19 @@
 
 	.impact-header {
 		text-align: center;
-		margin-bottom: 36px;
+		margin-bottom: 40px;
 	}
 
 	.impact-badge {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		margin-bottom: 10px;
+		margin-bottom: 12px;
 	}
 
 	.badge-dash {
 		display: inline-block;
-		width: 16px;
+		width: 18px;
 		height: 2.5px;
 		background: #08A6B5;
 		border-radius: 2px;
@@ -187,10 +187,10 @@
 	}
 
 	.impact-title {
-		font-size: clamp(24px, 2.2vw, 30px);
+		font-size: clamp(26px, 2.3vw, 32px);
 		font-weight: 800;
 		color: #0B2948;
-		margin: 0 0 10px;
+		margin: 0 0 12px;
 		letter-spacing: -0.015em;
 		line-height: 1.25;
 	}
@@ -200,28 +200,28 @@
 	}
 
 	.impact-sub {
-		font-size: 14px;
+		font-size: 14.5px;
 		line-height: 1.6;
 		color: #64748B;
 		margin: 0 auto;
-		max-width: 600px;
+		max-width: 620px;
 	}
 
 	.impact-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 22px;
+		gap: 24px;
 	}
 
 	.impact-card {
 		background: #FFFFFF;
 		border: 1px solid #DCE7EF;
-		border-radius: 16px;
-		padding: 20px 22px;
-		min-height: 98px;
+		border-radius: 18px;
+		padding: 22px 24px;
+		min-height: 104px;
 		display: flex;
 		align-items: center;
-		gap: 14px;
+		gap: 16px;
 		position: relative;
 		overflow: hidden;
 		transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
@@ -247,9 +247,9 @@
 	}
 
 	.impact-icon-box {
-		width: 44px;
-		height: 44px;
-		border-radius: 12px;
+		width: 48px;
+		height: 48px;
+		border-radius: 13px;
 		background: #E8F7F8;
 		color: #08A6B5;
 		display: flex;
@@ -265,7 +265,7 @@
 
 	.card-vdivider {
 		width: 1px;
-		height: 38px;
+		height: 40px;
 		background: rgba(255, 255, 255, 0.35);
 		margin: 0 2px;
 		flex-shrink: 0;
@@ -275,8 +275,8 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 80px;
-		height: 50px;
+		width: 90px;
+		height: 56px;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -289,7 +289,7 @@
 	}
 
 	.impact-num {
-		font-size: 26px;
+		font-size: 28px;
 		font-weight: 800;
 		color: #0B2948;
 		line-height: 1.15;
@@ -302,7 +302,7 @@
 	}
 
 	.impact-label {
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 600;
 		color: #64748B;
 		line-height: 1.35;

@@ -39,7 +39,7 @@
 					</svg>
 					<!-- Turquoise Badge Icon Box -->
 					<div class="floating-badge-box">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
 							<path d="M6 12v5c3 3 9 3 12 0v-5"/>
 						</svg>
@@ -55,11 +55,11 @@
 						loading="lazy"
 					/>
 					<!-- Decorative curve ribbons on bottom-right (Mockup SDJNusantara) -->
-					<svg class="deco-corner-ribbon" viewBox="0 0 140 90" fill="none" preserveAspectRatio="none" aria-hidden="true">
+					<svg class="deco-corner-ribbon" viewBox="0 0 150 96" fill="none" preserveAspectRatio="none" aria-hidden="true">
 						<!-- Yellow Outer Ribbon -->
-						<path d="M0 90 C45 86 95 68 140 22 V90 H0 Z" fill="#FFB928"/>
+						<path d="M0 96 C48 92 102 72 150 24 V96 H0 Z" fill="#FFB928"/>
 						<!-- Turquoise Inner Ribbon -->
-						<path d="M35 90 C75 87 115 72 140 48 V90 H35 Z" fill="#08A6B5"/>
+						<path d="M38 96 C80 93 122 76 150 50 V96 H38 Z" fill="#08A6B5"/>
 					</svg>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 <style>
 	.program-edu-section {
 		background: #FFFFFF;
-		padding: 64px 0 76px;
+		padding: 68px 0 80px;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: hidden;
@@ -78,19 +78,19 @@
 
 	.program-edu-container {
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1320px;
 		margin: 0 auto;
-		padding: 0 32px;
+		padding: 0 24px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 56px;
+		gap: 64px;
 		box-sizing: border-box;
 	}
 
 	.program-edu-left {
-		flex: 0 0 460px;
-		max-width: 460px;
+		flex: 0 0 480px;
+		max-width: 480px;
 	}
 
 	.program-badge {
@@ -116,11 +116,11 @@
 	}
 
 	.program-title {
-		font-size: clamp(26px, 2.4vw, 32px);
+		font-size: clamp(28px, 2.5vw, 34px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #0B2948;
-		margin: 0 0 16px;
+		margin: 0 0 18px;
 		letter-spacing: -0.015em;
 	}
 
@@ -129,11 +129,11 @@
 	}
 
 	.program-desc {
-		font-size: 14px;
-		line-height: 1.6;
+		font-size: 14.5px;
+		line-height: 1.65;
 		color: #64748B;
-		margin: 0 0 24px;
-		max-width: 440px;
+		margin: 0 0 28px;
+		max-width: 460px;
 	}
 
 	.program-btn {
@@ -142,9 +142,9 @@
 		gap: 8px;
 		background: #FFB928;
 		color: #0B2948;
-		font-size: 13.5px;
+		font-size: 14px;
 		font-weight: 700;
-		padding: 12px 24px;
+		padding: 13px 26px;
 		border-radius: 8px;
 		text-decoration: none;
 		box-shadow: 0 4px 14px rgba(255, 185, 40, 0.3);
@@ -160,6 +160,7 @@
 	/* Right Column: Photo with Floating Badge */
 	.program-edu-right {
 		flex: 1;
+		min-width: 0;
 		position: relative;
 	}
 
@@ -171,8 +172,8 @@
 	/* Floating badge top-left */
 	.floating-badge-wrap {
 		position: absolute;
-		top: -14px;
-		left: -14px;
+		top: -16px;
+		left: -16px;
 		z-index: 10;
 		display: flex;
 		flex-direction: column;
@@ -180,18 +181,18 @@
 	}
 
 	.sparkle-rays {
-		width: 28px;
-		height: 16px;
+		width: 32px;
+		height: 18px;
 		margin-bottom: -4px;
 	}
 
 	.floating-badge-box {
-		width: 44px;
-		height: 44px;
-		border-radius: 12px;
+		width: 48px;
+		height: 48px;
+		border-radius: 14px;
 		background: #08A6B5;
-		border: 2.5px solid #FFFFFF;
-		box-shadow: 0 6px 16px rgba(8, 166, 181, 0.35);
+		border: 3px solid #FFFFFF;
+		box-shadow: 0 6px 18px rgba(8, 166, 181, 0.38);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -200,10 +201,10 @@
 	.img-frame {
 		position: relative;
 		width: 100%;
-		height: 310px;
-		border-radius: 22px;
+		height: 380px;
+		border-radius: 24px;
 		overflow: hidden;
-		box-shadow: 0 12px 32px rgba(11, 41, 72, 0.08);
+		box-shadow: 0 14px 36px rgba(11, 41, 72, 0.09);
 		border: 1px solid #DCE7EF;
 	}
 
@@ -224,8 +225,8 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 140px;
-		height: 90px;
+		width: 150px;
+		height: 96px;
 		pointer-events: none;
 		z-index: 2;
 	}
@@ -247,7 +248,7 @@
 		}
 
 		.img-frame {
-			height: 270px;
+			height: 290px;
 		}
 	}
 
@@ -281,18 +282,18 @@
 		}
 
 		.img-frame {
-			height: 220px;
+			height: 230px;
 			border-radius: 18px;
 		}
 
 		.floating-badge-wrap {
-			top: -10px;
-			left: 6px;
+			top: -12px;
+			left: 4px;
 		}
 
 		.floating-badge-box {
-			width: 38px;
-			height: 38px;
+			width: 40px;
+			height: 40px;
 		}
 	}
 </style>
