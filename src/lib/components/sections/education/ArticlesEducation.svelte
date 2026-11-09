@@ -137,79 +137,123 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <section class="articles-edu-section" id="artikel-wawasan">
-	<!-- Atmospheric background golden geometric curves -->
+	<!-- Atmospheric background: Top-Right Yellow Waves & Bottom Full-Width Cyan Waves (Mockup GAMBAR 2) -->
 	<div class="articles-bg-decor" aria-hidden="true">
-		<!-- Top-right geometric golden yellow swoosh curve -->
-		<svg class="decor-swoosh-top-right" viewBox="0 0 380 220" fill="none" preserveAspectRatio="none">
-			<path d="M40 0 C160 30 260 90 380 180 L380 0 Z" fill="url(#gold-pale-layer-art)" />
-			<path d="M120 0 C220 35 300 85 380 145 L380 0 Z" fill="url(#gold-main-ribbon-art)" />
-			<path d="M40 0 C160 30 260 90 380 180" stroke="url(#gold-crest-stroke-art)" stroke-width="2" opacity="0.6"/>
+		<!-- Top-right sweeping yellow/amber wave -->
+		<svg class="decor-wave-top-right" viewBox="0 0 760 220" fill="none" preserveAspectRatio="none">
 			<defs>
-				<linearGradient id="gold-pale-layer-art" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#FFEBB8" stop-opacity="0.35"/>
-					<stop offset="60%" stop-color="#FFCE52" stop-opacity="0.65"/>
-					<stop offset="100%" stop-color="#FFA800" stop-opacity="0.85"/>
+				<linearGradient id="yellowWaveLight" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#FFF3D6" stop-opacity="0.3"/>
+					<stop offset="50%" stop-color="#FFE59E" stop-opacity="0.6"/>
+					<stop offset="100%" stop-color="#FFCA3A" stop-opacity="0.9"/>
 				</linearGradient>
-				<linearGradient id="gold-main-ribbon-art" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#FFF0CC" stop-opacity="0.2"/>
-					<stop offset="50%" stop-color="#FFC84C" stop-opacity="0.55"/>
-					<stop offset="100%" stop-color="#FFB323" stop-opacity="0.95"/>
-				</linearGradient>
-				<linearGradient id="gold-crest-stroke-art" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#FFE399" stop-opacity="0.3"/>
-					<stop offset="100%" stop-color="#FFB928" stop-opacity="0.7"/>
+				<linearGradient id="yellowWaveMain" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#FFE082" stop-opacity="0.4"/>
+					<stop offset="40%" stop-color="#FFC107" stop-opacity="0.85"/>
+					<stop offset="100%" stop-color="#FFA000" stop-opacity="0.95"/>
 				</linearGradient>
 			</defs>
+			<!-- Lower pale layer -->
+			<path d="M 0 0 C 220 50, 480 90, 760 220 L 760 0 Z" fill="url(#yellowWaveLight)" />
+			<!-- Upper vibrant ribbon -->
+			<path d="M 160 0 C 360 40, 580 75, 760 160 L 760 0 Z" fill="url(#yellowWaveMain)" />
 		</svg>
 
-		<!-- Bottom-left geometric golden yellow swoosh curve -->
-		<svg class="decor-swoosh-bottom-left" viewBox="0 0 380 220" fill="none" preserveAspectRatio="none">
-			<path d="M0 220 L0 80 C110 130 220 185 340 220 Z" fill="url(#gold-pale-layer-art-bot)" />
-			<path d="M0 220 L0 120 C90 155 190 195 280 220 Z" fill="url(#gold-main-ribbon-art-bot)" />
-			<path d="M0 80 C110 130 220 185 340 220" stroke="url(#gold-crest-stroke-art)" stroke-width="2" opacity="0.5"/>
+		<!-- Bottom full-width multi-layered cyan/turquoise wave spanning 100% width -->
+		<svg class="decor-wave-bottom-full" viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none">
 			<defs>
-				<linearGradient id="gold-pale-layer-art-bot" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFEBB8" stop-opacity="0.35"/>
-					<stop offset="60%" stop-color="#FFCE52" stop-opacity="0.65"/>
-					<stop offset="100%" stop-color="#FFA800" stop-opacity="0.85"/>
+				<linearGradient id="cyanWaveBack" x1="0" y1="0" x2="1" y2="0">
+					<stop offset="0%" stop-color="#00A6B8" stop-opacity="0.75" />
+					<stop offset="50%" stop-color="#00BBD0" stop-opacity="0.85" />
+					<stop offset="100%" stop-color="#00D4EA" stop-opacity="0.95" />
 				</linearGradient>
-				<linearGradient id="gold-main-ribbon-art-bot" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFF0CC" stop-opacity="0.2"/>
-					<stop offset="50%" stop-color="#FFC84C" stop-opacity="0.55"/>
-					<stop offset="100%" stop-color="#FFB323" stop-opacity="0.95"/>
+				<linearGradient id="cyanWaveFront" x1="0" y1="0" x2="1" y2="0">
+					<stop offset="0%" stop-color="#00C9DE" />
+					<stop offset="50%" stop-color="#00E5FF" />
+					<stop offset="100%" stop-color="#08B9D2" />
 				</linearGradient>
 			</defs>
+			<!-- Back wave layer -->
+			<path d="M 0 140 L 0 55 C 380 95, 920 102, 1440 38 L 1440 140 Z" fill="url(#cyanWaveBack)" />
+			<!-- Front wave layer -->
+			<path d="M 0 140 L 0 78 C 420 112, 960 115, 1440 58 L 1440 140 Z" fill="url(#cyanWaveFront)" />
 		</svg>
 	</div>
 
 	<div class="articles-edu-container">
-		<!-- Section Header -->
-		<div class="articles-header">
-			<div class="articles-badge">
-				<span class="badge-dash"></span>
-				<span class="badge-pill">
-					<svg class="badge-icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-						<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-					</svg>
-					Artikel & Wawasan
-				</span>
-				<span class="badge-dash"></span>
+		<!-- A. HERO SECTION (BAGIAN ATAS - 2 KOLOM SESUAI MOCKUP GAMBAR 2) -->
+		<div class="articles-hero-layout">
+			<!-- Kolom Kiri (40-45%): Label, Judul, Deskripsi, Tombol CTA -->
+			<div class="hero-left-col">
+				<div class="hero-label-wrap">
+					<span class="label-dash" aria-hidden="true"></span>
+					<span class="label-text">Artikel & Wawasan</span>
+				</div>
+
+				<h2 class="hero-title">
+					Temukan Insight dan <span class="highlight-cyan">Inspirasi Terbaru</span>
+				</h2>
+
+				<p class="hero-desc">
+					Berbagai artikel, panduan, dan informasi terkini seputar pendidikan, beasiswa, dan pengembangan karier.
+				</p>
+
+				<div class="hero-cta-area">
+					<a href="/artikel" class="hero-btn-cta">
+						<span>Lihat Semua Artikel</span>
+						<svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<line x1="5" y1="12" x2="19" y2="12"/>
+							<polyline points="12 5 19 12 12 19"/>
+						</svg>
+					</a>
+				</div>
 			</div>
-			<h2 class="articles-title">
-				Temukan Insight dan <span class="highlight-gold">Inspirasi Terbaru</span>
-			</h2>
-			<p class="articles-sub">
-				Berbagai artikel, panduan, dan informasi terkini seputar pendidikan, beasiswa, dan pengembangan karier.
-			</p>
+
+			<!-- Kolom Kanan (55-60%): Landscape Photo Frame with Cyan Book Badge & Yellow Sun Rays -->
+			<div class="hero-right-col">
+				<div class="hero-photo-wrap">
+					<!-- Badge Buku Cyan di sudut kiri atas dengan 3 Garis Sinar Kuning -->
+					<div class="hero-badge-wrap" aria-hidden="true">
+						<div class="badge-sun-rays">
+							<span class="ray ray-left"></span>
+							<span class="ray ray-mid"></span>
+							<span class="ray ray-right"></span>
+						</div>
+						<div class="hero-book-badge">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+							</svg>
+						</div>
+					</div>
+
+					<!-- Landscape Photo Frame -->
+					<div class="hero-photo-frame">
+						<img
+							src="/images/program-study-desk-laptop.jpg"
+							alt="Suasana Belajar dan Laptop - Artikel dan Wawasan SDJNusantara"
+							class="hero-photo-img"
+							loading="eager"
+						/>
+
+						<!-- Lengkungan dekorasi cyan & kuning di sudut kanan bawah gambar -->
+						<svg class="hero-corner-ribbon" viewBox="0 0 160 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
+							<!-- Pita Kuning Luar -->
+							<path d="M0 100 C50 96 110 75 160 20 V100 H0 Z" fill="#FFB900"/>
+							<!-- Pita Cyan Dalam -->
+							<path d="M35 100 C80 96 125 78 160 45 V100 H35 Z" fill="#00C2D8"/>
+						</svg>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<!-- 5 Cards Grid -->
+		<!-- B. ARTICLE CARD SECTION (BAGIAN BAWAH - 5 CARDS) -->
 		<div class="articles-grid">
 			{#each articles as item}
 				<div class="article-card">
 					<div class="article-thumb-wrap">
-						<img src={item.img} alt={item.title} class="article-img" loading="lazy" />
+						<img src={item.img} alt={item.title} class="article-img" loading="eager" />
 						
 						<!-- Category Badge on Top-Left -->
 						<div class="card-cat-badge">
@@ -533,13 +577,13 @@
 	.articles-edu-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 72px 0;
+		padding: 76px 0 110px;
 		width: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
-	/* Atmospheric background geometric golden curves */
+	/* Atmospheric background: Top-Right Yellow Wave & Bottom Full-Width Cyan Waves */
 	.articles-bg-decor {
 		position: absolute;
 		inset: 0;
@@ -548,22 +592,24 @@
 		overflow: hidden;
 	}
 
-	.decor-swoosh-top-right {
+	.decor-wave-top-right {
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: clamp(240px, 28vw, 440px);
-		height: clamp(150px, 18vw, 240px);
+		width: clamp(380px, 48vw, 760px);
+		height: clamp(140px, 16vw, 240px);
 		z-index: 1;
+		pointer-events: none;
 	}
 
-	.decor-swoosh-bottom-left {
+	.decor-wave-bottom-full {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: clamp(240px, 28vw, 440px);
-		height: clamp(150px, 18vw, 240px);
+		width: 100%;
+		height: clamp(80px, 10vw, 150px);
 		z-index: 1;
+		pointer-events: none;
 	}
 
 	/* Unified 78% Container for SDJNusantara Education Page */
@@ -576,65 +622,185 @@
 		box-sizing: border-box;
 	}
 
-	/* Section Header */
-	.articles-header {
-		text-align: center;
-		margin-bottom: 40px;
+	/* A. HERO SECTION (2 KOLOM - SESUAI MOCKUP GAMBAR 2) */
+	.articles-hero-layout {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 52px;
+		margin-bottom: 56px;
 	}
 
-	.articles-badge {
+	.hero-left-col {
+		flex: 0 0 44%;
+		max-width: 500px;
+	}
+
+	.hero-right-col {
+		flex: 0 0 52%;
+		position: relative;
+	}
+
+	/* Label */
+	.hero-label-wrap {
 		display: inline-flex;
 		align-items: center;
-		gap: 12px;
-		margin-bottom: 12px;
+		gap: 10px;
+		margin-bottom: 14px;
 	}
 
-	.badge-dash {
+	.label-dash {
 		display: inline-block;
-		width: 22px;
-		height: 2px;
-		background: #FFB323;
+		width: 20px;
+		height: 3px;
+		background: #00B8C7;
 		border-radius: 2px;
 	}
 
-	.badge-pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 7px;
-		padding: 6px 16px;
-		background: #FFF8E8;
-		border-radius: 100px;
-		font-size: 13px;
+	.label-text {
+		font-size: 14px;
 		font-weight: 700;
-		color: #0B2948;
+		color: #00B8C7;
 		letter-spacing: 0.01em;
 	}
 
-	.badge-icon-book {
-		width: 16px;
-		height: 16px;
-		color: #FFB323;
+	/* Main Title */
+	.hero-title {
+		font-size: clamp(30px, 3.2vw, 44px);
+		line-height: 1.22;
+		font-weight: 900;
+		color: #0B2B50;
+		margin: 0 0 16px;
+		letter-spacing: -0.02em;
 	}
 
-	.articles-title {
-		font-size: clamp(24px, 2.3vw, 30px);
+	.highlight-cyan {
+		color: #08B9D2;
+	}
+
+	/* Subtitle */
+	.hero-desc {
+		font-size: clamp(14px, 1.15vw, 15.5px);
+		line-height: 1.65;
+		color: #71839D;
+		margin: 0 0 28px;
+		max-width: 480px;
+	}
+
+	/* CTA Button */
+	.hero-btn-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		background: #FFB900;
+		color: #081525;
+		font-size: 14px;
 		font-weight: 800;
-		color: #0B2948;
-		margin: 0 0 10px;
-		letter-spacing: -0.015em;
-		line-height: 1.25;
+		padding: 12px 24px;
+		border-radius: 8px;
+		text-decoration: none;
+		box-shadow: 0 4px 14px rgba(255, 185, 0, 0.35);
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
-	.highlight-gold {
-		color: #FFB323;
+	.hero-btn-cta:hover {
+		background: #FFA500;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgba(255, 165, 0, 0.45);
 	}
 
-	.articles-sub {
-		font-size: 13.5px;
-		color: #5A6A80;
-		margin: 0 auto;
-		max-width: 620px;
-		line-height: 1.6;
+	.cta-arrow {
+		transition: transform 0.25s ease;
+	}
+
+	.hero-btn-cta:hover .cta-arrow {
+		transform: translateX(3px);
+	}
+
+	/* Right Column Photo Frame */
+	.hero-photo-wrap {
+		position: relative;
+		width: 100%;
+	}
+
+	.hero-photo-frame {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 9.2;
+		border-radius: 22px;
+		overflow: hidden;
+		background: #F1F5F9;
+		border: 3px solid #FFFFFF;
+		box-shadow: 0 16px 36px rgba(11, 43, 80, 0.08);
+	}
+
+	.hero-photo-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	/* Corner Ribbon in bottom-right of image */
+	.hero-corner-ribbon {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 160px;
+		height: 100px;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	/* Badge on Top-Left with Sun Rays */
+	.hero-badge-wrap {
+		position: absolute;
+		top: -16px;
+		left: -16px;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.badge-sun-rays {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		gap: 6px;
+		margin-bottom: 4px;
+	}
+
+	.badge-sun-rays .ray {
+		display: inline-block;
+		width: 3px;
+		height: 8px;
+		background: #FFB900;
+		border-radius: 2px;
+	}
+
+	.badge-sun-rays .ray-left {
+		transform: rotate(-30deg);
+	}
+
+	.badge-sun-rays .ray-mid {
+		height: 10px;
+	}
+
+	.badge-sun-rays .ray-right {
+		transform: rotate(30deg);
+	}
+
+	.hero-book-badge {
+		width: 52px;
+		height: 52px;
+		background: #00B8C7;
+		border: 3.5px solid #FFFFFF;
+		border-radius: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 6px 18px rgba(0, 184, 199, 0.35);
 	}
 
 	/* 5 Cards Row */
@@ -1187,6 +1353,19 @@
 			width: 86%;
 		}
 
+		.articles-hero-layout {
+			gap: 36px;
+			margin-bottom: 44px;
+		}
+
+		.hero-left-col {
+			flex: 0 0 46%;
+		}
+
+		.hero-right-col {
+			flex: 0 0 50%;
+		}
+
 		.articles-grid {
 			grid-template-columns: repeat(3, 1fr);
 			gap: 16px;
@@ -1205,11 +1384,38 @@
 
 	@media (max-width: 768px) {
 		.articles-edu-section {
-			padding: 48px 0;
+			padding: 56px 0 84px;
 		}
 
 		.articles-edu-container {
 			width: 90%;
+		}
+
+		.articles-hero-layout {
+			flex-direction: column;
+			gap: 36px;
+			margin-bottom: 36px;
+			text-align: left;
+		}
+
+		.hero-left-col {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		.hero-right-col {
+			flex: 0 0 100%;
+			width: 100%;
+		}
+
+		.hero-badge-wrap {
+			top: -12px;
+			left: -10px;
+		}
+
+		.hero-book-badge {
+			width: 44px;
+			height: 44px;
 		}
 
 		.articles-grid {
