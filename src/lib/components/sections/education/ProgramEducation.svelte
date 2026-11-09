@@ -3,6 +3,49 @@
 </script>
 
 <section class="program-edu-section" id="program-pendidikan">
+	<!-- Background Organic Curves (Mockup SDJNusantara) -->
+	<!-- 1. Top-Left Golden Yellow Layered Wave -->
+	<svg class="decor-wave-top-gold" viewBox="0 0 580 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<defs>
+			<linearGradient id="goldMainGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+				<stop offset="0%" stop-color="#FF9E00" />
+				<stop offset="45%" stop-color="#FFB51B" />
+				<stop offset="100%" stop-color="#FFCE42" />
+			</linearGradient>
+			<linearGradient id="goldSoftGrad" x1="0%" y1="0%" x2="100%" y2="60%">
+				<stop offset="0%" stop-color="#FFE79A" stop-opacity="0.85" />
+				<stop offset="50%" stop-color="#FFF2D1" stop-opacity="0.65" />
+				<stop offset="100%" stop-color="#FFFDF5" stop-opacity="0.05" />
+			</linearGradient>
+		</defs>
+		<!-- Soft Outer Gold Curve -->
+		<path d="M0 0 L0 148 C 160 148, 360 75, 580 0 Z" fill="url(#goldSoftGrad)" />
+		<!-- Main Vibrant Gold Curve -->
+		<path d="M0 0 L0 110 C 130 110, 290 50, 460 0 Z" fill="url(#goldMainGrad)" />
+	</svg>
+
+	<!-- 2. Bottom Cyan/Blue Organic Flowing Wave (Full Width) -->
+	<svg class="decor-wave-bottom-cyan" viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<defs>
+			<linearGradient id="cyanMainGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+				<stop offset="0%" stop-color="#08A6B5" stop-opacity="0.55" />
+				<stop offset="30%" stop-color="#08A6B5" stop-opacity="0.7" />
+				<stop offset="70%" stop-color="#00C4D6" stop-opacity="0.92" />
+				<stop offset="100%" stop-color="#00E0FC" />
+			</linearGradient>
+			<linearGradient id="cyanSoftGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+				<stop offset="0%" stop-color="#DDF6F8" stop-opacity="0.8" />
+				<stop offset="50%" stop-color="#E8F9FB" stop-opacity="0.7" />
+				<stop offset="85%" stop-color="#B8EFF5" stop-opacity="0.85" />
+				<stop offset="100%" stop-color="#8CE5EE" stop-opacity="0.9" />
+			</linearGradient>
+		</defs>
+		<!-- Soft Light Cyan Underlay Wave -->
+		<path d="M 0 65 C 220 52, 500 95, 820 98 C 1100 102, 1260 48, 1440 12 L 1440 120 L 0 120 Z" fill="url(#cyanSoftGrad)" />
+		<!-- Main Vibrant Cyan/Turquoise Ribbon Wave -->
+		<path d="M 0 82 C 240 74, 520 105, 860 106 C 1140 108, 1280 62, 1440 28 L 1440 120 L 0 120 Z" fill="url(#cyanMainGrad)" />
+	</svg>
+
 	<div class="program-edu-container">
 		<!-- Left: Text & CTA -->
 		<div class="program-edu-left">
@@ -12,7 +55,7 @@
 			</div>
 			<h2 class="program-title">
 				Program Pendidikan untuk<br />
-				<span class="highlight-gold">Meningkatkan Daya Saing</span>
+				<span class="highlight-cyan">Meningkatkan Daya Saing</span>
 			</h2>
 			<p class="program-desc">
 				Beragam program pengembangan kompetensi yang relevan dengan kebutuhan dunia pendidikan dan industri.
@@ -33,9 +76,9 @@
 				<div class="floating-badge-wrap" aria-hidden="true">
 					<!-- 3 Sparkle rays above badge -->
 					<svg class="sparkle-rays" viewBox="0 0 32 18" fill="none">
-						<line x1="8" y1="14" x2="3" y2="4" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
-						<line x1="16" y1="12" x2="16" y2="2" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
-						<line x1="24" y1="14" x2="29" y2="4" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
+						<line x1="8" y1="14" x2="3" y2="4" stroke="#FFB51B" stroke-width="2.5" stroke-linecap="round"/>
+						<line x1="16" y1="12" x2="16" y2="2" stroke="#FFB51B" stroke-width="2.5" stroke-linecap="round"/>
+						<line x1="24" y1="14" x2="29" y2="4" stroke="#FFB51B" stroke-width="2.5" stroke-linecap="round"/>
 					</svg>
 					<!-- Turquoise Badge Icon Box -->
 					<div class="floating-badge-box">
@@ -52,13 +95,12 @@
 						src="/images/program-study-desk-laptop.jpg"
 						alt="Program Pendidikan SDJNusantara - Suasana Belajar & Laptop"
 						class="program-img"
-						loading="lazy"
 					/>
-					<!-- Decorative curve ribbons on bottom-right (Mockup SDJNusantara) -->
+					<!-- Decorative curve ribbons on bottom-right (Mockup SDJNusantara: layered cyan curves) -->
 					<svg class="deco-corner-ribbon" viewBox="0 0 150 96" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<!-- Yellow Outer Ribbon -->
-						<path d="M0 96 C48 92 102 72 150 24 V96 H0 Z" fill="#FFB928"/>
-						<!-- Turquoise Inner Ribbon -->
+						<!-- Outer Bright Cyan Ribbon -->
+						<path d="M0 96 C48 92 102 72 150 24 V96 H0 Z" fill="#00D2EA"/>
+						<!-- Inner Turquoise Ribbon -->
 						<path d="M38 96 C80 93 122 76 150 50 V96 H38 Z" fill="#08A6B5"/>
 					</svg>
 				</div>
@@ -69,22 +111,46 @@
 
 <style>
 	.program-edu-section {
+		position: relative;
 		background: #FFFFFF;
-		padding: 68px 0 80px;
+		padding: 72px 0 88px;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: hidden;
 	}
 
-	.program-edu-container {
+	/* Background Organic Waves */
+	.decor-wave-top-gold {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: clamp(340px, 38vw, 560px);
+		height: clamp(96px, 10.5vw, 150px);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.decor-wave-bottom-cyan {
+		position: absolute;
+		bottom: 0;
+		left: 0;
 		width: 100%;
-		max-width: 1320px;
+		height: clamp(75px, 8vw, 120px);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.program-edu-container {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		max-width: 1240px;
 		margin: 0 auto;
 		padding: 0 24px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 64px;
+		gap: 60px;
 		box-sizing: border-box;
 	}
 
@@ -124,8 +190,8 @@
 		letter-spacing: -0.015em;
 	}
 
-	.highlight-gold {
-		color: #FFB928;
+	.highlight-cyan {
+		color: #08A6B5;
 	}
 
 	.program-desc {
@@ -140,21 +206,21 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		background: #FFB928;
+		background: #FFB51B;
 		color: #0B2948;
 		font-size: 14px;
 		font-weight: 700;
 		padding: 13px 26px;
-		border-radius: 8px;
+		border-radius: 9px;
 		text-decoration: none;
-		box-shadow: 0 4px 14px rgba(255, 185, 40, 0.3);
+		box-shadow: 0 4px 14px rgba(255, 181, 27, 0.32);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.program-btn:hover {
-		background: #e6a51d;
+		background: #f0a915;
 		transform: translateY(-2px);
-		box-shadow: 0 6px 18px rgba(255, 185, 40, 0.42);
+		box-shadow: 0 6px 18px rgba(255, 181, 27, 0.44);
 	}
 
 	/* Right Column: Photo with Floating Badge */
@@ -201,7 +267,7 @@
 	.img-frame {
 		position: relative;
 		width: 100%;
-		height: 380px;
+		height: 330px;
 		border-radius: 24px;
 		overflow: hidden;
 		box-shadow: 0 14px 36px rgba(11, 41, 72, 0.09);
@@ -248,14 +314,23 @@
 		}
 
 		.img-frame {
-			height: 290px;
+			height: 280px;
 		}
 	}
 
 	/* Responsive Mobile */
 	@media (max-width: 768px) {
 		.program-edu-section {
-			padding: 48px 0;
+			padding: 56px 0 64px;
+		}
+
+		.decor-wave-top-gold {
+			width: 260px;
+			height: 75px;
+		}
+
+		.decor-wave-bottom-cyan {
+			height: 60px;
 		}
 
 		.program-edu-container {
