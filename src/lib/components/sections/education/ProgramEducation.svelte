@@ -1,4 +1,4 @@
-<!-- Section 07: Program Pendidikan untuk Meningkatkan Daya Saing (Mockup Resmi SDJNusantara) -->
+<!-- Section 02: Program Pendidikan untuk Meningkatkan Daya Saing (Mockup Final SDJNusantara) -->
 <script lang="ts">
 </script>
 
@@ -12,7 +12,7 @@
 			</div>
 			<h2 class="program-title">
 				Program Pendidikan untuk<br />
-				Meningkatkan Daya Saing
+				<span class="highlight-gold">Meningkatkan Daya Saing</span>
 			</h2>
 			<p class="program-desc">
 				Beragam program pengembangan kompetensi yang relevan dengan kebutuhan dunia pendidikan dan industri.
@@ -26,22 +26,42 @@
 			</a>
 		</div>
 
-		<!-- Right: Photo with rounded corners and decorative ribbons at bottom-right corner -->
+		<!-- Right: Photo with Floating Badge & Decorative Corner Ribbons -->
 		<div class="program-edu-right">
 			<div class="photo-wrapper">
-				<img
-					src="/images/program-custom-laptop.jpg"
-					alt="Mahasiswa Program Pendidikan SDJNusantara"
-					class="program-img"
-					loading="lazy"
-				/>
-				<!-- Decorative curve ribbons on bottom-right (Mockup SDJNusantara) -->
-				<svg class="deco-corner-ribbon" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<!-- Gold curve -->
-					<path d="M40 80C75 75 105 55 120 20V80H40Z" fill="#F9B52B"/>
-					<!-- Teal curve -->
-					<path d="M70 80C92 78 110 65 120 45V80H70Z" fill="#08AEBB"/>
-				</svg>
+				<!-- Top-Left Floating Graduation Badge with Golden Rays -->
+				<div class="floating-badge-wrap" aria-hidden="true">
+					<!-- 3 Sparkle rays above badge -->
+					<svg class="sparkle-rays" viewBox="0 0 32 18" fill="none">
+						<line x1="8" y1="14" x2="3" y2="4" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
+						<line x1="16" y1="12" x2="16" y2="2" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
+						<line x1="24" y1="14" x2="29" y2="4" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
+					</svg>
+					<!-- Turquoise Badge Icon Box -->
+					<div class="floating-badge-box">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+							<path d="M6 12v5c3 3 9 3 12 0v-5"/>
+						</svg>
+					</div>
+				</div>
+
+				<!-- Main Study Desk & Laptop Image -->
+				<div class="img-frame">
+					<img
+						src="/images/program-study-desk-laptop.jpg"
+						alt="Program Pendidikan SDJNusantara - Suasana Belajar & Laptop"
+						class="program-img"
+						loading="lazy"
+					/>
+					<!-- Decorative curve ribbons on bottom-right (Mockup SDJNusantara) -->
+					<svg class="deco-corner-ribbon" viewBox="0 0 140 90" fill="none" preserveAspectRatio="none" aria-hidden="true">
+						<!-- Yellow Outer Ribbon -->
+						<path d="M0 90 C45 86 95 68 140 22 V90 H0 Z" fill="#FFB928"/>
+						<!-- Turquoise Inner Ribbon -->
+						<path d="M35 90 C75 87 115 72 140 48 V90 H35 Z" fill="#08A6B5"/>
+					</svg>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -50,9 +70,10 @@
 <style>
 	.program-edu-section {
 		background: #FFFFFF;
-		padding: 76px 0;
+		padding: 64px 0 76px;
 		width: 100%;
 		box-sizing: border-box;
+		overflow: hidden;
 	}
 
 	.program-edu-container {
@@ -68,8 +89,8 @@
 	}
 
 	.program-edu-left {
-		flex: 1;
-		max-width: 520px;
+		flex: 0 0 460px;
+		max-width: 460px;
 	}
 
 	.program-badge {
@@ -81,17 +102,17 @@
 
 	.badge-dash {
 		display: inline-block;
-		width: 16px;
-		height: 2.5px;
-		background: #08AEBB;
+		width: 18px;
+		height: 3px;
+		background: #08A6B5;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 700;
-		color: #08AEBB;
-		letter-spacing: 0.04em;
+		color: #08A6B5;
+		letter-spacing: 0.02em;
 	}
 
 	.program-title {
@@ -99,57 +120,98 @@
 		line-height: 1.25;
 		font-weight: 800;
 		color: #0B2948;
-		margin: 0 0 14px;
+		margin: 0 0 16px;
 		letter-spacing: -0.015em;
 	}
 
+	.highlight-gold {
+		color: #FFB928;
+	}
+
 	.program-desc {
-		font-size: 14.5px;
+		font-size: 14px;
 		line-height: 1.6;
-		color: #475569;
-		margin: 0 0 26px;
+		color: #64748B;
+		margin: 0 0 24px;
+		max-width: 440px;
 	}
 
 	.program-btn {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		background: #F9B52B;
-		color: #082442;
+		background: #FFB928;
+		color: #0B2948;
 		font-size: 13.5px;
 		font-weight: 700;
 		padding: 12px 24px;
 		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 4px 14px rgba(249, 181, 43, 0.28);
+		box-shadow: 0 4px 14px rgba(255, 185, 40, 0.3);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.program-btn:hover {
-		background: #e6a528;
+		background: #e6a51d;
 		transform: translateY(-2px);
-		box-shadow: 0 6px 18px rgba(249, 181, 43, 0.38);
+		box-shadow: 0 6px 18px rgba(255, 185, 40, 0.42);
 	}
 
-	/* Right Photo Frame */
+	/* Right Column: Photo with Floating Badge */
 	.program-edu-right {
 		flex: 1;
-		max-width: 560px;
+		position: relative;
 	}
 
 	.photo-wrapper {
 		position: relative;
-		border-radius: 18px;
+		width: 100%;
+	}
+
+	/* Floating badge top-left */
+	.floating-badge-wrap {
+		position: absolute;
+		top: -14px;
+		left: -14px;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.sparkle-rays {
+		width: 28px;
+		height: 16px;
+		margin-bottom: -4px;
+	}
+
+	.floating-badge-box {
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+		background: #08A6B5;
+		border: 2.5px solid #FFFFFF;
+		box-shadow: 0 6px 16px rgba(8, 166, 181, 0.35);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.img-frame {
+		position: relative;
+		width: 100%;
+		height: 310px;
+		border-radius: 22px;
 		overflow: hidden;
-		box-shadow: 0 14px 32px rgba(11, 41, 72, 0.1);
-		aspect-ratio: 16 / 10;
-		border: 1px solid #E2E8F0;
+		box-shadow: 0 12px 32px rgba(11, 41, 72, 0.08);
+		border: 1px solid #DCE7EF;
 	}
 
 	.program-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center;
 		display: block;
 		transition: transform 0.4s ease;
 	}
@@ -162,27 +224,75 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 120px;
-		height: 80px;
+		width: 140px;
+		height: 90px;
 		pointer-events: none;
+		z-index: 2;
 	}
 
-	@media (max-width: 900px) {
+	/* Responsive Tablet */
+	@media (max-width: 1024px) {
+		.program-edu-container {
+			gap: 36px;
+			padding: 0 24px;
+		}
+
+		.program-edu-left {
+			flex: 0 0 380px;
+			max-width: 380px;
+		}
+
+		.program-title {
+			font-size: 24px;
+		}
+
+		.img-frame {
+			height: 270px;
+		}
+	}
+
+	/* Responsive Mobile */
+	@media (max-width: 768px) {
 		.program-edu-section {
-			padding: 52px 0;
+			padding: 48px 0;
 		}
 
 		.program-edu-container {
 			flex-direction: column;
-			align-items: flex-start;
+			text-align: center;
 			gap: 36px;
 			padding: 0 20px;
 		}
 
-		.program-edu-left,
-		.program-edu-right {
+		.program-edu-left {
 			max-width: 100%;
+			flex: 1 1 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.program-desc {
+			max-width: 100%;
+		}
+
+		.program-edu-right {
 			width: 100%;
+		}
+
+		.img-frame {
+			height: 220px;
+			border-radius: 18px;
+		}
+
+		.floating-badge-wrap {
+			top: -10px;
+			left: 6px;
+		}
+
+		.floating-badge-box {
+			width: 38px;
+			height: 38px;
 		}
 	}
 </style>
