@@ -33,21 +33,24 @@
 				: variant === 'artikel' || variant === 'tentang-kami'
 					? '/images/cta-building-glass.jpg'
 					: variant === 'layanan'
-						? '/images/home-cta-academic-bg.jpg'
+						? '/images/cta-layanan-collaboration-bg.jpg'
 						: '/images/cta-bg-clean.jpg'
 	);
 </script>
 
 <section class="cta-banner variant-{variant}">
 	<div class="cta-bg-wrap">
-		<img src={effectiveBgImage} alt="" class="cta-bg-img" loading="lazy" />
+		<picture>
+			<source srcset={effectiveBgImage.replace(/\.jpg$/, '.webp')} type="image/webp" />
+			<img src={effectiveBgImage} alt="" class="cta-bg-img" loading="lazy" />
+		</picture>
 		<div class="cta-overlay"></div>
 	</div>
 
 	<div class="cta-container">
 		<div class="cta-content">
 			<div class="cta-text">
-				<h2 class="cta-title">{title}</h2>
+				<h2 class="cta-title">{@html title}</h2>
 				<p class="cta-desc">{description}</p>
 			</div>
 
@@ -320,9 +323,9 @@
 		}
 	}
 
-	/* Variant Layanan (Sesuai Mockup Referensi GAMBAR: Full Background Image, Navy Overlay, 96px Height) */
+	/* Variant Layanan (Full Background Image, Translucent Navy Overlay, Proportional Height) */
 	.cta-banner.variant-layanan {
-		height: 96px;
+		height: 124px;
 		background: #0B2948;
 	}
 
@@ -348,45 +351,50 @@
 	}
 
 	.cta-banner.variant-layanan .cta-text {
-		max-width: 720px;
+		max-width: 760px;
 		margin-left: 0;
 	}
 
 	.cta-banner.variant-layanan .cta-title {
-		font-size: clamp(17px, 1.45vw, 21px);
+		font-size: clamp(18px, 1.55vw, 22px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 3px 0;
+		margin: 0 0 4px 0;
 		letter-spacing: -0.01em;
 	}
 
+	.cta-banner.variant-layanan .cta-title :global(.highlight-gold),
+	.cta-banner.variant-layanan .cta-title :global(span) {
+		color: #F9B52B;
+	}
+
 	.cta-banner.variant-layanan .cta-desc {
-		font-size: clamp(11.5px, 0.9vw, 12.5px);
+		font-size: clamp(12px, 0.9vw, 13px);
 		line-height: 1.45;
-		color: rgba(255, 255, 255, 0.9);
+		color: rgba(255, 255, 255, 0.92);
 		margin: 0;
 	}
 
 	.cta-banner.variant-layanan .cta-actions {
 		display: flex;
 		align-items: center;
-		gap: 10px;
+		gap: 12px;
 		flex-shrink: 0;
 	}
 
 	.cta-banner.variant-layanan .btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		padding: 0 1.25rem;
-		height: 36px;
-		font-size: 11.5px;
+		gap: 7px;
+		padding: 0 1.35rem;
+		height: 38px;
+		font-size: 12px;
 		font-weight: 700;
 		background: #F9B52B;
 		color: #082442;
-		border-radius: 7px;
-		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.28);
+		border-radius: 8px;
+		box-shadow: 0 3px 10px rgba(249, 181, 43, 0.32);
 		white-space: nowrap;
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
@@ -394,62 +402,61 @@
 	.cta-banner.variant-layanan .btn-gold:hover {
 		background: #e6a528;
 		transform: translateY(-1px);
-		box-shadow: 0 5px 12px rgba(249, 181, 43, 0.38);
+		box-shadow: 0 5px 14px rgba(249, 181, 43, 0.42);
 	}
 
 	.cta-banner.variant-layanan .btn-outline {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		padding: 0 1.25rem;
-		height: 36px;
-		font-size: 11.5px;
+		gap: 7px;
+		padding: 0 1.35rem;
+		height: 38px;
+		font-size: 12px;
 		font-weight: 700;
-		background: rgba(255, 255, 255, 0.04);
-		border: 1.5px solid rgba(255, 255, 255, 0.75);
+		background: rgba(255, 255, 255, 0.06);
+		border: 1.5px solid rgba(255, 255, 255, 0.8);
 		color: #FFFFFF;
-		border-radius: 7px;
+		border-radius: 8px;
 		white-space: nowrap;
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.cta-banner.variant-layanan .btn-outline:hover {
-		background: rgba(255, 255, 255, 0.16);
+		background: rgba(255, 255, 255, 0.18);
 		border-color: #FFFFFF;
 		color: #FFFFFF;
 		transform: translateY(-1px);
 	}
 
 	.cta-banner.variant-layanan .cta-bg-img {
-		opacity: 0.95;
+		opacity: 1;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
-		filter: saturate(0.9) brightness(0.95);
+		filter: saturate(1.02) brightness(0.98);
 	}
 
 	.cta-banner.variant-layanan .cta-overlay {
 		background: linear-gradient(
 			90deg,
-			rgba(11, 41, 72, 0.42) 0%,
-			rgba(11, 41, 72, 0.65) 24%,
-			rgba(11, 41, 72, 0.88) 46%,
-			#0B2948 68%,
-			#0B2948 100%
+			rgba(11, 41, 72, 0.76) 0%,
+			rgba(11, 41, 72, 0.60) 42%,
+			rgba(11, 41, 72, 0.52) 72%,
+			rgba(11, 41, 72, 0.62) 100%
 		);
 	}
 
 	@media (max-width: 768px) {
 		.cta-banner.variant-layanan {
 			height: auto;
-			padding: 1.5rem 0;
+			padding: 2rem 0;
 		}
 
 		.cta-banner.variant-layanan .cta-content {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 1rem;
+			gap: 1.25rem;
 		}
 
 		.cta-banner.variant-layanan .cta-actions {

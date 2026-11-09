@@ -638,9 +638,9 @@
 	     6. CTA BANNER FULL BACKGROUND IMAGE
 	     ========================================== -->
 	<CtaBanner
-		title="Siap Mengambil Langkah Berikutnya?"
-		description="Konsultasikan kebutuhan pendidikan, pengembangan talenta, atau kerja sama institusi Anda."
-		bgImage="/images/home-cta-academic-bg.jpg"
+		title='Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>'
+		description="Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJNusantara."
+		bgImage="/images/cta-layanan-collaboration-bg.jpg"
 		primaryText="Jadwalkan Konsultasi"
 		primaryHref="/kontak"
 		secondaryText="Ajukan Kerja Sama"

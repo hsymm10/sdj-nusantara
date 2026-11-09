@@ -44,9 +44,9 @@
 
 	<!-- Section G: CTA Banner Full Background Image -->
 	<CtaBanner
-		title="Siap Memperkuat Tata Kelola Hukum Institusi Anda?"
+		title='Siap Memperkuat <span class="highlight-gold">Tata Kelola Hukum</span> Institusi Anda?'
 		description="Dapatkan pendampingan hukum yang terarah untuk membantu memenuhi kebutuhan regulasi, kepatuhan, dan tata kelola institusi pendidikan."
-		bgImage="/images/layanan-hukum-hero.jpg"
+		bgImage="/images/cta-hukum-legal-bg.jpg"
 		primaryText="Ajukan Konsultasi"
 		primaryHref="/kontak"
 		variant="layanan"

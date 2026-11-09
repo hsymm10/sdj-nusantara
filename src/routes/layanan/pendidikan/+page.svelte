@@ -67,9 +67,9 @@
 
 	<!-- 13: CTA Banner Full Background Image -->
 	<CtaBanner
-		title="Siap Mengembangkan Potensi Pendidikan Anda?"
-		description="Temukan program pendidikan dan pendampingan yang tepat untuk mendukung pengembangan potensi serta pencapaian tujuan institusi Anda."
-		bgImage="/images/home-cta-academic-bg.jpg"
+		title='Siap Mengembangkan <span class="highlight-gold">Kualitas Pendidikan</span> Institusi Anda?'
+		description="Dapatkan solusi pendidikan dan pengembangan talenta yang terarah sesuai kebutuhan institusi Anda."
+		bgImage="/images/cta-pendidikan-academic-bg.jpg"
 		primaryText="Konsultasikan Kebutuhan"
 		primaryHref="/kontak"
 		secondaryText="Jelajahi Program"
