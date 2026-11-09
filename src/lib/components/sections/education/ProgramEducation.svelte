@@ -4,7 +4,7 @@
 
 <section class="program-edu-section" id="program-pendidikan">
 	<!-- Background Organic Curves (Mockup SDJNusantara) -->
-	<!-- 1. Top-Left Golden Yellow Layered Wave -->
+	<!-- 1. Top-Left Golden Yellow Layered Wave (Dipertahankan Sesuai Mockup) -->
 	<svg class="decor-wave-top-gold" viewBox="0 0 580 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
 		<defs>
 			<linearGradient id="goldMainGrad" x1="0%" y1="0%" x2="100%" y2="50%">
@@ -24,33 +24,31 @@
 		<path d="M0 0 L0 110 C 130 110, 290 50, 460 0 Z" fill="url(#goldMainGrad)" />
 	</svg>
 
-	<!-- 2. Bottom Cyan/Blue Organic Flowing Wave (Full Width) -->
-	<svg class="decor-wave-bottom-cyan" viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
+	<!-- 2. Bottom Cyan/Turquoise Organic Flowing Wave (100% Full Width Viewport, 2 Lapisan Organik Sesuai Mockup) -->
+	<svg class="decor-wave-bottom-cyan" viewBox="0 0 1440 130" fill="none" preserveAspectRatio="none" aria-hidden="true">
 		<defs>
-			<linearGradient id="cyanMainGrad" x1="0%" y1="50%" x2="100%" y2="50%">
-				<stop offset="0%" stop-color="#08A6B5" stop-opacity="0.55" />
-				<stop offset="30%" stop-color="#08A6B5" stop-opacity="0.7" />
-				<stop offset="70%" stop-color="#00C4D6" stop-opacity="0.92" />
-				<stop offset="100%" stop-color="#00E0FC" />
+			<linearGradient id="cyanBackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%" stop-color="#7DE7F5" stop-opacity="0.85" />
+				<stop offset="50%" stop-color="#A5F3FC" stop-opacity="0.9" />
+				<stop offset="100%" stop-color="#67E8F9" stop-opacity="0.85" />
 			</linearGradient>
-			<linearGradient id="cyanSoftGrad" x1="0%" y1="50%" x2="100%" y2="50%">
-				<stop offset="0%" stop-color="#DDF6F8" stop-opacity="0.8" />
-				<stop offset="50%" stop-color="#E8F9FB" stop-opacity="0.7" />
-				<stop offset="85%" stop-color="#B8EFF5" stop-opacity="0.85" />
-				<stop offset="100%" stop-color="#8CE5EE" stop-opacity="0.9" />
+			<linearGradient id="cyanFrontGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%" stop-color="#00C4D6" />
+				<stop offset="50%" stop-color="#00D2EA" />
+				<stop offset="100%" stop-color="#08A6B5" />
 			</linearGradient>
 		</defs>
-		<!-- Soft Light Cyan Underlay Wave -->
-		<path d="M 0 65 C 220 52, 500 95, 820 98 C 1100 102, 1260 48, 1440 12 L 1440 120 L 0 120 Z" fill="url(#cyanSoftGrad)" />
-		<!-- Main Vibrant Cyan/Turquoise Ribbon Wave -->
-		<path d="M 0 82 C 240 74, 520 105, 860 106 C 1140 108, 1280 62, 1440 28 L 1440 120 L 0 120 Z" fill="url(#cyanMainGrad)" />
+		<!-- Lapisan 1: Cyan Muda / Light Turquoise (Bagian Belakang/Atas) -->
+		<path d="M 0 130 L 0 32 C 340 76, 760 84, 1440 22 L 1440 130 Z" fill="url(#cyanBackGrad)" />
+		<!-- Lapisan 2: Turquoise / Cyan Lebih Pekat (Bagian Depan) -->
+		<path d="M 0 130 L 0 58 C 360 96, 780 102, 1440 46 L 1440 130 Z" fill="url(#cyanFrontGrad)" />
 	</svg>
 
 	<div class="program-edu-container">
 		<!-- Left: Text & CTA -->
 		<div class="program-edu-left">
 			<div class="program-badge">
-				<span class="badge-dash"></span>
+				<span class="badge-dash" aria-hidden="true"></span>
 				<span class="badge-text">Program Pendidikan</span>
 			</div>
 			<h2 class="program-title">
@@ -58,7 +56,7 @@
 				<span class="highlight-cyan">Meningkatkan Daya Saing</span>
 			</h2>
 			<p class="program-desc">
-				Beragam program pengembangan kompetensi yang relevan dengan kebutuhan dunia pendidikan dan industri.
+				Program unggulan yang dirancang untuk mendukung peningkatan kompetensi, akses pendidikan, dan peluang karier.
 			</p>
 			<a href="/program" class="program-btn">
 				<span>Lihat Program Pendidikan</span>
@@ -69,22 +67,22 @@
 			</a>
 		</div>
 
-		<!-- Right: Photo with Floating Badge & Decorative Corner Ribbons -->
+		<!-- Right: Photo with Floating Book Badge & Decorative Corner Ribbons -->
 		<div class="program-edu-right">
 			<div class="photo-wrapper">
-				<!-- Top-Left Floating Graduation Badge with Golden Rays -->
+				<!-- Top-Left Floating Book Badge with Golden Rays -->
 				<div class="floating-badge-wrap" aria-hidden="true">
 					<!-- 3 Sparkle rays above badge -->
-					<svg class="sparkle-rays" viewBox="0 0 32 18" fill="none">
-						<line x1="8" y1="14" x2="3" y2="4" stroke="#FFB51B" stroke-width="2.5" stroke-linecap="round"/>
-						<line x1="16" y1="12" x2="16" y2="2" stroke="#FFB51B" stroke-width="2.5" stroke-linecap="round"/>
-						<line x1="24" y1="14" x2="29" y2="4" stroke="#FFB51B" stroke-width="2.5" stroke-linecap="round"/>
-					</svg>
-					<!-- Turquoise Badge Icon Box -->
+					<div class="badge-sun-rays">
+						<span class="ray ray-left"></span>
+						<span class="ray ray-mid"></span>
+						<span class="ray ray-right"></span>
+					</div>
+					<!-- Turquoise Badge Icon Box with Book Icon -->
 					<div class="floating-badge-box">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-							<path d="M6 12v5c3 3 9 3 12 0v-5"/>
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+							<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
 						</svg>
 					</div>
 				</div>
@@ -95,13 +93,14 @@
 						src="/images/program-study-desk-laptop.jpg"
 						alt="Program Pendidikan SDJNusantara - Suasana Belajar & Laptop"
 						class="program-img"
+						loading="eager"
 					/>
-					<!-- Decorative curve ribbons on bottom-right (Mockup SDJNusantara: layered cyan curves) -->
-					<svg class="deco-corner-ribbon" viewBox="0 0 150 96" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<!-- Outer Bright Cyan Ribbon -->
-						<path d="M0 96 C48 92 102 72 150 24 V96 H0 Z" fill="#00D2EA"/>
-						<!-- Inner Turquoise Ribbon -->
-						<path d="M38 96 C80 93 122 76 150 50 V96 H38 Z" fill="#08A6B5"/>
+					<!-- Decorative curve ribbons on bottom-right (Layered Yellow & Cyan curves) -->
+					<svg class="deco-corner-ribbon" viewBox="0 0 160 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
+						<!-- Outer Yellow Ribbon -->
+						<path d="M0 100 C50 96 110 75 160 20 V100 H0 Z" fill="#FFB900"/>
+						<!-- Inner Cyan Ribbon -->
+						<path d="M35 100 C80 96 125 78 160 45 V100 H35 Z" fill="#00C2D8"/>
 					</svg>
 				</div>
 			</div>
@@ -113,7 +112,7 @@
 	.program-edu-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 72px 0 88px;
+		padding: 76px 0 96px;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: hidden;
@@ -135,7 +134,7 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: clamp(75px, 8vw, 120px);
+		height: clamp(80px, 9.5vw, 130px);
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -162,65 +161,65 @@
 	.program-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		margin-bottom: 12px;
+		gap: 10px;
+		margin-bottom: 14px;
 	}
 
 	.badge-dash {
 		display: inline-block;
-		width: 18px;
+		width: 20px;
 		height: 3px;
-		background: #08A6B5;
+		background: #00B8C7;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		font-size: 13px;
+		font-size: 14px;
 		font-weight: 700;
-		color: #08A6B5;
-		letter-spacing: 0.02em;
+		color: #00B8C7;
+		letter-spacing: 0.01em;
 	}
 
 	.program-title {
-		font-size: clamp(28px, 2.5vw, 34px);
-		line-height: 1.25;
-		font-weight: 800;
-		color: #0B2948;
-		margin: 0 0 18px;
-		letter-spacing: -0.015em;
+		font-size: clamp(30px, 3.2vw, 42px);
+		line-height: 1.22;
+		font-weight: 900;
+		color: #0B2B50;
+		margin: 0 0 16px;
+		letter-spacing: -0.02em;
 	}
 
 	.highlight-cyan {
-		color: #08A6B5;
+		color: #00B8C7;
 	}
 
 	.program-desc {
-		font-size: 14.5px;
+		font-size: clamp(14px, 1.15vw, 15.5px);
 		line-height: 1.65;
-		color: #64748B;
+		color: #71839D;
 		margin: 0 0 28px;
-		max-width: 460px;
+		max-width: 480px;
 	}
 
 	.program-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		background: #FFB51B;
-		color: #0B2948;
+		gap: 10px;
+		background: #FFB900;
+		color: #081525;
 		font-size: 14px;
-		font-weight: 700;
-		padding: 13px 26px;
-		border-radius: 9px;
+		font-weight: 800;
+		padding: 12px 24px;
+		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 4px 14px rgba(255, 181, 27, 0.32);
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow: 0 4px 14px rgba(255, 185, 0, 0.35);
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.program-btn:hover {
-		background: #f0a915;
+		background: #FFA500;
 		transform: translateY(-2px);
-		box-shadow: 0 6px 18px rgba(255, 181, 27, 0.44);
+		box-shadow: 0 6px 18px rgba(255, 165, 0, 0.45);
 	}
 
 	/* Right Column: Photo with Floating Badge */
@@ -246,19 +245,41 @@
 		align-items: center;
 	}
 
-	.sparkle-rays {
-		width: 32px;
-		height: 18px;
-		margin-bottom: -4px;
+	.badge-sun-rays {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		gap: 6px;
+		margin-bottom: 4px;
+	}
+
+	.badge-sun-rays .ray {
+		display: inline-block;
+		width: 3px;
+		height: 8px;
+		background: #FFB900;
+		border-radius: 2px;
+	}
+
+	.badge-sun-rays .ray-left {
+		transform: rotate(-30deg);
+	}
+
+	.badge-sun-rays .ray-mid {
+		height: 10px;
+	}
+
+	.badge-sun-rays .ray-right {
+		transform: rotate(30deg);
 	}
 
 	.floating-badge-box {
-		width: 48px;
-		height: 48px;
+		width: 52px;
+		height: 52px;
 		border-radius: 14px;
-		background: #08A6B5;
-		border: 3px solid #FFFFFF;
-		box-shadow: 0 6px 18px rgba(8, 166, 181, 0.38);
+		background: #00B8C7;
+		border: 3.5px solid #FFFFFF;
+		box-shadow: 0 6px 18px rgba(0, 184, 199, 0.35);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -267,11 +288,12 @@
 	.img-frame {
 		position: relative;
 		width: 100%;
-		height: 330px;
-		border-radius: 24px;
+		aspect-ratio: 16 / 9.2;
+		border-radius: 22px;
 		overflow: hidden;
-		box-shadow: 0 14px 36px rgba(11, 41, 72, 0.09);
-		border: 1px solid #DCE7EF;
+		box-shadow: 0 16px 36px rgba(11, 41, 72, 0.08);
+		border: 3px solid #FFFFFF;
+		background: #F1F5F9;
 	}
 
 	.program-img {
@@ -291,8 +313,8 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 150px;
-		height: 96px;
+		width: 160px;
+		height: 100px;
 		pointer-events: none;
 		z-index: 2;
 	}
@@ -310,18 +332,14 @@
 		}
 
 		.program-title {
-			font-size: 24px;
-		}
-
-		.img-frame {
-			height: 280px;
+			font-size: 28px;
 		}
 	}
 
 	/* Responsive Mobile */
 	@media (max-width: 768px) {
 		.program-edu-section {
-			padding: 56px 0 64px;
+			padding: 56px 0 76px;
 		}
 
 		.decor-wave-top-gold {
@@ -330,7 +348,7 @@
 		}
 
 		.decor-wave-bottom-cyan {
-			height: 60px;
+			height: 65px;
 		}
 
 		.program-edu-container {
@@ -356,19 +374,14 @@
 			width: 100%;
 		}
 
-		.img-frame {
-			height: 230px;
-			border-radius: 18px;
-		}
-
 		.floating-badge-wrap {
 			top: -12px;
 			left: 4px;
 		}
 
 		.floating-badge-box {
-			width: 40px;
-			height: 40px;
+			width: 44px;
+			height: 44px;
 		}
 	}
 </style>
