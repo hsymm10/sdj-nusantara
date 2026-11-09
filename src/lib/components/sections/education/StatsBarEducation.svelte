@@ -81,9 +81,9 @@
 		position: relative;
 		z-index: 10;
 		width: 100%;
-		max-width: 1086px;
-		margin: -12px auto 0 auto;
-		padding: 0 1.5rem;
+		max-width: 1200px;
+		margin: -16px auto 0 auto;
+		padding: 0 32px;
 		box-sizing: border-box;
 	}
 

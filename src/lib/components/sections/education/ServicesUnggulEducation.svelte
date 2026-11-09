@@ -1,4 +1,35 @@
+<!-- Section 04: Solusi Terintegrasi untuk Pengembangan Potensi (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
+	const services = [
+		{
+			id: 'talent-management',
+			title: 'Talent Management &\nDevelopment Center',
+			desc: 'Pengelolaan, pemetaan, dan pengembangan talenta secara terstruktur.',
+			href: '/layanan#talent-management',
+			icon: 'users'
+		},
+		{
+			id: 'scholarship-academy',
+			title: 'Scholarship\nAcademy',
+			desc: 'Pendampingan menyeluruh untuk meraih beasiswa dalam dan luar negeri.',
+			href: '/layanan#scholarship-academy',
+			icon: 'grad'
+		},
+		{
+			id: 'skills-development',
+			title: 'Skills Development &\nCertification',
+			desc: 'Peningkatan kompetensi dengan pelatihan dan sertifikasi berstandar.',
+			href: '/layanan#skills-development',
+			icon: 'star'
+		},
+		{
+			id: 'institutional-partnership',
+			title: 'Institutional &\nStrategic Partnership',
+			desc: 'Kolaborasi strategis untuk memperluas dampak pendidikan.',
+			href: '/layanan#institutional-partnership',
+			icon: 'briefcase'
+		}
+	];
 </script>
 
 <section class="layanan-section" id="solusi-terintegrasi">
@@ -8,6 +39,7 @@
 			<div class="section-badge">
 				<span class="badge-dash"></span>
 				<span class="badge-text">Layanan Unggulan</span>
+				<span class="badge-dash"></span>
 			</div>
 			<h2 class="layanan-title">Solusi Terintegrasi untuk Pengembangan Potensi</h2>
 			<p class="layanan-desc">
@@ -17,84 +49,49 @@
 
 		<!-- 4 Cards Grid -->
 		<div class="layanan-grid">
-			<!-- Card 1 -->
-			<a href="/layanan#talent-management" class="layanan-card">
-				<div class="card-icon-wrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-						<circle cx="9" cy="7" r="4"/>
-						<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-						<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-					</svg>
-				</div>
-				<h3 class="card-title">Talent Management &<br/>Development Center</h3>
-				<p class="card-desc">Pengelolaan, pemetaan, dan pengembangan talenta secara terstruktur.</p>
-				<div class="card-arrow-wrap">
-					<div class="card-arrow">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-						</svg>
+			{#each services as item, idx}
+				<a href={item.href} class="layanan-card" class:active={idx === 3}>
+					<div class="card-icon-wrap">
+						{#if item.icon === 'users'}
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+								<circle cx="9" cy="7" r="4"/>
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+							</svg>
+						{:else if item.icon === 'grad'}
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M12 3L2 8l10 5 10-5-10-5z"/>
+								<path d="M2 8v6"/>
+								<path d="M6 10.5v5a6 6 0 0 0 12 0v-5"/>
+							</svg>
+						{:else if item.icon === 'star'}
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+							</svg>
+						{:else}
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="2" y="7" width="20" height="14" rx="2"/>
+								<path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+								<line x1="12" y1="12" x2="12" y2="12"/>
+							</svg>
+						{/if}
 					</div>
-				</div>
-			</a>
 
-			<!-- Card 2 -->
-			<a href="/layanan#scholarship-academy" class="layanan-card">
-				<div class="card-icon-wrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M12 3L2 8l10 5 10-5-10-5z"/>
-						<path d="M2 8v6"/>
-						<path d="M6 10.5v5a6 6 0 0 0 12 0v-5"/>
-					</svg>
-				</div>
-				<h3 class="card-title">Scholarship<br/>Academy</h3>
-				<p class="card-desc">Pendampingan menyeluruh untuk meraih beasiswa dalam dan luar negeri.</p>
-				<div class="card-arrow-wrap">
-					<div class="card-arrow">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-						</svg>
+					<div class="card-content-wrap">
+						<h3 class="card-title">{item.title}</h3>
+						<p class="card-desc">{item.desc}</p>
 					</div>
-				</div>
-			</a>
 
-			<!-- Card 3 -->
-			<a href="/layanan#skills-development" class="layanan-card">
-				<div class="card-icon-wrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-					</svg>
-				</div>
-				<h3 class="card-title">Skills Development &<br/>Certification</h3>
-				<p class="card-desc">Peningkatan kompetensi dengan pelatihan dan sertifikasi berstandar.</p>
-				<div class="card-arrow-wrap">
-					<div class="card-arrow">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-						</svg>
+					<div class="card-arrow-wrap">
+						<div class="card-arrow">
+							<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+							</svg>
+						</div>
 					</div>
-				</div>
-			</a>
-
-			<!-- Card 4 -->
-			<a href="/layanan#institutional-partnership" class="layanan-card">
-				<div class="card-icon-wrap">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<rect x="2" y="7" width="20" height="14" rx="2"/>
-						<path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-						<line x1="12" y1="12" x2="12" y2="12"/>
-					</svg>
-				</div>
-				<h3 class="card-title">Institutional &<br/>Strategic Partnership</h3>
-				<p class="card-desc">Kolaborasi strategis untuk memperluas dampak pendidikan.</p>
-				<div class="card-arrow-wrap">
-					<div class="card-arrow">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-						</svg>
-					</div>
-				</div>
-			</a>
+				</a>
+			{/each}
 		</div>
 	</div>
 </section>
@@ -102,118 +99,134 @@
 <style>
 	.layanan-section {
 		background: #FFFFFF;
-		padding: 44px 0 52px;
+		padding: 76px 0;
 		width: 100%;
 		box-sizing: border-box;
 	}
 
 	.layanan-container {
-		max-width: 1086px;
+		width: 100%;
+		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 1.5rem;
+		padding: 0 32px;
 		box-sizing: border-box;
 	}
 
 	/* Header */
 	.layanan-header {
 		text-align: center;
-		margin-bottom: 30px;
+		margin-bottom: 38px;
 	}
 
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.45rem;
-		margin-bottom: 8px;
+		gap: 8px;
+		margin-bottom: 12px;
 	}
 
 	.badge-dash {
-		width: 18px;
-		height: 2px;
-		background: #079EAD;
+		width: 16px;
+		height: 2.5px;
+		background: #08AEBB;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		color: #079EAD;
-		font-size: 11px;
+		color: #08AEBB;
+		font-size: 12px;
 		font-weight: 700;
 		letter-spacing: 0.04em;
 	}
 
 	.layanan-title {
-		font-size: 20px;
+		font-size: clamp(24px, 2.2vw, 30px);
 		font-weight: 800;
-		color: #082442;
+		color: #0B2948;
 		line-height: 1.25;
-		margin: 0 0 6px;
+		margin: 0 0 10px;
 		letter-spacing: -0.015em;
 	}
 
 	.layanan-desc {
-		font-size: 12px;
-		color: #52647A;
+		font-size: 14px;
+		color: #64748B;
 		margin: 0 auto;
-		max-width: 540px;
-		line-height: 1.55;
+		max-width: 600px;
+		line-height: 1.6;
 	}
 
 	/* 4 Cards Grid */
 	.layanan-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
+		gap: 24px;
 	}
 
 	.layanan-card {
+		background: #FFFFFF;
+		border: 1px solid #E2E8F0;
+		border-radius: 16px;
+		padding: 28px 24px 24px;
 		display: flex;
 		flex-direction: column;
-		background: #FFFFFF;
-		border: 1.5px solid #E8EFF6;
-		border-radius: 14px;
-		padding: 20px 16px 16px;
+		justify-content: space-between;
 		text-decoration: none;
-		transition: all 0.25s ease;
-		box-shadow: 0 2px 10px rgba(8, 36, 66, 0.04);
+		min-height: 250px;
+		box-shadow: 0 4px 20px rgba(11, 41, 72, 0.04);
+		transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
+		box-sizing: border-box;
 		position: relative;
 	}
 
 	.layanan-card:hover {
-		border-color: #079EAD;
-		box-shadow: 0 8px 24px rgba(7, 158, 173, 0.12);
-		transform: translateY(-3px);
+		transform: translateY(-4px);
+		box-shadow: 0 12px 28px rgba(11, 41, 72, 0.09);
+		border-color: #08AEBB;
 	}
 
-	/* Circular Teal Icon */
+	/* Active / highlight card border */
+	.layanan-card.active {
+		border-color: #08AEBB;
+		box-shadow: 0 6px 22px rgba(8, 174, 187, 0.12);
+	}
+
 	.card-icon-wrap {
-		width: 44px;
-		height: 44px;
-		border-radius: 50%;
-		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
+		width: 52px;
+		height: 52px;
+		border-radius: 14px;
+		background: #08AEBB;
+		color: #FFFFFF;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 12px;
-		flex-shrink: 0;
-		box-shadow: 0 4px 10px rgba(7, 158, 173, 0.25);
+		margin-bottom: 20px;
+		transition: transform 0.2s;
+	}
+
+	.layanan-card:hover .card-icon-wrap {
+		transform: scale(1.05);
+	}
+
+	.card-content-wrap {
+		flex: 1;
+		margin-bottom: 20px;
 	}
 
 	.card-title {
-		font-size: 13.5px;
-		font-weight: 800;
-		color: #082442;
+		font-size: 16px;
+		font-weight: 700;
+		color: #0B2948;
 		line-height: 1.35;
-		margin: 0 0 6px;
-		letter-spacing: -0.01em;
-		min-height: 36px;
+		margin: 0 0 10px;
+		white-space: pre-line;
 	}
 
 	.card-desc {
-		font-size: 11px;
-		color: #52647A;
+		font-size: 13px;
 		line-height: 1.55;
-		margin: 0 0 14px;
-		flex: 1;
+		color: #64748B;
+		margin: 0;
 	}
 
 	.card-arrow-wrap {
@@ -223,12 +236,12 @@
 	}
 
 	.card-arrow {
-		width: 26px;
-		height: 26px;
+		width: 38px;
+		height: 38px;
 		border-radius: 50%;
-		border: 1.5px solid #079EAD;
-		background: transparent;
-		color: #079EAD;
+		background: #F8FAFC;
+		border: 1.5px solid #08AEBB;
+		color: #08AEBB;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -236,21 +249,30 @@
 	}
 
 	.layanan-card:hover .card-arrow {
-		background: #079EAD;
+		background: #08AEBB;
 		color: #FFFFFF;
-		transform: translateX(2px);
+		transform: scale(1.06);
 	}
 
-	@media (max-width: 991px) {
+	@media (max-width: 1024px) {
 		.layanan-grid {
 			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
 		}
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 640px) {
+		.layanan-section {
+			padding: 52px 0;
+		}
+
+		.layanan-container {
+			padding: 0 20px;
+		}
+
 		.layanan-grid {
 			grid-template-columns: 1fr;
-			gap: 12px;
+			gap: 16px;
 		}
 	}
 </style>

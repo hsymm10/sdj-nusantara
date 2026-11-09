@@ -1,4 +1,4 @@
-<!-- Section 10: Artikel & Wawasan — 5 Cards Horizontal (Sesuai Mockup GAMBAR 2) -->
+<!-- Section 10: Artikel & Wawasan — 5 Cards Horizontal (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
 	const articles = [
 		{
@@ -32,7 +32,7 @@
 	];
 </script>
 
-<section class="articles-edu-section">
+<section class="articles-edu-section" id="artikel-wawasan">
 	<div class="articles-edu-container">
 		<!-- Section Header -->
 		<div class="articles-header">
@@ -52,20 +52,20 @@
 			{#each articles as item}
 				<a href={item.href} class="article-card">
 					<div class="article-thumb-wrap">
-						<img src={item.img} alt={item.title} class="article-img" />
+						<img src={item.img} alt={item.title} class="article-img" loading="lazy" />
 					</div>
 					<div class="article-body">
 						<h3 class="article-card-title">{item.title}</h3>
 						<div class="article-meta">
 							<span class="article-date">
-								<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<circle cx="12" cy="12" r="10"/>
 									<polyline points="12 6 12 12 16 14"/>
 								</svg>
 								{item.date}
 							</span>
-							<span class="article-arrow">
-								<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<span class="article-arrow" aria-hidden="true">
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 									<polyline points="9 18 15 12 9 6"/>
 								</svg>
 							</span>
@@ -74,17 +74,17 @@
 				</a>
 			{/each}
 
-			<!-- Card 5: View More Articles (GAMBAR 2 layout) -->
+			<!-- Card 5: View More Articles (Mockup SDJNusantara) -->
 			<a href="/artikel-wawasan" class="article-more-card">
 				<div class="more-icon-box">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#08AEBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
 						<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
 					</svg>
 				</div>
 				<div class="more-label">Lihat Lebih<br />Banyak Artikel</div>
-				<div class="more-circle-btn">
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<div class="more-circle-btn" aria-hidden="true">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#08AEBB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 						<line x1="5" y1="12" x2="19" y2="12"/>
 						<polyline points="12 5 19 12 12 19"/>
 					</svg>
@@ -96,100 +96,111 @@
 
 <style>
 	.articles-edu-section {
-		background: #ffffff;
-		padding: 38px 0 46px;
+		background: #FFFFFF;
+		padding: 76px 0;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.articles-edu-container {
-		max-width: 1086px;
+		width: 100%;
+		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 24px;
+		padding: 0 32px;
+		box-sizing: border-box;
 	}
 
 	.articles-header {
 		text-align: center;
-		margin-bottom: 28px;
+		margin-bottom: 38px;
 	}
 
 	.articles-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		margin-bottom: 8px;
+		gap: 8px;
+		margin-bottom: 12px;
 	}
 
 	.badge-dash {
 		display: inline-block;
-		width: 14px;
-		height: 2px;
-		background: #079ead;
+		width: 16px;
+		height: 2.5px;
+		background: #08AEBB;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		font-size: 11.5px;
+		font-size: 12px;
 		font-weight: 700;
-		color: #079ead;
+		color: #08AEBB;
+		letter-spacing: 0.04em;
 	}
 
 	.articles-title {
-		font-size: 22px;
+		font-size: clamp(24px, 2.2vw, 30px);
 		font-weight: 800;
-		color: #082442;
-		margin: 0 0 6px;
-		letter-spacing: -0.2px;
+		color: #0B2948;
+		margin: 0 0 10px;
+		letter-spacing: -0.015em;
+		line-height: 1.25;
 	}
 
 	.articles-sub {
-		font-size: 12px;
-		color: #64748b;
-		margin: 0;
+		font-size: 14px;
+		color: #64748B;
+		margin: 0 auto;
+		max-width: 600px;
+		line-height: 1.6;
 	}
 
 	/* 5 Cards Row */
 	.articles-grid {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
-		gap: 14px;
+		gap: 20px;
 	}
 
 	.article-card {
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
-		border-radius: 10px;
+		background: #FFFFFF;
+		border: 1px solid #E2E8F0;
+		border-radius: 14px;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
-		transition: transform 0.2s, box-shadow 0.2s;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+		transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
+		box-shadow: 0 4px 16px rgba(11, 41, 72, 0.04);
+		box-sizing: border-box;
 	}
 
 	.article-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+		transform: translateY(-4px);
+		box-shadow: 0 12px 26px rgba(11, 41, 72, 0.09);
+		border-color: #CBD5E1;
 	}
 
 	.article-thumb-wrap {
 		width: 100%;
 		aspect-ratio: 16 / 10;
 		overflow: hidden;
-		background: #f1f5f9;
+		background: #F1F5F9;
 	}
 
 	.article-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		transition: transform 0.3s;
+		display: block;
+		transition: transform 0.4s ease;
 	}
 
 	.article-card:hover .article-img {
-		transform: scale(1.04);
+		transform: scale(1.05);
 	}
 
 	.article-body {
-		padding: 10px 10px 12px;
+		padding: 14px 16px 16px;
 		display: flex;
 		flex-direction: column;
 		flex: 1;
@@ -197,97 +208,143 @@
 	}
 
 	.article-card-title {
-		font-size: 10.5px;
+		font-size: 13px;
 		font-weight: 700;
-		line-height: 1.35;
-		color: #082442;
-		margin: 0 0 8px;
+		color: #0B2948;
+		line-height: 1.45;
+		margin: 0 0 12px;
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
+		height: 38px;
+		transition: color 0.2s;
+	}
+
+	.article-card:hover .article-card-title {
+		color: #08AEBB;
 	}
 
 	.article-meta {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-size: 9.5px;
-		color: #94a3b8;
+		padding-top: 10px;
+		border-top: 1px solid #F1F5F9;
 	}
 
 	.article-date {
+		font-size: 11.5px;
+		color: #64748B;
 		display: inline-flex;
 		align-items: center;
-		gap: 4px;
+		gap: 5px;
 	}
 
 	.article-arrow {
-		color: #079ead;
+		color: #94A3B8;
+		display: flex;
+		align-items: center;
+		transition: transform 0.2s, color 0.2s;
+	}
+
+	.article-card:hover .article-arrow {
+		color: #08AEBB;
+		transform: translateX(3px);
 	}
 
 	/* Card 5: View More */
 	.article-more-card {
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
-		border-radius: 10px;
-		padding: 20px 12px;
+		background: #F8FAFC;
+		border: 1.5px dashed #CBD5E1;
+		border-radius: 14px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		padding: 24px 16px;
 		text-decoration: none;
-		transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		box-sizing: border-box;
 	}
 
 	.article-more-card:hover {
-		transform: translateY(-2px);
-		border-color: #079ead;
-		box-shadow: 0 6px 14px rgba(7, 158, 173, 0.12);
+		background: #FFFFFF;
+		border-color: #08AEBB;
+		transform: translateY(-4px);
+		box-shadow: 0 12px 26px rgba(8, 174, 187, 0.12);
 	}
 
 	.more-icon-box {
-		margin-bottom: 12px;
-	}
-
-	.more-label {
-		font-size: 11px;
-		font-weight: 700;
-		color: #082442;
-		line-height: 1.35;
-		margin-bottom: 14px;
-	}
-
-	.more-circle-btn {
-		width: 28px;
-		height: 28px;
-		border-radius: 50%;
-		border: 1px solid #079ead;
+		width: 52px;
+		height: 52px;
+		border-radius: 14px;
+		background: #EBF8FA;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: background 0.2s, color 0.2s;
+		margin-bottom: 14px;
+		transition: transform 0.2s;
+	}
+
+	.article-more-card:hover .more-icon-box {
+		transform: scale(1.08);
+	}
+
+	.more-label {
+		font-size: 13.5px;
+		font-weight: 700;
+		color: #0B2948;
+		line-height: 1.35;
+		margin-bottom: 16px;
+	}
+
+	.more-circle-btn {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: #FFFFFF;
+		border: 1.5px solid #08AEBB;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.2s ease;
 	}
 
 	.article-more-card:hover .more-circle-btn {
-		background: #079ead;
+		background: #08AEBB;
 	}
 
 	.article-more-card:hover .more-circle-btn svg {
-		stroke: #ffffff;
+		stroke: #FFFFFF;
 	}
 
-	@media (max-width: 992px) {
+	@media (max-width: 1024px) {
 		.articles-grid {
 			grid-template-columns: repeat(3, 1fr);
+			gap: 16px;
 		}
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 768px) {
+		.articles-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 500px) {
+		.articles-edu-section {
+			padding: 52px 0;
+		}
+
+		.articles-edu-container {
+			padding: 0 20px;
+		}
+
 		.articles-grid {
 			grid-template-columns: 1fr;
+			gap: 16px;
 		}
 	}
 </style>

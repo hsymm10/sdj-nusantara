@@ -1,3 +1,4 @@
+<!-- Section 03: Tentang SDJNusantara (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
 	const pillars = [
 		{
@@ -30,7 +31,7 @@
 
 <section class="about-section" id="tentang-sdj">
 	<div class="about-container">
-		<!-- Left: Text & CTA -->
+		<!-- Left Col: Text & CTA -->
 		<div class="about-left-col">
 			<div class="section-badge">
 				<span class="badge-dash"></span>
@@ -42,18 +43,18 @@
 			</p>
 			<a href="/tentang-kami" class="about-cta-btn">
 				<span>Selengkapnya Tentang Kami</span>
-				<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
 				</svg>
 			</a>
 		</div>
 
-		<!-- Middle: 5 Pillars -->
+		<!-- Middle Col: 5 Pillars -->
 		<div class="about-mid-col">
 			{#each pillars as p}
 				<div class="pillar-item">
 					<div class="pillar-icon">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#08AEBB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<path d={p.path} />
 						</svg>
 					</div>
@@ -62,18 +63,19 @@
 			{/each}
 		</div>
 
-		<!-- Right: Building Blob Image with Arch Top-Left + Gold Ribbon -->
+		<!-- Right Col: Building Architecture Photo with Curved Corner -->
 		<div class="about-right-col">
 			<div class="bldg-frame">
 				<img
 					src="/images/about-campus-hd.jpg"
-					alt="Kampus Modern SDJNusantara"
+					alt="Gedung Kampus SDJNusantara"
 					class="bldg-img"
 					loading="lazy"
 				/>
 				<!-- Gold curved ribbon accent on bottom-right -->
-				<svg class="gold-ribbon-swoosh" viewBox="0 0 160 160" fill="none" aria-hidden="true">
-					<path d="M160 90C160 128.66 128.66 160 90 160C130 160 160 130 160 90Z" fill="#F5B331" opacity="0.9" />
+				<svg class="gold-ribbon-swoosh" viewBox="0 0 140 100" fill="none" aria-hidden="true">
+					<path d="M40 100C80 95 120 70 140 25V100H40Z" fill="#F9B52B"/>
+					<path d="M80 100C110 98 130 85 140 55V100H80Z" fill="#08AEBB"/>
 				</svg>
 			</div>
 		</div>
@@ -83,181 +85,197 @@
 <style>
 	.about-section {
 		background: #FFFFFF;
-		padding: 44px 0 52px;
+		padding: 76px 0;
 		width: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
 	.about-container {
-		max-width: 1086px;
+		width: 100%;
+		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 1.5rem;
+		padding: 0 32px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 28px;
+		gap: 36px;
 		box-sizing: border-box;
 	}
 
 	/* Left */
 	.about-left-col {
-		flex: 0 0 310px;
-		max-width: 310px;
+		flex: 0 0 360px;
+		max-width: 360px;
 	}
 
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.45rem;
-		margin-bottom: 8px;
+		gap: 8px;
+		margin-bottom: 12px;
 	}
 
 	.badge-dash {
-		width: 18px;
-		height: 2px;
-		background: #079EAD;
+		width: 16px;
+		height: 2.5px;
+		background: #08AEBB;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		color: #079EAD;
-		font-size: 11px;
+		color: #08AEBB;
+		font-size: 12px;
 		font-weight: 700;
 		letter-spacing: 0.04em;
 	}
 
 	.about-title {
-		font-size: 17px;
+		font-size: clamp(22px, 2vw, 27px);
 		font-weight: 800;
-		color: #082442;
+		color: #0B2948;
 		line-height: 1.25;
-		margin: 0 0 8px;
+		margin: 0 0 14px;
 		letter-spacing: -0.015em;
 	}
 
 	.about-desc {
-		font-size: 11.5px;
-		color: #52647A;
-		line-height: 1.55;
-		margin: 0 0 16px;
+		font-size: 14px;
+		color: #475569;
+		line-height: 1.6;
+		margin: 0 0 24px;
 	}
 
 	.about-cta-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.45rem;
-		padding: 8px 16px;
-		background: #F5B331;
+		gap: 8px;
+		padding: 11px 22px;
+		background: #F9B52B;
 		color: #082442;
+		font-size: 13px;
 		font-weight: 700;
-		font-size: 11.5px;
-		border-radius: 6px;
+		border-radius: 8px;
 		text-decoration: none;
-		transition: all 0.2s ease;
-		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.25);
-		white-space: nowrap;
+		box-shadow: 0 4px 12px rgba(249, 181, 43, 0.28);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.about-cta-btn:hover {
 		background: #e6a528;
-		transform: translateY(-1px);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(249, 181, 43, 0.38);
 	}
 
-	/* Middle Pillars */
+	/* Middle (5 Pillars) */
 	.about-mid-col {
+		flex: 1;
+		max-width: 330px;
 		display: flex;
-		align-items: center;
-		gap: 14px;
-		flex-shrink: 0;
+		flex-direction: column;
+		gap: 12px;
 	}
 
 	.pillar-item {
 		display: flex;
-		flex-direction: column;
 		align-items: center;
-		text-align: center;
-		gap: 6px;
-		width: 68px;
+		gap: 14px;
+		padding: 10px 16px;
+		background: #F8FAFC;
+		border: 1px solid #E2E8F0;
+		border-radius: 12px;
+		transition: transform 0.2s, border-color 0.2s, background 0.2s;
+	}
+
+	.pillar-item:hover {
+		transform: translateX(3px);
+		background: #FFFFFF;
+		border-color: #08AEBB;
+		box-shadow: 0 4px 14px rgba(11, 41, 72, 0.05);
 	}
 
 	.pillar-icon {
-		width: 34px;
-		height: 34px;
-		border-radius: 50%;
-		background: #EBF9FA;
+		width: 36px;
+		height: 36px;
+		border-radius: 10px;
+		background: #EBF8FA;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: transform 0.2s ease;
-	}
-
-	.pillar-item:hover .pillar-icon {
-		transform: translateY(-2px);
-		background: #D6F4F7;
+		flex-shrink: 0;
 	}
 
 	.pillar-label {
-		font-size: 9.5px;
+		font-size: 13.5px;
 		font-weight: 700;
-		color: #082442;
-		line-height: 1.25;
+		color: #0B2948;
+		line-height: 1.3;
 	}
 
-	/* Right Building Frame */
+	/* Right (Building Frame) */
 	.about-right-col {
-		flex: 1;
-		max-width: 340px;
-		position: relative;
+		flex: 0 0 380px;
+		max-width: 380px;
 	}
 
 	.bldg-frame {
 		position: relative;
-		border-top-left-radius: 140px;
-		border-bottom-right-radius: 20px;
-		border-top-right-radius: 20px;
-		border-bottom-left-radius: 20px;
+		width: 100%;
+		height: 280px;
+		border-radius: 80px 18px 18px 18px;
 		overflow: hidden;
-		height: 180px;
-		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.1);
+		box-shadow: 0 14px 32px rgba(11, 41, 72, 0.08);
+		border: 1px solid #E2E8F0;
 	}
 
 	.bldg-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center;
 		display: block;
+		transition: transform 0.4s ease;
+	}
+
+	.bldg-frame:hover .bldg-img {
+		transform: scale(1.03);
 	}
 
 	.gold-ribbon-swoosh {
 		position: absolute;
-		bottom: 0;
 		right: 0;
-		width: 70px;
-		height: 70px;
+		bottom: 0;
+		width: 140px;
+		height: 100px;
 		pointer-events: none;
 	}
 
-	@media (max-width: 991px) {
+	@media (max-width: 1024px) {
 		.about-container {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 24px;
+			gap: 36px;
 		}
+
 		.about-left-col,
+		.about-mid-col,
 		.about-right-col {
 			max-width: 100%;
 			width: 100%;
 		}
+
 		.bldg-frame {
-			border-top-left-radius: 80px;
-			height: 200px;
+			border-radius: 18px;
+			height: 320px;
 		}
-		.about-mid-col {
-			flex-wrap: wrap;
-			justify-content: space-between;
-			width: 100%;
+	}
+
+	@media (max-width: 640px) {
+		.about-section {
+			padding: 52px 0;
+		}
+
+		.about-container {
+			padding: 0 20px;
 		}
 	}
 </style>

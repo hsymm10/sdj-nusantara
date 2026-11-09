@@ -140,16 +140,10 @@
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1380px;
+		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 54px;
+		padding: 0 32px;
 		box-sizing: border-box;
-	}
-
-	@media (min-width: 1920px) {
-		.hero-container {
-			max-width: 1500px;
-		}
 	}
 
 	.hero-text-col {
