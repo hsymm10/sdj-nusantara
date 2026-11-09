@@ -601,14 +601,14 @@
 	<section class="hub-bottom-section" aria-label="Bantuan dan Pertanyaan">
 		<div class="hub-container">
 			<div class="bottom-split-container">
-				<!-- Kiri (lebar ±56%): Panel Navy CTA dengan foto Palu Hakim (Gavel) & dekorasi geometris -->
+				<!-- Kiri (lebar ±56%): Panel Navy CTA dengan foto Lingkungan Akademik / Wisudawan bertopi toga sesuai Gambar 2 -->
 				<div class="cta-banner-card">
-					<!-- Background foto palu hakim di sisi kiri dengan overlay navy halus ke kanan -->
+					<!-- Background foto akademik di sisi kiri dengan overlay navy halus ke kanan sesuai Gambar 2 -->
 					<div class="cta-bg-wrapper" aria-hidden="true">
 						<picture>
-							<source srcset="/images/layanan-hub-gavel-left.webp" type="image/webp" />
+							<source srcset="/images/home-cta-academic-bg.webp" type="image/webp" />
 							<img
-								src="/images/layanan-hub-gavel-left.jpg"
+								src="/images/home-cta-academic-bg.jpg"
 								alt=""
 								class="cta-bg-img"
 								loading="eager"
@@ -616,15 +616,6 @@
 							/>
 						</picture>
 						<div class="cta-overlay"></div>
-					</div>
-
-					<!-- Dekorasi lengkungan geometris SDJNusantara di sudut bawah kiri -->
-					<div class="cta-bottom-curves" aria-hidden="true">
-						<svg viewBox="0 0 280 110" fill="none" preserveAspectRatio="none">
-							<path d="M0 110 C 60 110, 110 75, 170 55 C 220 38, 260 48, 280 20 L 280 110 Z" fill="#00A9B7" fill-opacity="0.28"/>
-							<path d="M0 110 C 50 110, 95 85, 145 68 C 190 52, 225 60, 250 35 L 250 110 Z" fill="#00A9B7" fill-opacity="0.85"/>
-							<path d="M0 110 C 40 110, 75 92, 115 78 C 150 66, 180 72, 205 50 L 205 110 Z" fill="#F9B52B" fill-opacity="0.95"/>
-						</svg>
 					</div>
 
 					<div class="cta-content">
@@ -1477,7 +1468,8 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: left center;
-		opacity: 1;
+		opacity: 0.95;
+		filter: saturate(0.9) brightness(0.95);
 		display: block;
 	}
 
@@ -1487,23 +1479,14 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(90deg, transparent 0%, rgba(11, 41, 72, 0.05) 25%, rgba(11, 41, 72, 0.6) 45%, #0B2948 62%, #0B2948 100%);
-	}
-
-	.cta-bottom-curves {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 180px;
-		height: 70px;
-		pointer-events: none;
-		z-index: 2;
-	}
-
-	.cta-bottom-curves svg {
-		width: 100%;
-		height: 100%;
-		display: block;
+		background: linear-gradient(
+			90deg,
+			rgba(11, 41, 72, 0.42) 0%,
+			rgba(11, 41, 72, 0.65) 24%,
+			rgba(11, 41, 72, 0.88) 46%,
+			#0B2948 68%,
+			#0B2948 100%
+		);
 	}
 
 	.cta-content {
@@ -1870,11 +1853,6 @@
 
 		.cta-content {
 			padding-left: 0;
-		}
-
-		.cta-bottom-curves {
-			width: 160px;
-			height: 60px;
 		}
 
 		.faq-card {

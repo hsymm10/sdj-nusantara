@@ -6,6 +6,21 @@
 <section class="cta-edu-section">
 	<div class="cta-edu-container">
 		<div class="cta-card">
+			<!-- Background Foto Lingkungan Akademik / Wisudawan Toga HD sesuai Gambar 2 -->
+			<div class="cta-bg-wrap" aria-hidden="true">
+				<picture>
+					<source srcset="/images/home-cta-academic-bg.webp" type="image/webp" />
+					<img
+						src="/images/home-cta-academic-bg.jpg"
+						alt=""
+						class="cta-bg-image"
+						loading="lazy"
+						decoding="async"
+					/>
+				</picture>
+				<div class="cta-gradient"></div>
+			</div>
+
 			<!-- Left: Text -->
 			<div class="cta-left">
 				<h2 class="cta-title">
@@ -30,14 +45,6 @@
 					<span>Hubungi Kami</span>
 				</a>
 			</div>
-
-			<!-- Decorative curved ribbons at bottom-right of the card (GAMBAR 2) -->
-			<svg class="cta-corner-ribbon" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<!-- Turquoise curve -->
-				<path d="M40 100C90 95 145 70 180 20V100H40Z" fill="#16B6C1" fill-opacity="0.8"/>
-				<!-- Gold curve -->
-				<path d="M90 100C125 98 160 80 180 50V100H90Z" fill="#F5B331"/>
-			</svg>
 		</div>
 	</div>
 </section>
@@ -65,6 +72,44 @@
 		position: relative;
 		overflow: hidden;
 		box-shadow: 0 12px 30px rgba(8, 36, 66, 0.2);
+	}
+
+	.cta-bg-wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	.cta-bg-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: left center;
+		display: block;
+		opacity: 0.95;
+		filter: saturate(0.9) brightness(0.95);
+	}
+
+	.cta-gradient {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			90deg,
+			rgba(8, 36, 66, 0.42) 0%,
+			rgba(8, 36, 66, 0.65) 24%,
+			rgba(8, 36, 66, 0.88) 46%,
+			#082442 68%,
+			#082442 100%
+		);
+		pointer-events: none;
 	}
 
 	.cta-left {
@@ -138,16 +183,6 @@
 	.btn-outline:hover {
 		background: rgba(255, 255, 255, 0.1);
 		border-color: #ffffff;
-	}
-
-	.cta-corner-ribbon {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 160px;
-		height: 90px;
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	@media (max-width: 868px) {

@@ -24,11 +24,23 @@
 		secondaryTarget = '_self',
 		variant = 'default'
 	}: Props = $props();
+
+	let effectiveBgImage = $derived(
+		bgImage !== '/images/cta-bg-clean.jpg'
+			? bgImage
+			: variant === 'kemitraan'
+				? '/images/cta-building-glass-left.jpg'
+				: variant === 'artikel' || variant === 'tentang-kami'
+					? '/images/cta-building-glass.jpg'
+					: variant === 'layanan'
+						? '/images/home-cta-academic-bg.jpg'
+						: '/images/cta-bg-clean.jpg'
+	);
 </script>
 
 <section class="cta-banner variant-{variant}">
 	<div class="cta-bg-wrap">
-		<img src={bgImage} alt="" class="cta-bg-img" loading="lazy" />
+		<img src={effectiveBgImage} alt="" class="cta-bg-img" loading="lazy" />
 		<div class="cta-overlay"></div>
 	</div>
 
@@ -369,17 +381,19 @@
 	}
 
 	.cta-banner.variant-layanan .cta-bg-img {
-		opacity: 0.25;
+		opacity: 0.95;
 		object-position: left center;
+		filter: saturate(0.9) brightness(0.95);
 	}
 
 	.cta-banner.variant-layanan .cta-overlay {
 		background: linear-gradient(
 			90deg,
-			rgba(8, 36, 66, 0.72) 0%,
-			rgba(8, 36, 66, 0.88) 35%,
-			rgba(8, 36, 66, 0.96) 65%,
-			#082442 100%
+			rgba(11, 41, 72, 0.42) 0%,
+			rgba(11, 41, 72, 0.65) 24%,
+			rgba(11, 41, 72, 0.88) 46%,
+			#0B2948 68%,
+			#0B2948 100%
 		);
 	}
 
