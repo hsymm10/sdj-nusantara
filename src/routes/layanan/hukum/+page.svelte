@@ -9,7 +9,7 @@
 	import ScopeLegal from '#lib/components/sections/legal/ScopeLegal.svelte';
 	import AdvantagesLegal from '#lib/components/sections/legal/AdvantagesLegal.svelte';
 	import ProcessLegal from '#lib/components/sections/legal/ProcessLegal.svelte';
-	import CTALegal from '#lib/components/sections/legal/CTALegal.svelte';
+	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
 </script>
 
 <svelte:head>
@@ -42,8 +42,15 @@
 	<!-- Section F: Alur Layanan -->
 	<ProcessLegal />
 
-	<!-- Section G: CTA Konsultasi Hukum -->
-	<CTALegal />
+	<!-- Section G: CTA Banner Full Background Image -->
+	<CtaBanner
+		title="Siap Memperkuat Tata Kelola Hukum Institusi Anda?"
+		description="Dapatkan pendampingan hukum yang terarah untuk membantu memenuhi kebutuhan regulasi, kepatuhan, dan tata kelola institusi pendidikan."
+		bgImage="/images/layanan-hukum-hero.jpg"
+		primaryText="Ajukan Konsultasi"
+		primaryHref="/kontak"
+		variant="layanan"
+	/>
 </main>
 
 <Footer variant="layanan" />

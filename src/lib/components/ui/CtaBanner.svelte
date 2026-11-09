@@ -54,6 +54,10 @@
 			<div class="cta-actions">
 				<a href={primaryHref} class="btn-gold">
 					<span>{primaryText}</span>
+					<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 5px;">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
 				</a>
 				{#if secondaryText && secondaryHref}
 					<a
@@ -316,14 +320,18 @@
 		}
 	}
 
-	/* Variant Layanan (193px height, wide container, toga silhouette on left) */
+	/* Variant Layanan (Sesuai Mockup Referensi GAMBAR: Full Background Image, Navy Overlay, 96px Height) */
 	.cta-banner.variant-layanan {
-		height: 193px;
+		height: 96px;
+		background: #0B2948;
 	}
 
 	.cta-banner.variant-layanan .cta-container {
-		max-width: 1400px;
-		padding: 0 1rem;
+		width: 100%;
+		max-width: 1312px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		box-sizing: border-box;
 	}
 
 	@media (min-width: 1920px) {
@@ -333,56 +341,91 @@
 	}
 
 	.cta-banner.variant-layanan .cta-content {
+		display: flex;
 		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
 	}
 
 	.cta-banner.variant-layanan .cta-text {
-		max-width: 620px;
-		margin-left: 240px; /* offset to give room for student silhouette on left */
-	}
-
-	@media (max-width: 1200px) {
-		.cta-banner.variant-layanan .cta-text {
-			margin-left: 0;
-		}
+		max-width: 720px;
+		margin-left: 0;
 	}
 
 	.cta-banner.variant-layanan .cta-title {
-		font-size: clamp(20px, 1.9vw, 28px);
+		font-size: clamp(17px, 1.45vw, 21px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin-bottom: 0.5rem;
+		margin: 0 0 3px 0;
+		letter-spacing: -0.01em;
 	}
 
 	.cta-banner.variant-layanan .cta-desc {
-		font-size: 13px;
-		line-height: 1.5;
-		color: rgba(255, 255, 255, 0.88);
-		text-wrap: pretty;
+		font-size: clamp(11.5px, 0.9vw, 12.5px);
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
+	}
+
+	.cta-banner.variant-layanan .cta-actions {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex-shrink: 0;
 	}
 
 	.cta-banner.variant-layanan .btn-gold {
-		padding: 10px 24px;
-		font-size: 13px;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 0 1.25rem;
+		height: 36px;
+		font-size: 11.5px;
 		font-weight: 700;
-		background: #F5B331;
+		background: #F9B52B;
 		color: #082442;
-		border-radius: 8px;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.3);
+		border-radius: 7px;
+		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.28);
+		white-space: nowrap;
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.cta-banner.variant-layanan .btn-gold:hover {
+		background: #e6a528;
+		transform: translateY(-1px);
+		box-shadow: 0 5px 12px rgba(249, 181, 43, 0.38);
 	}
 
 	.cta-banner.variant-layanan .btn-outline {
-		padding: 10px 22px;
-		font-size: 13px;
-		font-weight: 600;
-		border-color: rgba(255, 255, 255, 0.6);
-		border-radius: 8px;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 0 1.25rem;
+		height: 36px;
+		font-size: 11.5px;
+		font-weight: 700;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1.5px solid rgba(255, 255, 255, 0.75);
+		color: #FFFFFF;
+		border-radius: 7px;
+		white-space: nowrap;
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.cta-banner.variant-layanan .btn-outline:hover {
+		background: rgba(255, 255, 255, 0.16);
+		border-color: #FFFFFF;
+		color: #FFFFFF;
+		transform: translateY(-1px);
 	}
 
 	.cta-banner.variant-layanan .cta-bg-img {
 		opacity: 0.95;
-		object-position: left center;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
 		filter: saturate(0.9) brightness(0.95);
 	}
 
@@ -395,6 +438,31 @@
 			#0B2948 68%,
 			#0B2948 100%
 		);
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.variant-layanan {
+			height: auto;
+			padding: 1.5rem 0;
+		}
+
+		.cta-banner.variant-layanan .cta-content {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		.cta-banner.variant-layanan .cta-actions {
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		.cta-banner.variant-layanan .btn-gold,
+		.cta-banner.variant-layanan .btn-outline {
+			flex: 1;
+			justify-content: center;
+			min-width: 140px;
+		}
 	}
 
 	/* Variant Program (131px height, wide container, toga silhouette on left) */

@@ -14,8 +14,8 @@
 	import ScholarshipPrepEducation from '#lib/components/sections/education/ScholarshipPrepEducation.svelte';
 	import ArticlesEducation from '#lib/components/sections/education/ArticlesEducation.svelte';
 	import FAQEducation from '#lib/components/sections/education/FAQEducation.svelte';
-	import CTAEducation from '#lib/components/sections/education/CTAEducation.svelte';
 	import PartnersEducation from '#lib/components/sections/education/PartnersEducation.svelte';
+	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
 </script>
 
 <svelte:head>
@@ -62,11 +62,20 @@
 	<!-- 11: Pertanyaan Umum / FAQ (Foto Konsultan Hijab + Bubble ? + 4 Accordion) -->
 	<FAQEducation />
 
-	<!-- 12: Masih Bingung Menentukan Layanan yang Tepat? (Card Navy + Tombol Chat Emas) -->
-	<CTAEducation />
-
-	<!-- 13: Mitra & Kolaborasi (Carousel Logo Resmi Institusi) -->
+	<!-- 12: Mitra & Kolaborasi (Carousel Logo Resmi Institusi) -->
 	<PartnersEducation />
+
+	<!-- 13: CTA Banner Full Background Image -->
+	<CtaBanner
+		title="Siap Mengembangkan Potensi Pendidikan Anda?"
+		description="Temukan program pendidikan dan pendampingan yang tepat untuk mendukung pengembangan potensi serta pencapaian tujuan institusi Anda."
+		bgImage="/images/home-cta-academic-bg.jpg"
+		primaryText="Konsultasikan Kebutuhan"
+		primaryHref="/kontak"
+		secondaryText="Jelajahi Program"
+		secondaryHref="/layanan/pendidikan#program"
+		variant="layanan"
+	/>
 </main>
 
 <Footer compact={true} />
