@@ -17,6 +17,7 @@
 	let selectedCategory = $state<'program' | 'beasiswa' | 'kemitraan' | 'hukum'>('program');
 	let searchQuery = $state('');
 	let openItemId = $state<string | null>('faq-01'); // First item open by default
+	let sidebarHeight = $state(0);
 
 	onMount(() => {
 		if (defaultCategory && defaultCategory !== 'program') {
@@ -88,10 +89,13 @@
 <section class="faq-redesign-section" id="faq" aria-labelledby="faq-section-heading">
 	<div class="faq-container">
 		<!-- Main 2-Column Layout -->
-		<div class="faq-grid-layout">
+		<div
+			class="faq-grid-layout"
+			style="--faq-sidebar-max-height: {sidebarHeight > 0 ? `${sidebarHeight}px` : '630px'};"
+		>
 			<!-- LEFT COLUMN: Info Card & Category Navigation (380px) -->
 			<aside class="faq-sidebar-col">
-				<div class="faq-sidebar-card">
+				<div class="faq-sidebar-card" bind:clientHeight={sidebarHeight}>
 					<!-- Top Illustration: Young woman in beige hijab + navy blazer holding tablet -->
 					<div class="sidebar-image-wrap">
 						<img
@@ -473,12 +477,18 @@
 
 	/* RIGHT COLUMN */
 	.faq-content-col {
+		display: flex;
+		flex-direction: column;
 		width: 100%;
 		min-width: 0;
+		min-height: 0;
+		max-height: var(--faq-sidebar-max-height, 630px);
+		box-sizing: border-box;
 	}
 
 	/* A. Interactive Search Bar (Height 62px, Radius 16px, Border #DCE7F0) */
 	.faq-search-bar {
+		flex-shrink: 0;
 		width: 100%;
 		height: 60px;
 		background: #FFFFFF;
@@ -540,6 +550,7 @@
 
 	/* B. Category Heading Row */
 	.faq-header-row {
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -583,18 +594,43 @@
 		color: #078893;
 	}
 
-	/* C. Accordion FAQ List (10px gap) */
+	/* C. Accordion FAQ List (10px gap, scrollable within desktop sidebar height) */
 	.faq-accordion-list {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		flex: 1 1 auto;
 		width: 100%;
 		min-width: 0;
+		min-height: 0;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding: 0 6px 4px 0;
 		box-sizing: border-box;
+		scrollbar-width: thin;
+		scrollbar-color: #CBD5E1 transparent;
+	}
+
+	.faq-accordion-list::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.faq-accordion-list::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.faq-accordion-list::-webkit-scrollbar-thumb {
+		background: #CBD5E1;
+		border-radius: 999px;
+	}
+
+	.faq-accordion-list::-webkit-scrollbar-thumb:hover {
+		background: #94A3B8;
 	}
 
 	/* Accordion Card (Border Radius 16px, Border #DCE7F0) */
 	.faq-card-item {
+		flex-shrink: 0;
 		width: 100%;
 		height: auto;
 		min-width: 0;
@@ -740,6 +776,7 @@
 
 	/* Empty State */
 	.faq-empty-state {
+		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -967,6 +1004,18 @@
 
 		.faq-sidebar-col {
 			position: static;
+		}
+
+		.faq-content-col {
+			max-height: none;
+		}
+
+		.faq-accordion-list {
+			flex: none;
+			overflow-y: visible;
+			overflow-x: visible;
+			padding-right: 0;
+			padding-bottom: 0;
 		}
 
 		.faq-cta-banner {
