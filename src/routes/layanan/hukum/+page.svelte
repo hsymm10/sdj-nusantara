@@ -62,4 +62,11 @@
 		color: #183553;
 		overflow-x: hidden;
 	}
+
+	/* Selaraskan lebar container CTA Banner di /layanan/hukum dengan container 1200px seluruh section */
+	.legal-page :global(.cta-banner.variant-layanan .cta-container) {
+		width: 92%;
+		max-width: 1200px;
+		padding: 0;
+	}
 </style>

@@ -17,13 +17,12 @@
 </script>
 
 <section class="about-legal-section" aria-labelledby="about-legal-heading">
-	<!-- Dekorasi latar lembut sudut kanan atas & kiri bawah sesuai mockup -->
+	<!-- Dekorasi sudut kanan atas sesuai mockup -->
 	<svg class="about-bg-waves-tr" viewBox="0 0 260 200" fill="none" aria-hidden="true">
 		<path d="M85 0 C120 90, 185 150, 260 175 L260 0 Z" fill="#C4EEF3" fill-opacity="0.52" />
 		<path d="M145 0 C175 70, 215 118, 260 135 L260 0 Z" fill="#46C7D2" fill-opacity="0.65" />
 		<path d="M200 0 C218 48, 238 80, 260 94 L260 0 Z" fill="#00AAB5" fill-opacity="0.88" />
 	</svg>
-	<div class="about-bg-glow-bl" aria-hidden="true"></div>
 
 	<div class="about-legal-container">
 		<!-- KOLOM KIRI (~40%): Label, Heading, Deskripsi, Information Box -->
@@ -129,7 +128,7 @@
 	.about-legal-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 56px 0 48px;
+		padding: 36px 0 42px;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
@@ -138,20 +137,8 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 220px;
-		height: 170px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.about-bg-glow-bl {
-		position: absolute;
-		left: -60px;
-		bottom: -50px;
-		width: 300px;
-		height: 190px;
-		border-radius: 50%;
-		background: radial-gradient(circle, rgba(215, 245, 249, 0.65) 0%, rgba(215, 245, 249, 0) 70%);
+		width: 210px;
+		height: 160px;
 		pointer-events: none;
 		z-index: 1;
 	}

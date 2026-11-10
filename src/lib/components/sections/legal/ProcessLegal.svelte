@@ -40,12 +40,10 @@
 </script>
 
 <section class="process-legal-section" aria-labelledby="process-legal-heading">
-	<!-- Dekorasi sudut bawah kanan & kiri latar belakang -->
-	<div class="process-bg-glow-bl" aria-hidden="true"></div>
-	<svg class="process-bg-waves-br" viewBox="0 0 420 210" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M55 210 C158 140, 282 90, 420 55 L420 210 Z" fill="#B5EAF0" fill-opacity="0.58" />
-		<path d="M125 210 C222 145, 322 105, 420 82 L420 210 Z" fill="#FFB21C" fill-opacity="0.94" />
-		<path d="M192 210 C272 160, 348 130, 420 116 L420 210 Z" fill="#00A6B2" />
+	<!-- Dekorasi sudut bawah kanan lembut di atas CTA -->
+	<svg class="process-bg-waves-br" viewBox="0 0 360 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M55 150 C158 100, 268 62, 360 40 L360 150 Z" fill="#BCECF2" fill-opacity="0.52" />
+		<path d="M135 150 C215 110, 295 82, 360 68 L360 150 Z" fill="#00AAB5" fill-opacity="0.88" />
 	</svg>
 
 	<div class="process-legal-container">
@@ -156,29 +154,17 @@
 	.process-legal-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 8px 0 56px;
+		padding: 18px 0 56px;
 		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	.process-bg-glow-bl {
-		position: absolute;
-		left: -60px;
-		bottom: -50px;
-		width: 340px;
-		height: 220px;
-		border-radius: 50%;
-		background: radial-gradient(circle, rgba(208, 245, 249, 0.68) 0%, rgba(208, 245, 249, 0) 72%);
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.process-bg-waves-br {
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 310px;
-		height: 155px;
+		width: 240px;
+		height: 110px;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -187,7 +173,7 @@
 		position: relative;
 		z-index: 2;
 		width: 92%;
-		max-width: 1220px;
+		max-width: 1200px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
@@ -196,7 +182,7 @@
 		background: linear-gradient(180deg, #E6F7FA 0%, #F0FAFC 100%);
 		border: 1px solid #D5EEF3;
 		border-radius: 24px;
-		padding: 42px 42px 44px;
+		padding: 40px 38px 44px;
 		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.045);
 		box-sizing: border-box;
 	}

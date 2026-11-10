@@ -20,14 +20,6 @@
 </script>
 
 <section id="ruang-lingkup" class="scope-legal-section" aria-labelledby="scope-legal-heading">
-	<!-- Dekorasi sudut bawah halaman sesuai mockup -->
-	<div class="scope-bg-glow-bl" aria-hidden="true"></div>
-	<svg class="scope-bg-waves-br" viewBox="0 0 320 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M40 160 C125 105, 225 65, 320 42 L320 160 Z" fill="#BCECF2" fill-opacity="0.55" />
-		<path d="M98 160 C172 110, 248 78, 320 62 L320 160 Z" fill="#FFB21C" fill-opacity="0.92" />
-		<path d="M152 160 C212 122, 268 98, 320 88 L320 160 Z" fill="#00AAB5" />
-	</svg>
-
 	<div class="scope-legal-container">
 		<!-- Section Header Terpusat -->
 		<div class="scope-header">
@@ -104,31 +96,9 @@
 	.scope-legal-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 46px 0 60px;
+		padding: 32px 0 44px;
 		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	.scope-bg-glow-bl {
-		position: absolute;
-		left: -60px;
-		bottom: -50px;
-		width: 320px;
-		height: 200px;
-		border-radius: 50%;
-		background: radial-gradient(circle, rgba(215, 245, 249, 0.65) 0%, rgba(215, 245, 249, 0) 70%);
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.scope-bg-waves-br {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 280px;
-		height: 145px;
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.scope-legal-container {
@@ -317,11 +287,6 @@
 		.scope-card:last-child {
 			grid-column: auto;
 			max-width: none;
-		}
-
-		.scope-bg-waves-br {
-			width: 180px;
-			height: 95px;
 		}
 	}
 </style>

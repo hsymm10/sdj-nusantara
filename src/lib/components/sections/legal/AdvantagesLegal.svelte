@@ -29,13 +29,11 @@
 </script>
 
 <section class="adv-legal-section" aria-labelledby="adv-legal-heading">
-	<!-- Dekorasi sudut latar lembut -->
-	<svg class="adv-bg-waves-tr" viewBox="0 0 320 240" fill="none" aria-hidden="true">
-		<path d="M95 0 C138 110, 212 185, 320 212 L320 0 Z" fill="#BCECF2" fill-opacity="0.58" />
-		<path d="M162 0 C196 88, 248 142, 320 164 L320 0 Z" fill="#46C7D2" fill-opacity="0.68" />
-		<path d="M224 0 C248 60, 278 100, 320 116 L320 0 Z" fill="#00A6B2" fill-opacity="0.9" />
+	<!-- Aksen lengkung emas halus tepi kanan sesuai mockup -->
+	<svg class="adv-bg-waves-tr" viewBox="0 0 180 120" fill="none" aria-hidden="true">
+		<path d="M180 18 C135 55, 78 88, 18 115 L180 115 Z" fill="#BCECF2" fill-opacity="0.45" />
+		<path d="M180 48 C145 78, 102 102, 58 118 L180 118 Z" fill="#FFB21C" fill-opacity="0.88" />
 	</svg>
-	<div class="adv-bg-glow-bl" aria-hidden="true"></div>
 
 	<div class="adv-legal-container">
 		<!-- Kolom Kiri: Informasi (±38%) -->
@@ -160,29 +158,17 @@
 	.adv-legal-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 48px 0 36px;
+		padding: 32px 0 36px;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
 	.adv-bg-waves-tr {
 		position: absolute;
-		top: 0;
+		top: 6px;
 		right: 0;
-		width: 230px;
-		height: 175px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.adv-bg-glow-bl {
-		position: absolute;
-		left: -70px;
-		bottom: -50px;
-		width: 340px;
-		height: 210px;
-		border-radius: 50%;
-		background: radial-gradient(circle, rgba(212, 245, 249, 0.68) 0%, rgba(212, 245, 249, 0) 70%);
+		width: 120px;
+		height: 82px;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -191,7 +177,7 @@
 		position: relative;
 		z-index: 2;
 		width: 92%;
-		max-width: 1220px;
+		max-width: 1200px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
@@ -381,8 +367,8 @@
 		}
 
 		.adv-bg-waves-tr {
-			width: 190px;
-			height: 145px;
+			width: 95px;
+			height: 64px;
 			opacity: 0.75;
 		}
 	}

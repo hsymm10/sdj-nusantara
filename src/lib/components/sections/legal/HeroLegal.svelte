@@ -95,7 +95,7 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 65%;
+		width: 68%;
 		height: 100%;
 		object-fit: cover;
 		object-position: right center;
@@ -108,18 +108,18 @@
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 42%,
-			rgba(8, 36, 66, 0.88) 58%,
-			rgba(8, 36, 66, 0.5) 80%,
-			rgba(8, 36, 66, 0.25) 100%
+			#082442 38%,
+			rgba(8, 36, 66, 0.84) 55%,
+			rgba(8, 36, 66, 0.4) 78%,
+			rgba(8, 36, 66, 0.14) 100%
 		);
 	}
 
 	.legal-hero-container {
 		position: relative;
 		z-index: 3;
-		width: 93%;
-		max-width: 1360px;
+		width: 92%;
+		max-width: 1200px;
 		margin: 0 auto;
 	}
 

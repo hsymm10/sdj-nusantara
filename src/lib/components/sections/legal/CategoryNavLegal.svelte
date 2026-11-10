@@ -83,12 +83,12 @@
 		position: relative;
 		z-index: 10;
 		margin-top: -26px;
-		margin-bottom: 30px;
+		margin-bottom: 24px;
 	}
 
 	.category-nav-container {
-		width: 93%;
-		max-width: 1360px;
+		width: 92%;
+		max-width: 1200px;
 		margin: 0 auto;
 	}
 
