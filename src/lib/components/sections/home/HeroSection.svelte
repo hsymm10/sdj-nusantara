@@ -114,7 +114,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: 82% center;
+		object-position: 82% 24%;
 		display: block;
 	}
 

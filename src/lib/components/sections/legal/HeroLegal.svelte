@@ -73,13 +73,15 @@
 	.legal-hero {
 		position: relative;
 		width: 100%;
-		min-height: 400px;
+		height: var(--hero-height-desktop, 445px);
 		background: #082442;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
-		padding-top: 40px;
-		padding-bottom: 75px;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: var(--navbar-height, 48px);
+		padding-bottom: 0;
+		box-sizing: border-box;
 	}
 
 	.hero-bg-wrap {
@@ -88,17 +90,18 @@
 		width: 100%;
 		height: 100%;
 		pointer-events: none;
-		z-index: 1;
+		z-index: var(--z-hero-bg, 1);
 	}
 
 	.hero-bg-img {
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 68%;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: right center;
+		object-position: 82% 40%;
+		display: block;
 	}
 
 	/* Gradient overlay: Deep solid navy on left fading across right */
@@ -117,10 +120,18 @@
 
 	.legal-hero-container {
 		position: relative;
-		z-index: 3;
-		width: 92%;
-		max-width: 1200px;
+		z-index: var(--z-hero-content, 3);
+		width: 100%;
+		max-width: var(--hero-container-max, 1380px);
 		margin: 0 auto;
+		padding: 0 var(--hero-padding-x, 54px);
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.legal-hero-container {
+			max-width: var(--hero-container-max-xl, 1500px);
+		}
 	}
 
 	.hero-left-content {
@@ -154,8 +165,8 @@
 
 	/* Headline */
 	.hero-headline {
-		font-size: 36px;
-		line-height: 1.2;
+		font-size: var(--hero-title-size, clamp(30px, 2.6vw, 39px));
+		line-height: 1.18;
 		font-weight: 800;
 		color: #ffffff;
 		margin: 0 0 14px;
@@ -239,6 +250,15 @@
 	}
 
 	@media (max-width: 900px) {
+		.legal-hero {
+			height: auto;
+			padding: 4.5rem 0 3.5rem;
+		}
+
+		.legal-hero-container {
+			padding: 0 1.5rem;
+		}
+
 		.hero-bg-img {
 			width: 100%;
 			opacity: 0.35;

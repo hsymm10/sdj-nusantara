@@ -57,6 +57,7 @@
 <style>
 	.page-content {
 		width: 100%;
+		padding-top: var(--navbar-height, 48px);
 		overflow-x: hidden;
 		background: #FFFFFF;
 	}

@@ -81,8 +81,8 @@
 <style>
 	.category-nav-wrapper {
 		position: relative;
-		z-index: 10;
-		margin-top: -26px;
+		z-index: var(--z-overlap-bar, 10);
+		margin-top: var(--overlap-margin-top, -16px);
 		margin-bottom: 24px;
 	}
 

@@ -27,7 +27,7 @@
 
 <style>
 	.main-content {
-		padding-top: 0;
+		padding-top: var(--navbar-height, 48px);
 		overflow-x: hidden;
 	}
 </style>

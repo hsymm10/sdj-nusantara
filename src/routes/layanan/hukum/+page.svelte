@@ -74,7 +74,7 @@
 
 <style>
 	.legal-page {
-		padding-top: 0;
+		padding-top: var(--navbar-height, 48px);
 		background: #ffffff;
 		color: #183553;
 		overflow-x: hidden;

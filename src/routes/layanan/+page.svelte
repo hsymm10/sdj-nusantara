@@ -773,11 +773,11 @@
 	.hub-hero {
 		position: relative;
 		background-color: #082442;
-		height: 445px;
+		height: var(--hero-height-desktop, 445px);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-top: 48px;
+		padding-top: var(--navbar-height, 48px);
 		overflow: hidden;
 		box-sizing: border-box;
 	}
@@ -844,12 +844,26 @@
 		pointer-events: none;
 	}
 
-	.hero-container {
+	.hub-hero .hub-container.hero-container {
 		position: relative;
-		z-index: 4;
-		padding-left: clamp(20px, 6.2vw, 95px); /* Teks mulai di x ≈ 160px pada 1536 */
-		padding-bottom: 0;
-		margin-top: -22px;
+		z-index: var(--z-hero-content, 3);
+		width: 100%;
+		max-width: var(--hero-container-max, 1380px);
+		margin: 0 auto;
+		padding: 0 var(--hero-padding-x, 54px);
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.hub-hero .hub-container.hero-container {
+			max-width: var(--hero-container-max-xl, 1500px);
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hub-hero .hub-container.hero-container {
+			padding: 0 1.5rem;
+		}
 	}
 
 	.hero-content {
@@ -1781,8 +1795,8 @@
 			background: #082442;
 		}
 
-		.hero-container {
-			padding-left: 0;
+		.hub-hero .hub-container.hero-container {
+			padding: 0 1.5rem;
 		}
 
 		.hero-title {

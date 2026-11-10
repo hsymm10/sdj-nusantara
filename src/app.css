@@ -29,6 +29,20 @@
   /* Accent & Border */
   --color-border: #DCE6EE;
   --color-divider: #DCE6EE;
+
+  /* Standardized Hero, Navbar & Floating Overlap Bar Tokens (Master Reference: Tentang Kami) */
+  --navbar-height: 48px;
+  --hero-height-desktop: 445px;
+  --hero-container-max: 1380px;
+  --hero-container-max-xl: 1500px;
+  --hero-padding-x: 54px;
+  --hero-title-size: clamp(30px, 2.6vw, 39px);
+  --overlap-margin-top: -16px;
+  --overlap-card-height: 84px;
+  --z-hero-bg: 1;
+  --z-hero-wave: 2;
+  --z-hero-content: 3;
+  --z-overlap-bar: 10;
 }
 
 @theme inline {
