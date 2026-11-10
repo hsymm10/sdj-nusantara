@@ -7,6 +7,7 @@
 	import ContactServiceArea from '#lib/components/sections/contact/ContactServiceArea.svelte';
 	import ContactLocation3Panel from '#lib/components/sections/contact/ContactLocation3Panel.svelte';
 	import ContactFaqSection from '#lib/components/sections/contact/ContactFaqSection.svelte';
+	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
 </script>
 
 <svelte:head>
@@ -37,6 +38,18 @@
 
 	<!-- 6. Pertanyaan Umum (FAQ Accordion) -->
 	<ContactFaqSection />
+
+	<!-- 7. CTA Image Banner (Di atas Footer, konsisten dengan halaman Layanan) -->
+	<CtaBanner
+		title='Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>'
+		description="Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJNusantara."
+		bgImage="/images/cta-layanan-collaboration-bg.jpg"
+		primaryText="Jadwalkan Konsultasi"
+		primaryHref="/konsultasi"
+		secondaryText="Ajukan Kerja Sama"
+		secondaryHref="/kemitraan"
+		variant="layanan"
+	/>
 </main>
 
 <Footer variant="kontak" />
