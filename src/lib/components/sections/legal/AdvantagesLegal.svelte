@@ -1,4 +1,4 @@
-<!-- Section E: Keunggulan Layanan Hukum — Redesign Mengikuti Mockup Referensi (2x2 White Cards + Corner Waves) -->
+<!-- Section E: Keunggulan Layanan Hukum — Pixel-Perfect Refinement Mengikuti Mockup Referensi -->
 <script lang="ts">
 	const advantages = [
 		{
@@ -30,10 +30,10 @@
 
 <section class="adv-legal-section" aria-labelledby="adv-legal-heading">
 	<!-- Dekorasi sudut latar lembut -->
-	<svg class="adv-bg-waves-tr" viewBox="0 0 280 220" fill="none" aria-hidden="true">
-		<path d="M90 0 C125 95, 190 165, 280 190 L280 0 Z" fill="#B8ECF1" fill-opacity="0.55" />
-		<path d="M145 0 C175 75, 220 125, 280 145 L280 0 Z" fill="#46C7D2" fill-opacity="0.7" />
-		<path d="M200 0 C220 50, 245 85, 280 100 L280 0 Z" fill="#00A6B2" fill-opacity="0.9" />
+	<svg class="adv-bg-waves-tr" viewBox="0 0 320 240" fill="none" aria-hidden="true">
+		<path d="M95 0 C138 110, 212 185, 320 212 L320 0 Z" fill="#BCECF2" fill-opacity="0.58" />
+		<path d="M162 0 C196 88, 248 142, 320 164 L320 0 Z" fill="#46C7D2" fill-opacity="0.68" />
+		<path d="M224 0 C248 60, 278 100, 320 116 L320 0 Z" fill="#00A6B2" fill-opacity="0.9" />
 	</svg>
 	<div class="adv-bg-glow-bl" aria-hidden="true"></div>
 
@@ -51,15 +51,15 @@
 					Layanan Hukum Kami?
 					<svg
 						class="title-gold-swoosh"
-						viewBox="0 0 240 16"
+						viewBox="0 0 280 18"
 						fill="none"
 						preserveAspectRatio="none"
 						aria-hidden="true"
 					>
 						<path
-							d="M2 12 C68 4, 152 3, 238 8"
+							d="M2 14 C78 4, 178 3, 278 9"
 							stroke="#FFB629"
-							stroke-width="3.2"
+							stroke-width="3.6"
 							stroke-linecap="round"
 						/>
 					</svg>
@@ -79,35 +79,35 @@
 			<div class="adv-grid-2x2">
 				{#each advantages as item}
 					<div class="adv-card">
-						<!-- Lapisan wave pojok kanan bawah -->
+						<!-- Lapisan wave lembut bagian kanan bawah kartu -->
 						<svg
 							class="adv-card-wave"
-							viewBox="0 0 130 64"
+							viewBox="0 0 260 64"
 							fill="none"
 							preserveAspectRatio="none"
 							aria-hidden="true"
 						>
 							{#if item.accent === 'teal'}
 								<path
-									d="M20 64 C58 58, 96 40, 130 8 L130 64 Z"
-									fill="#7CD8E0"
+									d="M40 64 C118 56, 198 38, 260 4 L260 64 Z"
+									fill="#99E3EA"
 									fill-opacity="0.45"
 								/>
 								<path
-									d="M52 64 C84 58, 108 44, 130 22 L130 64 Z"
-									fill="#00A9B7"
-									fill-opacity="0.85"
+									d="M125 64 C180 56, 224 42, 260 18 L260 64 Z"
+									fill="#4AC7D2"
+									fill-opacity="0.72"
 								/>
 							{:else}
 								<path
-									d="M20 64 C58 58, 96 40, 130 8 L130 64 Z"
-									fill="#FFE082"
-									fill-opacity="0.6"
+									d="M40 64 C118 56, 198 38, 260 4 L260 64 Z"
+									fill="#FFE49C"
+									fill-opacity="0.55"
 								/>
 								<path
-									d="M52 64 C84 58, 108 44, 130 22 L130 64 Z"
-									fill="#FFB629"
-									fill-opacity="0.9"
+									d="M125 64 C180 56, 224 42, 260 18 L260 64 Z"
+									fill="#FFC247"
+									fill-opacity="0.82"
 								/>
 							{/if}
 						</svg>
@@ -115,19 +115,19 @@
 						<div class="adv-card-inner">
 							<div class="adv-icon-box" aria-hidden="true">
 								{#if item.icon === 'shield-check'}
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
 										<path d="m9 12 2 2 4-4" />
 									</svg>
 								{:else if item.icon === 'layout-grid'}
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<rect width="7" height="7" x="3" y="3" rx="1.5" />
 										<rect width="7" height="7" x="14" y="3" rx="1.5" />
 										<rect width="7" height="7" x="14" y="14" rx="1.5" />
 										<rect width="7" height="7" x="3" y="14" rx="1.5" />
 									</svg>
 								{:else if item.icon === 'scale'}
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
 										<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
 										<path d="M7 21h10" />
@@ -135,7 +135,7 @@
 										<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
 									</svg>
 								{:else}
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
 										<circle cx="9" cy="7" r="4" />
 										<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
@@ -160,7 +160,7 @@
 	.adv-legal-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 64px 0 56px;
+		padding: 72px 0 60px;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
@@ -169,20 +169,20 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 240px;
-		height: 190px;
+		width: 280px;
+		height: 215px;
 		pointer-events: none;
 		z-index: 1;
 	}
 
 	.adv-bg-glow-bl {
 		position: absolute;
-		left: -80px;
-		bottom: -60px;
-		width: 340px;
-		height: 220px;
+		left: -70px;
+		bottom: -50px;
+		width: 400px;
+		height: 250px;
 		border-radius: 50%;
-		background: radial-gradient(circle, rgba(215, 245, 249, 0.7) 0%, rgba(215, 245, 249, 0) 70%);
+		background: radial-gradient(circle, rgba(212, 245, 249, 0.72) 0%, rgba(212, 245, 249, 0) 70%);
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -190,39 +190,39 @@
 	.adv-legal-container {
 		position: relative;
 		z-index: 2;
-		width: 93%;
-		max-width: 1320px;
+		width: 90%;
+		max-width: 1620px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 36px;
+		gap: clamp(28px, 3vw, 48px);
 		box-sizing: border-box;
 	}
 
 	.adv-left-col {
 		flex: 0 0 36%;
-		max-width: 440px;
+		max-width: 560px;
 		min-width: 0;
 	}
 
 	.adv-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		margin-bottom: 10px;
+		gap: 10px;
+		margin-bottom: 12px;
 	}
 
 	.badge-dash {
 		display: inline-block;
-		width: 22px;
+		width: 26px;
 		height: 2px;
 		background: #00A9B7;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 700;
 		color: #00A9B7;
 		letter-spacing: 0.08em;
@@ -230,11 +230,11 @@
 	}
 
 	.adv-title {
-		font-size: clamp(26px, 2.5vw, 34px);
-		line-height: 1.22;
+		font-size: clamp(28px, 2.3vw, 44px);
+		line-height: 1.18;
 		font-weight: 800;
 		color: #0B2340;
-		margin: 0 0 20px;
+		margin: 0 0 22px;
 		letter-spacing: -0.015em;
 	}
 
@@ -242,29 +242,30 @@
 		color: #FFB21C;
 		position: relative;
 		display: inline-block;
-		padding-bottom: 6px;
+		padding-bottom: 8px;
 	}
 
 	.title-gold-swoosh {
 		position: absolute;
-		left: 38%;
-		bottom: -4px;
-		width: 62%;
-		height: 12px;
+		left: 36%;
+		bottom: -5px;
+		width: 64%;
+		height: 14px;
 		pointer-events: none;
 	}
 
 	.adv-desc {
-		font-size: 14px;
+		font-size: clamp(14.5px, 0.9vw, 17px);
 		line-height: 1.65;
 		color: #475569;
 		margin: 0;
+		max-width: 500px;
 	}
 
 	/* Garis Pemisah Vertikal Tipis */
 	.adv-vertical-divider {
 		width: 1px;
-		height: 210px;
+		height: 235px;
 		background: #E2E8F0;
 		flex-shrink: 0;
 	}
@@ -278,7 +279,7 @@
 	.adv-grid-2x2 {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 18px 20px;
+		gap: clamp(18px, 1.5vw, 26px);
 	}
 
 	.adv-card {
@@ -286,9 +287,12 @@
 		overflow: hidden;
 		background: #FFFFFF;
 		border: 1px solid #E4EEF5;
-		border-radius: 16px;
-		padding: 20px 22px;
-		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.045);
+		border-radius: 18px;
+		min-height: 114px;
+		padding: 24px 26px;
+		display: flex;
+		align-items: center;
+		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.045);
 		box-sizing: border-box;
 		transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 	}
@@ -296,15 +300,15 @@
 	.adv-card:hover {
 		transform: translateY(-2px);
 		border-color: #C4E5EC;
-		box-shadow: 0 10px 26px rgba(8, 36, 66, 0.075);
+		box-shadow: 0 12px 30px rgba(8, 36, 66, 0.075);
 	}
 
 	.adv-card-wave {
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 118px;
-		height: 54px;
+		width: 180px;
+		height: 46px;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -314,14 +318,15 @@
 		z-index: 2;
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: 18px;
+		width: 100%;
 		min-width: 0;
 	}
 
 	.adv-icon-box {
-		width: 54px;
-		height: 54px;
-		border-radius: 14px;
+		width: 62px;
+		height: 62px;
+		border-radius: 16px;
 		background: #E7F7F9;
 		border: 1px solid #D1EEF3;
 		display: flex;
@@ -338,22 +343,23 @@
 	}
 
 	.adv-item-title {
-		font-size: 15.5px;
+		font-size: clamp(15.5px, 0.95vw, 18px);
 		font-weight: 700;
 		color: #0B2340;
 		line-height: 1.35;
-		margin: 0 0 5px;
+		margin: 0 0 6px;
 	}
 
 	.adv-item-desc {
-		font-size: 13px;
+		font-size: clamp(13px, 0.8vw, 15px);
 		line-height: 1.5;
 		color: #64748B;
 		margin: 0;
 	}
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1120px) {
 		.adv-legal-container {
+			width: 92%;
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 28px;
@@ -370,9 +376,13 @@
 			width: 100%;
 		}
 
+		.adv-desc {
+			max-width: 680px;
+		}
+
 		.adv-bg-waves-tr {
-			width: 170px;
-			height: 135px;
+			width: 190px;
+			height: 145px;
 			opacity: 0.75;
 		}
 	}
@@ -388,6 +398,7 @@
 		}
 
 		.adv-card {
+			min-height: 0;
 			padding: 18px;
 		}
 
