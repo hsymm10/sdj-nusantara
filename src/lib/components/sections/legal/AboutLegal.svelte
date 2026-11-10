@@ -250,7 +250,7 @@
 		display: flex;
 		align-items: center;
 		width: 100%;
-		max-width: 630px;
+		max-width: 645px;
 	}
 
 	.swoosh-top-left {
@@ -266,14 +266,14 @@
 	.building-photo-box {
 		position: relative;
 		z-index: 2;
-		width: 390px;
-		height: 245px;
-		border-top-left-radius: 124px;
+		width: 385px;
+		height: 240px;
+		border-top-left-radius: 120px;
 		border-top-right-radius: 20px;
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
 		overflow: hidden;
-		box-shadow: 0 12px 28px rgba(8, 36, 66, 0.11);
+		box-shadow: 0 10px 26px rgba(8, 36, 66, 0.10);
 		flex-shrink: 0;
 	}
 
@@ -288,45 +288,44 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 86px;
-		height: 52px;
+		width: 82px;
+		height: 48px;
 		pointer-events: none;
 	}
 
-	/* Floating Card Putih Menempel di Kanan Foto */
+	/* Floating Card Putih Menempel Rapi di Kanan Foto */
 	.overlapping-white-panel {
 		position: relative;
 		z-index: 3;
-		margin-left: -34px;
-		width: 274px;
-		min-height: 245px;
+		margin-left: -22px;
+		width: 282px;
+		height: 240px;
 		background: #FFFFFF;
-		border-radius: 18px;
-		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.10);
+		border-radius: 16px;
+		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.09);
 		border: 1px solid #DCE7F1;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		display: grid;
+		grid-template-rows: repeat(3, minmax(0, 1fr));
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
 	.feature-row {
-		flex: 1;
 		display: flex;
 		align-items: center;
-		gap: 14px;
-		padding: 14px 18px;
+		gap: 13px;
+		padding: 0 18px;
 		box-sizing: border-box;
+		min-width: 0;
 	}
 
 	.feature-row.border-bottom {
-		border-bottom: 1px solid #DCE7F1;
+		border-bottom: 1px solid #E5EEF5;
 	}
 
 	.feat-icon-circle {
-		width: 40px;
-		height: 40px;
+		width: 38px;
+		height: 38px;
 		border-radius: 50%;
 		background: #E8F7F9;
 		display: flex;
@@ -336,8 +335,8 @@
 	}
 
 	.feat-text {
-		font-size: 14px;
-		font-weight: 700;
+		font-size: 13.5px;
+		font-weight: 600;
 		color: #092B4A;
 		line-height: 1.35;
 	}
@@ -401,9 +400,10 @@
 
 		.overlapping-white-panel {
 			margin-left: 0;
-			margin-top: -22px;
+			margin-top: -18px;
 			width: calc(100% - 16px);
 			align-self: center;
+			height: auto;
 			min-height: 0;
 		}
 

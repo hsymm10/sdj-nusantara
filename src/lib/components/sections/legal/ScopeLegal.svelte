@@ -158,6 +158,7 @@
 	.scope-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-auto-rows: 1fr;
 		gap: 22px;
 	}
 
@@ -167,12 +168,13 @@
 		background: #FFFFFF;
 		border: 1px solid #DCE7F1;
 		border-radius: 16px;
-		padding: 22px 22px 22px;
+		padding: 24px 24px 28px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: 218px;
-		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.045);
+		height: 100%;
+		min-height: 224px;
+		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.04);
 		box-sizing: border-box;
 		transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 	}
@@ -180,7 +182,7 @@
 	.scope-card:hover {
 		transform: translateY(-2px);
 		border-color: #00AAB5;
-		box-shadow: 0 12px 28px rgba(0, 170, 181, 0.12);
+		box-shadow: 0 12px 28px rgba(0, 170, 181, 0.11);
 	}
 
 	.scope-card-wave {
@@ -189,7 +191,7 @@
 		right: 0;
 		bottom: 0;
 		width: 100%;
-		height: 24px;
+		height: 18px;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -200,8 +202,8 @@
 	}
 
 	.scope-icon-box {
-		width: 48px;
-		height: 48px;
+		width: 46px;
+		height: 46px;
 		border-radius: 12px;
 		background: #E8F7F9;
 		display: flex;
@@ -214,13 +216,13 @@
 		font-size: 15.5px;
 		font-weight: 700;
 		color: #092B4A;
-		line-height: 1.35;
-		margin: 0 0 8px;
+		line-height: 1.38;
+		margin: 0 0 10px;
 	}
 
 	.scope-card-desc {
-		font-size: 13.5px;
-		line-height: 1.55;
+		font-size: 13px;
+		line-height: 1.58;
 		color: #71839A;
 		margin: 0;
 	}
@@ -230,7 +232,7 @@
 		z-index: 2;
 		display: flex;
 		justify-content: flex-end;
-		margin-top: 18px;
+		margin-top: 20px;
 	}
 
 	.scope-arrow-btn {
