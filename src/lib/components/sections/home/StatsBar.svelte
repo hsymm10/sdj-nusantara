@@ -99,24 +99,26 @@
 	.stats-wrapper {
 		position: relative;
 		z-index: 20;
-		max-width: 1086px;
-		margin: -12px auto 0; /* Overlap hero ±12px sesuai spesifikasi mockup */
-		padding: 0 1rem;
-		height: 72px;
+		width: 93%;
+		max-width: 1380px;
+		margin: -16px auto 0;
+		padding: 0;
+		height: auto;
 		box-sizing: border-box;
 	}
 
 	.stats-card {
 		background: #FFFFFF;
-		border-radius: 16px;
-		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.10);
-		border: 1px solid #E3EAF1;
-		padding: 0 1.75rem;
-		height: 72px;
+		border-radius: 20px;
+		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
+		border: 1px solid rgba(226, 232, 240, 0.9);
+		padding: 12px 26px;
+		min-height: 84px;
+		height: 84px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.25rem;
+		gap: 1.5rem;
 		box-sizing: border-box;
 	}
 
@@ -127,25 +129,26 @@
 	}
 
 	.heading-line-bold {
-		font-size: 13.5px;
+		font-size: 15px;
 		font-weight: 800;
 		color: #082442;
-		line-height: 1.22;
+		line-height: 1.25;
 		letter-spacing: 0;
 	}
 
 	.stat-divider {
 		width: 1px;
 		height: 38px;
-		background: #E3EAF1;
+		background: #E2E8F0;
 		flex-shrink: 0;
 	}
 
 	.stat-block {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 0.9rem;
 		flex: 1;
+		min-width: 0;
 	}
 
 	.stat-icon-wrap {
@@ -161,21 +164,21 @@
 	}
 
 	.stat-num {
-		font-size: 20px;
+		font-size: 22px;
 		font-weight: 800;
 		color: #082442;
-		line-height: 1.05;
+		line-height: 1.08;
 		letter-spacing: -0.01em;
 	}
 
 	.stat-label {
 		display: flex;
 		flex-direction: column;
-		font-size: 11px;
+		font-size: 12px;
 		font-weight: 500;
 		color: #183553;
 		line-height: 1.25;
-		margin-top: 1px;
+		margin-top: 2px;
 		letter-spacing: 0;
 	}
 
@@ -183,14 +186,14 @@
 		white-space: nowrap;
 	}
 
-	/* Tombol panah: lingkaran putih ±24px dengan ikon panah turquoise dan bayangan lembut */
+	/* Tombol panah: lingkaran putih ±30px dengan ikon panah turquoise dan bayangan lembut */
 	.stat-action-btn {
-		width: 24px;
-		height: 24px;
+		width: 30px;
+		height: 30px;
 		border-radius: 50%;
-		border: 1px solid #E3EAF1;
+		border: 1px solid #E2E8F0;
 		background: #FFFFFF;
-		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.12);
+		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.1);
 		display: flex;
 		align-items: center;
 		justify-content: center;

@@ -105,27 +105,22 @@
 	.category-overlap-wrapper {
 		position: relative;
 		z-index: 10;
-		width: 100%;
-		max-width: 1425px;
+		width: 93%;
+		max-width: 1380px;
 		margin: -16px auto 0;
 		padding: 0;
 		box-sizing: border-box;
 	}
 
-	@media (min-width: 1920px) {
-		.category-overlap-wrapper {
-			max-width: 1500px;
-		}
-	}
-
 	.category-bar {
 		width: 100%;
-		height: 118px;
+		min-height: 84px;
+		height: 84px;
 		background: #FFFFFF;
-		border: 1px solid #E2EAF1;
-		border-radius: 26px;
-		padding: 12px 14px;
-		box-shadow: 0 10px 32px rgba(16, 43, 73, 0.075), 0 3px 10px rgba(16, 43, 73, 0.03);
+		border: 1px solid rgba(226, 232, 240, 0.9);
+		border-radius: 20px;
+		padding: 12px 18px;
+		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
 		display: flex;
 		align-items: center;
 		box-sizing: border-box;
@@ -134,16 +129,16 @@
 	.cat-tile {
 		flex: 1 1 0;
 		min-width: 0;
-		height: 100%;
+		height: 60px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 14px;
-		padding: 10px 14px;
+		gap: 10px;
+		padding: 0 12px;
 		background: transparent;
 		border: none;
-		border-radius: 17px;
-		color: #102B49;
+		border-radius: 14px;
+		color: #082442;
 		cursor: pointer;
 		transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 		box-sizing: border-box;
@@ -151,13 +146,14 @@
 	}
 
 	.cat-tile:not(.active):hover {
-		background: #ECF9FA;
+		background: rgba(7, 158, 173, 0.07);
+		color: #079EAD;
 	}
 
 	.cat-tile.active {
-		background: #08AAB5;
+		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
 		color: #FFFFFF;
-		box-shadow: 0 6px 18px rgba(8, 170, 181, 0.28);
+		box-shadow: 0 4px 16px rgba(7, 158, 173, 0.26);
 	}
 
 	.cat-icon-box {
@@ -174,22 +170,22 @@
 	}
 
 	.cat-label {
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 600;
-		line-height: 1.25;
+		line-height: 1.2;
 		color: inherit;
 		white-space: normal;
 		word-break: break-word;
 	}
 
 	.cat-tile.active .cat-label {
-		font-weight: 600;
+		font-weight: 700;
 	}
 
 	.col-divider {
 		width: 1px;
-		height: 60%;
-		background: #E2EAF1;
+		height: 38px;
+		background: #E2E8F0;
 		margin: 0 4px;
 		flex-shrink: 0;
 		transition: opacity 0.2s ease;
@@ -202,18 +198,19 @@
 	/* Tablet: Pertahankan 1 baris horizontal dengan horizontal scroll halus */
 	@media (max-width: 1220px) {
 		.category-overlap-wrapper {
+			width: 100%;
 			padding: 0 1.5rem;
 		}
 
 		.category-bar {
 			height: auto;
-			min-height: 88px;
-			border-radius: 22px;
+			min-height: 76px;
+			border-radius: 20px;
 			overflow-x: auto;
 			overflow-y: hidden;
 			scrollbar-width: none;
 			-webkit-overflow-scrolling: touch;
-			padding: 10px 12px;
+			padding: 10px 14px;
 			gap: 4px;
 		}
 
@@ -224,19 +221,19 @@
 		.cat-tile {
 			flex: 0 0 auto;
 			min-width: max-content;
-			height: 64px;
-			padding: 8px 18px;
-			border-radius: 15px;
-			gap: 12px;
+			height: 54px;
+			padding: 8px 16px;
+			border-radius: 14px;
+			gap: 10px;
 		}
 
 		.cat-label {
 			white-space: nowrap;
-			font-size: 14.5px;
+			font-size: 14px;
 		}
 
 		.col-divider {
-			height: 36px;
+			height: 32px;
 			margin: 0 2px;
 		}
 	}
@@ -244,6 +241,7 @@
 	/* Mobile: Single row horizontal scroll, scrollbar tersembunyi */
 	@media (max-width: 640px) {
 		.category-overlap-wrapper {
+			width: 100%;
 			padding: 0 1rem;
 			margin-top: -12px;
 		}

@@ -75,33 +75,28 @@
 	.overlap-wrapper {
 		position: relative;
 		z-index: 10;
-		width: 100%;
-		max-width: 1425px;
+		width: 93%;
+		max-width: 1380px;
 		margin: -16px auto 0;
+		padding: 0;
 		box-sizing: border-box;
-	}
-
-	@media (min-width: 1920px) {
-		.overlap-wrapper {
-			max-width: 1500px;
-		}
 	}
 
 	.overlap-card {
 		width: 100%;
-		min-height: 118px;
+		min-height: 84px;
 		height: auto;
 		background: #FFFFFF;
-		border: 1px solid #E2EAF1;
-		border-radius: 26px;
-		padding: 16px 26px;
-		box-shadow: 0 10px 32px rgba(16, 43, 73, 0.075), 0 3px 10px rgba(16, 43, 73, 0.03);
+		border: 1px solid rgba(226, 232, 240, 0.9);
+		border-radius: 20px;
+		padding: 12px 22px;
+		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
 		display: grid;
 		grid-template-columns:
 			minmax(0, 1fr) auto
 			minmax(0, 1fr) auto
-			minmax(0, 0.85fr) auto
-			minmax(0, 1.35fr);
+			minmax(0, 0.8fr) auto
+			minmax(0, 1.45fr);
 		align-items: center;
 		box-sizing: border-box;
 	}
@@ -109,9 +104,9 @@
 	.card-col {
 		display: flex;
 		align-items: center;
-		gap: 14px;
-		padding: 4px 6px;
-		border-radius: 15px;
+		gap: 12px;
+		padding: 4px 8px;
+		border-radius: 14px;
 		text-decoration: none;
 		color: inherit;
 		min-width: 0;
@@ -120,18 +115,23 @@
 	}
 
 	a.card-col:hover {
-		background: #ECF9FA;
+		background: rgba(7, 158, 173, 0.07);
 	}
 
 	.col-icon {
-		width: 44px;
-		height: 44px;
-		border-radius: 12px;
+		width: 38px;
+		height: 38px;
+		border-radius: 10px;
 		background: #E8F7F9;
 		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.col-icon svg {
+		width: 20px;
+		height: 20px;
 	}
 
 	.col-text {
@@ -143,42 +143,35 @@
 	}
 
 	.col-label {
-		font-size: 13.5px;
+		font-size: 11.5px;
 		font-weight: 700;
-		color: #08AAB5;
-		line-height: 1.25;
+		color: #079EAD;
+		line-height: 1.2;
 	}
 
 	.col-value {
-		font-size: 15px;
+		font-size: 13.5px;
 		font-weight: 600;
-		color: #102B49;
-		line-height: 1.3;
+		color: #082442;
+		line-height: 1.25;
 		white-space: normal;
 		overflow-wrap: anywhere;
 	}
 
 	.col-sub {
-		font-size: 12px;
+		font-size: 11px;
 		color: #64748B;
-		line-height: 1.38;
+		line-height: 1.28;
 		white-space: normal;
 		overflow-wrap: anywhere;
 	}
 
 	.divider {
 		width: 1px;
-		height: 62%;
-		min-height: 54px;
-		background: #E2EAF1;
+		height: 38px;
+		background: #E2E8F0;
 		margin: 0 12px;
 		flex-shrink: 0;
-	}
-
-	@media (max-width: 1460px) {
-		.overlap-wrapper {
-			padding: 0 24px;
-		}
 	}
 
 	@media (max-width: 1180px) {
@@ -187,8 +180,8 @@
 			height: auto;
 			min-height: 0;
 			gap: 16px 20px;
-			padding: 20px 22px;
-			border-radius: 22px;
+			padding: 18px 20px;
+			border-radius: 20px;
 		}
 
 		.divider {
@@ -198,6 +191,7 @@
 
 	@media (max-width: 640px) {
 		.overlap-wrapper {
+			width: 100%;
 			padding: 0 16px;
 			margin-top: -12px;
 		}
@@ -206,25 +200,25 @@
 			grid-template-columns: minmax(0, 1fr);
 			gap: 14px;
 			padding: 16px;
-			border-radius: 18px;
+			border-radius: 16px;
 		}
 
 		.col-icon {
-			width: 40px;
-			height: 40px;
+			width: 36px;
+			height: 36px;
 		}
 
 		.col-icon svg {
-			width: 22px;
-			height: 22px;
+			width: 19px;
+			height: 19px;
 		}
 
 		.col-value {
-			font-size: 14px;
+			font-size: 13.5px;
 		}
 
 		.col-sub {
-			font-size: 12px;
+			font-size: 11.5px;
 		}
 	}
 </style>
