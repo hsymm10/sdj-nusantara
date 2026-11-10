@@ -1,40 +1,96 @@
 <!-- Section 04: Solusi Terintegrasi untuk Pengembangan Potensi (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
-	const services = [
+	import ServiceDetailModal from './ServiceDetailModal.svelte';
+
+	interface ServiceItem {
+		id: string;
+		title: string;
+		shortTitle: string;
+		desc: string;
+		cardDesc: string;
+		icon: string;
+		accent: 'cyan' | 'gold';
+		active?: boolean;
+		img: string;
+		benefits: string[];
+	}
+
+	const services: ServiceItem[] = [
 		{
 			id: 'talent-management',
-			title: 'Talent Management &\nDevelopment Center',
-			desc: 'Pengelolaan potensi talenta dan pengembangan kompetensi secara berkelanjutan.',
-			href: '/layanan#talent-management',
+			title: 'Talent Management & Development Center',
+			shortTitle: 'Talent Management &\nDevelopment Center',
+			desc: 'Program pengelolaan, pemetaan, dan pengembangan talenta terpadu yang dirancang untuk mengidentifikasi potensi unik setiap individu serta memetakan jalur karier dan studi yang paling relevan dengan kebutuhan industri.',
+			cardDesc: 'Pengelolaan potensi talenta dan pengembangan kompetensi secara berkelanjutan.',
 			icon: 'users',
-			accent: 'cyan'
+			accent: 'cyan',
+			img: '/images/svc-01-woman-tablet.jpg',
+			benefits: [
+				'Pemetaan minat, bakat, dan potensi akademik secara komprehensif',
+				'Penyusunan Individual Development Plan (IDP) yang terarah',
+				'Konseling karier dan persiapan masuk dunia profesional terstruktur'
+			]
 		},
 		{
 			id: 'scholarship-academy',
-			title: 'Scholarship\nAcademy',
-			desc: 'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas.',
-			href: '/layanan#scholarship-academy',
+			title: 'Scholarship Academy',
+			shortTitle: 'Scholarship\nAcademy',
+			desc: 'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas, baik di dalam maupun luar negeri.',
+			cardDesc: 'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas.',
 			icon: 'grad',
-			accent: 'gold'
+			accent: 'gold',
+			img: '/images/svc-02-graduation-cap.jpg',
+			benefits: [
+				'Pendampingan persiapan dan seleksi beasiswa',
+				'Akses informasi beasiswa terkini dan terpercaya',
+				'Dukungan penyusunan dokumen dan strategi aplikasi'
+			]
 		},
 		{
 			id: 'skills-development',
-			title: 'Skills Development &\nCertification',
-			desc: 'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri.',
-			href: '/layanan#skills-development',
+			title: 'Skills Development & Certification',
+			shortTitle: 'Skills Development &\nCertification',
+			desc: 'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri untuk membangun daya saing profesional di era digital.',
+			cardDesc: 'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri.',
 			icon: 'star',
-			accent: 'cyan'
+			accent: 'cyan',
+			img: '/images/svc-03-man-laptop.jpg',
+			benefits: [
+				'Pelatihan intensif bersama mentor praktisi industri berpengalaman',
+				'Kurikulum aplikatif berbasis proyek nyata (project-based learning)',
+				'Sertifikasi kompetensi berstandar nasional dan internasional'
+			]
 		},
 		{
 			id: 'institutional-partnership',
-			title: 'Institutional &\nStrategic Partnership',
-			desc: 'Kolaborasi strategis untuk memperluas dampak pendidikan dan pengembangan karier.',
-			href: '/layanan#institutional-partnership',
+			title: 'Institutional & Strategic Partnership',
+			shortTitle: 'Institutional &\nStrategic Partnership',
+			desc: 'Kolaborasi strategis dengan berbagai institusi dan lembaga untuk memperluas dampak pendidikan, program beasiswa, dan pengembangan talenta.',
+			cardDesc: 'Kolaborasi strategis untuk memperluas dampak pendidikan dan pengembangan karier.',
 			icon: 'briefcase',
 			accent: 'cyan',
-			active: true
+			active: true,
+			img: '/images/svc-04-handshake.jpg',
+			benefits: [
+				'Perluasan jaringan kemitraan institusi pendidikan dan industri',
+				'Penyelenggaraan program beasiswa dan pengembangan bersama mitra',
+				'Peluang kolaborasi riset, magang, dan penyerapan talenta'
+			]
 		}
 	];
+
+	let isModalOpen = $state(false);
+	let selectedService = $state<ServiceItem | null>(null);
+
+	function openModal(item: ServiceItem) {
+		selectedService = item;
+		isModalOpen = true;
+	}
+
+	function closeModal() {
+		isModalOpen = false;
+		selectedService = null;
+	}
 </script>
 
 <section class="layanan-section" id="solusi-terintegrasi">
@@ -57,9 +113,18 @@
 		<!-- 4 Cards Grid -->
 		<div class="layanan-grid">
 			{#each services as item}
-				<a
-					href={item.href}
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<div
 					class="layanan-card {item.accent === 'gold' ? 'card-gold' : ''} {item.active ? 'card-active' : ''}"
+					role="button"
+					tabindex="0"
+					onclick={() => openModal(item)}
+					onkeydown={(e) => {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.preventDefault();
+							openModal(item);
+						}
+					}}
 				>
 					<!-- Inner Bottom Wave Decoration -->
 					<div class="card-wave-bg" aria-hidden="true">
@@ -105,23 +170,38 @@
 						</div>
 
 						<div class="card-content-wrap">
-							<h3 class="card-title">{item.title}</h3>
-							<p class="card-desc">{item.desc}</p>
+							<h3 class="card-title">{item.shortTitle}</h3>
+							<p class="card-desc">{item.cardDesc}</p>
 						</div>
 
 						<div class="card-arrow-wrap">
-							<div class="card-arrow {item.accent === 'gold' ? 'arrow-gold' : 'arrow-cyan'}">
+							<button
+								type="button"
+								class="card-arrow {item.accent === 'gold' ? 'arrow-gold' : 'arrow-cyan'}"
+								onclick={(e) => {
+									e.stopPropagation();
+									openModal(item);
+								}}
+								aria-label="Buka detail layanan {item.title}"
+							>
 								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<line x1="5" y1="12" x2="19" y2="12" />
 									<polyline points="12 5 19 12 12 19" />
 								</svg>
-							</div>
+							</button>
 						</div>
 					</div>
-				</a>
+				</div>
 			{/each}
 		</div>
 	</div>
+
+	<!-- Modal Detail Layanan Unggulan -->
+	<ServiceDetailModal
+		isOpen={isModalOpen}
+		service={selectedService}
+		onclose={closeModal}
+	/>
 </section>
 
 <style>
@@ -210,6 +290,8 @@
 		box-shadow: 0 4px 18px rgba(11, 41, 72, 0.04);
 		transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
 		box-sizing: border-box;
+		cursor: pointer;
+		text-align: left;
 	}
 
 	.layanan-card:hover {
@@ -330,6 +412,8 @@
 		align-items: center;
 		justify-content: center;
 		transition: all 0.2s ease;
+		cursor: pointer;
+		padding: 0;
 	}
 
 	.card-arrow.arrow-cyan {
@@ -342,6 +426,7 @@
 		border: 1px solid #FDE68A;
 	}
 
+	.card-arrow:hover,
 	.layanan-card:hover .card-arrow.arrow-cyan {
 		background: #00AAB5;
 		color: #FFFFFF;
@@ -349,7 +434,7 @@
 		transform: scale(1.08);
 	}
 
-	.layanan-card:hover .card-arrow.arrow-gold {
+	.layanan-card.card-gold:hover .card-arrow.arrow-gold {
 		background: #FFB923;
 		color: #FFFFFF;
 		border-color: #FFB923;
