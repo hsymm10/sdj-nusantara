@@ -1,86 +1,137 @@
-<!-- Section F: Alur Layanan — Panel #EAF7F9, Lingkaran Putih 68px, Badge Nomor Teal Bulat (Sesuai Mockup) -->
+<!-- Section F: Alur Layanan Hukum — Panel #EAF8FA, 5 Kartu Putih Bertahap + Wave Teal/Emas + Panah Penghubung (Sesuai Mockup) -->
 <script lang="ts">
 	const steps = [
 		{
 			num: '01',
 			title: 'Konsultasi Awal',
 			desc: 'Sampaikan kebutuhan hukum institusi Anda.',
-			icon: 'chat'
+			icon: 'message-square',
+			accent: 'teal' as const
 		},
 		{
 			num: '02',
 			title: 'Analisis & Rekomendasi',
-			desc: 'Tim kami melakukan kajian dan telaah kebutuhan.',
-			icon: 'calendar'
+			desc: 'Tim kami melakukan kajian dan memberikan rekomendasi solusi terbaik.',
+			icon: 'search-check',
+			accent: 'gold' as const
 		},
 		{
 			num: '03',
 			title: 'Penyusunan Dokumen',
-			desc: 'Pembuatan atau penelaahan dokumen sesuai kebutuhan.',
-			icon: 'doc'
+			desc: 'Pembuatan atau penyempurnaan dokumen sesuai kebutuhan dan regulasi.',
+			icon: 'file-pen',
+			accent: 'teal' as const
 		},
 		{
 			num: '04',
-			title: 'Pendampingan & Finalisasi',
-			desc: 'Implementasi dan tindak lanjut layanan.',
-			icon: 'check'
+			title: 'Pendampingan Implementasi',
+			desc: 'Pendampingan dalam proses penerapan dan koordinasi terkait.',
+			icon: 'settings',
+			accent: 'gold' as const
+		},
+		{
+			num: '05',
+			title: 'Finalisasi & Evaluasi',
+			desc: 'Penyelesaian layanan serta evaluasi untuk memastikan kepatuhan dan efektivitas.',
+			icon: 'check-circle',
+			accent: 'teal' as const
 		}
 	];
 </script>
 
-<section class="process-legal-section">
+<section class="process-legal-section" aria-labelledby="process-legal-heading">
+	<!-- Dekorasi sudut bawah kanan & kiri latar belakang -->
+	<div class="process-bg-glow-bl" aria-hidden="true"></div>
+	<svg class="process-bg-waves-br" viewBox="0 0 360 190" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M50 190 C140 130, 245 85, 360 55 L360 190 Z" fill="#BCECF2" fill-opacity="0.55" />
+		<path d="M110 190 C195 135, 280 100, 360 80 L360 190 Z" fill="#FFB21C" fill-opacity="0.92" />
+		<path d="M165 190 C235 148, 300 120, 360 110 L360 190 Z" fill="#00A6B2" />
+	</svg>
+
 	<div class="process-legal-container">
-		<!-- Main Soft-Cyan Box: #EAF7F9 dengan radius 24px -->
+		<!-- Container Soft-Cyan: #EAF8FA dengan border radius 24px -->
 		<div class="process-box">
 			<!-- Header Terpusat -->
 			<div class="process-header">
 				<div class="process-badge">
-					<span class="badge-dash"></span>
-					<span class="badge-text">ALUR LAYANAN</span>
-					<span class="badge-dash"></span>
+					<span class="badge-dash" aria-hidden="true"></span>
+					<span class="badge-text">ALUR LAYANAN HUKUM</span>
+					<span class="badge-dash" aria-hidden="true"></span>
 				</div>
-				<h2 class="process-title">Proses Layanan yang Jelas</h2>
+				<h2 id="process-legal-heading" class="process-title">
+					Proses Layanan yang <span class="process-title-highlight">Jelas dan Terarah.</span>
+				</h2>
 				<p class="process-sub">
-					Dapatkan pendampingan hukum secara terstruktur dan transparan.
+					Dapatkan pendampingan hukum secara terstruktur, efektif, dan transparan.
 				</p>
 			</div>
 
-			<!-- 4 Horizontal Steps Row -->
+			<!-- 5 Kartu Tahapan Layanan dengan Panah Penghubung -->
 			<div class="steps-row">
 				{#each steps as st, idx}
-					<div class="step-col">
-						<!-- Ikon dalam lingkaran putih ±68px dengan bayangan halus -->
-						<div class="step-icon-circle">
-							{#if st.icon === 'chat'}
-								<!-- Chat / consultation icon teal -->
-								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+					<div class="step-card">
+						<!-- Lapisan wave pojok kanan bawah ter-clip mengikuti border-radius kartu -->
+						<div class="step-card-bg" aria-hidden="true">
+							<svg class="step-card-wave" viewBox="0 0 130 60" fill="none" preserveAspectRatio="none">
+								{#if st.accent === 'teal'}
+									<path
+										d="M15 60 C55 54, 95 36, 130 6 L130 60 Z"
+										fill="#7CD8E0"
+										fill-opacity="0.48"
+									/>
+									<path
+										d="M52 60 C84 54, 108 40, 130 20 L130 60 Z"
+										fill="#00A9B7"
+										fill-opacity="0.88"
+									/>
+								{:else}
+									<path
+										d="M15 60 C55 54, 95 36, 130 6 L130 60 Z"
+										fill="#FFE082"
+										fill-opacity="0.62"
+									/>
+									<path
+										d="M52 60 C84 54, 108 40, 130 20 L130 60 Z"
+										fill="#FFB629"
+										fill-opacity="0.92"
+									/>
+								{/if}
+							</svg>
+						</div>
+
+						<!-- Kotak Ikon Mengambang di Sisi Atas Kartu -->
+						<div class="step-icon-box" aria-hidden="true">
+							{#if st.icon === 'message-square'}
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 								</svg>
-							{:else if st.icon === 'calendar'}
-								<!-- Calendar icon teal -->
-								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-									<line x1="16" y1="2" x2="16" y2="6"/>
-									<line x1="8" y1="2" x2="8" y2="6"/>
-									<line x1="3" y1="10" x2="21" y2="10"/>
+							{:else if st.icon === 'search-check'}
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="m8 11 2 2 4-4" />
+									<circle cx="11" cy="11" r="8" />
+									<path d="m21 21-4.3-4.3" />
 								</svg>
-							{:else if st.icon === 'doc'}
-								<!-- Document icon teal -->
-								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-									<polyline points="14 2 14 8 20 8"/>
-									<line x1="16" y1="13" x2="8" y2="13"/>
-									<line x1="16" y1="17" x2="8" y2="17"/>
+							{:else if st.icon === 'file-pen'}
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
+									<path d="M14 2v4a2 2 0 0 0 2 2h4" />
+									<path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+								</svg>
+							{:else if st.icon === 'settings'}
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+									<circle cx="12" cy="12" r="3" />
 								</svg>
 							{:else}
-								<!-- Checkmark icon teal -->
-								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="20 6 9 17 4 12"/>
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10" />
+									<path d="m9 12 2 2 4-4" />
 								</svg>
 							{/if}
-							<!-- BADGE NOMOR teal bulat di bawah lingkaran -->
-							<span class="step-num-badge">{st.num}</span>
 						</div>
+
+						<!-- Badge Nomor Teal Bulat -->
+						<span class="step-num-badge">{st.num}</span>
 
 						<h3 class="step-name">{st.title}</h3>
 						<p class="step-desc">{st.desc}</p>
@@ -88,9 +139,9 @@
 
 					{#if idx < steps.length - 1}
 						<div class="step-arrow-wrap" aria-hidden="true">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12"/>
-								<polyline points="12 5 19 12 12 19"/>
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M5 12h14" />
+								<path d="m12 5 7 7-7 7" />
 							</svg>
 						</div>
 					{/if}
@@ -102,144 +153,283 @@
 
 <style>
 	.process-legal-section {
-		background: #ffffff;
-		padding: 40px 0 52px;
+		position: relative;
+		background: #FFFFFF;
+		padding: 16px 0 72px;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.process-bg-glow-bl {
+		position: absolute;
+		left: -60px;
+		bottom: -50px;
+		width: 360px;
+		height: 240px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(210, 245, 249, 0.72) 0%, rgba(210, 245, 249, 0) 72%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.process-bg-waves-br {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 320px;
+		height: 170px;
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	.process-legal-container {
+		position: relative;
+		z-index: 2;
 		width: 93%;
-		max-width: 1360px;
+		max-width: 1320px;
 		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	.process-box {
-		background: #eaf7f9;
+		background: linear-gradient(180deg, #E8F8FA 0%, #F0FAFC 100%);
+		border: 1px solid #D7EFF4;
 		border-radius: 24px;
-		padding: 44px 36px 48px;
+		padding: 44px 32px 48px;
+		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.045);
+		box-sizing: border-box;
 	}
 
 	.process-header {
 		text-align: center;
-		margin-bottom: 40px;
+		margin-bottom: 44px;
 	}
 
 	.process-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		margin-bottom: 8px;
+		gap: 10px;
+		margin-bottom: 10px;
 	}
 
 	.badge-dash {
 		display: inline-block;
-		width: 16px;
+		width: 22px;
 		height: 2px;
-		background: #079ead;
+		background: #00A9B7;
 		border-radius: 2px;
 	}
 
 	.badge-text {
 		font-size: 12px;
 		font-weight: 700;
-		color: #079ead;
-		letter-spacing: 0.8px;
+		color: #00A9B7;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 	}
 
 	.process-title {
-		font-size: 30px;
+		font-size: clamp(24px, 2.4vw, 32px);
 		font-weight: 800;
-		color: #082442;
-		margin: 0 0 8px;
+		color: #0B2340;
+		margin: 0 0 10px;
+		line-height: 1.25;
+		letter-spacing: -0.015em;
+	}
+
+	.process-title-highlight {
+		color: #FFB21C;
 	}
 
 	.process-sub {
 		font-size: 14.5px;
-		color: #64748b;
+		color: #475569;
 		margin: 0;
+		line-height: 1.5;
 	}
 
-	/* Steps row */
+	/* 5 Kartu Sejajar + 4 Panah Penghubung */
 	.steps-row {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 16px;
+		display: grid;
+		grid-template-columns:
+			minmax(0, 1fr) auto
+			minmax(0, 1fr) auto
+			minmax(0, 1fr) auto
+			minmax(0, 1fr) auto
+			minmax(0, 1fr);
+		align-items: stretch;
+		gap: 10px;
 	}
 
-	.step-col {
-		flex: 1;
+	.step-card {
+		position: relative;
+		margin-top: 28px;
+		background: #FFFFFF;
+		border: 1px solid #E1EEF5;
+		border-radius: 18px;
+		padding: 40px 16px 26px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		padding: 0 8px;
+		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.05);
+		box-sizing: border-box;
+		min-width: 0;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	/* Lingkaran putih ±68px */
-	.step-icon-circle {
-		position: relative;
-		width: 68px;
-		height: 68px;
-		border-radius: 50%;
-		background: #ffffff;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 20px;
-		box-shadow: 0 6px 18px rgba(8, 36, 66, 0.08);
+	.step-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 12px 28px rgba(8, 36, 66, 0.08);
 	}
 
-	/* BADGE NOMOR teal bulat di bawah lingkaran */
-	.step-num-badge {
+	.step-card-bg {
 		position: absolute;
-		bottom: -8px;
-		width: 24px;
-		height: 24px;
-		border-radius: 50%;
-		background: #00aab5;
-		color: #ffffff;
-		font-size: 11px;
-		font-weight: 800;
+		inset: 0;
+		border-radius: inherit;
+		overflow: hidden;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.step-card-wave {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 118px;
+		height: 50px;
+	}
+
+	/* Kotak Ikon Mengambang di Sisi Atas Kartu */
+	.step-icon-box {
+		position: absolute;
+		top: -28px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 56px;
+		height: 56px;
+		border-radius: 14px;
+		background: #E8F8FA;
+		border: 1px solid #D3EFF3;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: 2px solid #ffffff;
-		box-shadow: 0 2px 6px rgba(0, 170, 181, 0.3);
+		box-shadow: 0 6px 16px rgba(0, 169, 183, 0.14);
+		z-index: 3;
+	}
+
+	/* Badge Nomor Teal Bulat */
+	.step-num-badge {
+		position: relative;
+		z-index: 2;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		background: #00A9B7;
+		color: #FFFFFF;
+		font-size: 11.5px;
+		font-weight: 800;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 3px 8px rgba(0, 169, 183, 0.28);
+		margin-bottom: 12px;
 	}
 
 	.step-name {
-		font-size: 15px;
+		position: relative;
+		z-index: 2;
+		font-size: 14.5px;
 		font-weight: 700;
-		color: #082442;
+		color: #0B2340;
 		margin: 0 0 8px;
 		line-height: 1.35;
+		white-space: normal;
+		overflow-wrap: anywhere;
 	}
 
 	.step-desc {
-		font-size: 13px;
-		line-height: 1.55;
-		color: #64748b;
+		position: relative;
+		z-index: 2;
+		font-size: 12.5px;
+		line-height: 1.5;
+		color: #64748B;
 		margin: 0;
+		white-space: normal;
+		overflow-wrap: anywhere;
 	}
 
 	.step-arrow-wrap {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 24px;
-		opacity: 0.8;
+		padding-top: 24px;
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 868px) {
+	/* Tablet: Grid 2 kolom + baris ke-3 terpusat rapi tanpa panah yang patah */
+	@media (max-width: 1180px) {
+		.process-box {
+			padding: 36px 24px 40px;
+		}
+
 		.steps-row {
-			flex-direction: column;
-			gap: 28px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px 20px;
 		}
 
 		.step-arrow-wrap {
+			display: none;
+		}
+
+		.step-card:last-child {
+			grid-column: 1 / -1;
+			max-width: 420px;
+			width: 100%;
+			justify-self: center;
+		}
+	}
+
+	/* Mobile: Vertikal 1 kolom dengan panah mengarah ke bawah */
+	@media (max-width: 640px) {
+		.process-legal-section {
+			padding: 12px 0 48px;
+		}
+
+		.process-box {
+			padding: 28px 16px 32px;
+			border-radius: 20px;
+		}
+
+		.process-header {
+			margin-bottom: 32px;
+		}
+
+		.steps-row {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 12px;
+		}
+
+		.step-card {
+			margin-top: 26px;
+			padding: 38px 18px 22px;
+		}
+
+		.step-card:last-child {
+			grid-column: auto;
+			max-width: none;
+		}
+
+		.step-arrow-wrap {
+			display: flex;
+			padding-top: 0;
+			margin: 2px 0 -4px;
 			transform: rotate(90deg);
-			margin: 0;
+		}
+
+		.process-bg-waves-br {
+			width: 200px;
+			height: 110px;
 		}
 	}
 </style>
