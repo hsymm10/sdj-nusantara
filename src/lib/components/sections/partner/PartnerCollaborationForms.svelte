@@ -1,5 +1,5 @@
 <script lang="ts">
-	// PartnerCollaborationForms.svelte - Faithful to design/kemitraan.png (1536px Primary)
+	// PartnerCollaborationForms.svelte - Sesuai Mockup Referensi GAMBAR 2
 	const forms = [
 		{
 			title: 'Penyelenggaraan Program Bersama',
@@ -29,92 +29,117 @@
 </script>
 
 <section id="bentuk-kerja-sama" class="collab-forms-section">
-	<!-- Photo flush left screen edge (x 0→652 on 1536) -->
-	<div class="collab-photo-wrap" aria-hidden="true">
-		<img
-			src="/images/partner-handshake-wide.jpg"
-			alt="Bentuk Kerja Sama SDJNusantara"
-			class="collab-photo"
-			loading="lazy"
-		/>
-		<svg class="photo-edge-svg" viewBox="0 0 100 315" preserveAspectRatio="none">
-			<path d="M0,0 L100,0 C75,100 50,220 30,315 L0,315 Z" fill="#082442" opacity="0.05" />
+	<!-- Dekorasi Wave Cyan di Pojok Kanan Atas -->
+	<div class="top-right-wave" aria-hidden="true">
+		<svg viewBox="0 0 420 260" fill="none" preserveAspectRatio="none">
+			<path d="M40,0 C110,120 260,180 420,210 L420,0 Z" fill="#E3F9FB" opacity="0.8" />
+			<path d="M130,0 C200,95 310,145 420,170 L420,0 Z" fill="#88E5EC" opacity="0.7" />
 		</svg>
 	</div>
 
-	<div class="sch-partner-container">
-		<div class="collab-content-wrap">
-			<!-- Section Header -->
-			<div class="collab-header">
-				<div class="section-label">
-					<span class="label-dash">—</span>
-					<span class="label-text">Bentuk Kerja Sama</span>
-				</div>
-
-				<h2 class="section-title">
-					Beragam Bentuk Kolaborasi<br />
-					yang Dapat Disesuaikan dengan Kebutuhan.
-				</h2>
-
-				<p class="section-desc">
-					Kami menyediakan berbagai bentuk kerja sama yang fleksibel dan saling menguntungkan, baik dalam jangka pendek maupun jangka panjang.
-				</p>
+	<div class="collab-flex-layout">
+		<!-- Kolom Kiri: Foto Jabat Tangan dengan Lengkung Teal Kiri & Kuning Kanan Bawah -->
+		<div class="collab-photo-col">
+			<!-- Aksen Kuning di Kanan Bawah Frame Foto -->
+			<div class="photo-yellow-accent" aria-hidden="true">
+				<svg viewBox="0 0 180 120" fill="none" preserveAspectRatio="none">
+					<path d="M0,120 C70,118 140,95 180,20 L180,105 C180,114 172,120 163,120 Z" fill="#FFB923" />
+				</svg>
 			</div>
 
-			<!-- 3x2 Grid of Collaboration Forms -->
-			<div class="forms-3x2-grid">
-				{#each forms as item}
-					<div class="form-grid-item">
-						<div class="form-icon-wrap">
-							{#if item.icon === 'program'}
-								<!-- Penyelenggaraan Program Bersama -->
-								<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-									<line x1="8" y1="21" x2="16" y2="21"></line>
-									<line x1="12" y1="17" x2="12" y2="21"></line>
-								</svg>
-							{:else if item.icon === 'exchange'}
-								<!-- Pertukaran Peserta & Dosen -->
-								<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-									<circle cx="9" cy="7" r="4"></circle>
-									<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-									<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-								</svg>
-							{:else if item.icon === 'curriculum'}
-								<!-- Pengembangan Kurikulum -->
-								<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-									<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-								</svg>
-							{:else if item.icon === 'research'}
-								<!-- Riset & Inovasi -->
-								<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-									<circle cx="12" cy="12" r="10"></circle>
-									<line x1="2" y1="12" x2="22" y2="12"></line>
-									<ellipse cx="12" cy="12" rx="4.5" ry="10"></ellipse>
-								</svg>
-							{:else if item.icon === 'scholarship'}
-								<!-- Dukungan Beasiswa dan Pendanaan -->
-								<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-									<polyline points="9 12 11 14 15 10"></polyline>
-								</svg>
-							{:else}
-								<!-- Pemanfaatan Fasilitas -->
-								<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-									<polyline points="14 2 14 8 20 8"></polyline>
-									<line x1="16" y1="13" x2="8" y2="13"></line>
-									<line x1="16" y1="17" x2="8" y2="17"></line>
-								</svg>
-							{/if}
-						</div>
-						<div class="form-text">
-							<h4 class="form-title">{item.title}</h4>
-						</div>
+			<div class="collab-photo-frame">
+				<img
+					src="/images/partner-handshake-real.jpg"
+					alt="Bentuk Kerja Sama SDJNusantara"
+					class="collab-photo"
+					loading="eager"
+				/>
+				<!-- Tab Lengkung Teal di Tepi Kiri Foto -->
+				<svg class="photo-left-teal-tab" viewBox="0 0 70 280" fill="none" preserveAspectRatio="none" aria-hidden="true">
+					<path d="M0,0 L48,0 C64,70 52,185 36,280 L0,280 Z" fill="url(#tealTabGrad)" />
+					<defs>
+						<linearGradient id="tealTabGrad" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0%" stop-color="#08B4C4" />
+							<stop offset="100%" stop-color="#007E8C" />
+						</linearGradient>
+					</defs>
+				</svg>
+			</div>
+		</div>
+
+		<!-- Kolom Kanan: Konten & 6 Bentuk Kerja Sama -->
+		<div class="collab-content-col">
+			<div class="collab-content-inner">
+				<!-- Section Header -->
+				<div class="collab-header">
+					<div class="collab-label">
+						<span class="label-dash"></span>
+						<span class="label-text">BENTUK KERJA SAMA</span>
 					</div>
-				{/each}
+
+					<h2 class="section-title">
+						Beragam Bentuk Kolaborasi<br />
+						yang Dapat <span class="highlight-gold">Disesuaikan dengan Kebutuhan.</span>
+					</h2>
+
+					<p class="section-desc">
+						Kami menyediakan berbagai bentuk kerja sama yang fleksibel dan saling menguntungkan, baik dalam jangka pendek maupun jangka panjang.
+					</p>
+				</div>
+
+				<!-- 3x2 Grid of Collaboration Forms -->
+				<div class="forms-3x2-grid">
+					{#each forms as item, idx}
+						<div class="form-grid-item {(idx % 3 !== 2) ? 'has-right-divider' : ''}">
+							<div class="form-icon-box">
+								{#if item.icon === 'program'}
+									<!-- Monitor / Penyelenggaraan Program Bersama -->
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+										<line x1="8" y1="21" x2="16" y2="21" />
+										<line x1="12" y1="17" x2="12" y2="21" />
+									</svg>
+								{:else if item.icon === 'exchange'}
+									<!-- Users / Pertukaran Peserta & Dosen -->
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+										<circle cx="9" cy="7" r="4" />
+										<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+										<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+									</svg>
+								{:else if item.icon === 'curriculum'}
+									<!-- Open Book / Pengembangan Kurikulum -->
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+										<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+									</svg>
+								{:else if item.icon === 'research'}
+									<!-- Layers Stack / Riset & Inovasi -->
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<polygon points="12 2 2 7 12 12 22 7 12 2" />
+										<polyline points="2 12 12 17 22 12" />
+									</svg>
+								{:else if item.icon === 'scholarship'}
+									<!-- Shield Check / Dukungan Beasiswa dan Pendanaan -->
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+										<polyline points="9 12 11 14 15 10" />
+									</svg>
+								{:else}
+									<!-- Buildings / Pemanfaatan Fasilitas -->
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<rect x="8" y="3" width="8" height="18" rx="1" />
+										<path d="M3 10h5v11H3z" />
+										<path d="M16 12h5v9h-5z" />
+										<line x1="12" y1="7" x2="12" y2="7.01" />
+										<line x1="12" y1="11" x2="12" y2="11.01" />
+									</svg>
+								{/if}
+							</div>
+							<span class="form-title">{item.title}</span>
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -124,105 +149,160 @@
 	.collab-forms-section {
 		position: relative;
 		background: #FFFFFF;
-		height: 315px;
+		padding: 58px 0 64px;
 		width: 100%;
-		display: flex;
-		align-items: center;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
-	/* Photo flush left edge: x 0→652 on 1536, right side angled/curved */
-	.collab-photo-wrap {
+	/* Top-Right Wave Decoration */
+	.top-right-wave {
 		position: absolute;
-		left: 0;
 		top: 0;
+		right: 0;
+		width: 360px;
+		height: 220px;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.top-right-wave svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	/* Main Layout */
+	.collab-flex-layout {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 48px;
+		box-sizing: border-box;
+	}
+
+	/* Kolom Kiri: Foto (Flush kiri hingga ~37% lebar) */
+	.collab-photo-col {
+		position: relative;
+		flex: 0 0 36%;
+		max-width: 520px;
+		padding-bottom: 6px;
+		padding-right: 6px;
+		box-sizing: border-box;
+	}
+
+	.photo-yellow-accent {
+		position: absolute;
+		right: 0;
 		bottom: 0;
-		width: 42.5%;
-		max-width: 652px;
+		width: 180px;
+		height: 110px;
 		z-index: 1;
-		clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+		pointer-events: none;
+	}
+
+	.photo-yellow-accent svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.collab-photo-frame {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		height: 265px;
+		border-top-right-radius: 26px;
+		border-bottom-right-radius: 26px;
 		overflow: hidden;
+		box-shadow: 0 12px 30px rgba(8, 36, 66, 0.08);
+		background: #E2E8F0;
 	}
 
 	.collab-photo {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center;
 		display: block;
 	}
 
-	.photo-edge-svg {
+	.photo-left-teal-tab {
 		position: absolute;
 		top: 0;
-		right: 0;
-		width: 60px;
+		left: 0;
+		width: 58px;
 		height: 100%;
 		pointer-events: none;
+		z-index: 3;
 	}
 
-	/* Scoped Container: x 78→1458 on 1536px, max-width 1380px, 1500px on >=1920px */
-	.sch-partner-container {
-		position: relative;
-		z-index: 2;
-		width: 100%;
-		max-width: 1380px;
-		margin: 0 auto;
-		padding: 0 54px;
+	/* Kolom Kanan: Konten */
+	.collab-content-col {
+		flex: 1;
+		padding-right: 48px;
 		box-sizing: border-box;
 	}
 
-	@media (min-width: 1920px) {
-		.sch-partner-container {
-			max-width: 1500px;
-		}
-	}
-
-	.collab-content-wrap {
-		margin-left: 42%;
-		max-width: 780px;
-		box-sizing: border-box;
+	.collab-content-inner {
+		max-width: 720px;
 	}
 
 	.collab-header {
-		margin-bottom: 1.25rem;
+		margin-bottom: 24px;
 	}
 
-	.section-label {
+	.collab-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		color: #00A6B2;
-		font-size: 13px;
-		font-weight: 700;
-		margin-bottom: 0.35rem;
+		gap: 8px;
+		margin-bottom: 10px;
 	}
 
 	.label-dash {
-		font-weight: 800;
+		width: 18px;
+		height: 2.5px;
+		background: #00A6B2;
+		border-radius: 2px;
+	}
+
+	.label-text {
+		color: #00A6B2;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.04em;
 	}
 
 	.section-title {
-		font-size: clamp(20px, 1.75vw, 27px);
+		font-size: clamp(22px, 2vw, 28px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 0.5rem 0;
+		margin: 0 0 10px 0;
+		letter-spacing: -0.015em;
+	}
+
+	.highlight-gold {
+		color: #FFB51B;
 	}
 
 	.section-desc {
-		font-size: 14px;
-		line-height: 1.5;
-		color: #475569;
+		font-size: 13.5px;
+		line-height: 1.58;
+		color: #556980;
 		margin: 0;
-		text-wrap: pretty;
+		max-width: 640px;
 	}
 
 	/* 3x2 Grid */
 	.forms-3x2-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 1.15rem 1.25rem;
+		gap: 18px 20px;
 		width: 100%;
 	}
 
@@ -230,56 +310,92 @@
 		display: flex;
 		align-items: center;
 		gap: 12px;
+		padding-right: 10px;
 	}
 
-	.form-icon-wrap {
+	.form-grid-item.has-right-divider {
+		border-right: 1px solid #EEF2F6;
+	}
+
+	.form-icon-box {
+		width: 42px;
+		height: 42px;
+		border-radius: 11px;
+		background: #EAF9FA;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		width: 44px;
-		height: 44px;
-	}
-
-	.form-text {
-		flex: 1;
-		min-width: 0;
 	}
 
 	.form-title {
-		font-size: 13.5px;
+		font-size: 13px;
 		font-weight: 700;
 		color: #082442;
 		line-height: 1.35;
-		margin: 0;
 	}
 
+	/* Tablet */
 	@media (max-width: 1100px) {
-		.collab-forms-section {
-			height: auto;
-			padding: 2.5rem 0;
+		.collab-flex-layout {
+			gap: 32px;
 		}
-		.collab-photo-wrap {
-			position: relative;
-			width: 100%;
-			max-width: 100%;
-			height: 220px;
-			clip-path: none;
-			margin-bottom: 1.5rem;
+
+		.collab-photo-col {
+			flex: 0 0 38%;
 		}
-		.collab-content-wrap {
-			margin-left: 0;
-			max-width: 100%;
+
+		.collab-content-col {
+			padding-right: 28px;
 		}
+
 		.forms-3x2-grid {
 			grid-template-columns: repeat(2, 1fr);
+			gap: 16px;
+		}
+
+		.form-grid-item.has-right-divider {
+			border-right: none;
 		}
 	}
 
-	@media (max-width: 640px) {
+	/* Mobile */
+	@media (max-width: 768px) {
+		.collab-forms-section {
+			padding: 40px 0 48px;
+		}
+
+		.collab-flex-layout {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 28px;
+		}
+
+		.collab-photo-col {
+			flex: 1 1 auto;
+			max-width: 100%;
+			padding: 0 20px 6px 0;
+		}
+
+		.collab-photo-frame {
+			height: 210px;
+		}
+
+		.collab-content-col {
+			padding: 0 20px;
+		}
+
+		.collab-content-inner {
+			max-width: 100%;
+		}
+
 		.forms-3x2-grid {
 			grid-template-columns: 1fr;
-			gap: 1rem;
+			gap: 14px;
+		}
+
+		.form-grid-item {
+			padding-right: 0;
 		}
 	}
 </style>
