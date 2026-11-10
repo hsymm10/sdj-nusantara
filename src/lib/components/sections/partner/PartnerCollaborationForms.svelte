@@ -1,5 +1,5 @@
 <script lang="ts">
-	// PartnerCollaborationForms.svelte - Presisi Mockup Referensi GAMBAR 2
+	// PartnerCollaborationForms.svelte - Optimasi Proporsi & Alignment Container min(1500px, calc(100% - 80px))
 	const forms = [
 		{
 			title: 'Penyelenggaraan Program Bersama',
@@ -46,109 +46,112 @@
 		</defs>
 	</svg>
 
-	<div class="collab-layout">
-		<!-- Kolom Kiri: Gambar Handshake Proporsional dengan Potongan Geometris Teal & Aksen Kuning -->
-		<div class="collab-photo-col">
-			<div class="collab-photo-wrapper">
-				<div class="collab-photo-frame">
-					<img
-						src="/images/partner-handshake-real.jpg"
-						alt="Bentuk Kerja Sama SDJNusantara"
-						class="collab-photo"
-						loading="eager"
-					/>
-				</div>
-
-				<!-- Overlay SVG Presisi: Tab Teal Kiri (dengan border putih halus) + Aksen Garis Kuning Kanan Bawah -->
-				<svg class="photo-overlays-svg" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
-					<defs>
-						<linearGradient id="tealTabGrad" x1="0" y1="0" x2="1" y2="1">
-							<stop offset="0%" stop-color="#00A9B7" />
-							<stop offset="100%" stop-color="#007D8A" />
-						</linearGradient>
-					</defs>
-
-					<!-- Border putih pemisah di tepi kanan tab teal -->
-					<path d="M0,0 L12.5,0 C15.2,0.5 16.5,4 15.6,9 L4.8,99 L0,99 Z" fill="#FFFFFF" />
-					<!-- Tab Geometris Turquoise/Teal Kiri -->
-					<path d="M0,0 L11.5,0 C14.2,0.5 15.4,4 14.5,9 L3.8,99 L0,99 Z" fill="url(#tealTabGrad)" />
-
-					<!-- Aksen Garis Kuning/Oranye Melengkung di Kanan Bawah -->
-					<path d="M44,98.5 C68,98.5 82,98.3 86.2,98.1 C89.8,97.9 91.8,95.8 92.6,90.5 L95.3,62 L97.0,62 L94.1,91.8 C93.1,97.8 90.6,100.3 86.4,100.5 C81.5,100.7 66,100 44,99.2 Z" fill="#FFAD16" />
-				</svg>
-			</div>
-		</div>
-
-		<!-- Kolom Kanan: Konten & Grid 3x2 Bentuk Kerja Sama -->
-		<div class="collab-content-col">
-			<div class="collab-header">
-				<div class="collab-label">
-					<span class="label-dash"></span>
-					<span class="label-text">BENTUK KERJA SAMA</span>
-				</div>
-
-				<h2 class="section-title">
-					Beragam Bentuk Kolaborasi<br />
-					yang Dapat <span class="highlight-orange">Disesuaikan dengan Kebutuhan.</span>
-				</h2>
-
-				<p class="section-desc">
-					Kami menyediakan berbagai bentuk kerja sama yang fleksibel dan saling menguntungkan, baik dalam jangka pendek maupun jangka panjang.
-				</p>
-			</div>
-
-			<!-- 3 Kolom x 2 Baris Bentuk Kerja Sama -->
-			<div class="forms-3x2-grid">
-				{#each forms as item, idx}
-					<div class="form-grid-item {(idx % 3 !== 2) ? 'has-right-divider' : ''}">
-						<div class="form-icon-box">
-							{#if item.icon === 'program'}
-								<!-- Monitor / Penyelenggaraan Program Bersama -->
-								<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-									<line x1="8" y1="21" x2="16" y2="21" />
-									<line x1="12" y1="17" x2="12" y2="21" />
-								</svg>
-							{:else if item.icon === 'exchange'}
-								<!-- Users / Pertukaran Peserta & Dosen -->
-								<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-									<circle cx="9" cy="7" r="4" />
-									<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-								</svg>
-							{:else if item.icon === 'curriculum'}
-								<!-- Open Book / Pengembangan Kurikulum -->
-								<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-									<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-								</svg>
-							{:else if item.icon === 'research'}
-								<!-- Layers Stack / Riset & Inovasi -->
-								<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-									<polygon points="12 2 2 7 12 12 22 7 12 2" />
-									<polyline points="2 12 12 17 22 12" />
-								</svg>
-							{:else if item.icon === 'scholarship'}
-								<!-- Shield Check / Dukungan Beasiswa dan Pendanaan -->
-								<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-									<polyline points="9 12 11 14 15 10" />
-								</svg>
-							{:else}
-								<!-- Buildings / Pemanfaatan Fasilitas -->
-								<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="8" y="3" width="8" height="18" rx="1" />
-									<path d="M3 10h5v11H3z" />
-									<path d="M16 12h5v9h-5z" />
-									<line x1="12" y1="7" x2="12" y2="7.01" />
-									<line x1="12" y1="11" x2="12" y2="11.01" />
-								</svg>
-							{/if}
-						</div>
-						<span class="form-title">{item.title}</span>
+	<!-- Consistent Centered Container: min(1500px, calc(100% - 80px)) -->
+	<div class="collab-container">
+		<div class="collab-grid-layout">
+			<!-- Kolom Kiri (40%) — Gambar Handshake Proporsional 540-580px x 270-310px -->
+			<div class="collab-photo-col">
+				<div class="collab-photo-wrapper">
+					<div class="collab-photo-frame">
+						<img
+							src="/images/partner-handshake-real.jpg"
+							alt="Bentuk Kerja Sama SDJNusantara"
+							class="collab-photo"
+							loading="eager"
+						/>
 					</div>
-				{/each}
+
+					<!-- Overlay SVG Presisi: Tab Teal Kiri + Aksen Garis Kuning Kanan Bawah -->
+					<svg class="photo-overlays-svg" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
+						<defs>
+							<linearGradient id="tealTabGrad" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0%" stop-color="#00A9B7" />
+								<stop offset="100%" stop-color="#007D8A" />
+							</linearGradient>
+						</defs>
+
+						<!-- Border putih pemisah di tepi kanan tab teal -->
+						<path d="M0,0 L12.5,0 C15.2,0.5 16.5,4 15.6,9 L4.8,99 L0,99 Z" fill="#FFFFFF" />
+						<!-- Tab Geometris Turquoise/Teal Kiri -->
+						<path d="M0,0 L11.5,0 C14.2,0.5 15.4,4 14.5,9 L3.8,99 L0,99 Z" fill="url(#tealTabGrad)" />
+
+						<!-- Aksen Garis Kuning/Oranye Melengkung di Kanan Bawah -->
+						<path d="M44,98.5 C68,98.5 82,98.3 86.2,98.1 C89.8,97.9 91.8,95.8 92.6,90.5 L95.3,62 L97.0,62 L94.1,91.8 C93.1,97.8 90.6,100.3 86.4,100.5 C81.5,100.7 66,100 44,99.2 Z" fill="#FFAD16" />
+					</svg>
+				</div>
+			</div>
+
+			<!-- Kolom Kanan (60%) — Konten & Grid 3x2 Bentuk Kerja Sama -->
+			<div class="collab-content-col">
+				<div class="collab-header">
+					<div class="collab-label">
+						<span class="label-dash"></span>
+						<span class="label-text">BENTUK KERJA SAMA</span>
+					</div>
+
+					<h2 class="section-title">
+						Beragam Bentuk Kolaborasi<br />
+						yang Dapat <span class="highlight-orange">Disesuaikan dengan Kebutuhan.</span>
+					</h2>
+
+					<p class="section-desc">
+						Kami menyediakan berbagai bentuk kerja sama yang fleksibel dan saling menguntungkan, baik dalam jangka pendek maupun jangka panjang.
+					</p>
+				</div>
+
+				<!-- 3 Kolom x 2 Baris Bentuk Kerja Sama -->
+				<div class="forms-3x2-grid">
+					{#each forms as item, idx}
+						<div class="form-grid-item {(idx % 3 !== 2) ? 'has-right-divider' : ''}">
+							<div class="form-icon-box">
+								{#if item.icon === 'program'}
+									<!-- Monitor / Penyelenggaraan Program Bersama -->
+									<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+										<line x1="8" y1="21" x2="16" y2="21" />
+										<line x1="12" y1="17" x2="12" y2="21" />
+									</svg>
+								{:else if item.icon === 'exchange'}
+									<!-- Users / Pertukaran Peserta & Dosen -->
+									<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+										<circle cx="9" cy="7" r="4" />
+										<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+										<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+									</svg>
+								{:else if item.icon === 'curriculum'}
+									<!-- Open Book / Pengembangan Kurikulum -->
+									<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+										<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+									</svg>
+								{:else if item.icon === 'research'}
+									<!-- Layers Stack / Riset & Inovasi -->
+									<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<polygon points="12 2 2 7 12 12 22 7 12 2" />
+										<polyline points="2 12 12 17 22 12" />
+									</svg>
+								{:else if item.icon === 'scholarship'}
+									<!-- Shield Check / Dukungan Beasiswa dan Pendanaan -->
+									<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+										<polyline points="9 12 11 14 15 10" />
+									</svg>
+								{:else}
+									<!-- Buildings / Pemanfaatan Fasilitas -->
+									<svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<rect x="8" y="3" width="8" height="18" rx="1" />
+										<path d="M3 10h5v11H3z" />
+										<path d="M16 12h5v9h-5z" />
+										<line x1="12" y1="7" x2="12" y2="7.01" />
+										<line x1="12" y1="11" x2="12" y2="11.01" />
+									</svg>
+								{/if}
+							</div>
+							<span class="form-title">{item.title}</span>
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -158,7 +161,7 @@
 	.collab-forms-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 46px 0 42px;
+		padding: 56px 0 52px;
 		width: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
@@ -169,8 +172,8 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 340px;
-		height: 210px;
+		width: 360px;
+		height: 220px;
 		pointer-events: none;
 		z-index: 0;
 	}
@@ -181,29 +184,33 @@
 		display: block;
 	}
 
-	/* Layout Horizontal 2 Kolom (Foto kiri mulai tepi viewport + Konten kanan sejajar container) */
-	.collab-layout {
+	/* Container Konsisten: min(1500px, calc(100% - 80px)) */
+	.collab-container {
 		position: relative;
 		z-index: 2;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		gap: 48px;
-		padding-right: max(40px, calc(50% - 620px));
+		width: min(1500px, calc(100% - 80px));
+		margin-inline: auto;
 		box-sizing: border-box;
 	}
 
-	/* Kolom Kiri — Gambar Proporsional */
+	/* Grid Dua Kolom: ~40% Gambar | ~60% Konten */
+	.collab-grid-layout {
+		display: grid;
+		grid-template-columns: 40% 1fr;
+		align-items: center;
+		gap: 52px;
+	}
+
+	/* Kolom Kiri — Gambar 540–580px x 270–310px */
 	.collab-photo-col {
-		flex: 0 0 clamp(380px, 35.5%, 540px);
-		width: clamp(380px, 35.5%, 540px);
+		width: 100%;
 		box-sizing: border-box;
 	}
 
 	.collab-photo-wrapper {
 		position: relative;
 		width: 100%;
-		height: 265px;
+		height: clamp(250px, 19.5vw, 305px);
 	}
 
 	.collab-photo-frame {
@@ -213,6 +220,8 @@
 		clip-path: url(#handshakeFrameClip);
 		background: #E2E8F0;
 		overflow: hidden;
+		border-top-left-radius: 16px;
+		border-bottom-left-radius: 16px;
 	}
 
 	.collab-photo {
@@ -233,27 +242,26 @@
 		overflow: visible;
 	}
 
-	/* Kolom Kanan — Konten */
+	/* Kolom Kanan — Konten (60%) */
 	.collab-content-col {
-		flex: 1;
+		width: 100%;
 		min-width: 0;
-		max-width: 740px;
 		box-sizing: border-box;
 	}
 
 	.collab-header {
-		margin-bottom: 24px;
+		margin-bottom: 28px;
 	}
 
 	.collab-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		margin-bottom: 10px;
+		gap: 10px;
+		margin-bottom: 12px;
 	}
 
 	.label-dash {
-		width: 18px;
+		width: 20px;
 		height: 2.5px;
 		background: #00A9B7;
 		border-radius: 2px;
@@ -261,17 +269,18 @@
 
 	.label-text {
 		color: #00A9B7;
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 700;
 		letter-spacing: 0.04em;
 	}
 
+	/* Heading Target Desktop: 30–36px */
 	.section-title {
-		font-size: clamp(22px, 1.85vw, 27px);
-		line-height: 1.25;
+		font-size: clamp(24px, 2vw, 33px);
+		line-height: 1.24;
 		font-weight: 800;
 		color: #0B1B45;
-		margin: 0 0 10px 0;
+		margin: 0 0 14px 0;
 		letter-spacing: -0.015em;
 	}
 
@@ -279,27 +288,28 @@
 		color: #FFAD16;
 	}
 
+	/* Deskripsi Target Desktop: 14–16px */
 	.section-desc {
-		font-size: 13.5px;
-		line-height: 1.55;
+		font-size: clamp(14px, 0.98vw, 15.5px);
+		line-height: 1.58;
 		color: #64748B;
 		margin: 0;
-		max-width: 650px;
+		max-width: 720px;
 	}
 
 	/* Grid 3 Kolom x 2 Baris */
 	.forms-3x2-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 20px 22px;
+		gap: 24px 26px;
 		width: 100%;
 	}
 
 	.form-grid-item {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-		padding-right: 12px;
+		gap: 14px;
+		padding-right: 14px;
 	}
 
 	.form-grid-item.has-right-divider {
@@ -307,9 +317,9 @@
 	}
 
 	.form-icon-box {
-		width: 46px;
-		height: 46px;
-		border-radius: 12px;
+		width: 50px;
+		height: 50px;
+		border-radius: 13px;
 		background: #EAF8F9;
 		display: flex;
 		align-items: center;
@@ -318,31 +328,30 @@
 	}
 
 	.form-title {
-		font-size: 13px;
+		font-size: clamp(13.5px, 0.92vw, 14.5px);
 		font-weight: 700;
 		color: #0B1B45;
-		line-height: 1.35;
+		line-height: 1.38;
 	}
 
 	/* Tablet */
 	@media (max-width: 1100px) {
-		.collab-layout {
-			gap: 28px;
-			padding-right: 28px;
+		.collab-container {
+			width: calc(100% - 56px);
 		}
 
-		.collab-photo-col {
-			flex: 0 0 38%;
-			width: 38%;
+		.collab-grid-layout {
+			grid-template-columns: 42% 1fr;
+			gap: 32px;
 		}
 
 		.collab-photo-wrapper {
-			height: 240px;
+			height: 245px;
 		}
 
 		.forms-3x2-grid {
 			grid-template-columns: repeat(2, 1fr);
-			gap: 16px;
+			gap: 18px;
 		}
 
 		.form-grid-item.has-right-divider {
@@ -356,26 +365,17 @@
 			padding: 36px 0 40px;
 		}
 
-		.collab-layout {
-			flex-direction: column;
-			align-items: stretch;
-			gap: 24px;
-			padding-right: 0;
+		.collab-container {
+			width: calc(100% - 40px);
 		}
 
-		.collab-photo-col {
-			flex: 1 1 auto;
-			width: 100%;
-			padding-right: 20px;
+		.collab-grid-layout {
+			grid-template-columns: 1fr;
+			gap: 24px;
 		}
 
 		.collab-photo-wrapper {
-			height: 210px;
-		}
-
-		.collab-content-col {
-			padding: 0 20px;
-			max-width: 100%;
+			height: 215px;
 		}
 
 		.forms-3x2-grid {

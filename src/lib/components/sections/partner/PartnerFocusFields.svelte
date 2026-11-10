@@ -1,5 +1,5 @@
 <script lang="ts">
-	// PartnerFocusFields.svelte - Presisi Mockup Referensi GAMBAR 2
+	// PartnerFocusFields.svelte - Optimasi Proporsi & Alignment Container min(1500px, calc(100% - 80px))
 	const fields = [
 		{ label: 'Pendidikan & Pelatihan', icon: 'education' },
 		{ label: 'Riset & Inovasi', icon: 'research' },
@@ -11,7 +11,7 @@
 </script>
 
 <section id="bidang-kolaborasi" class="focus-fields-section">
-	<!-- Pemisah Antar-Section: Garis Horizontal Tipis + 2 Aksen Garis Pendek Tengah (Turquoise & Oranye) -->
+	<!-- Pemisah Antar-Section: Sejajar Container min(1500px, calc(100% - 80px)) -->
 	<div class="section-transition-divider" aria-hidden="true">
 		<div class="divider-line"></div>
 		<div class="divider-accents">
@@ -29,17 +29,17 @@
 
 	<!-- Dekorasi Gelombang Turquoise & Oranye di Sudut Kanan Bawah -->
 	<div class="bg-decor-right" aria-hidden="true">
-		<svg viewBox="0 0 360 175" fill="none" preserveAspectRatio="none">
-			<path d="M85,175 C165,105 260,55 360,16 L360,175 Z" fill="#FFAD16" opacity="0.9" />
-			<path d="M20,175 C115,115 225,85 360,62 L360,175 Z" fill="#63DCE6" opacity="0.72" />
-			<path d="M95,175 C180,122 270,88 360,38 L360,175 Z" fill="#009AA6" />
+		<svg viewBox="0 0 380 185" fill="none" preserveAspectRatio="none">
+			<path d="M85,185 C170,110 270,58 380,16 L380,185 Z" fill="#FFAD16" opacity="0.9" />
+			<path d="M20,185 C120,120 235,88 380,64 L380,185 Z" fill="#63DCE6" opacity="0.72" />
+			<path d="M100,185 C190,128 285,92 380,40 L380,185 Z" fill="#009AA6" />
 		</svg>
 	</div>
 
-	<!-- Centered Container Proporsional (max-width: 1240px) -->
-	<div class="fields-centered-container">
-		<div class="fields-content-grid">
-			<!-- Kolom Kiri: Konten Heading, Deskripsi & Tombol -->
+	<!-- Container Konsisten: min(1500px, calc(100% - 80px)) -->
+	<div class="fields-container">
+		<div class="fields-grid-layout">
+			<!-- Kolom Kiri (~38%): Label, Heading, Deskripsi & Tombol -->
 			<div class="fields-text-col">
 				<div class="fields-label">
 					<span class="label-dash"></span>
@@ -57,14 +57,14 @@
 
 				<a href="#bentuk-kerja-sama" class="btn-orange-field">
 					<span>Lihat Selengkapnya</span>
-					<svg class="btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<line x1="5" y1="12" x2="19" y2="12" />
 						<polyline points="12 5 19 12 12 19" />
 					</svg>
 				</a>
 			</div>
 
-			<!-- Kolom Kanan: Card Utama Bidang Kolaborasi (Proporsional & Seimbang) -->
+			<!-- Kolom Kanan (~62%): Card Bidang Kolaborasi -->
 			<div class="fields-card-col">
 				<div class="fields-card">
 					<div class="fields-2col-grid">
@@ -73,13 +73,13 @@
 								<div class="field-icon-box">
 									{#if item.icon === 'education'}
 										<!-- Graduation Cap -->
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M22 10v6M2 10l10-5 10 5-10 5z" />
 											<path d="M6 12v5c3 3 9 3 12 0v-5" />
 										</svg>
 									{:else if item.icon === 'research'}
 										<!-- Lightbulb with Rays -->
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M9 18h6" />
 											<path d="M10 22h4" />
 											<path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5" />
@@ -89,7 +89,7 @@
 										</svg>
 									{:else if item.icon === 'talent'}
 										<!-- User with Plus -->
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 											<circle cx="8.5" cy="7" r="4" />
 											<line x1="20" y1="8" x2="20" y2="14" />
@@ -97,19 +97,19 @@
 										</svg>
 									{:else if item.icon === 'social'}
 										<!-- Heart -->
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
 										</svg>
 									{:else if item.icon === 'tech'}
 										<!-- Desktop Monitor -->
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 											<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
 											<line x1="8" y1="21" x2="16" y2="21" />
 											<line x1="12" y1="17" x2="12" y2="21" />
 										</svg>
 									{:else}
 										<!-- Leaf -->
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
 											<path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
 										</svg>
@@ -129,36 +129,35 @@
 	.focus-fields-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 46px 0 64px;
+		padding: 54px 0 72px;
 		width: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
-	/* Pemisah Antar-Section */
+	/* Pemisah Antar-Section: Sejajar Container min(1500px, calc(100% - 80px)) */
 	.section-transition-divider {
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
+		width: min(1500px, calc(100% - 80px));
+		margin-inline: auto;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		z-index: 3;
 		pointer-events: none;
-		padding: 0 32px;
-		box-sizing: border-box;
 	}
 
 	.divider-line {
 		width: 100%;
-		max-width: 1240px;
 		height: 1px;
 		background: linear-gradient(
 			90deg,
 			rgba(220, 230, 239, 0) 0%,
-			#DCE6EF 10%,
-			#DCE6EF 90%,
+			#DCE6EF 8%,
+			#DCE6EF 92%,
 			rgba(220, 230, 239, 0) 100%
 		);
 	}
@@ -167,20 +166,20 @@
 		position: absolute;
 		display: flex;
 		align-items: center;
-		gap: 5px;
+		gap: 6px;
 		background: #FFFFFF;
-		padding: 0 10px;
+		padding: 0 12px;
 	}
 
 	.accent-cyan {
-		width: 52px;
+		width: 56px;
 		height: 3.5px;
 		border-radius: 99px;
 		background: #00A9B7;
 	}
 
 	.accent-orange {
-		width: 40px;
+		width: 42px;
 		height: 3.5px;
 		border-radius: 99px;
 		background: #FFAD16;
@@ -191,8 +190,8 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		width: 185px;
-		height: 145px;
+		width: 210px;
+		height: 165px;
 		pointer-events: none;
 		z-index: 0;
 	}
@@ -208,46 +207,44 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 320px;
-		height: 155px;
+		width: 360px;
+		height: 175px;
 		pointer-events: none;
 		z-index: 0;
 	}
 
-	/* Centered Container (1240px Proporsional — Tidak Terlalu Zoom) */
-	.fields-centered-container {
+	/* Container Konsisten: min(1500px, calc(100% - 80px)) */
+	.fields-container {
 		position: relative;
 		z-index: 2;
-		width: 100%;
-		max-width: 1240px;
-		margin: 0 auto;
-		padding: 0 32px;
+		width: min(1500px, calc(100% - 80px));
+		margin-inline: auto;
 		box-sizing: border-box;
 	}
 
-	.fields-content-grid {
-		display: flex;
+	/* Grid Dua Kolom: ~38% Teks | ~62% Card */
+	.fields-grid-layout {
+		display: grid;
+		grid-template-columns: 38% 1fr;
 		align-items: center;
-		justify-content: space-between;
-		gap: 48px;
+		gap: 52px;
 	}
 
-	/* Kolom Kiri (~36%) */
+	/* Kolom Kiri (~38%) */
 	.fields-text-col {
-		flex: 0 0 36%;
-		max-width: 390px;
+		width: 100%;
 		box-sizing: border-box;
 	}
 
 	.fields-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-		margin-bottom: 10px;
+		gap: 10px;
+		margin-bottom: 12px;
 	}
 
 	.label-dash {
-		width: 18px;
+		width: 20px;
 		height: 2.5px;
 		background: #00A9B7;
 		border-radius: 2px;
@@ -255,17 +252,18 @@
 
 	.label-text {
 		color: #00A9B7;
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 700;
 		letter-spacing: 0.04em;
 	}
 
+	/* Heading Target Desktop: 30–36px */
 	.section-title {
-		font-size: clamp(22px, 1.85vw, 27px);
-		line-height: 1.25;
+		font-size: clamp(24px, 2vw, 33px);
+		line-height: 1.24;
 		font-weight: 800;
 		color: #0B1B45;
-		margin: 0 0 12px 0;
+		margin: 0 0 14px 0;
 		letter-spacing: -0.015em;
 	}
 
@@ -273,27 +271,28 @@
 		color: #FFAD16;
 	}
 
+	/* Deskripsi Target Desktop: 14–16px */
 	.section-desc {
-		font-size: 13.5px;
-		line-height: 1.55;
+		font-size: clamp(14px, 0.98vw, 15.5px);
+		line-height: 1.58;
 		color: #64748B;
-		margin: 0 0 22px 0;
-		max-width: 380px;
+		margin: 0 0 26px 0;
+		max-width: 480px;
 	}
 
 	.btn-orange-field {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
-		padding: 10px 22px;
+		gap: 10px;
+		padding: 12px 26px;
 		background: #FFAD16;
 		color: #0B1B45;
-		font-size: 13.5px;
+		font-size: 14.5px;
 		font-weight: 700;
-		border-radius: 8px;
+		border-radius: 9px;
 		text-decoration: none;
-		box-shadow: 0 3px 10px rgba(255, 173, 22, 0.25);
+		box-shadow: 0 4px 12px rgba(255, 173, 22, 0.25);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		width: fit-content;
 	}
@@ -301,7 +300,7 @@
 	.btn-orange-field:hover {
 		background: #e69b10;
 		transform: translateY(-2px);
-		box-shadow: 0 5px 15px rgba(255, 173, 22, 0.36);
+		box-shadow: 0 6px 16px rgba(255, 173, 22, 0.36);
 	}
 
 	.btn-arrow {
@@ -312,29 +311,30 @@
 		transform: translateX(3px);
 	}
 
-	/* Kolom Kanan: Card Proporsional (~60%, max 680px) */
+	/* Kolom Kanan (~62%): Card Mengisi Ruang Tersedia Secara Proporsional */
 	.fields-card-col {
-		flex: 1;
-		max-width: 680px;
+		width: 100%;
+		min-width: 0;
 	}
 
 	.fields-card {
 		background: #FFFFFF;
 		border: 1px solid #DCE6EF;
-		border-radius: 22px;
-		padding: 24px 36px;
-		box-shadow: 0 6px 24px rgba(11, 27, 69, 0.04);
+		border-radius: 24px;
+		padding: 28px 44px;
+		box-shadow: 0 6px 26px rgba(11, 27, 69, 0.04);
 		box-sizing: border-box;
+		width: 100%;
 	}
 
 	.fields-2col-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		column-gap: 44px;
+		column-gap: 52px;
 		position: relative;
 	}
 
-	/* Separator Vertikal di Antara Kedua Kolom */
+	/* Separator Vertikal di Tengah Kedua Kolom */
 	.fields-2col-grid::before {
 		content: '';
 		position: absolute;
@@ -350,8 +350,8 @@
 	.field-item {
 		display: flex;
 		align-items: center;
-		gap: 14px;
-		padding: 13px 0;
+		gap: 16px;
+		padding: 16px 0;
 	}
 
 	.field-item.has-bottom-border {
@@ -359,9 +359,9 @@
 	}
 
 	.field-icon-box {
-		width: 42px;
-		height: 42px;
-		border-radius: 11px;
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
 		background: #EAF8F9;
 		display: flex;
 		align-items: center;
@@ -370,41 +370,34 @@
 	}
 
 	.field-label {
-		font-size: 13.5px;
+		font-size: clamp(14px, 0.96vw, 15px);
 		font-weight: 700;
 		color: #0B1B45;
-		line-height: 1.35;
+		line-height: 1.38;
 	}
 
 	/* Tablet */
-	@media (max-width: 1024px) {
-		.fields-centered-container {
-			padding: 0 28px;
+	@media (max-width: 1100px) {
+		.fields-container,
+		.section-transition-divider {
+			width: calc(100% - 56px);
 		}
 
-		.fields-content-grid {
-			gap: 28px;
-		}
-
-		.fields-text-col {
-			flex: 0 0 38%;
-			max-width: 38%;
-		}
-
-		.fields-card-col {
-			max-width: 62%;
+		.fields-grid-layout {
+			grid-template-columns: 40% 1fr;
+			gap: 32px;
 		}
 
 		.fields-card {
-			padding: 18px 24px;
+			padding: 22px 26px;
 		}
 
 		.fields-2col-grid {
-			column-gap: 28px;
+			column-gap: 32px;
 		}
 
 		.field-label {
-			font-size: 13px;
+			font-size: 13.5px;
 		}
 	}
 
@@ -414,20 +407,14 @@
 			padding: 40px 0 52px;
 		}
 
-		.fields-centered-container {
-			padding: 0 20px;
+		.fields-container,
+		.section-transition-divider {
+			width: calc(100% - 40px);
 		}
 
-		.fields-content-grid {
-			flex-direction: column;
-			align-items: stretch;
+		.fields-grid-layout {
+			grid-template-columns: 1fr;
 			gap: 28px;
-		}
-
-		.fields-text-col,
-		.fields-card-col {
-			flex: 1 1 100%;
-			max-width: 100%;
 		}
 
 		.fields-text-col {
