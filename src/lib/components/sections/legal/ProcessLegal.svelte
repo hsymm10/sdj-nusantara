@@ -40,12 +40,6 @@
 </script>
 
 <section class="process-legal-section" aria-labelledby="process-legal-heading">
-	<!-- Dekorasi sudut bawah kanan lembut di atas CTA -->
-	<svg class="process-bg-waves-br" viewBox="0 0 360 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M55 150 C158 100, 268 62, 360 40 L360 150 Z" fill="#BCECF2" fill-opacity="0.52" />
-		<path d="M135 150 C215 110, 295 82, 360 68 L360 150 Z" fill="#00AAB5" fill-opacity="0.88" />
-	</svg>
-
 	<div class="process-legal-container">
 		<!-- Container Soft-Cyan: #EAF8FA dengan border radius 24px -->
 		<div class="process-box">
@@ -153,20 +147,9 @@
 <style>
 	.process-legal-section {
 		position: relative;
-		background: #FFFFFF;
+		background: transparent;
 		padding: 18px 0 56px;
-		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	.process-bg-waves-br {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 240px;
-		height: 110px;
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.process-legal-container {
@@ -429,11 +412,6 @@
 			padding-top: 0;
 			margin: 2px 0 -4px;
 			transform: rotate(90deg);
-		}
-
-		.process-bg-waves-br {
-			width: 200px;
-			height: 110px;
 		}
 	}
 </style>

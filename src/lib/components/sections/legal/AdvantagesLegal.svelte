@@ -29,12 +29,6 @@
 </script>
 
 <section class="adv-legal-section" aria-labelledby="adv-legal-heading">
-	<!-- Aksen lengkung emas halus tepi kanan sesuai mockup -->
-	<svg class="adv-bg-waves-tr" viewBox="0 0 180 120" fill="none" aria-hidden="true">
-		<path d="M180 18 C135 55, 78 88, 18 115 L180 115 Z" fill="#BCECF2" fill-opacity="0.45" />
-		<path d="M180 48 C145 78, 102 102, 58 118 L180 118 Z" fill="#FFB21C" fill-opacity="0.88" />
-	</svg>
-
 	<div class="adv-legal-container">
 		<!-- Kolom Kiri: Informasi (±38%) -->
 		<div class="adv-left-col">
@@ -157,20 +151,9 @@
 <style>
 	.adv-legal-section {
 		position: relative;
-		background: #FFFFFF;
+		background: transparent;
 		padding: 32px 0 36px;
-		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	.adv-bg-waves-tr {
-		position: absolute;
-		top: 6px;
-		right: 0;
-		width: 120px;
-		height: 82px;
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.adv-legal-container {
@@ -367,12 +350,6 @@
 
 		.adv-desc {
 			max-width: 680px;
-		}
-
-		.adv-bg-waves-tr {
-			width: 95px;
-			height: 64px;
-			opacity: 0.75;
 		}
 	}
 
