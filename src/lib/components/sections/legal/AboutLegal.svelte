@@ -1,4 +1,4 @@
-<!-- Section C: Tentang Layanan Hukum — Susunan Satu Blok Gabungan Foto + Panel Menimpa (Sesuai Mockup) -->
+<!-- Section C: Tentang Layanan Hukum — Mengikuti Mockup Referensi dengan Teks Existing -->
 <script lang="ts">
 	const features = [
 		{
@@ -16,26 +16,36 @@
 	];
 </script>
 
-<section class="about-legal-section">
+<section class="about-legal-section" aria-labelledby="about-legal-heading">
+	<!-- Dekorasi latar lembut sudut kanan atas & kiri bawah sesuai mockup -->
+	<svg class="about-bg-waves-tr" viewBox="0 0 260 200" fill="none" aria-hidden="true">
+		<path d="M85 0 C120 90, 185 150, 260 175 L260 0 Z" fill="#C4EEF3" fill-opacity="0.52" />
+		<path d="M145 0 C175 70, 215 118, 260 135 L260 0 Z" fill="#46C7D2" fill-opacity="0.65" />
+		<path d="M200 0 C218 48, 238 80, 260 94 L260 0 Z" fill="#00AAB5" fill-opacity="0.88" />
+	</svg>
+	<div class="about-bg-glow-bl" aria-hidden="true"></div>
+
 	<div class="about-legal-container">
-		<!-- KIRI (±42%): Label, H2, Deskripsi, Disclaimer -->
+		<!-- KOLOM KIRI (~40%): Label, Heading, Deskripsi, Information Box -->
 		<div class="about-col-left">
 			<div class="section-tag">
-				<span class="tag-dash"></span>
+				<span class="tag-dash" aria-hidden="true"></span>
 				<span class="tag-label">TENTANG LAYANAN</span>
 			</div>
 
-			<h2 class="about-title">Layanan Hukum SDJNusantara</h2>
+			<h2 id="about-legal-heading" class="about-title">Layanan Hukum SDJNusantara</h2>
 
 			<p class="about-desc">
 				Layanan konsultasi regulasi, telaah kepatuhan, serta pendampingan tata kelola hukum bagi institusi pendidikan, organisasi, maupun korporasi di bidang pendidikan.
 			</p>
 
-			<!-- Kotak Disclaimer: latar #EAF7F9, garis kiri teal 3px, radius 10px, ikon info SOLID teal 18px -->
+			<!-- Kotak Informasi: Latar #E8F7F9, Aksen Garis Kiri Turquoise, Ikon Info Turquoise -->
 			<div class="disclaimer-box">
 				<div class="disclaimer-icon-wrap" aria-hidden="true">
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="#079EAD">
-						<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10" />
+						<path d="M12 16v-4" />
+						<path d="M12 8h.01" />
 					</svg>
 				</div>
 				<p class="disclaimer-text">
@@ -44,66 +54,65 @@
 			</div>
 		</div>
 
-		<!-- KANAN (±58%): SATU BLOK GABUNGAN FOTO + PANEL MENIMPA -->
+		<!-- Garis Pemisah Vertikal Tipis (Sesuai Mockup) -->
+		<div class="about-vertical-divider" aria-hidden="true"></div>
+
+		<!-- KOLOM KANAN (~56%): Foto Gedung + Floating White Card Menempel di Sisi Kanan -->
 		<div class="about-col-right">
 			<div class="photo-panel-combo">
-				<!-- Dekorasi Swoosh di BELAKANG foto (z-index 1) -->
-				<div class="swoosh-bg-layer" aria-hidden="true">
-					<!-- Swoosh turquoise melengkung di kiri-atas -->
-					<svg class="swoosh-top-left" viewBox="0 0 160 120" fill="none">
-						<path d="M0 120C0 50 50 0 160 0C100 0 0 30 0 120Z" fill="url(#teal-grad-swoosh)"/>
-						<defs>
-							<linearGradient id="teal-grad-swoosh" x1="0" y1="0" x2="1" y2="1">
-								<stop offset="0%" stop-color="#16B6C1"/>
-								<stop offset="100%" stop-color="#079EAD"/>
-							</linearGradient>
-						</defs>
-					</svg>
-					<!-- Lengkung emas di kiri-bawah/sudut bawah -->
-					<svg class="swoosh-bottom-gold" viewBox="0 0 140 100" fill="none">
-						<path d="M0 100C40 100 90 80 140 0C90 60 40 85 0 100Z" fill="#F5B331"/>
-					</svg>
-				</div>
+				<!-- Aksen garis lengkung turquoise di bagian kiri atas gambar -->
+				<svg class="swoosh-top-left" viewBox="0 0 180 135" fill="none" aria-hidden="true">
+					<path
+						d="M8 128 C12 52, 62 10, 168 6"
+						stroke="#00AAB5"
+						stroke-width="3.2"
+						stroke-linecap="round"
+					/>
+					<path
+						d="M22 122 C28 60, 72 22, 152 18"
+						stroke="#7AD8E0"
+						stroke-width="1.8"
+						stroke-linecap="round"
+						stroke-opacity="0.7"
+					/>
+				</svg>
 
-				<!-- Foto Gedung (z-index 2): Sudut kiri-atas melengkung besar 120px -->
+				<!-- Foto Gedung Landscape -->
 				<div class="building-photo-box">
 					<img
 						src="/images/about-campus-hd.jpg"
-						alt="Gedung Institusi Pendidikan SDJNusantara"
+						alt="Gedung Perkantoran Modern SDJNusantara"
 						class="building-img"
 					/>
-					<!-- Lengkung emas tipis di sudut kanan bawah foto -->
+					<!-- Lengkung emas kecil di sudut kanan bawah foto -->
 					<svg class="building-deco-gold" viewBox="0 0 110 70" fill="none" aria-hidden="true">
-						<path d="M40 70C70 65 95 45 110 15V70H40Z" fill="#F5B331" />
+						<path d="M40 70 C70 65, 95 45, 110 15 V70 H40 Z" fill="#FFB21C" fill-opacity="0.92" />
 					</svg>
 				</div>
 
-				<!-- Panel Putih MENIMPA TEPI KANAN FOTO ±30px (z-index 3) -->
+				<!-- Floating White Card Menempel di Kanan Foto -->
 				<div class="overlapping-white-panel">
 					{#each features as feat, idx}
 						<div class="feature-row" class:border-bottom={idx < features.length - 1}>
-							<div class="feat-icon-wrap">
+							<div class="feat-icon-circle" aria-hidden="true">
 								{#if feat.icon === 'shield'}
-									<!-- Perisai centang outline teal 26px -->
-									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-										<polyline points="9 12 11 14 15 10"/>
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+										<path d="m9 12 2 2 4-4" />
 									</svg>
 								{:else if feat.icon === 'users'}
-									<!-- Kelompok orang outline teal 26px -->
-									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-										<circle cx="9" cy="7" r="4"/>
-										<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-										<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+										<circle cx="9" cy="7" r="4" />
+										<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+										<path d="M16 3.13a4 4 0 0 1 0 7.75" />
 									</svg>
 								{:else}
-									<!-- Dokumen outline teal 26px -->
-									<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-										<polyline points="14 2 14 8 20 8"/>
-										<line x1="16" y1="13" x2="8" y2="13"/>
-										<line x1="16" y1="17" x2="8" y2="17"/>
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+										<polyline points="14 2 14 8 20 8" />
+										<line x1="16" y1="13" x2="8" y2="13" />
+										<line x1="16" y1="17" x2="8" y2="17" />
 									</svg>
 								{/if}
 							</div>
@@ -118,24 +127,53 @@
 
 <style>
 	.about-legal-section {
-		background: #ffffff;
-		padding: 44px 0 52px;
+		position: relative;
+		background: #FFFFFF;
+		padding: 56px 0 48px;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.about-bg-waves-tr {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 220px;
+		height: 170px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.about-bg-glow-bl {
+		position: absolute;
+		left: -60px;
+		bottom: -50px;
+		width: 300px;
+		height: 190px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(215, 245, 249, 0.65) 0%, rgba(215, 245, 249, 0) 70%);
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	.about-legal-container {
-		width: 93%;
-		max-width: 1360px;
+		position: relative;
+		z-index: 2;
+		width: 92%;
+		max-width: 1200px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 36px;
+		gap: 44px;
+		box-sizing: border-box;
 	}
 
-	/* === KIRI (±42%) === */
+	/* === KOLOM KIRI (~40%) === */
 	.about-col-left {
-		flex: 0 0 42%;
-		max-width: 520px;
+		flex: 0 0 40%;
+		max-width: 470px;
+		min-width: 0;
 	}
 
 	.section-tag {
@@ -147,63 +185,75 @@
 
 	.tag-dash {
 		display: inline-block;
-		width: 16px;
-		height: 2.5px;
-		background: #16b6c1;
+		width: 20px;
+		height: 2px;
+		background: #00AAB5;
 		border-radius: 2px;
 	}
 
 	.tag-label {
-		font-size: 12px;
+		font-size: 11.5px;
 		font-weight: 700;
-		color: #079ead;
-		letter-spacing: 0.8px;
+		color: #00AAB5;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 
 	.about-title {
-		font-size: 32px;
-		line-height: 1.25;
+		font-size: 29px;
+		line-height: 1.24;
 		font-weight: 800;
-		color: #082442;
+		color: #092B4A;
 		margin: 0 0 14px;
+		letter-spacing: -0.015em;
 	}
 
 	.about-desc {
-		font-size: 14.5px;
-		line-height: 1.65;
-		color: #183553;
-		margin: 0 0 20px;
-		max-width: 470px;
+		font-size: 13.5px;
+		line-height: 1.62;
+		color: #475569;
+		margin: 0 0 18px;
 	}
 
-	/* Kotak Disclaimer */
+	/* Information Box */
 	.disclaimer-box {
-		background: #eaf7f9;
-		border-left: 3.5px solid #079ead;
-		border-radius: 10px;
-		padding: 12px 16px;
+		background: #E8F7F9;
+		border-left: 3.5px solid #00AAB5;
+		border-radius: 12px;
+		padding: 13px 16px;
 		display: flex;
 		align-items: flex-start;
 		gap: 12px;
-		max-width: 480px;
+		box-sizing: border-box;
 	}
 
 	.disclaimer-icon-wrap {
 		flex-shrink: 0;
-		margin-top: 2px;
+		margin-top: 1px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.disclaimer-text {
 		font-size: 12.5px;
 		line-height: 1.55;
-		color: #183553;
+		color: #1E3A5F;
 		margin: 0;
 	}
 
-	/* === KANAN (±58%): BLOK GABUNGAN FOTO + PANEL MENIMPA === */
+	/* Garis Pemisah Vertikal */
+	.about-vertical-divider {
+		width: 1px;
+		height: 215px;
+		background: #E2E8F0;
+		flex-shrink: 0;
+	}
+
+	/* === KOLOM KANAN (~56%) === */
 	.about-col-right {
-		flex: 0 0 55%;
+		flex: 1;
+		min-width: 0;
 		display: flex;
 		justify-content: flex-end;
 	}
@@ -213,48 +263,30 @@
 		display: flex;
 		align-items: center;
 		width: 100%;
-		max-width: 660px;
-		height: 235px;
-	}
-
-	/* Swoosh di belakang foto */
-	.swoosh-bg-layer {
-		position: absolute;
-		inset: -12px auto auto -20px;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-		z-index: 1;
+		max-width: 630px;
 	}
 
 	.swoosh-top-left {
 		position: absolute;
-		top: -8px;
-		left: -12px;
-		width: 140px;
-		height: 100px;
+		top: -12px;
+		left: -14px;
+		width: 165px;
+		height: 122px;
+		pointer-events: none;
+		z-index: 1;
 	}
 
-	.swoosh-bottom-gold {
-		position: absolute;
-		bottom: -10px;
-		left: 20px;
-		width: 120px;
-		height: 80px;
-	}
-
-	/* Foto Gedung */
 	.building-photo-box {
 		position: relative;
 		z-index: 2;
-		width: 385px;
-		height: 235px;
-		border-top-left-radius: 120px;
+		width: 390px;
+		height: 245px;
+		border-top-left-radius: 124px;
 		border-top-right-radius: 20px;
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
 		overflow: hidden;
-		box-shadow: 0 10px 24px rgba(8, 36, 66, 0.12);
+		box-shadow: 0 12px 28px rgba(8, 36, 66, 0.11);
 		flex-shrink: 0;
 	}
 
@@ -269,26 +301,27 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 90px;
-		height: 55px;
+		width: 86px;
+		height: 52px;
 		pointer-events: none;
 	}
 
-	/* Panel Putih Menimpa Tepi Kanan Foto ±30px */
+	/* Floating Card Putih Menempel di Kanan Foto */
 	.overlapping-white-panel {
 		position: relative;
 		z-index: 3;
-		margin-left: -32px;
-		width: 270px;
-		height: 235px;
-		background: #ffffff;
+		margin-left: -34px;
+		width: 274px;
+		min-height: 245px;
+		background: #FFFFFF;
 		border-radius: 18px;
-		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.12);
-		border: 1px solid #e3eaf1;
+		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.10);
+		border: 1px solid #DCE7F1;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.feature-row {
@@ -296,73 +329,99 @@
 		display: flex;
 		align-items: center;
 		gap: 14px;
-		padding: 0 20px;
+		padding: 14px 18px;
+		box-sizing: border-box;
 	}
 
 	.feature-row.border-bottom {
-		border-bottom: 1px solid #e3eaf1;
+		border-bottom: 1px solid #DCE7F1;
 	}
 
-	.feat-icon-wrap {
-		flex-shrink: 0;
+	.feat-icon-circle {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: #E8F7F9;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-shrink: 0;
 	}
 
 	.feat-text {
-		font-size: 14.5px;
+		font-size: 14px;
 		font-weight: 700;
-		color: #082442;
+		color: #092B4A;
 		line-height: 1.35;
 	}
 
 	/* === RESPONSIVE === */
-	@media (max-width: 1100px) {
+	@media (max-width: 1120px) {
 		.about-legal-container {
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 36px;
 		}
 
+		.about-vertical-divider {
+			display: none;
+		}
+
 		.about-col-left {
 			max-width: 100%;
-			flex: auto;
+			width: 100%;
+			flex: none;
 		}
 
 		.about-col-right {
 			width: 100%;
-			flex: auto;
+			flex: none;
 			justify-content: flex-start;
 		}
 
 		.photo-panel-combo {
-			max-width: 100%;
+			max-width: 640px;
 		}
 	}
 
-	@media (max-width: 680px) {
+	@media (max-width: 720px) {
+		.about-legal-section {
+			padding: 40px 0 36px;
+		}
+
+		.about-title {
+			font-size: 25px;
+		}
+
 		.photo-panel-combo {
 			flex-direction: column;
-			height: auto;
 			align-items: stretch;
+			max-width: 100%;
+		}
+
+		.swoosh-top-left {
+			width: 120px;
+			height: 90px;
+			top: -8px;
+			left: -8px;
 		}
 
 		.building-photo-box {
 			width: 100%;
-			height: 200px;
-			border-top-left-radius: 80px;
+			height: 210px;
+			border-top-left-radius: 84px;
 		}
 
 		.overlapping-white-panel {
 			margin-left: 0;
-			margin-top: 16px;
-			width: 100%;
-			height: auto;
+			margin-top: -22px;
+			width: calc(100% - 16px);
+			align-self: center;
+			min-height: 0;
 		}
 
 		.feature-row {
-			padding: 16px 20px;
+			padding: 14px 16px;
 		}
 	}
 </style>

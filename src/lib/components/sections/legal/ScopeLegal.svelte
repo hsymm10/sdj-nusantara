@@ -1,4 +1,4 @@
-<!-- Section D: Ruang Lingkup Layanan Hukum (Sesuai Mockup & Kepatuhan) -->
+<!-- Section D: Ruang Lingkup Layanan Hukum — Mengikuti Mockup Referensi dengan Teks Existing -->
 <script lang="ts">
 	const scopes = [
 		{
@@ -19,50 +19,65 @@
 	];
 </script>
 
-<section id="ruang-lingkup" class="scope-legal-section">
+<section id="ruang-lingkup" class="scope-legal-section" aria-labelledby="scope-legal-heading">
+	<!-- Dekorasi sudut bawah halaman sesuai mockup -->
+	<div class="scope-bg-glow-bl" aria-hidden="true"></div>
+	<svg class="scope-bg-waves-br" viewBox="0 0 320 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M40 160 C125 105, 225 65, 320 42 L320 160 Z" fill="#BCECF2" fill-opacity="0.55" />
+		<path d="M98 160 C172 110, 248 78, 320 62 L320 160 Z" fill="#FFB21C" fill-opacity="0.92" />
+		<path d="M152 160 C212 122, 268 98, 320 88 L320 160 Z" fill="#00AAB5" />
+	</svg>
+
 	<div class="scope-legal-container">
-		<!-- Section Header Terpusat (Rata Tengah) -->
+		<!-- Section Header Terpusat -->
 		<div class="scope-header">
 			<div class="scope-badge">
-				<span class="badge-dash"></span>
+				<span class="badge-dash" aria-hidden="true"></span>
 				<span class="badge-text">RUANG LINGKUP LAYANAN</span>
-				<span class="badge-dash"></span>
+				<span class="badge-dash" aria-hidden="true"></span>
 			</div>
-			<h2 class="scope-title">Ruang Lingkup Layanan Hukum</h2>
+			<h2 id="scope-legal-heading" class="scope-title">Ruang Lingkup Layanan Hukum</h2>
 			<p class="scope-sub">
 				Berbagai layanan pendampingan hukum yang dirancang untuk memenuhi kebutuhan institusi pendidikan Anda.
 			</p>
 		</div>
 
-		<!-- 3 Cards Grid -->
+		<!-- 3 Cards Grid Sejajar -->
 		<div class="scope-grid">
 			{#each scopes as item}
 				<div class="scope-card">
+					<!-- Wave dekoratif teal + emas di bagian bawah kartu -->
+					<svg class="scope-card-wave" viewBox="0 0 360 34" fill="none" preserveAspectRatio="none" aria-hidden="true">
+						<path d="M0 34 C95 28, 215 18, 360 4 L360 34 Z" fill="#D5F3F7" fill-opacity="0.6" />
+						<path d="M125 34 C198 28, 268 18, 330 8 L340 34 Z" fill="#00AAB5" fill-opacity="0.82" />
+						<path d="M240 34 C285 26, 325 18, 360 6 L360 34 Z" fill="#FFB21C" fill-opacity="0.88" />
+					</svg>
+
 					<div class="scope-top">
-						<div class="scope-icon-box">
+						<div class="scope-icon-box" aria-hidden="true">
 							{#if item.icon === 'contract'}
-								<!-- Document / Contract -->
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-									<polyline points="14 2 14 8 20 8"/>
-									<line x1="16" y1="13" x2="8" y2="13"/>
-									<line x1="16" y1="17" x2="8" y2="17"/>
-									<polyline points="10 9 9 9 8 9"/>
+								<!-- File Text -->
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+									<polyline points="14 2 14 8 20 8" />
+									<line x1="16" y1="13" x2="8" y2="13" />
+									<line x1="16" y1="17" x2="8" y2="17" />
+									<polyline points="10 9 9 9 8 9" />
 								</svg>
 							{:else if item.icon === 'gavel'}
-								<!-- Gavel / Campus policy -->
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M14 13l-4 4"/>
-									<path d="M16 11l-8 8"/>
-									<path d="M14.5 4.5l5 5-2 2-5-5 2-2z"/>
-									<path d="M2.5 16.5l5 5 2-2-5-5-2 2z"/>
-									<path d="M6 21h12"/>
+								<!-- Gavel -->
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M14 13l-4 4" />
+									<path d="M16 11l-8 8" />
+									<path d="M14.5 4.5l5 5-2 2-5-5 2-2z" />
+									<path d="M2.5 16.5l5 5 2-2-5-5-2 2z" />
+									<path d="M6 21h12" />
 								</svg>
 							{:else}
-								<!-- Scales of justice -->
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6l-3-7zm12 0l-3 7h6l-3-7z"/>
-									<path d="M4 21h16"/>
+								<!-- Scale -->
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00AAB5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6l-3-7zm12 0l-3 7h6l-3-7z" />
+									<path d="M4 21h16" />
 								</svg>
 							{/if}
 						</div>
@@ -73,9 +88,9 @@
 
 					<div class="scope-bottom">
 						<a href="/kontak" class="scope-arrow-btn" aria-label="Konsultasi {item.title}">
-							<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12"/>
-								<polyline points="12 5 19 12 12 19"/>
+							<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="5" y1="12" x2="19" y2="12" />
+								<polyline points="12 5 19 12 12 19" />
 							</svg>
 						</a>
 					</div>
@@ -87,19 +102,47 @@
 
 <style>
 	.scope-legal-section {
-		background: #ffffff;
-		padding: 44px 0 52px;
+		position: relative;
+		background: #FFFFFF;
+		padding: 46px 0 60px;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.scope-bg-glow-bl {
+		position: absolute;
+		left: -60px;
+		bottom: -50px;
+		width: 320px;
+		height: 200px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(215, 245, 249, 0.65) 0%, rgba(215, 245, 249, 0) 70%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.scope-bg-waves-br {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 280px;
+		height: 145px;
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	.scope-legal-container {
-		width: 93%;
-		max-width: 1360px;
+		position: relative;
+		z-index: 2;
+		width: 92%;
+		max-width: 1200px;
 		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	.scope-header {
 		text-align: center;
-		margin-bottom: 34px;
+		margin-bottom: 36px;
 	}
 
 	.scope-badge {
@@ -111,63 +154,86 @@
 
 	.badge-dash {
 		display: inline-block;
-		width: 16px;
+		width: 22px;
 		height: 2px;
-		background: #079ead;
+		background: #00AAB5;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		font-size: 12px;
+		font-size: 11.5px;
 		font-weight: 700;
-		color: #079ead;
-		letter-spacing: 0.8px;
+		color: #00AAB5;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 	}
 
 	.scope-title {
-		font-size: 30px;
+		font-size: 29px;
 		font-weight: 800;
-		color: #082442;
+		color: #092B4A;
 		margin: 0 0 8px;
+		line-height: 1.24;
+		letter-spacing: -0.015em;
 	}
 
 	.scope-sub {
-		font-size: 14.5px;
-		color: #64748b;
+		font-size: 14px;
+		color: #71839A;
 		margin: 0;
+		line-height: 1.5;
 	}
 
 	/* 3 Cards Grid */
 	.scope-grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 24px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 22px;
 	}
 
 	.scope-card {
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
+		position: relative;
+		overflow: hidden;
+		background: #FFFFFF;
+		border: 1px solid #DCE7F1;
 		border-radius: 16px;
-		padding: 28px 24px 22px;
+		padding: 22px 22px 22px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.04);
-		transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-		min-height: 220px;
+		min-height: 218px;
+		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.045);
+		box-sizing: border-box;
+		transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 	}
 
 	.scope-card:hover {
 		transform: translateY(-2px);
-		border-color: #00aab5;
-		box-shadow: 0 10px 26px rgba(0, 170, 181, 0.12);
+		border-color: #00AAB5;
+		box-shadow: 0 12px 28px rgba(0, 170, 181, 0.12);
+	}
+
+	.scope-card-wave {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 24px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.scope-top {
+		position: relative;
+		z-index: 2;
 	}
 
 	.scope-icon-box {
-		width: 46px;
-		height: 46px;
-		border-radius: 10px;
-		background: #eaf7f9;
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		background: #E8F7F9;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -175,48 +241,87 @@
 	}
 
 	.scope-card-title {
-		font-size: 16px;
+		font-size: 15.5px;
 		font-weight: 700;
-		color: #082442;
+		color: #092B4A;
 		line-height: 1.35;
-		margin: 0 0 10px;
+		margin: 0 0 8px;
 	}
 
 	.scope-card-desc {
 		font-size: 13.5px;
-		line-height: 1.6;
-		color: #64748b;
+		line-height: 1.55;
+		color: #71839A;
 		margin: 0;
 	}
 
 	.scope-bottom {
+		position: relative;
+		z-index: 2;
 		display: flex;
 		justify-content: flex-end;
-		margin-top: 22px;
+		margin-top: 18px;
 	}
 
 	.scope-arrow-btn {
-		width: 32px;
-		height: 32px;
+		width: 34px;
+		height: 34px;
 		border-radius: 50%;
-		border: 1.5px solid #00aab5;
-		color: #00aab5;
+		background: #FFFFFF;
+		border: 1.5px solid #00AAB5;
+		color: #00AAB5;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-decoration: none;
-		transition: background 0.2s, color 0.2s, transform 0.2s;
+		transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 	}
 
 	.scope-card:hover .scope-arrow-btn {
-		background: #00aab5;
-		color: #ffffff;
+		background: #00AAB5;
+		color: #FFFFFF;
 		transform: translateX(2px);
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 980px) {
 		.scope-grid {
-			grid-template-columns: 1fr;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.scope-card:last-child {
+			grid-column: 1 / -1;
+			max-width: 460px;
+			width: 100%;
+			justify-self: center;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.scope-legal-section {
+			padding: 36px 0 44px;
+		}
+
+		.scope-title {
+			font-size: 24px;
+		}
+
+		.scope-grid {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 16px;
+		}
+
+		.scope-card {
+			min-height: 0;
+		}
+
+		.scope-card:last-child {
+			grid-column: auto;
+			max-width: none;
+		}
+
+		.scope-bg-waves-br {
+			width: 180px;
+			height: 95px;
 		}
 	}
 </style>
