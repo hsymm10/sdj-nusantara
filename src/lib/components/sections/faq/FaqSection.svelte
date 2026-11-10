@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 	import { faqData, FAQ_CATEGORIES, type FaqItem, type FaqCategory } from '#lib/data/faq';
 	import { chatStore } from '#lib/stores/chat.svelte';
@@ -219,7 +220,11 @@
 
 								<!-- Accordion Answer Panel -->
 								{#if isOpen}
-									<div id="faq-ans-{item.id}" class="faq-answer-panel">
+									<div
+										id="faq-ans-{item.id}"
+										class="faq-answer-panel"
+										transition:slide={{ duration: 220 }}
+									>
 										<p class="faq-answer-text">{item.answer}</p>
 										{#if item.detail && item.detail.length > 0}
 											<ul class="faq-answer-bullets">
@@ -311,21 +316,28 @@
 		box-sizing: border-box;
 	}
 
-	/* 2-COLUMN GRID LAYOUT (Desktop: 380px Sidebar + 1fr Content, Gap 32px) */
+	/* 2-COLUMN GRID LAYOUT (Desktop: 380px Sidebar + minmax(0, 1fr) Content, Gap 32px, Align Start) */
 	.faq-grid-layout {
 		display: grid;
-		grid-template-columns: 380px 1fr;
+		grid-template-columns: 380px minmax(0, 1fr);
 		gap: 32px;
 		align-items: start;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	/* LEFT COLUMN: SIDEBAR CARD */
 	.faq-sidebar-col {
 		position: sticky;
 		top: 68px;
+		width: 100%;
+		min-width: 0;
+		box-sizing: border-box;
 	}
 
 	.faq-sidebar-card {
+		width: 100%;
+		height: auto;
 		background: #FFFFFF;
 		border-radius: 20px;
 		border: 1px solid #DCE7F0;
@@ -402,6 +414,8 @@
 		display: flex;
 		align-items: center;
 		gap: 12px;
+		flex: 1;
+		min-width: 0;
 	}
 
 	:global(.cat-icon) {
@@ -415,7 +429,8 @@
 		font-weight: 600;
 		color: #0B2948;
 		transition: color 0.15s ease;
-		white-space: nowrap;
+		white-space: normal;
+		overflow-wrap: anywhere;
 	}
 
 	.cat-count-badge {
@@ -573,15 +588,23 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		width: 100%;
+		min-width: 0;
+		box-sizing: border-box;
 	}
 
 	/* Accordion Card (Border Radius 16px, Border #DCE7F0) */
 	.faq-card-item {
+		width: 100%;
+		height: auto;
+		min-width: 0;
 		background: #FFFFFF;
 		border: 1px solid #DCE7F0;
 		border-radius: 16px;
-		transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
-		overflow: hidden;
+		box-sizing: border-box;
+		transition: background-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1),
+			border-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1),
+			box-shadow 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 	}
 
 	.faq-card-item:hover {
@@ -596,10 +619,12 @@
 		box-shadow: 0 3px 12px rgba(0, 166, 178, 0.06);
 	}
 
-	/* Trigger Button (Min Height 58px) */
+	/* Trigger Button (Min Height 58px, Height Auto) */
 	.faq-trigger-btn {
 		width: 100%;
+		height: auto;
 		min-height: 58px;
+		min-width: 0;
 		padding: 14px 20px;
 		display: flex;
 		align-items: center;
@@ -617,6 +642,7 @@
 		align-items: center;
 		gap: 14px;
 		flex: 1;
+		min-width: 0;
 	}
 
 	/* Number Badge 01, 02, ... */
@@ -645,6 +671,11 @@
 		font-weight: 700;
 		color: #0B2948;
 		line-height: 1.4;
+		white-space: normal;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+		min-width: 0;
+		flex: 1;
 	}
 
 	.trigger-right {
@@ -663,49 +694,48 @@
 		transform: rotate(180deg);
 	}
 
-	/* Answer Panel with Padding Aligned with Question Text (20px + 34px + 14px = 68px) */
+	/* Answer Panel: Width 100%, Height Auto, Position Static, Consistent Padding */
 	.faq-answer-panel {
-		padding: 2px 24px 20px 68px;
-		animation: expandFadeIn 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-	}
-
-	@keyframes expandFadeIn {
-		from {
-			opacity: 0;
-			transform: translateY(-4px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.faq-answer-panel {
-			animation: none;
-		}
+		width: 100%;
+		height: auto;
+		min-width: 0;
+		position: static;
+		padding: 4px 24px 20px 68px;
+		box-sizing: border-box;
 	}
 
 	.faq-answer-text {
+		width: 100%;
 		font-size: 14.5px;
 		line-height: 1.6;
 		color: #475569;
 		margin: 0;
+		white-space: normal;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+		box-sizing: border-box;
 	}
 
 	.faq-answer-bullets {
+		width: 100%;
 		margin: 10px 0 0;
 		padding-left: 18px;
 		list-style-type: disc;
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
+		box-sizing: border-box;
 	}
 
 	.faq-answer-bullets li {
+		width: 100%;
 		font-size: 13.5px;
 		line-height: 1.55;
 		color: #64748B;
+		white-space: normal;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+		box-sizing: border-box;
 	}
 
 	/* Empty State */
@@ -931,7 +961,7 @@
 	/* RESPONSIVE BREAKPOINTS */
 	@media (max-width: 1024px) {
 		.faq-grid-layout {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 			gap: 28px;
 		}
 
@@ -971,7 +1001,7 @@
 
 		.categories-nav {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: 8px;
 		}
 
@@ -984,7 +1014,7 @@
 		}
 
 		.faq-answer-panel {
-			padding: 2px 16px 16px 54px;
+			padding: 4px 20px 18px 20px;
 		}
 
 		.btn-cta-chat,
@@ -1001,11 +1031,11 @@
 
 	@media (max-width: 480px) {
 		.categories-nav {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 
 		.faq-trigger-btn {
-			padding: 12px 14px;
+			padding: 12px 16px;
 		}
 
 		.faq-number-badge {
@@ -1019,7 +1049,7 @@
 		}
 
 		.faq-answer-panel {
-			padding: 0 14px 14px 14px;
+			padding: 4px 16px 16px 16px;
 		}
 	}
 </style>
