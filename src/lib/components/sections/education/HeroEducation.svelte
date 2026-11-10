@@ -14,33 +14,24 @@
 		<div class="hero-overlay"></div>
 	</div>
 
-	<!-- Single unified bottom wave (continuous white curve + teal/gold ribbons) -->
-	<svg class="hero-bottom-wave" viewBox="0 0 1536 72" fill="none" preserveAspectRatio="none" aria-hidden="true">
+	<!-- Wave decoration bottom-left (Master Reference: HeroAbout) -->
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-edu)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
 		<defs>
-			<linearGradient id="teal-ribbon-left-edu" x1="0" y1="0" x2="1" y2="1">
+			<linearGradient id="teal-grad-edu" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
 				<stop offset="100%" stop-color="#079EAD" />
 			</linearGradient>
-			<linearGradient id="teal-ribbon-right-edu" x1="0" y1="1" x2="1" y2="0">
-				<stop offset="0%" stop-color="#079EAD" />
-				<stop offset="100%" stop-color="#16B6C1" />
-			</linearGradient>
 		</defs>
+	</svg>
 
-		<!-- 1. Left Dark Teal Curve (#0A5E75) -->
-		<path d="M0,0 C90,2 170,22 250,72 L0,72 Z" fill="#0A5E75" />
-
-		<!-- 2. Left Turquoise Ribbon (#16B6C1 -> #079EAD) -->
-		<path d="M0,16 C95,18 190,36 290,72 L0,72 Z" fill="url(#teal-ribbon-left-edu)" />
-
-		<!-- 3. Right Turquoise Wave -->
-		<path d="M1260,72 C1350,56 1445,26 1536,12 L1536,72 Z" fill="url(#teal-ribbon-right-edu)" />
-
-		<!-- 4. Right Gold Ribbon (#F5B331) -->
-		<path d="M1380,72 C1445,62 1495,46 1536,34 L1536,72 Z" fill="#F5B331" />
-
-		<!-- 5. Continuous White Layer (#FFFFFF) - seamless with section below -->
-		<path d="M0,34 C70,20 150,18 230,38 C330,62 490,68 768,68 C1046,68 1210,58 1330,42 C1415,32 1475,38 1536,46 L1536,72 L0,72 Z" fill="#FFFFFF" />
+	<!-- Accent decoration bottom-right (Master Reference: HeroAbout) -->
+	<svg class="hero-swoosh-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
 
 	<div class="hero-container">
@@ -81,13 +72,13 @@
 	.hero-education {
 		position: relative;
 		width: 100%;
-		height: 445px;
+		height: var(--hero-height-desktop, 445px);
 		background: #082442;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-top: 48px;
+		padding-top: var(--navbar-height, 48px);
 		box-sizing: border-box;
 	}
 
@@ -97,7 +88,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		z-index: 1;
+		z-index: var(--z-hero-bg, 1);
 	}
 
 	.hero-img {
@@ -125,25 +116,40 @@
 		);
 	}
 
-	.hero-bottom-wave {
+	.hero-wave {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 100%;
-		height: 72px;
-		z-index: 2;
+		width: 380px;
+		height: 160px;
+		z-index: var(--z-hero-wave, 2);
 		pointer-events: none;
-		display: block;
+	}
+
+	.hero-swoosh-right {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 260px;
+		height: 160px;
+		z-index: var(--z-hero-wave, 2);
+		pointer-events: none;
 	}
 
 	.hero-container {
 		position: relative;
-		z-index: 3;
+		z-index: var(--z-hero-content, 3);
 		width: 100%;
-		max-width: 1200px;
+		max-width: var(--hero-container-max, 1380px);
 		margin: 0 auto;
-		padding: 0 32px;
+		padding: 0 var(--hero-padding-x, 54px);
 		box-sizing: border-box;
+	}
+
+	@media (min-width: 1920px) {
+		.hero-container {
+			max-width: var(--hero-container-max-xl, 1500px);
+		}
 	}
 
 	.hero-text-col {
@@ -277,8 +283,9 @@
 				rgba(8, 36, 66, 0.75) 100%
 			);
 		}
-		.hero-bottom-wave {
-			height: 56px;
+		.hero-wave,
+		.hero-swoosh-right {
+			display: none;
 		}
 	}
 
@@ -287,7 +294,7 @@
 			display: none;
 		}
 		.hero-title {
-			font-size: 28px;
+			font-size: 30px;
 			line-height: 1.25;
 		}
 		.hero-btn-row {

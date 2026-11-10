@@ -16,21 +16,25 @@
 		<div class="hero-gradient-overlay"></div>
 	</div>
 
-	<!-- Continuous bottom wave decoration -->
-	<div class="hero-wave-container" aria-hidden="true">
-		<svg class="hero-wave-svg" viewBox="0 0 1440 85" fill="none" preserveAspectRatio="none">
-			<!-- White base curve cutting left-bottom of hero -->
-			<path d="M0 25C180 25 360 85 640 85H0V25Z" fill="#FFFFFF" />
-			<!-- Dark Teal Wave -->
-			<path d="M0 45C160 45 320 85 520 85H0V45Z" fill="#0A5E75" fill-opacity="0.9" />
-			<!-- Turquoise Ribbon -->
-			<path d="M0 65C120 65 240 85 400 85H0V65Z" fill="#16B6C1" />
+	<!-- Wave decoration bottom-left (Master Reference: HeroAbout) -->
+	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
+		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-legal)" />
+		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
+		<defs>
+			<linearGradient id="teal-grad-legal" x1="0" y1="0" x2="1" y2="1">
+				<stop offset="0%" stop-color="#16B6C1" />
+				<stop offset="100%" stop-color="#079EAD" />
+			</linearGradient>
+		</defs>
+	</svg>
 
-			<!-- Bottom Right Accent Ribbon (Teal & Gold curve) -->
-			<path d="M1440 20C1320 50 1180 75 1020 85H1440V20Z" fill="#16B6C1" fill-opacity="0.85" />
-			<path d="M1440 50C1360 68 1260 80 1140 85H1440V50Z" fill="#F5B331" />
-		</svg>
-	</div>
+	<!-- Accent decoration bottom-right (Master Reference: HeroAbout) -->
+	<svg class="hero-swoosh-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
+		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
+	</svg>
 
 	<!-- Content Container -->
 	<div class="legal-hero-container">
@@ -104,17 +108,18 @@
 		display: block;
 	}
 
-	/* Gradient overlay: Deep solid navy on left fading across right */
+	/* Gradient overlay: Master Reference gradient stops */
 	.hero-gradient-overlay {
 		position: absolute;
 		inset: 0;
 		background: linear-gradient(
 			90deg,
 			#082442 0%,
-			#082442 38%,
-			rgba(8, 36, 66, 0.84) 55%,
-			rgba(8, 36, 66, 0.4) 78%,
-			rgba(8, 36, 66, 0.14) 100%
+			#082442 34%,
+			rgba(8, 36, 66, 0.92) 43%,
+			rgba(8, 36, 66, 0.6) 52%,
+			rgba(8, 36, 66, 0.12) 62%,
+			transparent 72%
 		);
 	}
 
@@ -135,32 +140,34 @@
 	}
 
 	.hero-left-content {
-		max-width: 540px;
+		max-width: 590px;
 	}
 
 	/* Pill Badge */
 	.pill-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: rgba(22, 182, 193, 0.15);
-		border: 1px solid rgba(22, 182, 193, 0.4);
-		padding: 4px 12px;
-		border-radius: 20px;
-		margin-bottom: 16px;
+		gap: 7px;
+		background: rgba(0, 166, 178, 0.18);
+		border: 1px solid rgba(0, 166, 178, 0.5);
+		padding: 4px 14px;
+		border-radius: 999px;
+		margin-top: 6px;
+		margin-bottom: 0.75rem;
 	}
 
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #16b6c1;
+		background: #00A6B2;
 		border-radius: 50%;
 	}
 
 	.pill-text {
 		font-size: 12px;
-		font-weight: 700;
-		color: #16b6c1;
+		font-weight: 600;
+		color: #FFFFFF;
+		letter-spacing: 0.02em;
 	}
 
 	/* Headline */
@@ -169,7 +176,7 @@
 		line-height: 1.18;
 		font-weight: 800;
 		color: #ffffff;
-		margin: 0 0 14px;
+		margin: 0 0 0.85rem 0;
 	}
 
 	.gold-highlight {
@@ -178,11 +185,12 @@
 
 	/* Description */
 	.hero-description {
-		font-size: 14.5px;
-		line-height: 1.6;
-		color: #cbd5e1;
-		margin: 0 0 24px;
-		max-width: 480px;
+		font-size: 14px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0 0 1.5rem 0;
+		max-width: 575px;
+		text-wrap: pretty;
 	}
 
 	/* Buttons Row */
@@ -195,16 +203,19 @@
 	.btn-primary-gold {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 8px;
 		background: #f5b331;
 		color: #082442;
 		font-size: 13.5px;
 		font-weight: 700;
-		padding: 10px 22px;
-		border-radius: 6px;
+		height: 42px;
+		padding: 0 22px;
+		border-radius: 8px;
 		text-decoration: none;
 		transition: background 0.2s, transform 0.2s;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.35);
+		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
+		box-sizing: border-box;
 	}
 
 	.btn-primary-gold:hover {
@@ -215,70 +226,91 @@
 	.btn-outline-white {
 		display: inline-flex;
 		align-items: center;
-		background: transparent;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.08);
 		color: #ffffff;
-		border: 1.5px solid rgba(255, 255, 255, 0.45);
+		border: 1.5px solid rgba(255, 255, 255, 0.65);
 		font-size: 13.5px;
 		font-weight: 600;
-		padding: 9.5px 20px;
-		border-radius: 6px;
+		height: 42px;
+		padding: 0 22px;
+		border-radius: 8px;
 		text-decoration: none;
 		transition: background 0.2s, border-color 0.2s;
+		box-sizing: border-box;
 	}
 
 	.btn-outline-white:hover {
-		background: rgba(255, 255, 255, 0.1);
-		border-color: #ffffff;
+		background: rgba(0, 166, 178, 0.12);
+		border-color: #00A6B2;
 	}
 
-	/* Wave decoration */
-	.hero-wave-container {
+	/* Wave & swoosh decoration matching Master Reference */
+	.hero-wave {
 		position: absolute;
-		left: 0;
-		right: 0;
 		bottom: 0;
-		width: 100%;
-		height: 80px;
+		left: 0;
+		width: 380px;
+		height: 160px;
+		z-index: var(--z-hero-wave, 2);
 		pointer-events: none;
-		z-index: 2;
 	}
 
-	.hero-wave-svg {
-		width: 100%;
-		height: 100%;
-		display: block;
+	.hero-swoosh-right {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 260px;
+		height: 160px;
+		z-index: var(--z-hero-wave, 2);
+		pointer-events: none;
 	}
 
 	@media (max-width: 900px) {
 		.legal-hero {
 			height: auto;
-			padding: 4.5rem 0 3.5rem;
+			padding: 4.5rem 0 3rem;
 		}
 
 		.legal-hero-container {
 			padding: 0 1.5rem;
 		}
 
-		.hero-bg-img {
-			width: 100%;
-			opacity: 0.35;
+		.hero-gradient-overlay {
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.92) 60%,
+				rgba(8, 36, 66, 0.75) 100%
+			);
 		}
 
-		.hero-headline {
-			font-size: 28px;
+		.hero-wave,
+		.hero-swoosh-right {
+			display: none;
 		}
 	}
 
-	@media (max-width: 540px) {
+	@media (max-width: 640px) {
+		.hero-bg-wrap {
+			display: none;
+		}
+
+		.hero-headline {
+			font-size: 30px;
+			line-height: 1.25;
+		}
+
 		.hero-buttons {
 			flex-direction: column;
-			align-items: flex-start;
+			align-items: stretch;
 			gap: 10px;
 		}
 
 		.btn-primary-gold,
 		.btn-outline-white {
 			width: 100%;
+			height: 44px;
 			justify-content: center;
 		}
 	}
