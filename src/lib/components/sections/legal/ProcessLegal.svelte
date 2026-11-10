@@ -102,29 +102,29 @@
 						<!-- Kotak Ikon Mengambang di Sisi Atas Kartu -->
 						<div class="step-icon-box" aria-hidden="true">
 							{#if st.icon === 'message-square'}
-								<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 								</svg>
 							{:else if st.icon === 'search-lines'}
-								<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<circle cx="11" cy="11" r="8" />
 									<path d="m21 21-4.3-4.3" />
 									<path d="M8 9.5h6" />
 									<path d="M8 12.5h4.5" />
 								</svg>
 							{:else if st.icon === 'file-pen'}
-								<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
 									<path d="M14 2v4a2 2 0 0 0 2 2h4" />
 									<path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
 								</svg>
 							{:else if st.icon === 'gears'}
-								<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
 									<circle cx="12" cy="12" r="3" />
 								</svg>
 							{:else}
-								<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<circle cx="12" cy="12" r="10" />
 									<path d="m9 12 2 2 4-4" />
 								</svg>
@@ -140,7 +140,7 @@
 
 					{#if idx < steps.length - 1}
 						<div class="step-arrow-wrap" aria-hidden="true">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00A9B7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M5 12h14" />
 								<path d="m12 5 7 7-7 7" />
 							</svg>
@@ -156,7 +156,7 @@
 	.process-legal-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 16px 0 80px;
+		padding: 8px 0 56px;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
@@ -165,10 +165,10 @@
 		position: absolute;
 		left: -60px;
 		bottom: -50px;
-		width: 420px;
-		height: 280px;
+		width: 340px;
+		height: 220px;
 		border-radius: 50%;
-		background: radial-gradient(circle, rgba(208, 245, 249, 0.72) 0%, rgba(208, 245, 249, 0) 72%);
+		background: radial-gradient(circle, rgba(208, 245, 249, 0.68) 0%, rgba(208, 245, 249, 0) 72%);
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -177,8 +177,8 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 380px;
-		height: 190px;
+		width: 310px;
+		height: 155px;
 		pointer-events: none;
 		z-index: 1;
 	}
@@ -186,8 +186,8 @@
 	.process-legal-container {
 		position: relative;
 		z-index: 2;
-		width: 90%;
-		max-width: 1620px;
+		width: 92%;
+		max-width: 1220px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
@@ -195,34 +195,34 @@
 	.process-box {
 		background: linear-gradient(180deg, #E6F7FA 0%, #F0FAFC 100%);
 		border: 1px solid #D5EEF3;
-		border-radius: 26px;
-		padding: 50px 44px 56px;
-		box-shadow: 0 14px 36px rgba(8, 36, 66, 0.045);
+		border-radius: 24px;
+		padding: 42px 42px 44px;
+		box-shadow: 0 12px 32px rgba(8, 36, 66, 0.045);
 		box-sizing: border-box;
 	}
 
 	.process-header {
 		text-align: center;
-		margin-bottom: 52px;
+		margin-bottom: 40px;
 	}
 
 	.process-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
-		margin-bottom: 10px;
+		gap: 8px;
+		margin-bottom: 8px;
 	}
 
 	.badge-dash {
 		display: inline-block;
-		width: 26px;
+		width: 20px;
 		height: 2px;
 		background: #00A9B7;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		font-size: 13px;
+		font-size: 11.5px;
 		font-weight: 700;
 		color: #00A9B7;
 		letter-spacing: 0.08em;
@@ -230,11 +230,11 @@
 	}
 
 	.process-title {
-		font-size: clamp(26px, 2.1vw, 40px);
+		font-size: clamp(24px, 2.1vw, 31px);
 		font-weight: 800;
 		color: #0B2340;
-		margin: 0 0 12px;
-		line-height: 1.22;
+		margin: 0 0 8px;
+		line-height: 1.24;
 		letter-spacing: -0.015em;
 	}
 
@@ -243,7 +243,7 @@
 	}
 
 	.process-sub {
-		font-size: clamp(14.5px, 0.9vw, 17px);
+		font-size: 14px;
 		color: #475569;
 		margin: 0;
 		line-height: 1.5;
@@ -259,22 +259,22 @@
 			minmax(0, 1fr) auto
 			minmax(0, 1fr);
 		align-items: stretch;
-		gap: clamp(8px, 0.8vw, 14px);
+		gap: 3px;
 	}
 
 	.step-card {
 		position: relative;
-		margin-top: 33px;
-		min-height: 264px;
+		margin-top: 27px;
+		min-height: 222px;
 		background: #FFFFFF;
 		border: 1px solid #E1EEF5;
-		border-radius: 20px;
-		padding: 48px 20px 38px;
+		border-radius: 18px;
+		padding: 40px 18px 26px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		box-shadow: 0 10px 26px rgba(8, 36, 66, 0.05);
+		box-shadow: 0 8px 22px rgba(8, 36, 66, 0.05);
 		box-sizing: border-box;
 		min-width: 0;
 		transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -282,7 +282,7 @@
 
 	.step-card:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 14px 32px rgba(8, 36, 66, 0.08);
+		box-shadow: 0 12px 26px rgba(8, 36, 66, 0.08);
 	}
 
 	.step-card-bg {
@@ -300,24 +300,24 @@
 		right: 0;
 		bottom: 0;
 		width: 100%;
-		height: 38px;
+		height: 32px;
 	}
 
 	/* Kotak Ikon Mengambang di Sisi Atas Kartu */
 	.step-icon-box {
 		position: absolute;
-		top: -33px;
+		top: -27px;
 		left: 50%;
 		transform: translateX(-50%);
-		width: 66px;
-		height: 66px;
-		border-radius: 16px;
+		width: 54px;
+		height: 54px;
+		border-radius: 14px;
 		background: #E8F8FA;
 		border: 1px solid #D3EFF3;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 8px 20px rgba(0, 169, 183, 0.16);
+		box-shadow: 0 6px 16px rgba(0, 169, 183, 0.15);
 		z-index: 3;
 	}
 
@@ -325,28 +325,28 @@
 	.step-num-badge {
 		position: relative;
 		z-index: 2;
-		width: 30px;
-		height: 30px;
+		width: 25px;
+		height: 25px;
 		border-radius: 50%;
 		background: #00A9B7;
 		color: #FFFFFF;
-		font-size: 12.5px;
+		font-size: 11px;
 		font-weight: 800;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 4px 10px rgba(0, 169, 183, 0.28);
-		margin-bottom: 16px;
+		box-shadow: 0 3px 8px rgba(0, 169, 183, 0.28);
+		margin-bottom: 11px;
 	}
 
 	.step-name {
 		position: relative;
 		z-index: 2;
-		font-size: clamp(15px, 0.92vw, 18px);
+		font-size: 14.5px;
 		font-weight: 700;
 		color: #0B2340;
-		margin: 0 0 10px;
-		line-height: 1.35;
+		margin: 0 0 7px;
+		line-height: 1.32;
 		white-space: normal;
 		overflow-wrap: anywhere;
 	}
@@ -354,8 +354,8 @@
 	.step-desc {
 		position: relative;
 		z-index: 2;
-		font-size: clamp(12.5px, 0.78vw, 14.5px);
-		line-height: 1.55;
+		font-size: 12.5px;
+		line-height: 1.48;
 		color: #64748B;
 		margin: 0;
 		white-space: normal;
@@ -366,7 +366,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding-top: 32px;
+		padding-top: 26px;
 		flex-shrink: 0;
 	}
 
