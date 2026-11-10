@@ -32,7 +32,7 @@
 			>
 				<span class="cat-icon-box" aria-hidden="true">
 					{#if cat.icon === 'all'}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
 							<polyline points="14 2 14 8 20 8" />
 							<line x1="16" y1="13" x2="8" y2="13" />
@@ -40,16 +40,16 @@
 							<line x1="10" y1="9" x2="8" y2="9" />
 						</svg>
 					{:else if cat.icon === 'education'}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M3 21h18M5 21V10l7-5 7 5v11M9 21V14h6v7" />
 						</svg>
 					{:else if cat.icon === 'scholarship'}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 10v6M2 10l10-5 10 5-10 5z" />
 							<path d="M6 12v5c3 3 9 3 12 0v-5" />
 						</svg>
 					{:else if cat.icon === 'talent'}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="12" cy="12" r="3" />
 							<circle cx="19" cy="5" r="2" />
 							<circle cx="5" cy="5" r="2" />
@@ -61,20 +61,20 @@
 							<line x1="9.8" y1="14.2" x2="6.5" y2="17.5" />
 						</svg>
 					{:else if cat.icon === 'digital'}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
 							<line x1="8" y1="21" x2="16" y2="21" />
 							<line x1="12" y1="17" x2="12" y2="21" />
 						</svg>
 					{:else if cat.icon === 'partner'}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
 							<circle cx="9" cy="7" r="4" />
 							<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
 							<path d="M16 3.13a4 4 0 0 1 0 7.75" />
 						</svg>
 					{:else}
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
 							<line x1="9" y1="6" x2="9" y2="6.01" />
 							<line x1="15" y1="6" x2="15" y2="6.01" />
@@ -120,12 +120,12 @@
 
 	.category-bar {
 		width: 100%;
-		height: 98px;
+		height: 118px;
 		background: #FFFFFF;
 		border: 1px solid #E2EAF1;
-		border-radius: 20px;
-		padding: 10px 12px;
-		box-shadow: 0 8px 28px rgba(16, 43, 73, 0.06), 0 2px 8px rgba(16, 43, 73, 0.03);
+		border-radius: 26px;
+		padding: 12px 14px;
+		box-shadow: 0 10px 32px rgba(16, 43, 73, 0.075), 0 3px 10px rgba(16, 43, 73, 0.03);
 		display: flex;
 		align-items: center;
 		box-sizing: border-box;
@@ -138,11 +138,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 12px;
-		padding: 8px 12px;
+		gap: 14px;
+		padding: 10px 14px;
 		background: transparent;
 		border: none;
-		border-radius: 15px;
+		border-radius: 17px;
 		color: #102B49;
 		cursor: pointer;
 		transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
@@ -157,7 +157,7 @@
 	.cat-tile.active {
 		background: #08AAB5;
 		color: #FFFFFF;
-		box-shadow: 0 4px 14px rgba(8, 170, 181, 0.24);
+		box-shadow: 0 6px 18px rgba(8, 170, 181, 0.28);
 	}
 
 	.cat-icon-box {
@@ -165,7 +165,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		color: #08AAB5;
+		color: #00AAB5;
 		transition: color 0.2s ease;
 	}
 
@@ -174,9 +174,9 @@
 	}
 
 	.cat-label {
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 1.28;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 1.25;
 		color: inherit;
 		white-space: normal;
 		word-break: break-word;
@@ -188,9 +188,9 @@
 
 	.col-divider {
 		width: 1px;
-		height: 44px;
+		height: 60%;
 		background: #E2EAF1;
-		margin: 0 3px;
+		margin: 0 4px;
 		flex-shrink: 0;
 		transition: opacity 0.2s ease;
 	}
@@ -200,19 +200,20 @@
 	}
 
 	/* Tablet: Pertahankan 1 baris horizontal dengan horizontal scroll halus */
-	@media (max-width: 1180px) {
+	@media (max-width: 1220px) {
 		.category-overlap-wrapper {
 			padding: 0 1.5rem;
 		}
 
 		.category-bar {
 			height: auto;
-			min-height: 78px;
+			min-height: 88px;
+			border-radius: 22px;
 			overflow-x: auto;
 			overflow-y: hidden;
 			scrollbar-width: none;
 			-webkit-overflow-scrolling: touch;
-			padding: 9px 10px;
+			padding: 10px 12px;
 			gap: 4px;
 		}
 
@@ -223,18 +224,19 @@
 		.cat-tile {
 			flex: 0 0 auto;
 			min-width: max-content;
-			height: 58px;
-			padding: 8px 16px;
-			gap: 10px;
+			height: 64px;
+			padding: 8px 18px;
+			border-radius: 15px;
+			gap: 12px;
 		}
 
 		.cat-label {
 			white-space: nowrap;
-			font-size: 13.5px;
+			font-size: 14.5px;
 		}
 
 		.col-divider {
-			height: 30px;
+			height: 36px;
 			margin: 0 2px;
 		}
 	}
@@ -247,26 +249,26 @@
 		}
 
 		.category-bar {
-			min-height: 66px;
-			border-radius: 16px;
-			padding: 7px 8px;
+			min-height: 70px;
+			border-radius: 18px;
+			padding: 8px;
 			scroll-snap-type: x proximity;
 		}
 
 		.cat-tile {
-			height: 50px;
-			padding: 6px 14px;
-			border-radius: 12px;
-			gap: 8px;
+			height: 52px;
+			padding: 6px 15px;
+			border-radius: 13px;
+			gap: 9px;
 			scroll-snap-align: start;
 		}
 
 		.cat-label {
-			font-size: 13px;
+			font-size: 13.5px;
 		}
 
 		.col-divider {
-			height: 24px;
+			height: 26px;
 		}
 	}
 </style>
