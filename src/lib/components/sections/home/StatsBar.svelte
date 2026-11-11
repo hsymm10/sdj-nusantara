@@ -6,10 +6,10 @@
 		<!-- Target Program Label: 2 baris teks tebal yang sama sesuai mockup -->
 		<div class="stats-heading">
 			<span class="heading-line-bold">Target Program</span>
-			<span class="heading-line-bold">Tahun Pertama</span>
+			<span class="heading-line-bold">Tahun 2027</span>
 		</div>
 
-		<!-- Divider 1 (x≈462) -->
+		<!-- Divider 1 -->
 		<div class="stat-divider"></div>
 
 		<!-- Stat 1: 200+ Individu Pemetaan Talenta -->
@@ -32,10 +32,10 @@
 			</div>
 		</div>
 
-		<!-- Divider 2 (x≈717) -->
+		<!-- Divider 2 -->
 		<div class="stat-divider"></div>
 
-		<!-- Stat 2: 12 Kegiatan Sosialisasi Beasiswa -->
+		<!-- Stat 2: 30 Kegiatan Sosialisasi Beasiswa -->
 		<div class="stat-block">
 			<div class="stat-icon-wrap">
 				<!-- Calendar grid outline turquoise ±34px -->
@@ -53,7 +53,7 @@
 				</svg>
 			</div>
 			<div class="stat-details">
-				<span class="stat-num">12</span>
+				<span class="stat-num">30</span>
 				<div class="stat-label">
 					<span class="stat-line">Kegiatan Sosialisasi</span>
 					<span class="stat-line">Beasiswa</span>
@@ -61,10 +61,10 @@
 			</div>
 		</div>
 
-		<!-- Divider 3 (x≈975) -->
+		<!-- Divider 3 -->
 		<div class="stat-divider"></div>
 
-		<!-- Stat 3: 60 Peserta Coaching Intensif -->
+		<!-- Stat 3: 100 Peserta Coaching Intensif -->
 		<div class="stat-block">
 			<div class="stat-icon-wrap">
 				<!-- Graduation Cap outline turquoise ±34px -->
@@ -74,7 +74,7 @@
 				</svg>
 			</div>
 			<div class="stat-details">
-				<span class="stat-num">60</span>
+				<span class="stat-num">100</span>
 				<div class="stat-label">
 					<span class="stat-line">Peserta Coaching</span>
 					<span class="stat-line">Intensif</span>
@@ -82,7 +82,29 @@
 			</div>
 		</div>
 
-		<!-- Divider 4 (x≈1239) -->
+		<!-- Divider 4 -->
+		<div class="stat-divider"></div>
+
+		<!-- Stat 4: 50+ Mitra Strategis Dalam & Luar Negeri -->
+		<div class="stat-block">
+			<div class="stat-icon-wrap">
+				<!-- Globe outline turquoise ±34px -->
+				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="10"></circle>
+					<line x1="2" y1="12" x2="22" y2="12"></line>
+					<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+				</svg>
+			</div>
+			<div class="stat-details">
+				<span class="stat-num">50+</span>
+				<div class="stat-label">
+					<span class="stat-line">Mitra Strategis</span>
+					<span class="stat-line">Dalam & Luar Negeri</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Divider 5 -->
 		<div class="stat-divider"></div>
 
 		<!-- Action Circle Arrow Button: lingkaran putih ±24px dengan ikon panah turquoise dan bayangan lembut -->
@@ -112,13 +134,13 @@
 		border-radius: 20px;
 		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
 		border: 1px solid rgba(226, 232, 240, 0.9);
-		padding: 12px 26px;
+		padding: 12px 22px;
 		min-height: 84px;
 		height: 84px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.5rem;
+		gap: clamp(0.75rem, 1.25vw, 1.25rem);
 		box-sizing: border-box;
 	}
 
@@ -146,7 +168,7 @@
 	.stat-block {
 		display: flex;
 		align-items: center;
-		gap: 0.9rem;
+		gap: 0.75rem;
 		flex: 1;
 		min-width: 0;
 	}
@@ -211,7 +233,7 @@
 		stroke: #FFFFFF !important;
 	}
 
-	@media (max-width: 1099px) {
+	@media (max-width: 1180px) {
 		.stats-wrapper {
 			height: auto;
 			margin: -15px auto 0;
