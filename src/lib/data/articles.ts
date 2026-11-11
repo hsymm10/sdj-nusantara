@@ -13,6 +13,8 @@ export interface Article {
 	penulis: string; // WAJIB DIVERIFIKASI
 	sumber: string; // WAJIB DIVERIFIKASI
 	gambar: string;
+	kutipan?: string;
+	tags?: string[];
 	isFeatured?: boolean;
 	populerRank?: number; // 1, 2, 3, 4 jika artikel terpopuler
 	isLatestPrimary?: boolean; // 6 artikel utama di grid halaman 1 sesuai mockup
@@ -38,6 +40,9 @@ export const articlesData: Article[] = [
 		penulis: 'Konsultan Pendidikan Inklusif SDJNusantara',
 		sumber: 'Jurnal Pedagogi & Kebijakan Pendidikan Indonesia',
 		gambar: '/images/article-card-1.jpg',
+		kutipan:
+			'Pendidikan yang inklusif bukan hanya tentang akses, tetapi tentang memberikan kesempatan yang setara bagi setiap anak untuk berkembang sesuai potensinya.',
+		tags: ['#PendidikanInklusif', '#SekolahRamahAnak', '#PengembanganSiswa'],
 		isLatestPrimary: true
 	},
 	{
