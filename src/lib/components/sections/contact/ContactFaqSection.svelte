@@ -4,4 +4,4 @@
 	import FaqSection from '#lib/components/sections/faq/FaqSection.svelte';
 </script>
 
-<FaqSection />
+<FaqSection showSearch={false} />

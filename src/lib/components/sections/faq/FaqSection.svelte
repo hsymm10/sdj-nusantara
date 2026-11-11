@@ -7,9 +7,11 @@
 
 	let {
 		showCtaBanner = true,
+		showSearch = true,
 		defaultCategory = 'program'
 	}: {
 		showCtaBanner?: boolean;
+		showSearch?: boolean;
 		defaultCategory?: 'program' | 'beasiswa' | 'kemitraan' | 'hukum';
 	} = $props();
 
@@ -110,7 +112,11 @@
 					<div class="sidebar-content">
 						<h3 class="sidebar-title">Cari Informasi dengan Cepat</h3>
 						<p class="sidebar-desc">
-							Pilih kategori pertanyaan sesuai kebutuhan Anda atau gunakan pencarian untuk menemukan jawaban dengan lebih mudah.
+							{#if showSearch}
+								Pilih kategori pertanyaan sesuai kebutuhan Anda atau gunakan pencarian untuk menemukan jawaban dengan lebih mudah.
+							{:else}
+								Pilih kategori pertanyaan sesuai kebutuhan Anda untuk menemukan jawaban dengan lebih mudah.
+							{/if}
 						</p>
 
 						<!-- Categories Nav Stack (Exactly 4 Categories) -->
@@ -136,29 +142,31 @@
 				</div>
 			</aside>
 
-			<!-- RIGHT COLUMN: Search Bar, Category Heading, & Accordion FAQ -->
-			<div class="faq-content-col">
-				<!-- A. Search Bar -->
-				<div class="faq-search-bar">
-					<Icon icon="lucide:search" width="20" height="20" class="search-icon" />
-					<input
-						type="text"
-						bind:value={searchQuery}
-						placeholder="Cari pertanyaan, misalnya 'cara daftar beasiswa'..."
-						class="search-input"
-						aria-label="Cari pertanyaan FAQ"
-					/>
-					{#if searchQuery.trim()}
-						<button
-							type="button"
-							class="search-clear-btn"
-							onclick={clearSearch}
-							aria-label="Hapus kata kunci pencarian"
-						>
-							<Icon icon="lucide:x" width="16" height="16" />
-						</button>
-					{/if}
-				</div>
+			<!-- RIGHT COLUMN: (Optional Search Bar), Category Heading, & Accordion FAQ -->
+			<div class="faq-content-col {showSearch ? '' : 'no-search'}">
+				{#if showSearch}
+					<!-- A. Search Bar -->
+					<div class="faq-search-bar">
+						<Icon icon="lucide:search" width="20" height="20" class="search-icon" />
+						<input
+							type="text"
+							bind:value={searchQuery}
+							placeholder="Cari pertanyaan, misalnya 'cara daftar beasiswa'..."
+							class="search-input"
+							aria-label="Cari pertanyaan FAQ"
+						/>
+						{#if searchQuery.trim()}
+							<button
+								type="button"
+								class="search-clear-btn"
+								onclick={clearSearch}
+								aria-label="Hapus kata kunci pencarian"
+							>
+								<Icon icon="lucide:x" width="16" height="16" />
+							</button>
+						{/if}
+					</div>
+				{/if}
 
 				<!-- B. Category Heading with Teal Dash -->
 				<div class="faq-header-row">
@@ -167,7 +175,7 @@
 						<h2 id="faq-section-heading" class="faq-heading-text">{headingTitle}</h2>
 					</div>
 
-					{#if searchQuery.trim()}
+					{#if showSearch && searchQuery.trim()}
 						<button type="button" class="btn-clear-search-link" onclick={clearSearch}>
 							Hapus pencarian
 						</button>
@@ -554,7 +562,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 12px;
 		margin: 26px 0 18px;
+	}
+
+	.faq-content-col.no-search .faq-header-row {
+		margin: 0 0 18px;
+		padding: 4px 0 14px;
+		border-bottom: 1px solid #DCE7F0;
 	}
 
 	.header-title-wrap {
@@ -1056,6 +1071,11 @@
 
 		.faq-header-row {
 			margin: 20px 0 14px;
+		}
+
+		.faq-content-col.no-search .faq-header-row {
+			margin: 0 0 14px;
+			padding: 0 0 12px;
 		}
 
 		.faq-heading-text {
