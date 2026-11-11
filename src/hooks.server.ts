@@ -1,7 +1,13 @@
 import { redirect } from '@sveltejs/kit';
+import { serviceConfig } from '#lib/config/services';
 
 export async function handle({ event, resolve }: { event: any; resolve: any }) {
 	const pathname = event.url.pathname;
+
+	// Redirect sementara apabila modul Layanan Hukum dinonaktifkan
+	if (!serviceConfig.legal && (pathname === '/layanan/hukum' || pathname.startsWith('/layanan/hukum/'))) {
+		throw redirect(307, '/layanan');
+	}
 
 	// Redirect permanen (301) untuk rute program lama
 	if (pathname === '/program' || pathname === '/program/') {

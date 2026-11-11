@@ -4,6 +4,7 @@
 import { allKnowledge } from '../../data/knowledge/index.js';
 import { expandSynonyms } from '../../data/knowledge/synonyms.js';
 import { CHATBOT_POLICIES, FORBIDDEN_WORDS } from '../../data/knowledge/policies.js';
+import { serviceConfig } from '../../config/services.ts';
 
 /**
  * Normalisasi string: huruf kecil, hapus karakter khusus selain spasi dan alfanumerik
@@ -83,15 +84,16 @@ function checkSpecialPolicyIntents(query) {
 		};
 	}
 
-	// 3. Deteksi pertanyaan layanan hukum
+	// 3. Deteksi pertanyaan layanan hukum (aktif hanya jika serviceConfig.legal bernilai true)
 	if (
-		q.includes('layanan hukum') ||
-		q.includes('konsultasi hukum') ||
-		q.includes('bantuan hukum') ||
-		q.includes('advokat') ||
-		q.includes('pengacara') ||
-		q.includes('kasus hukum') ||
-		q.includes('perkara hukum')
+		serviceConfig.legal &&
+		(q.includes('layanan hukum') ||
+			q.includes('konsultasi hukum') ||
+			q.includes('bantuan hukum') ||
+			q.includes('advokat') ||
+			q.includes('pengacara') ||
+			q.includes('kasus hukum') ||
+			q.includes('perkara hukum'))
 	) {
 		const hukumEntry = allKnowledge.find((k) => k.id === 'hukum-layanan-regulasi');
 		if (hukumEntry) {

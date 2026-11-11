@@ -2,13 +2,16 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import FaqSection from '#lib/components/sections/faq/FaqSection.svelte';
+	import { serviceConfig } from '#lib/config/services';
 </script>
 
 <svelte:head>
 	<title>Pertanyaan yang Sering Diajukan (FAQ) — SDJNusantara</title>
 	<meta
 		name="description"
-		content="Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, kemitraan institusi, dan layanan hukum SDJNusantara."
+		content={serviceConfig.legal
+			? 'Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, kemitraan institusi, dan layanan hukum SDJNusantara.'
+			: 'Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, dan kemitraan institusi SDJNusantara.'}
 	/>
 </svelte:head>
 

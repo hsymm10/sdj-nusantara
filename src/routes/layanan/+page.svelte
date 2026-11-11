@@ -6,12 +6,14 @@
 	import { chatStore } from '#lib/stores/chat.svelte';
 	import { pendidikanKnowledge } from '#lib/data/knowledge/pendidikan';
 	import { beasiswaKnowledge } from '#lib/data/knowledge/beasiswa';
+	import { serviceConfig } from '#lib/config/services';
 
 	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
 	let openFaq = $state<number | null>(0);
 	let tabCardEl = $state<HTMLElement | null>(null);
 
 	function setTab(tab: 'semua' | 'program' | 'beasiswa' | 'hukum') {
+		if (tab === 'hukum' && !serviceConfig.legal) return;
 		activeTab = tab;
 	}
 
@@ -63,7 +65,9 @@
 	<title>Portofolio Layanan — SDJNusantara Strategic Your Partner</title>
 	<meta
 		name="description"
-		content="SDJNusantara menyediakan berbagai layanan pendidikan, program beasiswa, dan layanan hukum untuk mendukung potensi individu dan institusi."
+		content={serviceConfig.legal
+			? 'SDJNusantara menyediakan berbagai layanan pendidikan, program beasiswa, dan layanan hukum untuk mendukung potensi individu dan institusi.'
+			: 'SDJNusantara menyediakan berbagai layanan pendidikan, pengembangan talenta, dan program beasiswa untuk mendukung potensi individu dan institusi.'}
 	/>
 	<link rel="canonical" href="https://sdjnusantara.com/layanan" />
 </svelte:head>
@@ -128,7 +132,11 @@
 
 				<!-- Deskripsi putih ±14px 3 baris max-width ±540px -->
 				<p class="hero-desc">
-					SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, beasiswa, dan layanan hukum untuk mendukung potensi terbaik Anda.
+					{#if serviceConfig.legal}
+						SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, beasiswa, dan layanan hukum untuk mendukung potensi terbaik Anda.
+					{:else}
+						SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, dan beasiswa untuk mendukung potensi terbaik Anda.
+					{/if}
 				</p>
 
 				<!-- Tombol aksi ramping: emas "Jelajahi Layanan →" ±150x40px, outline putih ±195x40px -->
@@ -220,28 +228,30 @@
 					<span class="tab-label">Beasiswa</span>
 				</button>
 
-				<div class="tab-vdivider" aria-hidden="true"></div>
+				{#if serviceConfig.legal}
+					<div class="tab-vdivider" aria-hidden="true"></div>
 
-				<!-- Tab 4: Layanan Hukum -->
-				<button
-					type="button"
-					role="tab"
-					data-tab="hukum"
-					class="tab-btn {activeTab === 'hukum' ? 'active' : ''}"
-					aria-selected={activeTab === 'hukum'}
-					onclick={() => setTab('hukum')}
-				>
-					<span class="tab-icon" aria-hidden="true">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-							<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-							<path d="M7 21h10"></path>
-							<path d="M12 3v18"></path>
-							<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
-						</svg>
-					</span>
-					<span class="tab-label">Layanan Hukum</span>
-				</button>
+					<!-- Tab 4: Layanan Hukum -->
+					<button
+						type="button"
+						role="tab"
+						data-tab="hukum"
+						class="tab-btn {activeTab === 'hukum' ? 'active' : ''}"
+						aria-selected={activeTab === 'hukum'}
+						onclick={() => setTab('hukum')}
+					>
+						<span class="tab-icon" aria-hidden="true">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+								<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+								<path d="M7 21h10"></path>
+								<path d="M12 3v18"></path>
+								<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+							</svg>
+						</span>
+						<span class="tab-label">Layanan Hukum</span>
+					</button>
+				{/if}
 			</div>
 		</div>
 	</section>
@@ -342,7 +352,7 @@
 			</svg>
 		{/snippet}
 		<div class="hub-container">
-			<div class="cards-grid {activeTab !== 'semua' ? 'single-filtered' : ''}">
+			<div class="cards-grid {activeTab !== 'semua' ? 'single-filtered' : !serviceConfig.legal ? 'two-services' : ''}">
 				<!-- KARTU 1: Program Pendidikan -->
 				{#if activeTab === 'semua' || activeTab === 'program'}
 					<article class="service-card card-program">
@@ -495,7 +505,7 @@
 
 				<!-- KARTU 3: Layanan Hukum -->
 				<!-- WAJIB DIVERIFIKASI pemilik: ruang lingkup layanan hukum dan izin/legalitas praktik (content-master tidak memuat layanan hukum) -->
-				{#if activeTab === 'semua' || activeTab === 'hukum'}
+				{#if serviceConfig.legal && (activeTab === 'semua' || activeTab === 'hukum')}
 					<article class="service-card card-hukum">
 						<div class="card-body">
 							<div>
@@ -1676,6 +1686,33 @@
 		margin: 0;
 	}
 
+	/* Tata letak penuh seimbang saat hanya 2 layanan aktif (tanpa slot kosong bekas Layanan Hukum) */
+	.cards-grid.two-services .why-us-card {
+		grid-column: 1 / -1;
+		flex-direction: row;
+		align-items: center;
+		gap: 36px;
+		min-height: 210px;
+		padding: 30px 36px;
+	}
+
+	.cards-grid.two-services .why-header {
+		flex: 0 0 34%;
+	}
+
+	.cards-grid.two-services .why-desc {
+		margin-bottom: 0;
+	}
+
+	.cards-grid.two-services .why-tiles-row {
+		flex: 1;
+		gap: 16px;
+	}
+
+	.cards-grid.two-services .why-tile {
+		min-height: 142px;
+	}
+
 	/* ==========================================
 	     5. PERTANYAAN UMUM (FAQ)
 	     ========================================== */
@@ -2020,6 +2057,16 @@
 			margin: 0;
 			border-radius: 0;
 		}
+
+		.cards-grid.two-services .why-us-card {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 18px;
+		}
+
+		.cards-grid.two-services .why-header {
+			flex: none;
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -2175,11 +2222,19 @@
 			font-size: 14px;
 		}
 
-		.why-us-card {
+		.why-us-card,
+		.cards-grid.two-services .why-us-card {
 			height: auto;
 			min-height: 0;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 18px;
 			padding: 22px 18px;
 			border-radius: 20px;
+		}
+
+		.cards-grid.two-services .why-header {
+			flex: none;
 		}
 
 		.why-tiles-row {

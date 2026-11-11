@@ -1,11 +1,13 @@
 // src/lib/config/navigation.ts
 // Sumber konfigurasi navigasi terpusat SDJNusantara
+import { serviceConfig, type ServiceModuleKey } from './services';
 
 export interface NavSubItem {
 	label: string;
 	href: string;
 	description: string;
 	iconType: 'education' | 'legal';
+	serviceKey?: ServiceModuleKey;
 	isComingSoon?: boolean;
 	badge?: string;
 }
@@ -17,6 +19,25 @@ export interface NavItem {
 	children?: NavSubItem[];
 }
 
+const allServiceSubItems: NavSubItem[] = [
+	{
+		label: 'Pendidikan',
+		href: '/layanan/pendidikan',
+		description: 'Program, beasiswa, dan pengembangan talenta',
+		iconType: 'education',
+		serviceKey: 'education'
+	},
+	{
+		label: 'Hukum',
+		href: '/layanan/hukum',
+		description: 'Layanan hukum dan pendampingan',
+		iconType: 'legal',
+		serviceKey: 'legal',
+		isComingSoon: true,
+		badge: 'Segera hadir'
+	}
+];
+
 export const navItems: NavItem[] = [
 	{ label: 'Beranda', href: '/' },
 	{ label: 'Tentang Kami', href: '/tentang-kami' },
@@ -24,22 +45,9 @@ export const navItems: NavItem[] = [
 		label: 'Layanan',
 		href: '/layanan',
 		hasDropdown: true,
-		children: [
-			{
-				label: 'Pendidikan',
-				href: '/layanan/pendidikan',
-				description: 'Program, beasiswa, dan pengembangan talenta',
-				iconType: 'education'
-			},
-			{
-				label: 'Hukum',
-				href: '/layanan/hukum',
-				description: 'Layanan hukum dan pendampingan',
-				iconType: 'legal',
-				isComingSoon: true,
-				badge: 'Segera hadir'
-			}
-		]
+		children: allServiceSubItems.filter(
+			(sub) => !sub.serviceKey || serviceConfig[sub.serviceKey]
+		)
 	},
 	{ label: 'Kemitraan', href: '/kemitraan' },
 	{ label: 'Artikel & Wawasan', href: '/artikel' },

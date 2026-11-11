@@ -4,6 +4,7 @@
 	import Icon from '@iconify/svelte';
 	import { faqData, FAQ_CATEGORIES, type FaqItem, type FaqCategory } from '#lib/data/faq';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { serviceConfig } from '#lib/config/services';
 
 	let {
 		showCtaBanner = true,
@@ -21,9 +22,15 @@
 	let openItemId = $state<string | null>('faq-01'); // First item open by default
 	let sidebarHeight = $state(0);
 
+	const visibleCategories = $derived(
+		FAQ_CATEGORIES.filter((cat) => serviceConfig.legal || cat.id !== 'hukum')
+	);
+
 	onMount(() => {
 		if (defaultCategory && defaultCategory !== 'program') {
-			selectedCategory = defaultCategory;
+			if (defaultCategory !== 'hukum' || serviceConfig.legal) {
+				selectedCategory = defaultCategory;
+			}
 		}
 	});
 
@@ -63,6 +70,7 @@
 	});
 
 	function selectCategory(catId: 'program' | 'beasiswa' | 'kemitraan' | 'hukum') {
+		if (catId === 'hukum' && !serviceConfig.legal) return;
 		selectedCategory = catId;
 		const items = faqData.filter((item) => item.isActive && item.categories.includes(catId));
 		if (items.length > 0) {
@@ -119,9 +127,9 @@
 							{/if}
 						</p>
 
-						<!-- Categories Nav Stack (Exactly 4 Categories) -->
+						<!-- Categories Nav Stack -->
 						<nav class="categories-nav" aria-label="Kategori FAQ">
-							{#each FAQ_CATEGORIES as cat (cat.id)}
+							{#each visibleCategories as cat (cat.id)}
 								{@const isActive = selectedCategory === cat.id}
 								{@const count = categoryCounts[cat.id] ?? cat.count}
 								<button

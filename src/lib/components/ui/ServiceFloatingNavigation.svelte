@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { serviceConfig } from '#lib/config/services';
 
 	export type ServiceKey = 'all' | 'education' | 'scholarship' | 'legal';
 
@@ -14,7 +15,7 @@
 		const path = page.url.pathname;
 		if (path.startsWith('/layanan/pendidikan')) return 'education';
 		if (path.startsWith('/layanan/beasiswa') || path.startsWith('/beasiswa')) return 'scholarship';
-		if (path.startsWith('/layanan/hukum')) return 'legal';
+		if (serviceConfig.legal && path.startsWith('/layanan/hukum')) return 'legal';
 		return 'all';
 	});
 
@@ -24,12 +25,21 @@
 		href: string;
 	}
 
-	const navItems: NavItem[] = [
+	const allNavItems: NavItem[] = [
 		{ key: 'all', name: 'Semua Layanan', href: '/layanan' },
 		{ key: 'education', name: 'Program Pendidikan', href: '/layanan/pendidikan' },
 		{ key: 'scholarship', name: 'Beasiswa', href: '/layanan/beasiswa' },
 		{ key: 'legal', name: 'Layanan Hukum', href: '/layanan/hukum' }
 	];
+
+	const navItems = $derived(
+		allNavItems.filter((item) => {
+			if (item.key === 'education') return serviceConfig.education;
+			if (item.key === 'scholarship') return serviceConfig.scholarship;
+			if (item.key === 'legal') return serviceConfig.legal;
+			return true;
+		})
+	);
 
 	let navCardEl = $state<HTMLElement | null>(null);
 

@@ -7,6 +7,7 @@ import { beasiswaKnowledge } from './beasiswa.js';
 import { programKnowledge } from './program.js';
 import { faqKnowledge } from './faq.js';
 import { hukumKnowledge } from './hukum.js';
+import { serviceConfig } from '../../config/services.ts';
 import { FORBIDDEN_WORDS, CHATBOT_POLICIES, validateContentPolicy } from './policies.js';
 import { SYNONYMS_MAP, expandSynonyms } from './synonyms.js';
 
@@ -43,7 +44,7 @@ export const knowledgeEntries = [
 	...beasiswaKnowledge,
 	...programKnowledge,
 	...faqKnowledge,
-	...hukumKnowledge
+	...(serviceConfig.legal ? hukumKnowledge : [])
 ];
 
 export const allKnowledge = knowledgeEntries;
