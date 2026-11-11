@@ -8,3 +8,4 @@ export const serviceConfig = {
 } as const;
 
 export type ServiceModuleKey = keyof typeof serviceConfig;
+
