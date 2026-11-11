@@ -1,78 +1,75 @@
-// WAJIB DIGANTI data tim aktual dengan persetujuan publikasi (content-master bagian 2 dan 15: nama, jabatan, foto resmi, biografi). Jangan tayang dengan isPlaceholder true.
 
-/**
- * Catatan: Foto saat ini merupakan potret fiktif profesional & siluet netral sementara untuk keperluan tata letak desain.
- * Dilarang meniru wajah orang sungguhan, seragam kedinasan, jubah/toga hakim, atau atribut kenegaraan.
- */
 
 export const leadersData = [
 	{
 		id: 'dirut',
-		nama: 'Nama Direktur Utama',
-		jabatan: 'Direktur Utama',
-		jabatanDetail: 'Direktur Utama SDJNusantara',
-		foto: '/images/leaders/leader-1.webp',
-		fotoAlt: 'Potret Direktur Utama SDJNusantara',
+		nama: 'Muhammad Setiawan S Dj, B.A., S.Psi., S.H., M.Si., M.H.',
+		jabatan: 'President Director',
+		jabatanDetail: 'President Director',
+		foto: '/images/leaders/gambar1.png',
+		fotoAlt: 'Potret Muhammad Setiawan S Dj, President Director SDJNusantara',
 		profilSingkat:
-			'Memimpin arah strategis, kemitraan institusional, dan tata kelola terpadu SDJNusantara dalam mewujudkan talenta berdaya saing global.',
-		pendidikan: 'Magister Manajemen / Kepemimpinan Strategis',
+			'Muhammad Setiawan S Dj adalah profesional dengan pengalaman lebih dari satu dekade dalam kebijakan publik, pendidikan tinggi, pengembangan sumber daya manusia, inovasi, dan pengelolaan program strategis.\n\nBerbekal latar belakang multidisiplin dalam psikologi, ilmu sosial, kajian intelijen strategis, dan hukum, ia memiliki pendekatan kepemimpinan yang analitis, adaptif, serta berorientasi pada pemecahan masalah dan pencapaian hasil.\n\nPengalaman profesionalnya mencakup sektor pemerintahan, swasta, dan lembaga legislatif. Pengalaman lintas sektor tersebut membentuk pemahaman yang kuat terhadap dinamika kebijakan, organisasi, tata kelola, pengembangan talenta, serta pentingnya membangun kolaborasi yang efektif di antara berbagai pemangku kepentingan.\n\nSepanjang perjalanan kariernya, ia terlibat dalam berbagai inisiatif di bidang pendidikan, inovasi, pengembangan sumber daya manusia, penguatan kapasitas kelembagaan, dan agenda pembangunan strategis.\n\nSebagai Pendiri dan Direktur Utama perusahaan, ia memimpin arah pengembangan perusahaan dengan fokus pada strategi, pengembangan manusia, pendidikan, dan penguatan kelembagaan. Ia meyakini bahwa pertumbuhan yang berkelanjutan lahir dari perpaduan antara strategi yang tepat, manusia yang berkualitas, tata kelola yang baik, dan kolaborasi yang mampu mengubah gagasan menjadi dampak nyata.',
+		pendidikan: 'B.A., S.Psi., S.H., M.Si., M.H.',
 		pengalaman: [
-			'Kepemimpinan strategis organisasi & tata kelola program',
-			'Pengembangan jejaring kemitraan dan diplomasi pendidikan global',
-			'Inisiasi program akselerasi kapabilitas generasi muda'
+			'Lebih dari satu dekade dalam kebijakan publik, pendidikan tinggi, pengembangan SDM, inovasi, dan pengelolaan program strategis',
+			'Pengalaman lintas sektor di pemerintahan, swasta, dan lembaga legislatif',
+			'Pendiri dan Direktur Utama dengan fokus pada strategi, pengembangan manusia, pendidikan, dan penguatan kelembagaan'
 		],
-		isPlaceholder: true
+		isPlaceholder: false
 	},
 	{
-		id: 'manajer-ops',
-		nama: 'Nama Manajer Operasional & Program',
-		jabatan: 'Manajer Operasional & Program',
-		jabatanDetail: 'Manajer Operasional & Manajemen Program',
-		foto: '/images/leaders/leader-2.webp',
-		fotoAlt: 'Potret Manajer Operasional & Program SDJNusantara',
+		id: 'senior-advisor-strategic',
+		nama: 'Mayjen TNI (Purn.) Dr. Ir. Pujo Widodo',
+		jabatan: 'Senior Advisor — Strategic Affairs & Institutional Relations',
+		jabatanDetail: 'Senior Advisor — Strategic Affairs & Institutional Relations',
+		foto: '/images/leaders/gambar2.png',
+		fotoAlt: 'Potret Mayjen TNI (Purn.) Dr. Ir. Pujo Widodo, Senior Advisor SDJNusantara',
 		profilSingkat:
-			'Mengorkestrasi eksekusi operasional lintas divisi, penjaminan mutu program, serta efisiensi implementasi kegiatan institusi.',
-		pendidikan: 'Magister Administrasi Publik / Manajemen Operasional',
+			'Mayjen TNI (Purn.) Dr. Ir. Pujo Widodo merupakan profesional senior dengan pengalaman panjang dalam bidang strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, serta pendidikan tinggi.\n\nSepanjang perjalanan kariernya, ia telah menjalankan berbagai penugasan strategis di dalam dan luar negeri, termasuk bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional. Pengalaman tersebut membentuk perspektif yang kuat dalam membaca dinamika lingkungan strategis, mengelola risiko, membangun jejaring kelembagaan, serta merumuskan pendekatan yang terukur dalam menghadapi berbagai tantangan organisasi.\n\nIa juga memiliki latar belakang pendidikan yang luas dan multidisiplin, mencakup bidang ekonomi, hukum, teknik industri, pertahanan, intelijen strategis, hukum internasional, serta strategi global.\n\nSebagai Penasihat Senior Bidang Strategis dan Hubungan Kelembagaan PT Sampurna Djaya Nusantara, ia memberikan pandangan dan pertimbangan strategis kepada pimpinan perusahaan dalam pengembangan arah organisasi, penguatan hubungan kelembagaan, pengelolaan risiko, kepemimpinan, serta pengembangan kerja sama yang mendukung pertumbuhan perusahaan secara berkelanjutan.',
+		pendidikan:
+			'Ekonomi, Hukum, Teknik Industri, Pertahanan, Intelijen Strategis, Hukum Internasional & Strategi Global',
 		pengalaman: [
-			'Manajemen proyek skala nasional dan operasional multi-stakeholder',
-			'Pengembangan SOP dan sistem pemantauan mutu layanan',
-			'Koordinasi integrasi program pembinaan dan sertifikasi'
+			'Berbagai penugasan strategis di dalam dan luar negeri dalam bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional',
+			'Strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, dan pendidikan tinggi',
+			'Penasihat Senior Bidang Strategis dan Hubungan Kelembagaan PT Sampurna Djaya Nusantara'
 		],
-		isPlaceholder: true
+		isPlaceholder: false
 	},
 	{
-		id: 'kadiv-talent',
-		nama: 'Nama Kepala Divisi Talent Management',
-		jabatan: 'Kepala Divisi Talent Management',
-		jabatanDetail: 'Kepala Divisi Talent Management & Pengembangan Karir',
-		foto: '/images/leaders/leader-3.webp',
-		fotoAlt: 'Potret Kepala Divisi Talent Management SDJNusantara',
+		id: 'senior-advisor-business',
+		nama: 'Dr. Devi Erna Rachmawati, S.E., M.B.A., Ph.D.',
+		jabatan: 'Senior Advisor — Business Development & Strategic Partnerships',
+		jabatanDetail: 'Senior Advisor — Business Development & Strategic Partnerships',
+		foto: '/images/leaders/gambar3.png',
+		fotoAlt: 'Potret Dr. Devi Erna Rachmawati, Senior Advisor SDJNusantara',
 		profilSingkat:
-			'Fokus pada kurasi, pemetaan potensi talenta muda, pemodelan kompetensi masa depan, serta pembinaan karir profesional berkelanjutan.',
-		pendidikan: 'Sarjana / Magister Psikologi Industri & SDM',
+			'Dr. Devi Erna Rachmawati merupakan profesional dan wirausaha dengan pengalaman luas dalam pengembangan bisnis, kemitraan strategis, perdagangan, jejaring industri, serta pengembangan organisasi.\n\nIa memiliki latar belakang pendidikan di bidang ekonomi, manajemen bisnis, dan studi ekonomi Asia Timur. Pendidikan doktoralnya ditempuh di Yamaguchi University, Jepang, dengan capaian akademik yang sangat baik.\n\nSepanjang perjalanan profesionalnya, ia telah membangun dan memimpin berbagai kegiatan usaha serta aktif dalam sejumlah organisasi bisnis dan jejaring perdagangan, baik di tingkat nasional maupun internasional. Pengalamannya mencakup pengembangan perusahaan, kewirausahaan, perdagangan dan investasi, penguatan jejaring industri, serta pembangunan hubungan strategis dengan berbagai pemangku kepentingan.\n\nIa juga memiliki pengalaman di sektor pemerintahan dan pendidikan, yang memperkaya perspektifnya dalam memahami hubungan antara dunia usaha, kebijakan, pengembangan sumber daya manusia, dan kebutuhan pasar.\n\nSebagai Penasihat Senior Bidang Pengembangan Bisnis dan Kemitraan Strategis di perusahaan ini, ia memberikan pandangan dan masukan strategis dalam pengembangan peluang usaha, perluasan jejaring, pembangunan kemitraan, serta identifikasi peluang kolaborasi yang mendukung pertumbuhan perusahaan secara berkelanjutan.\n\nIa meyakini bahwa pertumbuhan bisnis yang kuat dibangun melalui kemampuan membaca peluang, membangun kepercayaan, memperluas jejaring, dan menciptakan kolaborasi yang memberikan nilai bagi seluruh pihak.',
+		pendidikan:
+			'S.E., M.B.A., Ph.D. — Ekonomi, Manajemen Bisnis & Studi Ekonomi Asia Timur (Yamaguchi University, Jepang)',
 		pengalaman: [
-			'Pemetaan talenta digital dan kompetensi profesional muda',
-			'Penyusunan kurikulum mentoring dan coaching eksekutif',
-			'Penyaluran dan jejaring alumni program pengembangan'
+			'Pengembangan usaha, kewirausahaan, perdagangan, investasi, dan jejaring organisasi bisnis nasional maupun internasional',
+			'Pengalaman di sektor pemerintahan dan pendidikan terkait kebijakan, pengembangan SDM, dan kebutuhan pasar',
+			'Penasihat Senior Bidang Pengembangan Bisnis dan Kemitraan Strategis'
 		],
-		isPlaceholder: true
+		isPlaceholder: false
 	},
 	{
-		id: 'kadiv-scholarship',
-		nama: 'Nama Kepala Divisi Scholarship',
-		jabatan: 'Kepala Divisi Scholarship',
-		jabatanDetail: 'Kepala Divisi Scholarship & Edukasi Global',
-		foto: '/images/leaders/leader-4.webp?v=2',
-		fotoAlt: 'Potret Kepala Divisi Scholarship SDJNusantara',
+		id: 'director-education',
+		nama: 'Hanif Hidayatullah, S.Hum., M.A',
+		jabatan: 'Director of Education',
+		jabatanDetail: 'Director of Education',
+		foto: '/images/leaders/gambar4.png',
+		fotoAlt: 'Potret Hanif Hidayatullah, Director of Education SDJNusantara',
 		profilSingkat:
-			'Mengelola program kurasi beasiswa prestisius, bimbingan persiapan studi lanjut, dan kolaborasi dengan penyedia beasiswa global.',
-		pendidikan: 'Magister Pendidikan Internasional / Hubungan Internasional',
+			'Hanif Hidayatullah adalah seorang peneliti dan pengajar di kampus, pesantren dan lembaga pendidikan lainnya. Ia merupakan Direktur Bidang Pendidikan SDJNusantara.\n\nIa terlibat aktif dalam isu-isu seputar Ekonomi Politik, Kepemimpinan dan Keorganisasian.',
+		pendidikan: 'S.Hum., M.A.',
 		pengalaman: [
-			'Pengelolaan pendampingan beasiswa LPDP, Chevening, AAS, dan MEXT',
-			'Kemitraan institusi universitas top dunia dan konsorsium beasiswa',
-			'Penyusunan strategi seleksi dan penguatan proposal studi'
+			'Peneliti dan pengajar di kampus, pesantren, dan lembaga pendidikan lainnya',
+			'Direktur Bidang Pendidikan SDJNusantara',
+			'Aktif dalam isu-isu seputar Ekonomi Politik, Kepemimpinan, dan Keorganisasian'
 		],
-		isPlaceholder: true
+		isPlaceholder: false
 	},
 	{
 		id: 'kadiv-training',

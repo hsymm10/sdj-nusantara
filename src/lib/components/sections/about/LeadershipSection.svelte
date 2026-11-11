@@ -458,10 +458,22 @@
 								draggable="false"
 							>
 								<div class="photo-wrapper {isCenter ? 'center-photo' : ''}">
-									<picture>
-										<source srcset={leader.foto} type="image/webp" />
+									{#if leader.foto.includes('.webp')}
+										<picture>
+											<source srcset={leader.foto} type="image/webp" />
+											<img
+												src={leader.foto.replace('.webp', '.jpg')}
+												alt={leader.fotoAlt}
+												class="leader-photo"
+												loading="lazy"
+												width="210"
+												height="280"
+												draggable="false"
+											/>
+										</picture>
+									{:else}
 										<img
-											src={leader.foto.replace('.webp', '.jpg')}
+											src={leader.foto}
 											alt={leader.fotoAlt}
 											class="leader-photo"
 											loading="lazy"
@@ -469,7 +481,7 @@
 											height="280"
 											draggable="false"
 										/>
-									</picture>
+									{/if}
 
 									<!-- Data Contoh Badge: top-left position to leave faces unobstructed -->
 									{#if leader.isPlaceholder}

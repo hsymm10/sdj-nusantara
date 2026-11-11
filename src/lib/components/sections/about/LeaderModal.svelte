@@ -201,16 +201,26 @@
 				<!-- Left Column: Portrait Photo -->
 				<div class="left-col">
 					<div class="photo-frame">
-						<picture>
-							<source srcset={leader.foto} type="image/webp" />
+						{#if leader.foto.includes('.webp')}
+							<picture>
+								<source srcset={leader.foto} type="image/webp" />
+								<img
+									src={leader.foto.replace('.webp', '.jpg')}
+									alt={leader.fotoAlt}
+									class="modal-photo"
+									width="246"
+									height="305"
+								/>
+							</picture>
+						{:else}
 							<img
-								src={leader.foto.replace('.webp', '.jpg')}
+								src={leader.foto}
 								alt={leader.fotoAlt}
 								class="modal-photo"
 								width="246"
 								height="305"
 							/>
-						</picture>
+						{/if}
 					</div>
 				</div>
 
@@ -246,9 +256,11 @@
 					<!-- Short Bio -->
 					<div class="bio-section">
 						<h3 class="bio-title">Profil Singkat</h3>
-						<p id="leader-modal-desc" class="bio-text">
-							{leader.profilSingkat}
-						</p>
+						<div id="leader-modal-desc" class="bio-paragraphs">
+							{#each leader.profilSingkat.split(/\n\s*\n/) as paragraph}
+								<p class="bio-text">{paragraph}</p>
+							{/each}
+						</div>
 					</div>
 
 					<!-- Info Rows (Pendidikan & Jabatan) -->
@@ -559,16 +571,17 @@
 		margin: 0 0 5px 0;
 	}
 
+	.bio-paragraphs {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
 	.bio-text {
 		font-size: 13.5px;
-		line-height: 1.5;
+		line-height: 1.55;
 		color: #183553;
 		margin: 0;
-		min-height: 40px;
-		display: -webkit-box;
-		-webkit-line-clamp: 3;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
 	}
 
 	/* Info Rows */
