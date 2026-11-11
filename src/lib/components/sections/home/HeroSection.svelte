@@ -97,7 +97,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-top: 48px; /* Offset for fixed navbar */
+		padding: 0 0 44px; /* Menjaga teks berada di zona optikal tengah-atas agar tidak terlalu turun */
 		box-sizing: border-box;
 	}
 
@@ -178,8 +178,8 @@
 		background: rgba(0, 166, 178, 0.18);
 		border: 1px solid rgba(0, 166, 178, 0.5);
 		border-radius: 999px;
-		margin-top: 6px;
-		margin-bottom: 0.75rem;
+		margin-top: 0;
+		margin-bottom: 10px;
 	}
 
 	.pill-dot {
@@ -202,7 +202,7 @@
 		line-height: 1.18;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 0.85rem 0;
+		margin: 0 0 12px 0;
 	}
 
 	.gold-text {
@@ -212,9 +212,9 @@
 	/* Description */
 	.hero-desc {
 		font-size: 14px;
-		line-height: 1.5;
+		line-height: 1.52;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.5rem 0;
+		margin: 0 0 20px 0;
 		max-width: 575px;
 		text-wrap: pretty;
 	}
@@ -224,7 +224,7 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
-		margin-top: 1.25rem;
+		margin-top: 0;
 	}
 
 	.btn-gold {
@@ -293,8 +293,8 @@
 	@media (max-width: 1024px) {
 		.hero-section {
 			height: auto;
-			min-height: 420px;
-			padding: 56px 0 40px;
+			min-height: 410px;
+			padding: 28px 0 48px;
 		}
 
 		.sch-hero-container {
@@ -319,7 +319,7 @@
 		.hero-section {
 			height: auto;
 			min-height: 0;
-			padding: 48px 0 32px;
+			padding: 24px 0 40px;
 		}
 
 		.sch-hero-container {
