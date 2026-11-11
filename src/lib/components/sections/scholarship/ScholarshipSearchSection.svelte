@@ -460,7 +460,7 @@
 		imageSrc={selectedScholarshipModal.image}
 		imageAlt={selectedScholarshipModal.nama}
 		fullPageRoute={`/layanan/pendidikan/beasiswa/${selectedScholarshipModal.id}`}
-		chatQuestion={`Halo, saya ingin menanyakan mengenai persiapan pendaftaran beasiswa ${selectedScholarshipModal.nama}.`}
+		chatQuestion={`Halo, saya ingin menanyakan mengenai persiapan pendaftaran beasiswa ${selectedScholarshipModal?.nama ?? ''}.`}
 		currentIndex={currentIndex >= 0 ? currentIndex : undefined}
 		totalCount={filteredScholarships.length}
 		onClose={closeModal}

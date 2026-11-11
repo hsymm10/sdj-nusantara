@@ -132,10 +132,11 @@
 	}
 
 	function handleChatClick() {
+		const question = chatQuestion;
 		onClose();
 		chatStore.open();
-		if (chatQuestion) {
-			chatStore.sendUserMessage(chatQuestion);
+		if (question) {
+			chatStore.sendUserMessage(question);
 		}
 	}
 </script>

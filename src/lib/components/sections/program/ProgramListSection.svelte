@@ -226,7 +226,7 @@
 		imageSrc={selectedProgramModal.image}
 		imageAlt={selectedProgramModal.title}
 		fullPageRoute={`/layanan/pendidikan/program/${selectedProgramModal.slug}`}
-		chatQuestion={`Halo, saya ingin menanyakan lebih detail mengenai program ${selectedProgramModal.title}.`}
+		chatQuestion={`Halo, saya ingin menanyakan lebih detail mengenai program ${selectedProgramModal?.title ?? ''}.`}
 		currentIndex={currentIndex >= 0 ? currentIndex : undefined}
 		totalCount={filteredPrograms.length}
 		onClose={closeModal}
