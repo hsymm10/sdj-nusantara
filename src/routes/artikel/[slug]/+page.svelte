@@ -442,21 +442,21 @@
 		height: clamp(80px, 9vw, 135px);
 	}
 
-	/* Main Two-Column Container (~950px) */
+	/* Main Two-Column Container (1050–1120px Medium-Large Professional Layout) */
 	.reader-container {
 		position: relative;
 		z-index: 2;
 		width: 100%;
-		max-width: 950px;
+		max-width: 1120px;
 		margin: 0 auto;
-		padding: 32px 16px 64px;
+		padding: 36px 24px 72px;
 		box-sizing: border-box;
 	}
 
 	.article-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 2.02fr) 1px minmax(264px, 1fr);
-		gap: 24px;
+		grid-template-columns: minmax(0, 66fr) 1px minmax(0, 34fr);
+		gap: 28px;
 		align-items: start;
 	}
 
@@ -477,7 +477,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		font-size: 12.5px;
+		font-size: 13.5px;
 		font-weight: 600;
 		color: #00AEBB;
 		text-decoration: none;
@@ -486,8 +486,8 @@
 	}
 
 	.back-icon-circle {
-		width: 22px;
-		height: 22px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
 		border: 1.5px solid #00AEBB;
 		display: inline-flex;
@@ -522,37 +522,37 @@
 		align-items: center;
 		background: #E8F8FA;
 		color: #00AEBB;
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 700;
-		padding: 4px 12px;
+		padding: 4px 13px;
 		border-radius: 999px;
 	}
 
 	.meta-vsep {
 		color: #DFE9F0;
-		font-size: 12px;
+		font-size: 12.5px;
 	}
 
 	.meta-date-wrap {
 		display: inline-flex;
 		align-items: center;
-		gap: 5px;
+		gap: 6px;
 	}
 
 	.meta-date {
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 500;
 		color: #64748B;
 	}
 
 	.title-accent-wrap {
 		border-left: 4px solid #FFB923;
-		padding-left: 14px;
+		padding-left: 16px;
 		margin-bottom: 14px;
 	}
 
 	.article-title {
-		font-size: clamp(24px, 2.5vw, 28px);
+		font-size: clamp(26px, 2.3vw, 32px);
 		font-weight: 800;
 		line-height: 1.24;
 		color: #0D2B4C;
@@ -564,8 +564,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 6px 10px;
-		font-size: 11.5px;
+		gap: 6px 12px;
+		font-size: 12.5px;
 		color: #52647A;
 	}
 
@@ -594,11 +594,11 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 16 / 9;
-		border-radius: 16px;
+		border-radius: 15px;
 		overflow: hidden;
-		margin-bottom: 22px;
+		margin-bottom: 18px;
 		background: #EAF2F8;
-		box-shadow: 0 10px 28px rgba(13, 43, 76, 0.08);
+		box-shadow: 0 10px 30px rgba(13, 43, 76, 0.08);
 	}
 
 	.cover-img {
@@ -613,8 +613,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 110px;
-		height: 68px;
+		width: 116px;
+		height: 72px;
 		pointer-events: none;
 	}
 
@@ -622,21 +622,21 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 120px;
-		height: 60px;
+		width: 126px;
+		height: 64px;
 		pointer-events: none;
 	}
 
 	/* Intro Paragraph */
 	.article-intro {
-		font-size: 14px;
+		font-size: 14.5px;
 		line-height: 1.72;
 		color: #38536F;
-		margin-bottom: 18px;
+		margin-bottom: 20px;
 	}
 
 	.article-intro :global(p) {
-		margin: 0 0 12px 0;
+		margin: 0 0 14px 0;
 	}
 
 	.article-intro :global(p:last-child) {
@@ -647,14 +647,14 @@
 	.article-sections-list {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 20px;
+		margin-bottom: 22px;
 	}
 
 	.feature-section-row {
 		display: flex;
 		align-items: flex-start;
 		gap: 14px;
-		padding: 16px 0;
+		padding: 18px 0;
 		border-bottom: 1px solid #EDF3F7;
 	}
 
@@ -681,21 +681,28 @@
 	}
 
 	.sec-heading {
-		font-size: 16.5px;
+		font-size: 18px;
 		font-weight: 700;
 		line-height: 1.35;
 		color: #0D2B4C;
-		margin: 0 0 6px 0;
+		margin: 0 0 8px 0;
 	}
 
 	.sec-body {
-		font-size: 13.5px;
-		line-height: 1.68;
+		font-size: 14.5px;
+		line-height: 1.72;
 		color: #38536F;
 	}
 
+	.sec-body :global(h3) {
+		font-size: 15.5px;
+		font-weight: 700;
+		color: #0D2B4C;
+		margin: 14px 0 6px 0;
+	}
+
 	.sec-body :global(p) {
-		margin: 0 0 10px 0;
+		margin: 0 0 14px 0;
 	}
 
 	.sec-body :global(p:last-child) {
@@ -704,8 +711,8 @@
 
 	.sec-body :global(ul),
 	.sec-body :global(ol) {
-		margin: 8px 0 0 0;
-		padding-left: 1.25rem;
+		margin: 10px 0 0 0;
+		padding-left: 1.35rem;
 	}
 
 	.sec-body :global(ul) {
@@ -717,7 +724,7 @@
 	}
 
 	.sec-body :global(li) {
-		margin-bottom: 5px;
+		margin-bottom: 6px;
 	}
 
 	/* Quotation Block */
@@ -725,8 +732,8 @@
 		position: relative;
 		background: #E8F8FA;
 		border-radius: 14px;
-		padding: 18px 22px;
-		margin: 0 0 18px 0;
+		padding: 20px 24px;
+		margin: 0 0 16px 0;
 		display: flex;
 		align-items: flex-start;
 		gap: 14px;
@@ -734,7 +741,7 @@
 	}
 
 	.quote-mark {
-		font-size: 46px;
+		font-size: 48px;
 		line-height: 0.9;
 		font-weight: 800;
 		color: #00AEBB;
@@ -747,10 +754,10 @@
 		position: relative;
 		z-index: 1;
 		margin: 0;
-		font-size: 13.5px;
+		font-size: 14.5px;
 		font-style: italic;
 		font-weight: 500;
-		line-height: 1.65;
+		line-height: 1.7;
 		color: #0D2B4C;
 	}
 
@@ -758,14 +765,14 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 85px;
-		height: 46px;
+		width: 90px;
+		height: 48px;
 		pointer-events: none;
 	}
 
 	/* Disclaimer Box */
 	.article-footer-note {
-		padding: 16px 20px;
+		padding: 18px 20px;
 		background: #F7FAFC;
 		border-radius: 12px;
 		border: 1px solid #DFE9F0;
@@ -777,8 +784,8 @@
 
 	.article-footer-note p {
 		margin: 0;
-		font-size: 12px;
-		line-height: 1.6;
+		font-size: 12.5px;
+		line-height: 1.65;
 		color: #52647A;
 	}
 
@@ -791,7 +798,7 @@
 		align-items: center;
 		width: fit-content;
 		color: #00AEBB;
-		font-size: 12.5px;
+		font-size: 13px;
 		font-weight: 700;
 		text-decoration: none;
 		transition: color 0.2s ease;
@@ -821,7 +828,7 @@
 	}
 
 	.meta-label {
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 700;
 		color: #0D2B4C;
 	}
@@ -829,28 +836,28 @@
 	.tags-list {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 6px;
+		gap: 8px;
 	}
 
 	.tag-pill {
 		background: #F4F8FB;
 		border: 1px solid #DFE9F0;
 		color: #38536F;
-		font-size: 11px;
+		font-size: 12px;
 		font-weight: 500;
-		padding: 3px 10px;
+		padding: 4px 12px;
 		border-radius: 999px;
 	}
 
 	.share-buttons {
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		gap: 8px;
 	}
 
 	.share-circle-btn {
-		width: 28px;
-		height: 28px;
+		width: 32px;
+		height: 32px;
 		border-radius: 50%;
 		border: 1px solid #DFE9F0;
 		background: #FFFFFF;
@@ -871,7 +878,7 @@
 	}
 
 	.li-text {
-		font-size: 11px;
+		font-size: 12px;
 		font-weight: 800;
 		line-height: 1;
 	}
@@ -882,7 +889,7 @@
 	.article-sidebar {
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
+		gap: 26px;
 		min-width: 0;
 	}
 
@@ -892,7 +899,7 @@
 		background: linear-gradient(155deg, #E8F8FA 0%, #D9F4F7 100%);
 		border: 1px solid rgba(0, 174, 187, 0.16);
 		border-radius: 16px;
-		padding: 24px 20px;
+		padding: 24px 22px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -902,8 +909,8 @@
 	}
 
 	.consult-icon-circle {
-		width: 46px;
-		height: 46px;
+		width: 44px;
+		height: 44px;
 		border-radius: 50%;
 		background: #00AEBB;
 		display: flex;
@@ -914,7 +921,7 @@
 	}
 
 	.consult-title {
-		font-size: 16.5px;
+		font-size: 18px;
 		font-weight: 800;
 		line-height: 1.3;
 		color: #0D2B4C;
@@ -922,8 +929,8 @@
 	}
 
 	.consult-desc {
-		font-size: 12.5px;
-		line-height: 1.55;
+		font-size: 13.5px;
+		line-height: 1.6;
 		color: #38536F;
 		margin: 0 0 18px 0;
 		position: relative;
@@ -937,11 +944,12 @@
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
+		height: 44px;
 		background: #FFB923;
 		color: #0D2B4C;
-		font-size: 13px;
+		font-size: 13.5px;
 		font-weight: 700;
-		padding: 10px 22px;
+		padding: 0 24px;
 		border-radius: 999px;
 		text-decoration: none;
 		box-shadow: 0 4px 12px rgba(255, 185, 35, 0.35);
@@ -957,8 +965,8 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 118px;
-		height: 48px;
+		width: 122px;
+		height: 50px;
 		pointer-events: none;
 	}
 
@@ -971,12 +979,12 @@
 	.related-header {
 		display: flex;
 		align-items: center;
-		gap: 8px;
-		margin-bottom: 14px;
+		gap: 9px;
+		margin-bottom: 16px;
 	}
 
 	.related-dash {
-		width: 18px;
+		width: 20px;
 		height: 3px;
 		border-radius: 999px;
 		background: linear-gradient(90deg, #00AEBB 0%, #FFB923 100%);
@@ -984,7 +992,7 @@
 	}
 
 	.related-title {
-		font-size: 16px;
+		font-size: 19px;
 		font-weight: 800;
 		color: #0D2B4C;
 		margin: 0;
@@ -994,21 +1002,21 @@
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
-		margin-bottom: 16px;
+		margin-bottom: 18px;
 	}
 
 	.related-card {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-		padding: 10px;
+		gap: 13px;
+		padding: 12px;
 		background: #FFFFFF;
 		border: 1px solid #DFE9F0;
 		border-radius: 12px;
 		text-decoration: none;
 		box-shadow: 0 3px 12px rgba(13, 43, 76, 0.04);
 		transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-		min-height: 78px;
+		min-height: 88px;
 		box-sizing: border-box;
 	}
 
@@ -1019,8 +1027,8 @@
 	}
 
 	.related-thumb {
-		width: 78px;
-		height: 58px;
+		width: 84px;
+		height: 64px;
 		border-radius: 8px;
 		object-fit: cover;
 		flex-shrink: 0;
@@ -1032,13 +1040,13 @@
 		min-width: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
+		gap: 6px;
 	}
 
 	.related-card-title {
-		font-size: 12.5px;
+		font-size: 13.5px;
 		font-weight: 700;
-		line-height: 1.35;
+		line-height: 1.38;
 		color: #0D2B4C;
 		margin: 0;
 		display: -webkit-box;
@@ -1052,7 +1060,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 5px;
-		font-size: 11px;
+		font-size: 11.5px;
 		font-weight: 500;
 		color: #64748B;
 	}
@@ -1064,12 +1072,12 @@
 		justify-content: center;
 		gap: 8px;
 		width: 100%;
-		height: 38px;
+		height: 40px;
 		background: #FFFFFF;
 		color: #00AEBB;
 		border: 1.5px solid #00AEBB;
 		border-radius: 999px;
-		font-size: 12.5px;
+		font-size: 13px;
 		font-weight: 700;
 		text-decoration: none;
 		transition: all 0.2s ease;
@@ -1084,14 +1092,30 @@
 	/* ==========================================
 	   RESPONSIVE BREAKPOINTS
 	   ========================================== */
+	@media (max-width: 1180px) {
+		.bg-wave-tl {
+			width: 130px;
+			height: 46px;
+		}
+
+		.bg-wave-tr {
+			width: 120px;
+			height: 100px;
+		}
+	}
+
 	@media (max-width: 1024px) {
 		.reader-container {
 			padding: 28px 24px 56px;
 		}
 
 		.article-grid {
-			grid-template-columns: minmax(0, 1.7fr) 1px minmax(248px, 1fr);
+			grid-template-columns: minmax(0, 1.8fr) 1px minmax(260px, 1fr);
 			gap: 22px;
+		}
+
+		.article-title {
+			font-size: 27px;
 		}
 	}
 
