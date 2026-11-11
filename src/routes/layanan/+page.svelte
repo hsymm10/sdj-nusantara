@@ -9,10 +9,22 @@
 
 	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
 	let openFaq = $state<number | null>(0);
+	let tabCardEl = $state<HTMLElement | null>(null);
 
 	function setTab(tab: 'semua' | 'program' | 'beasiswa' | 'hukum') {
 		activeTab = tab;
 	}
+
+	$effect(() => {
+		const currentTab = activeTab;
+		if (!tabCardEl || typeof window === 'undefined') return;
+		if (window.innerWidth > 768) return;
+		const activeEl = tabCardEl.querySelector<HTMLElement>(`[data-tab="${currentTab}"]`);
+		if (!activeEl) return;
+		const targetLeft =
+			activeEl.offsetLeft - (tabCardEl.clientWidth - activeEl.offsetWidth) / 2;
+		tabCardEl.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+	});
 
 	function toggleFaq(index: number) {
 		openFaq = openFaq === index ? null : index;
@@ -135,20 +147,26 @@
 	</header>
 
 	<!-- ==========================================
-	     2. TAB BAR (Tinggi ±110px pada 1536, overlap hero ≤20px, radius ±24px)
+	     2. TAB BAR (Tinggi 84px, overlap hero 16px, radius 20px)
 	     ========================================== -->
 	<section class="tab-overlap-section" aria-label="Filter Layanan">
 		<div class="hub-container">
-			<div class="tab-overlap-card" role="tablist" aria-label="Kategori Portofolio Layanan">
+			<div
+				bind:this={tabCardEl}
+				class="tab-overlap-card"
+				role="tablist"
+				aria-label="Kategori Portofolio Layanan"
+			>
 				<!-- Tab 1: Semua Layanan -->
 				<button
 					type="button"
 					role="tab"
+					data-tab="semua"
 					class="tab-btn {activeTab === 'semua' ? 'active' : ''}"
 					aria-selected={activeTab === 'semua'}
 					onclick={() => setTab('semua')}
 				>
-					<span class="tab-icon">
+					<span class="tab-icon" aria-hidden="true">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="3" y="3" width="7" height="7"></rect>
 							<rect x="14" y="3" width="7" height="7"></rect>
@@ -165,11 +183,12 @@
 				<button
 					type="button"
 					role="tab"
+					data-tab="program"
 					class="tab-btn {activeTab === 'program' ? 'active' : ''}"
 					aria-selected={activeTab === 'program'}
 					onclick={() => setTab('program')}
 				>
-					<span class="tab-icon">
+					<span class="tab-icon" aria-hidden="true">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
 							<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
@@ -184,11 +203,12 @@
 				<button
 					type="button"
 					role="tab"
+					data-tab="beasiswa"
 					class="tab-btn {activeTab === 'beasiswa' ? 'active' : ''}"
 					aria-selected={activeTab === 'beasiswa'}
 					onclick={() => setTab('beasiswa')}
 				>
-					<span class="tab-icon">
+					<span class="tab-icon" aria-hidden="true">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="20 12 20 22 4 22 4 12"></polyline>
 							<rect x="2" y="7" width="20" height="5"></rect>
@@ -206,11 +226,12 @@
 				<button
 					type="button"
 					role="tab"
+					data-tab="hukum"
 					class="tab-btn {activeTab === 'hukum' ? 'active' : ''}"
 					aria-selected={activeTab === 'hukum'}
 					onclick={() => setTab('hukum')}
 				>
-					<span class="tab-icon">
+					<span class="tab-icon" aria-hidden="true">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
 							<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
@@ -225,6 +246,18 @@
 		</div>
 	</section>
 
+	<div class="hub-showcase-band">
+		<!-- Ornamen sudut dekoratif lembut sesuai identitas visual SDJNusantara -->
+		<svg class="showcase-arc-tl" viewBox="0 0 260 140" fill="none" aria-hidden="true">
+			<path d="M0 0 H210 C155 55, 85 95, 0 115 Z" fill="#BCEAF0" fill-opacity="0.38" />
+			<path d="M0 0 H145 C105 42, 55 72, 0 88 Z" fill="#00A6B2" fill-opacity="0.16" />
+		</svg>
+		<svg class="showcase-arc-br" viewBox="0 0 320 170" fill="none" aria-hidden="true">
+			<path d="M40 170 C125 112, 220 75, 320 45 L320 170 Z" fill="#7FD8E0" fill-opacity="0.3" />
+			<path d="M95 170 C175 118, 245 88, 320 68 L320 170 Z" fill="#FFB629" fill-opacity="0.82" />
+			<path d="M145 170 C210 128, 265 102, 320 92 L320 170 Z" fill="#00A6B2" fill-opacity="0.92" />
+		</svg>
+
 	<!-- ==========================================
 	     3. INTRO SECTION (Teks kiri & 4 ubin putih kanan)
 	     ========================================== -->
@@ -234,7 +267,7 @@
 			<div class="intro-text-col">
 				<div class="section-badge-label">
 					<span class="label-dash" aria-hidden="true"></span>
-					<span class="label-text">LAYANAN SDJNUSANTARA</span>
+					<span class="label-text">Layanan SDJNusantara</span>
 				</div>
 				<h2 id="intro-heading" class="intro-title">
 					Layanan Pendidikan dan<br />Pengembangan Talenta
@@ -244,11 +277,11 @@
 				</p>
 			</div>
 
-			<!-- Kanan: 4 ubin putih (±160×115px, radius ±14px) ikon outline turquoise ±44px -->
+			<!-- Kanan: 4 ubin putih dengan icon container soft teal -->
 			<div class="intro-tiles-col">
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 							<circle cx="9" cy="7" r="4"></circle>
 							<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -260,7 +293,7 @@
 
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="12" cy="12" r="10"></circle>
 							<circle cx="12" cy="12" r="6"></circle>
 							<circle cx="12" cy="12" r="2"></circle>
@@ -271,7 +304,7 @@
 
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
 							<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
 						</svg>
@@ -281,7 +314,7 @@
 
 				<div class="feature-tile">
 					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="20" x2="18" y2="10"></line>
 							<line x1="12" y1="20" x2="12" y2="4"></line>
 							<line x1="6" y1="20" x2="6" y2="14"></line>
@@ -297,6 +330,17 @@
 	     4. SECTION DAFTAR KARTU LAYANAN & PANEL (Tinggi ±330px per kartu)
 	     ========================================== -->
 	<section id="daftar-layanan" class="hub-cards-section" aria-label="Daftar Layanan">
+		{#snippet mediaCorners()}
+			<svg class="card-media-corner-tl" viewBox="0 0 110 110" fill="none">
+				<path d="M0 0 H110 C64 22, 24 64, 0 110 Z" fill="#009AA6" />
+				<path d="M0 0 H76 C45 18, 18 45, 0 76 Z" fill="#25C3CF" />
+			</svg>
+			<svg class="card-media-corner-br" viewBox="0 0 190 120" fill="none">
+				<path d="M0 120 C75 112, 145 68, 190 0 V120 H0 Z" fill="#F5B331" />
+				<path d="M52 120 C110 112, 160 76, 190 22 V120 H52 Z" fill="#009AA6" />
+				<path d="M100 120 C142 114, 174 88, 190 52 V120 H100 Z" fill="#25C3CF" />
+			</svg>
+		{/snippet}
 		<div class="hub-container">
 			<div class="cards-grid {activeTab !== 'semua' ? 'single-filtered' : ''}">
 				<!-- KARTU 1: Program Pendidikan -->
@@ -356,8 +400,7 @@
 						</div>
 
 						<div class="card-media" aria-hidden="true">
-							<div class="card-media-accent"></div>
-							<picture>
+							<picture class="card-picture">
 								<source srcset="/images/layanan-hub-program.webp" type="image/webp" />
 								<img
 									src="/images/layanan-hub-program.jpg"
@@ -367,6 +410,7 @@
 									decoding="async"
 								/>
 							</picture>
+							{@render mediaCorners()}
 						</div>
 					</article>
 				{/if}
@@ -434,8 +478,7 @@
 						</div>
 
 						<div class="card-media" aria-hidden="true">
-							<div class="card-media-accent"></div>
-							<picture>
+							<picture class="card-picture">
 								<source srcset="/images/layanan-hub-beasiswa.webp" type="image/webp" />
 								<img
 									src="/images/layanan-hub-beasiswa.jpg"
@@ -445,6 +488,7 @@
 									decoding="async"
 								/>
 							</picture>
+							{@render mediaCorners()}
 						</div>
 					</article>
 				{/if}
@@ -513,8 +557,7 @@
 						</div>
 
 						<div class="card-media" aria-hidden="true">
-							<div class="card-media-accent"></div>
-							<picture>
+							<picture class="card-picture">
 								<source srcset="/images/layanan-hub-hukum.webp" type="image/webp" />
 								<img
 									src="/images/layanan-hub-hukum.jpg"
@@ -524,6 +567,7 @@
 									decoding="async"
 								/>
 							</picture>
+							{@render mediaCorners()}
 						</div>
 					</article>
 				{/if}
@@ -596,6 +640,7 @@
 			</div>
 		</div>
 	</section>
+	</div>
 
 	<!-- ==========================================
 	     5. PERTANYAAN UMUM (FAQ)
@@ -753,17 +798,17 @@
 		overflow-x: hidden;
 	}
 
-	/* Container khusus halaman ini: ±93% layar (x 87->1448 pada 1536), max-width ±1500px rata tengah di ≥1920 */
+	/* Container terstandar konsisten dengan Hero & Floating Overlap Bar */
 	.hub-container {
 		width: 93%;
-		max-width: 1420px;
+		max-width: var(--hero-container-max, 1380px);
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
 
 	@media (min-width: 1920px) {
 		.hub-container {
-			max-width: 1500px;
+			max-width: var(--hero-container-max-xl, 1500px);
 		}
 	}
 
@@ -939,8 +984,10 @@
 		gap: 8px;
 		background: #F5B331;
 		color: #082442;
-		width: 152px;
-		height: 40px;
+		width: auto;
+		min-width: 174px;
+		height: 42px;
+		padding: 0 22px;
 		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 9px;
@@ -975,8 +1022,10 @@
 		background: transparent;
 		color: #FFFFFF;
 		border: 1.5px solid rgba(255, 255, 255, 0.85);
-		width: 195px;
-		height: 40px;
+		width: auto;
+		min-width: 204px;
+		height: 42px;
+		padding: 0 22px;
 		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 9px;
@@ -997,9 +1046,9 @@
 	     ========================================== */
 	.tab-overlap-section {
 		position: relative;
-		z-index: 10;
-		margin-top: -16px; /* Floating overlap yang aman tanpa menempel pada CTA */
-		margin-bottom: 36px;
+		z-index: var(--z-overlap-bar, 10);
+		margin-top: var(--overlap-margin-top, -16px);
+		margin-bottom: 28px;
 	}
 
 	.tab-overlap-card {
@@ -1010,8 +1059,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 84px;
-		max-width: 1380px;
+		height: var(--overlap-card-height, 84px);
+		width: 100%;
 		margin: 0 auto;
 		padding: 12px 18px;
 		box-sizing: border-box;
@@ -1046,7 +1095,7 @@
 	}
 
 	.tab-btn:hover:not(.active) {
-		background: rgba(7, 158, 173, 0.07);
+		background: rgba(7, 158, 173, 0.08);
 		color: #079EAD;
 		transform: translateY(-1px);
 	}
@@ -1083,16 +1132,43 @@
 	}
 
 	/* ==========================================
-	     3. INTRO SECTION
+	     3. SHOWCASE BAND & INTRO SECTION
 	     ========================================== */
+	.hub-showcase-band {
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(180deg, #FFFFFF 0%, #FAFDFF 100%);
+	}
+
+	.showcase-arc-tl {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 240px;
+		height: 130px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.showcase-arc-br {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 300px;
+		height: 160px;
+		pointer-events: none;
+		z-index: 1;
+	}
+
 	.hub-intro-section {
-		padding: 24px 0 32px;
-		background: #FFFFFF;
+		position: relative;
+		z-index: 2;
+		padding: 36px 0 34px;
 	}
 
 	.intro-grid {
 		display: grid;
-		grid-template-columns: 1fr auto;
+		grid-template-columns: minmax(340px, 1fr) auto;
 		gap: 36px;
 		align-items: center;
 	}
@@ -1106,127 +1182,156 @@
 		display: flex;
 		align-items: center;
 		gap: 8px;
-		margin-bottom: 10px;
+		margin-bottom: 12px;
 	}
 
 	.label-dash {
 		width: 20px;
 		height: 2.5px;
-		background: #16B6C1;
+		background: #079EAD;
 		border-radius: 2px;
 	}
 
 	.label-text {
-		font-size: 12px;
+		font-size: 13.5px;
 		font-weight: 700;
 		color: #079EAD;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.02em;
 	}
 
 	.intro-title {
-		font-size: clamp(26px, 2.5vw, 36px);
-		line-height: 1.25;
+		position: relative;
+		padding-left: 18px;
+		font-size: clamp(28px, 2.5vw, 38px);
+		line-height: 1.22;
 		font-weight: 800;
 		color: #082442;
 		margin: 0 0 14px 0;
+		letter-spacing: -0.02em;
+	}
+
+	.intro-title::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 5px;
+		bottom: 5px;
+		width: 4.5px;
+		border-radius: 4px;
+		background: #F5B331;
 	}
 
 	.intro-desc {
-		font-size: 15px;
+		font-size: 15.5px;
 		line-height: 1.65;
-		color: #183553;
+		color: #475569;
 		margin: 0;
-		max-width: 520px;
+		max-width: 540px;
+		padding-left: 18px;
 	}
 
 	.intro-tiles-col {
 		display: flex;
 		gap: 14px;
-		align-items: center;
+		align-items: stretch;
 	}
 
 	.feature-tile {
-		width: 160px;
-		height: 115px;
+		width: clamp(138px, 11vw, 158px);
+		min-height: 134px;
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.95);
-		border-radius: 14px;
-		box-shadow: 0 6px 20px rgba(8, 36, 66, 0.05);
+		border-radius: 16px;
+		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.055);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		padding: 10px 12px;
+		padding: 18px 12px;
 		box-sizing: border-box;
 		flex-shrink: 0;
-		transition: transform 0.2s ease, border-color 0.2s ease;
+		transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 	}
 
 	.feature-tile:hover {
 		transform: translateY(-3px);
 		border-color: #16B6C1;
+		box-shadow: 0 12px 28px rgba(7, 158, 173, 0.1);
 	}
 
 	.tile-icon-box {
-		width: 44px;
-		height: 44px;
+		width: 52px;
+		height: 52px;
+		border-radius: 12px;
+		background: #EAF9FA;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 6px;
+		margin-bottom: 10px;
 	}
 
 	.tile-label {
-		font-size: 14px;
-		line-height: 1.3;
+		font-size: 13.5px;
+		line-height: 1.32;
 		font-weight: 700;
 		color: #082442;
 		display: block;
 	}
 
 	/* ==========================================
-	     4. SECTION DAFTAR KARTU LAYANAN & PANEL (Tinggi ±330px per kartu)
+	     4. SECTION DAFTAR KARTU LAYANAN & PANEL
 	     ========================================== */
 	.hub-cards-section {
-		padding: 10px 0 44px;
-		background: #FFFFFF;
+		position: relative;
+		z-index: 2;
+		padding: 6px 0 64px;
 	}
 
 	.cards-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 24px;
+		align-items: stretch;
 	}
 
 	.cards-grid.single-filtered {
 		grid-template-columns: 1fr;
-		max-width: 820px;
+		max-width: 100%;
 		margin: 0 auto;
 	}
 
 	.service-card {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.95);
-		border-radius: 22px;
-		box-shadow: 0 8px 30px rgba(8, 36, 66, 0.06);
+		border-radius: 24px;
+		box-shadow: 0 10px 34px rgba(8, 36, 66, 0.06);
 		display: flex;
 		justify-content: space-between;
+		align-items: stretch;
 		overflow: hidden;
 		position: relative;
-		height: 330px;
+		min-height: 364px;
+		height: auto;
 		box-sizing: border-box;
 		transition: transform 0.25s ease, box-shadow 0.25s ease;
 	}
 
 	.service-card:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 12px 36px rgba(8, 36, 66, 0.09);
+		box-shadow: 0 14px 40px rgba(8, 36, 66, 0.09);
+	}
+
+	.cards-grid.single-filtered .service-card {
+		min-height: 416px;
+		padding: 18px 18px 18px 42px;
+		gap: 36px;
+		box-shadow: 0 12px 38px rgba(8, 36, 66, 0.068);
 	}
 
 	.card-body {
-		width: 62%;
-		padding: 24px 22px 20px;
+		width: 56%;
+		padding: 26px 24px 24px 28px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -1234,25 +1339,37 @@
 		z-index: 2;
 	}
 
+	.cards-grid.single-filtered .card-body {
+		width: 47%;
+		padding: 18px 0;
+		justify-content: center;
+	}
+
 	.card-pill-row {
 		display: flex;
 		align-items: center;
 		gap: 8px;
-		margin-bottom: 8px;
+		margin-bottom: 10px;
 	}
 
 	.card-pill {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
-		background: rgba(7, 158, 173, 0.12);
+		gap: 7px;
+		background: #E4F7F9;
 		color: #079EAD;
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 700;
-		padding: 3.5px 10px;
+		padding: 5px 12px;
 		border-radius: 9999px;
-		margin-bottom: 8px;
+		margin-bottom: 10px;
 		width: fit-content;
+	}
+
+	.cards-grid.single-filtered .card-pill {
+		font-size: 13.5px;
+		padding: 6px 14px;
+		margin-bottom: 14px;
 	}
 
 	.card-pill-row .card-pill {
@@ -1270,50 +1387,73 @@
 		color: #64748B;
 		background: #F1F5F9;
 		border: 1px solid #E2E8F0;
-		padding: 2px 8px;
+		padding: 3px 10px;
 		border-radius: 9999px;
 	}
 
 	.card-title {
-		font-size: 20px;
+		font-size: 22px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 6px 0;
+		margin: 0 0 8px 0;
 		line-height: 1.25;
+		letter-spacing: -0.015em;
+	}
+
+	.cards-grid.single-filtered .card-title {
+		font-size: clamp(26px, 2.2vw, 33px);
+		margin-bottom: 12px;
 	}
 
 	.card-desc {
 		font-size: 14.5px;
-		line-height: 1.5;
-		color: #183553;
+		line-height: 1.55;
+		color: #475569;
 		margin: 0 0 14px 0;
+	}
+
+	.cards-grid.single-filtered .card-desc {
+		font-size: 15.5px;
+		line-height: 1.62;
+		margin-bottom: 20px;
+		max-width: 490px;
 	}
 
 	.card-checklist {
 		list-style: none;
 		padding: 0;
-		margin: 0 0 14px 0;
+		margin: 0 0 18px 0;
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: 7px;
+	}
+
+	.cards-grid.single-filtered .card-checklist {
+		gap: 10px;
+		margin-bottom: 26px;
 	}
 
 	.card-checklist li {
 		display: flex;
 		align-items: center;
-		gap: 8px;
-		font-size: 13.5px;
-		font-weight: 600;
+		gap: 9px;
+		font-size: 14px;
+		font-weight: 700;
 		color: #082442;
-		line-height: 1.35;
+		line-height: 1.38;
+	}
+
+	.cards-grid.single-filtered .card-checklist li {
+		font-size: 15px;
+		gap: 10px;
 	}
 
 	.check-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 15px;
-		height: 15px;
+		width: 16px;
+		height: 16px;
 		flex-shrink: 0;
 	}
 
@@ -1321,10 +1461,14 @@
 		margin-top: auto;
 	}
 
+	.cards-grid.single-filtered .card-action {
+		margin-top: 0;
+	}
+
 	.card-action-with-note {
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: 7px;
 	}
 
 	.btn-card-gold {
@@ -1333,50 +1477,65 @@
 		gap: 8px;
 		background: #F5B331;
 		color: #082442;
-		padding: 9px 18px;
-		font-size: 13px;
+		padding: 10px 20px;
+		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 9px;
+		border-radius: 10px;
 		text-decoration: none;
-		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.22);
+		box-shadow: 0 4px 12px rgba(245, 179, 49, 0.24);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		width: fit-content;
+	}
+
+	.cards-grid.single-filtered .btn-card-gold {
+		padding: 13px 26px;
+		font-size: 14.5px;
 	}
 
 	.btn-card-gold:hover {
 		background: #e6a528;
 		transform: translateY(-2px);
-		box-shadow: 0 5px 14px rgba(245, 179, 49, 0.32);
+		box-shadow: 0 6px 16px rgba(245, 179, 49, 0.34);
+	}
+
+	.btn-card-gold:hover .btn-arrow {
+		transform: translateX(3px);
 	}
 
 	.card-disclaimer {
-		font-size: 11.5px;
-		color: #94A3B8;
+		font-size: 12px;
+		color: #64748B;
 		margin: 0;
-		line-height: 1.35;
+		line-height: 1.4;
 		font-style: italic;
 	}
 
-	/* FOTO BERBENTUK: Tepi kiri miring / melengkung memenuhi tinggi kartu */
+	/* FOTO BERBENTUK: Bingkai sudut organik + aksen lengkung teal & kuning */
 	.card-media {
 		position: relative;
-		width: 38%;
-		height: 100%;
+		width: 44%;
+		margin: 14px 14px 14px 0;
+		border-radius: 18px;
+		border-top-left-radius: 50px;
 		overflow: hidden;
 		flex-shrink: 0;
+		background: #EBF5F7;
 	}
 
-	.card-media-accent {
+	.cards-grid.single-filtered .card-media {
+		width: 53%;
+		margin: 0;
+		min-height: 378px;
+		border-radius: 20px;
+		border-top-left-radius: 56px;
+	}
+
+	.card-picture {
 		position: absolute;
-		top: -15px;
-		right: -15px;
-		width: 90px;
-		height: 90px;
-		border-radius: 50%;
-		background: #16B6C1;
-		opacity: 0.24;
-		pointer-events: none;
-		z-index: 1;
+		inset: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
 	}
 
 	.card-img-curved {
@@ -1385,26 +1544,53 @@
 		object-fit: cover;
 		object-position: center 20%;
 		display: block;
-		position: relative;
+	}
+
+	.card-media-corner-tl {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 72px;
+		height: 72px;
+		pointer-events: none;
 		z-index: 2;
-		border-top-left-radius: 80px;
-		border-bottom-left-radius: 35px;
+	}
+
+	.cards-grid.single-filtered .card-media-corner-tl {
+		width: 96px;
+		height: 96px;
+	}
+
+	.card-media-corner-br {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 132px;
+		height: 84px;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	.cards-grid.single-filtered .card-media-corner-br {
+		width: 180px;
+		height: 112px;
 	}
 
 	/* Mengapa Memilih SDJNusantara Panel */
 	.why-us-card {
 		background: #EAF7F9;
 		border: 1px solid #D2EFF2;
-		border-radius: 22px;
+		border-radius: 24px;
 		position: relative;
 		overflow: hidden;
-		padding: 24px 26px 20px;
-		height: 330px;
+		padding: 28px 28px 24px;
+		min-height: 364px;
+		height: auto;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		box-shadow: 0 8px 28px rgba(8, 36, 66, 0.04);
+		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.045);
 	}
 
 	.why-swoosh-wrap {
@@ -1432,15 +1618,15 @@
 		font-size: 24px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 6px 0;
+		margin: 0 0 8px 0;
 		line-height: 1.25;
 	}
 
 	.why-desc {
 		font-size: 14.5px;
-		line-height: 1.5;
-		color: #183553;
-		margin: 0 0 18px 0;
+		line-height: 1.55;
+		color: #334155;
+		margin: 0 0 20px 0;
 	}
 
 	.why-tiles-row {
@@ -1448,19 +1634,19 @@
 		z-index: 2;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 12px;
+		gap: 14px;
 	}
 
 	.why-tile {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.9);
 		border-radius: 14px;
-		padding: 14px 12px;
-		height: 155px;
+		padding: 16px 14px;
+		min-height: 155px;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
-		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.03);
+		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.035);
 		transition: transform 0.2s ease, border-color 0.2s ease;
 	}
 
@@ -1470,7 +1656,7 @@
 	}
 
 	.why-icon {
-		margin-bottom: 8px;
+		margin-bottom: 10px;
 		display: flex;
 		align-items: center;
 	}
@@ -1485,7 +1671,7 @@
 
 	.why-tile-desc {
 		font-size: 12.5px;
-		line-height: 1.45;
+		line-height: 1.48;
 		color: #64748B;
 		margin: 0;
 	}
@@ -1733,12 +1919,28 @@
 	/* ==========================================
 	     RESPONSIVE
 	     ========================================== */
-	@media (max-width: 1024px) {
-		.hub-hero {
-			height: auto;
-			padding: 4.5rem 0 3rem;
+	@media (max-width: 1200px) {
+		.intro-grid {
+			grid-template-columns: 1fr;
+			gap: 24px;
 		}
 
+		.intro-tiles-col {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		.feature-tile {
+			width: 100%;
+		}
+
+		.cards-grid.single-filtered .service-card {
+			padding: 16px 16px 16px 32px;
+			gap: 28px;
+		}
+	}
+
+	@media (max-width: 1024px) {
 		.tab-overlap-card {
 			height: 74px;
 			padding: 10px 14px;
@@ -1757,18 +1959,16 @@
 			margin: 0 10px;
 		}
 
-		.intro-grid {
+		.cards-grid {
 			grid-template-columns: 1fr;
-			gap: 24px;
 		}
 
-		.intro-tiles-col {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
+		.cards-grid.single-filtered .service-card {
+			min-height: 360px;
 		}
 
-		.feature-tile {
-			width: 100%;
+		.cards-grid.single-filtered .card-media {
+			min-height: 328px;
 		}
 
 		.faq-card {
@@ -1781,10 +1981,51 @@
 		}
 	}
 
+	@media (max-width: 900px) {
+		.hub-hero {
+			height: auto;
+			padding: 3.5rem 0 3.25rem;
+		}
+
+		.hero-gradient-overlay {
+			background: linear-gradient(
+				90deg,
+				#082442 0%,
+				rgba(8, 36, 66, 0.94) 60%,
+				rgba(8, 36, 66, 0.78) 100%
+			);
+		}
+
+		.hero-wave,
+		.hero-wave-right {
+			display: none;
+		}
+
+		.cards-grid.single-filtered .service-card {
+			flex-direction: column-reverse;
+			padding: 0;
+			gap: 0;
+			min-height: 0;
+		}
+
+		.cards-grid.single-filtered .card-body {
+			width: 100%;
+			padding: 24px 22px;
+		}
+
+		.cards-grid.single-filtered .card-media {
+			width: 100%;
+			min-height: 240px;
+			height: 240px;
+			margin: 0;
+			border-radius: 0;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.hub-hero {
 			height: auto;
-			padding: 40px 0 30px;
+			padding: 36px 0 44px;
 		}
 
 		.hero-img {
@@ -1817,14 +2058,16 @@
 			width: 100%;
 		}
 
+		.tab-overlap-section {
+			margin-bottom: 18px;
+		}
+
 		.tab-overlap-card {
 			height: auto;
 			padding: 8px 12px;
 			gap: 10px;
 			justify-content: flex-start;
 			border-radius: 16px;
-			margin-top: -16px;
-			margin-bottom: 24px;
 			-webkit-overflow-scrolling: touch;
 		}
 
@@ -1842,36 +2085,101 @@
 			display: none;
 		}
 
+		.hub-intro-section {
+			padding: 20px 0 24px;
+		}
+
+		.intro-title {
+			font-size: 26px;
+			padding-left: 14px;
+		}
+
+		.intro-desc {
+			font-size: 14.5px;
+			padding-left: 14px;
+		}
+
 		.intro-tiles-col {
 			grid-template-columns: repeat(2, 1fr);
+			gap: 12px;
 		}
 
-		.cards-grid {
-			grid-template-columns: 1fr;
+		.feature-tile {
+			min-height: 118px;
+			padding: 14px 10px;
 		}
 
-		.service-card {
+		.tile-icon-box {
+			width: 46px;
+			height: 46px;
+		}
+
+		.hub-cards-section {
+			padding: 4px 0 44px;
+		}
+
+		.service-card,
+		.cards-grid.single-filtered .service-card {
 			height: auto;
+			min-height: 0;
 			flex-direction: column-reverse;
+			padding: 0;
+			gap: 0;
+			border-radius: 20px;
 		}
 
-		.card-body {
+		.card-body,
+		.cards-grid.single-filtered .card-body {
 			width: 100%;
-			padding: 20px 18px;
+			padding: 22px 18px;
 		}
 
-		.card-media {
+		.cards-grid.single-filtered .card-title {
+			font-size: 24px;
+		}
+
+		.cards-grid.single-filtered .card-desc {
+			font-size: 14.5px;
+		}
+
+		.cards-grid.single-filtered .card-checklist li {
+			font-size: 14px;
+		}
+
+		.card-media,
+		.cards-grid.single-filtered .card-media {
 			width: 100%;
-			height: 180px;
-		}
-
-		.card-img-curved {
+			height: 200px;
+			min-height: 200px;
+			margin: 0;
 			border-radius: 0;
+		}
+
+		.card-media-corner-tl,
+		.cards-grid.single-filtered .card-media-corner-tl {
+			width: 64px;
+			height: 64px;
+		}
+
+		.card-media-corner-br,
+		.cards-grid.single-filtered .card-media-corner-br {
+			width: 118px;
+			height: 74px;
+		}
+
+		.btn-card-gold,
+		.cards-grid.single-filtered .btn-card-gold {
+			width: 100%;
+			justify-content: center;
+			padding: 12px 20px;
+			font-size: 14px;
 		}
 
 		.why-us-card {
 			height: auto;
-			padding: 20px 18px;
+			min-height: 0;
+			padding: 22px 18px;
+			border-radius: 20px;
 		}
 
 		.why-tiles-row {
@@ -1880,6 +2188,16 @@
 
 		.why-tile {
 			height: auto;
+			min-height: 0;
+		}
+
+		.showcase-arc-tl {
+			display: none;
+		}
+
+		.showcase-arc-br {
+			opacity: 0.45;
+			transform: scale(0.65);
 		}
 
 		.hub-faq-section {
