@@ -36,12 +36,24 @@
 						? '/images/cta-layanan-collaboration-bg.jpg'
 						: '/images/cta-bg-clean.jpg'
 	);
+	const IMAGES_WITH_WEBP = new Set([
+		'/images/cta-building-glass.jpg',
+		'/images/cta-hukum-legal-bg.jpg',
+		'/images/cta-layanan-collaboration-bg.jpg',
+		'/images/cta-pendidikan-academic-bg.jpg'
+	]);
+
+	let webpSrc = $derived(
+		IMAGES_WITH_WEBP.has(effectiveBgImage) ? effectiveBgImage.replace(/\.jpg$/, '.webp') : null
+	);
 </script>
 
 <section class="cta-banner variant-{variant}">
 	<div class="cta-bg-wrap">
 		<picture>
-			<source srcset={effectiveBgImage.replace(/\.jpg$/, '.webp')} type="image/webp" />
+			{#if webpSrc}
+				<source srcset={webpSrc} type="image/webp" />
+			{/if}
 			<img src={effectiveBgImage} alt="" class="cta-bg-img" loading="lazy" />
 		</picture>
 		<div class="cta-overlay"></div>
@@ -100,6 +112,12 @@
 		right: 0;
 		bottom: 0;
 		z-index: 1;
+	}
+
+	.cta-bg-wrap picture {
+		display: block;
+		width: 100%;
+		height: 100%;
 	}
 
 	.cta-bg-img {
