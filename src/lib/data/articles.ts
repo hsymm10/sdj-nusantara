@@ -305,5 +305,104 @@ export const articlesData: Article[] = [
 		penulis: 'Divisi Kemitraan Vokasi SDJNusantara',
 		sumber: 'Kajian Kemitraan Vokasi Nasional',
 		gambar: '/images/article-card-6.jpg'
+	},
+	{
+		id: 19,
+		slug: '5-tips-sukses-mendapatkan-beasiswa-luar-negeri',
+		judul: '5 Tips Sukses Mendapatkan Beasiswa Luar Negeri',
+		kategori: 'Beasiswa',
+		tanggal: '20 Jan 2025',
+		updatedAt: '20 Januari 2025',
+		ringkasan:
+			'Mendapatkan beasiswa luar negeri adalah impian banyak pelajar. Berikut 5 tips penting yang dapat meningkatkan peluang Anda lolos seleksi internasional.',
+		isi: `
+			<p>Mendapatkan beasiswa luar negeri adalah impian banyak pelajar. Namun, prosesnya sering kali penuh persaingan ketat sehingga membutuhkan perencanaan matang sejak jauh hari.</p>
+			<h2>Strategi Utama Persiapan Beasiswa</h2>
+			<p>Persiapan yang terstruktur membantu kandidat menunjukkan kesiapan akademik, kepemimpinan, serta kontribusi nyata kepada panitia seleksi.</p>
+			<ul>
+				<li><strong>Tentukan tujuan dan jenis beasiswa yang sesuai:</strong> Pelajari prioritas bidang studi, kriteria kelayakan, serta nilai utama penyelenggara beasiswa.</li>
+				<li><strong>Siapkan dokumen akademik dengan matang:</strong> Pastikan transkrip, sertifikat kemampuan bahasa, dan surat rekomendasi tersusun rapi sebelum tenggat waktu.</li>
+				<li><strong>Tulis esai yang kuat dan personal:</strong> Sampaikan motivasi studi, rekam jejak kontribusi, serta rencana dampak pasca-studi secara autentik.</li>
+				<li><strong>Tingkatkan pengalaman organisasi atau sosial:</strong> Keterlibatan aktif di komunitas menunjukkan karakter kepemimpinan dan kolaborasi.</li>
+				<li><strong>Persiapkan wawancara dengan percaya diri:</strong> Latih artikulasi jawaban secara terstruktur, jujur, dan relevan dengan tujuan studi.</li>
+			</ul>
+			<h3>Konsistensi dan Evaluasi Berkala</h3>
+			<p>Lakukan peninjauan ulang setiap berkas bersama mentor atau konsultan pendidikan agar tidak ada detail persyaratan yang terlewat sebelum pengajuan akhir.</p>
+		`,
+		penulis: 'Tim Konsultan Beasiswa SDJNusantara',
+		sumber: 'Panduan Persiapan Beasiswa Internasional SDJNusantara',
+		gambar: '/images/article-card-1.jpg'
+	},
+	{
+		id: 20,
+		slug: 'tren-pendidikan-global-di-tahun-2025',
+		judul: 'Tren Pendidikan Global di Tahun 2025',
+		kategori: 'Pendidikan',
+		tanggal: '18 Jan 2025',
+		updatedAt: '18 Januari 2025',
+		ringkasan:
+			'Sektor pendidikan dunia terus bertransformasi seiring pesatnya perkembangan kecerdasan buatan dan metode pembelajaran interdisipliner.',
+		isi: `
+			<p>Sektor pendidikan dunia terus bertransformasi seiring pesatnya perkembangan kecerdasan buatan dan metode pembelajaran interdisipliner yang menuntut adaptasi cepat dari lembaga pendidikan.</p>
+			<h2>Transformasi Kurikulum dan Pembelajaran Adaptif</h2>
+			<p>Institusi pendidikan terkemuka kini memadukan pembelajaran berbasis proyek dengan analitik pembelajaran untuk menyesuaikan materi sesuai potensi masing-masing peserta didik.</p>
+			<h3>Fokus Utama Pergeseran Pendidikan</h3>
+			<ul>
+				<li>Integrasi teknologi adaptif dan literasi kecerdasan buatan secara etis di kelas.</li>
+				<li>Pendekatan riset lintas disiplin untuk memecahkan tantangan sosial dan industri nyata.</li>
+				<li>Asesmen kompetensi berbasis portofolio karya dibandingkan hafalan semata.</li>
+				<li>Perluasan jejaring pertukaran pelajar serta kolaborasi riset antarnegara.</li>
+			</ul>
+		`,
+		penulis: 'Tim Riset & Pengembangan Pendidikan SDJNusantara',
+		sumber: 'Kajian Transformasi Pendidikan Global 2025',
+		gambar: '/images/article-card-2.jpg'
+	},
+	{
+		id: 21,
+		slug: 'cara-meningkatkan-daya-saing-di-dunia-kerja',
+		judul: 'Cara Meningkatkan Daya Saing di Dunia Kerja',
+		kategori: 'Karier & Profesional',
+		tanggal: '15 Jan 2025',
+		updatedAt: '15 Januari 2025',
+		ringkasan:
+			'Pasar tenaga kerja modern menuntut para profesional memiliki fleksibilitas tinggi serta portofolio kompetensi yang teruji.',
+		isi: `
+			<p>Pasar tenaga kerja modern menuntut para profesional untuk memiliki fleksibilitas tinggi, pemahaman konteks industri, serta portofolio kompetensi yang teruji secara praktis.</p>
+			<h2>Langkah Strategis Penguatan Profil Profesional</h2>
+			<p>Meningkatkan daya saing karier bukan hanya soal menambah sertifikat, melainkan memastikan keahlian yang dikuasai selaras dengan kebutuhan organisasi.</p>
+			<ul>
+				<li>Petakan keahlian inti dan kompetensi pelengkap yang paling dibutuhkan di bidang Anda.</li>
+				<li>Bangun rekam jejak proyek dengan dampak terukur yang dapat diverifikasi.</li>
+				<li>Perkuat kemampuan komunikasi persuasif, negosiasi, dan kolaborasi lintas tim.</li>
+				<li>Pelihara jejaring profesional serta pola pikir belajar berkelanjutan.</li>
+			</ul>
+		`,
+		penulis: 'Konsultan Pengembangan Karier SDJNusantara',
+		sumber: 'Observatorium Talenta & Karier SDJNusantara',
+		gambar: '/images/article-card-3.jpg'
+	},
+	{
+		id: 22,
+		slug: 'pentingnya-soft-skill-di-era-digital',
+		judul: 'Pentingnya Soft Skill di Era Digital',
+		kategori: 'Pengembangan Talenta',
+		tanggal: '10 Jan 2025',
+		updatedAt: '10 Januari 2025',
+		ringkasan:
+			'Empati, kepemimpinan, berpikir kritis, dan kecerdasan emosional tetap menjadi pembeda utama talenta berkinerja tinggi di era otomasi.',
+		isi: `
+			<p>Meskipun otomatisasi dan kecerdasan buatan mengambil alih banyak pekerjaan rutin, kualitas manusiawi seperti empati, kepemimpinan, dan penilaian etis tetap tak tergantikan.</p>
+			<h2>Kompetensi Kemanusiaan Penentu Keunggulan</h2>
+			<p>Organisasi modern mencari talenta yang tidak hanya fasih menggunakan perangkat digital, tetapi juga mampu menyatukan berbagai perspektif untuk mengambil keputusan tepat.</p>
+			<ul>
+				<li><strong>Berpikir kritis & analisis mendalam:</strong> Memvalidasi informasi dan merumuskan solusi atas isu kompleks.</li>
+				<li><strong>Kolaborasi lintas budaya:</strong> Bekerja efektif dalam tim hibrida maupun lingkungan global.</li>
+				<li><strong>Ketahanan adaptif:</strong> Menjaga performa dan ketenangan di tengah perubahan cepat.</li>
+			</ul>
+		`,
+		penulis: 'Divisi Pengembangan Talenta SDJNusantara',
+		sumber: 'Laporan Kompetensi Talenta Digital Indonesia',
+		gambar: '/images/article-card-4.jpg'
 	}
 ];
