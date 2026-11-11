@@ -11,7 +11,7 @@
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
 
 	onMount(() => {
-		goto('/layanan/pendidikan#beasiswa', { replaceState: true });
+		goto('/layanan/beasiswa', { replaceState: true });
 	});
 
 	let activeCategory = $state('Semua Kategori');

@@ -4,7 +4,7 @@
 
 	// 13 Komponen Sections Presisi Sesuai Mockup Resmi (GAMBAR 2)
 	import HeroEducation from '#lib/components/sections/education/HeroEducation.svelte';
-	import StatsBarEducation from '#lib/components/sections/education/StatsBarEducation.svelte';
+	import ServiceFloatingNavigation from '#lib/components/ui/ServiceFloatingNavigation.svelte';
 	import AboutEducation from '#lib/components/sections/education/AboutEducation.svelte';
 	import ServicesUnggulEducation from '#lib/components/sections/education/ServicesUnggulEducation.svelte';
 	import StepsEducation from '#lib/components/sections/education/StepsEducation.svelte';
@@ -32,8 +32,8 @@
 	<!-- 01: Hero Section (Fokus Pendidikan) -->
 	<HeroEducation />
 
-	<!-- 02: Stats Bar (Overlap -12px, 4 Metrik) -->
-	<StatsBarEducation />
+	<!-- 02: Standardized Service Floating Navigation Overlap -->
+	<ServiceFloatingNavigation activeService="education" />
 
 	<!-- 03: Tentang SDJNusantara (3-Kolom: Info, 5 Keunggulan, Foto Gedung Melengkung) -->
 	<AboutEducation />

@@ -4,7 +4,7 @@
 
 	// 7 Komponen Section Sesuai Mockup Referensi
 	import HeroLegal from '#lib/components/sections/legal/HeroLegal.svelte';
-	import CategoryNavLegal from '#lib/components/sections/legal/CategoryNavLegal.svelte';
+	import ServiceFloatingNavigation from '#lib/components/ui/ServiceFloatingNavigation.svelte';
 	import AboutLegal from '#lib/components/sections/legal/AboutLegal.svelte';
 	import ScopeLegal from '#lib/components/sections/legal/ScopeLegal.svelte';
 	import AdvantagesLegal from '#lib/components/sections/legal/AdvantagesLegal.svelte';
@@ -27,8 +27,8 @@
 	<!-- Section A: Hero Section Layanan Hukum -->
 	<HeroLegal />
 
-	<!-- Section B: Floating Category Navigation -->
-	<CategoryNavLegal />
+	<!-- Section B: Standardized Service Floating Navigation -->
+	<ServiceFloatingNavigation activeService="legal" />
 
 	<!-- Area Konten Putih Utama dengan Dekorasi Terpusat hanya di Sudut Kanan Atas & Kanan Bawah -->
 	<div class="legal-content-surface">

@@ -14,7 +14,7 @@ export async function handle({ event, resolve }: { event: any; resolve: any }) {
 
 	// Redirect permanen (301) untuk rute beasiswa lama
 	if (pathname === '/beasiswa' || pathname === '/beasiswa/') {
-		throw redirect(301, '/layanan/pendidikan#beasiswa');
+		throw redirect(301, '/layanan/beasiswa');
 	}
 	if (pathname.startsWith('/beasiswa/')) {
 		const slug = pathname.replace('/beasiswa/', '');
