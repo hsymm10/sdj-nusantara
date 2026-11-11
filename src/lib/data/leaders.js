@@ -20,15 +20,16 @@ export const leadersData = [
 	},
 	{
 		id: 'senior-advisor-strategic',
-		nama: 'Mayjen TNI (Purn.) Dr. Ir. Pujo Widodo',
+		nama: 'Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han).',
 		jabatan: 'Senior Advisor — Strategic Affairs & Institutional Relations',
 		jabatanDetail: 'Senior Advisor — Strategic Affairs & Institutional Relations',
 		foto: '/images/leaders/gambar2.png',
-		fotoAlt: 'Potret Mayjen TNI (Purn.) Dr. Ir. Pujo Widodo, Senior Advisor SDJNusantara',
+		fotoAlt:
+			'Potret Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han)., Senior Advisor SDJNusantara',
 		profilSingkat:
-			'Mayjen TNI (Purn.) Dr. Ir. Pujo Widodo merupakan profesional senior dengan pengalaman panjang dalam bidang strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, serta pendidikan tinggi.\n\nSepanjang perjalanan kariernya, ia telah menjalankan berbagai penugasan strategis di dalam dan luar negeri, termasuk bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional. Pengalaman tersebut membentuk perspektif yang kuat dalam membaca dinamika lingkungan strategis, mengelola risiko, membangun jejaring kelembagaan, serta merumuskan pendekatan yang terukur dalam menghadapi berbagai tantangan organisasi.\n\nIa juga memiliki latar belakang pendidikan yang luas dan multidisiplin, mencakup bidang ekonomi, hukum, teknik industri, pertahanan, intelijen strategis, hukum internasional, serta strategi global.\n\nSebagai Penasihat Senior Bidang Strategis dan Hubungan Kelembagaan PT Sampurna Djaya Nusantara, ia memberikan pandangan dan pertimbangan strategis kepada pimpinan perusahaan dalam pengembangan arah organisasi, penguatan hubungan kelembagaan, pengelolaan risiko, kepemimpinan, serta pengembangan kerja sama yang mendukung pertumbuhan perusahaan secara berkelanjutan.',
+			'Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han). merupakan profesional senior dengan pengalaman panjang dalam bidang strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, serta pendidikan tinggi.\n\nSepanjang perjalanan kariernya, ia telah menjalankan berbagai penugasan strategis di dalam dan luar negeri, termasuk bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional. Pengalaman tersebut membentuk perspektif yang kuat dalam membaca dinamika lingkungan strategis, mengelola risiko, membangun jejaring kelembagaan, serta merumuskan pendekatan yang terukur dalam menghadapi berbagai tantangan organisasi.\n\nIa juga memiliki latar belakang pendidikan yang luas dan multidisiplin, mencakup bidang ekonomi, hukum, teknik industri, pertahanan, intelijen strategis, hukum internasional, serta strategi global.\n\nSebagai Penasihat Senior Bidang Strategis dan Hubungan Kelembagaan PT Sampurna Djaya Nusantara, ia memberikan pandangan dan pertimbangan strategis kepada pimpinan perusahaan dalam pengembangan arah organisasi, penguatan hubungan kelembagaan, pengelolaan risiko, kepemimpinan, serta pengembangan kerja sama yang mendukung pertumbuhan perusahaan secara berkelanjutan.',
 		pendidikan:
-			'Ekonomi, Hukum, Teknik Industri, Pertahanan, Intelijen Strategis, Hukum Internasional & Strategi Global',
+			'S.E., S.H., S.T., Ir., M.A., M.D.S., M.Si., M.Si (Han)., Dr., Dr. — Ekonomi, Hukum, Teknik Industri, Pertahanan, Intelijen Strategis, Hukum Internasional & Strategi Global',
 		pengalaman: [
 			'Berbagai penugasan strategis di dalam dan luar negeri dalam bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional',
 			'Strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, dan pendidikan tinggi',
