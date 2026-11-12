@@ -1,7 +1,7 @@
 <!-- Modal Detail Layanan Unggulan (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { onDestroy } from "svelte";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	interface ServiceDetail {
 		id: string;
@@ -22,27 +22,29 @@
 
 	// Kunci scroll background saat modal terbuka
 	$effect(() => {
-		if (typeof document !== 'undefined') {
+		if (typeof document !== "undefined") {
 			if (isOpen) {
-				document.body.style.overflow = 'hidden';
+				document.body.style.overflow = "hidden";
 			} else {
-				document.body.style.overflow = '';
+				document.body.style.overflow = "";
 			}
 		}
 	});
 
 	onDestroy(() => {
-		if (typeof document !== 'undefined') {
-			document.body.style.overflow = '';
+		if (typeof document !== "undefined") {
+			document.body.style.overflow = "";
 		}
 	});
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Escape' && isOpen) {
+		if (e.key === "Escape" && isOpen) {
 			onclose();
 		}
 	}
 </script>
+
+git
 
 <svelte:window onkeydown={handleKeydown} />
 
@@ -72,27 +74,75 @@
 				<div class="modal-img-frame">
 					<!-- Kotak Ikon Layanan Kuning di Kiri Atas -->
 					<div class="modal-img-icon-box" aria-hidden="true">
-						{#if service.icon === 'grad'}
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						{#if service.icon === "grad"}
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#FFFFFF"
+								stroke-width="2.2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
 								<path d="M12 3L2 8l10 5 10-5-10-5z" />
 								<path d="M2 8v6" />
 								<path d="M6 10.5v5a6 6 0 0 0 12 0v-5" />
 							</svg>
-						{:else if service.icon === 'users'}
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+						{:else if service.icon === "users"}
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#FFFFFF"
+								stroke-width="2.2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+								/>
 								<circle cx="9" cy="7" r="4" />
 								<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
 								<path d="M16 3.13a4 4 0 0 1 0 7.75" />
 							</svg>
-						{:else if service.icon === 'star'}
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-								<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+						{:else if service.icon === "star"}
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#FFFFFF"
+								stroke-width="2.2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<polygon
+									points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+								/>
 							</svg>
 						{:else}
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="2" y="7" width="20" height="14" rx="2" />
-								<path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#FFFFFF"
+								stroke-width="2.2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<rect
+									x="2"
+									y="7"
+									width="20"
+									height="14"
+									rx="2"
+								/>
+								<path
+									d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"
+								/>
 								<line x1="12" y1="12" x2="12" y2="12" />
 							</svg>
 						{/if}
@@ -106,9 +156,21 @@
 					/>
 
 					<!-- Aksen dekoratif lengkungan kuning & oranye pada bagian bawah gambar -->
-					<svg class="modal-img-swoosh" viewBox="0 0 160 80" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M0 80 C50 74 105 52 160 12 V80 H0 Z" fill="#FFB923" />
-						<path d="M40 80 C85 78 120 60 160 28 V80 H40 Z" fill="#FFA726" />
+					<svg
+						class="modal-img-swoosh"
+						viewBox="0 0 160 80"
+						fill="none"
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M0 80 C50 74 105 52 160 12 V80 H0 Z"
+							fill="#FFB923"
+						/>
+						<path
+							d="M40 80 C85 78 120 60 160 28 V80 H40 Z"
+							fill="#FFA726"
+						/>
 					</svg>
 				</div>
 			</div>
@@ -118,7 +180,12 @@
 				<div class="modal-content-top">
 					<!-- 1. Label kecil "Layanan Unggulan" -->
 					<div class="modal-badge">
-						<span>{i18n.pick('Layanan Unggulan', 'Featured Service')}</span>
+						<span
+							>{i18n.pick(
+								"Layanan Unggulan",
+								"Featured Service",
+							)}</span
+						>
 					</div>
 
 					<!-- 2. Judul layanan (Warna Navy) -->
@@ -133,17 +200,36 @@
 
 					<!-- 4. Subjudul "Manfaat Layanan" -->
 					<h4 class="modal-benefits-heading">
-						{i18n.pick('Manfaat Layanan', 'Service Benefits')}
+						{i18n.pick("Manfaat Layanan", "Service Benefits")}
 					</h4>
 
 					<!-- 5. Daftar manfaat dengan ikon centang kuning -->
 					<ul class="modal-benefits-list">
 						{#each service.benefits as b}
 							<li class="modal-benefit-item">
-								<span class="benefit-check-icon" aria-hidden="true">
-									<svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-										<circle cx="10" cy="10" r="10" fill="#FFB51B" />
-										<path d="M6 10.2L8.7 13L14 7.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+								<span
+									class="benefit-check-icon"
+									aria-hidden="true"
+								>
+									<svg
+										width="18"
+										height="18"
+										viewBox="0 0 20 20"
+										fill="none"
+									>
+										<circle
+											cx="10"
+											cy="10"
+											r="10"
+											fill="#FFB51B"
+										/>
+										<path
+											d="M6 10.2L8.7 13L14 7.5"
+											stroke="#FFFFFF"
+											stroke-width="2.2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
 									</svg>
 								</span>
 								<span class="benefit-text">{b}</span>
@@ -196,7 +282,7 @@
 	/* Container Modal (850px Desktop, 2 Kolom) */
 	.modal-container {
 		position: relative;
-		background: #FFFFFF;
+		background: #ffffff;
 		width: 100%;
 		max-width: 820px;
 		border-radius: 24px;
@@ -233,7 +319,7 @@
 		border-radius: 20px;
 		overflow: hidden;
 		min-height: 290px;
-		background: #F1F5F9;
+		background: #f1f5f9;
 		box-shadow: 0 8px 20px rgba(11, 41, 72, 0.08);
 	}
 
@@ -254,8 +340,8 @@
 		width: 44px;
 		height: 44px;
 		border-radius: 12px;
-		background: #FFB51B;
-		border: 2px solid #FFFFFF;
+		background: #ffb51b;
+		border: 2px solid #ffffff;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
 		display: flex;
 		align-items: center;
@@ -291,15 +377,15 @@
 		display: inline-flex;
 		align-items: center;
 		padding: 3.5px 12px;
-		background: #F0FCFD;
-		border: 1px solid #7DE4EC;
+		background: #f0fcfd;
+		border: 1px solid #7de4ec;
 		border-radius: 6px;
 		width: fit-content;
 		margin-bottom: 11px;
 	}
 
 	.modal-badge span {
-		color: #00AAB5;
+		color: #00aab5;
 		font-size: 11px;
 		font-weight: 700;
 		letter-spacing: 0.02em;
@@ -309,7 +395,7 @@
 	.modal-service-title {
 		font-size: 22px;
 		font-weight: 800;
-		color: #0B2948;
+		color: #0b2948;
 		line-height: 1.3;
 		margin: 0 0 12px;
 		letter-spacing: -0.015em;
@@ -327,7 +413,7 @@
 	.modal-benefits-heading {
 		font-size: 13.5px;
 		font-weight: 800;
-		color: #0B2948;
+		color: #0b2948;
 		margin: 0 0 10px;
 	}
 
@@ -368,8 +454,8 @@
 	}
 
 	.modal-tutup-btn {
-		background: #FFB923;
-		color: #0B2948;
+		background: #ffb923;
+		color: #0b2948;
 		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 9px;

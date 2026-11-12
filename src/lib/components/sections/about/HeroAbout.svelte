@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 </script>
 
 <section class="hero-about">
@@ -16,9 +16,22 @@
 	</div>
 
 	<!-- Wave decoration bottom-left -->
-	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
-		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-about)" />
+	<svg
+		class="hero-wave"
+		viewBox="0 0 380 160"
+		fill="none"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+	>
+		<path
+			d="M0 30 C100 30 180 90 300 160 H0 Z"
+			fill="#0A5E75"
+			fill-opacity="0.92"
+		/>
+		<path
+			d="M0 75 C100 75 180 120 270 160 H0 Z"
+			fill="url(#teal-grad-about)"
+		/>
 		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
 		<defs>
 			<linearGradient id="teal-grad-about" x1="0" y1="0" x2="1" y2="1">
@@ -29,8 +42,18 @@
 	</svg>
 
 	<!-- Accent decoration bottom-right -->
-	<svg class="hero-swoosh-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+	<svg
+		class="hero-swoosh-right"
+		viewBox="0 0 260 160"
+		fill="none"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+	>
+		<path
+			d="M260 20 C200 65 120 115 40 160 H260 Z"
+			fill="#079EAD"
+			fill-opacity="0.85"
+		/>
 		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
 		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
@@ -40,28 +63,41 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">{i18n.pick('Tentang Kami', 'About Us')}</span>
+				<span class="pill-label"
+					>{i18n.pick("Tentang Kami", "About Us")}</span
+				>
 			</div>
 
 			<!-- Headline (3 lines, font ±44px at 1536, line 3 gold #F5B331) -->
 			<h1 class="hero-title">
-				{i18n.pick('Bersama Membangun', 'Together Building')}<br />
-				{i18n.pick('Pendidikan yang Lebih Baik', 'Better Education')}<br />
-				<span class="gold-text">{i18n.pick('untuk Masa Depan Indonesia.', 'for Indonesia’s Future.')}</span>
+				{i18n.pick("Bersama Membangun", "Together Building")}<br />
+				{i18n.pick("Pendidikan yang Lebih Baik", "Better Education")}<br
+				/>
+				<span class="gold-text"
+					>{i18n.pick(
+						"untuk Masa Depan Indonesia.",
+						"for Indonesia’s Future.",
+					)}</span
+				>
 			</h1>
 
 			<!-- Description (max-width 560px without manual <br>) -->
 			<p class="hero-desc">
 				{i18n.pick(
-					'SDJNusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.',
-					'SDJNusantara serves as an education and talent development consultancy committed to delivering strategic, innovative, and impactful solutions for individuals and institutions.'
+					"SDJNusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.",
+					"SDJNusantara serves as an education and talent development consultancy committed to delivering strategic, innovative, and impactful solutions for individuals and institutions.",
 				)}
 			</p>
 
 			<!-- Button CTA -->
 			<div class="hero-btn-row">
 				<a href="#profil" class="btn-gold">
-					<span>{i18n.pick('Mengenal Lebih Dekat', 'Get to Know Us')}</span>
+					<span
+						>{i18n.pick(
+							"Mengenal Lebih Dekat",
+							"Get to Know Us",
+						)}</span
+					>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>
@@ -175,14 +211,14 @@
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00A6B2;
+		background: #00a6b2;
 		border-radius: 50%;
 	}
 
 	.pill-label {
 		font-size: 12px;
 		font-weight: 600;
-		color: #FFFFFF;
+		color: #ffffff;
 		letter-spacing: 0.02em;
 	}
 
@@ -191,12 +227,12 @@
 		font-size: clamp(30px, 2.6vw, 39px);
 		line-height: 1.18;
 		font-weight: 800;
-		color: #FFFFFF;
+		color: #ffffff;
 		margin: 0 0 0.85rem 0;
 	}
 
 	.gold-text {
-		color: #F5B331;
+		color: #f5b331;
 	}
 
 	/* Description */
@@ -223,7 +259,7 @@
 		gap: 8px;
 		width: 210px;
 		height: 42px;
-		background: #F5B331;
+		background: #f5b331;
 		color: #082442;
 		font-size: 13.5px;
 		font-weight: 700;
