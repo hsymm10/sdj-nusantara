@@ -81,6 +81,14 @@ function enrichEnglishQuery(text) {
 }
 
 /**
+ * @param {string} text
+ * @returns {string}
+ */
+export function enrichEnglishQueryPublic(text) {
+	return enrichEnglishQuery(text);
+}
+
+/**
  * Normalisasi string: huruf kecil, hapus karakter khusus selain spasi dan alfanumerik
  * @param {string} text
  * @returns {string}

@@ -83,13 +83,20 @@ export const enDict: TranslationDict = {
 			'/layanan': 'Services',
 			'/layanan/pendidikan': 'Education Programs',
 			'/layanan/beasiswa': 'Scholarships',
+			'/layanan/pendidikan/program/talent-accelerator': 'Talent Accelerator',
+			'/layanan/pendidikan/program/ai-digital-productivity': 'AI & Digital Productivity',
+			'/layanan/pendidikan/program/corporate-campus': 'Corporate & Campus Capacity Building',
+			'/layanan/pendidikan/program/partnership-services': 'Institutional Partnership Services',
+			'/layanan/pendidikan/beasiswa/scholarship-academy': 'Scholarship Academy',
 			'/artikel': 'Articles',
 			'/tentang-kami': 'About Us',
 			'/kemitraan': 'Partnership',
 			'/konsultasi': 'Consultation',
 			'/program': 'Programs',
 			'/beasiswa': 'Scholarships',
-			'/faq': 'FAQ'
+			'/faq': 'FAQ',
+			'/kebijakan-privasi': 'Privacy Policy',
+			'/syarat-ketentuan': 'Terms & Conditions'
 		} as Record<string, string>,
 		whatsappLabel: 'WhatsApp +62 858-8072-4733'
 	},

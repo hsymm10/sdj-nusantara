@@ -1,15 +1,29 @@
 // Store State Chatbot SDJNusantara (Svelte 5 Runes)
-// Mengelola percakapan, riwayat sessionStorage, unread counter, dan status jendela
+// Mengelola percakapan dwibahasa, riwayat terstruktur, unread counter, dan status jendela
 
 import { chatConfig } from '#lib/config/chat';
-import { activeChatService } from '#lib/services/chat/chatService';
-import { i18n } from '#lib/stores/i18n.svelte';
+import { activeChatService, type StructuredReply } from '#lib/services/chat/chatService';
+
+export type BotMessageKind =
+	| 'greeting'
+	| 'topic_list'
+	| 'answer'
+	| 'page_overview'
+	| 'summary'
+	| 'did_you_mean'
+	| 'fallback'
+	| 'policy'
+	| 'text';
 
 export interface ChatMessage {
 	id: string;
 	role: 'bot' | 'user';
-	text: string;
-	time: string;
+	text?: string; // Teks asli untuk user (tidak pernah diterjemahkan/diubah) atau teks fallback
+	kind?: BotMessageKind; // Jenis pesan bot untuk resolusi bahasa dinamis (ID <-> EN)
+	key?: string; // ID topik, ID knowledge base, atau policy key
+	params?: Record<string, any>; // Parameter dinamis (candidateTopics, suggestions, dsb.)
+	time?: string; // Legacy time string (opsional)
+	timestampMs: number; // Timestamp milidetik untuk formatting waktu dinamis per locale
 	read: boolean;
 }
 
@@ -28,12 +42,12 @@ class ChatStore {
 	tooltipDismissed = $state(false);
 	showQuickReplies = $state(true);
 	hasNewMessageBelow = $state(false);
+	lastTopicId = $state<string | null>(null);
 
 	private lastSentTimestamp = 0;
 	private initialized = false;
 
 	constructor() {
-		// Dijalankan di browser
 		if (typeof window !== 'undefined') {
 			this.init();
 		}
@@ -53,13 +67,49 @@ class ChatStore {
 			console.warn('[ChatStore] sessionStorage not available', e);
 		}
 
-		// 2. Pulihkan Riwayat Pesan
+		// 2. Pulihkan Riwayat Pesan dengan migrasi aman ke format terstruktur (v2)
 		try {
 			const raw = sessionStorage.getItem(chatConfig.storageKey);
 			if (raw) {
 				const parsed = JSON.parse(raw);
 				if (Array.isArray(parsed.messages) && parsed.messages.length > 0) {
-					this.messages = parsed.messages;
+					// Migrasi aman bila masih format lama (v1)
+					const now = Date.now();
+					this.messages = parsed.messages.map((m: any, idx: number) => {
+						const timestampMs = typeof m.timestampMs === 'number' ? m.timestampMs : now - (parsed.messages.length - idx) * 1000;
+						if (m.role === 'user') {
+							return {
+								id: m.id || `user_${timestampMs}`,
+								role: 'user' as const,
+								text: m.text || '',
+								timestampMs,
+								read: true
+							};
+						}
+						// Bot message
+						if (m.id === 'msg_welcome') {
+							return {
+								id: 'msg_welcome',
+								role: 'bot' as const,
+								kind: 'greeting' as const,
+								key: 'welcome',
+								timestampMs,
+								read: true
+							};
+						}
+						return {
+							id: m.id || `bot_${timestampMs}`,
+							role: 'bot' as const,
+							kind: (m.kind as BotMessageKind) || 'text',
+							key: m.key,
+							params: m.params,
+							text: m.text,
+							timestampMs,
+							read: m.read ?? true
+						};
+					});
+
+					this.lastTopicId = parsed.lastTopicId ?? null;
 					this.unreadCount = typeof parsed.unreadCount === 'number' ? parsed.unreadCount : 0;
 					this.showQuickReplies = parsed.showQuickReplies ?? false;
 					return;
@@ -69,7 +119,7 @@ class ChatStore {
 			console.warn('[ChatStore] Failed to restore chat history', e);
 		}
 
-		// Default: Pesan Sambutan Awal (read: true, unreadCount: 0)
+		// Default: Pesan Sambutan Awal terstruktur
 		this.resetToWelcome();
 	}
 
@@ -78,11 +128,13 @@ class ChatStore {
 			{
 				id: 'msg_welcome',
 				role: 'bot',
-				text: i18n.dict.chat.welcomeMessage,
-				time: formatCurrentTime(),
+				kind: 'greeting',
+				key: 'welcome',
+				timestampMs: Date.now(),
 				read: true
 			}
 		];
+		this.lastTopicId = null;
 		this.unreadCount = 0;
 		this.showQuickReplies = true;
 		this.saveToStorage();
@@ -91,7 +143,7 @@ class ChatStore {
 	get lastUserQuestion(): string | null {
 		for (let i = this.messages.length - 1; i >= 0; i--) {
 			if (this.messages[i].role === 'user') {
-				return this.messages[i].text;
+				return this.messages[i].text || null;
 			}
 		}
 		return null;
@@ -102,7 +154,7 @@ class ChatStore {
 		const start = idx === -1 ? this.messages.length - 1 : idx - 1;
 		for (let i = start; i >= 0; i--) {
 			if (this.messages[i].role === 'user') {
-				return this.messages[i].text;
+				return this.messages[i].text || null;
 			}
 		}
 		return this.lastUserQuestion;
@@ -113,8 +165,9 @@ class ChatStore {
 		try {
 			// Simpan maksimal 100 pesan terakhir
 			const payload = {
-				version: 1,
+				version: 2,
 				messages: this.messages.slice(-100),
+				lastTopicId: this.lastTopicId,
 				unreadCount: this.unreadCount,
 				showQuickReplies: this.showQuickReplies
 			};
@@ -183,12 +236,12 @@ class ChatStore {
 		}
 		this.lastSentTimestamp = now;
 
-		// Tambahkan pesan pengguna
+		// Tambahkan pesan pengguna (Teks asli selalu dipertahankan tanpa perubahan)
 		const userMsg: ChatMessage = {
 			id: `user_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
 			role: 'user',
 			text: trimmed,
-			time: formatCurrentTime(),
+			timestampMs: Date.now(),
 			read: true
 		};
 
@@ -200,10 +253,15 @@ class ChatStore {
 		try {
 			const res = await activeChatService.sendMessage({
 				history: this.messages,
-				text: trimmed
+				text: trimmed,
+				lastTopicId: this.lastTopicId
 			});
 
 			this.isTyping = false;
+
+			if (res.lastTopicId) {
+				this.lastTopicId = res.lastTopicId;
+			}
 
 			if (res && Array.isArray(res.replies)) {
 				for (const reply of res.replies) {
@@ -212,23 +270,41 @@ class ChatStore {
 			}
 		} catch (err) {
 			this.isTyping = false;
-			this.receiveBotMessage(
-				'Mohon maaf, terjadi kendala saat memproses jawaban. Silakan hubungi tim kami via WhatsApp https://wa.me/6285880724733.'
-			);
+			this.receiveBotMessage({
+				kind: 'fallback',
+				key: 'error_fallback'
+			});
 		}
 
 		return true;
 	}
 
-	receiveBotMessage(text: string) {
+	receiveBotMessage(reply: string | StructuredReply) {
 		const isRead = this.isOpen;
-		const botMsg: ChatMessage = {
-			id: `bot_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
-			role: 'bot',
-			text,
-			time: formatCurrentTime(),
-			read: isRead
-		};
+		const timestampMs = Date.now();
+		let botMsg: ChatMessage;
+
+		if (typeof reply === 'string') {
+			botMsg = {
+				id: `bot_${timestampMs}_${Math.random().toString(36).substring(2, 6)}`,
+				role: 'bot',
+				kind: 'text',
+				text: reply,
+				timestampMs,
+				read: isRead
+			};
+		} else {
+			botMsg = {
+				id: `bot_${timestampMs}_${Math.random().toString(36).substring(2, 6)}`,
+				role: 'bot',
+				kind: reply.kind,
+				key: reply.key,
+				params: reply.params,
+				text: reply.text,
+				timestampMs,
+				read: isRead
+			};
+		}
 
 		this.messages.push(botMsg);
 
@@ -245,8 +321,8 @@ export const chatStore = new ChatStore();
 // DEV-ONLY DEBUG UTILITY: Tereliminasi otomatis di produksi
 if (import.meta.env.DEV && typeof window !== 'undefined') {
 	(window as any).__chatDebug = {
-		simulateBotMessage: (text: string) => {
-			chatStore.receiveBotMessage(text);
+		simulateBotMessage: (reply: string | StructuredReply) => {
+			chatStore.receiveBotMessage(reply);
 		},
 		setUnread: (count: number) => {
 			chatStore.unreadCount = count;
@@ -257,7 +333,8 @@ if (import.meta.env.DEV && typeof window !== 'undefined') {
 		getState: () => ({
 			isOpen: chatStore.isOpen,
 			unreadCount: chatStore.unreadCount,
-			messagesCount: chatStore.messages.length
+			messagesCount: chatStore.messages.length,
+			lastTopicId: chatStore.lastTopicId
 		})
 	};
 }
