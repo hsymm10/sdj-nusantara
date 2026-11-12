@@ -5,7 +5,7 @@
 		<div class="bsw-prep-left">
 			<div class="bsw-prep-img-wrap">
 				<img
-					src="/images/about-laptop-desk-hd.jpg"
+					src="/images/home-scholarship-prep.jpg"
 					alt="Persiapan Beasiswa SDJNusantara"
 					class="bsw-prep-img"
 					loading="lazy"

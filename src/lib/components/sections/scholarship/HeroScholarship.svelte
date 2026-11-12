@@ -6,7 +6,7 @@
 	<!-- Background image & navy fade overlay -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/partner-hero-5.jpg"
+			src="/images/scholarship-hero.jpg"
 			alt="Beasiswa SDJNusantara"
 			class="hero-img"
 			loading="eager"

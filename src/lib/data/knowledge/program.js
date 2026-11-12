@@ -119,7 +119,7 @@ export const programKnowledge = [
 		status: 'terverifikasi',
 		sumber: 'naskah §4 Program 2',
 		updatedAt: '2026-11-05',
-		image: '/images/prog-card-4.jpg'
+		image: '/images/prog-card-2.jpg'
 	},
 	{
 		id: 'program-ai-digital',
@@ -214,7 +214,7 @@ export const programKnowledge = [
 		status: 'terverifikasi',
 		sumber: 'naskah §4 Program 4',
 		updatedAt: '2026-11-05',
-		image: '/images/svc-04-handshake.jpg'
+		image: '/images/prog-card-4.jpg'
 	},
 	{
 		id: 'program-corporate-campus',

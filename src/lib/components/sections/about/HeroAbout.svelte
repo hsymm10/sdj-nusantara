@@ -6,7 +6,7 @@
 	<!-- Background image right -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/partner-hero-5.jpg"
+			src="/images/about-hero.jpg"
 			alt="Tim SDJNusantara"
 			class="hero-img"
 			loading="eager"

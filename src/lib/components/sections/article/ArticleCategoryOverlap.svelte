@@ -1,42 +1,83 @@
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	interface Props {
 		selectedCategory: string;
 		onSelectCategory: (cat: string) => void;
 	}
 
-	let { selectedCategory = 'Semua Artikel', onSelectCategory }: Props = $props();
+	let { selectedCategory = "Semua Artikel", onSelectCategory }: Props =
+		$props();
 
 	const categories = $derived(
-		i18n.lang === 'en'
+		i18n.lang === "en"
 			? [
-					{ id: 'Semua Artikel', label: 'All Articles', icon: 'all' },
-					{ id: 'Pendidikan', label: 'Education', icon: 'education' },
-					{ id: 'Beasiswa', label: 'Scholarships', icon: 'scholarship' },
-					{ id: 'Pengembangan Talenta', label: 'Talent Development', icon: 'talent' },
-					{ id: 'Keterampilan Digital', label: 'Digital Skills', icon: 'digital' },
-					{ id: 'Kemitraan', label: 'Partnerships', icon: 'partner' },
-					{ id: 'Karier & Profesional', label: 'Career & Professional', icon: 'career' }
+					{ id: "Semua Artikel", label: "All Articles", icon: "all" },
+					{ id: "Pendidikan", label: "Education", icon: "education" },
+					{
+						id: "Beasiswa",
+						label: "Scholarships",
+						icon: "scholarship",
+					},
+					{
+						id: "Pengembangan Talenta",
+						label: "Talent Development",
+						icon: "talent",
+					},
+					{
+						id: "Keterampilan Digital",
+						label: "Digital Skills",
+						icon: "digital",
+					},
+					{ id: "Kemitraan", label: "Partnerships", icon: "partner" },
+					{
+						id: "Karier & Profesional",
+						label: "Career & Professional",
+						icon: "career",
+					},
 				]
 			: [
-					{ id: 'Semua Artikel', label: 'Semua Artikel', icon: 'all' },
-					{ id: 'Pendidikan', label: 'Pendidikan', icon: 'education' },
-					{ id: 'Beasiswa', label: 'Beasiswa', icon: 'scholarship' },
-					{ id: 'Pengembangan Talenta', label: 'Pengembangan Talenta', icon: 'talent' },
-					{ id: 'Keterampilan Digital', label: 'Keterampilan Digital', icon: 'digital' },
-					{ id: 'Kemitraan', label: 'Kemitraan', icon: 'partner' },
-					{ id: 'Karier & Profesional', label: 'Karier & Profesional', icon: 'career' }
-				]
+					{
+						id: "Semua Artikel",
+						label: "Semua Artikel",
+						icon: "all",
+					},
+					{
+						id: "Pendidikan",
+						label: "Pendidikan",
+						icon: "education",
+					},
+					{ id: "Beasiswa", label: "Beasiswa", icon: "scholarship" },
+					{
+						id: "Pengembangan Talenta",
+						label: "Pengembangan Talenta",
+						icon: "talent",
+					},
+					{
+						id: "Keterampilan Digital",
+						label: "Keterampilan Digital",
+						icon: "digital",
+					},
+					{ id: "Kemitraan", label: "Kemitraan", icon: "partner" },
+					{
+						id: "Karier & Profesional",
+						label: "Karier & Profesional",
+						icon: "career",
+					},
+				],
 	);
 </script>
 
 <div class="category-overlap-wrapper" id="semua-artikel">
-	<nav class="category-bar" aria-label={i18n.pick('Kategori Artikel', 'Article Categories')}>
+	<nav
+		class="category-bar"
+		aria-label={i18n.pick("Kategori Artikel", "Article Categories")}
+	>
 		{#each categories as cat, index}
 			{@const isActive = selectedCategory === cat.id}
 			{@const nextIsActive =
-				index < categories.length - 1 && selectedCategory === categories[index + 1].id}
+				index < categories.length - 1 &&
+				selectedCategory === categories[index + 1].id}
 			<button
 				type="button"
 				class="cat-tile"
@@ -45,25 +86,63 @@
 				onclick={() => onSelectCategory(cat.id)}
 			>
 				<span class="cat-icon-box" aria-hidden="true">
-					{#if cat.icon === 'all'}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+					{#if cat.icon === "all"}
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path
+								d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+							/>
 							<polyline points="14 2 14 8 20 8" />
 							<line x1="16" y1="13" x2="8" y2="13" />
 							<line x1="16" y1="17" x2="8" y2="17" />
 							<line x1="10" y1="9" x2="8" y2="9" />
 						</svg>
-					{:else if cat.icon === 'education'}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
+					{:else if cat.icon === "education"}
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.95"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<path d="M3 21h18M5 21V10l7-5 7 5v11M9 21V14h6v7" />
 						</svg>
-					{:else if cat.icon === 'scholarship'}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
+					{:else if cat.icon === "scholarship"}
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.95"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<path d="M22 10v6M2 10l10-5 10 5-10 5z" />
 							<path d="M6 12v5c3 3 9 3 12 0v-5" />
 						</svg>
-					{:else if cat.icon === 'talent'}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
+					{:else if cat.icon === "talent"}
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.95"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<circle cx="12" cy="12" r="3" />
 							<circle cx="19" cy="5" r="2" />
 							<circle cx="5" cy="5" r="2" />
@@ -74,22 +153,65 @@
 							<line x1="14.2" y1="14.2" x2="17.5" y2="17.5" />
 							<line x1="9.8" y1="14.2" x2="6.5" y2="17.5" />
 						</svg>
-					{:else if cat.icon === 'digital'}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+					{:else if cat.icon === "digital"}
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.95"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<rect
+								x="2"
+								y="3"
+								width="20"
+								height="14"
+								rx="2"
+								ry="2"
+							/>
 							<line x1="8" y1="21" x2="16" y2="21" />
 							<line x1="12" y1="17" x2="12" y2="21" />
 						</svg>
-					{:else if cat.icon === 'partner'}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+					{:else if cat.icon === "partner"}
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.95"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path
+								d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+							/>
 							<circle cx="9" cy="7" r="4" />
 							<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
 							<path d="M16 3.13a4 4 0 0 1 0 7.75" />
 						</svg>
 					{:else}
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.95"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<rect
+								x="4"
+								y="2"
+								width="16"
+								height="20"
+								rx="2"
+								ry="2"
+							/>
 							<line x1="9" y1="6" x2="9" y2="6.01" />
 							<line x1="15" y1="6" x2="15" y2="6.01" />
 							<line x1="9" y1="10" x2="9" y2="10.01" />
@@ -130,7 +252,7 @@
 		width: 100%;
 		min-height: 84px;
 		height: 84px;
-		background: #FFFFFF;
+		background: #ffffff;
 		border: 1px solid rgba(226, 232, 240, 0.9);
 		border-radius: 20px;
 		padding: 12px 18px;
@@ -154,19 +276,22 @@
 		border-radius: 14px;
 		color: #082442;
 		cursor: pointer;
-		transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+		transition:
+			background-color 0.2s ease,
+			color 0.2s ease,
+			box-shadow 0.2s ease;
 		box-sizing: border-box;
 		text-align: left;
 	}
 
 	.cat-tile:not(.active):hover {
 		background: rgba(7, 158, 173, 0.07);
-		color: #079EAD;
+		color: #079ead;
 	}
 
 	.cat-tile.active {
-		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
-		color: #FFFFFF;
+		background: linear-gradient(135deg, #079ead 0%, #16b6c1 100%);
+		color: #ffffff;
 		box-shadow: 0 4px 16px rgba(7, 158, 173, 0.26);
 	}
 
@@ -175,12 +300,12 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		color: #00AAB5;
+		color: #00aab5;
 		transition: color 0.2s ease;
 	}
 
 	.cat-tile.active .cat-icon-box {
-		color: #FFFFFF;
+		color: #ffffff;
 	}
 
 	.cat-label {
@@ -199,7 +324,7 @@
 	.col-divider {
 		width: 1px;
 		height: 38px;
-		background: #E2E8F0;
+		background: #e2e8f0;
 		margin: 0 4px;
 		flex-shrink: 0;
 		transition: opacity 0.2s ease;

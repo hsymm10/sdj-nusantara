@@ -6,7 +6,7 @@
 	<!-- Background image full-bleed right with smooth navy fade -->
 	<div class="hero-bg-wrap">
 		<img
-			src="/images/partner-hero-5.jpg"
+			src="/images/education-hero.jpg"
 			alt={i18n.pick('Layanan Pendidikan SDJNusantara', 'SDJNusantara Education Services')}
 			class="hero-img"
 			loading="eager"

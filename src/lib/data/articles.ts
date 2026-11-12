@@ -184,7 +184,7 @@ export const articlesData: Article[] = [
 		isi: '<p>Integrasi teknologi dalam kurikulum sekolah dan universitas menuntut adaptasi berkelanjutan dari pengajar maupun siswa.</p>',
 		penulis: 'Divisi Inovasi Pendidikan SDJNusantara',
 		sumber: 'Kementerian Pendidikan & World Economic Forum Report',
-		gambar: '/images/article-card-2.jpg',
+		gambar: '/images/article-card-7.jpg',
 		isFeatured: true
 	},
 	{
@@ -296,7 +296,7 @@ export const articlesData: Article[] = [
 		isi: '<p>Letter of Acceptance (LoA) tanpa syarat merupakan tiket utama untuk mengunci peluang beasiswa bergengsi luar negeri.</p>',
 		penulis: 'Tim Konsultan Studi Luar Negeri SDJNusantara',
 		sumber: 'Panduan Beasiswa & Studi Global SDJNusantara',
-		gambar: '/images/article-card-5.jpg'
+		gambar: '/images/article-card-9.jpg'
 	},
 	{
 		id: 18,
