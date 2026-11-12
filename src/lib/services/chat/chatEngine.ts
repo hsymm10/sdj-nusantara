@@ -294,3 +294,4 @@ export function processUserQuery(userQuery: string, lastTopicId?: string | null)
 		lastTopicId: lastTopicId ?? undefined
 	};
 }
+
