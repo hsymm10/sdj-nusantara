@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { isChatEnabled } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 	import ChatLauncher from './ChatLauncher.svelte';
 	import ChatTooltip from './ChatTooltip.svelte';
 
@@ -49,7 +50,7 @@
 <svelte:window onclick={handleGlobalClick} />
 
 {#if isEnabled}
-	<aside class="sdj-chat-widget" aria-label="Widget Bantuan Asisten">
+	<aside class="sdj-chat-widget" aria-label={i18n.pick('Widget Bantuan Asisten', 'Assistant Help Widget')}>
 		<!-- 1. Tooltip Ajakan -->
 		<ChatTooltip />
 

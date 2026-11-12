@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { tick } from 'svelte';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { tick } from "svelte";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	interface Props {
 		value: string;
@@ -10,14 +10,23 @@
 	}
 
 	let {
-		value = '',
+		value = "",
 		placeholderClosed,
 		placeholderOpen,
-		onChange
+		onChange,
 	}: Props = $props();
 
-	const resolvedClosed = $derived(placeholderClosed ?? i18n.pick('Cari beasiswa...', 'Search scholarships...'));
-	const resolvedOpen = $derived(placeholderOpen ?? i18n.pick('Cari nama beasiswa, penyelenggara, atau kata kunci...', 'Search scholarship name, provider, or keyword...'));
+	const resolvedClosed = $derived(
+		placeholderClosed ??
+			i18n.pick("Cari beasiswa...", "Search scholarships..."),
+	);
+	const resolvedOpen = $derived(
+		placeholderOpen ??
+			i18n.pick(
+				"Cari nama beasiswa, penyelenggara, atau kata kunci...",
+				"Search scholarship name, provider, or keyword...",
+			),
+	);
 
 	let isOpen = $state(false);
 	let inputEl = $state<HTMLInputElement | null>(null);
@@ -45,21 +54,26 @@
 
 	function handleClear() {
 		if (inputEl) {
-			inputEl.value = '';
+			inputEl.value = "";
 		}
-		onChange('');
+		onChange("");
 		handleClose();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
 		// Tekan '/' untuk membuka pencarian jika sedang di luar input
-		if (e.key === '/' && !isOpen && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+		if (
+			e.key === "/" &&
+			!isOpen &&
+			document.activeElement?.tagName !== "INPUT" &&
+			document.activeElement?.tagName !== "TEXTAREA"
+		) {
 			e.preventDefault();
 			handleOpen();
 			return;
 		}
 
-		if (isOpen && e.key === 'Escape') {
+		if (isOpen && e.key === "Escape") {
 			e.preventDefault();
 			handleClose();
 		}
@@ -74,9 +88,23 @@
 			type="button"
 			class="search-trigger-btn"
 			onclick={handleOpen}
-			aria-label={i18n.pick('Buka pencarian (tekan /)', 'Open search (press /)')}
+			aria-label={i18n.pick(
+				"Buka pencarian (tekan /)",
+				"Open search (press /)",
+			)}
 		>
-			<svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<svg
+				class="search-icon"
+				width="18"
+				height="18"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="#64748B"
+				stroke-width="2.2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
 				<circle cx="11" cy="11" r="8"></circle>
 				<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 			</svg>
@@ -87,7 +115,18 @@
 		</button>
 	{:else}
 		<div class="search-expanded-bar">
-			<svg class="search-icon-inside" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<svg
+				class="search-icon-inside"
+				width="18"
+				height="18"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="#079EAD"
+				stroke-width="2.2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
 				<circle cx="11" cy="11" r="8"></circle>
 				<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 			</svg>
@@ -99,7 +138,7 @@
 				placeholder={resolvedOpen}
 				class="search-active-input"
 				bind:this={inputEl}
-				aria-label={i18n.pick('Ketik pencarian', 'Type search query')}
+				aria-label={i18n.pick("Ketik pencarian", "Type search query")}
 			/>
 
 			{#if value || (inputEl && inputEl.value)}
@@ -107,9 +146,18 @@
 					type="button"
 					class="search-clear-btn"
 					onclick={handleClear}
-					aria-label="Hapus kata kunci pencarian"
+					aria-label={i18n.pick('Hapus kata kunci pencarian', 'Clear search keyword')}
 				>
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<svg
+						width="14"
+						height="14"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
 						<line x1="18" y1="6" x2="6" y2="18"></line>
 						<line x1="6" y1="6" x2="18" y2="18"></line>
 					</svg>
@@ -120,9 +168,18 @@
 				type="button"
 				class="search-submit-round"
 				onclick={handleClose}
-				aria-label="Selesai mencari"
+				aria-label={i18n.pick('Selesai mencari', 'Finish searching')}
 			>
-				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="#FFFFFF"
+					stroke-width="2.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<circle cx="11" cy="11" r="8"></circle>
 					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 				</svg>
@@ -152,8 +209,8 @@
 		width: 100%;
 		height: 48px;
 		padding: 0 14px;
-		background: #FFFFFF;
-		border: 1px solid #D6E6EC;
+		background: #ffffff;
+		border: 1px solid #d6e6ec;
 		border-radius: 14px;
 		display: flex;
 		align-items: center;
@@ -165,18 +222,18 @@
 	}
 
 	.search-trigger-btn:hover {
-		border-color: #079EAD;
+		border-color: #079ead;
 		box-shadow: 0 2px 10px rgba(7, 158, 173, 0.08);
 	}
 
 	.search-trigger-btn:focus-visible {
-		outline: 2px solid #079EAD;
+		outline: 2px solid #079ead;
 		outline-offset: 2px;
 	}
 
 	.search-placeholder-text {
 		font-size: 13.5px;
-		color: #64748B;
+		color: #64748b;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -189,12 +246,12 @@
 		justify-content: center;
 		width: 20px;
 		height: 20px;
-		background: #F1F5F9;
-		color: #94A3B8;
+		background: #f1f5f9;
+		color: #94a3b8;
 		font-size: 11px;
 		font-weight: 700;
 		border-radius: 6px;
-		border: 1px solid #E2E8F0;
+		border: 1px solid #e2e8f0;
 	}
 
 	/* Expanded Active State */
@@ -202,8 +259,8 @@
 		width: 100%;
 		height: 48px;
 		padding: 0 4px 0 14px;
-		background: #FFFFFF;
-		border: 1.5px solid #079EAD;
+		background: #ffffff;
+		border: 1.5px solid #079ead;
 		border-radius: 14px;
 		display: flex;
 		align-items: center;
@@ -228,16 +285,16 @@
 	}
 
 	.search-active-input::placeholder {
-		color: #94A3B8;
+		color: #94a3b8;
 	}
 
 	.search-clear-btn {
 		width: 24px;
 		height: 24px;
 		border-radius: 50%;
-		background: #F1F5F9;
+		background: #f1f5f9;
 		border: none;
-		color: #64748B;
+		color: #64748b;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -247,7 +304,7 @@
 	}
 
 	.search-clear-btn:hover {
-		background: #E2E8F0;
+		background: #e2e8f0;
 		color: #082442;
 	}
 
@@ -266,7 +323,7 @@
 	}
 
 	.search-submit-round:hover {
-		background: #079EAD;
+		background: #079ead;
 	}
 
 	@media (max-width: 767px) {
@@ -286,4 +343,3 @@
 		}
 	}
 </style>
-

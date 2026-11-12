@@ -132,7 +132,7 @@
 				<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
 			</svg>
 			{#if activeCount > 0}
-				<span class="active-badge" aria-label="{activeCount} filter aktif">{activeCount}</span>
+				<span class="active-badge" aria-label={i18n.pick(`${activeCount} filter aktif`, `${activeCount} active filters`)}>{activeCount}</span>
 			{/if}
 		</div>
 		<span class="filter-btn-label">Filter</span>
@@ -147,7 +147,7 @@
 			id="filter-dialog"
 			class="popover-floating-card"
 			role="dialog"
-			aria-label="Filter beasiswa"
+			aria-label={i18n.pick('Filter beasiswa', 'Scholarship filters')}
 			bind:this={popoverEl}
 		>
 			<div class="mobile-sheet-handle" aria-hidden="true"></div>

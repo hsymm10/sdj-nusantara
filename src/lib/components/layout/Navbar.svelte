@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import { navItems, type NavItem, type NavSubItem } from '#lib/config/navigation';
 	import { i18n } from '#lib/stores/i18n.svelte';
-	import logoSdj from '#lib/assets/logo_sdj.png';
+	import Logo from '#lib/components/ui/Logo.svelte';
 
 	function getNavLabel(item: NavItem): string {
 		const n = i18n.dict.nav;
@@ -179,14 +179,8 @@
 
 	<div class="navbar-inner">
 		<!-- Logo resmi SDJNusantara (rasio proporsional penuh) -->
-		<a href="/" class="logo-link" aria-label="SDJNusantara Beranda">
-			<div class="nav-logo-box">
-				<img
-					src={logoSdj}
-					alt="Logo SDJNusantara - Your Strategic Partner"
-					class="nav-logo-img"
-				/>
-			</div>
+		<a href="/" class="logo-link" aria-label={i18n.pick('SDJNusantara Beranda', 'SDJNusantara Home')}>
+			<Logo size="nav" variant="plain" />
 		</a>
 
 		<!-- Desktop Navigation -->
@@ -215,7 +209,7 @@
 								type="button"
 								bind:this={triggerButtonEl}
 								class="dropdown-chevron-btn {desktopDropdownOpen ? 'open' : ''}"
-								aria-label="Buka submenu Layanan"
+								aria-label={i18n.pick('Buka submenu Layanan', 'Open Services submenu')}
 								aria-haspopup="true"
 								aria-expanded={desktopDropdownOpen}
 								onclick={(e) => {
@@ -240,7 +234,7 @@
 								bind:this={panelEl}
 								class="dropdown-panel"
 								role="menu"
-								aria-label="Submenu Layanan"
+								aria-label={i18n.pick('Submenu Layanan', 'Services submenu')}
 								tabindex="-1"
 								onkeydown={handlePanelKeydown}
 							>
@@ -390,7 +384,7 @@
 								<button
 									type="button"
 									class="mobile-accordion-btn {mobileLayananOpen ? 'open' : ''}"
-									aria-label="Buka submenu Layanan"
+									aria-label={i18n.pick('Buka submenu Layanan', 'Open Services submenu')}
 									aria-expanded={mobileLayananOpen}
 									onclick={() => (mobileLayananOpen = !mobileLayananOpen)}
 								>
@@ -539,27 +533,6 @@
 		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
-	}
-
-	.nav-logo-box {
-		display: flex;
-		align-items: center;
-	}
-
-	.nav-logo-img {
-		height: 40px;
-		width: auto;
-		max-width: 170px;
-		object-fit: contain;
-		display: block;
-		flex-shrink: 0;
-	}
-
-	@media (max-width: 640px) {
-		.nav-logo-img {
-			height: 34px;
-			max-width: 145px;
-		}
 	}
 
 	.nav-list {

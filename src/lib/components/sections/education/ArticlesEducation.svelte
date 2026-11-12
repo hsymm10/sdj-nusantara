@@ -399,7 +399,7 @@
 							<button
 								type="button"
 								class="article-arrow-btn"
-								aria-label={`Buka detail artikel: ${item.title}`}
+								aria-label={i18n.pick(`Buka detail artikel: ${item.title}`, `Open article detail: ${item.title}`)}
 								onclick={() => openModal(item)}
 							>
 								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

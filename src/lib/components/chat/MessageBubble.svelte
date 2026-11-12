@@ -17,7 +17,7 @@
 	}
 
 	function parseSafeTokens(rawText: string, questionContext: string | null): SafeToken[] {
-		const allowlistRegex = /(https:\/\/wa\.me\/[0-9]+(?:\?[^\s]*)?|(?:WhatsApp\s+)?\+62\s*858-8072-4733|mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9._%+-]+@sdjnusantara\.com|\/(?:layanan\/pendidikan|layanan\/beasiswa|program|beasiswa|kemitraan|kontak|konsultasi|layanan|tentang-kami|artikel|faq))/g;
+		const allowlistRegex = /(https:\/\/wa\.me\/[0-9]+(?:\?[^\s]*)?|(?:WhatsApp\s+)?\+62\s*858-8072-4733|mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9._%+-]+@sdjnusantara\.com|\/(?:layanan\/pendidikan|layanan\/beasiswa|program|beasiswa|kemitraan|kontak|konsultasi|layanan|tentang-kami|artikel|faq)(?:#[a-zA-Z0-9_-]+)?)/g;
 
 		const tokens: SafeToken[] = [];
 		let lastIndex = 0;

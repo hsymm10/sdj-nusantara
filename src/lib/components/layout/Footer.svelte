@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import logoSdj from '#lib/assets/logo_sdj.png';
+	import Logo from '#lib/components/ui/Logo.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
@@ -16,10 +16,8 @@
 		<div class="footer-grid compact-grid">
 			<!-- Col 1: Brand Info, Alamat Perusahaan & No. HP Resmi -->
 			<div class="footer-brand-col">
-				<a href="/" class="footer-logo-link" aria-label="SDJNusantara Beranda">
-					<div class="footer-logo-badge">
-						<img src={logoSdj} alt="Logo SDJNusantara - Your Strategic Partner" class="footer-logo-img" />
-					</div>
+				<a href="/" class="footer-logo-link" aria-label={i18n.pick('SDJNusantara Beranda', 'SDJNusantara Home')}>
+					<Logo size="footer" variant="light" />
 				</a>
 
 				<!-- Alamat Perusahaan Resmi (Graha Aktiva) & No. HP dari Kartu Nama -->
@@ -151,24 +149,6 @@
 	.footer-logo-link {
 		text-decoration: none;
 		display: inline-block;
-	}
-
-	.footer-logo-badge {
-		background: #FFFFFF;
-		border-radius: 8px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 6px 10px;
-		flex-shrink: 0;
-	}
-
-	.footer-logo-img {
-		height: 36px;
-		width: auto;
-		max-width: 150px;
-		object-fit: contain;
-		display: block;
 	}
 
 	.footer-brand-address {

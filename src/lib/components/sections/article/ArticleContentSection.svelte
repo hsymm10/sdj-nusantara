@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { articlesData, type Article } from '#lib/data/articles';
+	import { articlesEnMap } from '#lib/i18n/articlesEn';
 	import { i18n } from '#lib/stores/i18n.svelte';
+
+	function locArticle(a: Article): Article {
+		if (i18n.lang === 'en' && articlesEnMap[a.id]) {
+			return { ...a, ...(articlesEnMap[a.id] as Partial<Article>) };
+		}
+		return a;
+	}
 
 	interface Props {
 		selectedCategory: string;
@@ -13,7 +21,7 @@
 	let currentPage = $state(1);
 
 	// Featured Carousel
-	const featuredSlides = articlesData.filter(a => a.isFeatured);
+	const featuredSlides = $derived(articlesData.filter(a => a.isFeatured).map(locArticle));
 	let currentSlide = $state(0);
 	let isPaused = $state(false);
 
@@ -39,20 +47,27 @@
 	});
 
 	// Popular articles
-	const popularArticles = articlesData
-		.filter(a => a.populerRank !== undefined)
-		.sort((a, b) => (a.populerRank || 0) - (b.populerRank || 0));
+	const popularArticles = $derived(
+		articlesData
+			.filter(a => a.populerRank !== undefined)
+			.sort((a, b) => (a.populerRank || 0) - (b.populerRank || 0))
+			.map(locArticle)
+	);
 
 	// Filtered articles for 3x2 grid
 	const filteredArticles = $derived(
-		articlesData.filter((a) => {
-			const matchesCategory =
-				selectedCategory === 'Semua Artikel' || a.kategori === selectedCategory;
-			const matchesSearch =
-				searchQuery.trim() === '' ||
-				a.judul.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				a.ringkasan.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				a.kategori.toLowerCase().includes(searchQuery.toLowerCase());
+		articlesData
+			.map(locArticle)
+			.filter((a, idx) => {
+				const raw = articlesData[idx];
+				const matchesCategory =
+					selectedCategory === 'Semua Artikel' || raw.kategori === selectedCategory;
+				const q = searchQuery.trim().toLowerCase();
+				const matchesSearch =
+					q === '' ||
+					a.judul.toLowerCase().includes(q) ||
+					a.ringkasan.toLowerCase().includes(q) ||
+					a.kategori.toLowerCase().includes(q);
 			return matchesCategory && matchesSearch;
 		})
 	);
@@ -194,18 +209,18 @@
 													type="button"
 													class="nav-dot {currentSlide === idx ? 'active' : ''}"
 													onclick={() => goToSlide(idx)}
-													aria-label="Pilih Slide {idx + 1}"
+													aria-label={i18n.pick(`Pilih Slide ${idx + 1}`, `Select Slide ${idx + 1}`)}
 												></button>
 											{/each}
 										</div>
 
 										<div class="nav-arrows">
-											<button type="button" class="arrow-round-btn" onclick={prevSlide} aria-label="Slide sebelumnya">
+											<button type="button" class="arrow-round-btn" onclick={prevSlide} aria-label={i18n.pick('Slide sebelumnya', 'Previous slide')}>
 												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 													<polyline points="15 18 9 12 15 6"></polyline>
 												</svg>
 											</button>
-											<button type="button" class="arrow-round-btn" onclick={nextSlide} aria-label="Slide berikutnya">
+											<button type="button" class="arrow-round-btn" onclick={nextSlide} aria-label={i18n.pick('Slide berikutnya', 'Next slide')}>
 												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 													<polyline points="9 18 15 12 9 6"></polyline>
 												</svg>
@@ -271,7 +286,7 @@
 							class="page-square-btn nav-btn"
 							disabled={currentPage === 1}
 							onclick={() => setPage(currentPage - 1)}
-							aria-label="Halaman sebelumnya"
+							aria-label={i18n.pick('Halaman sebelumnya', 'Previous page')}
 						>
 							←
 						</button>
@@ -295,7 +310,7 @@
 							class="page-square-btn nav-btn"
 							disabled={currentPage === totalPages}
 							onclick={() => setPage(currentPage + 1)}
-							aria-label="Halaman berikutnya"
+							aria-label={i18n.pick('Halaman berikutnya', 'Next page')}
 						>
 							→
 						</button>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { contactConfig } from '#lib/config/contact';
-	import logoSdj from '#lib/assets/logo_sdj.png';
+	import Logo from '#lib/components/ui/Logo.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
@@ -17,9 +17,7 @@
 			
 			<!-- Overlay Papan Signage Logo SDJNusantara pada fasad gedung -->
 			<div class="building-logo-plaque" aria-hidden="true">
-				<div class="plaque-inner">
-					<img src={logoSdj} alt="Logo SDJNusantara" class="plaque-img" />
-				</div>
+				<Logo size="plaque" variant="plain" />
 			</div>
 		</div>
 
@@ -121,26 +119,11 @@
 		position: absolute;
 		top: 24px;
 		left: 28px;
-		background: rgba(255, 255, 255, 0.96);
-		backdrop-filter: blur(8px);
+		background: #FFFFFF;
 		border: 1px solid rgba(22, 182, 193, 0.35);
 		border-radius: 8px;
 		padding: 6px 10px;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-	}
-
-	.plaque-inner {
-		display: flex;
-		align-items: center;
-	}
-
-	.plaque-img {
-		height: 32px;
-		width: auto;
-		max-width: 135px;
-		object-fit: contain;
-		flex-shrink: 0;
-		display: block;
 	}
 
 	/* Panel Tengah (PUTIH) */

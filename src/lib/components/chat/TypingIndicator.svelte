@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
-<div class="typing-row" role="status" aria-label="Asisten sedang mengetik">
+<div class="typing-row" role="status" aria-label={i18n.pick('Asisten sedang mengetik', 'Assistant is typing')}>
 	<!-- Bot Avatar: Lingkaran Teal 36px Sesuai MessageBubble -->
 	<div class="bot-typing-avatar" aria-hidden="true">
 		<svg width="20" height="20" viewBox="0 0 24 24" fill="none">

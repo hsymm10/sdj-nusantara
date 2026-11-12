@@ -3,11 +3,20 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { scholarshipsData, scholarshipDisclaimer } from '#lib/data/scholarships';
+	import { scholarshipsEnMap, scholarshipDisclaimerEn } from '#lib/i18n/dataEn';
 	import { i18n } from '#lib/stores/i18n.svelte';
 
 	const slug = $derived(page.params.slug);
-	const scholarship = $derived(
+	const rawScholarship = $derived(
 		scholarshipsData.find((s) => s.id === slug) || scholarshipsData[0]
+	);
+	const scholarship = $derived(
+		i18n.lang === 'en' && scholarshipsEnMap[rawScholarship.id]
+			? { ...rawScholarship, ...scholarshipsEnMap[rawScholarship.id] }
+			: rawScholarship
+	);
+	const activeDisclaimer = $derived(
+		i18n.lang === 'en' ? scholarshipDisclaimerEn : scholarshipDisclaimer
 	);
 </script>
 

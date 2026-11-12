@@ -421,7 +421,7 @@
 				type="button"
 				class="nav-btn prev-btn"
 				onclick={prev}
-				aria-label="Pimpinan sebelumnya"
+				aria-label={i18n.pick('Pimpinan sebelumnya', 'Previous leader')}
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="15 18 9 12 15 6"></polyline>
@@ -434,14 +434,14 @@
 				class="cards-track-wrapper"
 				role="region"
 				aria-roledescription="carousel"
-				aria-label="Pimpinan SDJNusantara"
+				aria-label={i18n.pick('Pimpinan SDJNusantara', 'SDJNusantara Leadership')}
 				onpointerdown={handlePointerDown}
 				onpointermove={handlePointerMove}
 				onpointerup={handlePointerUp}
 				onpointercancel={handlePointerCancel}
 				onwheel={handleWheel}
 			>
-				<div class="cards-stage" role="group" aria-label="Daftar foto pimpinan">
+				<div class="cards-stage" role="group" aria-label={i18n.pick('Daftar foto pimpinan', 'Leadership photo list')}>
 					{#each leadersData as leader, i (leader.id)}
 						{@const baseOffset = getBaseOffset(i, activeIndex, count)}
 						{@const isCenter = baseOffset === 0}

@@ -3,12 +3,21 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { articlesData, type Article } from '#lib/data/articles';
+	import { articlesEnMap } from '#lib/i18n/articlesEn';
 	import { i18n } from '#lib/stores/i18n.svelte';
 
+	function locArticle(a: Article): Article {
+		if (i18n.lang === 'en' && articlesEnMap[a.id]) {
+			return { ...a, ...(articlesEnMap[a.id] as Partial<Article>) };
+		}
+		return a;
+	}
+
 	const slug = $derived(page.params.slug);
-	const article = $derived(
+	const rawArticle = $derived(
 		articlesData.find((a) => a.slug === slug) || articlesData[0]
 	);
+	const article = $derived(locArticle(rawArticle));
 
 	interface ParsedArticle {
 		introHtml: string;
@@ -63,12 +72,12 @@
 
 	const relatedArticles = $derived.by(() => {
 		const sameCategory = articlesData.filter(
-			(a) => a.slug !== article.slug && a.kategori === article.kategori
+			(a) => a.slug !== rawArticle.slug && a.kategori === rawArticle.kategori
 		);
 		const others = articlesData.filter(
-			(a) => a.slug !== article.slug && a.kategori !== article.kategori
+			(a) => a.slug !== rawArticle.slug && a.kategori !== rawArticle.kategori
 		);
-		return [...sameCategory, ...others].slice(0, 3);
+		return [...sameCategory, ...others].slice(0, 3).map(locArticle);
 	});
 
 	let copied = $state(false);
@@ -97,7 +106,7 @@
 </script>
 
 <svelte:head>
-	<title>{article.judul} — SDJNusantara Artikel</title>
+	<title>{article.judul} — {i18n.pick('SDJNusantara Artikel', 'SDJNusantara Articles')}</title>
 	<meta name="description" content={article.ringkasan} />
 </svelte:head>
 

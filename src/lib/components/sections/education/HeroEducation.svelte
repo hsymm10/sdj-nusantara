@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/partner-hero-5.jpg"
-			alt="Layanan Pendidikan SDJNusantara"
+			alt={i18n.pick('Layanan Pendidikan SDJNusantara', 'SDJNusantara Education Services')}
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"

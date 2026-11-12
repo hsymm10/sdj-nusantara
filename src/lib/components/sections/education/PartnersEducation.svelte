@@ -334,7 +334,7 @@
 				onmouseenter={stopAutoplay}
 				onmouseleave={() => { if (!isDragging) startAutoplay(); }}
 				role="region"
-				aria-label="Carousel Mitra dan Kolaborasi SDJNusantara"
+				aria-label={i18n.pick('Carousel Mitra dan Kolaborasi SDJNusantara', 'SDJNusantara Partners & Collaboration Carousel')}
 			>
 				<div class="slider-viewport">
 					<div
@@ -362,14 +362,14 @@
 		</div>
 
 		<!-- Pagination Indicators: 3 Centered Dots (14px diameter, 12px gap) -->
-		<div class="pagination-dots-wrap" role="tablist" aria-label="Navigasi Slider Mitra">
+		<div class="pagination-dots-wrap" role="tablist" aria-label={i18n.pick('Navigasi Slider Mitra', 'Partner Slider Navigation')}>
 			{#each Array(TOTAL_PAGES) as _, idx}
 				<button
 					type="button"
 					class="page-dot"
 					class:active={activePage === idx}
 					onclick={() => setPage(idx)}
-					aria-label={`Lihat mitra halaman ${idx + 1}`}
+					aria-label={i18n.pick(`Lihat mitra halaman ${idx + 1}`, `View partners page ${idx + 1}`)}
 					aria-selected={activePage === idx}
 					role="tab"
 				></button>

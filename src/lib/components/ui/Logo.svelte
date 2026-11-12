@@ -1,28 +1,23 @@
 <script lang="ts">
 	import logoSdj from '#lib/assets/logo_sdj.png';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
-		variant?: 'dark' | 'light';
-		size?: 'sm' | 'md' | 'lg';
-		showTagline?: boolean;
-		taglineText?: string;
+		variant?: 'dark' | 'light' | 'plain';
+		size?: 'sm' | 'md' | 'lg' | 'nav' | 'footer' | 'plaque';
 	}
 
-	let {
-		variant = 'dark',
-		size = 'md',
-		showTagline = true,
-		taglineText = 'Strategic Your Partner'
-	}: Props = $props();
-
-	const isLight = $derived(variant === 'light');
+	let { variant = 'plain', size = 'md' }: Props = $props();
 </script>
 
 <div class="logo-wrapper {size} {variant}">
 	<img
 		src={logoSdj}
-		alt="Logo SDJNusantara - Your Strategic Partner"
+		alt={i18n.pick('Logo SDJNusantara - Your Strategic Partner', 'SDJNusantara Logo - Your Strategic Partner')}
 		class="logo-icon-img"
+		width="1410"
+		height="320"
+		decoding="async"
 	/>
 </div>
 
@@ -30,14 +25,16 @@
 	.logo-wrapper {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		text-decoration: none;
 		user-select: none;
+		flex-shrink: 0;
 	}
 
 	.logo-icon-img {
 		height: 38px;
 		width: auto;
-		max-width: 165px;
+		max-width: 100%;
 		object-fit: contain;
 		flex-shrink: 0;
 		display: block;
@@ -45,7 +42,7 @@
 
 	.logo-wrapper.light {
 		background: #FFFFFF;
-		padding: 5px 9px;
+		padding: 6px 12px;
 		border-radius: 8px;
 	}
 
@@ -55,22 +52,23 @@
 
 	.logo-wrapper.lg .logo-icon-img {
 		height: 46px;
-		max-width: 200px;
 	}
 
-	.text-white {
-		color: #FFFFFF;
+	.logo-wrapper.nav .logo-icon-img {
+		height: 40px;
 	}
 
-	.text-gray-300 {
-		color: rgba(255, 255, 255, 0.7);
+	.logo-wrapper.footer .logo-icon-img {
+		height: 36px;
 	}
 
-	.text-\[\#0B2747\] {
-		color: #0B2747;
+	.logo-wrapper.plaque .logo-icon-img {
+		height: 30px;
 	}
 
-	.text-\[\#64748B\] {
-		color: #64748B;
+	@media (max-width: 640px) {
+		.logo-wrapper.nav .logo-icon-img {
+			height: 32px;
+		}
 	}
 </style>

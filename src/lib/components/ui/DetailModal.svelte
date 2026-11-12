@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { tick, type Snippet } from 'svelte';
-	import { chatStore } from '#lib/stores/chat.svelte';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { tick, type Snippet } from "svelte";
+	import { chatStore } from "#lib/stores/chat.svelte";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	interface Props {
 		isOpen: boolean;
@@ -26,12 +26,12 @@
 	let {
 		isOpen = false,
 		title,
-		categoryLabel = '',
+		categoryLabel = "",
 		imageSrc,
-		imageAlt = '',
+		imageAlt = "",
 		fullPageRoute,
-		chatQuestion = '',
-		consultationHref = '/kontak',
+		chatQuestion = "",
+		consultationHref = "/kontak",
 		currentIndex,
 		totalCount,
 		onClose,
@@ -40,7 +40,7 @@
 		triggerElement = null,
 		bookmarked = false,
 		onToggleBookmark,
-		children
+		children,
 	}: Props = $props();
 
 	let modalPanelEl = $state<HTMLElement | null>(null);
@@ -54,18 +54,19 @@
 				if (node.parentNode) {
 					node.parentNode.removeChild(node);
 				}
-			}
+			},
 		};
 	}
 
 	// Scroll lock tanpa layout shift
 	$effect(() => {
 		if (isOpen) {
-			const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+			const scrollbarWidth =
+				window.innerWidth - document.documentElement.clientWidth;
 			const originalOverflow = document.body.style.overflow;
 			const originalPaddingRight = document.body.style.paddingRight;
 
-			document.body.style.overflow = 'hidden';
+			document.body.style.overflow = "hidden";
 			if (scrollbarWidth > 0) {
 				document.body.style.paddingRight = `${scrollbarWidth}px`;
 			}
@@ -79,7 +80,10 @@
 				document.body.style.overflow = originalOverflow;
 				document.body.style.paddingRight = originalPaddingRight;
 				// Kembalikan fokus ke elemen pemicu
-				if (triggerElement && typeof triggerElement.focus === 'function') {
+				if (
+					triggerElement &&
+					typeof triggerElement.focus === "function"
+				) {
 					triggerElement.focus();
 				}
 			};
@@ -89,29 +93,29 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if (!isOpen) return;
 
-		if (e.key === 'Escape') {
+		if (e.key === "Escape") {
 			e.preventDefault();
 			onClose();
 			return;
 		}
 
-		if (e.key === 'ArrowLeft' && onPrev && totalCount && totalCount > 1) {
+		if (e.key === "ArrowLeft" && onPrev && totalCount && totalCount > 1) {
 			e.preventDefault();
 			onPrev();
 			return;
 		}
 
-		if (e.key === 'ArrowRight' && onNext && totalCount && totalCount > 1) {
+		if (e.key === "ArrowRight" && onNext && totalCount && totalCount > 1) {
 			e.preventDefault();
 			onNext();
 			return;
 		}
 
 		// Focus trap
-		if (e.key === 'Tab') {
+		if (e.key === "Tab") {
 			if (!modalPanelEl) return;
 			const focusables = modalPanelEl.querySelectorAll<HTMLElement>(
-				'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+				'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
 			);
 			if (focusables.length === 0) return;
 
@@ -151,7 +155,7 @@
 			type="button"
 			class="modal-backdrop"
 			onclick={onClose}
-			aria-label="Tutup modal latar belakang"
+			aria-label={i18n.pick('Tutup modal latar belakang', 'Close modal backdrop')}
 			tabindex="-1"
 		></button>
 
@@ -188,12 +192,33 @@
 					{#if onToggleBookmark}
 						<button
 							type="button"
-							class="action-icon-btn {bookmarked ? 'bookmarked' : ''}"
+							class="action-icon-btn {bookmarked
+								? 'bookmarked'
+								: ''}"
 							onclick={onToggleBookmark}
-							aria-label={bookmarked ? i18n.pick('Hapus dari simpanan', 'Remove from saved') : i18n.pick('Simpan item ini', 'Save this item')}
+							aria-label={bookmarked
+								? i18n.pick(
+										"Hapus dari simpanan",
+										"Remove from saved",
+									)
+								: i18n.pick(
+										"Simpan item ini",
+										"Save this item",
+									)}
 						>
-							<svg width="18" height="18" viewBox="0 0 24 24" fill={bookmarked ? '#F5B331' : 'none'} stroke={bookmarked ? '#F5B331' : '#FFFFFF'} stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill={bookmarked ? "#F5B331" : "none"}
+								stroke={bookmarked ? "#F5B331" : "#FFFFFF"}
+								stroke-width="2.2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"
+								></path>
 							</svg>
 						</button>
 					{/if}
@@ -205,7 +230,16 @@
 						bind:this={closeBtnEl}
 						aria-label={i18n.dict.common.close}
 					>
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#FFFFFF"
+							stroke-width="2.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<line x1="18" y1="6" x2="6" y2="18"></line>
 							<line x1="6" y1="6" x2="18" y2="18"></line>
 						</svg>
@@ -214,7 +248,11 @@
 
 				<!-- Single Subtle Wave Edge -->
 				<div class="banner-wave-edge" aria-hidden="true">
-					<svg viewBox="0 0 720 20" preserveAspectRatio="none" class="wave-svg">
+					<svg
+						viewBox="0 0 720 20"
+						preserveAspectRatio="none"
+						class="wave-svg"
+					>
 						<path
 							d="M0,0 C200,18 480,18 720,0 L720,20 L0,20 Z"
 							fill="#FFFFFF"
@@ -237,26 +275,49 @@
 						type="button"
 						class="card-nav-btn"
 						onclick={onPrev}
-						aria-label={i18n.pick('Kartu sebelumnya', 'Previous card')}
+						aria-label={i18n.pick(
+							"Kartu sebelumnya",
+							"Previous card",
+						)}
 					>
-						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							width="15"
+							height="15"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<polyline points="15 18 9 12 15 6"></polyline>
 						</svg>
-						<span>{i18n.pick('Sebelumnya', 'Previous')}</span>
+						<span>{i18n.pick("Sebelumnya", "Previous")}</span>
 					</button>
 
 					<span class="card-nav-counter">
-						{currentIndex + 1} {i18n.pick('dari', 'of')} {totalCount}
+						{currentIndex + 1}
+						{i18n.pick("dari", "of")}
+						{totalCount}
 					</span>
 
 					<button
 						type="button"
 						class="card-nav-btn"
 						onclick={onNext}
-						aria-label={i18n.pick('Kartu berikutnya', 'Next card')}
+						aria-label={i18n.pick("Kartu berikutnya", "Next card")}
 					>
-						<span>{i18n.pick('Berikutnya', 'Next')}</span>
-						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<span>{i18n.pick("Berikutnya", "Next")}</span>
+						<svg
+							width="15"
+							height="15"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<polyline points="9 18 15 12 9 6"></polyline>
 						</svg>
 					</button>
@@ -273,22 +334,58 @@
 			<!-- Sticky Action Footer -->
 			<div class="modal-sticky-footer">
 				<div class="footer-primary-actions">
-					<a href={consultationHref} class="btn-footer-gold" onclick={onClose}>
-						<span>{i18n.pick('Konsultasi Persiapan', 'Preparation Consultation')}</span>
+					<a
+						href={consultationHref}
+						class="btn-footer-gold"
+						onclick={onClose}
+					>
+						<span
+							>{i18n.pick(
+								"Konsultasi Persiapan",
+								"Preparation Consultation",
+							)}</span
+						>
 						<span class="footer-arrow" aria-hidden="true">→</span>
 					</a>
 
-					<button type="button" class="btn-footer-outline" onclick={handleChatClick}>
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+					<button
+						type="button"
+						class="btn-footer-outline"
+						onclick={handleChatClick}
+					>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path
+								d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+							></path>
 						</svg>
-						<span>{i18n.pick('Tanya Asisten', 'Ask Assistant')}</span>
+						<span
+							>{i18n.pick("Tanya Asisten", "Ask Assistant")}</span
+						>
 					</button>
 				</div>
 
 				<div class="footer-link-row">
-					<a href={fullPageRoute} class="link-full-page" onclick={onClose}>
-						<span>{i18n.pick('Buka halaman penuh', 'Open full page')}</span>
+					<a
+						href={fullPageRoute}
+						class="link-full-page"
+						onclick={onClose}
+					>
+						<span
+							>{i18n.pick(
+								"Buka halaman penuh",
+								"Open full page",
+							)}</span
+						>
 						<span aria-hidden="true">↗</span>
 					</a>
 				</div>
@@ -321,8 +418,12 @@
 	}
 
 	@keyframes backdropFade {
-		from { opacity: 0; }
-		to { opacity: 1; }
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	.modal-container {
@@ -331,9 +432,11 @@
 		width: 100%;
 		max-width: min(720px, 92vw);
 		max-height: 88vh;
-		background: #FFFFFF;
+		background: #ffffff;
 		border-radius: 20px;
-		box-shadow: 0 24px 60px rgba(8, 36, 66, 0.28), 0 4px 16px rgba(8, 36, 66, 0.08);
+		box-shadow:
+			0 24px 60px rgba(8, 36, 66, 0.28),
+			0 4px 16px rgba(8, 36, 66, 0.08);
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
@@ -386,7 +489,11 @@
 	.banner-gradient {
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(to top, rgba(8, 36, 66, 0.65) 0%, rgba(8, 36, 66, 0.1) 60%);
+		background: linear-gradient(
+			to top,
+			rgba(8, 36, 66, 0.65) 0%,
+			rgba(8, 36, 66, 0.1) 60%
+		);
 	}
 
 	.banner-pill {
@@ -417,13 +524,15 @@
 		border-radius: 50%;
 		background: rgba(8, 36, 66, 0.6);
 		border: 1px solid rgba(255, 255, 255, 0.25);
-		color: #FFFFFF;
+		color: #ffffff;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		backdrop-filter: blur(4px);
-		transition: background 0.2s ease, transform 0.15s ease;
+		transition:
+			background 0.2s ease,
+			transform 0.15s ease;
 	}
 
 	.action-icon-btn:hover {
@@ -432,7 +541,7 @@
 	}
 
 	.action-icon-btn:focus-visible {
-		outline: 3px solid #16B6C1;
+		outline: 3px solid #16b6c1;
 		outline-offset: 2px;
 	}
 
@@ -457,8 +566,8 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 10px 24px;
-		background: #F8FAFC;
-		border-bottom: 1px solid #E2E8F0;
+		background: #f8fafc;
+		border-bottom: 1px solid #e2e8f0;
 		flex-shrink: 0;
 	}
 
@@ -467,10 +576,10 @@
 		align-items: center;
 		gap: 6px;
 		padding: 6px 12px;
-		border: 1px solid #CBD5E1;
+		border: 1px solid #cbd5e1;
 		border-radius: 8px;
-		background: #FFFFFF;
-		color: #1E293B;
+		background: #ffffff;
+		color: #1e293b;
 		font-size: 13px;
 		font-weight: 600;
 		cursor: pointer;
@@ -478,15 +587,15 @@
 	}
 
 	.card-nav-btn:hover {
-		background: #F1F5F9;
-		border-color: #079EAD;
-		color: #079EAD;
+		background: #f1f5f9;
+		border-color: #079ead;
+		color: #079ead;
 	}
 
 	.card-nav-counter {
 		font-size: 13px;
 		font-weight: 700;
-		color: #64748B;
+		color: #64748b;
 	}
 
 	/* Scrollable Body */
@@ -500,8 +609,8 @@
 	/* Sticky Footer */
 	.modal-sticky-footer {
 		padding: 16px 28px;
-		background: #FFFFFF;
-		border-top: 1px solid #E2E8F0;
+		background: #ffffff;
+		border-top: 1px solid #e2e8f0;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
@@ -523,17 +632,19 @@
 		gap: 8px;
 		height: 44px;
 		padding: 0 20px;
-		background: #F5B331;
+		background: #f5b331;
 		color: #082442;
 		font-size: 14px;
 		font-weight: 700;
 		border-radius: 10px;
 		text-decoration: none;
-		transition: background 0.2s ease, transform 0.15s ease;
+		transition:
+			background 0.2s ease,
+			transform 0.15s ease;
 	}
 
 	.btn-footer-gold:hover {
-		background: #EAA31E;
+		background: #eaa31e;
 		transform: translateY(-1px);
 	}
 
@@ -544,7 +655,7 @@
 		gap: 8px;
 		height: 44px;
 		padding: 0 18px;
-		background: #FFFFFF;
+		background: #ffffff;
 		border: 1.5px solid #082442;
 		color: #082442;
 		font-size: 14px;
@@ -555,9 +666,9 @@
 	}
 
 	.btn-footer-outline:hover {
-		background: #F4F8FB;
-		border-color: #079EAD;
-		color: #079EAD;
+		background: #f4f8fb;
+		border-color: #079ead;
+		color: #079ead;
 	}
 
 	.footer-link-row {
@@ -567,7 +678,7 @@
 	.link-full-page {
 		font-size: 12.5px;
 		font-weight: 600;
-		color: #079EAD;
+		color: #079ead;
 		text-decoration: none;
 		display: inline-flex;
 		align-items: center;
@@ -590,7 +701,8 @@
 			max-width: 100vw;
 			max-height: 92vh;
 			border-radius: 22px 22px 0 0;
-			animation: sheetSlideUp 260ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+			animation: sheetSlideUp 260ms cubic-bezier(0.22, 0.61, 0.36, 1)
+				forwards;
 		}
 
 		@keyframes sheetSlideUp {
@@ -608,7 +720,7 @@
 			display: block;
 			width: 40px;
 			height: 4px;
-			background: #CBD5E1;
+			background: #cbd5e1;
 			border-radius: 9999px;
 			margin: 10px auto 4px;
 			position: absolute;
@@ -640,4 +752,3 @@
 		}
 	}
 </style>
-

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { scholarshipsData, scholarshipDisclaimer, type Scholarship } from '#lib/data/scholarships';
+	import { scholarshipsEnMap, scholarshipDisclaimerEn } from '#lib/i18n/dataEn';
 	import DetailModal from '#lib/components/ui/DetailModal.svelte';
 	import ScholarshipDetail from '#lib/components/sections/scholarship/ScholarshipDetail.svelte';
 	import SearchToggle from '#lib/components/ui/SearchToggle.svelte';
@@ -343,21 +344,22 @@
 				</div>
 			{:else}
 				{#each filteredScholarships as sch (sch.id)}
+					{@const dSch = i18n.lang === 'en' && scholarshipsEnMap[sch.id] ? { ...sch, ...scholarshipsEnMap[sch.id] } : sch}
 					<div class="sch-card">
 						<!-- Card Thumbnail with Scope Pill & Bookmark Toggle -->
 						<div class="sch-thumb-wrap">
 							<img
 								src={sch.image}
-								alt={sch.nama}
+								alt={dSch.nama}
 								class="sch-thumb"
 								loading="lazy"
 							/>
-							<div class="sch-scope-pill">{sch.cakupan}</div>
+							<div class="sch-scope-pill">{dSch.cakupan}</div>
 							<button
 								type="button"
 								class="bookmark-btn {bookmarked[sch.id] ? 'is-active' : ''}"
 								onclick={() => toggleBookmark(sch.id)}
-								aria-label="Simpan beasiswa {sch.nama}"
+								aria-label={i18n.pick(`Simpan beasiswa ${dSch.nama}`, `Save scholarship ${dSch.nama}`)}
 							>
 								<svg width="14" height="14" viewBox="0 0 24 24" fill={bookmarked[sch.id] ? '#F5B331' : 'none'} stroke={bookmarked[sch.id] ? '#F5B331' : '#FFFFFF'} stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -368,7 +370,7 @@
 						<!-- Card Body -->
 						<div class="sch-card-body">
 							<!-- Title (bold ±20px) -->
-							<h4 class="sch-name">{sch.nama}</h4>
+							<h4 class="sch-name">{dSch.nama}</h4>
 
 							<!-- Penyelenggara with NEUTRAL round institution icon -->
 							<div class="org-row">
@@ -384,7 +386,7 @@
 										<path d="M16 14v4"></path>
 									</svg>
 								</div>
-								<span class="org-name">{sch.penyelenggara}</span>
+								<span class="org-name">{dSch.penyelenggara}</span>
 							</div>
 
 							<!-- 3 Rows Meta with Teal Icons (±14px) -->
@@ -397,7 +399,7 @@
 											<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
 										</svg>
 									</div>
-									<span class="meta-text">{sch.jenjang}</span>
+									<span class="meta-text">{dSch.jenjang}</span>
 								</div>
 
 								<!-- Negara -->
@@ -408,7 +410,7 @@
 											<circle cx="12" cy="10" r="3"></circle>
 										</svg>
 									</div>
-									<span class="meta-text">{sch.negara}</span>
+									<span class="meta-text">{dSch.negara}</span>
 								</div>
 
 								<!-- Pendanaan -->
@@ -420,15 +422,15 @@
 											<path d="M12 6v2m0 8v2"></path>
 										</svg>
 									</div>
-									<span class="meta-text">{sch.pendanaan}</span>
+									<span class="meta-text">{dSch.pendanaan}</span>
 								</div>
 							</div>
 
 							<!-- Bottom Block Aligned across cards (margin-top: auto) -->
 							<div class="sch-card-footer">
 								<div class="meta-badge-row">
-									<span class="soft-gold-badge">{sch.kategori}</span>
-									<span class="updated-date">{sch.updatedAt}</span>
+									<span class="soft-gold-badge">{dSch.kategori}</span>
+									<span class="updated-date">{dSch.updatedAt}</span>
 								</div>
 								<button
 									type="button"
@@ -462,8 +464,12 @@
 {#if selectedScholarshipModal}
 	<DetailModal
 		isOpen={true}
-		title={selectedScholarshipModal.nama}
-		categoryLabel={selectedScholarshipModal.kategori}
+		title={i18n.lang === 'en' && scholarshipsEnMap[selectedScholarshipModal.id]
+			? scholarshipsEnMap[selectedScholarshipModal.id].nama
+			: selectedScholarshipModal.nama}
+		categoryLabel={i18n.lang === 'en' && scholarshipsEnMap[selectedScholarshipModal.id]
+			? scholarshipsEnMap[selectedScholarshipModal.id].kategori
+			: selectedScholarshipModal.kategori}
 		imageSrc={selectedScholarshipModal.image}
 		imageAlt={selectedScholarshipModal.nama}
 		fullPageRoute={`/layanan/pendidikan/beasiswa/${selectedScholarshipModal.id}`}

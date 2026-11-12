@@ -46,7 +46,19 @@ const EN_TO_ID_KEYWORDS = {
 	ai: 'ai',
 	digital: 'digital',
 	mentor: 'pendampingan',
-	mentoring: 'pendampingan'
+	mentoring: 'pendampingan',
+	apply: 'daftar',
+	mapping: 'pemetaan',
+	coaching: 'pelatihan',
+	bootcamp: 'pelatihan',
+	workshop: 'pelatihan',
+	seminar: 'seminar',
+	whatsapp: 'whatsapp',
+	email: 'email',
+	address: 'alamat',
+	location: 'lokasi',
+	office: 'kantor',
+	hours: 'jam'
 };
 
 /**
@@ -55,13 +67,17 @@ const EN_TO_ID_KEYWORDS = {
  */
 function enrichEnglishQuery(text) {
 	const tokens = normalizeQuery(text).split(/\s+/).filter(Boolean);
-	const extra = [];
+	const mapped = [];
+	let hasMapped = false;
 	for (const t of tokens) {
 		if (EN_TO_ID_KEYWORDS[t]) {
-			extra.push(EN_TO_ID_KEYWORDS[t]);
+			mapped.push(EN_TO_ID_KEYWORDS[t]);
+			hasMapped = true;
+		} else {
+			mapped.push(t);
 		}
 	}
-	return extra.length > 0 ? `${text} ${extra.join(' ')}` : text;
+	return hasMapped ? mapped.join(' ') : text;
 }
 
 /**
@@ -91,7 +107,12 @@ export function tokenize(text) {
 		'dengan', 'adalah', 'yaitu', 'seperti', 'saya', 'kami', 'anda', 'kamu',
 		'mau', 'ingin', 'bisa', 'apakah', 'bagaimana', 'apa', 'siapa', 'dimana',
 		'kapan', 'kenapa', 'mengapa', 'berapa', 'dong', 'sih', 'ya', 'kah',
-		'cara', 'buat', 'bikin', 'perpanjang', 'jual', 'ada'
+		'cara', 'buat', 'bikin', 'perpanjang', 'jual', 'ada',
+		'how', 'do', 'does', 'did', 'is', 'are', 'was', 'were', 'can', 'could',
+		'would', 'should', 'will', 'what', 'where', 'when', 'why', 'who', 'which',
+		'the', 'an', 'to', 'for', 'of', 'in', 'on', 'at', 'by', 'with', 'from',
+		'about', 'and', 'or', 'my', 'me', 'we', 'you', 'your', 'our', 'get',
+		'find', 'tell', 'know', 'please', 'need', 'want', 'available', 'offer'
 	]);
 	return normalized
 		.split(/\s+/)

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
 	import type leadersData from '#lib/data/leaders.js';
+	import { leadersEnMap } from '#lib/i18n/dataEn';
 	import { i18n } from '#lib/stores/i18n.svelte';
 
 	type Leader = (typeof leadersData)[0];
@@ -29,6 +30,14 @@
 
 	let modalEl = $state<HTMLElement | null>(null);
 	let closeBtnEl = $state<HTMLButtonElement | null>(null);
+
+	let displayLeader = $derived.by(() => {
+		if (!leader) return null;
+		if (i18n.lang === 'en' && leadersEnMap[leader.id]) {
+			return { ...leader, ...leadersEnMap[leader.id] };
+		}
+		return leader;
+	});
 
 	// Portal action: appends modal to document.body
 	function portal(node: HTMLElement) {
@@ -190,7 +199,7 @@
 				type="button"
 				class="close-btn"
 				onclick={onClose}
-				aria-label="Tutup"
+				aria-label={i18n.dict.common.close}
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="18" y1="6" x2="6" y2="18"></line>
@@ -258,7 +267,7 @@
 					<div class="bio-section">
 						<h3 class="bio-title">{i18n.pick('Profil Singkat', 'Short Biography')}</h3>
 						<div id="leader-modal-desc" class="bio-paragraphs">
-							{#each leader.profilSingkat.split(/\n\s*\n/) as paragraph}
+							{#each (displayLeader?.profilSingkat ?? leader.profilSingkat).split(/\n\s*\n/) as paragraph}
 								<p class="bio-text">{paragraph}</p>
 							{/each}
 						</div>
@@ -274,7 +283,7 @@
 								</svg>
 								<span class="info-label">{i18n.pick('Pendidikan', 'Education')}</span>
 							</div>
-							<div class="info-value">{leader.pendidikan}</div>
+							<div class="info-value">{displayLeader?.pendidikan ?? leader.pendidikan}</div>
 						</div>
 
 						<div class="info-row">
@@ -296,7 +305,7 @@
 								type="button"
 								class="modal-nav-btn"
 								onclick={onPrev}
-								aria-label="Pimpinan sebelumnya"
+								aria-label={i18n.pick('Pimpinan sebelumnya', 'Previous leader')}
 							>
 								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 									<polyline points="15 18 9 12 15 6"></polyline>
@@ -306,7 +315,7 @@
 								type="button"
 								class="modal-nav-btn"
 								onclick={onNext}
-								aria-label="Pimpinan berikutnya"
+								aria-label={i18n.pick('Pimpinan berikutnya', 'Next leader')}
 							>
 								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 									<polyline points="9 18 15 12 9 6"></polyline>

@@ -3,6 +3,7 @@
 	import { slide } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 	import { faqData, FAQ_CATEGORIES, type FaqItem, type FaqCategory } from '#lib/data/faq';
+	import { faqEnMap } from '#lib/i18n/dataEn';
 	import { chatStore } from '#lib/stores/chat.svelte';
 	import { serviceConfig } from '#lib/config/services';
 	import { i18n } from '#lib/stores/i18n.svelte';
@@ -45,9 +46,15 @@
 
 	// Filtered FAQs based on category & search query
 	let filteredFaqs = $derived.by<FaqItem[]>(() => {
-		let list = faqData.filter(
-			(item) => item.isActive && item.categories.includes(selectedCategory)
-		);
+		let list = faqData
+			.filter((item) => item.isActive && item.categories.includes(selectedCategory))
+			.map((item) => {
+				if (i18n.lang === 'en' && faqEnMap[item.id]) {
+					const en = faqEnMap[item.id];
+					return { ...item, question: en.question, answer: en.answer, detail: en.detail ?? item.detail };
+				}
+				return item;
+			});
 
 		// Filter by search query (question & answer)
 		const q = searchQuery.trim().toLowerCase();
