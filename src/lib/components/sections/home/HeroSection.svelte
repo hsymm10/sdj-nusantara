@@ -1,12 +1,14 @@
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 </script>
 
 <section id="hero-beranda" class="hero-section">
 	<!-- Background Image & Gradient Overlays -->
 	<div class="hero-bg-wrap">
 		<picture>
-			<source srcset="/images/hero-students-composite@2x.jpg 2x, /images/hero-students-composite.jpg 1x" />
+			<source
+				srcset="/images/hero-students-composite@2x.jpg 2x, /images/hero-students-composite.jpg 1x"
+			/>
 			<img
 				src="/images/hero-students-composite.jpg"
 				alt="SDJNusantara Tiga Mahasiswa di Kampus"
@@ -19,7 +21,13 @@
 	</div>
 
 	<!-- Single unified bottom wave (SVG tunggal di dasar hero, width 100%, tinggi ±70px pada 1536) -->
-	<svg class="hero-bottom-wave" viewBox="0 0 1536 72" fill="none" preserveAspectRatio="none" aria-hidden="true">
+	<svg
+		class="hero-bottom-wave"
+		viewBox="0 0 1536 72"
+		fill="none"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+	>
 		<defs>
 			<linearGradient id="teal-ribbon-left" x1="0" y1="0" x2="1" y2="1">
 				<stop offset="0%" stop-color="#16B6C1" />
@@ -35,16 +43,25 @@
 		<path d="M0,0 C90,2 170,22 250,72 L0,72 Z" fill="#0A5E75" />
 
 		<!-- 2. Left Turquoise Ribbon (#16B6C1 -> #079EAD) -->
-		<path d="M0,16 C95,18 190,36 290,72 L0,72 Z" fill="url(#teal-ribbon-left)" />
+		<path
+			d="M0,16 C95,18 190,36 290,72 L0,72 Z"
+			fill="url(#teal-ribbon-left)"
+		/>
 
 		<!-- 3. Right Turquoise Wave -->
-		<path d="M1260,72 C1350,56 1445,26 1536,12 L1536,72 Z" fill="url(#teal-ribbon-right)" />
+		<path
+			d="M1260,72 C1350,56 1445,26 1536,12 L1536,72 Z"
+			fill="url(#teal-ribbon-right)"
+		/>
 
 		<!-- 4. Right Gold Ribbon (#F5B331) -->
 		<path d="M1380,72 C1445,62 1495,46 1536,34 L1536,72 Z" fill="#F5B331" />
 
 		<!-- 5. Continuous White Layer (#FFFFFF) - seamless with section below -->
-		<path d="M0,34 C70,20 150,18 230,38 C330,62 490,68 768,68 C1046,68 1210,58 1330,42 C1415,32 1475,38 1536,46 L1536,72 L0,72 Z" fill="#FFFFFF" />
+		<path
+			d="M0,34 C70,20 150,18 230,38 C330,62 490,68 768,68 C1046,68 1210,58 1330,42 C1415,32 1475,38 1536,46 L1536,72 L0,72 Z"
+			fill="#FFFFFF"
+		/>
 	</svg>
 
 	<!-- Master Container (max-width 1380px, 1500px on >=1920px, padding 0 54px) -->
@@ -53,37 +70,61 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">{i18n.pick('Mitra Strategis Pendidikan', 'Strategic Education Partner')}</span>
+				<span class="pill-label"
+					>{i18n.pick(
+						"Mitra Strategis Pendidikan",
+						"Strategic Education Partner",
+					)}</span
+				>
 			</div>
 
 			<!-- Headline: 3 baris weight 800, baris 3 emas #F5B331 -->
 			<h1 class="hero-title">
-				{i18n.pick('Kembangkan Potensi.', 'Unlock Potential.')}<br />
-				{i18n.pick('Raih Peluang.', 'Seize Opportunities.')}<br />
-				<span class="gold-text">{i18n.pick('Bangun Masa Depan.', 'Build the Future.')}</span>
+				{i18n.pick("Kembangkan Potensi.", "Unlock Potential.")}<br />
+				{i18n.pick("Raih Peluang.", "Seize Opportunities.")}<br />
+				<span class="gold-text"
+					>{i18n.pick(
+						"Bangun Masa Depan.",
+						"Build the Future.",
+					)}</span
+				>
 			</h1>
 
 			<!-- Description: max-width 575px -->
 			<p class="hero-desc">
 				{i18n.pick(
-					'SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.',
-					'SDJNusantara is an education and talent development consultancy helping individuals and institutions plan academic pathways, prepare for scholarships, sharpen skills, and build collaborative networks.'
+					"SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.",
+					"SDJNusantara is an education and talent development consultancy helping individuals and institutions plan academic pathways, prepare for scholarships, sharpen skills, and build collaborative networks.",
 				)}
 			</p>
 
 			<!-- Mobile Photo Band (Only visible on mobile <= 640px) -->
 			<div class="hero-mobile-photo-band" aria-hidden="true">
-				<img src="/images/hero-students-composite.jpg" alt="Mahasiswa Beranda" class="mobile-band-img" />
+				<img
+					src="/images/hero-students-composite.jpg"
+					alt="Mahasiswa Beranda"
+					class="mobile-band-img"
+				/>
 			</div>
 
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="/kontak" class="btn-gold">
-					<span>{i18n.pick('Konsultasikan Kebutuhan Anda', 'Consult Your Needs')}</span>
+					<span
+						>{i18n.pick(
+							"Konsultasikan Kebutuhan Anda",
+							"Consult Your Needs",
+						)}</span
+					>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="/layanan" class="btn-outline">
-					<span>{i18n.pick('Jelajahi Program Kami', 'Explore Our Programs')}</span>
+					<span
+						>{i18n.pick(
+							"Jelajahi Program Kami",
+							"Explore Our Programs",
+						)}</span
+					>
 				</a>
 			</div>
 		</div>
@@ -188,14 +229,14 @@
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00A6B2;
+		background: #00a6b2;
 		border-radius: 50%;
 	}
 
 	.pill-label {
 		font-size: 12px;
 		font-weight: 600;
-		color: #FFFFFF;
+		color: #ffffff;
 		letter-spacing: 0.02em;
 	}
 
@@ -204,12 +245,12 @@
 		font-size: clamp(30px, 2.6vw, 39px);
 		line-height: 1.18;
 		font-weight: 800;
-		color: #FFFFFF;
+		color: #ffffff;
 		margin: 0 0 12px 0;
 	}
 
 	.gold-text {
-		color: #F5B331;
+		color: #f5b331;
 	}
 
 	/* Description */
@@ -237,7 +278,7 @@
 		gap: 8px;
 		height: 40px;
 		padding: 0 24px;
-		background: #F9B52B;
+		background: #f9b52b;
 		color: #082442;
 		font-size: 13px;
 		font-weight: 700;
@@ -271,7 +312,7 @@
 		padding: 0 22px;
 		background: rgba(255, 255, 255, 0.08);
 		border: 1.5px solid rgba(255, 255, 255, 0.7);
-		color: #FFFFFF;
+		color: #ffffff;
 		font-size: 13px;
 		font-weight: 600;
 		border-radius: 999px;
@@ -283,8 +324,8 @@
 
 	.btn-outline:hover {
 		background: rgba(255, 255, 255, 0.18);
-		border-color: #FFFFFF;
-		color: #FFFFFF;
+		border-color: #ffffff;
+		color: #ffffff;
 		transform: translateY(-1px);
 	}
 
