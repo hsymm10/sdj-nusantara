@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { tick, type Snippet } from 'svelte';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
 		isOpen: boolean;
@@ -189,7 +190,7 @@
 							type="button"
 							class="action-icon-btn {bookmarked ? 'bookmarked' : ''}"
 							onclick={onToggleBookmark}
-							aria-label={bookmarked ? 'Hapus dari simpanan' : 'Simpan item ini'}
+							aria-label={bookmarked ? i18n.pick('Hapus dari simpanan', 'Remove from saved') : i18n.pick('Simpan item ini', 'Save this item')}
 						>
 							<svg width="18" height="18" viewBox="0 0 24 24" fill={bookmarked ? '#F5B331' : 'none'} stroke={bookmarked ? '#F5B331' : '#FFFFFF'} stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -202,7 +203,7 @@
 						class="action-icon-btn close-btn"
 						onclick={onClose}
 						bind:this={closeBtnEl}
-						aria-label="Tutup"
+						aria-label={i18n.dict.common.close}
 					>
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="6" x2="6" y2="18"></line>
@@ -236,25 +237,25 @@
 						type="button"
 						class="card-nav-btn"
 						onclick={onPrev}
-						aria-label="Kartu sebelumnya"
+						aria-label={i18n.pick('Kartu sebelumnya', 'Previous card')}
 					>
 						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="15 18 9 12 15 6"></polyline>
 						</svg>
-						<span>Sebelumnya</span>
+						<span>{i18n.pick('Sebelumnya', 'Previous')}</span>
 					</button>
 
 					<span class="card-nav-counter">
-						{currentIndex + 1} dari {totalCount}
+						{currentIndex + 1} {i18n.pick('dari', 'of')} {totalCount}
 					</span>
 
 					<button
 						type="button"
 						class="card-nav-btn"
 						onclick={onNext}
-						aria-label="Kartu berikutnya"
+						aria-label={i18n.pick('Kartu berikutnya', 'Next card')}
 					>
-						<span>Berikutnya</span>
+						<span>{i18n.pick('Berikutnya', 'Next')}</span>
 						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="9 18 15 12 9 6"></polyline>
 						</svg>
@@ -273,7 +274,7 @@
 			<div class="modal-sticky-footer">
 				<div class="footer-primary-actions">
 					<a href={consultationHref} class="btn-footer-gold" onclick={onClose}>
-						<span>Konsultasi Persiapan</span>
+						<span>{i18n.pick('Konsultasi Persiapan', 'Preparation Consultation')}</span>
 						<span class="footer-arrow" aria-hidden="true">→</span>
 					</a>
 
@@ -281,13 +282,13 @@
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 						</svg>
-						<span>Tanya Asisten</span>
+						<span>{i18n.pick('Tanya Asisten', 'Ask Assistant')}</span>
 					</button>
 				</div>
 
 				<div class="footer-link-row">
 					<a href={fullPageRoute} class="link-full-page" onclick={onClose}>
-						<span>Buka halaman penuh</span>
+						<span>{i18n.pick('Buka halaman penuh', 'Open full page')}</span>
 						<span aria-hidden="true">↗</span>
 					</a>
 				</div>

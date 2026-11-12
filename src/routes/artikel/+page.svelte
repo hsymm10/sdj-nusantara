@@ -5,6 +5,7 @@
 	import ArticleCategoryOverlap from '#lib/components/sections/article/ArticleCategoryOverlap.svelte';
 	import ArticleContentSection from '#lib/components/sections/article/ArticleContentSection.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	let selectedCategory = $state('Semua Artikel');
 
@@ -14,10 +15,13 @@
 </script>
 
 <svelte:head>
-	<title>Artikel & Wawasan — SDJNusantara Strategic Your Partner</title>
+	<title>{i18n.pick('Artikel & Wawasan — SDJNusantara Strategic Your Partner', 'Articles & Insights — SDJNusantara Strategic Your Partner')}</title>
 	<meta
 		name="description"
-		content="Insight, analisis, panduan beasiswa, dan artikel pendidikan terkini dari tim konsultan ahli SDJNusantara."
+		content={i18n.pick(
+			'Insight, analisis, panduan beasiswa, dan artikel pendidikan terkini dari tim konsultan ahli SDJNusantara.',
+			'Insights, analysis, scholarship guides, and the latest education articles from SDJNusantara’s expert consulting team.'
+		)}
 	/>
 </svelte:head>
 
@@ -41,11 +45,11 @@
 
 	<!-- 4. CTA Banner Kolaborasi Artikel -->
 	<CtaBanner
-		title="Ingin Berdiskusi atau Mengusulkan Topik Artikel?"
-		description="Kami terbuka untuk kolaborasi penulisan artikel bersama Anda."
-		primaryText="Ajukan Topik Artikel →"
+		title={i18n.pick('Ingin Berdiskusi atau Mengusulkan Topik Artikel?', 'Want to Discuss or Propose an Article Topic?')}
+		description={i18n.pick('Kami terbuka untuk kolaborasi penulisan artikel bersama Anda.', 'We are open to collaborative article writing and editorial partnerships with you.')}
+		primaryText={i18n.pick('Ajukan Topik Artikel →', 'Propose a Topic →')}
 		primaryHref="/kontak"
-		secondaryText="Hubungi Kami"
+		secondaryText={i18n.pick('Hubungi Kami', 'Contact Us')}
 		secondaryHref="/kontak"
 		bgImage="/images/cta-building-glass.jpg"
 		variant="artikel"

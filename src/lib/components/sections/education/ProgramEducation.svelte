@@ -1,5 +1,6 @@
 <!-- Section 02: Program Pendidikan untuk Meningkatkan Daya Saing (Mockup Final SDJNusantara) -->
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="program-edu-section" id="program-pendidikan">
@@ -49,17 +50,20 @@
 		<div class="program-edu-left">
 			<div class="program-badge">
 				<span class="badge-dash" aria-hidden="true"></span>
-				<span class="badge-text">Program Pendidikan</span>
+				<span class="badge-text">{i18n.pick('Program Pendidikan', 'Education Programs')}</span>
 			</div>
 			<h2 class="program-title">
-				Program Pendidikan untuk<br />
-				<span class="highlight-cyan">Meningkatkan Daya Saing</span>
+				{i18n.pick('Program Pendidikan untuk', 'Education Programs to')}<br />
+				<span class="highlight-cyan">{i18n.pick('Meningkatkan Daya Saing', 'Boost Competitiveness')}</span>
 			</h2>
 			<p class="program-desc">
-				Program unggulan yang dirancang untuk mendukung peningkatan kompetensi, akses pendidikan, dan peluang karier.
+				{i18n.pick(
+					'Program unggulan yang dirancang untuk mendukung peningkatan kompetensi, akses pendidikan, dan peluang karier.',
+					'Flagship programs designed to elevate competencies, expand education access, and unlock career opportunities.'
+				)}
 			</p>
 			<a href="/program" class="program-btn">
-				<span>Lihat Program Pendidikan</span>
+				<span>{i18n.pick('Lihat Program Pendidikan', 'View Education Programs')}</span>
 				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12" />
 					<polyline points="12 5 19 12 12 19" />

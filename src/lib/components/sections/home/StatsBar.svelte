@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <div class="stats-wrapper">
 	<div class="stats-card">
 		<!-- Target Program Label: 2 baris teks tebal yang sama sesuai mockup -->
 		<div class="stats-heading">
-			<span class="heading-line-bold">Target Program</span>
-			<span class="heading-line-bold">Tahun 2027</span>
+			<span class="heading-line-bold">{i18n.pick('Target Program', 'Program Targets')}</span>
+			<span class="heading-line-bold">{i18n.pick('Tahun 2027', 'Year 2027')}</span>
 		</div>
 
 		<!-- Divider 1 -->
@@ -26,8 +27,8 @@
 			<div class="stat-details">
 				<span class="stat-num">200+</span>
 				<div class="stat-label">
-					<span class="stat-line">Individu Pemetaan</span>
-					<span class="stat-line">Talenta</span>
+					<span class="stat-line">{i18n.pick('Individu Pemetaan', 'Talent Mapping')}</span>
+					<span class="stat-line">{i18n.pick('Talenta', 'Individuals')}</span>
 				</div>
 			</div>
 		</div>
@@ -55,8 +56,8 @@
 			<div class="stat-details">
 				<span class="stat-num">30</span>
 				<div class="stat-label">
-					<span class="stat-line">Kegiatan Sosialisasi</span>
-					<span class="stat-line">Beasiswa</span>
+					<span class="stat-line">{i18n.pick('Kegiatan Sosialisasi', 'Scholarship Outreach')}</span>
+					<span class="stat-line">{i18n.pick('Beasiswa', 'Events')}</span>
 				</div>
 			</div>
 		</div>
@@ -76,8 +77,8 @@
 			<div class="stat-details">
 				<span class="stat-num">100</span>
 				<div class="stat-label">
-					<span class="stat-line">Peserta Coaching</span>
-					<span class="stat-line">Intensif</span>
+					<span class="stat-line">{i18n.pick('Peserta Coaching', 'Intensive Coaching')}</span>
+					<span class="stat-line">{i18n.pick('Intensif', 'Participants')}</span>
 				</div>
 			</div>
 		</div>
@@ -98,8 +99,8 @@
 			<div class="stat-details">
 				<span class="stat-num">50+</span>
 				<div class="stat-label">
-					<span class="stat-line">Mitra Strategis</span>
-					<span class="stat-line">Dalam & Luar Negeri</span>
+					<span class="stat-line">{i18n.pick('Mitra Strategis', 'Strategic Partners')}</span>
+					<span class="stat-line">{i18n.pick('Dalam & Luar Negeri', 'Domestic & Global')}</span>
 				</div>
 			</div>
 		</div>
@@ -108,7 +109,7 @@
 		<div class="stat-divider"></div>
 
 		<!-- Action Circle Arrow Button: lingkaran putih ±24px dengan ikon panah turquoise dan bayangan lembut -->
-		<a href="/layanan/pendidikan#program" class="stat-action-btn" aria-label="Lihat Program">
+		<a href="/layanan/pendidikan#program" class="stat-action-btn" aria-label={i18n.pick('Lihat Program', 'View Programs')}>
 			<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="5" y1="12" x2="19" y2="12"></line>
 				<polyline points="12 5 19 12 12 19"></polyline>

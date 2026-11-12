@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Scholarship } from '#lib/data/scholarships';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
 		scholarship: Scholarship;
@@ -14,20 +15,39 @@
 			: []
 	);
 
-	const generalPrepItems = [
-		'Curriculum Vitae (CV) akademik dan portofolio prestasi',
-		'Motivation letter atau personal statement terarah',
-		'Rencana studi atau proposal riset (terutama untuk jenjang S2 & S3)',
-		'Surat rekomendasi resmi dari akademisi atau atasan profesional',
-		'Sertifikat kemahiran bahasa asing (sesuai ketentuan kampus tujuan)',
-		'Ijazah dan transkrip nilai akademik terlegalisir'
-	];
+	const generalPrepItems = $derived(
+		i18n.lang === 'en'
+			? [
+					'Academic Curriculum Vitae (CV) and achievement portfolio',
+					'Targeted motivation letter or personal statement',
+					'Study plan or research proposal (especially for Master & PhD)',
+					'Official recommendation letters from academics or supervisors',
+					'Foreign language proficiency certificate (as required by target university)',
+					'Legalized academic diplomas and transcripts'
+				]
+			: [
+					'Curriculum Vitae (CV) akademik dan portofolio prestasi',
+					'Motivation letter atau personal statement terarah',
+					'Rencana studi atau proposal riset (terutama untuk jenjang S2 & S3)',
+					'Surat rekomendasi resmi dari akademisi atau atasan profesional',
+					'Sertifikat kemahiran bahasa asing (sesuai ketentuan kampus tujuan)',
+					'Ijazah dan transkrip nilai akademik terlegalisir'
+				]
+	);
 
-	const sdjAssistanceItems = [
-		'Pemetaan profil dan kurasi pilihan beasiswa yang paling selaras.',
-		'Review mendalam dan penguatan dokumen aplikasi (esai, CV, dan proposal).',
-		'Simulasi dan evaluasi wawancara terarah untuk membangun kesiapan presentasi.'
-	];
+	const sdjAssistanceItems = $derived(
+		i18n.lang === 'en'
+			? [
+					'Profile mapping and curating the most aligned scholarship options.',
+					'In-depth review and strengthening of application documents (essays, CV, and proposals).',
+					'Targeted interview simulation and evaluation to build presentation readiness.'
+				]
+			: [
+					'Pemetaan profil dan kurasi pilihan beasiswa yang paling selaras.',
+					'Review mendalam dan penguatan dokumen aplikasi (esai, CV, dan proposal).',
+					'Simulasi dan evaluasi wawancara terarah untuk membangun kesiapan presentasi.'
+				]
+	);
 </script>
 
 <div class="sch-detail-content">
@@ -62,7 +82,10 @@
 
 	<!-- Short Summary -->
 	<p class="summary-lead">
-		Program pendanaan studi {scholarship.jenjang} dari {scholarship.penyelenggara} untuk penempatan di {scholarship.negara}.
+		{i18n.pick(
+			`Program pendanaan studi ${scholarship.jenjang} dari ${scholarship.penyelenggara} untuk penempatan di ${scholarship.negara}.`,
+			`${scholarship.jenjang} study funding program by ${scholarship.penyelenggara} for study in ${scholarship.negara}.`
+		)}
 	</p>
 
 	<!-- 2-Column Info Block with Outline Teal Icons -->
@@ -76,7 +99,7 @@
 				</svg>
 			</div>
 			<div class="info-text-group">
-				<span class="info-lbl">Jenjang Studi</span>
+				<span class="info-lbl">{i18n.pick('Jenjang Studi', 'Study Level')}</span>
 				<strong class="info-val">{scholarship.jenjang}</strong>
 			</div>
 		</div>
@@ -91,7 +114,7 @@
 				</svg>
 			</div>
 			<div class="info-text-group">
-				<span class="info-lbl">Negara / Wilayah</span>
+				<span class="info-lbl">{i18n.pick('Negara / Wilayah', 'Country / Region')}</span>
 				<strong class="info-val">{scholarship.negara}</strong>
 			</div>
 		</div>
@@ -105,7 +128,7 @@
 				</svg>
 			</div>
 			<div class="info-text-group">
-				<span class="info-lbl">Cakupan Wilayah</span>
+				<span class="info-lbl">{i18n.pick('Cakupan Wilayah', 'Coverage Scope')}</span>
 				<strong class="info-val">{scholarship.cakupan}</strong>
 			</div>
 		</div>
@@ -119,7 +142,7 @@
 				</svg>
 			</div>
 			<div class="info-text-group">
-				<span class="info-lbl">Status Pendaftaran</span>
+				<span class="info-lbl">{i18n.pick('Status Pendaftaran', 'Application Status')}</span>
 				<strong class="info-val status-{scholarship.status.toLowerCase().replace(/\s+/g, '-')}">{scholarship.status}</strong>
 			</div>
 		</div>
@@ -127,7 +150,7 @@
 
 	<!-- Cakupan Komponen Pendanaan (Poin-poin) -->
 	<div class="section-subblock">
-		<h3 class="subblock-heading">Komponen Pendanaan</h3>
+		<h3 class="subblock-heading">{i18n.pick('Komponen Pendanaan', 'Funding Components')}</h3>
 		<ul class="bullet-list-teal">
 			{#each fundingItems as item}
 				<li>
@@ -140,9 +163,12 @@
 
 	<!-- Yang Perlu Disiapkan -->
 	<div class="section-subblock">
-		<h3 class="subblock-heading">Yang Perlu Anda Siapkan</h3>
+		<h3 class="subblock-heading">{i18n.pick('Yang Perlu Anda Siapkan', 'What You Need to Prepare')}</h3>
 		<p class="subblock-desc">
-			Secara umum, berkas utama yang dipersyaratkan oleh komite beasiswa meliputi:
+			{i18n.pick(
+				'Secara umum, berkas utama yang dipersyaratkan oleh komite beasiswa meliputi:',
+				'In general, the primary documents required by scholarship committees include:'
+			)}
 		</p>
 		<ul class="bullet-list-checklist">
 			{#each generalPrepItems as prep}
@@ -156,7 +182,7 @@
 
 	<!-- Bantuan dari SDJNusantara -->
 	<div class="section-subblock">
-		<h3 class="subblock-heading">Bantuan Pendampingan dari SDJNusantara</h3>
+		<h3 class="subblock-heading">{i18n.pick('Bantuan Pendampingan dari SDJNusantara', 'Mentoring Support from SDJNusantara')}</h3>
 		<div class="assistance-cards-row">
 			{#each sdjAssistanceItems as item, idx}
 				<div class="assist-card">
@@ -178,7 +204,11 @@
 		</div>
 		<div class="note-body">
 			<p class="note-paragraph">
-				<strong>Catatan:</strong> Contoh data referensi. Syarat, tenggat waktu, dan tautan resmi dapat berubah sewaktu-waktu sesuai kebijakan penyelenggara. Pastikan selalu memverifikasi informasi di situs resmi penyelenggara. SDJNusantara tidak menjanjikan kelulusan atau perolehan beasiswa; keputusan mutlak berada pada pihak penyelenggara.
+				{#if i18n.lang === 'en'}
+					<strong>Note:</strong> Reference sample data. Requirements, deadlines, and official links may change at any time according to the provider's policy. Always verify information on the official provider website. SDJNusantara does not guarantee admission or scholarship award; final decisions rest solely with the provider.
+				{:else}
+					<strong>Catatan:</strong> Contoh data referensi. Syarat, tenggat waktu, dan tautan resmi dapat berubah sewaktu-waktu sesuai kebijakan penyelenggara. Pastikan selalu memverifikasi informasi di situs resmi penyelenggara. SDJNusantara tidak menjanjikan kelulusan atau perolehan beasiswa; keputusan mutlak berada pada pihak penyelenggara.
+				{/if}
 			</p>
 
 			<div class="note-action-row">
@@ -189,11 +219,11 @@
 						rel="noopener noreferrer"
 						class="btn-visit-official"
 					>
-						<span>Kunjungi Situs Resmi Penyelenggara</span>
+						<span>{i18n.pick('Kunjungi Situs Resmi Penyelenggara', 'Visit Official Provider Website')}</span>
 						<span aria-hidden="true">↗</span>
 					</a>
 				{:else}
-					<span class="source-disabled-text">Tautan resmi belum diisi</span>
+					<span class="source-disabled-text">{i18n.pick('Tautan resmi belum diisi', 'Official link not yet available')}</span>
 				{/if}
 			</div>
 		</div>

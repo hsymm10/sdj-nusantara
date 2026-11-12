@@ -1,5 +1,5 @@
 <script lang="ts">
-	// PendekatanSection.svelte - Faithful to design/tentang-kami.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="pendekatan-section" id="pendekatan">
@@ -26,15 +26,18 @@
 
 			<!-- Center Column: Heading & Desc -->
 			<div class="pendekatan-content">
-				<div class="section-label">— Pendekatan Kami</div>
+				<div class="section-label">{i18n.pick('— Pendekatan Kami', '— Our Approach')}</div>
 
 				<h2 class="pendekatan-title">
-					Pendekatan Berbasis<br />
-					Kebutuhan & Hasil Nyata
+					{i18n.pick('Pendekatan Berbasis', 'Needs-Driven &')}<br />
+					{i18n.pick('Kebutuhan & Hasil Nyata', 'Outcome-Focused Approach')}
 				</h2>
 
 				<p class="pendekatan-desc">
-					Kami mengutamakan pendekatan yang berfokus pada kebutuhan klien dengan strategi yang terukur, sehingga setiap program memberikan hasil yang nyata dan berkelanjutan.
+					{i18n.pick(
+						'Kami mengutamakan pendekatan yang berfokus pada kebutuhan klien dengan strategi yang terukur, sehingga setiap program memberikan hasil yang nyata dan berkelanjutan.',
+						'We prioritize a client-centered approach backed by measurable strategies so every program delivers tangible, sustainable outcomes.'
+					)}
 				</p>
 			</div>
 
@@ -48,25 +51,25 @@
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						<span>Analisis kebutuhan mendalam</span>
+						<span>{i18n.pick('Analisis kebutuhan mendalam', 'In-depth needs analysis')}</span>
 					</li>
 					<li>
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						<span>Program yang terstruktur dan terarah</span>
+						<span>{i18n.pick('Program yang terstruktur dan terarah', 'Structured and targeted programs')}</span>
 					</li>
 					<li>
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						<span>Pendampingan profesional</span>
+						<span>{i18n.pick('Pendampingan profesional', 'Professional mentoring')}</span>
 					</li>
 					<li>
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="20 6 9 17 4 12"></polyline>
 						</svg>
-						<span>Evaluasi dan pengukuran dampak</span>
+						<span>{i18n.pick('Evaluasi dan pengukuran dampak', 'Impact evaluation and measurement')}</span>
 					</li>
 				</ul>
 			</div>

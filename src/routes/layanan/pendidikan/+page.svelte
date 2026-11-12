@@ -16,13 +16,17 @@
 	import FAQEducation from '#lib/components/sections/education/FAQEducation.svelte';
 	import PartnersEducation from '#lib/components/sections/education/PartnersEducation.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <svelte:head>
-	<title>Layanan Pendidikan — SDJNusantara</title>
+	<title>{i18n.pick('Layanan Pendidikan — SDJNusantara', 'Education Services — SDJNusantara')}</title>
 	<meta
 		name="description"
-		content="Layanan Pendidikan SDJNusantara menyediakan pendampingan profesional, persiapan beasiswa, pengembangan talenta, dan kemitraan institusi untuk masa depan pendidikan Indonesia."
+		content={i18n.pick(
+			'Layanan Pendidikan SDJNusantara menyediakan pendampingan profesional, persiapan beasiswa, pengembangan talenta, dan kemitraan institusi untuk masa depan pendidikan Indonesia.',
+			'SDJNusantara Education Services provides professional mentoring, scholarship preparation, talent development, and institutional partnerships for the future of education.'
+		)}
 	/>
 </svelte:head>
 
@@ -67,12 +71,12 @@
 
 	<!-- 13: CTA Banner Full Background Image -->
 	<CtaBanner
-		title='Siap Mengembangkan <span class="highlight-gold">Kualitas Pendidikan</span> Institusi Anda?'
-		description="Dapatkan solusi pendidikan dan pengembangan talenta yang terarah sesuai kebutuhan institusi Anda."
+		title={i18n.pick('Siap Mengembangkan <span class="highlight-gold">Kualitas Pendidikan</span> Institusi Anda?', 'Ready to Elevate Your Institution’s <span class="highlight-gold">Education Quality?</span>')}
+		description={i18n.pick('Dapatkan solusi pendidikan dan pengembangan talenta yang terarah sesuai kebutuhan institusi Anda.', 'Get targeted education and talent development solutions tailored to your institution’s needs.')}
 		bgImage="/images/cta-pendidikan-academic-bg.jpg"
-		primaryText="Konsultasikan Kebutuhan"
+		primaryText={i18n.pick('Konsultasikan Kebutuhan', 'Consult Your Needs')}
 		primaryHref="/kontak"
-		secondaryText="Jelajahi Program"
+		secondaryText={i18n.pick('Jelajahi Program', 'Explore Programs')}
 		secondaryHref="/layanan/pendidikan#program"
 		variant="layanan"
 	/>

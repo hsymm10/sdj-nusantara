@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import logoSdj from '#lib/assets/logo_sdj.png';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
 		compact?: boolean;
@@ -15,16 +16,9 @@
 		<div class="footer-grid compact-grid">
 			<!-- Col 1: Brand Info, Alamat Perusahaan & No. HP Resmi -->
 			<div class="footer-brand-col">
-				<a href="/" class="footer-logo-link">
-					<div class="footer-logo-wrap">
-						<!-- Logo mark 26px -->
-						<div class="footer-logo-badge">
-							<img src={logoSdj} alt="Logo SDJNusantara" class="footer-logo-img" />
-						</div>
-						<div class="footer-logo-text">
-							<span class="footer-brand-title">SDJNusantara</span>
-							<span class="footer-brand-tagline">Strategic Your Partner</span>
-						</div>
+				<a href="/" class="footer-logo-link" aria-label="SDJNusantara Beranda">
+					<div class="footer-logo-badge">
+						<img src={logoSdj} alt="Logo SDJNusantara - Your Strategic Partner" class="footer-logo-img" />
 					</div>
 				</a>
 
@@ -37,7 +31,7 @@
 					</p>
 					<p class="footer-phone-text">
 						<a href="tel:+6285880724733" class="footer-phone-link" aria-label="Telepon / WhatsApp">
-							<span class="phone-label">No. HP:</span> +62 858-8072-4733
+							<span class="phone-label">{i18n.dict.footer.phoneLabel}</span> +62 858-8072-4733
 						</a>
 					</p>
 				</div>
@@ -61,7 +55,7 @@
 
 			<!-- Col 2: Kontak & Informasi -->
 			<div class="footer-contact-col">
-				<h4 class="footer-col-title">Kontak & Informasi</h4>
+				<h4 class="footer-col-title">{i18n.pick('Kontak & Informasi', 'Contact & Information')}</h4>
 				<ul class="footer-contact-list">
 					<li>
 						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -93,12 +87,12 @@
 			<div class="footer-copy-col">
 				<p class="footer-copyright">
 					© 2026 SDJNusantara.<br />
-					Seluruh hak cipta dilindungi.
+					{i18n.pick('Seluruh hak cipta dilindungi.', 'All rights reserved.')}
 				</p>
 				<div class="footer-legal-links">
-					<a href="/kebijakan-privasi" class="footer-legal-link">Kebijakan Privasi</a>
+					<a href="/kebijakan-privasi" class="footer-legal-link">{i18n.dict.footer.privacyPolicy}</a>
 					<span class="footer-legal-sep" aria-hidden="true">|</span>
-					<a href="/syarat-ketentuan" class="footer-legal-link">Syarat & Ketentuan</a>
+					<a href="/syarat-ketentuan" class="footer-legal-link">{i18n.dict.footer.terms}</a>
 				</div>
 			</div>
 		</div>
@@ -156,52 +150,25 @@
 
 	.footer-logo-link {
 		text-decoration: none;
-	}
-
-	.footer-logo-wrap {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
+		display: inline-block;
 	}
 
 	.footer-logo-badge {
-		width: 26px;
-		height: 26px;
 		background: #FFFFFF;
-		border-radius: 6px;
-		display: flex;
+		border-radius: 8px;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 2px;
+		padding: 6px 10px;
 		flex-shrink: 0;
 	}
 
 	.footer-logo-img {
-		width: 100%;
-		height: 100%;
+		height: 36px;
+		width: auto;
+		max-width: 150px;
 		object-fit: contain;
-	}
-
-	.footer-logo-text {
-		display: flex;
-		flex-direction: column;
-		line-height: 1;
-	}
-
-	.footer-brand-title {
-		font-size: 14px;
-		font-weight: 800;
-		color: #FFFFFF;
-		letter-spacing: -0.01em;
-	}
-
-	.footer-brand-tagline {
-		font-size: 8px;
-		font-weight: 500;
-		color: rgba(255, 255, 255, 0.75);
-		letter-spacing: 0.04em;
-		white-space: nowrap;
-		margin-top: 2px;
+		display: block;
 	}
 
 	.footer-brand-address {

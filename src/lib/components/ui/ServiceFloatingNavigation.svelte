@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { serviceConfig } from '#lib/config/services';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	export type ServiceKey = 'all' | 'education' | 'scholarship' | 'legal';
 
@@ -25,12 +26,12 @@
 		href: string;
 	}
 
-	const allNavItems: NavItem[] = [
-		{ key: 'all', name: 'Semua Layanan', href: '/layanan' },
-		{ key: 'education', name: 'Program Pendidikan', href: '/layanan/pendidikan' },
-		{ key: 'scholarship', name: 'Beasiswa', href: '/layanan/beasiswa' },
-		{ key: 'legal', name: 'Layanan Hukum', href: '/layanan/hukum' }
-	];
+	const allNavItems = $derived<NavItem[]>([
+		{ key: 'all', name: i18n.pick('Semua Layanan', 'All Services'), href: '/layanan' },
+		{ key: 'education', name: i18n.pick('Program Pendidikan', 'Education Programs'), href: '/layanan/pendidikan' },
+		{ key: 'scholarship', name: i18n.pick('Beasiswa', 'Scholarships'), href: '/layanan/beasiswa' },
+		{ key: 'legal', name: i18n.pick('Layanan Hukum', 'Legal Services'), href: '/layanan/hukum' }
+	]);
 
 	const navItems = $derived(
 		allNavItems.filter((item) => {
@@ -60,7 +61,7 @@
 		<nav
 			bind:this={navCardEl}
 			class="service-nav-card"
-			aria-label="Navigasi Kategori Layanan"
+			aria-label={i18n.pick('Navigasi Kategori Layanan', 'Service Category Navigation')}
 		>
 			{#each navItems as item, idx (item.key)}
 				{@const isActive = resolvedActive === item.key}

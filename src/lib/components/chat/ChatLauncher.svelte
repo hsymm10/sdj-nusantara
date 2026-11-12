@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	let buttonEl: HTMLButtonElement | undefined = $state();
 	let prevUnread = $state(0);
@@ -35,12 +36,15 @@
 
 	let ariaLabel = $derived.by(() => {
 		if (chatStore.isOpen) {
-			return 'Tutup asisten SDJNusantara';
+			return i18n.dict.chat.launcherCloseLabel;
 		}
 		if (chatStore.unreadCount > 0) {
-			return `Buka asisten, ${chatStore.unreadCount} pesan belum dibaca`;
+			return i18n.pick(
+				`Buka asisten, ${chatStore.unreadCount} pesan belum dibaca`,
+				`Open assistant, ${chatStore.unreadCount} unread messages`
+			);
 		}
-		return 'Buka asisten SDJNusantara';
+		return i18n.dict.chat.launcherOpenLabel;
 	});
 </script>
 

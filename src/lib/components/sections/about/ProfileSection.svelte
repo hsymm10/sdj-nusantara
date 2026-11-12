@@ -1,5 +1,5 @@
 <script lang="ts">
-	// ProfileSection.svelte - Faithful to design/tentang-kami.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="profile-section" id="profil">
@@ -26,40 +26,43 @@
 
 			<!-- Right: Content & Stats -->
 			<div class="content-wrapper">
-				<div class="section-label">— Profil Perusahaan</div>
+				<div class="section-label">{i18n.pick('— Profil Perusahaan', '— Company Profile')}</div>
 
 				<h2 class="company-title">SDJNusantara</h2>
 				<h3 class="company-subtitle">
-					Konsultan Pendidikan dan Pengembangan Talenta<br />
-					untuk Masa Depan Indonesia
+					{i18n.pick('Konsultan Pendidikan dan Pengembangan Talenta', 'Education & Talent Development Consultancy')}<br />
+					{i18n.pick('untuk Masa Depan Indonesia', 'for Indonesia’s Future')}
 				</h3>
 
 				<p class="company-desc">
-					SDJNusantara adalah lembaga konsultan pendidikan yang berfokus pada pengembangan potensi individu dan institusi melalui program yang inovatif, terstruktur, dan berorientasi pada hasil. Kami percaya bahwa pendidikan adalah kunci utama untuk menciptakan generasi unggul dan berdaya saing global.
+					{i18n.pick(
+						'SDJNusantara adalah lembaga konsultan pendidikan yang berfokus pada pengembangan potensi individu dan institusi melalui program yang inovatif, terstruktur, dan berorientasi pada hasil. Kami percaya bahwa pendidikan adalah kunci utama untuk menciptakan generasi unggul dan berdaya saing global.',
+						'SDJNusantara is an education consultancy focused on developing individual and institutional potential through innovative, structured, and outcome-oriented programs. We believe education is the key to cultivating a globally competitive generation.'
+					)}
 				</p>
 
 				<!-- 3 Stats with vertical dividers (RATA TENGAH, tanpa garis horizontal atas) -->
 				<div class="stats-row">
 					<div class="stat-item">
 						<span class="stat-number">200+</span>
-						<span class="stat-label">Target Pemetaan Talenta</span>
+						<span class="stat-label">{i18n.pick('Target Pemetaan Talenta', 'Talent Mapping Target')}</span>
 					</div>
 
 					<div class="stat-vdivider"></div>
 
 					<div class="stat-item">
 						<span class="stat-number">12</span>
-						<span class="stat-label">Target Sosialisasi Beasiswa</span>
+						<span class="stat-label">{i18n.pick('Target Sosialisasi Beasiswa', 'Scholarship Outreach Target')}</span>
 					</div>
 
 					<div class="stat-vdivider"></div>
 
 					<div class="stat-item">
 						<span class="stat-number">60+</span>
-						<span class="stat-label">Target Peserta Coaching</span>
+						<span class="stat-label">{i18n.pick('Target Peserta Coaching', 'Coaching Participants Target')}</span>
 					</div>
 				</div>
-				<p class="stat-note">*Target indikatif program tahun pertama</p>
+				<p class="stat-note">{i18n.pick('*Target indikatif program tahun pertama', '*Indicative first-year program targets')}</p>
 			</div>
 		</div>
 	</div>

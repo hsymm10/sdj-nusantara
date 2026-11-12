@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { tick } from 'svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	export interface FilterValues {
 		kategori: string;
@@ -158,13 +159,13 @@
 					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 22 3"></polygon>
 					</svg>
-					<h3 class="popover-title">Filter Beasiswa</h3>
+					<h3 class="popover-title">{i18n.pick('Filter Beasiswa', 'Filter Scholarships')}</h3>
 				</div>
 				<button
 					type="button"
 					class="popover-close-btn"
 					onclick={closePopover}
-					aria-label="Tutup filter"
+					aria-label={i18n.pick('Tutup filter', 'Close filter')}
 				>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 						<line x1="18" y1="6" x2="6" y2="18"></line>
@@ -177,15 +178,15 @@
 			<div class="popover-grid-body">
 				<!-- 1. Kategori -->
 				<div class="control-group">
-					<label for="filter-pop-kategori" class="control-label">Kategori</label>
+					<label for="filter-pop-kategori" class="control-label">{i18n.pick('Kategori', 'Category')}</label>
 					<div class="select-box">
 						<select id="filter-pop-kategori" bind:value={draftValues.kategori} class="custom-select">
-							<option value="Semua Kategori">Semua Kategori</option>
-							<option value="Pemerintah">Pemerintah</option>
-							<option value="Universitas">Universitas</option>
-							<option value="Lembaga Internasional">Lembaga Internasional</option>
-							<option value="Swasta">Swasta</option>
-							<option value="Daerah">Daerah</option>
+							<option value="Semua Kategori">{i18n.pick('Semua Kategori', 'All Categories')}</option>
+							<option value="Pemerintah">{i18n.pick('Pemerintah', 'Government')}</option>
+							<option value="Universitas">{i18n.pick('Universitas', 'University')}</option>
+							<option value="Lembaga Internasional">{i18n.pick('Lembaga Internasional', 'International Organization')}</option>
+							<option value="Swasta">{i18n.pick('Swasta', 'Private')}</option>
+							<option value="Daerah">{i18n.pick('Daerah', 'Regional')}</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -193,10 +194,10 @@
 
 				<!-- 2. Jenjang Pendidikan -->
 				<div class="control-group">
-					<label for="filter-pop-jenjang" class="control-label">Jenjang Pendidikan</label>
+					<label for="filter-pop-jenjang" class="control-label">{i18n.pick('Jenjang Pendidikan', 'Education Level')}</label>
 					<div class="select-box">
 						<select id="filter-pop-jenjang" bind:value={draftValues.jenjang} class="custom-select">
-							<option value="Semua Jenjang">Semua Jenjang</option>
+							<option value="Semua Jenjang">{i18n.pick('Semua Jenjang', 'All Levels')}</option>
 							<option value="S1">S1</option>
 							<option value="S2">S2</option>
 							<option value="S3">S3</option>
@@ -207,14 +208,14 @@
 
 				<!-- 3. Negara Tujuan -->
 				<div class="control-group">
-					<label for="filter-pop-negara" class="control-label">Negara Tujuan</label>
+					<label for="filter-pop-negara" class="control-label">{i18n.pick('Negara Tujuan', 'Destination Country')}</label>
 					<div class="select-box">
 						<select id="filter-pop-negara" bind:value={draftValues.negara} class="custom-select">
-							<option value="Semua Negara">Semua Negara</option>
-							<option value="Dalam Negeri">Dalam Negeri</option>
-							<option value="Luar Negeri">Luar Negeri</option>
-							<option value="Inggris">Inggris</option>
-							<option value="Jepang">Jepang</option>
+							<option value="Semua Negara">{i18n.pick('Semua Negara', 'All Countries')}</option>
+							<option value="Dalam Negeri">{i18n.pick('Dalam Negeri', 'Domestic')}</option>
+							<option value="Luar Negeri">{i18n.pick('Luar Negeri', 'International')}</option>
+							<option value="Inggris">{i18n.pick('Inggris', 'United Kingdom')}</option>
+							<option value="Jepang">{i18n.pick('Jepang', 'Japan')}</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -222,10 +223,10 @@
 
 				<!-- 4. Jenis Pendanaan -->
 				<div class="control-group">
-					<label for="filter-pop-pendanaan" class="control-label">Jenis Pendanaan</label>
+					<label for="filter-pop-pendanaan" class="control-label">{i18n.pick('Jenis Pendanaan', 'Funding Type')}</label>
 					<div class="select-box">
 						<select id="filter-pop-pendanaan" bind:value={draftValues.pendanaan} class="custom-select">
-							<option value="Semua Jenis">Semua Jenis</option>
+							<option value="Semua Jenis">{i18n.pick('Semua Jenis', 'All Types')}</option>
 							<option value="Fully Funded">Fully Funded</option>
 							<option value="Partial Funded">Partial Funded</option>
 						</select>
@@ -235,13 +236,13 @@
 
 				<!-- 5. Status Pendaftaran -->
 				<div class="control-group">
-					<label for="filter-pop-status" class="control-label">Status Pendaftaran</label>
+					<label for="filter-pop-status" class="control-label">{i18n.pick('Status Pendaftaran', 'Application Status')}</label>
 					<div class="select-box">
 						<select id="filter-pop-status" bind:value={draftValues.status} class="custom-select">
-							<option value="Semua Status">Semua Status</option>
-							<option value="Buka">Buka</option>
-							<option value="Segera Dibuka">Segera Dibuka</option>
-							<option value="Ditutup">Ditutup</option>
+							<option value="Semua Status">{i18n.pick('Semua Status', 'All Statuses')}</option>
+							<option value="Buka">{i18n.pick('Buka', 'Open')}</option>
+							<option value="Segera Dibuka">{i18n.pick('Segera Dibuka', 'Opening Soon')}</option>
+							<option value="Ditutup">{i18n.pick('Ditutup', 'Closed')}</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -249,11 +250,11 @@
 
 				<!-- 6. Penyelenggara -->
 				<div class="control-group">
-					<label for="filter-pop-penyelenggara" class="control-label">Penyelenggara</label>
+					<label for="filter-pop-penyelenggara" class="control-label">{i18n.pick('Penyelenggara', 'Provider')}</label>
 					<div class="select-box">
 						<select id="filter-pop-penyelenggara" bind:value={draftValues.penyelenggara} class="custom-select">
-							<option value="Semua Penyelenggara">Semua Penyelenggara</option>
-							<option value="Kementerian">Pemerintah RI / Kemdikbud</option>
+							<option value="Semua Penyelenggara">{i18n.pick('Semua Penyelenggara', 'All Providers')}</option>
+							<option value="Kementerian">{i18n.pick('Pemerintah RI / Kemdikbud', 'Indonesian Gov / Kemdikbud')}</option>
 							<option value="UK Government">UK Government (Chevening)</option>
 							<option value="Government of Japan">Government of Japan (MEXT)</option>
 							<option value="Kementerian Keuangan">LPDP Kemenkeu</option>
@@ -279,9 +280,9 @@
 					onclick={handleApply}
 				>
 					{#if previewCount !== null}
-						Terapkan Filter ({previewCount})
+						{i18n.pick(`Terapkan Filter (${previewCount})`, `Apply Filters (${previewCount})`)}
 					{:else}
-						Terapkan Filter
+						{i18n.pick('Terapkan Filter', 'Apply Filters')}
 					{/if}
 				</button>
 			</div>

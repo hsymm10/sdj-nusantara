@@ -7,6 +7,7 @@
 	import { pendidikanKnowledge } from '#lib/data/knowledge/pendidikan';
 	import { beasiswaKnowledge } from '#lib/data/knowledge/beasiswa';
 	import { serviceConfig } from '#lib/config/services';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
 	let openFaq = $state<number | null>(0);
@@ -41,33 +42,50 @@
 		}
 	}
 
-	const faqs = [
+	const faqs = $derived([
 		{
-			question: 'Bagaimana cara mengajukan kerja sama?',
-			answer: 'Anda dapat menghubungi kami melalui formulir kontak atau WhatsApp resmi SDJNusantara. Tim kami akan menjadwalkan diskusi awal untuk memahami kebutuhan dan profil institusi Anda.'
+			question: i18n.pick('Bagaimana cara mengajukan kerja sama?', 'How do we propose a partnership?'),
+			answer: i18n.pick(
+				'Anda dapat menghubungi kami melalui formulir kontak atau WhatsApp resmi SDJNusantara. Tim kami akan menjadwalkan diskusi awal untuk memahami kebutuhan dan profil institusi Anda.',
+				'You can reach us via our contact form or official SDJNusantara WhatsApp. Our team will schedule an initial discovery session to understand your institution’s needs and profile.'
+			)
 		},
 		{
-			question: 'Apakah layanan SDJNusantara hanya untuk sekolah?',
-			answer: 'Tidak. Kami melayani siswa, mahasiswa, profesional mandiri, sekolah, perguruan tinggi, yayasan pendidikan, serta korporasi dan institusi mitra.'
+			question: i18n.pick('Apakah layanan SDJNusantara hanya untuk sekolah?', 'Are SDJNusantara services only for schools?'),
+			answer: i18n.pick(
+				'Tidak. Kami melayani siswa, mahasiswa, profesional mandiri, sekolah, perguruan tinggi, yayasan pendidikan, serta korporasi dan institusi mitra.',
+				'No. We serve high school students, university students, professionals, schools, universities, education foundations, corporations, and partner institutions.'
+			)
 		},
 		{
-			question: 'Apakah tersedia konsultasi online?',
-			answer: 'Ya, seluruh sesi konsultasi, pendampingan, dan bimbingan dapat dilaksanakan secara daring maupun tatap muka langsung sesuai kesepakatan bersama.'
+			question: i18n.pick('Apakah tersedia konsultasi online?', 'Are online consultations available?'),
+			answer: i18n.pick(
+				'Ya, seluruh sesi konsultasi, pendampingan, dan bimbingan dapat dilaksanakan secara daring maupun tatap muka langsung sesuai kesepakatan bersama.',
+				'Yes, all consultation, mentoring, and coaching sessions can be conducted online or in person by mutual agreement.'
+			)
 		},
 		{
-			question: 'Berapa lama proses layanan berlangsung?',
-			answer: 'Durasi layanan bervariasi bergantung pada jenis program, mulai dari sesi bimbingan tematik 1 hari hingga pendampingan terstruktur selama beberapa bulan.'
+			question: i18n.pick('Berapa lama proses layanan berlangsung?', 'How long does the service process take?'),
+			answer: i18n.pick(
+				'Durasi layanan bervariasi bergantung pada jenis program, mulai dari sesi bimbingan tematik 1 hari hingga pendampingan terstruktur selama beberapa bulan.',
+				'Service duration varies by program type, ranging from 1-day thematic workshops to structured mentoring over several months.'
+			)
 		}
-	];
+	]);
 </script>
 
 <svelte:head>
-	<title>Portofolio Layanan — SDJNusantara Strategic Your Partner</title>
+	<title>{i18n.pick('Portofolio Layanan — SDJNusantara Strategic Your Partner', 'Service Portfolio — SDJNusantara Your Strategic Partner')}</title>
 	<meta
 		name="description"
-		content={serviceConfig.legal
-			? 'SDJNusantara menyediakan berbagai layanan pendidikan, program beasiswa, dan layanan hukum untuk mendukung potensi individu dan institusi.'
-			: 'SDJNusantara menyediakan berbagai layanan pendidikan, pengembangan talenta, dan program beasiswa untuk mendukung potensi individu dan institusi.'}
+		content={i18n.pick(
+			serviceConfig.legal
+				? 'SDJNusantara menyediakan berbagai layanan pendidikan, program beasiswa, dan layanan hukum untuk mendukung potensi individu dan institusi.'
+				: 'SDJNusantara menyediakan berbagai layanan pendidikan, pengembangan talenta, dan program beasiswa untuk mendukung potensi individu dan institusi.',
+			serviceConfig.legal
+				? 'SDJNusantara provides education services, scholarship programs, and legal services to support individual and institutional potential.'
+				: 'SDJNusantara provides education services, talent development, and scholarship programs to support individual and institutional potential.'
+		)}
 	/>
 	<link rel="canonical" href="https://sdjnusantara.com/layanan" />
 </svelte:head>
@@ -120,34 +138,37 @@
 				<!-- Pill Portofolio Layanan -->
 				<div class="hero-pill">
 					<span class="pill-dot"></span>
-					<span class="pill-text">Portofolio Layanan</span>
+					<span class="pill-text">{i18n.pick('Portofolio Layanan', 'Service Portfolio')}</span>
 				</div>
 
-				<!-- H1 3 baris ±46px weight 800: "Solusi Pendidikan / dan Pengembangan Talenta / untuk Masa Depan." -->
+				<!-- H1 3 baris ±46px weight 800 -->
 				<h1 class="hero-title">
-					<span class="title-line">Solusi Pendidikan</span>
-					<span class="title-line">dan Pengembangan <span class="highlight-gold">Talenta</span></span>
-					<span class="title-line highlight-gold">untuk Masa Depan.</span>
+					<span class="title-line">{i18n.pick('Solusi Pendidikan', 'Education Solutions')}</span>
+					<span class="title-line">{i18n.pick('dan Pengembangan', 'and')} <span class="highlight-gold">{i18n.pick('Talenta', 'Talent Development')}</span></span>
+					<span class="title-line highlight-gold">{i18n.pick('untuk Masa Depan.', 'for the Future.')}</span>
 				</h1>
 
 				<!-- Deskripsi putih ±14px 3 baris max-width ±540px -->
 				<p class="hero-desc">
-					{#if serviceConfig.legal}
-						SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, beasiswa, dan layanan hukum untuk mendukung potensi terbaik Anda.
-					{:else}
-						SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, dan beasiswa untuk mendukung potensi terbaik Anda.
-					{/if}
+					{i18n.pick(
+						serviceConfig.legal
+							? 'SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, beasiswa, dan layanan hukum untuk mendukung potensi terbaik Anda.'
+							: 'SDJNusantara menyediakan berbagai layanan pendidikan, program pengembangan talenta, dan beasiswa untuk mendukung potensi terbaik Anda.',
+						serviceConfig.legal
+							? 'SDJNusantara provides education services, talent development programs, scholarships, and legal services to unlock your full potential.'
+							: 'SDJNusantara provides education services, talent development programs, and scholarships to unlock your full potential.'
+					)}
 				</p>
 
-				<!-- Tombol aksi ramping: emas "Jelajahi Layanan →" ±150x40px, outline putih ±195x40px -->
+				<!-- Tombol aksi ramping -->
 				<div class="hero-actions">
 					<button type="button" class="btn-hero-gold" onclick={scrollToCards}>
-						<span>Jelajahi Layanan</span>
+						<span>{i18n.pick('Jelajahi Layanan', 'Explore Services')}</span>
 						<span class="btn-arrow" aria-hidden="true">→</span>
 					</button>
 
 					<a href="/kontak" class="btn-hero-outline">
-						<span>Konsultasi dengan Kami</span>
+						<span>{i18n.pick('Konsultasi dengan Kami', 'Consult With Us')}</span>
 					</a>
 				</div>
 			</div>
@@ -182,7 +203,7 @@
 							<rect x="3" y="14" width="7" height="7"></rect>
 						</svg>
 					</span>
-					<span class="tab-label">Semua Layanan</span>
+					<span class="tab-label">{i18n.pick('Semua Layanan', 'All Services')}</span>
 				</button>
 
 				<div class="tab-vdivider" aria-hidden="true"></div>
@@ -202,7 +223,7 @@
 							<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
 						</svg>
 					</span>
-					<span class="tab-label">Program Pendidikan</span>
+					<span class="tab-label">{i18n.pick('Program Pendidikan', 'Education Programs')}</span>
 				</button>
 
 				<div class="tab-vdivider" aria-hidden="true"></div>
@@ -225,7 +246,7 @@
 							<path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
 						</svg>
 					</span>
-					<span class="tab-label">Beasiswa</span>
+					<span class="tab-label">{i18n.pick('Beasiswa', 'Scholarships')}</span>
 				</button>
 
 				{#if serviceConfig.legal}
@@ -277,13 +298,16 @@
 			<div class="intro-text-col">
 				<div class="section-badge-label">
 					<span class="label-dash" aria-hidden="true"></span>
-					<span class="label-text">Layanan SDJNusantara</span>
+					<span class="label-text">{i18n.pick('Layanan SDJNusantara', 'SDJNusantara Services')}</span>
 				</div>
 				<h2 id="intro-heading" class="intro-title">
-					Layanan Pendidikan dan<br />Pengembangan Talenta
+					{i18n.pick('Layanan Pendidikan dan', 'Education and Talent')}<br />{i18n.pick('Pengembangan Talenta', 'Development Services')}
 				</h2>
 				<p class="intro-desc">
-					Pendampingan terintegrasi untuk membantu individu dan institusi dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan yang lebih baik.
+					{i18n.pick(
+						'Pendampingan terintegrasi untuk membantu individu dan institusi dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan yang lebih baik.',
+						'Integrated mentoring to help individuals and institutions plan education, build competencies, and prepare for a brighter future.'
+					)}
 				</p>
 			</div>
 
@@ -298,7 +322,7 @@
 							<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 						</svg>
 					</div>
-					<span class="tile-label">Pendampingan Menyeluruh</span>
+					<span class="tile-label">{i18n.pick('Pendampingan Menyeluruh', 'End-to-End Mentoring')}</span>
 				</div>
 
 				<div class="feature-tile">
@@ -309,7 +333,7 @@
 							<circle cx="12" cy="12" r="2"></circle>
 						</svg>
 					</div>
-					<span class="tile-label">Program Terstruktur</span>
+					<span class="tile-label">{i18n.pick('Program Terstruktur', 'Structured Programs')}</span>
 				</div>
 
 				<div class="feature-tile">
@@ -319,7 +343,7 @@
 							<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
 						</svg>
 					</div>
-					<span class="tile-label">Informasi Beasiswa</span>
+					<span class="tile-label">{i18n.pick('Informasi Beasiswa', 'Scholarship Insights')}</span>
 				</div>
 
 				<div class="feature-tile">
@@ -330,7 +354,7 @@
 							<line x1="6" y1="20" x2="6" y2="14"></line>
 						</svg>
 					</div>
-					<span class="tile-label">Pengembangan Talenta</span>
+					<span class="tile-label">{i18n.pick('Pengembangan Talenta', 'Talent Development')}</span>
 				</div>
 			</div>
 		</div>
@@ -365,22 +389,25 @@
 											<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
 										</svg>
 									</span>
-									<span>Program Pendidikan</span>
+									<span>{i18n.pick('Program Pendidikan', 'Education Programs')}</span>
 								</div>
 
-								<h3 class="card-title">Program Pendidikan</h3>
+								<h3 class="card-title">{i18n.pick('Program Pendidikan', 'Education Programs')}</h3>
 								<p class="card-desc">
-									{pendidikanKnowledge[0].ringkas}
+									{i18n.pick(
+										pendidikanKnowledge[0].ringkas,
+										'Structured talent management, academic mentoring, skills training, and institutional collaboration designed for measurable growth.'
+									)}
 								</p>
 
-								<ul class="card-checklist" aria-label="Fitur Program Pendidikan">
+								<ul class="card-checklist" aria-label={i18n.pick('Fitur Program Pendidikan', 'Education Program Features')}>
 									<li>
 										<span class="check-icon" aria-hidden="true">
 											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Konsultasi & Manajemen Talenta</span>
+										<span>{i18n.pick('Konsultasi & Manajemen Talenta', 'Talent Consultation & Management')}</span>
 									</li>
 									<li>
 										<span class="check-icon" aria-hidden="true">
@@ -388,7 +415,7 @@
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Scholarship Academy & Kurasi Beasiswa</span>
+										<span>{i18n.pick('Scholarship Academy & Kurasi Beasiswa', 'Scholarship Academy & Curated Guides')}</span>
 									</li>
 									<li>
 										<span class="check-icon" aria-hidden="true">
@@ -396,14 +423,14 @@
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Pelatihan Khusus & Kemitraan Kampus</span>
+										<span>{i18n.pick('Pelatihan Khusus & Kemitraan Kampus', 'Custom Training & Campus Partnerships')}</span>
 									</li>
 								</ul>
 							</div>
 
 							<div class="card-action">
 								<a href="/layanan/pendidikan" class="btn-card-gold">
-									<span>Jelajahi Semua Program</span>
+									<span>{i18n.pick('Jelajahi Semua Program', 'Explore All Programs')}</span>
 									<span class="btn-arrow" aria-hidden="true">→</span>
 								</a>
 							</div>
@@ -440,22 +467,25 @@
 											<path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
 										</svg>
 									</span>
-									<span>Beasiswa</span>
+									<span>{i18n.pick('Beasiswa', 'Scholarships')}</span>
 								</div>
 
-								<h3 class="card-title">Program Beasiswa</h3>
+								<h3 class="card-title">{i18n.pick('Program Beasiswa', 'Scholarship Programs')}</h3>
 								<p class="card-desc">
-									{beasiswaKnowledge[0].ringkas}
+									{i18n.pick(
+										beasiswaKnowledge[0].ringkas,
+										'Structured preparation and strategic mentoring for domestic and international scholarship applicants, from profile mapping to interview readiness.'
+									)}
 								</p>
 
-								<ul class="card-checklist" aria-label="Fitur Program Beasiswa">
+								<ul class="card-checklist" aria-label={i18n.pick('Fitur Program Beasiswa', 'Scholarship Program Features')}>
 									<li>
 										<span class="check-icon" aria-hidden="true">
 											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Informasi Beasiswa Dalam & Luar Negeri</span>
+										<span>{i18n.pick('Informasi Beasiswa Dalam & Luar Negeri', 'Domestic & International Scholarship Info')}</span>
 									</li>
 									<li>
 										<span class="check-icon" aria-hidden="true">
@@ -463,7 +493,7 @@
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Pendampingan Persiapan & Seleksi</span>
+										<span>{i18n.pick('Pendampingan Persiapan & Seleksi', 'Application & Selection Mentoring')}</span>
 									</li>
 									<li>
 										<span class="check-icon" aria-hidden="true">
@@ -471,18 +501,21 @@
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Kurasi Beasiswa Sesuai Profil</span>
+										<span>{i18n.pick('Kurasi Beasiswa Sesuai Profil', 'Profile-Matched Scholarship Curation')}</span>
 									</li>
 								</ul>
 							</div>
 
 							<div class="card-action card-action-with-note">
 								<a href="/layanan/pendidikan#beasiswa" class="btn-card-gold">
-									<span>Temukan Semua Beasiswa</span>
+									<span>{i18n.pick('Temukan Semua Beasiswa', 'Explore All Scholarships')}</span>
 									<span class="btn-arrow" aria-hidden="true">→</span>
 								</a>
 								<p class="card-disclaimer">
-									SDJNusantara tidak menjanjikan kelulusan atau perolehan beasiswa.
+									{i18n.pick(
+										'SDJNusantara tidak menjanjikan kelulusan atau perolehan beasiswa.',
+										'SDJNusantara does not guarantee admission or scholarship awards.'
+									)}
 								</p>
 							</div>
 						</div>
@@ -602,9 +635,12 @@
 						</div>
 
 						<div class="why-header">
-							<h3 id="why-us-heading" class="why-title">Mengapa Memilih SDJNusantara?</h3>
+							<h3 id="why-us-heading" class="why-title">{i18n.pick('Mengapa Memilih SDJNusantara?', 'Why Choose SDJNusantara?')}</h3>
 							<p class="why-desc">
-								Kami mendampingi dengan pendekatan yang terarah, transparan, dan berorientasi pada kebutuhan Anda.
+								{i18n.pick(
+									'Kami mendampingi dengan pendekatan yang terarah, transparan, dan berorientasi pada kebutuhan Anda.',
+									'We guide you with a targeted, transparent, and needs-oriented approach.'
+								)}
 							</p>
 						</div>
 
@@ -618,8 +654,8 @@
 										<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 									</svg>
 								</div>
-								<h4 class="why-tile-title">Tim Profesional</h4>
-								<p class="why-tile-desc">Didampingi konsultan dan mentor sesuai bidangnya.</p>
+								<h4 class="why-tile-title">{i18n.pick('Tim Profesional', 'Professional Team')}</h4>
+								<p class="why-tile-desc">{i18n.pick('Didampingi konsultan dan mentor sesuai bidangnya.', 'Guided by domain-specialist consultants and mentors.')}</p>
 							</div>
 
 							<div class="why-tile">
@@ -629,8 +665,8 @@
 										<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
 									</svg>
 								</div>
-								<h4 class="why-tile-title">Pendampingan Terarah</h4>
-								<p class="why-tile-desc">Proses yang sistematis dan sesuai kebutuhan.</p>
+								<h4 class="why-tile-title">{i18n.pick('Pendampingan Terarah', 'Targeted Mentoring')}</h4>
+								<p class="why-tile-desc">{i18n.pick('Proses yang sistematis dan sesuai kebutuhan.', 'A systematic process tailored to your goals.')}</p>
 							</div>
 
 							<div class="why-tile">
@@ -641,8 +677,8 @@
 										<circle cx="12" cy="12" r="2"></circle>
 									</svg>
 								</div>
-								<h4 class="why-tile-title">Solusi Terintegrasi</h4>
-								<p class="why-tile-desc">Layanan saling terhubung untuk kebutuhan pendidikan Anda.</p>
+								<h4 class="why-tile-title">{i18n.pick('Solusi Terintegrasi', 'Integrated Solutions')}</h4>
+								<p class="why-tile-desc">{i18n.pick('Layanan saling terhubung untuk kebutuhan pendidikan Anda.', 'Connected services for your complete educational journey.')}</p>
 							</div>
 						</div>
 					</aside>
@@ -679,10 +715,13 @@
 							<span>FAQ</span>
 						</div>
 						<h3 id="faq-heading" class="faq-title">
-							Pertanyaan <span class="faq-title-gold">Umum</span>
+							{i18n.pick('Pertanyaan', 'Frequently Asked')} <span class="faq-title-gold">{i18n.pick('Umum', 'Questions')}</span>
 						</h3>
 						<p class="faq-subtitle">
-							Temukan jawaban dari pertanyaan yang paling sering ditanyakan.
+							{i18n.pick(
+								'Temukan jawaban dari pertanyaan yang paling sering ditanyakan.',
+								'Find answers to the most commonly asked questions.'
+							)}
 						</p>
 					</div>
 
@@ -784,12 +823,12 @@
 	     6. CTA BANNER FULL BACKGROUND IMAGE
 	     ========================================== -->
 	<CtaBanner
-		title='Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>'
-		description="Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJNusantara."
+		title={i18n.pick('Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>', 'Ready to Unlock <span class="highlight-gold">Your Institution’s Potential?</span>')}
+		description={i18n.pick('Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJNusantara.', 'Discover education solutions, talent development, and institutional mentoring with SDJNusantara.')}
 		bgImage="/images/cta-layanan-collaboration-bg.jpg"
-		primaryText="Jadwalkan Konsultasi"
+		primaryText={i18n.pick('Jadwalkan Konsultasi', 'Schedule a Consultation')}
 		primaryHref="/kontak"
-		secondaryText="Ajukan Kerja Sama"
+		secondaryText={i18n.pick('Ajukan Kerja Sama', 'Propose Partnership')}
 		secondaryHref="/kemitraan"
 		variant="layanan"
 	/>

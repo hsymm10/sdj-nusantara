@@ -1,12 +1,25 @@
 <!-- Section 09: Persiapkan Diri untuk Meraih Beasiswa Impian — 3 Kolom (Mockup GAMBAR 2 SDJNusantara) -->
 <script lang="ts">
-	const checklist = [
-		'Pemetaan profil & target beasiswa',
-		'Persiapan dokumen akademik & CV',
-		'Bimbingan esai & <em>motivation letter</em>',
-		'Simulasi wawancara terarah',
-		'Pemeriksaan kelengkapan berkas'
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const checklist = $derived(
+		i18n.pick(
+			[
+				'Pemetaan profil & target beasiswa',
+				'Persiapan dokumen akademik & CV',
+				'Bimbingan esai & <em>motivation letter</em>',
+				'Simulasi wawancara terarah',
+				'Pemeriksaan kelengkapan berkas'
+			],
+			[
+				'Profile & scholarship target mapping',
+				'Academic document & CV preparation',
+				'Essay & <em>motivation letter</em> mentoring',
+				'Structured interview simulation',
+				'Application completeness review'
+			]
+		)
+	);
 </script>
 
 <section class="prep-edu-section" id="persiapan-beasiswa">
@@ -75,17 +88,20 @@
 		<div class="prep-col-text">
 			<div class="prep-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">Program Beasiswa</span>
+				<span class="badge-text">{i18n.pick('Program Beasiswa', 'Scholarship Program')}</span>
 			</div>
 			<h2 class="prep-title">
-				Persiapkan Diri untuk<br />
-				Meraih <span class="highlight-gold">Beasiswa Impian</span>
+				{i18n.pick('Persiapkan Diri untuk', 'Prepare Yourself to')}<br />
+				{i18n.pick('Meraih', 'Win Your')} <span class="highlight-gold">{i18n.pick('Beasiswa Impian', 'Dream Scholarship')}</span>
 			</h2>
 			<p class="prep-desc">
-				Dapatkan pendampingan, informasi lengkap, dan strategi terbaik untuk meraih beasiswa bersama SDJNusantara.
+				{i18n.pick(
+					'Dapatkan pendampingan, informasi lengkap, dan strategi terbaik untuk meraih beasiswa bersama SDJNusantara.',
+					'Get mentoring, comprehensive information, and winning strategies for scholarships with SDJNusantara.'
+				)}
 			</p>
 			<a href="/beasiswa" class="prep-btn">
-				<span>Mulai Persiapan Beasiswa</span>
+				<span>{i18n.pick('Mulai Persiapan Beasiswa', 'Start Scholarship Prep')}</span>
 				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12" />
 					<polyline points="12 5 19 12 12 19" />

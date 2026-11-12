@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroAbout.svelte - Standardized consistent with HeroPartner
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="hero-about">
@@ -40,25 +40,28 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Tentang Kami</span>
+				<span class="pill-label">{i18n.pick('Tentang Kami', 'About Us')}</span>
 			</div>
 
 			<!-- Headline (3 lines, font ±44px at 1536, line 3 gold #F5B331) -->
 			<h1 class="hero-title">
-				Bersama Membangun<br />
-				Pendidikan yang Lebih Baik<br />
-				<span class="gold-text">untuk Masa Depan Indonesia.</span>
+				{i18n.pick('Bersama Membangun', 'Together Building')}<br />
+				{i18n.pick('Pendidikan yang Lebih Baik', 'Better Education')}<br />
+				<span class="gold-text">{i18n.pick('untuk Masa Depan Indonesia.', 'for Indonesia’s Future.')}</span>
 			</h1>
 
 			<!-- Description (max-width 560px without manual <br>) -->
 			<p class="hero-desc">
-				SDJNusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.
+				{i18n.pick(
+					'SDJNusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.',
+					'SDJNusantara serves as an education and talent development consultancy committed to delivering strategic, innovative, and impactful solutions for individuals and institutions.'
+				)}
 			</p>
 
 			<!-- Button CTA -->
 			<div class="hero-btn-row">
 				<a href="#profil" class="btn-gold">
-					<span>Mengenal Lebih Dekat</span>
+					<span>{i18n.pick('Mengenal Lebih Dekat', 'Get to Know Us')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>

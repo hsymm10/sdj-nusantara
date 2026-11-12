@@ -1,13 +1,25 @@
 <script lang="ts">
-	// PartnerFocusFields.svelte - Optimasi Proporsi & Alignment Container min(1500px, calc(100% - 80px))
-	const fields = [
-		{ label: 'Pendidikan & Pelatihan', icon: 'education' },
-		{ label: 'Riset & Inovasi', icon: 'research' },
-		{ label: 'Pengembangan Talenta', icon: 'talent' },
-		{ label: 'Sosial & Komunitas', icon: 'social' },
-		{ label: 'Teknologi & Digitalisasi', icon: 'tech' },
-		{ label: 'Pembangunan Berkelanjutan', icon: 'sustainable' }
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const fields = $derived(
+		i18n.lang === 'en'
+			? [
+					{ label: 'Education & Training', icon: 'education' },
+					{ label: 'Research & Innovation', icon: 'research' },
+					{ label: 'Talent Development', icon: 'talent' },
+					{ label: 'Social & Community', icon: 'social' },
+					{ label: 'Technology & Digitalization', icon: 'tech' },
+					{ label: 'Sustainable Development', icon: 'sustainable' }
+				]
+			: [
+					{ label: 'Pendidikan & Pelatihan', icon: 'education' },
+					{ label: 'Riset & Inovasi', icon: 'research' },
+					{ label: 'Pengembangan Talenta', icon: 'talent' },
+					{ label: 'Sosial & Komunitas', icon: 'social' },
+					{ label: 'Teknologi & Digitalisasi', icon: 'tech' },
+					{ label: 'Pembangunan Berkelanjutan', icon: 'sustainable' }
+				]
+	);
 </script>
 
 <section id="bidang-kolaborasi" class="focus-fields-section">
@@ -43,20 +55,23 @@
 			<div class="fields-text-col">
 				<div class="fields-label">
 					<span class="label-dash"></span>
-					<span class="label-text">BIDANG KOLABORASI</span>
+					<span class="label-text">{i18n.pick('BIDANG KOLABORASI', 'COLLABORATION SECTORS')}</span>
 				</div>
 
 				<h2 class="section-title">
-					Fokus pada Bidang yang<br />
-					Memberikan <span class="highlight-orange">Dampak Luas.</span>
+					{i18n.pick('Fokus pada Bidang yang', 'Focused on Sectors That')}<br />
+					{i18n.pick('Memberikan ', 'Deliver ')}<span class="highlight-orange">{i18n.pick('Dampak Luas.', 'Broad Impact.')}</span>
 				</h2>
 
 				<p class="section-desc">
-					Kami membuka peluang kerja sama di berbagai bidang strategis demi mendukung pengembangan talenta dan kualitas pendidikan.
+					{i18n.pick(
+						'Kami membuka peluang kerja sama di berbagai bidang strategis demi mendukung pengembangan talenta dan kualitas pendidikan.',
+						'We open partnership opportunities across strategic fields to advance talent development and educational excellence.'
+					)}
 				</p>
 
 				<a href="#bentuk-kerja-sama" class="btn-orange-field">
-					<span>Lihat Selengkapnya</span>
+					<span>{i18n.pick('Lihat Selengkapnya', 'Learn More')}</span>
 					<svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<line x1="5" y1="12" x2="19" y2="12" />
 						<polyline points="12 5 19 12 12 19" />

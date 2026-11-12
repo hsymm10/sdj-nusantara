@@ -5,6 +5,7 @@
 	import { faqData, FAQ_CATEGORIES, type FaqItem, type FaqCategory } from '#lib/data/faq';
 	import { chatStore } from '#lib/stores/chat.svelte';
 	import { serviceConfig } from '#lib/config/services';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	let {
 		showCtaBanner = true,
@@ -60,13 +61,22 @@
 		return list;
 	});
 
+	const categoryLabelMap: Record<string, { id: string; en: string }> = {
+		program: { id: 'Program Pendidikan', en: 'Education Programs' },
+		beasiswa: { id: 'Beasiswa', en: 'Scholarships' },
+		kemitraan: { id: 'Kemitraan', en: 'Partnerships' },
+		hukum: { id: 'Layanan Hukum', en: 'Legal Services' }
+	};
+
 	// Header title based on selected category & search state
 	let headingTitle = $derived.by(() => {
 		if (searchQuery.trim()) {
-			return `Hasil Pencarian (${filteredFaqs.length})`;
+			return i18n.pick(`Hasil Pencarian (${filteredFaqs.length})`, `Search Results (${filteredFaqs.length})`);
 		}
+		const mapped = categoryLabelMap[selectedCategory];
+		if (mapped) return i18n.pick(mapped.id, mapped.en);
 		const cat = FAQ_CATEGORIES.find((c) => c.id === selectedCategory);
-		return cat ? cat.name : 'Daftar Pertanyaan';
+		return cat ? cat.name : i18n.pick('Daftar Pertanyaan', 'Frequently Asked Questions');
 	});
 
 	function selectCategory(catId: 'program' | 'beasiswa' | 'kemitraan' | 'hukum') {
@@ -118,20 +128,27 @@
 
 					<!-- Text Header -->
 					<div class="sidebar-content">
-						<h3 class="sidebar-title">Cari Informasi dengan Cepat</h3>
+						<h3 class="sidebar-title">{i18n.pick('Cari Informasi dengan Cepat', 'Find Information Quickly')}</h3>
 						<p class="sidebar-desc">
 							{#if showSearch}
-								Pilih kategori pertanyaan sesuai kebutuhan Anda atau gunakan pencarian untuk menemukan jawaban dengan lebih mudah.
+								{i18n.pick(
+									'Pilih kategori pertanyaan sesuai kebutuhan Anda atau gunakan pencarian untuk menemukan jawaban dengan lebih mudah.',
+									'Choose a question category that fits your needs or use search to find answers more easily.'
+								)}
 							{:else}
-								Pilih kategori pertanyaan sesuai kebutuhan Anda untuk menemukan jawaban dengan lebih mudah.
+								{i18n.pick(
+									'Pilih kategori pertanyaan sesuai kebutuhan Anda untuk menemukan jawaban dengan lebih mudah.',
+									'Choose a question category that fits your needs to find answers more easily.'
+								)}
 							{/if}
 						</p>
 
 						<!-- Categories Nav Stack -->
-						<nav class="categories-nav" aria-label="Kategori FAQ">
+						<nav class="categories-nav" aria-label={i18n.pick('Kategori FAQ', 'FAQ Categories')}>
 							{#each visibleCategories as cat (cat.id)}
 								{@const isActive = selectedCategory === cat.id}
 								{@const count = categoryCounts[cat.id] ?? cat.count}
+								{@const catLabel = categoryLabelMap[cat.id] ? i18n.pick(categoryLabelMap[cat.id].id, categoryLabelMap[cat.id].en) : cat.name}
 								<button
 									type="button"
 									class="category-btn {isActive ? 'is-active' : ''}"
@@ -140,7 +157,7 @@
 								>
 									<div class="cat-left">
 										<Icon icon={cat.icon} width="20" height="20" class="cat-icon" />
-										<span class="cat-name">{cat.name}</span>
+										<span class="cat-name">{catLabel}</span>
 									</div>
 									<span class="cat-count-badge">{count}</span>
 								</button>
@@ -159,16 +176,16 @@
 						<input
 							type="text"
 							bind:value={searchQuery}
-							placeholder="Cari pertanyaan, misalnya 'cara daftar beasiswa'..."
+							placeholder={i18n.pick("Cari pertanyaan, misalnya 'cara daftar beasiswa'...", "Search questions, e.g. 'how to apply for scholarship'...")}
 							class="search-input"
-							aria-label="Cari pertanyaan FAQ"
+							aria-label={i18n.pick('Cari pertanyaan FAQ', 'Search FAQ questions')}
 						/>
 						{#if searchQuery.trim()}
 							<button
 								type="button"
 								class="search-clear-btn"
 								onclick={clearSearch}
-								aria-label="Hapus kata kunci pencarian"
+								aria-label={i18n.pick('Hapus kata kunci pencarian', 'Clear search keyword')}
 							>
 								<Icon icon="lucide:x" width="16" height="16" />
 							</button>
@@ -185,7 +202,7 @@
 
 					{#if showSearch && searchQuery.trim()}
 						<button type="button" class="btn-clear-search-link" onclick={clearSearch}>
-							Hapus pencarian
+							{i18n.pick('Hapus pencarian', 'Clear search')}
 						</button>
 					{/if}
 				</div>
@@ -198,16 +215,19 @@
 							<div class="empty-icon-wrap">
 								<Icon icon="lucide:search-x" width="36" height="36" class="empty-icon" />
 							</div>
-							<h4 class="empty-title">Pertanyaan tidak ditemukan</h4>
+							<h4 class="empty-title">{i18n.pick('Pertanyaan tidak ditemukan', 'Question not found')}</h4>
 							<p class="empty-desc">
-								Kami tidak menemukan pertanyaan yang cocok dengan "{searchQuery}". Coba kata kunci lain atau hubungi asisten kami.
+								{i18n.pick(
+									`Kami tidak menemukan pertanyaan yang cocok dengan "${searchQuery}". Coba kata kunci lain atau hubungi asisten kami.`,
+									`We couldn’t find any questions matching "${searchQuery}". Try another keyword or contact our assistant.`
+								)}
 							</p>
 							<div class="empty-actions">
 								<button type="button" class="btn-empty-reset" onclick={clearSearch}>
-									Atur Ulang Pencarian
+									{i18n.pick('Atur Ulang Pencarian', 'Reset Search')}
 								</button>
 								<button type="button" class="btn-empty-chat" onclick={() => chatStore.open()}>
-									Tanya Asisten SDJ
+									{i18n.pick('Tanya Asisten SDJ', 'Ask SDJ Assistant')}
 								</button>
 							</div>
 						</div>
@@ -280,9 +300,12 @@
 					<Icon icon="fluent:chat-bubbles-question-24-filled" width="30" height="30" class="cta-main-icon" />
 				</div>
 				<div class="cta-texts">
-					<h3 class="cta-heading">Masih ada pertanyaan lain?</h3>
+					<h3 class="cta-heading">{i18n.pick('Masih ada pertanyaan lain?', 'Still have questions?')}</h3>
 					<p class="cta-desc">
-						Tim SDJNusantara siap membantu Anda mendapatkan informasi yang lebih lengkap, cepat, dan sesuai kebutuhan.
+						{i18n.pick(
+							'Tim SDJNusantara siap membantu Anda mendapatkan informasi yang lebih lengkap, cepat, dan sesuai kebutuhan.',
+							'The SDJNusantara team is ready to help you get complete, fast, and tailored information.'
+						)}
 					</p>
 				</div>
 			</div>
@@ -296,10 +319,10 @@
 					type="button"
 					class="btn-cta-chat"
 					onclick={() => chatStore.open()}
-					aria-label="Buka percakapan dengan Asisten SDJNusantara"
+					aria-label={i18n.pick('Buka percakapan dengan Asisten SDJNusantara', 'Open chat with SDJNusantara Assistant')}
 				>
 					<Icon icon="fluent:bot-24-filled" width="18" height="18" />
-					<span>Chat dengan Asisten</span>
+					<span>{i18n.pick('Chat dengan Asisten', 'Chat with Assistant')}</span>
 				</button>
 
 				<a
@@ -307,10 +330,10 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="btn-cta-wa"
-					aria-label="Hubungi SDJNusantara via WhatsApp"
+					aria-label={i18n.pick('Hubungi SDJNusantara via WhatsApp', 'Contact SDJNusantara via WhatsApp')}
 				>
 					<Icon icon="tabler:brand-whatsapp" width="19" height="19" />
-					<span>Hubungi via WhatsApp</span>
+					<span>{i18n.pick('Hubungi via WhatsApp', 'Contact via WhatsApp')}</span>
 				</a>
 			</div>
 		</div>

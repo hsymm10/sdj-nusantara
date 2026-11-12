@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { tick } from 'svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
 		value: string;
@@ -10,10 +11,13 @@
 
 	let {
 		value = '',
-		placeholderClosed = 'Cari beasiswa...',
-		placeholderOpen = 'Cari nama beasiswa, penyelenggara, atau kata kunci...',
+		placeholderClosed,
+		placeholderOpen,
 		onChange
 	}: Props = $props();
+
+	const resolvedClosed = $derived(placeholderClosed ?? i18n.pick('Cari beasiswa...', 'Search scholarships...'));
+	const resolvedOpen = $derived(placeholderOpen ?? i18n.pick('Cari nama beasiswa, penyelenggara, atau kata kunci...', 'Search scholarship name, provider, or keyword...'));
 
 	let isOpen = $state(false);
 	let inputEl = $state<HTMLInputElement | null>(null);
@@ -70,14 +74,14 @@
 			type="button"
 			class="search-trigger-btn"
 			onclick={handleOpen}
-			aria-label="Buka pencarian (tekan /)"
+			aria-label={i18n.pick('Buka pencarian (tekan /)', 'Open search (press /)')}
 		>
 			<svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 				<circle cx="11" cy="11" r="8"></circle>
 				<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 			</svg>
 			<span class="search-placeholder-text">
-				{value ? value : placeholderClosed}
+				{value ? value : resolvedClosed}
 			</span>
 			<span class="search-kbd-hint" aria-hidden="true">/</span>
 		</button>
@@ -92,10 +96,10 @@
 				type="text"
 				defaultValue={value}
 				oninput={handleInput}
-				placeholder={placeholderOpen}
+				placeholder={resolvedOpen}
 				class="search-active-input"
 				bind:this={inputEl}
-				aria-label="Ketik pencarian"
+				aria-label={i18n.pick('Ketik pencarian', 'Type search query')}
 			/>
 
 			{#if value || (inputEl && inputEl.value)}

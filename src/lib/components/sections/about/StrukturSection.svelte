@@ -1,5 +1,5 @@
 <script lang="ts">
-	// StrukturSection.svelte - Faithful to design/tentang-kami.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="struktur-section" id="struktur">
@@ -11,19 +11,22 @@
 		<div class="struktur-grid">
 			<!-- Left Column: Heading, Desc, CTA -->
 			<div class="struktur-left">
-				<div class="section-label">— Struktur Organisasi</div>
+				<div class="section-label">{i18n.pick('— Struktur Organisasi', '— Organizational Structure')}</div>
 
 				<h2 class="struktur-title">
-					Didukung oleh Tim<br />
-					Profesional &amp; Berpengalaman
+					{i18n.pick('Didukung oleh Tim', 'Supported by a')}<br />
+					{i18n.pick('Profesional & Berpengalaman', 'Professional & Experienced Team')}
 				</h2>
 
 				<p class="struktur-desc">
-					Tim kami terdiri dari para ahli di bidang pendidikan, pengembangan talenta, dan manajemen program yang siap memberikan solusi terbaik.
+					{i18n.pick(
+						'Tim kami terdiri dari para ahli di bidang pendidikan, pengembangan talenta, dan manajemen program yang siap memberikan solusi terbaik.',
+						'Our team comprises specialists in education, talent development, and program management ready to deliver optimal solutions.'
+					)}
 				</p>
 
 				<a href="#kontak" class="btn-gold">
-					<span>Lihat Struktur Lengkap</span>
+					<span>{i18n.pick('Lihat Struktur Lengkap', 'View Full Structure')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>
@@ -33,7 +36,7 @@
 			<div class="chart-wrapper">
 				<!-- Top Node: Direktur Utama -->
 				<div class="chart-top">
-					<div class="node-root">Direktur Utama</div>
+					<div class="node-root">{i18n.pick('Direktur Utama', 'Managing Director')}</div>
 				</div>
 
 				<!-- Connectors: satu garis vertikal turun ke garis horizontal lalu cabang 5 -->
@@ -61,8 +64,8 @@
 								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 							</svg>
 						</div>
-						<span class="divisi-prefix">Divisi</span>
-						<span class="divisi-name">Program &amp; Pengembangan</span>
+						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
+						<span class="divisi-name">{i18n.pick('Program & Pengembangan', 'Programs & Development')}</span>
 					</div>
 
 					<!-- Divisi 2 -->
@@ -73,8 +76,8 @@
 								<path d="m13 11.6-2-2a1 1 0 0 0-1.4 0L3 16.2a2 2 0 0 0 0 2.8l1.6 1.6a2 2 0 0 0 2.8 0l3.6-3.6"></path>
 							</svg>
 						</div>
-						<span class="divisi-prefix">Divisi</span>
-						<span class="divisi-name">Kemitraan &amp; Kolaborasi</span>
+						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
+						<span class="divisi-name">{i18n.pick('Kemitraan & Kolaborasi', 'Partnerships & Collaboration')}</span>
 					</div>
 
 					<!-- Divisi 3 -->
@@ -92,8 +95,8 @@
 								<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
 							</svg>
 						</div>
-						<span class="divisi-prefix">Divisi</span>
-						<span class="divisi-name">Riset &amp; Inovasi</span>
+						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
+						<span class="divisi-name">{i18n.pick('Riset & Inovasi', 'Research & Innovation')}</span>
 					</div>
 
 					<!-- Divisi 4 -->
@@ -106,8 +109,8 @@
 								<line x1="8" y1="14" x2="12" y2="14"></line>
 							</svg>
 						</div>
-						<span class="divisi-prefix">Divisi</span>
-						<span class="divisi-name">Administrasi &amp; Operasional</span>
+						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
+						<span class="divisi-name">{i18n.pick('Administrasi & Operasional', 'Administration & Operations')}</span>
 					</div>
 
 					<!-- Divisi 5 -->
@@ -119,7 +122,7 @@
 								<line x1="12" y1="17" x2="12" y2="21"></line>
 							</svg>
 						</div>
-						<span class="divisi-prefix">Divisi</span>
+						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
 						<span class="divisi-name">Digital Learning</span>
 					</div>
 				</div>

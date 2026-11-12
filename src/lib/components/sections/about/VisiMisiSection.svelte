@@ -1,5 +1,5 @@
 <script lang="ts">
-	// VisiMisiSection.svelte - Faithful to design/tentang-kami.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="visi-misi-section" id="visi-misi">
@@ -7,20 +7,23 @@
 		<div class="visi-misi-grid">
 			<!-- Left: Intro & Heading -->
 			<div class="visi-misi-left">
-				<div class="section-label">— Visi & Misi</div>
+				<div class="section-label">{i18n.pick('— Visi & Misi', '— Vision & Mission')}</div>
 
 				<h2 class="section-heading">
-					Menjadi mitra terpercaya dalam<br />
-					pengembangan talenta anak bangsa<br />
-					untuk masa depan yang lebih baik.
+					{i18n.pick('Menjadi mitra terpercaya dalam', 'Becoming a trusted partner in')}<br />
+					{i18n.pick('pengembangan talenta anak bangsa', 'developing the nation’s talent')}<br />
+					{i18n.pick('untuk masa depan yang lebih baik.', 'for a brighter future.')}
 				</h2>
 
 				<p class="section-desc">
-					Kami berkomitmen untuk terus berinovasi dan memberikan solusi pendidikan terbaik bagi individu, institusi, dan masyarakat.
+					{i18n.pick(
+						'Kami berkomitmen untuk terus berinovasi dan memberikan solusi pendidikan terbaik bagi individu, institusi, dan masyarakat.',
+						'We are committed to continuous innovation and delivering the best education solutions for individuals, institutions, and society.'
+					)}
 				</p>
 
 				<a href="#nilai" class="btn-gold">
-					<span>Pelajari Visi Misi Kami</span>
+					<span>{i18n.pick('Pelajari Visi Misi Kami', 'Explore Our Vision & Mission')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>
@@ -36,10 +39,13 @@
 						</svg>
 					</div>
 
-					<h3 class="vm-card-title">Visi</h3>
+					<h3 class="vm-card-title">{i18n.pick('Visi', 'Vision')}</h3>
 
 					<p class="vm-card-text">
-						Menjadi mitra terpercaya dalam pengembangan talenta anak bangsa untuk pendidikan yang lebih inklusif, adaptif, dan berkelanjutan.
+						{i18n.pick(
+							'Menjadi mitra terpercaya dalam pengembangan talenta anak bangsa untuk pendidikan yang lebih inklusif, adaptif, dan berkelanjutan.',
+							'To be a trusted partner in developing Indonesia’s talent for more inclusive, adaptive, and sustainable education.'
+						)}
 					</p>
 				</div>
 
@@ -53,20 +59,20 @@
 						</svg>
 					</div>
 
-					<h3 class="vm-card-title">Misi</h3>
+					<h3 class="vm-card-title">{i18n.pick('Misi', 'Mission')}</h3>
 
 					<ul class="misi-list">
 						<li>
 							<span class="misi-num">1</span>
-							<span>Menyediakan layanan pendidikan yang inovatif dan berkualitas.</span>
+							<span>{i18n.pick('Menyediakan layanan pendidikan yang inovatif dan berkualitas.', 'Deliver innovative, high-quality education services.')}</span>
 						</li>
 						<li>
 							<span class="misi-num">2</span>
-							<span>Membangun kolaborasi strategis dengan berbagai pihak.</span>
+							<span>{i18n.pick('Membangun kolaborasi strategis dengan berbagai pihak.', 'Build strategic collaborations across institutions and communities.')}</span>
 						</li>
 						<li>
 							<span class="misi-num">3</span>
-							<span>Memberikan dampak positif bagi individu, institusi, dan masyarakat.</span>
+							<span>{i18n.pick('Memberikan dampak positif bagi individu, institusi, dan masyarakat.', 'Create lasting positive impact for individuals, institutions, and society.')}</span>
 						</li>
 					</ul>
 				</div>

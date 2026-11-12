@@ -1,5 +1,5 @@
 <script lang="ts">
-	// ScholarshipFeatureOverlap.svelte - Replicated faithfully from design/beasiswa.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <div class="sch-feature-overlap-wrap">
@@ -15,7 +15,7 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					Informasi<br />Terpercaya
+					{@html i18n.pick('Informasi<br />Terpercaya', 'Trusted<br />Information')}
 				</div>
 			</div>
 
@@ -33,7 +33,7 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					Dalam &amp; Luar Negeri
+					{i18n.pick('Dalam & Luar Negeri', 'Domestic & International')}
 				</div>
 			</div>
 
@@ -52,7 +52,7 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					Beragam Jenjang<br />Pendidikan
+					{@html i18n.pick('Beragam Jenjang<br />Pendidikan', 'All Education<br />Levels')}
 				</div>
 			</div>
 
@@ -71,7 +71,7 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					Panduan &amp; Pendampingan<br />Profesional
+					{@html i18n.pick('Panduan &amp; Pendampingan<br />Profesional', 'Professional Guidance<br />&amp; Mentoring')}
 				</div>
 			</div>
 		</div>

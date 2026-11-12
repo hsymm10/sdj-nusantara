@@ -1,14 +1,27 @@
 <script lang="ts">
-	// PartnerTypesSection.svelte - 100% Match Mockup Referensi GAMBAR 2
-	const partnerTypes = [
-		{ label: 'Sekolah', icon: 'school' },
-		{ label: 'Universitas', icon: 'univ' },
-		{ label: 'Lembaga Pendidikan', icon: 'book' },
-		{ label: 'Instansi Pemerintah', icon: 'gov' },
-		{ label: 'Perusahaan', icon: 'building' },
-		{ label: 'Organisasi', icon: 'users' },
-		{ label: 'Yayasan', icon: 'heart' }
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const partnerTypes = $derived(
+		i18n.lang === 'en'
+			? [
+					{ label: 'Schools', icon: 'school' },
+					{ label: 'Universities', icon: 'univ' },
+					{ label: 'Educational Institutions', icon: 'book' },
+					{ label: 'Government Agencies', icon: 'gov' },
+					{ label: 'Corporations', icon: 'building' },
+					{ label: 'Organizations', icon: 'users' },
+					{ label: 'Foundations', icon: 'heart' }
+				]
+			: [
+					{ label: 'Sekolah', icon: 'school' },
+					{ label: 'Universitas', icon: 'univ' },
+					{ label: 'Lembaga Pendidikan', icon: 'book' },
+					{ label: 'Instansi Pemerintah', icon: 'gov' },
+					{ label: 'Perusahaan', icon: 'building' },
+					{ label: 'Organisasi', icon: 'users' },
+					{ label: 'Yayasan', icon: 'heart' }
+				]
+	);
 </script>
 
 <section id="jenis-mitra" class="partner-types-section">
@@ -39,17 +52,20 @@
 			<div class="text-col">
 				<div class="types-label">
 					<span class="label-dash"></span>
-					<span class="label-text">JENIS MITRA</span>
+					<span class="label-text">{i18n.pick('JENIS MITRA', 'PARTNER TYPES')}</span>
 				</div>
 
 				<h2 class="section-title">
-					Kami Terbuka untuk<br />
-					Berkolaborasi dengan<br />
-					<span class="highlight-teal">Berbagai Jenis Institusi.</span>
+					{i18n.pick('Kami Terbuka untuk', 'We Welcome')}<br />
+					{i18n.pick('Berkolaborasi dengan', 'Collaboration with')}<br />
+					<span class="highlight-teal">{i18n.pick('Berbagai Jenis Institusi.', 'Diverse Institutions.')}</span>
 				</h2>
 
 				<p class="section-desc">
-					SDJNusantara menjalin kemitraan dengan berbagai pihak yang memiliki visi serupa dalam memajukan pendidikan dan pengembangan talenta.
+					{i18n.pick(
+						'SDJNusantara menjalin kemitraan dengan berbagai pihak yang memiliki visi serupa dalam memajukan pendidikan dan pengembangan talenta.',
+						'SDJNusantara partners with institutions that share our vision in advancing education and talent development.'
+					)}
 				</p>
 			</div>
 

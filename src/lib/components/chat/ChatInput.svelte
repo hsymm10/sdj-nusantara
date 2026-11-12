@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { chatConfig } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	let inputText = $state('');
 	let inputEl: HTMLInputElement | undefined = $state();
@@ -29,7 +30,7 @@
 	}
 
 	function handleClear() {
-		if (confirm('Hapus seluruh riwayat percakapan dan mulai dari awal?')) {
+		if (confirm(i18n.dict.chat.clearConfirm)) {
 			chatStore.clearConversation();
 		}
 	}
@@ -43,12 +44,12 @@
 				bind:this={inputEl}
 				type="text"
 				class="chat-text-input"
-				placeholder={chatConfig.inputPlaceholder}
+				placeholder={i18n.dict.chat.inputPlaceholder}
 				bind:value={inputText}
 				onkeydown={handleKeydown}
 				disabled={chatStore.isTyping}
 				maxlength={chatConfig.maxMessageLength}
-				aria-label="Ketik pertanyaan untuk asisten"
+				aria-label={i18n.dict.chat.inputAria}
 			/>
 		</div>
 
@@ -57,8 +58,8 @@
 			type="submit"
 			class="send-btn"
 			disabled={!inputText.trim() || chatStore.isTyping}
-			aria-label="Kirim pesan"
-			title="Kirim pesan"
+			aria-label={i18n.dict.chat.sendLabel}
+			title={i18n.dict.chat.sendLabel}
 		>
 			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="22" y1="2" x2="11" y2="13"></line>
@@ -70,10 +71,10 @@
 	<!-- Catatan Bawah Rapi: Mode demo + Tautan Hapus Percakapan -->
 	<div class="input-bottom-row">
 		<p class="demo-and-privacy-note">
-			Mode demo: jawaban otomatis sementara. Jangan kirim data sensitif (NIK, kata sandi, nomor kartu).
+			{i18n.dict.chat.demoNote}
 		</p>
 		<button type="button" class="clear-chat-link" onclick={handleClear}>
-			Hapus percakapan
+			{i18n.dict.chat.clearChat}
 		</button>
 	</div>
 </div>

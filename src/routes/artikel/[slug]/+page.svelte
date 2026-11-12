@@ -3,6 +3,7 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { articlesData, type Article } from '#lib/data/articles';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	const slug = $derived(page.params.slug);
 	const article = $derived(
@@ -131,7 +132,7 @@
 							<polyline points="12 19 5 12 12 5"></polyline>
 						</svg>
 					</span>
-					<span>Kembali ke Semua Artikel</span>
+					<span>{i18n.pick('Kembali ke Semua Artikel', 'Back to All Articles')}</span>
 				</a>
 
 				<!-- Header Metadata & Title -->
@@ -163,7 +164,7 @@
 								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
 								<circle cx="12" cy="7" r="4"></circle>
 							</svg>
-							<span>Penulis: <strong>{article.penulis}</strong></span>
+							<span>{i18n.pick('Penulis:', 'Author:')} <strong>{article.penulis}</strong></span>
 						</span>
 						<span class="author-vsep" aria-hidden="true">|</span>
 						<span class="author-item">
@@ -171,7 +172,7 @@
 								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
 								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
 							</svg>
-							<span>Sumber: <em>{article.sumber}</em></span>
+							<span>{i18n.pick('Sumber:', 'Source:')} <em>{article.sumber}</em></span>
 						</span>
 					</div>
 				</header>
@@ -245,17 +246,21 @@
 				<!-- 10. Disclaimer / Catatan Card -->
 				<div class="article-footer-note">
 					<p>
-						<strong>Catatan:</strong> Informasi artikel ini diterbitkan untuk tujuan edukasi dan wawasan. Hak cipta materi berada pada SDJNusantara dan kontributor terkait.
+						{#if i18n.lang === 'en'}
+							<strong>Note:</strong> This article is published for educational and informational purposes. Copyright belongs to SDJNusantara and the respective contributors.
+						{:else}
+							<strong>Catatan:</strong> Informasi artikel ini diterbitkan untuk tujuan edukasi dan wawasan. Hak cipta materi berada pada SDJNusantara dan kontributor terkait.
+						{/if}
 					</p>
 					<a href="/kontak" class="btn-consult">
-						Konsultasikan Kebutuhan Anda dengan Tim Ahli →
+						{i18n.pick('Konsultasikan Kebutuhan Anda dengan Tim Ahli →', 'Consult Your Needs with Our Expert Team →')}
 					</a>
 				</div>
 
 				<!-- 11 & 12. Tag Pills + Share Icons Row -->
 				<div class="article-bottom-meta">
 					<div class="tags-group">
-						<span class="meta-label">Tag:</span>
+						<span class="meta-label">{i18n.pick('Tag:', 'Tags:')}</span>
 						<div class="tags-list">
 							{#each displayTags as tag}
 								<span class="tag-pill">{tag}</span>
@@ -264,7 +269,7 @@
 					</div>
 
 					<div class="share-group">
-						<span class="meta-label">Bagikan:</span>
+						<span class="meta-label">{i18n.pick('Bagikan:', 'Share:')}</span>
 						<div class="share-buttons">
 							<button
 								type="button"
@@ -343,12 +348,15 @@
 							<path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
 						</svg>
 					</div>
-					<h2 class="consult-title">Perlu Konsultasi Terkait Pendidikan?</h2>
+					<h2 class="consult-title">{i18n.pick('Perlu Konsultasi Terkait Pendidikan?', 'Need Education Consultation?')}</h2>
 					<p class="consult-desc">
-						Dapatkan pendampingan dari tim ahli SDJNusantara untuk kebutuhan institusi Anda.
+						{i18n.pick(
+							'Dapatkan pendampingan dari tim ahli SDJNusantara untuk kebutuhan institusi Anda.',
+							'Get tailored guidance from SDJNusantara’s expert team for your institutional needs.'
+						)}
 					</p>
 					<a href="/kontak" class="consult-cta-btn">
-						<span>Ajukan Konsultasi</span>
+						<span>{i18n.pick('Ajukan Konsultasi', 'Request Consultation')}</span>
 						<span aria-hidden="true">→</span>
 					</a>
 
@@ -363,7 +371,7 @@
 				<div class="related-block">
 					<div class="related-header">
 						<span class="related-dash" aria-hidden="true"></span>
-						<h3 class="related-title">Artikel Terkait</h3>
+						<h3 class="related-title">{i18n.pick('Artikel Terkait', 'Related Articles')}</h3>
 					</div>
 
 					<div class="related-list">
@@ -388,7 +396,7 @@
 
 					<!-- 3. Lihat Artikel Lainnya Button -->
 					<a href="/artikel" class="btn-more-articles">
-						<span>Lihat Artikel Lainnya</span>
+						<span>{i18n.pick('Lihat Artikel Lainnya', 'View More Articles')}</span>
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>

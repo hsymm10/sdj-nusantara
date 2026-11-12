@@ -1,42 +1,44 @@
 <!-- Section 08: Temukan Beasiswa yang Sesuai dengan Tujuan Anda (Mockup Resmi SDJNusantara GAMBAR 2) -->
 <script lang="ts">
-	const categories = [
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const categories = $derived([
 		{
 			id: 'pemerintah',
-			title: 'Beasiswa\nPemerintah',
+			title: i18n.pick('Beasiswa\nPemerintah', 'Government\nScholarships'),
 			href: '/beasiswa?kategori=pemerintah',
 			icon: 'grad',
 			isHighlight: true
 		},
 		{
 			id: 'universitas',
-			title: 'Beasiswa\nUniversitas',
+			title: i18n.pick('Beasiswa\nUniversitas', 'University\nScholarships'),
 			href: '/beasiswa?kategori=universitas',
 			icon: 'grad',
 			isHighlight: false
 		},
 		{
 			id: 'internasional',
-			title: 'Beasiswa\nInternasional',
+			title: i18n.pick('Beasiswa\nInternasional', 'International\nScholarships'),
 			href: '/beasiswa?kategori=internasional',
 			icon: 'globe',
 			isHighlight: false
 		},
 		{
 			id: 'swasta',
-			title: 'Beasiswa\nSwasta',
+			title: i18n.pick('Beasiswa\nSwasta', 'Private\nScholarships'),
 			href: '/beasiswa?kategori=swasta',
 			icon: 'company',
 			isHighlight: false
 		},
 		{
 			id: 'daerah',
-			title: 'Beasiswa\nDaerah',
+			title: i18n.pick('Beasiswa\nDaerah', 'Regional\nScholarships'),
 			href: '/beasiswa?kategori=daerah',
 			icon: 'pin',
 			isHighlight: false
 		}
-	];
+	]);
 </script>
 
 <section class="scholarship-cat-section" id="akses-beasiswa">
@@ -70,14 +72,17 @@
 		<div class="cat-header">
 			<div class="cat-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">Akses Beasiswa Terpercaya</span>
+				<span class="badge-text">{i18n.pick('Akses Beasiswa Terpercaya', 'Curated Scholarship Access')}</span>
 				<span class="badge-dash"></span>
 			</div>
 			<h2 class="cat-title">
-				Temukan Beasiswa yang Sesuai dengan <span class="highlight-gold">Tujuan Anda</span>
+				{i18n.pick('Temukan Beasiswa yang Sesuai dengan', 'Find Scholarships Matched to')} <span class="highlight-gold">{i18n.pick('Tujuan Anda', 'Your Goals')}</span>
 			</h2>
 			<p class="cat-sub">
-				Berbagai pilihan beasiswa terverifikasi untuk mendukung studi Anda, baik di dalam maupun luar negeri.
+				{i18n.pick(
+					'Berbagai pilihan beasiswa terverifikasi untuk mendukung studi Anda, baik di dalam maupun luar negeri.',
+					'Verified scholarship options to support your studies domestically and abroad.'
+				)}
 			</p>
 		</div>
 

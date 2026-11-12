@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="hero-education" id="hero-pendidikan">
@@ -39,29 +40,32 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Fokus Pendidikan</span>
+				<span class="pill-label">{i18n.pick('Fokus Pendidikan', 'Education Focus')}</span>
 			</div>
 
 			<!-- Headline -->
 			<h1 class="hero-title">
-				Layanan Kami untuk<br />
-				Pendidikan yang Lebih Baik<br />
-				<span class="gold-text">dan Talenta yang Lebih Unggul.</span>
+				{i18n.pick('Layanan Kami untuk', 'Our Services for')}<br />
+				{i18n.pick('Pendidikan yang Lebih Baik', 'Better Education')}<br />
+				<span class="gold-text">{i18n.pick('dan Talenta yang Lebih Unggul.', 'and Stronger Talent.')}</span>
 			</h1>
 
 			<!-- Description -->
 			<p class="hero-desc">
-				SDJNusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.
+				{i18n.pick(
+					'SDJNusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.',
+					'SDJNusantara provides education services, talent development, scholarships, and professional mentoring to unlock your highest potential.'
+				)}
 			</p>
 
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="/kontak" class="btn-gold">
-					<span>Konsultasikan Kebutuhan Anda</span>
+					<span>{i18n.pick('Konsultasikan Kebutuhan Anda', 'Consult Your Needs')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="#solusi-terintegrasi" class="btn-outline">
-					<span>Jelajahi Layanan Kami</span>
+					<span>{i18n.pick('Jelajahi Layanan Kami', 'Explore Our Services')}</span>
 				</a>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { chatConfig } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	function handleMinimize() {
 		chatStore.close();
@@ -36,11 +36,11 @@
 			</div>
 
 			<div class="brand-text">
-				<h2 class="assistant-name">{chatConfig.title}</h2>
+				<h2 class="assistant-name">{i18n.dict.chat.title}</h2>
 				<p class="assistant-subtitle">
-					<span>Asisten Virtual</span>
+					<span>{i18n.dict.chat.subtitleRole}</span>
 					<span class="bullet">•</span>
-					<span>Siap Membantu</span>
+					<span>{i18n.dict.chat.subtitleStatus}</span>
 				</p>
 			</div>
 		</div>
@@ -51,8 +51,8 @@
 				type="button"
 				class="header-icon-btn"
 				onclick={handleMinimize}
-				aria-label="Perkecil"
-				title="Perkecil"
+				aria-label={i18n.dict.chat.minimizeLabel}
+				title={i18n.dict.chat.minimizeLabel}
 			>
 				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
@@ -63,8 +63,8 @@
 				type="button"
 				class="header-icon-btn"
 				onclick={handleClose}
-				aria-label="Tutup asisten"
-				title="Tutup asisten"
+				aria-label={i18n.dict.chat.closeLabel}
+				title={i18n.dict.chat.closeLabel}
 			>
 				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="18" y1="6" x2="6" y2="18"></line>

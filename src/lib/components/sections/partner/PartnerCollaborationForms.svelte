@@ -1,31 +1,25 @@
 <script lang="ts">
-	// PartnerCollaborationForms.svelte - Optimasi Proporsi & Alignment Container min(1500px, calc(100% - 80px))
-	const forms = [
-		{
-			title: 'Penyelenggaraan Program Bersama',
-			icon: 'program'
-		},
-		{
-			title: 'Pertukaran Peserta & Dosen',
-			icon: 'exchange'
-		},
-		{
-			title: 'Pengembangan Kurikulum',
-			icon: 'curriculum'
-		},
-		{
-			title: 'Riset & Inovasi',
-			icon: 'research'
-		},
-		{
-			title: 'Dukungan Beasiswa dan Pendanaan',
-			icon: 'scholarship'
-		},
-		{
-			title: 'Pemanfaatan Fasilitas',
-			icon: 'facility'
-		}
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const forms = $derived(
+		i18n.lang === 'en'
+			? [
+					{ title: 'Joint Program Delivery', icon: 'program' },
+					{ title: 'Participant & Lecturer Exchange', icon: 'exchange' },
+					{ title: 'Curriculum Development', icon: 'curriculum' },
+					{ title: 'Research & Innovation', icon: 'research' },
+					{ title: 'Scholarship & Funding Support', icon: 'scholarship' },
+					{ title: 'Facility Utilization', icon: 'facility' }
+				]
+			: [
+					{ title: 'Penyelenggaraan Program Bersama', icon: 'program' },
+					{ title: 'Pertukaran Peserta & Dosen', icon: 'exchange' },
+					{ title: 'Pengembangan Kurikulum', icon: 'curriculum' },
+					{ title: 'Riset & Inovasi', icon: 'research' },
+					{ title: 'Dukungan Beasiswa dan Pendanaan', icon: 'scholarship' },
+					{ title: 'Pemanfaatan Fasilitas', icon: 'facility' }
+				]
+	);
 </script>
 
 <section id="bentuk-kerja-sama" class="collab-forms-section">
@@ -86,16 +80,19 @@
 				<div class="collab-header">
 					<div class="collab-label">
 						<span class="label-dash"></span>
-						<span class="label-text">BENTUK KERJA SAMA</span>
+						<span class="label-text">{i18n.pick('BENTUK KERJA SAMA', 'COLLABORATION MODELS')}</span>
 					</div>
 
 					<h2 class="section-title">
-						Beragam Bentuk Kolaborasi<br />
-						yang Dapat <span class="highlight-orange">Disesuaikan dengan Kebutuhan.</span>
+						{i18n.pick('Beragam Bentuk Kolaborasi', 'Flexible Collaboration')}<br />
+						{i18n.pick('yang Dapat ', 'Models ')}<span class="highlight-orange">{i18n.pick('Disesuaikan dengan Kebutuhan.', 'Tailored to Your Needs.')}</span>
 					</h2>
 
 					<p class="section-desc">
-						Kami menyediakan berbagai bentuk kerja sama yang fleksibel dan saling menguntungkan, baik dalam jangka pendek maupun jangka panjang.
+						{i18n.pick(
+							'Kami menyediakan berbagai bentuk kerja sama yang fleksibel dan saling menguntungkan, baik dalam jangka pendek maupun jangka panjang.',
+							'We offer flexible and mutually beneficial collaboration frameworks for both short-term initiatives and long-term partnerships.'
+						)}
 					</p>
 				</div>
 

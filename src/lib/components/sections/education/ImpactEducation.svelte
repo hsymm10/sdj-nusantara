@@ -1,31 +1,33 @@
 <!-- Section 01: Komitmen Nyata untuk Dampak yang Terukur (Mockup GAMBAR 2 SDJNusantara) -->
 <script lang="ts">
-	const stats = [
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const stats = $derived([
 		{
 			num: '200+',
-			label: 'Individu Pemetaan\nTalenta',
+			label: i18n.pick('Individu Pemetaan\nTalenta', 'Talent Mapping\nIndividuals'),
 			icon: 'users',
 			isHighlight: true
 		},
 		{
 			num: '12',
-			label: 'Kegiatan Sosialisasi\nBeasiswa',
+			label: i18n.pick('Kegiatan Sosialisasi\nBeasiswa', 'Scholarship Outreach\nEvents'),
 			icon: 'calendar',
 			isHighlight: false
 		},
 		{
 			num: '60',
-			label: 'Peserta Coaching\nIntensif',
+			label: i18n.pick('Peserta Coaching\nIntensif', 'Intensive Coaching\nParticipants'),
 			icon: 'grad',
 			isHighlight: false
 		},
 		{
 			num: '20+',
-			label: 'Mitra Strategis\nInstitusi',
+			label: i18n.pick('Mitra Strategis\nInstitusi', 'Strategic Institutional\nPartners'),
 			icon: 'building',
 			isHighlight: false
 		}
-	];
+	]);
 </script>
 
 <section class="impact-edu-section" id="dampak-nyata">
@@ -89,14 +91,17 @@
 		<div class="impact-header">
 			<div class="impact-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">Dampak Nyata</span>
+				<span class="badge-text">{i18n.pick('Dampak Nyata', 'Real Impact')}</span>
 				<span class="badge-dash"></span>
 			</div>
 			<h2 class="impact-title">
-				Komitmen Nyata untuk <span class="highlight-gold">Dampak yang Terukur</span>
+				{i18n.pick('Komitmen Nyata untuk', 'Real Commitment to')} <span class="highlight-gold">{i18n.pick('Dampak yang Terukur', 'Measurable Impact')}</span>
 			</h2>
 			<p class="impact-sub">
-				SDJNusantara terus menghadirkan program pendidikan dan pengembangan talenta yang berdampak luas.
+				{i18n.pick(
+					'SDJNusantara terus menghadirkan program pendidikan dan pengembangan talenta yang berdampak luas.',
+					'SDJNusantara continuously delivers education and talent development programs with broad impact.'
+				)}
 			</p>
 		</div>
 

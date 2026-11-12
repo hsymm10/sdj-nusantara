@@ -5,6 +5,64 @@ import { allKnowledge } from '../../data/knowledge/index.js';
 import { expandSynonyms } from '../../data/knowledge/synonyms.js';
 import { CHATBOT_POLICIES, FORBIDDEN_WORDS } from '../../data/knowledge/policies.js';
 import { serviceConfig } from '../../config/services.ts';
+import { i18n } from '../../stores/i18n.svelte.ts';
+import { knowledgeEnMap } from '../../i18n/knowledgeEn.ts';
+
+/** @type {Record<string, string>} */
+const EN_TO_ID_KEYWORDS = {
+	scholarship: 'beasiswa',
+	scholarships: 'beasiswa',
+	education: 'pendidikan',
+	program: 'program',
+	programs: 'program',
+	talent: 'talenta',
+	career: 'karier',
+	consultation: 'konsultasi',
+	consult: 'konsultasi',
+	partnership: 'kemitraan',
+	partner: 'kemitraan',
+	collaboration: 'kerjasama',
+	contact: 'kontak',
+	certificate: 'sertifikat',
+	certification: 'sertifikasi',
+	training: 'pelatihan',
+	online: 'daring',
+	fee: 'biaya',
+	cost: 'biaya',
+	price: 'biaya',
+	schedule: 'jadwal',
+	register: 'daftar',
+	registration: 'daftar',
+	guarantee: 'jaminan',
+	faq: 'faq',
+	questions: 'pertanyaan',
+	about: 'profil',
+	services: 'layanan',
+	service: 'layanan',
+	institution: 'institusi',
+	company: 'perusahaan',
+	campus: 'kampus',
+	school: 'sekolah',
+	ai: 'ai',
+	digital: 'digital',
+	mentor: 'pendampingan',
+	mentoring: 'pendampingan'
+};
+
+/**
+ * @param {string} text
+ * @returns {string}
+ */
+function enrichEnglishQuery(text) {
+	const tokens = normalizeQuery(text).split(/\s+/).filter(Boolean);
+	const extra = [];
+	for (const t of tokens) {
+		if (EN_TO_ID_KEYWORDS[t]) {
+			extra.push(EN_TO_ID_KEYWORDS[t]);
+		}
+	}
+	return extra.length > 0 ? `${text} ${extra.join(' ')}` : text;
+}
 
 /**
  * Normalisasi string: huruf kecil, hapus karakter khusus selain spasi dan alfanumerik
@@ -47,6 +105,7 @@ export function tokenize(text) {
  */
 function checkSpecialPolicyIntents(query) {
 	const q = normalizeQuery(query);
+	const isEn = i18n.lang === 'en';
 
 	// 1. Deteksi pertanyaan jaminan kelulusan beasiswa
 	if (
@@ -58,13 +117,19 @@ function checkSpecialPolicyIntents(query) {
 		q.includes('jamin dapat beasiswa') ||
 		q.includes('100 lulus') ||
 		q.includes('100 persen') ||
-		q.includes('pasti diterima')
+		q.includes('pasti diterima') ||
+		q.includes('guarantee') ||
+		q.includes('guaranteed')
 	) {
 		return {
 			replies: [
-				`SDJNusantara tidak memberikan jaminan kelulusan atau perolehan beasiswa. Keputusan akhir sepenuhnya merupakan wewenang pihak universitas atau lembaga penyelenggara beasiswa terkait.\n\nLayanan Scholarship Academy SDJNusantara berfokus pada pendampingan terarah, pemetaan profil, penguatan dokumen aplikasi (CV dan esai/motivation letter), serta simulasi wawancara agar persiapan Anda lebih matang.`
+				isEn
+					? `SDJNusantara does not guarantee scholarship acceptance or admission. Final selection decisions rest solely with the university or scholarship provider.\n\nOur Scholarship Academy focuses on structured preparation, profile mapping, strengthening application documents (CV and essays/motivation letters), and interview simulations.`
+					: `SDJNusantara tidak memberikan jaminan kelulusan atau perolehan beasiswa. Keputusan akhir sepenuhnya merupakan wewenang pihak universitas atau lembaga penyelenggara beasiswa terkait.\n\nLayanan Scholarship Academy SDJNusantara berfokus pada pendampingan terarah, pemetaan profil, penguatan dokumen aplikasi (CV dan esai/motivation letter), serta simulasi wawancara agar persiapan Anda lebih matang.`
 			],
-			suggestions: ['Info Program Pendidikan', 'Beasiswa', 'Konsultasi']
+			suggestions: isEn
+				? ['Education Programs', 'Scholarships', 'Consultation']
+				: ['Info Program Pendidikan', 'Beasiswa', 'Konsultasi']
 		};
 	}
 
@@ -74,13 +139,19 @@ function checkSpecialPolicyIntents(query) {
 		q.includes('no rekening') ||
 		q.includes('transfer ke mana') ||
 		q.includes('bayar ke siapa') ||
-		q.includes('rekening pribadi')
+		q.includes('rekening pribadi') ||
+		q.includes('bank account') ||
+		q.includes('payment account')
 	) {
 		return {
 			replies: [
-				`Seluruh transaksi dan pembayaran resmi program SDJNusantara hanya diterbitkan melalui invoice resmi dan rekening institusi atas nama lembaga/perusahaan, bukan rekening pribadi individu mana pun.\n\nUntuk konfirmasi administrasi resmi, silakan hubungi saluran representatif kami di WhatsApp +62 858-8072-4733 atau email info@sdjnusantara.com.`
+				isEn
+					? `All official SDJNusantara program transactions and payments are issued only via official invoices and institutional accounts, never personal bank accounts.\n\nFor official administration confirmation, please reach our representative via WhatsApp +62 858-8072-4733 or email info@sdjnusantara.com.`
+					: `Seluruh transaksi dan pembayaran resmi program SDJNusantara hanya diterbitkan melalui invoice resmi dan rekening institusi atas nama lembaga/perusahaan, bukan rekening pribadi individu mana pun.\n\nUntuk konfirmasi administrasi resmi, silakan hubungi saluran representatif kami di WhatsApp +62 858-8072-4733 atau email info@sdjnusantara.com.`
 			],
-			suggestions: ['Kontak Resmi', 'Konsultasi', 'Info Program Pendidikan']
+			suggestions: isEn
+				? ['Contact', 'Consultation', 'Education Programs']
+				: ['Kontak Resmi', 'Konsultasi', 'Info Program Pendidikan']
 		};
 	}
 
@@ -202,29 +273,40 @@ export function findBestKnowledgeEntry(rawQuery) {
  * @returns {{ replies: string[], suggestions: string[] }}
  */
 export function formatKnowledgeResponse(entry) {
+	const isEn = i18n.lang === 'en';
+	const enEntry = isEn ? knowledgeEnMap[entry.id] : undefined;
 	const parts = [];
 
 	// 1. Ringkasan utama (≤ 2-3 kalimat)
-	parts.push(entry.ringkas);
+	parts.push(enEntry ? enEntry.ringkas : entry.ringkas);
 
 	// 2. Poin penting dari detail (ambil max 4 poin teratas)
-	if (entry.detail && entry.detail.length > 0) {
-		const bulletPoints = entry.detail
+	const detailList = enEntry ? enEntry.detail : entry.detail;
+	if (detailList && detailList.length > 0) {
+		const bulletPoints = detailList
 			.slice(0, 4)
 			.map((item) => (item.startsWith('•') || item.match(/^\d+\./) ? item : `• ${item}`))
 			.join('\n');
 		parts.push(bulletPoints);
 	}
 
-	// 3. Rekomendasi langkah berikutnya
+	// 3. Rekomendasi langkah berikutnya (tautan bersih tanpa tanda kurung /path)
 	if (entry.langkahBerikut && entry.langkahBerikut.length > 0) {
 		const next = entry.langkahBerikut[0];
-		parts.push(`Pelajari lebih lanjut atau jadwalkan sesi: ${next.label} (${next.href})`);
+		parts.push(
+			isEn
+				? `Learn more or schedule a session at ${next.href}`
+				: `Pelajari lebih lanjut atau jadwalkan sesi melalui halaman ${next.href}`
+		);
 	}
 
 	return {
 		replies: [parts.join('\n\n')],
-		suggestions: entry.tindakLanjutChip || ['Info Program Pendidikan', 'Beasiswa', 'Konsultasi']
+		suggestions:
+			(enEntry && enEntry.suggestions) ||
+			(isEn
+				? ['Education Programs', 'Scholarships', 'Consultation']
+				: entry.tindakLanjutChip || ['Info Program Pendidikan', 'Beasiswa', 'Konsultasi'])
 	};
 }
 
@@ -234,12 +316,18 @@ export function formatKnowledgeResponse(entry) {
  * @returns {{ replies: string[], suggestions: string[] }}
  */
 export function answerFromKnowledge(userQuery) {
+	const isEn = i18n.lang === 'en';
+
 	if (!userQuery || userQuery.trim() === '') {
 		return {
 			replies: [
-				'Halo! Ada yang bisa kami bantu seputar program pendidikan, persiapan beasiswa, atau rencana pengembangan talenta Anda?'
+				isEn
+					? 'Hello! How can we help you with education programs, scholarship preparation, or talent development?'
+					: 'Halo! Ada yang bisa kami bantu seputar program pendidikan, persiapan beasiswa, atau rencana pengembangan talenta Anda?'
 			],
-			suggestions: ['Info Program Pendidikan', 'Beasiswa', 'Pengembangan Talenta', 'Konsultasi']
+			suggestions: isEn
+				? ['Education Programs', 'Scholarships', 'Talent Development', 'Consultation']
+				: ['Info Program Pendidikan', 'Beasiswa', 'Pengembangan Talenta', 'Konsultasi']
 		};
 	}
 
@@ -249,8 +337,9 @@ export function answerFromKnowledge(userQuery) {
 		return specialResponse;
 	}
 
-	// 2. Pencarian entri basis pengetahuan
-	const { entry, score } = findBestKnowledgeEntry(userQuery);
+	// 2. Pencarian entri basis pengetahuan (perkaya keyword EN -> ID agar akurat di kedua bahasa)
+	const searchableQuery = enrichEnglishQuery(userQuery);
+	const { entry, score } = findBestKnowledgeEntry(searchableQuery);
 
 	// Ambang batas kecocokan (confidence threshold)
 	const CONFIDENCE_THRESHOLD = 15;
@@ -262,8 +351,12 @@ export function answerFromKnowledge(userQuery) {
 	// 3. Fallback jika tidak menemukan kecocokan yang memadai
 	return {
 		replies: [
-			'Terima kasih atas pertanyaan Anda. Kami belum menemukan informasi spesifik untuk topik tersebut di sistem saat ini.\n\nAnda dapat menanyakan hal lain seputar program pendidikan, persiapan beasiswa, pemetaan talenta, atau langsung berdiskusi dengan konsultan pendidikan kami melalui halaman /kontak atau WhatsApp +62 858-8072-4733.'
+			isEn
+				? 'Thank you for your question. We could not find specific information for that topic in our system right now.\n\nYou can ask about our education programs, scholarship preparation, talent mapping, or consult directly with our education consultant via /kontak or WhatsApp +62 858-8072-4733.'
+				: 'Terima kasih atas pertanyaan Anda. Kami belum menemukan informasi spesifik untuk topik tersebut di sistem saat ini.\n\nAnda dapat menanyakan hal lain seputar program pendidikan, persiapan beasiswa, pemetaan talenta, atau langsung berdiskusi dengan konsultan pendidikan kami melalui halaman /kontak atau WhatsApp +62 858-8072-4733.'
 		],
-		suggestions: ['Info Program Pendidikan', 'Beasiswa', 'Pengembangan Talenta', 'Konsultasi']
+		suggestions: isEn
+			? ['Education Programs', 'Scholarships', 'Talent Development', 'Consultation']
+			: ['Info Program Pendidikan', 'Beasiswa', 'Pengembangan Talenta', 'Konsultasi']
 	};
 }

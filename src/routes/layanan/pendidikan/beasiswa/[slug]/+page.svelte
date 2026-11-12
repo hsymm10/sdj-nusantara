@@ -3,6 +3,7 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { scholarshipsData, scholarshipDisclaimer } from '#lib/data/scholarships';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	const slug = $derived(page.params.slug);
 	const scholarship = $derived(
@@ -11,10 +12,13 @@
 </script>
 
 <svelte:head>
-	<title>{scholarship.nama} — SDJNusantara Layanan Pendidikan</title>
+	<title>{scholarship.nama} — {i18n.pick('SDJNusantara Layanan Pendidikan', 'SDJNusantara Education Services')}</title>
 	<meta
 		name="description"
-		content="Detail informasi dan persyaratan beasiswa {scholarship.nama} dari {scholarship.penyelenggara}."
+		content={i18n.pick(
+			`Detail informasi dan persyaratan beasiswa ${scholarship.nama} dari ${scholarship.penyelenggara}.`,
+			`Detailed information and requirements for ${scholarship.nama} scholarship by ${scholarship.penyelenggara}.`
+		)}
 	/>
 	<link rel="canonical" href="https://sdjnusantara.com/layanan/pendidikan/beasiswa/{scholarship.id}" />
 </svelte:head>
@@ -29,7 +33,7 @@
 				<line x1="19" y1="12" x2="5" y2="12"></line>
 				<polyline points="12 19 5 12 12 5"></polyline>
 			</svg>
-			<span>Kembali ke Direktori Beasiswa</span>
+			<span>{i18n.pick('Kembali ke Direktori Beasiswa', 'Back to Scholarship Directory')}</span>
 		</a>
 
 		<!-- Header Card -->
@@ -43,30 +47,30 @@
 			</div>
 
 			<h1 class="scholarship-title">{scholarship.nama}</h1>
-			<p class="scholarship-org">Penyelenggara: <strong>{scholarship.penyelenggara}</strong></p>
+			<p class="scholarship-org">{i18n.pick('Penyelenggara:', 'Provider:')} <strong>{scholarship.penyelenggara}</strong></p>
 
 			<div class="grid-specs">
 				<div class="spec-card">
-					<span class="spec-label">Jenjang Pendidikan</span>
+					<span class="spec-label">{i18n.pick('Jenjang Pendidikan', 'Education Level')}</span>
 					<span class="spec-val">{scholarship.jenjang}</span>
 				</div>
 				<div class="spec-card">
-					<span class="spec-label">Negara Tujuan</span>
+					<span class="spec-label">{i18n.pick('Negara Tujuan', 'Destination Country')}</span>
 					<span class="spec-val">{scholarship.negara}</span>
 				</div>
 				<div class="spec-card">
-					<span class="spec-label">Jenis Pendanaan</span>
+					<span class="spec-label">{i18n.pick('Jenis Pendanaan', 'Funding Type')}</span>
 					<span class="spec-val">{scholarship.jenisPendanaan}</span>
 				</div>
 				<div class="spec-card">
-					<span class="spec-label">Batas Pendaftaran</span>
+					<span class="spec-label">{i18n.pick('Batas Pendaftaran', 'Application Deadline')}</span>
 					<span class="spec-val">{scholarship.deadline}</span>
 				</div>
 			</div>
 
 			<!-- Coverage & Details -->
 			<div class="coverage-section">
-				<h2 class="section-heading">Cakupan Pendanaan</h2>
+				<h2 class="section-heading">{i18n.pick('Cakupan Pendanaan', 'Funding Coverage')}</h2>
 				<p class="coverage-desc">{scholarship.pendanaan}</p>
 			</div>
 
@@ -78,7 +82,7 @@
 					rel="noopener noreferrer"
 					class="btn-primary"
 				>
-					<span>Buka Situs Resmi Penyelenggara</span>
+					<span>{i18n.pick('Buka Situs Resmi Penyelenggara', 'Visit Official Provider Website')}</span>
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
 						<polyline points="15 3 21 3 21 9"></polyline>
@@ -86,7 +90,7 @@
 					</svg>
 				</a>
 				<a href="/konsultasi" class="btn-secondary">
-					<span>Konsultasikan Persiapan</span>
+					<span>{i18n.pick('Konsultasikan Persiapan', 'Consult on Preparation')}</span>
 					<span>→</span>
 				</a>
 			</div>
@@ -94,7 +98,7 @@
 
 		<!-- Disclaimer -->
 		<div class="disclaimer-box">
-			<p><em>* {scholarshipDisclaimer}</em></p>
+			<p><em>* {i18n.pick(scholarshipDisclaimer, 'Reference sample data. Always verify the latest information and requirements on each scholarship provider’s official website. SDJNusantara does not guarantee scholarship admission; final decisions rest solely with the provider.')}</em></p>
 		</div>
 	</div>
 </main>

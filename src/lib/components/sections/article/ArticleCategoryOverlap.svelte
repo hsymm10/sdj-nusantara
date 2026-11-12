@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
+
 	interface Props {
 		selectedCategory: string;
 		onSelectCategory: (cat: string) => void;
@@ -6,19 +8,31 @@
 
 	let { selectedCategory = 'Semua Artikel', onSelectCategory }: Props = $props();
 
-	const categories = [
-		{ id: 'Semua Artikel', label: 'Semua Artikel', icon: 'all' },
-		{ id: 'Pendidikan', label: 'Pendidikan', icon: 'education' },
-		{ id: 'Beasiswa', label: 'Beasiswa', icon: 'scholarship' },
-		{ id: 'Pengembangan Talenta', label: 'Pengembangan Talenta', icon: 'talent' },
-		{ id: 'Keterampilan Digital', label: 'Keterampilan Digital', icon: 'digital' },
-		{ id: 'Kemitraan', label: 'Kemitraan', icon: 'partner' },
-		{ id: 'Karier & Profesional', label: 'Karier & Profesional', icon: 'career' }
-	];
+	const categories = $derived(
+		i18n.lang === 'en'
+			? [
+					{ id: 'Semua Artikel', label: 'All Articles', icon: 'all' },
+					{ id: 'Pendidikan', label: 'Education', icon: 'education' },
+					{ id: 'Beasiswa', label: 'Scholarships', icon: 'scholarship' },
+					{ id: 'Pengembangan Talenta', label: 'Talent Development', icon: 'talent' },
+					{ id: 'Keterampilan Digital', label: 'Digital Skills', icon: 'digital' },
+					{ id: 'Kemitraan', label: 'Partnerships', icon: 'partner' },
+					{ id: 'Karier & Profesional', label: 'Career & Professional', icon: 'career' }
+				]
+			: [
+					{ id: 'Semua Artikel', label: 'Semua Artikel', icon: 'all' },
+					{ id: 'Pendidikan', label: 'Pendidikan', icon: 'education' },
+					{ id: 'Beasiswa', label: 'Beasiswa', icon: 'scholarship' },
+					{ id: 'Pengembangan Talenta', label: 'Pengembangan Talenta', icon: 'talent' },
+					{ id: 'Keterampilan Digital', label: 'Keterampilan Digital', icon: 'digital' },
+					{ id: 'Kemitraan', label: 'Kemitraan', icon: 'partner' },
+					{ id: 'Karier & Profesional', label: 'Karier & Profesional', icon: 'career' }
+				]
+	);
 </script>
 
 <div class="category-overlap-wrapper" id="semua-artikel">
-	<nav class="category-bar" aria-label="Kategori Artikel">
+	<nav class="category-bar" aria-label={i18n.pick('Kategori Artikel', 'Article Categories')}>
 		{#each categories as cat, index}
 			{@const isActive = selectedCategory === cat.id}
 			{@const nextIsActive =

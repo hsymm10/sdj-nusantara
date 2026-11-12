@@ -8,13 +8,17 @@
 	import PartnerFocusFields from '#lib/components/sections/partner/PartnerFocusFields.svelte';
 	import PartnerWorkflowSection from '#lib/components/sections/partner/PartnerWorkflowSection.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <svelte:head>
-	<title>Kemitraan — SDJNusantara Strategic Your Partner</title>
+	<title>{i18n.pick('Kemitraan — SDJNusantara Strategic Your Partner', 'Partnerships — SDJNusantara Strategic Your Partner')}</title>
 	<meta
 		name="description"
-		content="Peluang kemitraan dan kolaborasi strategis bersama SDJNusantara untuk membangun ekosistem pendidikan dan pengembangan talenta yang lebih kuat."
+		content={i18n.pick(
+			'Peluang kemitraan dan kolaborasi strategis bersama SDJNusantara untuk membangun ekosistem pendidikan dan pengembangan talenta yang lebih kuat.',
+			'Strategic partnership and collaboration opportunities with SDJNusantara to build a stronger education and talent development ecosystem.'
+		)}
 	/>
 </svelte:head>
 
@@ -41,11 +45,14 @@
 
 	<!-- 7. CTA Banner -->
 	<CtaBanner
-		title="Siap Menjalin Kemitraan dengan SDJNusantara?"
-		description="Bersama kita bisa menciptakan lebih banyak peluang, program inovatif, dan dampak positif bagi dunia pendidikan dan talenta Indonesia."
-		primaryText="Ajukan Kerja Sama →"
+		title={i18n.pick('Siap Menjalin Kemitraan dengan SDJNusantara?', 'Ready to Partner with SDJNusantara?')}
+		description={i18n.pick(
+			'Bersama kita bisa menciptakan lebih banyak peluang, program inovatif, dan dampak positif bagi dunia pendidikan dan talenta Indonesia.',
+			'Together we can create greater opportunities, innovative programs, and positive impact for education and talent development.'
+		)}
+		primaryText={i18n.pick('Ajukan Kerja Sama →', 'Propose a Partnership →')}
 		primaryHref="/konsultasi"
-		secondaryText="Hubungi Kami"
+		secondaryText={i18n.pick('Hubungi Kami', 'Contact Us')}
 		secondaryHref="/kontak"
 		bgImage="/images/cta-building-glass-left.jpg"
 		variant="kemitraan"

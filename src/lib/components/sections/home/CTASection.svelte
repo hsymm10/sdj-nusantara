@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
-<section class="cta-banner" aria-label="Aksi dan Konsultasi">
+<section class="cta-banner" aria-label={i18n.pick('Aksi dan Konsultasi', 'Action and Consultation')}>
 	<!-- Background Foto Lingkungan Akademik / Pendidikan HD -->
 	<div class="cta-bg-wrap" aria-hidden="true">
 		<picture>
@@ -22,22 +23,25 @@
 	<!-- Content Container -->
 	<div class="cta-container">
 		<div class="cta-left-content">
-			<h2 class="cta-title">Siap Mengambil Langkah Berikutnya?</h2>
+			<h2 class="cta-title">{i18n.pick('Siap Mengambil Langkah Berikutnya?', 'Ready to Take the Next Step?')}</h2>
 			<p class="cta-text">
-				Konsultasikan kebutuhan pendidikan, pengembangan talenta, atau kerja sama institusi Anda.
+				{i18n.pick(
+					'Konsultasikan kebutuhan pendidikan, pengembangan talenta, atau kerja sama institusi Anda.',
+					'Consult your education, talent development, or institutional partnership needs with us.'
+				)}
 			</p>
 		</div>
 
 		<div class="cta-right-actions">
 			<a href="/kontak" class="cta-btn-gold">
-				<span>Jadwalkan Konsultasi</span>
+				<span>{i18n.pick('Jadwalkan Konsultasi', 'Schedule a Consultation')}</span>
 				<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
 				</svg>
 			</a>
 			<a href="/kemitraan" class="cta-btn-outline">
-				<span>Ajukan Kerja Sama</span>
+				<span>{i18n.pick('Ajukan Kerja Sama', 'Propose Partnership')}</span>
 			</a>
 		</div>
 	</div>

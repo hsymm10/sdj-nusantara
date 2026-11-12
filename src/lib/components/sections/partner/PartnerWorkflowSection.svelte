@@ -1,37 +1,73 @@
 <script lang="ts">
-	// PartnerWorkflowSection.svelte - Faithful to design/kemitraan.png (1536px Primary)
-	const steps = [
-		{
-			num: '01',
-			title: 'Inisiasi &\nKonsultasi Awal',
-			desc: 'Diskusi kebutuhan dan potensi kolaborasi.',
-			icon: 'chat'
-		},
-		{
-			num: '02',
-			title: 'Penyusunan\nProposal',
-			desc: 'Penyesuaian bentuk kerja sama dengan tujuan bersama.',
-			icon: 'document'
-		},
-		{
-			num: '03',
-			title: 'Penandatanganan\nNota Kesepahaman',
-			desc: 'Kesepakatan formal kerja sama.',
-			icon: 'contract'
-		},
-		{
-			num: '04',
-			title: 'Implementasi\nProgram',
-			desc: 'Pelaksanaan kegiatan sesuai rencana.',
-			icon: 'gear'
-		},
-		{
-			num: '05',
-			title: 'Evaluasi &\nPengembangan',
-			desc: 'Monitoring hasil dan pengembangan lanjutan.',
-			icon: 'chart'
-		}
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const steps = $derived(
+		i18n.lang === 'en'
+			? [
+					{
+						num: '01',
+						title: 'Initiation &\nInitial Consultation',
+						desc: 'Discuss institutional needs and collaboration potential.',
+						icon: 'chat'
+					},
+					{
+						num: '02',
+						title: 'Proposal\nPreparation',
+						desc: 'Align partnership models with shared goals.',
+						icon: 'document'
+					},
+					{
+						num: '03',
+						title: 'Signing of\nMoU',
+						desc: 'Formalize the partnership agreement.',
+						icon: 'contract'
+					},
+					{
+						num: '04',
+						title: 'Program\nImplementation',
+						desc: 'Execute joint activities according to plan.',
+						icon: 'gear'
+					},
+					{
+						num: '05',
+						title: 'Evaluation &\nExpansion',
+						desc: 'Monitor outcomes and scale ongoing impact.',
+						icon: 'chart'
+					}
+				]
+			: [
+					{
+						num: '01',
+						title: 'Inisiasi &\nKonsultasi Awal',
+						desc: 'Diskusi kebutuhan dan potensi kolaborasi.',
+						icon: 'chat'
+					},
+					{
+						num: '02',
+						title: 'Penyusunan\nProposal',
+						desc: 'Penyesuaian bentuk kerja sama dengan tujuan bersama.',
+						icon: 'document'
+					},
+					{
+						num: '03',
+						title: 'Penandatanganan\nNota Kesepahaman',
+						desc: 'Kesepakatan formal kerja sama.',
+						icon: 'contract'
+					},
+					{
+						num: '04',
+						title: 'Implementasi\nProgram',
+						desc: 'Pelaksanaan kegiatan sesuai rencana.',
+						icon: 'gear'
+					},
+					{
+						num: '05',
+						title: 'Evaluasi &\nPengembangan',
+						desc: 'Monitoring hasil dan pengembangan lanjutan.',
+						icon: 'chart'
+					}
+				]
+	);
 </script>
 
 <section id="alur-kerja-sama" class="partner-workflow-section">
@@ -55,11 +91,14 @@
 		<div class="workflow-header">
 			<div class="section-label">
 				<span class="label-dash">—</span>
-				<span class="label-text">Alur Kerja Sama</span>
+				<span class="label-text">{i18n.pick('Alur Kerja Sama', 'Partnership Workflow')}</span>
 			</div>
-			<h2 class="section-title">Langkah Mudah Menuju Kolaborasi yang Sukses.</h2>
+			<h2 class="section-title">{i18n.pick('Langkah Mudah Menuju Kolaborasi yang Sukses.', 'Simple Steps Toward Successful Collaboration.')}</h2>
 			<p class="section-desc">
-				Proses kerja sama yang terstruktur dan transparan, untuk memastikan hasil terbaik bagi semua pihak.
+				{i18n.pick(
+					'Proses kerja sama yang terstruktur dan transparan, untuk memastikan hasil terbaik bagi semua pihak.',
+					'A structured and transparent partnership process to ensure the best outcomes for all parties.'
+				)}
 			</p>
 		</div>
 

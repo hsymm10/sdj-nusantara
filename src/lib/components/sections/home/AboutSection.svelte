@@ -1,5 +1,5 @@
 <script lang="ts">
-	// AboutSection.svelte (Beranda) - Precise implementation matching design/beranda-bawah-hero-mockup.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="about-section">
@@ -63,20 +63,23 @@
 		<div class="about-left-text">
 			<div class="section-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">Tentang SDJNusantara</span>
+				<span class="badge-text">{i18n.pick('Tentang SDJNusantara', 'About SDJNusantara')}</span>
 			</div>
 
 			<h2 class="about-title">
-				Menjembatani Potensi dengan<br />
-				Peluang Pendidikan & Karier
+				{i18n.pick('Menjembatani Potensi dengan', 'Bridging Potential with')}<br />
+				{i18n.pick('Peluang Pendidikan & Karier', 'Education & Career Opportunities')}
 			</h2>
 
 			<p class="about-desc">
-				SDJNusantara hadir untuk menghubungkan potensi individu dan institusi dengan kesempatan pendidikan, pengembangan kompetensi, dan jejaring profesional.
+				{i18n.pick(
+					'SDJNusantara hadir untuk menghubungkan potensi individu dan institusi dengan kesempatan pendidikan, pengembangan kompetensi, dan jejaring profesional.',
+					'SDJNusantara connects individual and institutional potential with educational opportunities, competency development, and professional networks.'
+				)}
 			</p>
 
 			<a href="/tentang-kami" class="about-btn">
-				<span>Selengkapnya Tentang Kami</span>
+				<span>{i18n.pick('Selengkapnya Tentang Kami', 'More About Us')}</span>
 				<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
@@ -96,8 +99,8 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					<span class="feat-line">Pendekatan</span>
-					<span class="feat-line">Terintegrasi</span>
+					<span class="feat-line">{i18n.pick('Pendekatan', 'Integrated')}</span>
+					<span class="feat-line">{i18n.pick('Terintegrasi', 'Approach')}</span>
 				</div>
 			</div>
 
@@ -115,8 +118,8 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					<span class="feat-line">Pendampingan</span>
-					<span class="feat-line">Terarah</span>
+					<span class="feat-line">{i18n.pick('Pendampingan', 'Targeted')}</span>
+					<span class="feat-line">{i18n.pick('Terarah', 'Mentoring')}</span>
 				</div>
 			</div>
 
@@ -135,8 +138,8 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					<span class="feat-line">Program</span>
-					<span class="feat-line">Aplikatif</span>
+					<span class="feat-line">{i18n.pick('Program', 'Practical')}</span>
+					<span class="feat-line">{i18n.pick('Aplikatif', 'Programs')}</span>
 				</div>
 			</div>
 
@@ -154,8 +157,8 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					<span class="feat-line">Jaringan</span>
-					<span class="feat-line">Kolaborasi</span>
+					<span class="feat-line">{i18n.pick('Jaringan', 'Collaborative')}</span>
+					<span class="feat-line">{i18n.pick('Kolaborasi', 'Network')}</span>
 				</div>
 			</div>
 
@@ -171,8 +174,8 @@
 					</svg>
 				</div>
 				<div class="feature-text">
-					<span class="feat-line">Etika &</span>
-					<span class="feat-line">Transparansi</span>
+					<span class="feat-line">{i18n.pick('Etika &', 'Ethics &')}</span>
+					<span class="feat-line">{i18n.pick('Transparansi', 'Transparency')}</span>
 				</div>
 			</div>
 		</div>

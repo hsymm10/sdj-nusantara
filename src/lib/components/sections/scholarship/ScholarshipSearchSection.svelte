@@ -6,6 +6,7 @@
 	import SearchToggle from '#lib/components/ui/SearchToggle.svelte';
 	import FilterPopover, { type FilterValues } from '#lib/components/ui/FilterPopover.svelte';
 	import ActiveChips from '#lib/components/ui/ActiveChips.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
 		selectedCategory?: string;
@@ -259,11 +260,14 @@
 		<div class="search-header">
 			<div class="section-label">
 				<span class="label-dash">—</span>
-				<span class="label-text">Cari Beasiswa</span>
+				<span class="label-text">{i18n.pick('Cari Beasiswa', 'Find Scholarships')}</span>
 			</div>
-			<h2 class="section-title">Temukan Beasiswa yang Sesuai dengan Tujuan Anda</h2>
+			<h2 class="section-title">{i18n.pick('Temukan Beasiswa yang Sesuai dengan Tujuan Anda', 'Find Scholarships That Match Your Goals')}</h2>
 			<p class="section-desc">
-				Gunakan pencarian dan filter untuk menemukan program beasiswa yang sesuai dengan minat, jenjang pendidikan, dan negara tujuan Anda.
+				{i18n.pick(
+					'Gunakan pencarian dan filter untuk menemukan program beasiswa yang sesuai dengan minat, jenjang pendidikan, dan negara tujuan Anda.',
+					'Use search and filters to discover scholarship programs aligned with your interests, education level, and destination country.'
+				)}
 			</p>
 		</div>
 
@@ -273,8 +277,8 @@
 				<SearchToggle
 					value={searchQuery}
 					onChange={(val) => (searchQuery = val)}
-					placeholderClosed="Cari beasiswa..."
-					placeholderOpen="Cari nama beasiswa, penyelenggara, atau kata kunci..."
+					placeholderClosed={i18n.pick('Cari beasiswa...', 'Search scholarships...')}
+					placeholderOpen={i18n.pick('Cari nama beasiswa, penyelenggara, atau kata kunci...', 'Search scholarship name, provider, or keyword...')}
 				/>
 				<FilterPopover
 					values={filterValues}
@@ -287,11 +291,11 @@
 
 			<div class="sch-toolbar-meta">
 				<span class="results-count-text">
-					Menampilkan <strong>{filteredScholarships.length}</strong> beasiswa
+					{@html i18n.pick(`Menampilkan <strong>${filteredScholarships.length}</strong> beasiswa`, `Showing <strong>${filteredScholarships.length}</strong> scholarships`)}
 				</span>
 				{#if hasActiveFilters}
 					<button type="button" class="btn-quick-reset" onclick={resetAllFilters}>
-						Reset semua
+						{i18n.pick('Reset semua', 'Reset all')}
 					</button>
 				{/if}
 			</div>
@@ -307,11 +311,11 @@
 		<!-- Beasiswa Terbaru Header (±y 878 on 1536) -->
 		<div class="terbaru-header">
 			<div class="terbaru-text-col">
-				<h3 class="terbaru-title">Beasiswa Terbaru</h3>
-				<p class="terbaru-sub">Informasi beasiswa terbaru dari berbagai penyelenggara terpercaya.</p>
+				<h3 class="terbaru-title">{i18n.pick('Beasiswa Terbaru', 'Latest Scholarships')}</h3>
+				<p class="terbaru-sub">{i18n.pick('Informasi beasiswa terbaru dari berbagai penyelenggara terpercaya.', 'Latest scholarship opportunities from trusted providers.')}</p>
 			</div>
 			<button type="button" class="terbaru-link-btn" onclick={resetAllFilters}>
-				<span>Lihat Semua Beasiswa</span>
+				<span>{i18n.pick('Lihat Semua Beasiswa', 'View All Scholarships')}</span>
 				<span class="link-arrow">→</span>
 			</button>
 		</div>
@@ -326,14 +330,14 @@
 							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 						</svg>
 					</div>
-					<h3 class="no-sch-title">Belum ada beasiswa yang cocok</h3>
-					<p class="no-sch-sub">Coba sesuaikan kata kunci pencarian atau atur ulang filter Anda untuk melihat peluang lainnya.</p>
+					<h3 class="no-sch-title">{i18n.pick('Belum ada beasiswa yang cocok', 'No matching scholarships found')}</h3>
+					<p class="no-sch-sub">{i18n.pick('Coba sesuaikan kata kunci pencarian atau atur ulang filter Anda untuk melihat peluang lainnya.', 'Try adjusting your search keywords or resetting your filters to explore more opportunities.')}</p>
 					<div class="no-sch-actions">
 						<button type="button" class="btn-reset-filters" onclick={resetAllFilters}>
-							Atur Ulang Filter
+							{i18n.pick('Atur Ulang Filter', 'Reset Filters')}
 						</button>
 						<a href="/kontak" class="btn-consult-empty">
-							Konsultasikan Beasiswa yang Anda Cari
+							{i18n.pick('Konsultasikan Beasiswa yang Anda Cari', 'Consult on the Scholarship You Seek')}
 						</a>
 					</div>
 				</div>
@@ -430,9 +434,9 @@
 									type="button"
 									class="detail-action-link"
 									onclick={(e) => openModal(sch, e.currentTarget)}
-									aria-label="Lihat detail beasiswa {sch.nama}"
+									aria-label={i18n.pick(`Lihat detail beasiswa ${sch.nama}`, `View scholarship details ${sch.nama}`)}
 								>
-									<span>Lihat Detail</span>
+									<span>{i18n.pick('Lihat Detail', 'View Detail')}</span>
 									<span class="arrow-glyph" aria-hidden="true">→</span>
 								</button>
 							</div>
@@ -445,7 +449,10 @@
 		<!-- Disclaimer (2 lines italic tipis ±13px) -->
 		<div class="disclaimer-wrap">
 			<p class="disclaimer-text">
-				*Contoh data referensi. Verifikasi informasi dan persyaratan terbaru selalu melalui situs resmi masing-masing penyelenggara beasiswa. SDJNusantara tidak menjanjikan kelulusan beasiswa; keputusan mutlak berada pada pihak penyelenggara.
+				{i18n.pick(
+					'*Contoh data referensi. Verifikasi informasi dan persyaratan terbaru selalu melalui situs resmi masing-masing penyelenggara beasiswa. SDJNusantara tidak menjanjikan kelulusan beasiswa; keputusan mutlak berada pada pihak penyelenggara.',
+					'*Reference sample data. Always verify the latest information and requirements on each scholarship provider’s official website. SDJNusantara does not guarantee scholarship admission; final decisions rest solely with the provider.'
+				)}
 			</p>
 		</div>
 	</div>
@@ -460,7 +467,10 @@
 		imageSrc={selectedScholarshipModal.image}
 		imageAlt={selectedScholarshipModal.nama}
 		fullPageRoute={`/layanan/pendidikan/beasiswa/${selectedScholarshipModal.id}`}
-		chatQuestion={`Halo, saya ingin menanyakan mengenai persiapan pendaftaran beasiswa ${selectedScholarshipModal?.nama ?? ''}.`}
+		chatQuestion={i18n.pick(
+			`Halo, saya ingin menanyakan mengenai persiapan pendaftaran beasiswa ${selectedScholarshipModal?.nama ?? ''}.`,
+			`Hello, I would like to ask about preparing an application for the ${selectedScholarshipModal?.nama ?? ''} scholarship.`
+		)}
 		currentIndex={currentIndex >= 0 ? currentIndex : undefined}
 		totalCount={filteredScholarships.length}
 		onClose={closeModal}

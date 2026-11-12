@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroArticle.svelte - Standardized consistent with HeroPartner
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="hero-article">
@@ -41,29 +41,32 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Artikel & Wawasan</span>
+				<span class="pill-label">{i18n.dict.nav.articles}</span>
 			</div>
 
 			<!-- Headline -->
 			<h1 class="hero-title">
-				Wawasan untuk<br />
-				Pendidikan yang<br />
-				<span class="gold-text">Lebih Baik di Indonesia.</span>
+				{i18n.pick('Wawasan untuk', 'Insights for')}<br />
+				{i18n.pick('Pendidikan yang', 'Better Education')}<br />
+				<span class="gold-text">{i18n.pick('Lebih Baik di Indonesia.', 'Across Indonesia.')}</span>
 			</h1>
 
 			<!-- Description -->
 			<p class="hero-desc">
-				Temukan berbagai artikel, insight, dan informasi terkini seputar pendidikan, pengembangan talenta, beasiswa, dan inovasi pembelajaran dari tim ahli SDJNusantara.
+				{i18n.pick(
+					'Temukan berbagai artikel, insight, dan informasi terkini seputar pendidikan, pengembangan talenta, beasiswa, dan inovasi pembelajaran dari tim ahli SDJNusantara.',
+					'Discover curated articles, insights, and the latest updates on education, talent development, scholarships, and learning innovation from SDJNusantara’s expert team.'
+				)}
 			</p>
 
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="#artikel-terbaru" class="btn-gold">
-					<span>Jelajahi Artikel</span>
+					<span>{i18n.pick('Jelajahi Artikel', 'Explore Articles')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="#newsletter" class="btn-outline">
-					<span>Berlangganan Update</span>
+					<span>{i18n.pick('Berlangganan Update', 'Subscribe to Updates')}</span>
 				</a>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { contactConfig } from '#lib/config/contact';
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <div class="overlap-wrapper">
@@ -15,7 +16,7 @@
 			<div class="col-text">
 				<span class="col-label">Email</span>
 				<span class="col-value">{contactConfig.email}</span>
-				<span class="col-sub">Kami akan merespons secepatnya</span>
+				<span class="col-sub">{i18n.pick('Kami akan merespons secepatnya', 'We will respond promptly')}</span>
 			</div>
 		</a>
 
@@ -31,7 +32,7 @@
 			<div class="col-text">
 				<span class="col-label">WhatsApp</span>
 				<span class="col-value">{contactConfig.phone}</span>
-				<span class="col-sub">Konsultasi cepat melalui WhatsApp</span>
+				<span class="col-sub">{i18n.pick('Konsultasi cepat melalui WhatsApp', 'Fast consultation via WhatsApp')}</span>
 			</div>
 		</a>
 
@@ -46,9 +47,9 @@
 				</svg>
 			</div>
 			<div class="col-text">
-				<span class="col-label">Jam Operasional</span>
-				<span class="col-value">Senin – Jumat</span>
-				<span class="col-sub">08.00 – 17.00 WIB</span>
+				<span class="col-label">{i18n.pick('Jam Operasional', 'Operating Hours')}</span>
+				<span class="col-value">{i18n.pick('Senin – Jumat', 'Monday – Friday')}</span>
+				<span class="col-sub">{i18n.pick('08.00 – 17.00 WIB', '08:00 – 17:00 WIB')}</span>
 			</div>
 		</div>
 
@@ -63,9 +64,9 @@
 				</svg>
 			</div>
 			<div class="col-text">
-				<span class="col-label">Lokasi</span>
+				<span class="col-label">{i18n.pick('Lokasi', 'Location')}</span>
 				<span class="col-value">{contactConfig.address}</span>
-				<span class="col-sub">Pertemuan dapat dilakukan secara online maupun offline</span>
+				<span class="col-sub">{i18n.pick('Pertemuan dapat dilakukan secara online maupun offline', 'Meetings available both online and in-person')}</span>
 			</div>
 		</a>
 	</div>

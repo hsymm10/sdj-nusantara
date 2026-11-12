@@ -9,11 +9,12 @@
 	import PendekatanSection from '#lib/components/sections/about/PendekatanSection.svelte';
 	import StrukturSection from '#lib/components/sections/about/StrukturSection.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <svelte:head>
-	<title>Tentang Kami — SDJNusantara Strategic Your Partner</title>
-	<meta name="description" content="Profil, visi, misi, nilai luhur, dan struktur organisasi SDJNusantara sebagai konsultan pendidikan dan pengembangan talenta." />
+	<title>{i18n.pick('Tentang Kami — SDJNusantara Strategic Your Partner', 'About Us — SDJNusantara Your Strategic Partner')}</title>
+	<meta name="description" content={i18n.pick('Profil, visi, misi, nilai luhur, dan struktur organisasi SDJNusantara sebagai konsultan pendidikan dan pengembangan talenta.', 'Profile, vision, mission, core values, and organizational structure of SDJNusantara as an education and talent development consultancy.')} />
 </svelte:head>
 
 <Navbar compact={true} wide={true} />
@@ -27,11 +28,11 @@
 	<PendekatanSection />
 	<StrukturSection />
 	<CtaBanner
-		title="Mari Bersinergi Bersama SDJNusantara"
-		description="Bergabunglah dalam perjalanan kami untuk menciptakan pendidikan yang lebih baik."
-		primaryText="Hubungi Kami Sekarang →"
+		title={i18n.pick('Mari Bersinergi Bersama SDJNusantara', 'Let’s Collaborate with SDJNusantara')}
+		description={i18n.pick('Bergabunglah dalam perjalanan kami untuk menciptakan pendidikan yang lebih baik.', 'Join us on our journey to build better education for the future.')}
+		primaryText={i18n.pick('Hubungi Kami Sekarang →', 'Contact Us Now →')}
 		primaryHref="/kontak"
-		secondaryText="Pelajari Program Kami"
+		secondaryText={i18n.pick('Pelajari Program Kami', 'Explore Our Programs')}
 		secondaryHref="/layanan/pendidikan#program"
 		bgImage="/images/cta-building-glass.jpg"
 		variant="tentang-kami"

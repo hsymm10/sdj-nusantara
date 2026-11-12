@@ -2,7 +2,35 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { navItems, type NavItem, type NavSubItem } from '#lib/config/navigation';
+	import { i18n } from '#lib/stores/i18n.svelte';
 	import logoSdj from '#lib/assets/logo_sdj.png';
+
+	function getNavLabel(item: NavItem): string {
+		const n = i18n.dict.nav;
+		switch (item.href) {
+			case '/': return n.home;
+			case '/tentang-kami': return n.about;
+			case '/layanan': return n.services;
+			case '/kemitraan': return n.partnership;
+			case '/artikel': return n.articles;
+			case '/kontak': return n.contact;
+			default: return item.label;
+		}
+	}
+
+	function getSubInfo(sub: NavSubItem): { label: string; description: string; badge?: string } {
+		const m = i18n.dict.nav.servicesMenu;
+		if (sub.href === '/layanan/pendidikan') {
+			return { label: m.educationTitle, description: m.educationDesc, badge: sub.badge };
+		}
+		if (sub.href === '/layanan/beasiswa') {
+			return { label: m.scholarshipTitle, description: m.scholarshipDesc, badge: m.scholarshipBadge };
+		}
+		if (sub.href === '/layanan/hukum') {
+			return { label: m.legalTitle, description: m.legalDesc, badge: sub.badge };
+		}
+		return { label: sub.label, description: sub.description, badge: sub.badge };
+	}
 
 	interface Props {
 		compact?: boolean;
@@ -143,27 +171,21 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<nav class="navbar" aria-label="Navigasi Utama Situs">
+<nav class="navbar" aria-label={i18n.dict.nav.ariaMainNav}>
 	<!-- Swoosh abu-abu samar (#E5EAEE) di pojok kanan-atas navbar -->
 	<svg class="nav-top-swoosh" viewBox="0 0 96 48" fill="none" preserveAspectRatio="none" aria-hidden="true">
 		<path d="M0 48 C40 32 75 15 96 0 H96 V48 Z" fill="#E5EAEE" fill-opacity="0.75" />
 	</svg>
 
 	<div class="navbar-inner">
-		<!-- Logo (ikon 28px, SDJNusantara 16px bold, Strategic Your Partner 10px) -->
+		<!-- Logo resmi SDJNusantara (rasio proporsional penuh) -->
 		<a href="/" class="logo-link" aria-label="SDJNusantara Beranda">
 			<div class="nav-logo-box">
 				<img
 					src={logoSdj}
-					alt="Logo SDJNusantara"
+					alt="Logo SDJNusantara - Your Strategic Partner"
 					class="nav-logo-img"
-					width="28"
-					height="28"
 				/>
-				<div class="nav-logo-text">
-					<span class="nav-brand-title">SDJNusantara</span>
-					<span class="nav-brand-tagline">Strategic Your Partner</span>
-				</div>
 			</div>
 		</a>
 
@@ -186,7 +208,7 @@
 								aria-haspopup="true"
 								aria-expanded={desktopDropdownOpen}
 							>
-								<span>{item.label}</span>
+								<span>{getNavLabel(item)}</span>
 							</a>
 
 							<button
@@ -227,6 +249,7 @@
 								<ul class="dropdown-cards-list" role="none">
 									{#if item.children}
 										{#each item.children as sub}
+											{@const subInfo = getSubInfo(sub)}
 											<li role="none">
 												<a
 													href={sub.href}
@@ -254,15 +277,15 @@
 
 													<div class="card-content">
 														<div class="card-title-row">
-															<span class="card-title">{sub.label}</span>
+															<span class="card-title">{subInfo.label}</span>
 															{#if isSubItemActive(sub.href)}
 																<span class="active-dot" aria-hidden="true"></span>
 															{/if}
-															{#if sub.badge}
-																<span class="card-badge">{sub.badge}</span>
+															{#if subInfo.badge}
+																<span class="card-badge">{subInfo.badge}</span>
 															{/if}
 														</div>
-														<p class="card-desc">{sub.description}</p>
+														<p class="card-desc">{subInfo.description}</p>
 													</div>
 
 													<span class="card-arrow" aria-hidden="true">
@@ -279,7 +302,7 @@
 								<div class="dropdown-footer-divider"></div>
 
 								<a href="/layanan" class="dropdown-footer-link" role="menuitem">
-									<span>Lihat semua layanan</span>
+									<span>{i18n.dict.nav.viewAllServices}</span>
 									<span class="footer-link-arrow">→</span>
 								</a>
 							</div>
@@ -293,7 +316,7 @@
 							class="nav-link {isItemActive(item.href) ? 'active' : ''}"
 							role="menuitem"
 						>
-							<span>{item.label}</span>
+							<span>{getNavLabel(item)}</span>
 							{#if isItemActive(item.href)}
 								<span class="active-indicator"></span>
 							{/if}
@@ -303,13 +326,36 @@
 			{/each}
 		</ul>
 
-		<!-- Mobile Hamburger -->
-		<button
-			class="hamburger"
-			onclick={toggleMobile}
-			aria-label="Toggle navigasi"
-			aria-expanded={mobileOpen}
-		>
+		<!-- Right Controls: Language Switcher (Desktop & Mobile) + Hamburger -->
+		<div class="nav-right-controls">
+			<div class="lang-switcher" role="group" aria-label={i18n.dict.nav.ariaLangSwitcher}>
+				<button
+					type="button"
+					class="lang-btn {i18n.lang === 'id' ? 'active' : ''}"
+					onclick={() => i18n.setLang('id')}
+					aria-pressed={i18n.lang === 'id'}
+					title="Bahasa Indonesia"
+				>
+					ID
+				</button>
+				<button
+					type="button"
+					class="lang-btn {i18n.lang === 'en' ? 'active' : ''}"
+					onclick={() => i18n.setLang('en')}
+					aria-pressed={i18n.lang === 'en'}
+					title="English"
+				>
+					EN
+				</button>
+			</div>
+
+			<!-- Mobile Hamburger -->
+			<button
+				class="hamburger"
+				onclick={toggleMobile}
+				aria-label={i18n.dict.nav.ariaMobileToggle}
+				aria-expanded={mobileOpen}
+			>
 			<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 				{#if mobileOpen}
 					<line x1="18" y1="6" x2="6" y2="18"></line>
@@ -321,6 +367,7 @@
 				{/if}
 			</svg>
 		</button>
+		</div>
 	</div>
 
 	<!-- Mobile Menu Drawer (≤1023px) -->
@@ -338,7 +385,7 @@
 									class="mobile-accordion-title"
 									onclick={() => (mobileOpen = false)}
 								>
-									<span>{item.label}</span>
+									<span>{getNavLabel(item)}</span>
 								</a>
 								<button
 									type="button"
@@ -358,6 +405,7 @@
 								<div class="mobile-submenu-tree">
 									{#if item.children}
 										{#each item.children as sub}
+											{@const subInfo = getSubInfo(sub)}
 											<a
 												href={sub.href}
 												class="mobile-sublink {isSubItemActive(sub.href) ? 'active' : ''}"
@@ -381,12 +429,12 @@
 												</span>
 												<div class="mobile-sub-text">
 													<div class="mobile-sub-heading">
-														<span class="mobile-sub-title">{sub.label}</span>
-														{#if sub.badge}
-															<span class="mobile-sub-badge">{sub.badge}</span>
+														<span class="mobile-sub-title">{subInfo.label}</span>
+														{#if subInfo.badge}
+															<span class="mobile-sub-badge">{subInfo.badge}</span>
 														{/if}
 													</div>
-													<span class="mobile-sub-desc">{sub.description}</span>
+													<span class="mobile-sub-desc">{subInfo.description}</span>
 												</div>
 											</a>
 										{/each}
@@ -397,7 +445,7 @@
 										class="mobile-sublink-all"
 										onclick={() => (mobileOpen = false)}
 									>
-										<span>Lihat semua layanan →</span>
+										<span>{i18n.dict.nav.viewAllServices} →</span>
 									</a>
 								</div>
 							{/if}
@@ -408,13 +456,36 @@
 							class="mobile-link {isItemActive(item.href) ? 'active' : ''}"
 							onclick={() => (mobileOpen = false)}
 						>
-							<span>{item.label}</span>
+							<span>{getNavLabel(item)}</span>
 							{#if isItemActive(item.href)}
 								<span class="mobile-active-dot"></span>
 							{/if}
 						</a>
 					{/if}
 				{/each}
+
+				<!-- Mobile Drawer Language Switcher -->
+				<div class="mobile-lang-row">
+					<span class="mobile-lang-label">{i18n.dict.nav.langLabel}</span>
+					<div class="lang-switcher" role="group" aria-label={i18n.dict.nav.ariaLangSwitcher}>
+						<button
+							type="button"
+							class="lang-btn {i18n.lang === 'id' ? 'active' : ''}"
+							onclick={() => i18n.setLang('id')}
+							aria-pressed={i18n.lang === 'id'}
+						>
+							ID
+						</button>
+						<button
+							type="button"
+							class="lang-btn {i18n.lang === 'en' ? 'active' : ''}"
+							onclick={() => i18n.setLang('en')}
+							aria-pressed={i18n.lang === 'en'}
+						>
+							EN
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	{/if}
@@ -473,35 +544,22 @@
 	.nav-logo-box {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
 	}
 
 	.nav-logo-img {
-		width: 28px;
-		height: 28px;
+		height: 40px;
+		width: auto;
+		max-width: 170px;
 		object-fit: contain;
+		display: block;
 		flex-shrink: 0;
 	}
 
-	.nav-logo-text {
-		display: flex;
-		flex-direction: column;
-		line-height: 1;
-	}
-
-	.nav-brand-title {
-		font-size: 16px;
-		font-weight: 800;
-		color: #0B2747;
-		letter-spacing: -0.015em;
-	}
-
-	.nav-brand-tagline {
-		font-size: 10px;
-		font-weight: 500;
-		color: #64748B;
-		letter-spacing: 0.04em;
-		margin-top: 1px;
+	@media (max-width: 640px) {
+		.nav-logo-img {
+			height: 34px;
+			max-width: 145px;
+		}
 	}
 
 	.nav-list {
@@ -1053,5 +1111,62 @@
 			align-items: center;
 			justify-content: center;
 		}
+	}
+	/* Right Controls + Language Switcher */
+	.nav-right-controls {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		flex-shrink: 0;
+	}
+
+	.lang-switcher {
+		display: inline-flex;
+		align-items: center;
+		background: #F1F5F9;
+		border: 1px solid #DCE6EE;
+		border-radius: 9999px;
+		padding: 2px;
+		gap: 2px;
+	}
+
+	.lang-btn {
+		border: none;
+		background: transparent;
+		color: #475569;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		padding: 4px 9px;
+		border-radius: 9999px;
+		cursor: pointer;
+		transition: all 0.18s ease;
+		line-height: 1.1;
+	}
+
+	.lang-btn:hover:not(.active) {
+		color: #0B2747;
+		background: rgba(255, 255, 255, 0.7);
+	}
+
+	.lang-btn.active {
+		background: #082442;
+		color: #FFFFFF;
+		box-shadow: 0 1px 3px rgba(8, 36, 66, 0.18);
+	}
+
+	.mobile-lang-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 16px;
+		padding-top: 14px;
+		border-top: 1px solid #E2E8F0;
+	}
+
+	.mobile-lang-label {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: #183553;
 	}
 </style>

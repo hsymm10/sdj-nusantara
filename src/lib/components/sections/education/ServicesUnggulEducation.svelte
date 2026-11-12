@@ -1,6 +1,7 @@
 <!-- Section 04: Solusi Terintegrasi untuk Pengembangan Potensi (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
 	import ServiceDetailModal from './ServiceDetailModal.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface ServiceItem {
 		id: string;
@@ -15,69 +16,121 @@
 		benefits: string[];
 	}
 
-	const services: ServiceItem[] = [
+	const services = $derived<ServiceItem[]>([
 		{
 			id: 'talent-management',
 			title: 'Talent Management & Development Center',
 			shortTitle: 'Talent Management &\nDevelopment Center',
-			desc: 'Program pengelolaan, pemetaan, dan pengembangan talenta terpadu yang dirancang untuk mengidentifikasi potensi unik setiap individu serta memetakan jalur karier dan studi yang paling relevan dengan kebutuhan industri.',
-			cardDesc: 'Pengelolaan potensi talenta dan pengembangan kompetensi secara berkelanjutan.',
+			desc: i18n.pick(
+				'Program pengelolaan, pemetaan, dan pengembangan talenta terpadu yang dirancang untuk mengidentifikasi potensi unik setiap individu serta memetakan jalur karier dan studi yang paling relevan dengan kebutuhan industri.',
+				'Integrated talent management, mapping, and development designed to identify each individual’s unique potential and chart academic and career pathways aligned with industry needs.'
+			),
+			cardDesc: i18n.pick(
+				'Pengelolaan potensi talenta dan pengembangan kompetensi secara berkelanjutan.',
+				'Continuous talent potential management and competency development.'
+			),
 			icon: 'users',
 			accent: 'cyan',
 			img: '/images/svc-01-woman-tablet.jpg',
-			benefits: [
-				'Pemetaan minat, bakat, dan potensi akademik secara komprehensif',
-				'Penyusunan Individual Development Plan (IDP) yang terarah',
-				'Konseling karier dan persiapan masuk dunia profesional terstruktur'
-			]
+			benefits: i18n.pick(
+				[
+					'Pemetaan minat, bakat, dan potensi akademik secara komprehensif',
+					'Penyusunan Individual Development Plan (IDP) yang terarah',
+					'Konseling karier dan persiapan masuk dunia profesional terstruktur'
+				],
+				[
+					'Comprehensive mapping of interests, talents, and academic potential',
+					'Structured Individual Development Plan (IDP) design',
+					'Career counseling and structured workplace readiness preparation'
+				]
+			)
 		},
 		{
 			id: 'scholarship-academy',
 			title: 'Scholarship Academy',
 			shortTitle: 'Scholarship\nAcademy',
-			desc: 'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas, baik di dalam maupun luar negeri.',
-			cardDesc: 'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas.',
+			desc: i18n.pick(
+				'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas, baik di dalam maupun luar negeri.',
+				'A dedicated scholarship mentoring hub opening wider access to domestic and international higher education.'
+			),
+			cardDesc: i18n.pick(
+				'Pusat program dan pendampingan beasiswa untuk membuka akses pendidikan yang lebih luas.',
+				'Scholarship mentoring hub expanding access to domestic and global education.'
+			),
 			icon: 'grad',
 			accent: 'gold',
 			img: '/images/svc-02-graduation-cap.jpg',
-			benefits: [
-				'Pendampingan persiapan dan seleksi beasiswa',
-				'Akses informasi beasiswa terkini dan terpercaya',
-				'Dukungan penyusunan dokumen dan strategi aplikasi'
-			]
+			benefits: i18n.pick(
+				[
+					'Pendampingan persiapan dan seleksi beasiswa',
+					'Akses informasi beasiswa terkini dan terpercaya',
+					'Dukungan penyusunan dokumen dan strategi aplikasi'
+				],
+				[
+					'End-to-end scholarship preparation and selection mentoring',
+					'Access to up-to-date, verified scholarship information',
+					'Support for application documents and submission strategy'
+				]
+			)
 		},
 		{
 			id: 'skills-development',
 			title: 'Skills Development & Certification',
 			shortTitle: 'Skills Development &\nCertification',
-			desc: 'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri untuk membangun daya saing profesional di era digital.',
-			cardDesc: 'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri.',
+			desc: i18n.pick(
+				'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri untuk membangun daya saing profesional di era digital.',
+				'Structured skills training and industry-aligned certification preparation to build professional competitiveness in the digital era.'
+			),
+			cardDesc: i18n.pick(
+				'Peningkatan keterampilan melalui pelatihan terstruktur dan sertifikasi berstandar industri.',
+				'Structured skills training and industry-aligned certification readiness.'
+			),
 			icon: 'star',
 			accent: 'cyan',
 			img: '/images/svc-03-man-laptop.jpg',
-			benefits: [
-				'Pelatihan intensif bersama mentor praktisi industri berpengalaman',
-				'Kurikulum aplikatif berbasis proyek nyata (project-based learning)',
-				'Sertifikasi kompetensi berstandar nasional dan internasional'
-			]
+			benefits: i18n.pick(
+				[
+					'Pelatihan intensif bersama mentor praktisi industri berpengalaman',
+					'Kurikulum aplikatif berbasis proyek nyata (project-based learning)',
+					'Sertifikasi kompetensi berstandar nasional dan internasional'
+				],
+				[
+					'Intensive workshops led by experienced industry practitioners',
+					'Practical curriculum built around real-world projects',
+					'Readiness for nationally and internationally recognized competency schemes'
+				]
+			)
 		},
 		{
 			id: 'institutional-partnership',
 			title: 'Institutional & Strategic Partnership',
 			shortTitle: 'Institutional &\nStrategic Partnership',
-			desc: 'Kolaborasi strategis dengan berbagai institusi dan lembaga untuk memperluas dampak pendidikan, program beasiswa, dan pengembangan talenta.',
-			cardDesc: 'Kolaborasi strategis untuk memperluas dampak pendidikan dan pengembangan karier.',
+			desc: i18n.pick(
+				'Kolaborasi strategis dengan berbagai institusi dan lembaga untuk memperluas dampak pendidikan, program beasiswa, dan pengembangan talenta.',
+				'Strategic collaboration with schools, universities, and organizations to scale educational impact, scholarships, and talent development.'
+			),
+			cardDesc: i18n.pick(
+				'Kolaborasi strategis untuk memperluas dampak pendidikan dan pengembangan karier.',
+				'Strategic partnerships to amplify education and career development impact.'
+			),
 			icon: 'briefcase',
 			accent: 'cyan',
 			active: true,
 			img: '/images/svc-04-handshake.jpg',
-			benefits: [
-				'Perluasan jaringan kemitraan institusi pendidikan dan industri',
-				'Penyelenggaraan program beasiswa dan pengembangan bersama mitra',
-				'Peluang kolaborasi riset, magang, dan penyerapan talenta'
-			]
+			benefits: i18n.pick(
+				[
+					'Perluasan jaringan kemitraan institusi pendidikan dan industri',
+					'Penyelenggaraan program beasiswa dan pengembangan bersama mitra',
+					'Peluang kolaborasi riset, magang, dan penyerapan talenta'
+				],
+				[
+					'Expanded academic and industry partnership networks',
+					'Co-hosted scholarship clinics and capacity-building programs',
+					'Joint research, internship, and talent placement opportunities'
+				]
+			)
 		}
-	];
+	]);
 
 	let isModalOpen = $state(false);
 	let selectedService = $state<ServiceItem | null>(null);
@@ -99,14 +152,17 @@
 		<div class="layanan-header">
 			<div class="section-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">Layanan Unggulan</span>
+				<span class="badge-text">{i18n.pick('Layanan Unggulan', 'Featured Services')}</span>
 				<span class="badge-dash"></span>
 			</div>
 			<h2 class="layanan-title">
-				Solusi Terintegrasi untuk <span class="highlight-cyan">Pengembangan Potensi</span>
+				{i18n.pick('Solusi Terintegrasi untuk', 'Integrated Solutions for')} <span class="highlight-cyan">{i18n.pick('Pengembangan Potensi', 'Potential Development')}</span>
 			</h2>
 			<p class="layanan-desc">
-				Berbagai layanan profesional yang dirancang untuk mendukung perjalanan pendidikan dan karier Anda.
+				{i18n.pick(
+					'Berbagai layanan profesional yang dirancang untuk mendukung perjalanan pendidikan dan karier Anda.',
+					'Professional services designed to support your education and career journey.'
+				)}
 			</p>
 		</div>
 

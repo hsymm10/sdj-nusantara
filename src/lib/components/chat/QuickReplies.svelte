@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { chatConfig } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	function handleSelect(queryText: string) {
 		chatStore.sendUserMessage(queryText);
@@ -8,8 +8,8 @@
 </script>
 
 {#if chatStore.showQuickReplies}
-	<div class="quick-replies-grid" role="group" aria-label="Pilihan topik cepat">
-		{#each chatConfig.quickReplies as item, idx}
+	<div class="quick-replies-grid" role="group" aria-label={i18n.dict.chat.quickRepliesAria}>
+		{#each i18n.dict.chat.quickReplies as item, idx}
 			<button
 				type="button"
 				class="quick-reply-chip"

@@ -3,6 +3,7 @@
 
 import { chatConfig } from '#lib/config/chat';
 import { activeChatService } from '#lib/services/chat/chatService';
+import { i18n } from '#lib/stores/i18n.svelte';
 
 export interface ChatMessage {
 	id: string;
@@ -77,7 +78,7 @@ class ChatStore {
 			{
 				id: 'msg_welcome',
 				role: 'bot',
-				text: chatConfig.welcomeMessage,
+				text: i18n.dict.chat.welcomeMessage,
 				time: formatCurrentTime(),
 				read: true
 			}
@@ -85,6 +86,26 @@ class ChatStore {
 		this.unreadCount = 0;
 		this.showQuickReplies = true;
 		this.saveToStorage();
+	}
+
+	get lastUserQuestion(): string | null {
+		for (let i = this.messages.length - 1; i >= 0; i--) {
+			if (this.messages[i].role === 'user') {
+				return this.messages[i].text;
+			}
+		}
+		return null;
+	}
+
+	getQuestionBeforeMessage(messageId: string): string | null {
+		const idx = this.messages.findIndex((m) => m.id === messageId);
+		const start = idx === -1 ? this.messages.length - 1 : idx - 1;
+		for (let i = start; i >= 0; i--) {
+			if (this.messages[i].role === 'user') {
+				return this.messages[i].text;
+			}
+		}
+		return this.lastUserQuestion;
 	}
 
 	private saveToStorage() {

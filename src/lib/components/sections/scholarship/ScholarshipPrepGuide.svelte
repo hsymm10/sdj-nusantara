@@ -1,12 +1,23 @@
 <script lang="ts">
-	// ScholarshipPrepGuide.svelte - Pendampingan terarah persiapan beasiswa dari Basis Pengetahuan SDJNusantara
-	const checklist = [
-		'Pemetaan profil & target beasiswa',
-		'Persiapan dokumen akademik & CV',
-		'Bimbingan esai & motivation letter',
-		'Simulasi wawancara terarah',
-		'Pemeriksaan kelengkapan berkas'
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const checklist = $derived(
+		i18n.lang === 'en'
+			? [
+					'Profile mapping & scholarship targeting',
+					'Academic document & CV preparation',
+					'Essay & motivation letter coaching',
+					'Targeted interview simulation',
+					'Application completeness review'
+				]
+			: [
+					'Pemetaan profil & target beasiswa',
+					'Persiapan dokumen akademik & CV',
+					'Bimbingan esai & motivation letter',
+					'Simulasi wawancara terarah',
+					'Pemeriksaan kelengkapan berkas'
+				]
+	);
 </script>
 
 <section id="panduan-persiapan" class="prep-guide-section">
@@ -46,18 +57,20 @@
 	<div class="prep-center-content">
 		<div class="section-label">
 			<span class="label-dash">—</span>
-			<span class="label-text">Panduan Persiapan</span>
+			<span class="label-text">{i18n.pick('Panduan Persiapan', 'Preparation Guide')}</span>
 		</div>
 
-		<h2 class="prep-title">Persiapkan Diri untuk Meraih Beasiswa Impian</h2>
+		<h2 class="prep-title">{i18n.pick('Persiapkan Diri untuk Meraih Beasiswa Impian', 'Prepare Yourself to Win Your Dream Scholarship')}</h2>
 
 		<p class="prep-desc">
-			Dapatkan panduan, strategi dokumen, dan simulasi wawancara terarah dari konsultan<br />
-			pendidikan SDJNusantara untuk mendukung persiapan studi Anda.
+			{@html i18n.pick(
+				'Dapatkan panduan, strategi dokumen, dan simulasi wawancara terarah dari konsultan<br />pendidikan SDJNusantara untuk mendukung persiapan studi Anda.',
+				'Get structured guidance, document strategies, and targeted interview simulations from<br />SDJNusantara education consultants to support your study preparation.'
+			)}
 		</p>
 
 		<a href="/kontak" class="btn-gold-guide">
-			<span>Konsultasi Persiapan Beasiswa</span>
+			<span>{i18n.pick('Konsultasi Persiapan Beasiswa', 'Scholarship Preparation Consultation')}</span>
 			<span class="arrow-glyph" aria-hidden="true">→</span>
 		</a>
 	</div>

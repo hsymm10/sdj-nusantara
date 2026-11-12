@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { chatConfig } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 	import ChatHeader from './ChatHeader.svelte';
 	import MessageList from './MessageList.svelte';
 	import ChatInput from './ChatInput.svelte';
@@ -81,7 +81,7 @@
 		style={viewportHeightStyle}
 		role="dialog"
 		aria-modal="false"
-		aria-label={chatConfig.title}
+		aria-label={i18n.dict.chat.title}
 	>
 		<!-- 1. Header Navy Bergelombang (112px) -->
 		<ChatHeader />

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
 	import type leadersData from '#lib/data/leaders.js';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	type Leader = (typeof leadersData)[0];
 
@@ -228,10 +229,10 @@
 				<div class="right-col">
 					<!-- Pill & Badge Header -->
 					<div class="pills-row">
-						<span class="profile-pill">Profil Pimpinan</span>
+						<span class="profile-pill">{i18n.pick('Profil Pimpinan', 'Leadership Profile')}</span>
 						{#if leader.isPlaceholder}
 							<span class="placeholder-tag" title="Data contoh sementara">
-								Data contoh
+								{i18n.pick('Data contoh', 'Sample data')}
 							</span>
 						{/if}
 					</div>
@@ -255,7 +256,7 @@
 
 					<!-- Short Bio -->
 					<div class="bio-section">
-						<h3 class="bio-title">Profil Singkat</h3>
+						<h3 class="bio-title">{i18n.pick('Profil Singkat', 'Short Biography')}</h3>
 						<div id="leader-modal-desc" class="bio-paragraphs">
 							{#each leader.profilSingkat.split(/\n\s*\n/) as paragraph}
 								<p class="bio-text">{paragraph}</p>
@@ -271,7 +272,7 @@
 									<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
 									<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
 								</svg>
-								<span class="info-label">Pendidikan</span>
+								<span class="info-label">{i18n.pick('Pendidikan', 'Education')}</span>
 							</div>
 							<div class="info-value">{leader.pendidikan}</div>
 						</div>
@@ -281,7 +282,7 @@
 								<svg class="info-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<path d="M20 7h-4v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
 								</svg>
-								<span class="info-label">Jabatan</span>
+								<span class="info-label">{i18n.pick('Jabatan', 'Position')}</span>
 							</div>
 							<div class="info-value">{leader.jabatan}</div>
 						</div>
@@ -289,7 +290,7 @@
 
 					<!-- Footer Navigation: Prev / Next buttons and counter -->
 					<div class="modal-nav-footer">
-						<div class="counter-text">{currentIndex + 1} dari {totalCount}</div>
+						<div class="counter-text">{currentIndex + 1} {i18n.pick('dari', 'of')} {totalCount}</div>
 						<div class="nav-btn-group">
 							<button
 								type="button"

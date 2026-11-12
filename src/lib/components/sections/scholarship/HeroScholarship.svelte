@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroScholarship.svelte - Standardized consistent with HeroPartner
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="hero-scholarship">
@@ -41,29 +41,32 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Beasiswa</span>
+				<span class="pill-label">{i18n.pick('Beasiswa', 'Scholarships')}</span>
 			</div>
 
 			<!-- Title -->
 			<h1 class="hero-title">
-				Akses Informasi Beasiswa<br />
-				untuk Masa Depan<br />
-				<span class="gold-text">yang Lebih Luas.</span>
+				{i18n.pick('Akses Informasi Beasiswa', 'Access Scholarship Information')}<br />
+				{i18n.pick('untuk Masa Depan', 'for a Broader')}<br />
+				<span class="gold-text">{i18n.pick('yang Lebih Luas.', 'Future Ahead.')}</span>
 			</h1>
 
 			<!-- Description -->
 			<p class="hero-desc">
-				SDJNusantara menghadirkan informasi beasiswa dari dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur untuk membantu Anda meraih peluang pendidikan terbaik.
+				{i18n.pick(
+					'SDJNusantara menghadirkan informasi beasiswa dari dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur untuk membantu Anda meraih peluang pendidikan terbaik.',
+					'SDJNusantara provides trusted, comprehensive, and structured domestic and international scholarship information to help you reach the best educational opportunities.'
+				)}
 			</p>
 
 			<!-- Buttons -->
 			<div class="hero-btn-row">
 				<a href="/konsultasi" class="btn-gold">
-					<span>Konsultasi Beasiswa</span>
+					<span>{i18n.pick('Konsultasi Beasiswa', 'Scholarship Consultation')}</span>
 					<span class="btn-arrow" aria-hidden="true">→</span>
 				</a>
 				<a href="#panduan-persiapan" class="btn-outline">
-					<span>Panduan Persiapan</span>
+					<span>{i18n.pick('Panduan Persiapan', 'Preparation Guide')}</span>
 				</a>
 			</div>
 		</div>

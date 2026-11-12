@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
+
 	const services = [
 		{
 			num: '01',
@@ -51,11 +53,14 @@
 			<div class="services-header-box">
 				<div class="section-badge">
 					<span class="badge-dash"></span>
-					<span class="badge-text">Layanan Kami</span>
+					<span class="badge-text">{i18n.pick('Layanan Kami', 'Our Services')}</span>
 				</div>
-				<h2 class="services-title">Solusi Pendidikan & Pengembangan Talenta</h2>
+				<h2 class="services-title">{i18n.pick('Solusi Pendidikan & Pengembangan Talenta', 'Education & Talent Development Solutions')}</h2>
 				<p class="services-subtitle">
-					Lima layanan utama untuk mendukung perjalanan pendidikan dan pengembangan diri Anda.
+					{i18n.pick(
+						'Lima layanan utama untuk mendukung perjalanan pendidikan dan pengembangan diri Anda.',
+						'Five core services to support your educational journey and personal growth.'
+					)}
 				</p>
 			</div>
 

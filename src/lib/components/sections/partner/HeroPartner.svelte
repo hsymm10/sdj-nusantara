@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroPartner.svelte - Precise implementation matching design/kemitraan.png (1536px Primary)
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section id="hero-kemitraan" class="hero-partner">
@@ -41,19 +41,22 @@
 			<!-- Pill Tag: Center ±y 104 on 1536px -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Kemitraan</span>
+				<span class="pill-label">{i18n.dict.nav.partnership}</span>
 			</div>
 
 			<!-- Headline: 3 baris ±38-42px weight 800, baris 3 emas #F5B331 -->
 			<h1 class="hero-title">
-				Bersama Membangun<br />
-				Ekosistem Pendidikan<br />
-				<span class="gold-text">yang Lebih Kuat.</span>
+				{i18n.pick('Bersama Membangun', 'Building a Stronger')}<br />
+				{i18n.pick('Ekosistem Pendidikan', 'Education Ecosystem')}<br />
+				<span class="gold-text">{i18n.pick('yang Lebih Kuat.', 'Together.')}</span>
 			</h1>
 
 			<!-- Description: putih 4 baris, max-width ±600px tanpa br manual -->
 			<p class="hero-desc">
-				SDJNusantara membuka peluang kolaborasi dengan berbagai institusi, baik di sektor pendidikan, pemerintah, maupun dunia usaha, untuk menciptakan dampak nyata bagi pengembangan talenta Indonesia.
+				{i18n.pick(
+					'SDJNusantara membuka peluang kolaborasi dengan berbagai institusi, baik di sektor pendidikan, pemerintah, maupun dunia usaha, untuk menciptakan dampak nyata bagi pengembangan talenta Indonesia.',
+					'SDJNusantara welcomes collaboration with institutions across education, government, and industry to create tangible impact for talent development in Indonesia.'
+				)}
 			</p>
 
 			<!-- Mobile Photo Band (Only visible on mobile ≤ 640px) -->
@@ -64,11 +67,11 @@
 			<!-- Buttons: Dasar tombol ±45px di atas batas bawah hero -->
 			<div class="hero-btn-row">
 				<a href="/konsultasi" class="btn-gold">
-					<span>Ajukan Kerja Sama</span>
+					<span>{i18n.pick('Ajukan Kerja Sama', 'Propose a Partnership')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="#jenis-mitra" class="btn-outline">
-					<span>Lihat Jenis Kemitraan</span>
+					<span>{i18n.pick('Lihat Jenis Kemitraan', 'Explore Partner Types')}</span>
 				</a>
 			</div>
 		</div>

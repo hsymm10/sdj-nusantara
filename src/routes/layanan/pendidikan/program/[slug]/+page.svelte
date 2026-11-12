@@ -3,13 +3,14 @@
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import { programsData } from '#lib/data/programs';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	const slug = $derived(page.params.slug);
 	const program = $derived(programsData.find((p) => p.slug === slug) || programsData[0]);
 </script>
 
 <svelte:head>
-	<title>{program.title} — Layanan Pendidikan SDJNusantara</title>
+	<title>{program.title} — {i18n.pick('Layanan Pendidikan SDJNusantara', 'SDJNusantara Education Services')}</title>
 	<meta name="description" content={program.desc} />
 	<link rel="canonical" href="https://sdjnusantara.com/layanan/pendidikan/program/{program.slug}" />
 </svelte:head>
@@ -20,11 +21,11 @@
 	<div class="detail-container">
 		<!-- Breadcrumb -->
 		<nav class="breadcrumb" aria-label="Breadcrumb">
-			<a href="/">Beranda</a>
+			<a href="/">{i18n.dict.nav.home}</a>
 			<span class="bc-sep">/</span>
-			<a href="/layanan/pendidikan">Layanan Pendidikan</a>
+			<a href="/layanan/pendidikan">{i18n.dict.nav.servicesMenu.educationTitle}</a>
 			<span class="bc-sep">/</span>
-			<a href="/layanan/pendidikan#program">Program</a>
+			<a href="/layanan/pendidikan#program">{i18n.pick('Program', 'Programs')}</a>
 			<span class="bc-sep">/</span>
 			<span class="bc-current">{program.title}</span>
 		</nav>
@@ -42,24 +43,24 @@
 							<circle cx="12" cy="12" r="10"></circle>
 							<polyline points="12 6 12 12 16 14"></polyline>
 						</svg>
-						<span><strong>Durasi:</strong> {program.duration}</span>
+						<span><strong>{i18n.pick('Durasi:', 'Duration:')}</strong> {program.duration}</span>
 					</div>
 					<div class="meta-pill">
 						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 							<circle cx="9" cy="7" r="4"></circle>
 						</svg>
-						<span><strong>Target:</strong> {program.target}</span>
+						<span><strong>{i18n.pick('Target:', 'Target:')}</strong> {program.target}</span>
 					</div>
 				</div>
 
 				<div class="detail-actions">
 					<a href="/kontak" class="btn-gold">
-						<span>Konsultasikan Program Ini</span>
+						<span>{i18n.pick('Konsultasikan Program Ini', 'Consult on This Program')}</span>
 						<span class="btn-arrow">→</span>
 					</a>
 					<a href="/layanan/pendidikan#program" class="btn-outline">
-						<span>Kembali ke Daftar Program</span>
+						<span>{i18n.pick('Kembali ke Daftar Program', 'Back to Program List')}</span>
 					</a>
 				</div>
 			</div>
@@ -72,7 +73,7 @@
 		<!-- Features Block -->
 		{#if program.features && program.features.length > 0}
 			<div class="features-card">
-				<h2 class="features-title">Cakupan &amp; Manfaat Program</h2>
+				<h2 class="features-title">{i18n.pick('Cakupan & Manfaat Program', 'Program Scope & Benefits')}</h2>
 				<ul class="features-list">
 					{#each program.features as feature}
 						<li>
@@ -87,7 +88,7 @@
 		<!-- Format Block -->
 		{#if program.format && program.format.length > 0}
 			<div class="features-card format-card">
-				<h2 class="features-title">Format Pembelajaran yang Ditawarkan</h2>
+				<h2 class="features-title">{i18n.pick('Format Pembelajaran yang Ditawarkan', 'Available Learning Formats')}</h2>
 				<ul class="features-list">
 					{#each program.format as fmt}
 						<li>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroSection.svelte (Beranda) - Standardized to Master Hero Banner specification
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section id="hero-beranda" class="hero-section">
@@ -53,19 +53,22 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Mitra Strategis Pendidikan</span>
+				<span class="pill-label">{i18n.pick('Mitra Strategis Pendidikan', 'Strategic Education Partner')}</span>
 			</div>
 
 			<!-- Headline: 3 baris weight 800, baris 3 emas #F5B331 -->
 			<h1 class="hero-title">
-				Kembangkan Potensi.<br />
-				Raih Peluang.<br />
-				<span class="gold-text">Bangun Masa Depan.</span>
+				{i18n.pick('Kembangkan Potensi.', 'Unlock Potential.')}<br />
+				{i18n.pick('Raih Peluang.', 'Seize Opportunities.')}<br />
+				<span class="gold-text">{i18n.pick('Bangun Masa Depan.', 'Build the Future.')}</span>
 			</h1>
 
 			<!-- Description: max-width 575px -->
 			<p class="hero-desc">
-				SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.
+				{i18n.pick(
+					'SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.',
+					'SDJNusantara is an education and talent development consultancy helping individuals and institutions plan academic pathways, prepare for scholarships, sharpen skills, and build collaborative networks.'
+				)}
 			</p>
 
 			<!-- Mobile Photo Band (Only visible on mobile <= 640px) -->
@@ -76,11 +79,11 @@
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="/kontak" class="btn-gold">
-					<span>Konsultasikan Kebutuhan Anda</span>
+					<span>{i18n.pick('Konsultasikan Kebutuhan Anda', 'Consult Your Needs')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="/layanan" class="btn-outline">
-					<span>Jelajahi Program Kami</span>
+					<span>{i18n.pick('Jelajahi Program Kami', 'Explore Our Programs')}</span>
 				</a>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <!-- Section 12: Jaringan Kolaborasi SDJNusantara (Mockup Final Single Source of Truth) -->
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface PartnerLogo {
 		id: string;
@@ -285,12 +286,12 @@
 			<!-- Capsule Badge with Handshake Icon -->
 			<div class="partners-badge-capsule">
 				<span class="badge-icon" aria-hidden="true">🤝</span>
-				<span class="badge-text">Mitra & Kolaborasi</span>
+				<span class="badge-text">{i18n.pick('Mitra & Kolaborasi', 'Partners & Collaboration')}</span>
 			</div>
 
 			<!-- Main Heading with Curved Golden Swoosh Underline under SDJNusantara -->
 			<h2 class="partners-main-title">
-				Jaringan Kolaborasi
+				{i18n.pick('Jaringan Kolaborasi', 'Collaboration Network of')}
 				<span class="title-highlight">
 					SDJNusantara
 					<!-- Curved golden swoosh underline -->
@@ -302,7 +303,10 @@
 
 			<!-- Subtitle -->
 			<p class="partners-subtitle">
-				Bersama mitra terpercaya, kami menghadirkan lebih banyak peluang pendidikan, beasiswa, dan pengembangan talenta Indonesia.
+				{i18n.pick(
+					'Bersama mitra terpercaya, kami menghadirkan lebih banyak peluang pendidikan, beasiswa, dan pengembangan talenta Indonesia.',
+					'Together with trusted partners, we unlock more education, scholarship, and talent development opportunities across Indonesia.'
+				)}
 			</p>
 		</div>
 

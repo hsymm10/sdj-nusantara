@@ -1,5 +1,5 @@
 <script lang="ts">
-	// HeroContact.svelte - Standardized consistent with HeroPartner
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="hero-contact">
@@ -44,29 +44,32 @@
 			<!-- Pill Tag -->
 			<div class="pill-tag">
 				<span class="pill-dot"></span>
-				<span class="pill-label">Kontak Kami</span>
+				<span class="pill-label">{i18n.pick('Kontak Kami', 'Contact Us')}</span>
 			</div>
 
 			<!-- Headline: 3 baris ±39px weight 800, baris 3 emas #F5B331 -->
 			<h1 class="hero-title">
-				<span>Mari Berdiskusi</span><br />
-				<span>untuk Pendidikan</span><br />
-				<span class="gold-text">yang Lebih Baik.</span>
+				<span>{i18n.pick('Mari Berdiskusi', 'Let’s Discuss')}</span><br />
+				<span>{i18n.pick('untuk Pendidikan', 'How to Build Better')}</span><br />
+				<span class="gold-text">{i18n.pick('yang Lebih Baik.', 'Education Together.')}</span>
 			</h1>
 
 			<!-- Description -->
 			<p class="hero-desc">
-				Tim SDJNusantara siap mendengarkan kebutuhan Anda dan memberikan solusi yang tepat untuk pengembangan talenta, pendidikan, dan program strategis.
+				{i18n.pick(
+					'Tim SDJNusantara siap mendengarkan kebutuhan Anda dan memberikan solusi yang tepat untuk pengembangan talenta, pendidikan, dan program strategis.',
+					'The SDJNusantara team is ready to listen to your needs and provide tailored solutions for talent development, education, and strategic programs.'
+				)}
 			</p>
 
 			<!-- Buttons Row -->
 			<div class="hero-btn-row">
 				<a href="/konsultasi" class="btn-gold">
-					<span>Konsultasi Sekarang</span>
+					<span>{i18n.pick('Konsultasi Sekarang', 'Consult Now')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 				<a href="/layanan" class="btn-outline">
-					<span>Lihat Layanan Kami</span>
+					<span>{i18n.pick('Lihat Layanan Kami', 'View Our Services')}</span>
 				</a>
 			</div>
 		</div>

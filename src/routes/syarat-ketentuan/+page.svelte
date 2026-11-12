@@ -1,11 +1,12 @@
 <script lang="ts">
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <svelte:head>
-	<title>Syarat & Ketentuan - SDJNusantara</title>
-	<meta name="description" content="Syarat dan Ketentuan Layanan SDJNusantara" />
+	<title>{i18n.dict.footer.terms} - SDJNusantara</title>
+	<meta name="description" content="{i18n.pick('Syarat dan Ketentuan Layanan SDJNusantara', 'SDJNusantara Terms and Conditions of Service')}" />
 </svelte:head>
 
 <Navbar compact={true} wide={true} />
@@ -14,16 +15,24 @@
 	<div class="legal-container">
 		<div class="section-label">
 			<span class="label-dash">—</span>
-			<span class="label-text">Syarat & Ketentuan</span>
+			<span class="label-text">{i18n.dict.footer.terms}</span>
 		</div>
-		<h1 class="legal-title">Syarat & Ketentuan Layanan</h1>
+		<h1 class="legal-title">{i18n.pick('Syarat & Ketentuan Layanan', 'Terms & Conditions of Service')}</h1>
 		<div class="legal-card">
-			<p class="status-note">Dokumen ini sedang dalam tahap penyusunan dan verifikasi legal formal sesuai regulasi yang berlaku di Republik Indonesia.</p>
+			<p class="status-note">
+				{i18n.pick(
+					'Dokumen ini sedang dalam tahap penyusunan dan verifikasi legal formal sesuai regulasi yang berlaku di Republik Indonesia.',
+					'This document is currently undergoing formal legal drafting and verification in accordance with applicable regulations in the Republic of Indonesia.'
+				)}
+			</p>
 			<p class="legal-desc">
-				Ketentuan penggunaan layanan konsultasi pendidikan, pendampingan beasiswa, manajemen talenta, dan kemitraan kelembagaan diatur secara transparan demi memastikan kepuasan dan ketercapaian tujuan seluruh pihak.
+				{i18n.pick(
+					'Ketentuan penggunaan layanan konsultasi pendidikan, pendampingan beasiswa, manajemen talenta, dan kemitraan kelembagaan diatur secara transparan demi memastikan kepuasan dan ketercapaian tujuan seluruh pihak.',
+					'The terms governing our education consulting, scholarship mentoring, talent management, and institutional partnership services are established transparently to ensure mutual clarity and successful outcomes.'
+				)}
 			</p>
 			<div class="back-wrap">
-				<a href="/" class="btn-back">← Kembali ke Beranda</a>
+				<a href="/" class="btn-back">← {i18n.pick('Kembali ke Beranda', 'Back to Home')}</a>
 			</div>
 		</div>
 	</div>

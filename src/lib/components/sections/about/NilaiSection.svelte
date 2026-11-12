@@ -1,5 +1,5 @@
 <script lang="ts">
-	// NilaiSection.svelte - Faithful to design/tentang-kami.png
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="nilai-section" id="nilai">
@@ -24,20 +24,20 @@
 		<div class="nilai-grid">
 			<!-- Left Column: Title & CTA -->
 			<div class="nilai-left">
-				<div class="section-label">— Nilai-Nilai Luhur</div>
+				<div class="section-label">{i18n.pick('— Nilai-Nilai Luhur', '— Core Values')}</div>
 
 				<h2 class="nilai-title">
-					Integritas, Profesionalitas,<br />
-					Kolaborasi, dan Dampak Nyata
+					{i18n.pick('Integritas, Profesionalitas,', 'Integrity, Professionalism,')}<br />
+					{i18n.pick('Kolaborasi, dan Dampak Nyata', 'Collaboration, and Real Impact')}
 				</h2>
 
 				<p class="nilai-desc">
-					Nilai-nilai ini menjadi landasan dalam setiap langkah kami<br />
-					untuk menghadirkan solusi pendidikan terbaik.
+					{i18n.pick('Nilai-nilai ini menjadi landasan dalam setiap langkah kami', 'These values guide every step we take')}<br />
+					{i18n.pick('untuk menghadirkan solusi pendidikan terbaik.', 'to deliver the finest education solutions.')}
 				</p>
 
 				<a href="#pendekatan" class="btn-gold">
-					<span>Kenali Nilai Kami</span>
+					<span>{i18n.pick('Kenali Nilai Kami', 'Discover Our Values')}</span>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>
@@ -52,8 +52,8 @@
 							<polyline points="9 12 11 14 15 10"></polyline>
 						</svg>
 					</div>
-					<h3 class="nilai-item-title">Integritas</h3>
-					<p class="nilai-item-desc">Menjunjung tinggi kejujuran dan etika.</p>
+					<h3 class="nilai-item-title">{i18n.pick('Integritas', 'Integrity')}</h3>
+					<p class="nilai-item-desc">{i18n.pick('Menjunjung tinggi kejujuran dan etika.', 'Upholding honesty and strong ethics.')}</p>
 				</div>
 
 				<div class="nilai-vdivider"></div>
@@ -68,8 +68,8 @@
 							<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 						</svg>
 					</div>
-					<h3 class="nilai-item-title">Profesionalitas</h3>
-					<p class="nilai-item-desc">Memberikan layanan dengan standar terbaik.</p>
+					<h3 class="nilai-item-title">{i18n.pick('Profesionalitas', 'Professionalism')}</h3>
+					<p class="nilai-item-desc">{i18n.pick('Memberikan layanan dengan standar terbaik.', 'Delivering service at the highest standard.')}</p>
 				</div>
 
 				<div class="nilai-vdivider"></div>
@@ -84,8 +84,8 @@
 							<path d="m7 17-2 2a2 2 0 0 1-2.8 0v0a2 2 0 0 1 0-2.8L4 14.4"></path>
 						</svg>
 					</div>
-					<h3 class="nilai-item-title">Kolaborasi</h3>
-					<p class="nilai-item-desc">Bersinergi untuk mencapai tujuan bersama.</p>
+					<h3 class="nilai-item-title">{i18n.pick('Kolaborasi', 'Collaboration')}</h3>
+					<p class="nilai-item-desc">{i18n.pick('Bersinergi untuk mencapai tujuan bersama.', 'Working together to achieve shared goals.')}</p>
 				</div>
 
 				<div class="nilai-vdivider"></div>
@@ -101,8 +101,8 @@
 							<polyline points="15 1 20 1 20 6"></polyline>
 						</svg>
 					</div>
-					<h3 class="nilai-item-title">Dampak Nyata</h3>
-					<p class="nilai-item-desc">Berorientasi pada hasil yang berkelanjutan.</p>
+					<h3 class="nilai-item-title">{i18n.pick('Dampak Nyata', 'Real Impact')}</h3>
+					<p class="nilai-item-desc">{i18n.pick('Berorientasi pada hasil yang berkelanjutan.', 'Focused on sustainable, measurable results.')}</p>
 				</div>
 			</div>
 		</div>

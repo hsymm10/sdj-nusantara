@@ -1,5 +1,7 @@
 <!-- Section 10: Artikel & Wawasan (Mockup Resmi SDJNusantara & Modal Detail Interaktif) -->
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
+
 	interface ArticleData {
 		id: string;
 		title: string;
@@ -13,7 +15,87 @@
 		highlights: string[];
 	}
 
-	const articles: ArticleData[] = [
+	const articles = $derived<ArticleData[]>(
+		i18n.lang === 'en'
+			? [
+					{
+						id: 'beasiswa-luar-negeri',
+						title: '5 Tips for Winning Overseas Scholarships',
+						category: 'Scholarship',
+						categoryIcon: 'grad',
+						date: '20 Jan 2025',
+						readTime: '5 min read',
+						img: '/images/article-card-1.jpg',
+						href: '/artikel/5-tips-sukses-mendapatkan-beasiswa-luar-negeri',
+						description:
+							'Securing an overseas scholarship is a dream for many students, yet the selection process is highly competitive. Here are 5 essential tips to strengthen your international scholarship application.',
+						highlights: [
+							'Define your academic goals and choose the right scholarship scheme.',
+							'Prepare your academic documents thoroughly and early.',
+							'Write a compelling, authentic personal statement or essay.',
+							'Build meaningful organizational or social impact experience.',
+							'Prepare for interviews with structured practice and confidence.'
+						]
+					},
+					{
+						id: 'tren-pendidikan-2025',
+						title: 'Global Education Trends in 2025',
+						category: 'Education',
+						categoryIcon: 'building',
+						date: '18 Jan 2025',
+						readTime: '6 min read',
+						img: '/images/article-card-2.jpg',
+						href: '/artikel/tren-pendidikan-global-di-tahun-2025',
+						description:
+							'The global education sector continues to evolve rapidly alongside advancements in artificial intelligence and interdisciplinary learning. Explore the key trends shaping the future of educational institutions worldwide.',
+						highlights: [
+							'Integration of AI and adaptive technologies into curricula.',
+							'Cross-disciplinary research and global academic collaboration.',
+							'Stronger emphasis on digital literacy and technology ethics.',
+							'Competency-based assessment built on real-world portfolios.',
+							'International exchange programs and institutional partnerships.'
+						]
+					},
+					{
+						id: 'daya-saing-kerja',
+						title: 'How to Boost Your Competitiveness in the Job Market',
+						category: 'Career',
+						categoryIcon: 'briefcase',
+						date: '15 Jan 2025',
+						readTime: '4 min read',
+						img: '/images/article-card-3.jpg',
+						href: '/artikel/cara-meningkatkan-daya-saing-di-dunia-kerja',
+						description:
+							'Modern labor markets demand high adaptability and a proven portfolio of competencies. Learn strategic steps to position yourself competitively across industries.',
+						highlights: [
+							'Map core skills aligned with current industry demand.',
+							'Build a measurable track record of projects and outcomes.',
+							'Grow your professional network consistently.',
+							'Master persuasive communication and structured problem-solving.',
+							'Adopt a continuous learning mindset (growth mindset).'
+						]
+					},
+					{
+						id: 'soft-skill-digital',
+						title: 'The Importance of Soft Skills in the Digital Era',
+						category: 'Soft Skills',
+						categoryIcon: 'chart',
+						date: '10 Jan 2025',
+						readTime: '5 min read',
+						img: '/images/article-card-4.jpg',
+						href: '/artikel/pentingnya-soft-skill-di-era-digital',
+						description:
+							'While automation and AI handle many technical tasks, human soft skills such as empathy, leadership, and emotional intelligence remain the key differentiator of high-performing talent.',
+						highlights: [
+							'Cross-cultural team collaboration and remote work readiness.',
+							'Critical thinking and deep analytical judgment.',
+							'Mental resilience and rapid adaptation to change.',
+							'Inclusive leadership and effective communication.',
+							'Creativity in solving complex, ambiguous challenges.'
+						]
+					}
+				]
+			: [
 		{
 			id: 'beasiswa-luar-negeri',
 			title: '5 Tips Sukses Mendapatkan Beasiswa Luar Negeri',
@@ -90,7 +172,8 @@
 				'Kreativitas dalam menyelesaikan masalah kompleks.'
 			]
 		}
-	];
+	]
+	);
 
 	let selectedArticle = $state<ArticleData | null>(null);
 	let isModalOpen = $state<boolean>(false);
@@ -187,20 +270,23 @@
 			<div class="hero-left-col">
 				<div class="hero-label-wrap">
 					<span class="label-dash" aria-hidden="true"></span>
-					<span class="label-text">Artikel & Wawasan</span>
+					<span class="label-text">{i18n.pick('Artikel & Wawasan', 'Articles & Insights')}</span>
 				</div>
 
 				<h2 class="hero-title">
-					Temukan Insight dan <span class="highlight-cyan">Inspirasi Terbaru</span>
+					{i18n.pick('Temukan Insight dan ', 'Discover the Latest ')}<span class="highlight-cyan">{i18n.pick('Inspirasi Terbaru', 'Insights & Inspiration')}</span>
 				</h2>
 
 				<p class="hero-desc">
-					Berbagai artikel, panduan, dan informasi terkini seputar pendidikan, beasiswa, dan pengembangan karier.
+					{i18n.pick(
+						'Berbagai artikel, panduan, dan informasi terkini seputar pendidikan, beasiswa, dan pengembangan karier.',
+						'Explore curated articles, guides, and the latest updates on education, scholarships, and career development.'
+					)}
 				</p>
 
 				<div class="hero-cta-area">
 					<a href="/artikel" class="hero-btn-cta">
-						<span>Lihat Semua Artikel</span>
+						<span>{i18n.pick('Lihat Semua Artikel', 'View All Articles')}</span>
 						<svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<line x1="5" y1="12" x2="19" y2="12"/>
 							<polyline points="12 5 19 12 12 19"/>
@@ -341,7 +427,7 @@
 						</svg>
 					</div>
 				</div>
-				<div class="more-label">Lihat Lebih<br />Banyak Artikel</div>
+				<div class="more-label">{@html i18n.pick('Lihat Lebih<br />Banyak Artikel', 'View More<br />Articles')}</div>
 				<div class="more-circle-btn" aria-hidden="true">
 					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 						<line x1="5" y1="12" x2="19" y2="12"/>
@@ -375,7 +461,7 @@
 			<button
 				type="button"
 				class="modal-close-btn"
-				aria-label="Tutup modal artikel"
+				aria-label={i18n.pick('Tutup modal artikel', 'Close article modal')}
 				onclick={closeModal}
 			>
 				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2948" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -492,13 +578,13 @@
 			<div class="modal-footer">
 				<!-- Left: Share Channels -->
 				<div class="modal-share-wrap">
-					<span class="share-label">Bagikan Artikel</span>
+					<span class="share-label">{i18n.pick('Bagikan Artikel', 'Share Article')}</span>
 					<div class="share-btns-group">
 						<!-- Copy Link Button -->
 						<button
 							type="button"
 							class="share-btn share-link"
-							title={copyFeedback ? 'Tersalin!' : 'Salin tautan artikel'}
+							title={copyFeedback ? i18n.pick('Tersalin!', 'Copied!') : i18n.pick('Salin tautan artikel', 'Copy article link')}
 							onclick={copyLink}
 						>
 							{#if copyFeedback}
@@ -561,7 +647,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					Baca Artikel Lengkap
+					{i18n.pick('Baca Artikel Lengkap', 'Read Full Article')}
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
 						<polyline points="15 3 21 3 21 9"/>

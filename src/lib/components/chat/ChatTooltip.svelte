@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { chatConfig } from '#lib/config/chat';
 	import { chatStore } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	let visible = $state(false);
 
@@ -30,7 +31,7 @@
 	<div
 		class="chat-tooltip-wrapper"
 		role="region"
-		aria-label="Pemberitahuan Asisten"
+		aria-label={i18n.dict.chat.tooltipAria}
 	>
 		<!-- Card Tooltip Putih Radius 18px (Tidak membuka jendela saat card diklik) -->
 		<div class="tooltip-card">
@@ -53,10 +54,10 @@
 			<!-- Text Content (Judul 15px bold navy & Deskripsi 13.5px abu-biru 2 baris) -->
 			<div class="tooltip-content">
 				<h4 class="tooltip-title">
-					Butuh informasi seputar<br />pendidikan?
+					{i18n.dict.chat.tooltipTitleLine1}<br />{i18n.dict.chat.tooltipTitleLine2}
 				</h4>
 				<p class="tooltip-desc">
-					Tanyakan langsung kepada<br />Asisten SDJNusantara.
+					{i18n.dict.chat.tooltipDescLine1}<br />{i18n.dict.chat.tooltipDescLine2}
 				</p>
 			</div>
 
@@ -65,7 +66,7 @@
 				type="button"
 				class="tooltip-close-btn"
 				onclick={handleDismiss}
-				aria-label="Tutup pesan"
+				aria-label={i18n.dict.chat.tooltipDismiss}
 			>
 				<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#082442" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="18" y1="6" x2="6" y2="18"></line>

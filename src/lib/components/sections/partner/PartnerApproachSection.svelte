@@ -1,35 +1,69 @@
 <script lang="ts">
-	// PartnerApproachSection.svelte - 100% Match Mockup Referensi GAMBAR 2
-	const approaches = [
-		{
-			title: 'Berorientasi pada Solusi',
-			desc: 'Fokus pada kebutuhan nyata dan hasil yang terukur.',
-			icon: 'handshake',
-			theme: 'cyan',
-			sparkles: true
-		},
-		{
-			title: 'Kolaborasi Jangka Panjang',
-			desc: 'Membangun hubungan berkelanjutan untuk dampak lebih besar.',
-			icon: 'users',
-			theme: 'gold',
-			sparkles: false
-		},
-		{
-			title: 'Inovasi Bersama',
-			desc: 'Menghadirkan program yang relevan dengan perkembangan zaman.',
-			icon: 'lightbulb',
-			theme: 'cyan',
-			sparkles: false
-		},
-		{
-			title: 'Transparansi dan Akuntabilitas',
-			desc: 'Menjaga kepercayaan melalui tata kelola yang profesional.',
-			icon: 'shield',
-			theme: 'gold',
-			sparkles: false
-		}
-	];
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const approaches = $derived(
+		i18n.lang === 'en'
+			? [
+					{
+						title: 'Solution-Oriented',
+						desc: 'Focused on real institutional needs and measurable outcomes.',
+						icon: 'handshake',
+						theme: 'cyan',
+						sparkles: true
+					},
+					{
+						title: 'Long-Term Collaboration',
+						desc: 'Building sustainable relationships for greater collective impact.',
+						icon: 'users',
+						theme: 'gold',
+						sparkles: false
+					},
+					{
+						title: 'Joint Innovation',
+						desc: 'Delivering relevant programs aligned with modern developments.',
+						icon: 'lightbulb',
+						theme: 'cyan',
+						sparkles: false
+					},
+					{
+						title: 'Transparency & Accountability',
+						desc: 'Upholding trust through professional governance.',
+						icon: 'shield',
+						theme: 'gold',
+						sparkles: false
+					}
+				]
+			: [
+					{
+						title: 'Berorientasi pada Solusi',
+						desc: 'Fokus pada kebutuhan nyata dan hasil yang terukur.',
+						icon: 'handshake',
+						theme: 'cyan',
+						sparkles: true
+					},
+					{
+						title: 'Kolaborasi Jangka Panjang',
+						desc: 'Membangun hubungan berkelanjutan untuk dampak lebih besar.',
+						icon: 'users',
+						theme: 'gold',
+						sparkles: false
+					},
+					{
+						title: 'Inovasi Bersama',
+						desc: 'Menghadirkan program yang relevan dengan perkembangan zaman.',
+						icon: 'lightbulb',
+						theme: 'cyan',
+						sparkles: false
+					},
+					{
+						title: 'Transparansi dan Akuntabilitas',
+						desc: 'Menjaga kepercayaan melalui tata kelola yang profesional.',
+						icon: 'shield',
+						theme: 'gold',
+						sparkles: false
+					}
+				]
+	);
 </script>
 
 <section id="pendekatan-kami" class="partner-approach-section">
@@ -52,14 +86,14 @@
 			<div class="text-col">
 				<div class="approach-label">
 					<span class="label-dash"></span>
-					<span class="label-text">PENDEKATAN KAMI</span>
+					<span class="label-text">{i18n.pick('PENDEKATAN KAMI', 'OUR APPROACH')}</span>
 				</div>
 
 				<h2 class="section-title">
-					Kolaborasi yang<br />
-					Berorientasi pada<br />
+					{i18n.pick('Kolaborasi yang', 'Collaboration Driven by')}<br />
+					{i18n.pick('Berorientasi pada', 'Meaningful and')}<br />
 					<span class="highlight-wrap">
-						<span class="highlight-orange">Dampak Nyata.</span>
+						<span class="highlight-orange">{i18n.pick('Dampak Nyata.', 'Measurable Impact.')}</span>
 						<svg class="title-underline-svg" viewBox="0 0 210 12" fill="none" preserveAspectRatio="none" aria-hidden="true">
 							<path d="M2,9 Q105,1 208,6" stroke="#FFAD16" stroke-width="3.2" stroke-linecap="round" />
 						</svg>
@@ -67,11 +101,14 @@
 				</h2>
 
 				<p class="section-desc">
-					Kami percaya bahwa kemitraan yang kuat lahir dari kesamaan visi dan tujuan. SDJNusantara hadir sebagai penghubung antara berbagai pihak untuk menciptakan program pendidikan yang inovatif, inklusif, dan berkelanjutan.
+					{i18n.pick(
+						'Kami percaya bahwa kemitraan yang kuat lahir dari kesamaan visi dan tujuan. SDJNusantara hadir sebagai penghubung antara berbagai pihak untuk menciptakan program pendidikan yang inovatif, inklusif, dan berkelanjutan.',
+						'We believe strong partnerships are born from shared vision and purpose. SDJNusantara serves as a bridge connecting stakeholders to create innovative, inclusive, and sustainable education programs.'
+					)}
 				</p>
 
 				<a href="/tentang-kami" class="btn-orange-approach">
-					<span>Tentang Pendekatan Kami</span>
+					<span>{i18n.pick('Tentang Pendekatan Kami', 'About Our Approach')}</span>
 					<svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<line x1="5" y1="12" x2="19" y2="12" />
 						<polyline points="12 5 19 12 12 19" />

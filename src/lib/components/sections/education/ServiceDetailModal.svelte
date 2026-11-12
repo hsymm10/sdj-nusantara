@@ -1,6 +1,7 @@
 <!-- Modal Detail Layanan Unggulan (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
 	import { onDestroy } from 'svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface ServiceDetail {
 		id: string;
@@ -117,7 +118,7 @@
 				<div class="modal-content-top">
 					<!-- 1. Label kecil "Layanan Unggulan" -->
 					<div class="modal-badge">
-						<span>Layanan Unggulan</span>
+						<span>{i18n.pick('Layanan Unggulan', 'Featured Service')}</span>
 					</div>
 
 					<!-- 2. Judul layanan (Warna Navy) -->
@@ -132,7 +133,7 @@
 
 					<!-- 4. Subjudul "Manfaat Layanan" -->
 					<h4 class="modal-benefits-heading">
-						Manfaat Layanan
+						{i18n.pick('Manfaat Layanan', 'Service Benefits')}
 					</h4>
 
 					<!-- 5. Daftar manfaat dengan ikon centang kuning -->
@@ -158,7 +159,7 @@
 						class="modal-tutup-btn"
 						onclick={onclose}
 					>
-						Tutup
+						{i18n.dict.common.close}
 					</button>
 				</div>
 			</div>

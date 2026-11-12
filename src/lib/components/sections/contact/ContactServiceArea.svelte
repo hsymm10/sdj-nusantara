@@ -4,6 +4,7 @@
 	// dan data resmi alamat kantor SDJNusantara dari contact.ts
 	import { contactConfig } from '#lib/config/contact';
 	import { INDONESIA_MAP_PATH } from '#lib/assets/maps/indonesiaPath';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	// ilustrasi jangkauan layanan, bukan lokasi kantor (maksimal ±9 titik bersama Jakarta)
 	const serviceCities = [
@@ -24,13 +25,16 @@
 		<div class="area-text-col">
 			<div class="section-dash-line">
 				<span class="dash"></span>
-				<span class="section-tag">Wilayah Layanan</span>
+				<span class="section-tag">{i18n.pick('Wilayah Layanan', 'Service Coverage')}</span>
 			</div>
 
-			<h2 class="area-title">Mendukung Institusi Pendidikan di Seluruh Indonesia.</h2>
+			<h2 class="area-title">{i18n.pick('Mendukung Institusi Pendidikan di Seluruh Indonesia.', 'Supporting Educational Institutions Across Indonesia.')}</h2>
 			
 			<p class="area-desc">
-				Program dan layanan SDJNusantara dapat diakses oleh institusi dan individu dari berbagai daerah di Indonesia, baik secara online maupun offline.
+				{i18n.pick(
+					'Program dan layanan SDJNusantara dapat diakses oleh institusi dan individu dari berbagai daerah di Indonesia, baik secara online maupun offline.',
+					'SDJNusantara programs and services are accessible to institutions and individuals across Indonesia, both online and in person.'
+				)}
 			</p>
 
 			<!-- 2 Small Cards (±160x66px, radius ±14px, shadow): Tanpa klaim seluruh provinsi -->
@@ -44,7 +48,7 @@
 						</svg>
 					</div>
 					<div class="mini-text">
-						<strong class="mini-title">Jangkauan Nasional</strong>
+						<strong class="mini-title">{i18n.pick('Jangkauan Nasional', 'Nationwide Reach')}</strong>
 						<span class="mini-sub">Indonesia</span>
 					</div>
 				</div>
@@ -58,15 +62,15 @@
 						</svg>
 					</div>
 					<div class="mini-text">
-						<strong class="mini-title">Layanan Online & Offline</strong>
-						<span class="mini-sub">Fleksibel</span>
+						<strong class="mini-title">{i18n.pick('Layanan Online & Offline', 'Online & In-Person')}</strong>
+						<span class="mini-sub">{i18n.pick('Fleksibel', 'Flexible')}</span>
 					</div>
 				</div>
 			</div>
 
 			<!-- Button Gold: Pelajari Wilayah Layanan -->
 			<a href="/layanan" class="btn-gold-area">
-				<span>Pelajari Wilayah Layanan</span>
+				<span>{i18n.pick('Pelajari Wilayah Layanan', 'Explore Service Coverage')}</span>
 				<span class="btn-arrow">→</span>
 			</a>
 		</div>
@@ -82,7 +86,7 @@
 					</svg>
 				</div>
 				<div class="floating-text">
-					<h3 class="floating-title">Lokasi SDJNusantara</h3>
+					<h3 class="floating-title">{i18n.pick('Lokasi SDJNusantara', 'SDJNusantara Location')}</h3>
 					<p class="floating-address">
 						{contactConfig.addressDetail}
 					</p>
@@ -92,7 +96,7 @@
 						rel="noopener noreferrer" 
 						class="floating-maps-link"
 					>
-						<span>Buka di Google Maps</span>
+						<span>{i18n.pick('Buka di Google Maps', 'Open in Google Maps')}</span>
 						<span class="link-arrow">→</span>
 					</a>
 				</div>

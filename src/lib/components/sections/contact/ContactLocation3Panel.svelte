@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { contactConfig } from '#lib/config/contact';
 	import logoSdj from '#lib/assets/logo_sdj.png';
+	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
 <section class="location-3panel-section" id="lokasi">
@@ -18,10 +19,6 @@
 			<div class="building-logo-plaque" aria-hidden="true">
 				<div class="plaque-inner">
 					<img src={logoSdj} alt="Logo SDJNusantara" class="plaque-img" />
-					<div class="plaque-text">
-						<span class="plaque-brand">SDJNusantara</span>
-						<span class="plaque-sub">Strategic Your Partner</span>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -50,9 +47,9 @@
 					</div>
 					<div class="address-info">
 						<!-- WAJIB DIISI alamat kantor resmi (content-master bagian 15) -->
-						<strong class="addr-label">Alamat Kantor</strong>
+						<strong class="addr-label">{i18n.pick('Alamat Kantor', 'Office Address')}</strong>
 						<span class="addr-city">{contactConfig.address}</span>
-						<span class="addr-note">(Dapat disesuaikan sesuai lokasi sebenarnya)</span>
+						<span class="addr-note">{i18n.pick('(Dapat disesuaikan sesuai lokasi sebenarnya)', '(Flexible appointment by prior arrangement)')}</span>
 					</div>
 				</div>
 				<div class="address-btn-row">
@@ -62,7 +59,7 @@
 						rel="noopener noreferrer"
 						class="btn-maps"
 					>
-						<span>Buka di Google Maps</span>
+						<span>{i18n.pick('Buka di Google Maps', 'Open in Google Maps')}</span>
 						<span class="btn-arrow">→</span>
 					</a>
 				</div>
@@ -79,7 +76,10 @@
 			/>
 			<div class="quote-scrim">
 				<blockquote class="quote-text">
-					“Pendidikan adalah investasi untuk masa depan yang lebih baik.”
+					{i18n.pick(
+						'“Pendidikan adalah investasi untuk masa depan yang lebih baik.”',
+						'“Education is an investment in a better future.”'
+					)}
 				</blockquote>
 			</div>
 		</div>
@@ -121,46 +121,26 @@
 		position: absolute;
 		top: 24px;
 		left: 28px;
-		background: rgba(8, 36, 66, 0.88);
+		background: rgba(255, 255, 255, 0.96);
 		backdrop-filter: blur(8px);
-		border: 1px solid rgba(22, 182, 193, 0.4);
+		border: 1px solid rgba(22, 182, 193, 0.35);
 		border-radius: 8px;
-		padding: 7px 12px;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+		padding: 6px 10px;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 	}
 
 	.plaque-inner {
 		display: flex;
 		align-items: center;
-		gap: 8px;
 	}
 
 	.plaque-img {
-		width: 22px;
-		height: 22px;
+		height: 32px;
+		width: auto;
+		max-width: 135px;
 		object-fit: contain;
 		flex-shrink: 0;
-		border-radius: 4px;
-	}
-
-	.plaque-text {
-		display: flex;
-		flex-direction: column;
-		line-height: 1.1;
-	}
-
-	.plaque-brand {
-		font-size: 11px;
-		font-weight: 800;
-		color: #FFFFFF;
-		letter-spacing: 0.02em;
-	}
-
-	.plaque-sub {
-		font-size: 7.5px;
-		font-weight: 600;
-		color: #16B6C1;
-		letter-spacing: 0.04em;
+		display: block;
 	}
 
 	/* Panel Tengah (PUTIH) */

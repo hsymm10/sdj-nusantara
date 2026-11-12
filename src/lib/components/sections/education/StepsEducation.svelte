@@ -1,32 +1,34 @@
 <!-- Section 05: 5 Tahap Pelaksanaan Pendampingan Kami (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
-	const steps = [
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const steps = $derived([
 		{
 			num: '01',
-			title: 'Konsultasi &\nAnalisis Kebutuhan',
+			title: i18n.pick('Konsultasi &\nAnalisis Kebutuhan', 'Consultation &\nNeeds Analysis'),
 			icon: 'message'
 		},
 		{
 			num: '02',
-			title: 'Perencanaan\nProgram',
+			title: i18n.pick('Perencanaan\nProgram', 'Program\nPlanning'),
 			icon: 'calendar'
 		},
 		{
 			num: '03',
-			title: 'Pendampingan\nIntensif',
+			title: i18n.pick('Pendampingan\nIntensif', 'Intensive\nMentoring'),
 			icon: 'users'
 		},
 		{
 			num: '04',
-			title: 'Evaluasi &\nUmpan Balik',
+			title: i18n.pick('Evaluasi &\nUmpan Balik', 'Evaluation &\nFeedback'),
 			icon: 'chart'
 		},
 		{
 			num: '05',
-			title: 'Tindak Lanjut &\nPengembangan',
+			title: i18n.pick('Tindak Lanjut &\nPengembangan', 'Follow-Up &\nGrowth'),
 			icon: 'trophy'
 		}
-	];
+	]);
 </script>
 
 <section class="steps-edu-section" id="tahap-pendampingan">
@@ -69,17 +71,20 @@
 		<div class="steps-edu-left">
 			<div class="steps-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">LAYANAN PENDAMPINGAN</span>
+				<span class="badge-text">{i18n.pick('LAYANAN PENDAMPINGAN', 'MENTORING PROCESS')}</span>
 			</div>
 			<h2 class="steps-title">
-				5 Tahap Pelaksanaan
-				<span class="highlight-gold">Pendampingan Kami</span>
+				{i18n.pick('5 Tahap Pelaksanaan', '5 Implementation Stages of')}
+				<span class="highlight-gold">{i18n.pick('Pendampingan Kami', 'Our Mentoring')}</span>
 			</h2>
 			<p class="steps-desc">
-				Alur pendampingan yang sistematis, terukur, dan berorientasi pada hasil terbaik.
+				{i18n.pick(
+					'Alur pendampingan yang sistematis, terukur, dan berorientasi pada hasil terbaik.',
+					'A systematic, measurable mentoring workflow focused on your best outcomes.'
+				)}
 			</p>
 			<a href="/layanan" class="steps-btn">
-				<span>Pelajari Tahapannya</span>
+				<span>{i18n.pick('Pelajari Tahapannya', 'Explore the Stages')}</span>
 				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12" />
 					<polyline points="12 5 19 12 12 19" />

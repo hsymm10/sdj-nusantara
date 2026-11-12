@@ -1,37 +1,39 @@
 <!-- Section 03: Tentang SDJNusantara (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
-	const pillars = [
+	import { i18n } from '#lib/stores/i18n.svelte';
+
+	const pillars = $derived([
 		{
 			id: 'terintegrasi',
-			title: 'Pendidikan Terintegrasi',
+			title: i18n.pick('Pendidikan Terintegrasi', 'Integrated Education'),
 			active: false,
 			icon: 'grad'
 		},
 		{
 			id: 'terarah',
-			title: 'Pendampingan Terarah',
+			title: i18n.pick('Pendampingan Terarah', 'Targeted Mentoring'),
 			active: false,
 			icon: 'users'
 		},
 		{
 			id: 'aplikatif',
-			title: 'Program Aplikatif',
+			title: i18n.pick('Program Aplikatif', 'Practical Programs'),
 			active: true,
 			icon: 'chart'
 		},
 		{
 			id: 'kolaborasi',
-			title: 'Jaringan Kolaborasi',
+			title: i18n.pick('Jaringan Kolaborasi', 'Collaborative Network'),
 			active: false,
 			icon: 'nodes'
 		},
 		{
 			id: 'transparansi',
-			title: 'Etika & Transparansi',
+			title: i18n.pick('Etika & Transparansi', 'Ethics & Transparency'),
 			active: false,
 			icon: 'shield'
 		}
-	];
+	]);
 </script>
 
 <section class="about-section" id="tentang-sdj">
@@ -66,18 +68,21 @@
 		<div class="about-left-col">
 			<div class="section-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">Tentang SDJNusantara</span>
+				<span class="badge-text">{i18n.pick('Tentang SDJNusantara', 'About SDJNusantara')}</span>
 			</div>
 			<h2 class="about-title">
-				Menjembatani Potensi
-				<span class="title-line">dengan <span class="highlight-cyan">Peluang</span></span>
-				<span class="highlight-gold title-line">Pendidikan &amp; Karier</span>
+				{i18n.pick('Menjembatani Potensi', 'Bridging Potential')}
+				<span class="title-line">{i18n.pick('dengan', 'with')} <span class="highlight-cyan">{i18n.pick('Peluang', 'Education &')}</span></span>
+				<span class="highlight-gold title-line">{i18n.pick('Pendidikan & Karier', 'Career Opportunities')}</span>
 			</h2>
 			<p class="about-desc">
-				SDJNusantara hadir untuk memperluas akses, membangun kompetensi, dan menghubungkan individu dengan peluang terbaik di dunia pendidikan dan dunia kerja.
+				{i18n.pick(
+					'SDJNusantara hadir untuk memperluas akses, membangun kompetensi, dan menghubungkan individu dengan peluang terbaik di dunia pendidikan dan dunia kerja.',
+					'SDJNusantara exists to expand access, build competencies, and connect individuals with top opportunities in education and the workplace.'
+				)}
 			</p>
 			<a href="/tentang-kami" class="about-cta-btn">
-				<span>Selengkapnya Tentang Kami</span>
+				<span>{i18n.pick('Selengkapnya Tentang Kami', 'More About Us')}</span>
 				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12" />
 					<polyline points="12 5 19 12 12 19" />

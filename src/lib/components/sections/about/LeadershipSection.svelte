@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import leadersData from '#lib/data/leaders.js';
 	import LeaderModal from './LeaderModal.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	// Svelte 5 runes
 	type Leader = (typeof leadersData)[0];
@@ -407,10 +408,10 @@
 		<!-- Section Header -->
 		<div class="header-box">
 			<h2 class="section-title">
-				Pimpinan <span class="teal-highlight">SDJNusantara</span>
+				{i18n.pick('Pimpinan', 'Leadership of')} <span class="teal-highlight">SDJNusantara</span>
 			</h2>
 			<div class="turquoise-line" aria-hidden="true"></div>
-			<p class="section-subtitle">Jajaran Pimpinan SDJNusantara.</p>
+			<p class="section-subtitle">{i18n.pick('Jajaran Pimpinan SDJNusantara.', 'Executive Leadership Team of SDJNusantara.')}</p>
 		</div>
 
 		<!-- Carousel Outer Stage: Navigation buttons sit OUTSIDE the drag wrapper -->

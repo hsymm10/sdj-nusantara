@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
+
 	interface ChipItem {
 		id: string;
 		label: string;
@@ -15,9 +17,9 @@
 </script>
 
 {#if chips.length > 0}
-	<div class="active-chips-wrap" aria-label="Filter aktif">
+	<div class="active-chips-wrap" aria-label={i18n.pick('Filter aktif', 'Active filters')}>
 		<div class="chips-scroll-area">
-			<span class="chips-label">Filter aktif:</span>
+			<span class="chips-label">{i18n.pick('Filter aktif:', 'Active filters:')}</span>
 
 			{#each chips as chip (chip.id + chip.type)}
 				<div class="chip-item">
@@ -26,7 +28,7 @@
 						type="button"
 						class="chip-close-btn"
 						onclick={() => onRemove(chip.id, chip.type)}
-						aria-label="Hapus filter {chip.label}"
+						aria-label={i18n.pick(`Hapus filter ${chip.label}`, `Remove filter ${chip.label}`)}
 					>
 						<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="6" x2="6" y2="18"></line>
@@ -41,7 +43,7 @@
 				class="chip-clear-all-btn"
 				onclick={onClearAll}
 			>
-				Hapus semua
+				{i18n.pick('Hapus semua', 'Clear all')}
 			</button>
 		</div>
 	</div>

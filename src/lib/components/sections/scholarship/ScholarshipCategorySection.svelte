@@ -1,42 +1,79 @@
 <script lang="ts">
+	import { i18n } from '#lib/stores/i18n.svelte';
+
 	interface Props {
 		onSelectCategory?: (cat: string) => void;
 	}
 
 	let { onSelectCategory }: Props = $props();
 
-	const categories = [
-		{
-			categoryName: 'Pemerintah',
-			title: 'Beasiswa Pemerintah',
-			sub: 'Dalam dan luar negeri',
-			icon: 'gov'
-		},
-		{
-			categoryName: 'Universitas',
-			title: 'Beasiswa Universitas',
-			sub: 'Langsung dari kampus dan institusi pendidikan',
-			icon: 'univ'
-		},
-		{
-			categoryName: 'Lembaga Internasional',
-			title: 'Beasiswa Lembaga Internasional',
-			sub: 'Organisasi global dan multilateral',
-			icon: 'intl'
-		},
-		{
-			categoryName: 'Swasta',
-			title: 'Beasiswa Swasta',
-			sub: 'Perusahaan dan organisasi non-pemerintah',
-			icon: 'private'
-		},
-		{
-			categoryName: 'Daerah',
-			title: 'Beasiswa Daerah',
-			sub: 'Pemerintah provinsi, kabupaten, dan kota',
-			icon: 'regional'
-		}
-	];
+	const categories = $derived(
+		i18n.lang === 'en'
+			? [
+					{
+						categoryName: 'Pemerintah',
+						title: 'Government Scholarships',
+						sub: 'Domestic and international',
+						icon: 'gov'
+					},
+					{
+						categoryName: 'Universitas',
+						title: 'University Scholarships',
+						sub: 'Direct from campuses and educational institutions',
+						icon: 'univ'
+					},
+					{
+						categoryName: 'Lembaga Internasional',
+						title: 'International Organization Scholarships',
+						sub: 'Global and multilateral organizations',
+						icon: 'intl'
+					},
+					{
+						categoryName: 'Swasta',
+						title: 'Private Scholarships',
+						sub: 'Corporates and non-governmental organizations',
+						icon: 'private'
+					},
+					{
+						categoryName: 'Daerah',
+						title: 'Regional Scholarships',
+						sub: 'Provincial, regency, and municipal governments',
+						icon: 'regional'
+					}
+				]
+			: [
+					{
+						categoryName: 'Pemerintah',
+						title: 'Beasiswa Pemerintah',
+						sub: 'Dalam dan luar negeri',
+						icon: 'gov'
+					},
+					{
+						categoryName: 'Universitas',
+						title: 'Beasiswa Universitas',
+						sub: 'Langsung dari kampus dan institusi pendidikan',
+						icon: 'univ'
+					},
+					{
+						categoryName: 'Lembaga Internasional',
+						title: 'Beasiswa Lembaga Internasional',
+						sub: 'Organisasi global dan multilateral',
+						icon: 'intl'
+					},
+					{
+						categoryName: 'Swasta',
+						title: 'Beasiswa Swasta',
+						sub: 'Perusahaan dan organisasi non-pemerintah',
+						icon: 'private'
+					},
+					{
+						categoryName: 'Daerah',
+						title: 'Beasiswa Daerah',
+						sub: 'Pemerintah provinsi, kabupaten, dan kota',
+						icon: 'regional'
+					}
+				]
+	);
 
 	function handleCategoryClick(catName: string) {
 		if (onSelectCategory) {
@@ -55,10 +92,10 @@
 		<div class="cat-header">
 			<div class="section-label">
 				<span class="label-dash">—</span>
-				<span class="label-text">Jenis Beasiswa</span>
+				<span class="label-text">{i18n.pick('Jenis Beasiswa', 'Scholarship Types')}</span>
 			</div>
-			<h2 class="section-title">Jelajahi Beasiswa Berdasarkan Kategori</h2>
-			<p class="section-desc">Pilih kategori yang paling sesuai dengan tujuan dan minat Anda.</p>
+			<h2 class="section-title">{i18n.pick('Jelajahi Beasiswa Berdasarkan Kategori', 'Explore Scholarships by Category')}</h2>
+			<p class="section-desc">{i18n.pick('Pilih kategori yang paling sesuai dengan tujuan dan minat Anda.', 'Choose the category that best aligns with your goals and interests.')}</p>
 		</div>
 
 		<!-- 5 Cards in a Single Row (height ±105px, radius ±12px) -->

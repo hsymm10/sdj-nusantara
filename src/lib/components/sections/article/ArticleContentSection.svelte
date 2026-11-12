@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { articlesData, type Article } from '#lib/data/articles';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	interface Props {
 		selectedCategory: string;
@@ -103,14 +104,25 @@
 
 	const pageNumbers = $derived(getPageNumbers(totalPages, currentPage));
 
-	const categoriesList = [
-		{ name: 'Pendidikan', icon: 'education' },
-		{ name: 'Beasiswa', icon: 'scholarship' },
-		{ name: 'Pengembangan Talenta', icon: 'talent' },
-		{ name: 'Keterampilan Digital', icon: 'digital' },
-		{ name: 'Kemitraan', icon: 'partner' },
-		{ name: 'Karier & Profesional', icon: 'career' }
-	];
+	const categoriesList = $derived(
+		i18n.lang === 'en'
+			? [
+					{ name: 'Pendidikan', label: 'Education', icon: 'education' },
+					{ name: 'Beasiswa', label: 'Scholarships', icon: 'scholarship' },
+					{ name: 'Pengembangan Talenta', label: 'Talent Development', icon: 'talent' },
+					{ name: 'Keterampilan Digital', label: 'Digital Skills', icon: 'digital' },
+					{ name: 'Kemitraan', label: 'Partnerships', icon: 'partner' },
+					{ name: 'Karier & Profesional', label: 'Career & Professional', icon: 'career' }
+				]
+			: [
+					{ name: 'Pendidikan', label: 'Pendidikan', icon: 'education' },
+					{ name: 'Beasiswa', label: 'Beasiswa', icon: 'scholarship' },
+					{ name: 'Pengembangan Talenta', label: 'Pengembangan Talenta', icon: 'talent' },
+					{ name: 'Keterampilan Digital', label: 'Keterampilan Digital', icon: 'digital' },
+					{ name: 'Kemitraan', label: 'Kemitraan', icon: 'partner' },
+					{ name: 'Karier & Profesional', label: 'Karier & Profesional', icon: 'career' }
+				]
+	);
 
 	function getCategoryCount(catName: string): number {
 		return articlesData.filter(a => a.kategori === catName).length;
@@ -125,7 +137,7 @@
 		e.preventDefault();
 		newsletterError = '';
 		if (!newsletterEmail || !newsletterEmail.includes('@') || !newsletterEmail.includes('.')) {
-			newsletterError = 'Silakan masukkan alamat email yang valid.';
+			newsletterError = i18n.pick('Silakan masukkan alamat email yang valid.', 'Please enter a valid email address.');
 			return;
 		}
 		// TODO: sambungkan ke layanan email backend
@@ -144,7 +156,7 @@
 					onmouseenter={() => isPaused = true}
 					onmouseleave={() => isPaused = false}
 					role="region"
-					aria-label="Artikel Pilihan Utama"
+					aria-label={i18n.pick('Artikel Pilihan Utama', 'Featured Articles')}
 				>
 					{#if featuredSlides[currentSlide]}
 						{@const slide = featuredSlides[currentSlide]}
@@ -170,7 +182,7 @@
 
 								<div class="slide-action-row">
 									<a href="/artikel/{slide.slug}" class="btn-gold-featured">
-										<span>Baca Selengkapnya</span>
+										<span>{i18n.dict.common.readMore}</span>
 										<span class="btn-arrow">→</span>
 									</a>
 
@@ -210,19 +222,19 @@
 				<div class="latest-section-header">
 					<div class="section-label-dash">
 						<span class="dash">—</span>
-						<span class="label-text">Artikel Terbaru</span>
+						<span class="label-text">{i18n.pick('Artikel Terbaru', 'Latest Articles')}</span>
 					</div>
-					<h2 class="latest-heading">Insight Terbaru untuk Mendukung Perjalanan Pendidikan Anda</h2>
-					<p class="latest-desc">Dapatkan informasi, tips, dan perspektif terbaru dari para ahli kami.</p>
+					<h2 class="latest-heading">{i18n.pick('Insight Terbaru untuk Mendukung Perjalanan Pendidikan Anda', 'Latest Insights to Support Your Educational Journey')}</h2>
+					<p class="latest-desc">{i18n.pick('Dapatkan informasi, tips, dan perspektif terbaru dari para ahli kami.', 'Get the latest updates, practical tips, and perspectives from our experts.')}</p>
 				</div>
 
 				<!-- 3. Grid 3 Kolom x 2 Baris (6 Kartu Bersih) -->
 				<div class="cards-3x2-grid">
 					{#if paginatedArticles.length === 0}
 						<div class="empty-state-box">
-							<p>Tidak ada artikel yang cocok dengan filter atau kata kunci pencarian Anda.</p>
+							<p>{i18n.pick('Tidak ada artikel yang cocok dengan filter atau kata kunci pencarian Anda.', 'No articles match your selected filter or search query.')}</p>
 							<button type="button" class="btn-reset" onclick={() => { onSelectCategory('Semua Artikel'); searchQuery = ''; }}>
-								Tampilkan Semua Artikel
+								{i18n.pick('Tampilkan Semua Artikel', 'Show All Articles')}
 							</button>
 						</div>
 					{:else}
@@ -242,7 +254,7 @@
 									</h3>
 									<p class="card-summary-desc">{item.ringkasan}</p>
 									<a href="/artikel/{item.slug}" class="btn-read-article">
-										<span>Baca Artikel</span>
+										<span>{i18n.pick('Baca Artikel', 'Read Article')}</span>
 										<span class="read-arrow">→</span>
 									</a>
 								</div>
@@ -298,10 +310,10 @@
 					<input
 						type="text"
 						bind:value={searchQuery}
-						placeholder="Cari artikel, topik, atau kata kunci..."
+						placeholder={i18n.pick('Cari artikel, topik, atau kata kunci...', 'Search articles, topics, or keywords...')}
 						class="search-text-input"
 					/>
-					<button type="button" class="btn-search-round" aria-label="Cari">
+					<button type="button" class="btn-search-round" aria-label={i18n.pick('Cari', 'Search')}>
 						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<circle cx="11" cy="11" r="8"></circle>
 							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -311,7 +323,7 @@
 
 				<!-- 2. Kartu Putih Artikel Terpopuler -->
 				<div class="sidebar-card popular-card">
-					<h3 class="sidebar-card-title">Artikel Terpopuler</h3>
+					<h3 class="sidebar-card-title">{i18n.pick('Artikel Terpopuler', 'Popular Articles')}</h3>
 					<div class="popular-list">
 						{#each popularArticles as pop}
 							<a href="/artikel/{pop.slug}" class="popular-item">
@@ -337,24 +349,28 @@
 
 					<div class="nl-content-wrap">
 						<h3 class="nl-title">
-							Dapatkan Artikel<br />
-							Terbaru Langsung<br />
-							di Email Anda
+							{@html i18n.pick('Dapatkan Artikel<br />Terbaru Langsung<br />di Email Anda', 'Get the Latest<br />Articles Directly<br />in Your Inbox')}
 						</h3>
 						<p class="nl-desc">
-							Berlangganan newsletter kami untuk mendapatkan informasi dan wawasan terkini seputar pendidikan.
+							{i18n.pick(
+								'Berlangganan newsletter kami untuk mendapatkan informasi dan wawasan terkini seputar pendidikan.',
+								'Subscribe to our newsletter to receive the latest updates and insights on education.'
+							)}
 						</p>
 
 						{#if newsletterSuccess}
 							<div class="nl-success-box">
-								Terima kasih! Anda telah terdaftar untuk menerima update berkala.
+								{i18n.pick(
+									'Terima kasih! Anda telah terdaftar untuk menerima update berkala.',
+									'Thank you! You are subscribed to receive regular updates.'
+								)}
 							</div>
 						{:else}
 							<form class="nl-form" onsubmit={handleNewsletterSubmit}>
 								<input
 									type="email"
 									bind:value={newsletterEmail}
-									placeholder="Masukkan alamat email..."
+									placeholder={i18n.pick('Masukkan alamat email...', 'Enter your email address...')}
 									class="nl-input-pill"
 									required
 								/>
@@ -362,7 +378,7 @@
 									<p class="nl-error-text">{newsletterError}</p>
 								{/if}
 								<button type="submit" class="btn-nl-submit">
-									<span>Langganan Sekarang</span>
+									<span>{i18n.pick('Langganan Sekarang', 'Subscribe Now')}</span>
 									<span class="btn-arrow">→</span>
 								</button>
 							</form>
@@ -372,7 +388,7 @@
 
 				<!-- 4. Kartu Putih Kategori Artikel -->
 				<div class="sidebar-card categories-card">
-					<h3 class="sidebar-card-title">Kategori Artikel</h3>
+					<h3 class="sidebar-card-title">{i18n.pick('Kategori Artikel', 'Article Categories')}</h3>
 					<div class="categories-list">
 						{#each categoriesList as cat}
 							{@const count = getCategoryCount(cat.name)}
@@ -427,7 +443,7 @@
 											</svg>
 										{/if}
 									</div>
-									<span class="cat-row-name">{cat.name}</span>
+									<span class="cat-row-name">{cat.label}</span>
 								</div>
 								<span class="cat-row-count">{count}</span>
 							</button>

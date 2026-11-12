@@ -1,5 +1,7 @@
 <script lang="ts">
-	import type { ChatMessage } from '#lib/stores/chat.svelte';
+	import { chatStore, type ChatMessage } from '#lib/stores/chat.svelte';
+	import { i18n } from '#lib/stores/i18n.svelte';
+	import { buildWhatsAppUrl } from '#lib/utils/whatsapp';
 
 	interface Props {
 		message: ChatMessage;
@@ -7,15 +9,15 @@
 
 	let { message }: Props = $props();
 
-	// Tokenizer aman untuk merender teks dan tautan allowlist tanpa {@html}
+	// Tokenizer aman untuk merender teks, tautan internal (tanpa prefix '/'), dan WhatsApp dinamis
 	interface SafeToken {
 		type: 'text' | 'link';
 		content: string;
 		href?: string;
 	}
 
-	function parseSafeTokens(rawText: string): SafeToken[] {
-		const allowlistRegex = /(https:\/\/wa\.me\/[0-9]+|mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9._%+-]+@sdjnusantara\.com|\/(?:program|beasiswa|kemitraan|kontak|konsultasi|layanan|tentang-kami))/g;
+	function parseSafeTokens(rawText: string, questionContext: string | null): SafeToken[] {
+		const allowlistRegex = /(https:\/\/wa\.me\/[0-9]+(?:\?[^\s]*)?|(?:WhatsApp\s+)?\+62\s*858-8072-4733|mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9._%+-]+@sdjnusantara\.com|\/(?:layanan\/pendidikan|layanan\/beasiswa|program|beasiswa|kemitraan|kontak|konsultasi|layanan|tentang-kami|artikel|faq))/g;
 
 		const tokens: SafeToken[] = [];
 		let lastIndex = 0;
@@ -33,13 +35,21 @@
 			}
 
 			let href = matchedStr;
-			if (matchedStr.includes('@') && !matchedStr.startsWith('mailto:')) {
+			let displayText = matchedStr;
+
+			if (matchedStr.startsWith('https://wa.me/') || matchedStr.includes('+62')) {
+				href = buildWhatsAppUrl(questionContext, i18n.lang);
+				displayText = matchedStr.startsWith('http') ? i18n.dict.chat.whatsappLabel : matchedStr;
+			} else if (matchedStr.includes('@') && !matchedStr.startsWith('mailto:')) {
 				href = `mailto:${matchedStr}`;
+			} else if (matchedStr.startsWith('/')) {
+				// Revisi 3A: Hapus '/' di teks tampilan tautan internal agar ramah pengguna
+				displayText = i18n.dict.chat.routeLabels[matchedStr] ?? matchedStr.replace(/^\//, '');
 			}
 
 			tokens.push({
 				type: 'link',
-				content: matchedStr,
+				content: displayText,
 				href
 			});
 
@@ -58,20 +68,25 @@
 
 	// Pisahkan baris pertama sebagai headline tebal untuk bubble bot jika ada multi-baris
 	let parsedMessage = $derived.by(() => {
+		const effectiveText =
+			message.id === 'msg_welcome' ? i18n.dict.chat.welcomeMessage : message.text;
+		const questionContext =
+			message.role === 'bot' ? chatStore.getQuestionBeforeMessage(message.id) : null;
+
 		if (message.role === 'bot') {
-			const newlineIdx = message.text.indexOf('\n');
+			const newlineIdx = effectiveText.indexOf('\n');
 			if (newlineIdx !== -1) {
-				const headline = message.text.substring(0, newlineIdx).trim();
-				const body = message.text.substring(newlineIdx + 1).trim();
+				const headline = effectiveText.substring(0, newlineIdx).trim();
+				const body = effectiveText.substring(newlineIdx + 1).trim();
 				return {
 					headline,
-					bodyTokens: parseSafeTokens(body)
+					bodyTokens: parseSafeTokens(body, questionContext)
 				};
 			}
 		}
 		return {
 			headline: '',
-			bodyTokens: parseSafeTokens(message.text)
+			bodyTokens: parseSafeTokens(effectiveText, questionContext)
 		};
 	});
 </script>
