@@ -72,23 +72,7 @@ export const leadersData = [
 		],
 		isPlaceholder: false
 	},
-	{
-		id: 'kadiv-training',
-		nama: 'Nama Kepala Divisi Training & Certification',
-		jabatan: 'Kepala Divisi Training & Certification',
-		jabatanDetail: 'Kepala Divisi Training, Certification & Standarisasi Kompetensi',
-		foto: '/images/leaders/leader-5.webp?v=2',
-		fotoAlt: 'Potret Kepala Divisi Training & Certification SDJNusantara',
-		profilSingkat:
-			'Memimpin standarisasi silabus pelatihan profesional, akreditasi sertifikasi kompetensi, serta kesiapan kerja praktis talenta.',
-		pendidikan: 'Sarjana / Magister Teknik Informatika / Manajemen Sistem',
-		pengalaman: [
-			'Pengembangan modul bootcamp dan sertifikasi berstandar industri',
-			'Uji kompetensi dan integrasi lembaga sertifikasi profesi',
-			'Evaluasi pencapaian kompetensi lulusan pelatihan'
-		],
-		isPlaceholder: true
-	}
+
 ];
 
 if (leadersData.some((leader) => leader.isPlaceholder)) {
