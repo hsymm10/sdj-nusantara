@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 </script>
 
 <section class="struktur-section" id="struktur">
@@ -11,22 +11,35 @@
 		<div class="struktur-grid">
 			<!-- Left Column: Heading, Desc, CTA -->
 			<div class="struktur-left">
-				<div class="section-label">{i18n.pick('— Struktur Organisasi', '— Organizational Structure')}</div>
+				<div class="section-label">
+					{i18n.pick(
+						"— Struktur Organisasi",
+						"— Organizational Structure",
+					)}
+				</div>
 
 				<h2 class="struktur-title">
-					{i18n.pick('Didukung oleh Tim', 'Supported by a')}<br />
-					{i18n.pick('Profesional & Berpengalaman', 'Professional & Experienced Team')}
+					{i18n.pick("Didukung oleh Tim", "Supported by a")}<br />
+					{i18n.pick(
+						"Profesional & Berpengalaman",
+						"Professional & Experienced Team",
+					)}
 				</h2>
 
 				<p class="struktur-desc">
 					{i18n.pick(
-						'Tim kami terdiri dari para ahli di bidang pendidikan, pengembangan talenta, dan manajemen program yang siap memberikan solusi terbaik.',
-						'Our team comprises specialists in education, talent development, and program management ready to deliver optimal solutions.'
+						"Tim kami terdiri dari para ahli di bidang pendidikan, pengembangan talenta, dan manajemen program yang siap memberikan solusi terbaik.",
+						"Our team comprises specialists in education, talent development, and program management ready to deliver optimal solutions.",
 					)}
 				</p>
 
 				<a href="#kontak" class="btn-gold">
-					<span>{i18n.pick('Lihat Struktur Lengkap', 'View Full Structure')}</span>
+					<span
+						>{i18n.pick(
+							"Lihat Struktur Lengkap",
+							"View Full Structure",
+						)}</span
+					>
 					<span class="btn-arrow">→</span>
 				</a>
 			</div>
@@ -36,7 +49,9 @@
 			<div class="chart-wrapper">
 				<!-- Top Node: Direktur Utama -->
 				<div class="chart-top">
-					<div class="node-root">{i18n.pick('Direktur Utama', 'Managing Director')}</div>
+					<div class="node-root">
+						{i18n.pick("Direktur Utama", "Managing Director")}
+					</div>
 				</div>
 
 				<!-- Connectors: satu garis vertikal turun ke garis horizontal lalu cabang 5 -->
@@ -57,72 +72,175 @@
 					<!-- Divisi 1 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#00A6B2"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+								></path>
 								<circle cx="9" cy="7" r="4"></circle>
 								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
 								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 							</svg>
 						</div>
-						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
-						<span class="divisi-name">{i18n.pick('Program & Pengembangan', 'Programs & Development')}</span>
+						<span class="divisi-prefix"
+							>{i18n.pick("Divisi", "Division")}</span
+						>
+						<span class="divisi-name"
+							>{i18n.pick(
+								"Program & Pengembangan",
+								"Programs & Development",
+							)}</span
+						>
 					</div>
 
 					<!-- Divisi 2 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<path d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-1.6-1.6a2 2 0 0 0-2.8 0L13 11.6"></path>
-								<path d="m13 11.6-2-2a1 1 0 0 0-1.4 0L3 16.2a2 2 0 0 0 0 2.8l1.6 1.6a2 2 0 0 0 2.8 0l3.6-3.6"></path>
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#00A6B2"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-1.6-1.6a2 2 0 0 0-2.8 0L13 11.6"
+								></path>
+								<path
+									d="m13 11.6-2-2a1 1 0 0 0-1.4 0L3 16.2a2 2 0 0 0 0 2.8l1.6 1.6a2 2 0 0 0 2.8 0l3.6-3.6"
+								></path>
 							</svg>
 						</div>
-						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
-						<span class="divisi-name">{i18n.pick('Kemitraan & Kolaborasi', 'Partnerships & Collaboration')}</span>
+						<span class="divisi-prefix"
+							>{i18n.pick("Divisi", "Division")}</span
+						>
+						<span class="divisi-name"
+							>{i18n.pick(
+								"Kemitraan & Kolaborasi",
+								"Partnerships & Collaboration",
+							)}</span
+						>
 					</div>
 
 					<!-- Divisi 3 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#00A6B2"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
 								<circle cx="12" cy="12" r="5"></circle>
 								<line x1="12" y1="1" x2="12" y2="3"></line>
 								<line x1="12" y1="21" x2="12" y2="23"></line>
-								<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-								<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+								<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"
+								></line>
+								<line
+									x1="18.36"
+									y1="18.36"
+									x2="19.78"
+									y2="19.78"
+								></line>
 								<line x1="1" y1="12" x2="3" y2="12"></line>
 								<line x1="21" y1="12" x2="23" y2="12"></line>
-								<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-								<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+								<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"
+								></line>
+								<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"
+								></line>
 							</svg>
 						</div>
-						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
-						<span class="divisi-name">{i18n.pick('Riset & Inovasi', 'Research & Innovation')}</span>
+						<span class="divisi-prefix"
+							>{i18n.pick("Divisi", "Division")}</span
+						>
+						<span class="divisi-name"
+							>{i18n.pick(
+								"Riset & Inovasi",
+								"Research & Innovation",
+							)}</span
+						>
 					</div>
 
 					<!-- Divisi 4 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#00A6B2"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<rect
+									x="4"
+									y="2"
+									width="16"
+									height="20"
+									rx="2"
+									ry="2"
+								></rect>
 								<line x1="8" y1="6" x2="16" y2="6"></line>
 								<line x1="8" y1="10" x2="16" y2="10"></line>
 								<line x1="8" y1="14" x2="12" y2="14"></line>
 							</svg>
 						</div>
-						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
-						<span class="divisi-name">{i18n.pick('Administrasi & Operasional', 'Administration & Operations')}</span>
+						<span class="divisi-prefix"
+							>{i18n.pick("Divisi", "Division")}</span
+						>
+						<span class="divisi-name"
+							>{i18n.pick(
+								"Administrasi & Operasional",
+								"Administration & Operations",
+							)}</span
+						>
 					</div>
 
 					<!-- Divisi 5 -->
 					<div class="divisi-card">
 						<div class="divisi-icon">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#00A6B2"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<rect
+									x="2"
+									y="3"
+									width="20"
+									height="14"
+									rx="2"
+									ry="2"
+								></rect>
 								<line x1="8" y1="21" x2="16" y2="21"></line>
 								<line x1="12" y1="17" x2="12" y2="21"></line>
 							</svg>
 						</div>
-						<span class="divisi-prefix">{i18n.pick('Divisi', 'Division')}</span>
+						<span class="divisi-prefix"
+							>{i18n.pick("Divisi", "Division")}</span
+						>
 						<span class="divisi-name">Digital Learning</span>
 					</div>
 				</div>
@@ -134,13 +252,13 @@
 <style>
 	.struktur-section {
 		position: relative;
-		background: #FFFFFF;
+		background: #ffffff;
 		height: 252px;
 		display: flex;
 		align-items: center;
 		overflow: hidden;
 		box-sizing: border-box;
-		border-bottom: 1px solid #EAF0F6;
+		border-bottom: 1px solid #eaf0f6;
 	}
 
 	.bg-decor-left {
@@ -149,7 +267,11 @@
 		top: 0;
 		bottom: 0;
 		width: 120px;
-		background: radial-gradient(circle at 0% 50%, rgba(0, 166, 178, 0.05) 0%, transparent 70%);
+		background: radial-gradient(
+			circle at 0% 50%,
+			rgba(0, 166, 178, 0.05) 0%,
+			transparent 70%
+		);
 		pointer-events: none;
 	}
 
@@ -159,7 +281,11 @@
 		top: 0;
 		bottom: 0;
 		width: 120px;
-		background: radial-gradient(circle at 100% 50%, rgba(0, 166, 178, 0.05) 0%, transparent 70%);
+		background: radial-gradient(
+			circle at 100% 50%,
+			rgba(0, 166, 178, 0.05) 0%,
+			transparent 70%
+		);
 		pointer-events: none;
 	}
 
@@ -195,7 +321,7 @@
 	.section-label {
 		font-size: 13px;
 		font-weight: 600;
-		color: #00A6B2;
+		color: #00a6b2;
 		margin-bottom: 0.3rem;
 		letter-spacing: 0;
 	}
@@ -222,8 +348,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		background: #F5B331;
-		color: #071D36;
+		background: #f5b331;
+		color: #071d36;
 		padding: 7px 18px;
 		font-size: 11px;
 		font-weight: 700;
@@ -259,7 +385,7 @@
 
 	.node-root {
 		background: #082442;
-		color: #FFFFFF;
+		color: #ffffff;
 		font-size: 11.5px;
 		font-weight: 700;
 		padding: 5px 22px;
@@ -270,7 +396,7 @@
 	.tree-line-v {
 		width: 1.5px;
 		height: 12px;
-		background: #CBD5E1;
+		background: #cbd5e1;
 	}
 
 	.tree-connector-grid {
@@ -285,7 +411,7 @@
 		left: 0;
 		right: 0;
 		height: 1.5px;
-		background: #CBD5E1;
+		background: #cbd5e1;
 	}
 
 	.tree-branches {
@@ -298,7 +424,7 @@
 	.b-line {
 		width: 1.5px;
 		height: 12px;
-		background: #CBD5E1;
+		background: #cbd5e1;
 	}
 
 	/* 5 Division Cards */
@@ -310,7 +436,7 @@
 	}
 
 	.divisi-card {
-		background: #FFFFFF;
+		background: #ffffff;
 		border: 1px solid rgba(226, 232, 240, 0.9);
 		border-radius: 10px;
 		padding: 0.75rem 0.5rem;
@@ -337,7 +463,7 @@
 	.divisi-prefix {
 		font-size: 8.5px;
 		font-weight: 600;
-		color: #64748B;
+		color: #64748b;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 	}

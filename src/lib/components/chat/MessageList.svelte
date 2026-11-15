@@ -61,6 +61,7 @@
 <div
 	bind:this={scrollContainer}
 	class="message-list-container"
+	data-lenis-prevent
 	onscroll={handleScroll}
 	role="log"
 	aria-live="polite"

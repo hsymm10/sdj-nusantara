@@ -139,6 +139,7 @@
 		<div
 			bind:this={modalEl}
 			class="modal-panel"
+			data-lenis-prevent
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="leader-modal-title"

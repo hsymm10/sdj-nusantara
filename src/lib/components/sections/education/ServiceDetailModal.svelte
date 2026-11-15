@@ -65,6 +65,7 @@ git
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div
 			class="modal-container"
+			data-lenis-prevent
 			role="document"
 			tabindex="-1"
 			onclick={(e) => e.stopPropagation()}
