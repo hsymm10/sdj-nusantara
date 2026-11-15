@@ -1,13 +1,17 @@
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 </script>
 
 <div class="stats-wrapper">
 	<div class="stats-card">
 		<!-- Target Program Label: 2 baris teks tebal yang sama sesuai mockup -->
 		<div class="stats-heading">
-			<span class="heading-line-bold">{i18n.pick('Target Program', 'Program Targets')}</span>
-			<span class="heading-line-bold">{i18n.pick('Tahun 2027', 'Year 2027')}</span>
+			<span class="heading-line-bold"
+				>{i18n.pick("Target Program", "Program Targets")}</span
+			>
+			<span class="heading-line-bold"
+				>{i18n.pick("Tahun 2027", "Year 2027")}</span
+			>
 		</div>
 
 		<!-- Divider 1 -->
@@ -17,7 +21,16 @@
 		<div class="stat-block">
 			<div class="stat-icon-wrap">
 				<!-- People group outline turquoise ±34px -->
-				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="34"
+					height="34"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="#00A6B2"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
 					<circle cx="9" cy="7" r="4"></circle>
 					<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -27,8 +40,15 @@
 			<div class="stat-details">
 				<span class="stat-num">200+</span>
 				<div class="stat-label">
-					<span class="stat-line">{i18n.pick('Individu Pemetaan', 'Talent Mapping')}</span>
-					<span class="stat-line">{i18n.pick('Talenta', 'Individuals')}</span>
+					<span class="stat-line"
+						>{i18n.pick(
+							"Individu Pemetaan",
+							"Talent Mapping",
+						)}</span
+					>
+					<span class="stat-line"
+						>{i18n.pick("Talenta", "Individuals")}</span
+					>
 				</div>
 			</div>
 		</div>
@@ -40,8 +60,18 @@
 		<div class="stat-block">
 			<div class="stat-icon-wrap">
 				<!-- Calendar grid outline turquoise ±34px -->
-				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-					<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+				<svg
+					width="34"
+					height="34"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="#00A6B2"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+					></rect>
 					<line x1="16" y1="2" x2="16" y2="6"></line>
 					<line x1="8" y1="2" x2="8" y2="6"></line>
 					<line x1="3" y1="10" x2="21" y2="10"></line>
@@ -56,8 +86,15 @@
 			<div class="stat-details">
 				<span class="stat-num">30</span>
 				<div class="stat-label">
-					<span class="stat-line">{i18n.pick('Kegiatan Sosialisasi', 'Scholarship Outreach')}</span>
-					<span class="stat-line">{i18n.pick('Beasiswa', 'Events')}</span>
+					<span class="stat-line"
+						>{i18n.pick(
+							"Kegiatan Sosialisasi",
+							"Scholarship Outreach",
+						)}</span
+					>
+					<span class="stat-line"
+						>{i18n.pick("Beasiswa", "Events")}</span
+					>
 				</div>
 			</div>
 		</div>
@@ -69,7 +106,16 @@
 		<div class="stat-block">
 			<div class="stat-icon-wrap">
 				<!-- Graduation Cap outline turquoise ±34px -->
-				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="34"
+					height="34"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="#00A6B2"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
 					<path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
 				</svg>
@@ -77,8 +123,15 @@
 			<div class="stat-details">
 				<span class="stat-num">100</span>
 				<div class="stat-label">
-					<span class="stat-line">{i18n.pick('Peserta Coaching', 'Intensive Coaching')}</span>
-					<span class="stat-line">{i18n.pick('Intensif', 'Participants')}</span>
+					<span class="stat-line"
+						>{i18n.pick(
+							"Peserta Coaching",
+							"Intensive Coaching",
+						)}</span
+					>
+					<span class="stat-line"
+						>{i18n.pick("Intensif", "Participants")}</span
+					>
 				</div>
 			</div>
 		</div>
@@ -90,17 +143,38 @@
 		<div class="stat-block">
 			<div class="stat-icon-wrap">
 				<!-- Globe outline turquoise ±34px -->
-				<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="34"
+					height="34"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="#00A6B2"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<circle cx="12" cy="12" r="10"></circle>
 					<line x1="2" y1="12" x2="22" y2="12"></line>
-					<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+					<path
+						d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+					></path>
 				</svg>
 			</div>
 			<div class="stat-details">
 				<span class="stat-num">50+</span>
 				<div class="stat-label">
-					<span class="stat-line">{i18n.pick('Mitra Strategis', 'Strategic Partners')}</span>
-					<span class="stat-line">{i18n.pick('Dalam & Luar Negeri', 'Domestic & Global')}</span>
+					<span class="stat-line"
+						>{i18n.pick(
+							"Mitra Strategis",
+							"Strategic Partners",
+						)}</span
+					>
+					<span class="stat-line"
+						>{i18n.pick(
+							"Dalam & Luar Negeri",
+							"Domestic & Global",
+						)}</span
+					>
 				</div>
 			</div>
 		</div>
@@ -109,8 +183,21 @@
 		<div class="stat-divider"></div>
 
 		<!-- Action Circle Arrow Button: lingkaran putih ±24px dengan ikon panah turquoise dan bayangan lembut -->
-		<a href="/layanan/pendidikan#program" class="stat-action-btn" aria-label={i18n.pick('Lihat Program', 'View Programs')}>
-			<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+		<a
+			href="/layanan/pendidikan#program"
+			class="stat-action-btn"
+			aria-label={i18n.pick("Lihat Program", "View Programs")}
+		>
+			<svg
+				width="12"
+				height="12"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="#079EAD"
+				stroke-width="2.2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
 				<line x1="5" y1="12" x2="19" y2="12"></line>
 				<polyline points="12 5 19 12 12 19"></polyline>
 			</svg>
@@ -131,7 +218,7 @@
 	}
 
 	.stats-card {
-		background: #FFFFFF;
+		background: #ffffff;
 		border-radius: 20px;
 		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
 		border: 1px solid rgba(226, 232, 240, 0.9);
@@ -162,7 +249,7 @@
 	.stat-divider {
 		width: 1px;
 		height: 38px;
-		background: #E2E8F0;
+		background: #e2e8f0;
 		flex-shrink: 0;
 	}
 
@@ -214,8 +301,8 @@
 		width: 30px;
 		height: 30px;
 		border-radius: 50%;
-		border: 1px solid #E2E8F0;
-		background: #FFFFFF;
+		border: 1px solid #e2e8f0;
+		background: #ffffff;
 		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.1);
 		display: flex;
 		align-items: center;
@@ -226,12 +313,12 @@
 	}
 
 	.stat-action-btn:hover {
-		background: #079EAD;
-		border-color: #079EAD;
+		background: #079ead;
+		border-color: #079ead;
 	}
 
 	.stat-action-btn:hover svg {
-		stroke: #FFFFFF !important;
+		stroke: #ffffff !important;
 	}
 
 	@media (max-width: 1180px) {
@@ -249,7 +336,7 @@
 		}
 		.stats-heading {
 			grid-column: 1 / -1;
-			border-bottom: 1px solid #DCE6EE;
+			border-bottom: 1px solid #dce6ee;
 			padding-bottom: 0.75rem;
 			flex-direction: row;
 			gap: 0.5rem;

@@ -1,38 +1,38 @@
 <!-- Section 03: Tentang SDJNusantara (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	const pillars = $derived([
 		{
-			id: 'terintegrasi',
-			title: i18n.pick('Pendidikan Terintegrasi', 'Integrated Education'),
+			id: "terintegrasi",
+			title: i18n.pick("Pendidikan Terintegrasi", "Integrated Education"),
 			active: false,
-			icon: 'grad'
+			icon: "grad",
 		},
 		{
-			id: 'terarah',
-			title: i18n.pick('Pendampingan Terarah', 'Targeted Mentoring'),
+			id: "terarah",
+			title: i18n.pick("Pendampingan Terarah", "Targeted Mentoring"),
 			active: false,
-			icon: 'users'
+			icon: "users",
 		},
 		{
-			id: 'aplikatif',
-			title: i18n.pick('Program Aplikatif', 'Practical Programs'),
+			id: "aplikatif",
+			title: i18n.pick("Program Aplikatif", "Practical Programs"),
 			active: true,
-			icon: 'chart'
+			icon: "chart",
 		},
 		{
-			id: 'kolaborasi',
-			title: i18n.pick('Jaringan Kolaborasi', 'Collaborative Network'),
+			id: "kolaborasi",
+			title: i18n.pick("Jaringan Kolaborasi", "Collaborative Network"),
 			active: false,
-			icon: 'nodes'
+			icon: "nodes",
 		},
 		{
-			id: 'transparansi',
-			title: i18n.pick('Etika & Transparansi', 'Ethics & Transparency'),
+			id: "transparansi",
+			title: i18n.pick("Etika & Transparansi", "Ethics & Transparency"),
 			active: false,
-			icon: 'shield'
-		}
+			icon: "shield",
+		},
 	]);
 </script>
 
@@ -51,13 +51,32 @@
 	<!-- Background Decor: Bottom Cyan Flowing Wave -->
 	<div class="bottom-cyan-wave" aria-hidden="true">
 		<svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none">
-			<path d="M0,40 C320,80 600,25 920,62 C1180,92 1340,55 1440,35 L1440,90 L0,90 Z" fill="url(#cyanWaveGrad)" />
-			<path d="M0,58 C360,92 680,45 1040,78 C1260,98 1380,72 1440,60 L1440,90 L0,90 Z" fill="#E8FAF9" opacity="0.7" />
+			<path
+				d="M0,40 C320,80 600,25 920,62 C1180,92 1340,55 1440,35 L1440,90 L0,90 Z"
+				fill="url(#cyanWaveGrad)"
+			/>
+			<path
+				d="M0,58 C360,92 680,45 1040,78 C1260,98 1380,72 1440,60 L1440,90 L0,90 Z"
+				fill="#E8FAF9"
+				opacity="0.7"
+			/>
 			<defs>
 				<linearGradient id="cyanWaveGrad" x1="0" y1="0" x2="1" y2="0">
-					<stop offset="0%" stop-color="#24CBD8" stop-opacity="0.45" />
-					<stop offset="50%" stop-color="#64E0EA" stop-opacity="0.32" />
-					<stop offset="100%" stop-color="#D7F6F8" stop-opacity="0.18" />
+					<stop
+						offset="0%"
+						stop-color="#24CBD8"
+						stop-opacity="0.45"
+					/>
+					<stop
+						offset="50%"
+						stop-color="#64E0EA"
+						stop-opacity="0.32"
+					/>
+					<stop
+						offset="100%"
+						stop-color="#D7F6F8"
+						stop-opacity="0.18"
+					/>
 				</linearGradient>
 			</defs>
 		</svg>
@@ -68,22 +87,52 @@
 		<div class="about-left-col">
 			<div class="section-badge">
 				<span class="badge-dash"></span>
-				<span class="badge-text">{i18n.pick('Tentang SDJNusantara', 'About SDJNusantara')}</span>
+				<span class="badge-text"
+					>{i18n.pick(
+						"Tentang SDJNusantara",
+						"About SDJNusantara",
+					)}</span
+				>
 			</div>
 			<h2 class="about-title">
-				{i18n.pick('Menjembatani Potensi', 'Bridging Potential')}
-				<span class="title-line">{i18n.pick('dengan', 'with')} <span class="highlight-cyan">{i18n.pick('Peluang', 'Education &')}</span></span>
-				<span class="highlight-gold title-line">{i18n.pick('Pendidikan & Karier', 'Career Opportunities')}</span>
+				{i18n.pick("Menjembatani Potensi", "Bridging Potential")}
+				<span class="title-line"
+					>{i18n.pick("dengan", "with")}
+					<span class="highlight-cyan"
+						>{i18n.pick("Peluang", "Education &")}</span
+					></span
+				>
+				<span class="highlight-gold title-line"
+					>{i18n.pick(
+						"Pendidikan & Karier",
+						"Career Opportunities",
+					)}</span
+				>
 			</h2>
 			<p class="about-desc">
 				{i18n.pick(
-					'SDJNusantara hadir untuk memperluas akses, membangun kompetensi, dan menghubungkan individu dengan peluang terbaik di dunia pendidikan dan dunia kerja.',
-					'SDJNusantara exists to expand access, build competencies, and connect individuals with top opportunities in education and the workplace.'
+					"SDJNusantara hadir untuk memperluas akses, membangun kompetensi, dan menghubungkan individu dengan peluang terbaik di dunia pendidikan dan dunia kerja.",
+					"SDJNusantara exists to expand access, build competencies, and connect individuals with top opportunities in education and the workplace.",
 				)}
 			</p>
 			<a href="/tentang-kami" class="about-cta-btn">
-				<span>{i18n.pick('Selengkapnya Tentang Kami', 'More About Us')}</span>
-				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<span
+					>{i18n.pick(
+						"Selengkapnya Tentang Kami",
+						"More About Us",
+					)}</span
+				>
+				<svg
+					width="15"
+					height="15"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
 					<line x1="5" y1="12" x2="19" y2="12" />
 					<polyline points="12 5 19 12 12 19" />
 				</svg>
@@ -93,8 +142,19 @@
 		<!-- Kolom 2 — Daftar Keunggulan (Tengah: 30%) -->
 		<div class="about-mid-col">
 			<!-- Arc curve dekoratif di sebelah kiri pills -->
-			<svg class="pill-arc-svg" viewBox="0 0 38 270" fill="none" aria-hidden="true">
-				<path d="M 32 14 C 2 78, 2 192, 32 256" stroke="#22CBD8" stroke-width="1.8" stroke-linecap="round" fill="none" />
+			<svg
+				class="pill-arc-svg"
+				viewBox="0 0 38 270"
+				fill="none"
+				aria-hidden="true"
+			>
+				<path
+					d="M 32 14 C 2 78, 2 192, 32 256"
+					stroke="#22CBD8"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					fill="none"
+				/>
 				<circle cx="32" cy="14" r="3" fill="#A4EEF3" />
 				<circle cx="15" cy="74" r="3.5" fill="#00AAB5" />
 				<circle cx="9" cy="135" r="4.2" fill="#00AAB5" />
@@ -106,36 +166,100 @@
 				{#each pillars as p}
 					<div class="pillar-card {p.active ? 'active-pillar' : ''}">
 						<div class="pillar-icon-box">
-							{#if p.icon === 'grad'}
-								<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							{#if p.icon === "grad"}
+								<svg
+									width="19"
+									height="19"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.1"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
 									<path d="M12 3L2 8l10 5 10-5-10-5z" />
 									<path d="M2 8v6" />
 									<path d="M6 10.5v5a6 6 0 0 0 12 0v-5" />
 								</svg>
-							{:else if p.icon === 'users'}
-								<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+							{:else if p.icon === "users"}
+								<svg
+									width="19"
+									height="19"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.1"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path
+										d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+									/>
 									<circle cx="9" cy="7" r="4" />
 									<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
 									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
 								</svg>
-							{:else if p.icon === 'chart'}
-								<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							{:else if p.icon === "chart"}
+								<svg
+									width="19"
+									height="19"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
 									<line x1="18" y1="20" x2="18" y2="10" />
 									<line x1="12" y1="20" x2="12" y2="4" />
 									<line x1="6" y1="20" x2="6" y2="14" />
 								</svg>
-							{:else if p.icon === 'nodes'}
-								<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							{:else if p.icon === "nodes"}
+								<svg
+									width="19"
+									height="19"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.1"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
 									<circle cx="18" cy="5" r="3" />
 									<circle cx="6" cy="12" r="3" />
 									<circle cx="18" cy="19" r="3" />
-									<line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-									<line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+									<line
+										x1="8.59"
+										y1="13.51"
+										x2="15.42"
+										y2="17.49"
+									/>
+									<line
+										x1="15.41"
+										y1="6.51"
+										x2="8.59"
+										y2="10.49"
+									/>
 								</svg>
-							{:else if p.icon === 'shield'}
-								<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+							{:else if p.icon === "shield"}
+								<svg
+									width="19"
+									height="19"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.1"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path
+										d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+									/>
 									<path d="M9 12l2 2 4-4" />
 								</svg>
 							{/if}
@@ -152,14 +276,31 @@
 				<!-- Floating Badge: Dedikasi untuk Talenta Indonesia -->
 				<div class="floating-badge">
 					<div class="badge-sparkles" aria-hidden="true">
-						<svg width="22" height="18" viewBox="0 0 24 20" fill="none">
-							<path d="M12 2V6M5 6L8 9M19 6L16 9" stroke="#FFB923" stroke-width="2.2" stroke-linecap="round" />
+						<svg
+							width="22"
+							height="18"
+							viewBox="0 0 24 20"
+							fill="none"
+						>
+							<path
+								d="M12 2V6M5 6L8 9M19 6L16 9"
+								stroke="#FFB923"
+								stroke-width="2.2"
+								stroke-linecap="round"
+							/>
 						</svg>
 					</div>
 					<div class="badge-icon" aria-hidden="true">
 						<!-- Laurel wreath -->
-						<svg width="28" height="28" viewBox="0 0 48 48" fill="#FFB51B">
-							<path d="M16.5 39.5c-4.8-3.4-7.5-8.8-7.5-14.7 0-4.8 1.8-9.3 5.1-12.8l2.1 2.1c-2.8 2.9-4.2 6.8-4.2 10.7 0 5 2.3 9.6 6.3 12.5l-1.8 2.2zm15 0l-1.8-2.2c4-2.9 6.3-7.5 6.3-12.5 0-3.9-1.4-7.8-4.2-10.7l2.1-2.1c3.3 3.5 5.1 8 5.1 12.8 0 5.9-2.7 11.3-7.5 14.7z" />
+						<svg
+							width="28"
+							height="28"
+							viewBox="0 0 48 48"
+							fill="#FFB51B"
+						>
+							<path
+								d="M16.5 39.5c-4.8-3.4-7.5-8.8-7.5-14.7 0-4.8 1.8-9.3 5.1-12.8l2.1 2.1c-2.8 2.9-4.2 6.8-4.2 10.7 0 5 2.3 9.6 6.3 12.5l-1.8 2.2zm15 0l-1.8-2.2c4-2.9 6.3-7.5 6.3-12.5 0-3.9-1.4-7.8-4.2-10.7l2.1-2.1c3.3 3.5 5.1 8 5.1 12.8 0 5.9-2.7 11.3-7.5 14.7z"
+							/>
 							<circle cx="11" cy="22" r="3" />
 							<circle cx="14" cy="15" r="2.8" />
 							<circle cx="20" cy="10" r="2.5" />
@@ -187,9 +328,21 @@
 						loading="eager"
 					/>
 					<!-- Aksen lengkung kuning dan teal pada bagian kanan bawah gambar -->
-					<svg class="bldg-corner-swoosh" viewBox="0 0 160 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M0 120 C50 115 110 95 160 30 V120 H0 Z" fill="#FFB923" />
-						<path d="M45 120 C90 116 130 98 160 60 V120 H45 Z" fill="#00AAB5" />
+					<svg
+						class="bldg-corner-swoosh"
+						viewBox="0 0 160 120"
+						fill="none"
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M0 120 C50 115 110 95 160 30 V120 H0 Z"
+							fill="#FFB923"
+						/>
+						<path
+							d="M45 120 C90 116 130 98 160 60 V120 H45 Z"
+							fill="#00AAB5"
+						/>
 					</svg>
 				</div>
 			</div>
@@ -200,7 +353,7 @@
 <style>
 	.about-section {
 		position: relative;
-		background: #FFFFFF;
+		background: #ffffff;
 		padding: 72px 0 86px;
 		width: 100%;
 		overflow: hidden;
@@ -214,7 +367,11 @@
 		left: -120px;
 		width: 320px;
 		height: 320px;
-		background: radial-gradient(circle, rgba(0, 170, 181, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+		background: radial-gradient(
+			circle,
+			rgba(0, 170, 181, 0.12) 0%,
+			rgba(255, 255, 255, 0) 70%
+		);
 		border-radius: 50%;
 		pointer-events: none;
 		z-index: 0;
@@ -235,7 +392,7 @@
 		width: 5px;
 		height: 5px;
 		border-radius: 50%;
-		background: #00AAB5;
+		background: #00aab5;
 		opacity: 0.42;
 	}
 
@@ -245,7 +402,11 @@
 		right: -60px;
 		width: 420px;
 		height: 420px;
-		background: radial-gradient(circle, rgba(255, 185, 35, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+		background: radial-gradient(
+			circle,
+			rgba(255, 185, 35, 0.1) 0%,
+			rgba(255, 255, 255, 0) 70%
+		);
 		border-radius: 50%;
 		pointer-events: none;
 		z-index: 0;
@@ -297,12 +458,12 @@
 	.badge-dash {
 		width: 18px;
 		height: 3px;
-		background: #00AAB5;
+		background: #00aab5;
 		border-radius: 2px;
 	}
 
 	.badge-text {
-		color: #00AAB5;
+		color: #00aab5;
 		font-size: 13px;
 		font-weight: 700;
 		letter-spacing: 0.02em;
@@ -311,7 +472,7 @@
 	.about-title {
 		font-size: clamp(24px, 2.25vw, 31px);
 		font-weight: 800;
-		color: #0B2948;
+		color: #0b2948;
 		line-height: 1.25;
 		margin: 0 0 16px;
 		letter-spacing: -0.015em;
@@ -322,11 +483,11 @@
 	}
 
 	.highlight-cyan {
-		color: #00AAB5;
+		color: #00aab5;
 	}
 
 	.highlight-gold {
-		color: #FFB923;
+		color: #ffb923;
 	}
 
 	.about-desc {
@@ -342,8 +503,8 @@
 		align-items: center;
 		gap: 9px;
 		padding: 12px 24px;
-		background: #FFB923;
-		color: #0B2948;
+		background: #ffb923;
+		color: #0b2948;
 		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 9px;
@@ -389,8 +550,8 @@
 		align-items: center;
 		gap: 13px;
 		padding: 7px 18px 7px 8px;
-		background: #FFFFFF;
-		border: 1px solid #E2E8F0;
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
 		border-radius: 9999px;
 		box-shadow: 0 3px 10px rgba(11, 41, 72, 0.04);
 		transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
@@ -399,12 +560,12 @@
 	.pillar-card:hover {
 		transform: translateX(4px);
 		box-shadow: 0 6px 16px rgba(0, 170, 181, 0.12);
-		border-color: #00AAB5;
+		border-color: #00aab5;
 	}
 
 	.active-pillar {
-		background: linear-gradient(90deg, #E2F9FA 0%, #D8F7F9 100%);
-		border: 1.5px solid #00AAB5;
+		background: linear-gradient(90deg, #e2f9fa 0%, #d8f7f9 100%);
+		border: 1.5px solid #00aab5;
 		box-shadow: 0 4px 16px rgba(0, 170, 181, 0.16);
 	}
 
@@ -412,9 +573,9 @@
 		width: 36px;
 		height: 36px;
 		border-radius: 50%;
-		background: #F4F8FA;
-		border: 1px solid #E5EBF2;
-		color: #0B2948;
+		background: #f4f8fa;
+		border: 1px solid #e5ebf2;
+		color: #0b2948;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -423,16 +584,16 @@
 	}
 
 	.active-pillar .pillar-icon-box {
-		background: #FFFFFF;
+		background: #ffffff;
 		border-color: transparent;
-		color: #00AAB5;
+		color: #00aab5;
 		box-shadow: 0 2px 8px rgba(0, 170, 181, 0.15);
 	}
 
 	.pillar-title {
 		font-size: 13.5px;
 		font-weight: 700;
-		color: #0B2948;
+		color: #0b2948;
 		line-height: 1.3;
 	}
 
@@ -456,10 +617,10 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
-		background: #FFFFFF;
+		background: #ffffff;
 		padding: 7px 18px 7px 12px;
 		border-radius: 9999px;
-		border: 1.5px solid #FDE68A;
+		border: 1.5px solid #fde68a;
 		box-shadow: 0 8px 24px rgba(11, 41, 72, 0.1);
 	}
 
@@ -486,13 +647,13 @@
 	.badge-row-1 {
 		font-size: 10.5px;
 		font-weight: 600;
-		color: #0B2948;
+		color: #0b2948;
 	}
 
 	.badge-row-2 {
 		font-size: 11px;
 		font-weight: 800;
-		color: #0B2948;
+		color: #0b2948;
 	}
 
 	.bldg-card {
@@ -502,8 +663,8 @@
 		border-radius: 26px;
 		overflow: hidden;
 		box-shadow: 0 16px 36px rgba(11, 41, 72, 0.1);
-		border: 3px solid #FFFFFF;
-		background: #F1F5F9;
+		border: 3px solid #ffffff;
+		background: #f1f5f9;
 	}
 
 	.bldg-img {
