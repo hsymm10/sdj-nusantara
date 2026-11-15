@@ -22,19 +22,29 @@
 		if (typeof window === 'undefined') return;
 
 		lenis = new Lenis({
-			autoRaf: true,
-			anchors: true,
-			autoToggle: true,
+			lerp: 0.08, // The classic Lenis silky-smooth momentum glide
 			smoothWheel: true,
-			syncTouch: false,
-			duration: 1.1,
-			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			syncTouch: true, // Enables smooth inertial scrolling on touchpad & trackpad too
+			syncTouchLerp: 0.075,
+			touchInertiaExponent: 1.7,
+			wheelMultiplier: 1.1,
+			touchMultiplier: 1.3,
+			anchors: true,
+			respectReducedMotion: false, // Ensures smooth scroll isn't silently disabled by OS settings
 		});
 
 		setLenis(lenis);
 		(window as unknown as { lenis?: Lenis }).lenis = lenis;
 
+		let rafId: number;
+		function raf(time: number) {
+			lenis?.raf(time);
+			rafId = requestAnimationFrame(raf);
+		}
+		rafId = requestAnimationFrame(raf);
+
 		return () => {
+			cancelAnimationFrame(rafId);
 			lenis?.destroy();
 			lenis = null;
 			setLenis(null);
