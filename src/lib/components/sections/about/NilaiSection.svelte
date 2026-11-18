@@ -78,14 +78,14 @@
 			<div class="nilai-items">
 				<!-- Item 1: Integritas (Perisai dengan centang) -->
 				<div class="nilai-col">
-					<div class="nilai-icon">
+					<div class="nilai-icon-box">
 						<svg
-							width="30"
-							height="30"
+							width="26"
+							height="26"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="#00A6B2"
-							stroke-width="2"
+							stroke-width="2.2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 						>
@@ -110,14 +110,14 @@
 
 				<!-- Item 2: Profesionalitas (Kelompok 3 orang) -->
 				<div class="nilai-col">
-					<div class="nilai-icon">
+					<div class="nilai-icon-box">
 						<svg
-							width="30"
-							height="30"
+							width="26"
+							height="26"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="#00A6B2"
-							stroke-width="2"
+							stroke-width="2.2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 						>
@@ -143,14 +143,14 @@
 
 				<!-- Item 3: Kolaborasi (JABAT TANGAN - Handshake, BUKAN hati) -->
 				<div class="nilai-col">
-					<div class="nilai-icon">
+					<div class="nilai-icon-box">
 						<svg
-							width="30"
-							height="30"
+							width="26"
+							height="26"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="#00A6B2"
-							stroke-width="2"
+							stroke-width="2.2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 						>
@@ -183,14 +183,14 @@
 
 				<!-- Item 4: Dampak Nyata (GRAFIK BATANG dengan panah naik) -->
 				<div class="nilai-col">
-					<div class="nilai-icon">
+					<div class="nilai-icon-box">
 						<svg
-							width="30"
-							height="30"
+							width="26"
+							height="26"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="#00A6B2"
-							stroke-width="2"
+							stroke-width="2.2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 						>
@@ -220,7 +220,9 @@
 	.nilai-section {
 		position: relative;
 		background: #082442;
-		height: 260px;
+		min-height: 300px;
+		height: auto;
+		padding: 52px 0;
 		display: flex;
 		align-items: center;
 		overflow: hidden;
@@ -269,7 +271,7 @@
 		width: 100%;
 		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0 1.5rem;
 		box-sizing: border-box;
 	}
 
@@ -293,53 +295,61 @@
 	}
 
 	.section-label {
-		font-size: 15px;
+		font-size: 14px;
 		font-weight: 700;
 		color: #00a6b2;
-		margin-bottom: 0.45rem;
-		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 
 	.nilai-title {
-		font-size: clamp(18px, 1.65vw, 24px);
+		font-size: clamp(21px, 2vw, 27px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #ffffff;
-		margin: 0 0 0.55rem 0;
+		margin: 0 0 0.75rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.nilai-desc {
-		font-size: 12px;
-		line-height: 1.5;
-		color: rgba(255, 255, 255, 0.82);
-		margin: 0 0 1rem 0;
+		font-size: 13.5px;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.88);
+		margin: 0 0 1.25rem 0;
+		max-width: 440px;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
+		gap: 8px;
 		background: #f5b331;
 		color: #071d36;
-		padding: 7px 18px;
-		font-size: 11.5px;
+		padding: 10px 22px;
+		font-size: 13px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 8px;
 		text-decoration: none;
 		align-self: flex-start;
-		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.25);
-		transition: all 0.2s ease;
+		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.3);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
 	}
 
 	.btn-gold:hover {
 		background: #e6a528;
-		transform: translateY(-1px);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.42);
 	}
 
 	.btn-arrow {
-		font-size: 12px;
+		font-size: 14px;
+		transition: transform 0.2s ease;
+	}
+
+	.btn-gold:hover .btn-arrow {
+		transform: translateX(3px);
 	}
 
 	/* Right 4 Columns with Thin Vertical Dividers */
@@ -347,57 +357,95 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		gap: 1.25rem;
+		gap: 1.5rem;
 	}
 
 	.nilai-col {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
+		transition: transform 0.2s ease;
 	}
 
-	.nilai-icon {
-		margin-bottom: 0.65rem;
+	.nilai-icon-box {
+		width: 44px;
+		height: 44px;
+		border-radius: 11px;
+		background: rgba(0, 166, 178, 0.15);
+		border: 1px solid rgba(0, 166, 178, 0.3);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0.85rem;
+		transition: all 0.25s ease;
+		flex-shrink: 0;
+	}
+
+	.nilai-col:hover .nilai-icon-box {
+		background: rgba(0, 166, 178, 0.28);
+		border-color: #00A6B2;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 166, 178, 0.25);
 	}
 
 	.nilai-item-title {
-		font-size: 13px;
+		font-size: 15.5px;
 		font-weight: 700;
 		color: #ffffff;
-		margin: 0 0 0.25rem 0;
+		margin: 0 0 0.35rem 0;
+		letter-spacing: -0.01em;
 	}
 
 	.nilai-item-desc {
-		font-size: 11px;
-		line-height: 1.45;
-		color: rgba(255, 255, 255, 0.75);
+		font-size: 12.5px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.82);
 		margin: 0;
 	}
 
 	.nilai-vdivider {
 		width: 1px;
-		height: 75px;
-		background: rgba(255, 255, 255, 0.15);
+		height: 85px;
+		background: rgba(255, 255, 255, 0.18);
 		align-self: center;
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1024px) {
 		.nilai-section {
 			height: auto;
-			padding: 3rem 0;
+			min-height: auto;
+			padding: 44px 0;
 		}
+
 		.nilai-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 2.5rem;
 		}
+
 		.nilai-items {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 1.5rem;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.75rem 2rem;
 		}
+
 		.nilai-vdivider {
 			display: none;
+		}
+
+		.nilai-desc {
+			max-width: 100%;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.nilai-section {
+			padding: 38px 0;
+		}
+
+		.nilai-items {
+			grid-template-columns: 1fr;
+			gap: 1.35rem;
 		}
 	}
 </style>

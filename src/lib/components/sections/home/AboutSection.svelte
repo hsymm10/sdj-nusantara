@@ -305,6 +305,8 @@
 		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.32);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
+		width: fit-content;
+		max-width: 100%;
 		letter-spacing: 0;
 	}
 
@@ -354,6 +356,8 @@
 		color: #082442;
 		line-height: 1.3;
 		white-space: nowrap;
+		width: fit-content;
+		max-width: 100%;
 		letter-spacing: 0;
 	}
 

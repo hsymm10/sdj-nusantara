@@ -327,14 +327,18 @@
 	.about-cta-btn {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 9px;
-		padding: 12px 24px;
+		padding: 11px 22px;
 		background: #ffb923;
 		color: #0b2948;
 		font-size: 13.5px;
 		font-weight: 700;
 		border-radius: 9px;
 		text-decoration: none;
+		white-space: nowrap;
+		width: fit-content;
+		max-width: 100%;
 		box-shadow: 0 4px 14px rgba(255, 185, 35, 0.32);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
@@ -496,18 +500,25 @@
 		}
 
 		.about-left-col {
-			flex: 0 0 33%;
-			max-width: 33%;
+			flex: 0 0 35%;
+			max-width: 35%;
+			min-width: 240px;
 		}
 
 		.about-mid-col {
-			flex: 0 0 31%;
-			max-width: 31%;
+			flex: 0 0 30%;
+			max-width: 30%;
 		}
 
 		.about-right-col {
-			flex: 0 0 36%;
-			max-width: 36%;
+			flex: 0 0 35%;
+			max-width: 35%;
+		}
+
+		.about-cta-btn {
+			padding: 10px 18px;
+			font-size: 13px;
+			gap: 7px;
 		}
 
 		.bldg-card {

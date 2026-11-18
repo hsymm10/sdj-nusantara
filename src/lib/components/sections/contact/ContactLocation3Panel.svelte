@@ -172,13 +172,15 @@
 	/* Kartu Putih Alamat */
 	.address-card {
 		background: #FFFFFF;
-		border: 1px solid #D9E2EC;
+		border: 1px solid #E2E8F0;
+		border-left: 3.5px solid #16B6C1;
 		border-radius: 12px;
-		padding: 10px 14px;
+		padding: 12px 16px;
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
-		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.06);
+		gap: 10px;
+		box-shadow: 0 4px 16px rgba(8, 36, 66, 0.05);
+		transition: all 0.2s ease;
 	}
 
 	.address-top-row {
@@ -188,8 +190,8 @@
 	}
 
 	.pin-circle {
-		width: 32px;
-		height: 32px;
+		width: 36px;
+		height: 36px;
 		border-radius: 50%;
 		border: 1.5px solid #16B6C1;
 		background: rgba(22, 182, 193, 0.08);
@@ -209,18 +211,19 @@
 		font-size: 11.5px;
 		font-weight: 800;
 		color: #082442;
+		letter-spacing: 0.02em;
 	}
 
 	.addr-city {
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 700;
 		color: #079EAD;
 	}
 
 	.addr-note {
-		font-size: 9px;
+		font-size: 10.5px;
 		color: #64748B;
-		line-height: 1.25;
+		line-height: 1.3;
 	}
 
 	.address-btn-row {
@@ -232,13 +235,13 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 4px;
-		font-size: 11px;
+		gap: 6px;
+		font-size: 12px;
 		font-weight: 700;
 		color: #082442;
 		background: #FFFFFF;
 		border: 1.5px solid #16B6C1;
-		padding: 5px 14px;
+		padding: 7px 16px;
 		border-radius: 8px;
 		text-decoration: none;
 		transition: all 0.2s ease;
@@ -248,15 +251,16 @@
 	.btn-maps:hover {
 		background: #16B6C1;
 		color: #FFFFFF;
+		box-shadow: 0 2px 10px rgba(22, 182, 193, 0.3);
 	}
 
 	.btn-arrow {
-		font-size: 12px;
+		font-size: 13px;
 		transition: transform 0.2s ease;
 	}
 
 	.btn-maps:hover .btn-arrow {
-		transform: translateX(2px);
+		transform: translateX(3px);
 	}
 
 	/* Panel Kanan */
@@ -312,7 +316,7 @@
 		}
 
 		.address-card {
-			max-width: 100%;
+			max-width: 560px;
 			padding: 14px 18px;
 		}
 
@@ -322,6 +326,21 @@
 
 		.quote-text {
 			font-size: 16px;
+		}
+	}
+
+	@media (min-width: 601px) and (max-width: 1024px) {
+		.address-card {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+		}
+
+		.address-btn-row {
+			flex-shrink: 0;
+			justify-content: flex-end;
 		}
 	}
 </style>
