@@ -39,29 +39,6 @@
 						'SDjNusantara is a consulting firm focused on talent development, institutional capacity building, education, and strategic programs oriented toward present and future needs.'
 					)}
 				</p>
-
-				<!-- 3 Stats with vertical dividers (RATA TENGAH, tanpa garis horizontal atas) -->
-				<div class="stats-row">
-					<div class="stat-item">
-						<span class="stat-number">200+</span>
-						<span class="stat-label">{i18n.pick('Target Pemetaan Talenta', 'Talent Mapping Target')}</span>
-					</div>
-
-					<div class="stat-vdivider"></div>
-
-					<div class="stat-item">
-						<span class="stat-number">12</span>
-						<span class="stat-label">{i18n.pick('Target Sosialisasi Beasiswa', 'Scholarship Outreach Target')}</span>
-					</div>
-
-					<div class="stat-vdivider"></div>
-
-					<div class="stat-item">
-						<span class="stat-number">60+</span>
-						<span class="stat-label">{i18n.pick('Target Peserta Coaching', 'Coaching Participants Target')}</span>
-					</div>
-				</div>
-				<p class="stat-note">{i18n.pick('*Target indikatif program tahun pertama', '*Indicative first-year program targets')}</p>
 			</div>
 		</div>
 
@@ -204,55 +181,8 @@
 		font-size: 15px;
 		line-height: 1.65;
 		color: #37474F;
-		margin: 0 0 1.5rem 0;
+		margin: 0;
 		text-wrap: pretty;
-	}
-
-	/* Stats Row: 3 Kolom RATA TENGAH, HAPUS garis horizontal atas */
-	.stats-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 530px;
-		width: 100%;
-		padding-top: 0.25rem;
-		border-top: none;
-	}
-
-	.stat-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		gap: 3px;
-	}
-
-	.stat-number {
-		font-size: 32px;
-		font-weight: 800;
-		color: #082442;
-		line-height: 1;
-	}
-
-	.stat-label {
-		font-size: 13px;
-		font-weight: 600;
-		color: #546E7A;
-		white-space: nowrap;
-		text-align: center;
-	}
-
-	.stat-vdivider {
-		width: 1px;
-		height: 40px;
-		background: #CBD5E1;
-	}
-
-	.stat-note {
-		font-size: 11.5px;
-		color: #78909C;
-		font-style: italic;
-		margin: 0.55rem 0 0 0;
 	}
 
 	/* Centered Duo-Pill Divider */
@@ -294,10 +224,6 @@
 		}
 		.deco-turquoise, .deco-gold {
 			display: none;
-		}
-		.stats-row {
-			justify-content: space-around;
-			gap: 0.75rem;
 		}
 	}
 </style>
