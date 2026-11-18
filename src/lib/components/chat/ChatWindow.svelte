@@ -49,11 +49,14 @@
 			}
 			const vv = window.visualViewport;
 			if (vv) {
-				const height = Math.min(
-					vv.height - 24,
-					window.innerHeight - 24,
-				);
-				viewportHeightStyle = `height: ${height}px; bottom: ${window.innerHeight - vv.height - vv.offsetTop + 12}px;`;
+				// Deteksi apakah virtual keyboard sedang terbuka (tinggi visual berkurang drastis)
+				const isKeyboardOpen = vv.height < window.innerHeight * 0.78;
+				if (isKeyboardOpen) {
+					const height = Math.min(vv.height - 16, 460);
+					viewportHeightStyle = `height: ${height}px; bottom: ${window.innerHeight - vv.height - vv.offsetTop + 8}px;`;
+				} else {
+					viewportHeightStyle = "";
+				}
 			}
 		};
 
@@ -78,6 +81,16 @@
 <svelte:window onkeydown={handleKeydown} />
 
 {#if chatStore.isOpen}
+	<!-- Backdrop overlay pada mobile: sentuh latar belakang untuk menutup -->
+	<div
+		class="chat-mobile-backdrop"
+		onclick={() => {
+			chatStore.close();
+			onCloseFocus?.();
+		}}
+		aria-hidden="true"
+	></div>
+
 	<div
 		bind:this={windowEl}
 		id="sdj-chat-window"
@@ -87,18 +100,22 @@
 		aria-modal="false"
 		aria-label={i18n.dict.chat.title}
 	>
-		<!-- 1. Header Navy Bergelombang (112px) -->
+		<!-- 1. Header Navy Bergelombang (112px desktop / 82px mobile) -->
 		<ChatHeader />
 
 		<!-- 2. Message List Area -->
 		<MessageList bind:this={messageListRef} />
 
-		<!-- 3. Input & Catatan Bawah (Banner Emas Lama Telah Dihapus) -->
+		<!-- 3. Input & Catatan Bawah -->
 		<ChatInput bind:this={chatInputRef} />
 	</div>
 {/if}
 
 <style>
+	.chat-mobile-backdrop {
+		display: none;
+	}
+
 	.chat-window-card {
 		position: fixed;
 		bottom: 96px;
@@ -149,15 +166,51 @@
 
 	/* Mobile Responsive (<= 640px) */
 	@media (max-width: 640px) {
+		.chat-mobile-backdrop {
+			display: block;
+			position: fixed;
+			inset: 0;
+			background: rgba(8, 36, 66, 0.45);
+			backdrop-filter: blur(2px);
+			z-index: 994;
+			animation: chatFadeIn 0.2s ease-out;
+		}
+
+		@keyframes chatFadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
 		.chat-window-card {
-			left: 12px;
-			right: 12px;
-			bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-			width: calc(100vw - 24px);
-			max-width: none;
-			height: min(80dvh, calc(100dvh - 24px));
+			left: 14px;
+			right: 14px;
+			margin: 0 auto;
+			bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+			width: min(calc(100vw - 28px), 390px);
+			max-width: 390px;
+			height: clamp(390px, 66dvh, 500px);
+			max-height: calc(100dvh - 76px);
 			border-radius: 20px;
+			box-shadow:
+				0 16px 40px rgba(8, 36, 66, 0.28),
+				0 4px 14px rgba(8, 36, 66, 0.12);
 			transform-origin: center bottom;
+		}
+	}
+
+	@media (max-width: 375px) {
+		.chat-window-card {
+			left: 10px;
+			right: 10px;
+			width: calc(100vw - 20px);
+			height: clamp(370px, 64dvh, 470px);
+			max-height: calc(100dvh - 64px);
+			bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+			border-radius: 18px;
 		}
 	}
 </style>

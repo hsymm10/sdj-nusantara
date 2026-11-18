@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { serviceConfig } from '#lib/config/services';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { dragToScroll } from '#lib/actions/dragToScroll';
 
 	export type ServiceKey = 'all' | 'education' | 'scholarship' | 'legal';
 
@@ -50,9 +51,16 @@
 		if (window.innerWidth > 768) return;
 		const activeEl = navCardEl.querySelector<HTMLElement>(`[data-service="${activeKey}"]`);
 		if (!activeEl) return;
-		const targetLeft =
-			activeEl.offsetLeft - (navCardEl.clientWidth - activeEl.offsetWidth) / 2;
-		navCardEl.scrollTo({ left: Math.max(0, targetLeft), behavior: 'auto' });
+
+		// Jika item pertama atau kedua aktif, biarkan posisi di awal (0)
+		// agar item pertama tidak terpotong canggung dan pengguna melihat item 1 & 2 secara utuh
+		if (activeKey === 'all' || activeKey === 'education') {
+			navCardEl.scrollTo({ left: 0, behavior: 'auto' });
+		} else {
+			// Untuk item selanjutnya (Beasiswa / Hukum), geser dengan breathing room 14px di kiri
+			const targetLeft = Math.max(0, activeEl.offsetLeft - 14);
+			navCardEl.scrollTo({ left: targetLeft, behavior: 'auto' });
+		}
 	});
 </script>
 
@@ -60,6 +68,7 @@
 	<div class="service-nav-container">
 		<nav
 			bind:this={navCardEl}
+			use:dragToScroll
 			class="service-nav-card"
 			aria-label={i18n.pick('Navigasi Kategori Layanan', 'Service Category Navigation')}
 		>
@@ -230,23 +239,33 @@
 			margin-bottom: 24px;
 		}
 
+		.service-nav-container {
+			width: 100%;
+			padding: 0 16px;
+		}
+
 		.service-nav-card {
 			height: auto;
-			padding: 8px 12px;
-			gap: 10px;
+			padding: 8px 10px;
+			gap: 8px;
 			justify-content: flex-start;
 			border-radius: 16px;
 			-webkit-overflow-scrolling: touch;
+			scroll-padding: 0 10px;
+			scroll-snap-type: x proximity;
+			touch-action: pan-x pan-y;
 		}
 
 		.service-nav-item {
 			flex: 0 0 auto;
+			min-width: max-content;
 			height: 48px;
 			padding: 0 18px;
 			margin: 0;
 			font-size: 13.5px;
 			border-radius: 12px;
 			gap: 8px;
+			scroll-snap-align: start;
 		}
 
 		.service-nav-divider {

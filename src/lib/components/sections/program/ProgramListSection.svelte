@@ -5,6 +5,7 @@
 	import DetailModal from '#lib/components/ui/DetailModal.svelte';
 	import ProgramDetail from '#lib/components/sections/program/ProgramDetail.svelte';
 	import SearchToggle from '#lib/components/ui/SearchToggle.svelte';
+	import { dragToScroll } from '#lib/actions/dragToScroll';
 
 	interface Props {
 		activeCategory?: string;
@@ -122,7 +123,7 @@
 		</div>
 
 		<!-- Filter Tabs Bar (x 82→1452, tinggi ±50px) -->
-		<div class="tabs-bar">
+		<div class="tabs-bar" use:dragToScroll>
 			{#each tabs as tab, idx}
 				{#if idx > 0}
 					<div class="tab-vdivider"></div>
@@ -309,6 +310,15 @@
 		box-sizing: border-box;
 		margin-bottom: 1.0rem;
 		overflow-x: auto;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+		scroll-padding: 0 8px;
+		scroll-snap-type: x proximity;
+		touch-action: pan-x pan-y;
+	}
+
+	.tabs-bar::-webkit-scrollbar {
+		display: none;
 	}
 
 	.tab-btn {
@@ -540,6 +550,26 @@
 	}
 
 	@media (max-width: 800px) {
+		.tabs-bar {
+			height: auto;
+			min-height: 46px;
+			padding: 4px 6px;
+			gap: 4px;
+		}
+
+		.tab-btn {
+			flex: 0 0 auto;
+			min-width: max-content;
+			height: 38px;
+			padding: 0 14px;
+			font-size: 13px;
+			scroll-snap-align: start;
+		}
+
+		.tab-vdivider {
+			display: none;
+		}
+
 		.header-row {
 			flex-direction: column;
 			align-items: flex-start;

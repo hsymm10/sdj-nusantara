@@ -8,6 +8,7 @@
 	import { beasiswaKnowledge } from '#lib/data/knowledge/beasiswa';
 	import { serviceConfig } from '#lib/config/services';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { dragToScroll } from '#lib/actions/dragToScroll';
 
 	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
 	let openFaq = $state<number | null>(0);
@@ -24,9 +25,13 @@
 		if (window.innerWidth > 768) return;
 		const activeEl = tabCardEl.querySelector<HTMLElement>(`[data-tab="${currentTab}"]`);
 		if (!activeEl) return;
-		const targetLeft =
-			activeEl.offsetLeft - (tabCardEl.clientWidth - activeEl.offsetWidth) / 2;
-		tabCardEl.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+
+		if (currentTab === 'semua' || currentTab === 'program') {
+			tabCardEl.scrollTo({ left: 0, behavior: 'smooth' });
+		} else {
+			const targetLeft = Math.max(0, activeEl.offsetLeft - 14);
+			tabCardEl.scrollTo({ left: targetLeft, behavior: 'smooth' });
+		}
 	});
 
 	function toggleFaq(index: number) {
@@ -182,6 +187,7 @@
 		<div class="hub-container">
 			<div
 				bind:this={tabCardEl}
+				use:dragToScroll
 				class="tab-overlap-card"
 				role="tablist"
 				aria-label="Kategori Portofolio Layanan"
@@ -2144,21 +2150,26 @@
 
 		.tab-overlap-card {
 			height: auto;
-			padding: 8px 12px;
-			gap: 10px;
+			padding: 8px 10px;
+			gap: 8px;
 			justify-content: flex-start;
 			border-radius: 16px;
 			-webkit-overflow-scrolling: touch;
+			scroll-padding: 0 10px;
+			scroll-snap-type: x proximity;
+			touch-action: pan-x pan-y;
 		}
 
 		.tab-btn {
 			flex: 0 0 auto;
+			min-width: max-content;
 			height: 48px;
 			padding: 0 18px;
 			margin: 0;
 			font-size: 13.5px;
 			border-radius: 12px;
 			gap: 8px;
+			scroll-snap-align: start;
 		}
 
 		.tab-vdivider {

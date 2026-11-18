@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { dragToScroll } from "#lib/actions/dragToScroll";
 
 	interface Props {
 		selectedCategory: string;
@@ -70,6 +71,7 @@
 
 <div class="category-overlap-wrapper" id="semua-artikel">
 	<nav
+		use:dragToScroll
 		class="category-bar"
 		aria-label={i18n.pick("Kategori Artikel", "Article Categories")}
 	>
@@ -351,6 +353,8 @@
 			-webkit-overflow-scrolling: touch;
 			padding: 10px 14px;
 			gap: 4px;
+			scroll-snap-type: x proximity;
+			touch-action: pan-x pan-y;
 		}
 
 		.category-bar::-webkit-scrollbar {
