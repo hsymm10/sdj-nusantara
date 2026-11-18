@@ -1,6 +1,7 @@
 <!-- Section 05: 5 Tahap Pelaksanaan Pendampingan Kami (Mockup Resmi SDJNusantara) -->
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { dragToScroll } from '#lib/actions/dragToScroll';
 
 	const steps = $derived([
 		{
@@ -70,7 +71,7 @@
 		</div>
 
 		<!-- Right Column: 5 Steps Horizontal White Panel -->
-		<div class="steps-edu-right">
+		<div class="steps-edu-right" use:dragToScroll>
 			<div class="steps-cards-list">
 				{#each steps as st, idx}
 					<div class="step-card">
@@ -188,13 +189,13 @@
 	/* Content Container */
 	.steps-edu-container {
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1340px;
 		margin: 0 auto;
-		padding: 0 32px;
+		padding: 0 36px;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: 40px;
+		justify-content: flex-start;
+		gap: 36px;
 		box-sizing: border-box;
 		position: relative;
 		z-index: 3;
@@ -202,8 +203,8 @@
 
 	/* Left Column: Info */
 	.steps-edu-left {
-		flex: 0 0 330px;
-		max-width: 330px;
+		flex: 0 0 290px;
+		max-width: 290px;
 	}
 
 	.steps-badge {
@@ -221,7 +222,7 @@
 	}
 
 	.steps-title {
-		font-size: clamp(24px, 2.2vw, 30px);
+		font-size: clamp(23px, 2.1vw, 29px);
 		line-height: 1.22;
 		font-weight: 800;
 		color: #FFFFFF;
@@ -239,7 +240,7 @@
 		line-height: 1.55;
 		color: rgba(255, 255, 255, 0.9);
 		margin: 0 0 24px;
-		max-width: 310px;
+		max-width: 290px;
 	}
 
 	.steps-btn {
@@ -266,17 +267,20 @@
 	/* Right Column: Steps White Panel */
 	.steps-edu-right {
 		flex: 1;
+		max-width: 860px;
+		min-width: 0;
 		background: #FFFFFF;
-		border-radius: 22px;
-		padding: 26px 22px;
+		border-radius: 20px;
+		padding: 22px 18px;
 		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+		box-sizing: border-box;
 	}
 
 	.steps-cards-list {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 8px;
+		gap: 6px;
 	}
 
 	.step-card {
@@ -289,8 +293,8 @@
 	}
 
 	.step-icon-wrap {
-		width: 48px;
-		height: 48px;
+		width: 44px;
+		height: 44px;
 		border-radius: 12px;
 		background: #E6F8F9;
 		display: flex;
@@ -305,7 +309,7 @@
 	}
 
 	.step-num {
-		font-size: 20px;
+		font-size: 19px;
 		font-weight: 800;
 		color: #08B5C0;
 		margin-bottom: 4px;
@@ -313,7 +317,7 @@
 	}
 
 	.step-title {
-		font-size: 12px;
+		font-size: 11.5px;
 		font-weight: 700;
 		color: #0B2948;
 		line-height: 1.35;
@@ -326,65 +330,74 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		margin: 0 2px;
+		margin: 0 1px;
 	}
 
 	.step-chevron svg {
 		stroke: #08B5C0;
 	}
 
-	/* Responsive Tablet */
-	@media (max-width: 1024px) {
-		.steps-edu-container {
-			gap: 24px;
-			padding: 0 24px;
-		}
-
-		.steps-edu-left {
-			flex: 0 0 270px;
-			max-width: 270px;
-		}
-
-		.steps-title {
-			font-size: 22px;
-		}
-
-		.steps-edu-right {
-			padding: 20px 14px;
-		}
-
-		.step-num {
-			font-size: 17px;
-		}
-
-		.step-title {
-			font-size: 11px;
-		}
-
-		.step-icon-wrap {
-			width: 42px;
-			height: 42px;
-		}
-	}
-
-	/* Responsive Mobile */
-	@media (max-width: 768px) {
+	/* Responsive Tablet & Medium Screens (iPad, Surface, 1100px) */
+	@media (max-width: 1100px) {
 		.steps-edu-section {
-			padding: 56px 0 64px;
+			padding: 56px 0 60px;
 		}
 
 		.steps-edu-container {
 			flex-direction: column;
+			align-items: stretch;
+			gap: 28px;
+			padding: 0 28px;
+		}
+
+		.steps-edu-left {
+			flex: 1 1 100%;
+			max-width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.steps-title {
+			font-size: 24px;
+		}
+
+		.steps-desc {
+			max-width: 600px;
+		}
+
+		.steps-edu-right {
+			width: 100%;
+			max-width: 100%;
+			padding: 22px 18px;
+			overflow-x: auto;
+			scrollbar-width: none;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.steps-edu-right::-webkit-scrollbar {
+			display: none;
+		}
+
+		.steps-cards-list {
+			min-width: 620px;
+			gap: 8px;
+		}
+	}
+
+	/* Responsive Mobile (<= 640px) */
+	@media (max-width: 640px) {
+		.steps-edu-section {
+			padding: 48px 0 54px;
+		}
+
+		.steps-edu-container {
 			text-align: center;
-			gap: 32px;
+			gap: 24px;
 			padding: 0 20px;
 		}
 
 		.steps-edu-left {
-			max-width: 100%;
-			flex: 1 1 100%;
-			display: flex;
-			flex-direction: column;
 			align-items: center;
 		}
 
@@ -402,11 +415,12 @@
 
 		.steps-edu-right {
 			width: 100%;
-			padding: 24px 18px;
+			padding: 22px 16px;
 			box-sizing: border-box;
 		}
 
 		.steps-cards-list {
+			min-width: 0;
 			flex-direction: column;
 			gap: 16px;
 		}

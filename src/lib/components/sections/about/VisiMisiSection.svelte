@@ -84,20 +84,22 @@
 <style>
 	.visi-misi-section {
 		background: #F4F8FB;
-		height: 310px;
+		height: auto;
+		min-height: 310px;
 		display: flex;
 		align-items: center;
 		overflow: hidden;
 		box-sizing: border-box;
 		border-top: 1px solid #EAF0F6;
 		border-bottom: 1px solid #EAF0F6;
+		padding: 44px 0;
 	}
 
 	.visi-misi-container {
 		width: 100%;
 		max-width: 1312px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0 24px;
 		box-sizing: border-box;
 	}
 
@@ -124,39 +126,39 @@
 		font-size: 15px;
 		font-weight: 700;
 		color: #00A6B2;
-		margin-bottom: 0.45rem;
+		margin-bottom: 0.5rem;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 
 	.section-heading {
-		font-size: clamp(20px, 1.7vw, 25px);
+		font-size: clamp(22px, 2.2vw, 28px);
 		font-weight: 800;
 		color: #082442;
 		line-height: 1.25;
-		margin: 0 0 0.65rem 0;
+		margin: 0 0 0.85rem 0;
 		letter-spacing: -0.01em;
 	}
 
 	.section-desc {
-		font-size: 12px;
-		line-height: 1.5;
+		font-size: 14px;
+		line-height: 1.6;
 		color: #475569;
-		margin: 0 0 1.15rem 0;
-		max-width: 480px;
+		margin: 0 0 1.35rem 0;
+		max-width: 540px;
 		text-wrap: pretty;
 	}
 
 	.btn-gold {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
+		gap: 8px;
 		background: #F5B331;
 		color: #071D36;
-		padding: 7px 18px;
-		font-size: 11.5px;
+		padding: 10px 22px;
+		font-size: 13px;
 		font-weight: 700;
-		border-radius: 7px;
+		border-radius: 8px;
 		text-decoration: none;
 		align-self: flex-start;
 		box-shadow: 0 2px 8px rgba(245, 179, 49, 0.25);
@@ -169,7 +171,7 @@
 	}
 
 	.btn-arrow {
-		font-size: 12px;
+		font-size: 13px;
 	}
 
 	/* Right Cards: 2 kartu putih berdampingan sama tinggi */
@@ -182,39 +184,39 @@
 
 	.vm-card {
 		background: #FFFFFF;
-		border-radius: 14px;
-		padding: 1.25rem 1.25rem 1.35rem;
+		border-radius: 16px;
+		padding: 1.5rem 1.4rem;
 		box-shadow: 0 4px 16px rgba(11, 39, 71, 0.05);
-		border: 1px solid rgba(226, 232, 240, 0.8);
+		border: 1px solid rgba(226, 232, 240, 0.85);
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		box-sizing: border-box;
 	}
 
-	/* Lingkaran outline turquoise ±34px (bukan lingkaran terisi pucat) */
+	/* Lingkaran outline turquoise ±38px */
 	.vm-icon-circle {
-		width: 34px;
-		height: 34px;
+		width: 38px;
+		height: 38px;
 		border-radius: 50%;
 		border: 1.5px solid #00A6B2;
-		background: transparent;
+		background: rgba(0, 166, 178, 0.05);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 0.65rem;
+		margin-bottom: 0.75rem;
 	}
 
 	.vm-card-title {
-		font-size: 15px;
+		font-size: 16px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 0.4rem 0;
+		margin: 0 0 0.5rem 0;
 	}
 
 	.vm-card-text {
-		font-size: 11px;
-		line-height: 1.5;
+		font-size: 13px;
+		line-height: 1.55;
 		color: #475569;
 		margin: 0;
 	}
@@ -225,26 +227,26 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.45rem;
+		gap: 0.55rem;
 	}
 
 	.misi-list li {
 		display: flex;
 		align-items: flex-start;
-		gap: 8px;
-		font-size: 10.5px;
-		line-height: 1.45;
+		gap: 10px;
+		font-size: 12.5px;
+		line-height: 1.5;
 		color: #475569;
 	}
 
 	/* Nomor Misi dalam lingkaran turquoise terisi */
 	.misi-num {
-		width: 16px;
-		height: 16px;
+		width: 18px;
+		height: 18px;
 		border-radius: 50%;
 		background: #00A6B2;
 		color: #FFFFFF;
-		font-size: 9px;
+		font-size: 10px;
 		font-weight: 700;
 		display: flex;
 		align-items: center;
@@ -253,20 +255,25 @@
 		margin-top: 1px;
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1024px) {
 		.visi-misi-section {
 			height: auto;
-			padding: 3rem 0;
+			padding: 40px 0;
 		}
 		.visi-misi-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 2.25rem;
+		}
+		.section-desc {
+			max-width: 100%;
+			font-size: 14px;
 		}
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 640px) {
 		.visi-misi-cards {
 			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 	}
 </style>

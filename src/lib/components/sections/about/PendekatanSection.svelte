@@ -173,7 +173,7 @@
 	}
 
 	.pendekatan-title {
-		font-size: clamp(18px, 1.55vw, 22px);
+		font-size: clamp(20px, 1.8vw, 24px);
 		font-weight: 800;
 		color: #082442;
 		line-height: 1.25;
@@ -182,11 +182,11 @@
 	}
 
 	.pendekatan-desc {
-		font-size: 11.5px;
-		line-height: 1.5;
+		font-size: 13px;
+		line-height: 1.55;
 		color: #475569;
 		margin: 0;
-		max-width: 380px;
+		max-width: 420px;
 		text-wrap: pretty;
 	}
 
@@ -202,14 +202,14 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.55rem;
+		gap: 0.65rem;
 	}
 
 	.checks-list li {
 		display: flex;
 		align-items: center;
-		gap: 10px;
-		font-size: 11px;
+		gap: 12px;
+		font-size: 12.5px;
 		font-weight: 600;
 		color: #1E293B;
 	}
@@ -217,16 +217,53 @@
 	@media (max-width: 1024px) {
 		.pendekatan-section {
 			height: auto;
-			padding: 2.5rem 0;
+			padding: 44px 0;
 		}
 		.pendekatan-grid {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
+			grid-template-columns: 1.15fr 1fr;
+			gap: 2.5rem;
+			align-items: center;
 		}
 		.photo-fade-wrap,
 		.center-vdivider,
 		.spacer-col {
 			display: none;
+		}
+		.pendekatan-desc {
+			max-width: 100%;
+			font-size: 14px;
+			line-height: 1.6;
+		}
+		.pendekatan-title {
+			font-size: 24px;
+		}
+		.pendekatan-checks {
+			background: #F8FAFC;
+			border: 1px solid #E2E8F0;
+			border-radius: 16px;
+			padding: 22px 24px;
+			box-shadow: 0 4px 16px rgba(8, 36, 66, 0.04);
+		}
+		.checks-list li {
+			font-size: 13.5px;
+			gap: 12px;
+			padding: 4px 0;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.pendekatan-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+		.pendekatan-title {
+			font-size: 21px;
+		}
+		.pendekatan-desc {
+			font-size: 13.5px;
+		}
+		.pendekatan-checks {
+			padding: 16px 18px;
 		}
 	}
 </style>

@@ -67,10 +67,25 @@
 					},
 				],
 	);
+	let barEl = $state<HTMLElement | null>(null);
+
+	$effect(() => {
+		const cat = selectedCategory;
+		if (!barEl || typeof window === 'undefined') return;
+		const activeEl = barEl.querySelector<HTMLElement>('.cat-tile.active');
+		if (!activeEl) return;
+		if (cat === 'Semua Artikel') {
+			barEl.scrollTo({ left: 0, behavior: 'smooth' });
+		} else {
+			const target = Math.max(0, activeEl.offsetLeft - 16);
+			barEl.scrollTo({ left: target, behavior: 'smooth' });
+		}
+	});
 </script>
 
 <div class="category-overlap-wrapper" id="semua-artikel">
 	<nav
+		bind:this={barEl}
 		use:dragToScroll
 		class="category-bar"
 		aria-label={i18n.pick("Kategori Artikel", "Article Categories")}
@@ -262,17 +277,27 @@
 		display: flex;
 		align-items: center;
 		box-sizing: border-box;
+		overflow-x: auto;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+		scroll-padding: 0 14px;
+		scroll-snap-type: x proximity;
+		touch-action: pan-y;
+	}
+
+	.category-bar::-webkit-scrollbar {
+		display: none;
 	}
 
 	.cat-tile {
-		flex: 1 1 0;
-		min-width: 0;
+		flex: 0 0 auto;
+		min-width: max-content;
 		height: 60px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
-		padding: 0 12px;
+		padding: 0 16px;
 		background: transparent;
 		border: none;
 		border-radius: 14px;
@@ -284,6 +309,9 @@
 			box-shadow 0.2s ease;
 		box-sizing: border-box;
 		text-align: left;
+		scroll-snap-align: start;
+		user-select: none;
+		-webkit-user-select: none;
 	}
 
 	.cat-tile:not(.active):hover {
@@ -315,8 +343,7 @@
 		font-weight: 600;
 		line-height: 1.2;
 		color: inherit;
-		white-space: normal;
-		word-break: break-word;
+		white-space: nowrap;
 	}
 
 	.cat-tile.active .cat-label {

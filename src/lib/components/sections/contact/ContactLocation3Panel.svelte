@@ -297,13 +297,23 @@
 		}
 
 		.panel-left {
-			height: 220px;
+			height: 240px;
 		}
 
 		.panel-center {
 			border-left: none;
 			border-right: none;
-			padding: 28px 20px;
+			padding: 32px 28px;
+		}
+
+		.location-desc {
+			max-width: 100%;
+			font-size: 14px;
+		}
+
+		.address-card {
+			max-width: 100%;
+			padding: 14px 18px;
 		}
 
 		.panel-right {
