@@ -1,0 +1,7 @@
+
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/wzvlauuq/sdjnusantara
+    - /bin/mkdir -p "$DEPLOYPATH"
+    - /bin/cp -R src static scripts package.json package-lock.json vite.config.ts tsconfig.json .npmrc "$DEPLOYPATH"/
