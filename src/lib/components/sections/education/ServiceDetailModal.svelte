@@ -44,8 +44,6 @@
 	}
 </script>
 
-git
-
 <svelte:window onkeydown={handleKeydown} />
 
 {#if isOpen && service}

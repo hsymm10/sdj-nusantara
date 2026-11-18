@@ -5,47 +5,6 @@
 
 <section class="program-edu-section" id="program">
 	<span id="program-pendidikan" class="anchor-target" aria-hidden="true"></span>
-	<!-- Background Organic Curves (Mockup SDJNusantara) -->
-	<!-- 1. Top-Left Golden Yellow Layered Wave (Dipertahankan Sesuai Mockup) -->
-	<svg class="decor-wave-top-gold" viewBox="0 0 580 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<defs>
-			<linearGradient id="goldMainGrad" x1="0%" y1="0%" x2="100%" y2="50%">
-				<stop offset="0%" stop-color="#FF9E00" />
-				<stop offset="45%" stop-color="#FFB51B" />
-				<stop offset="100%" stop-color="#FFCE42" />
-			</linearGradient>
-			<linearGradient id="goldSoftGrad" x1="0%" y1="0%" x2="100%" y2="60%">
-				<stop offset="0%" stop-color="#FFE79A" stop-opacity="0.85" />
-				<stop offset="50%" stop-color="#FFF2D1" stop-opacity="0.65" />
-				<stop offset="100%" stop-color="#FFFDF5" stop-opacity="0.05" />
-			</linearGradient>
-		</defs>
-		<!-- Soft Outer Gold Curve -->
-		<path d="M0 0 L0 148 C 160 148, 360 75, 580 0 Z" fill="url(#goldSoftGrad)" />
-		<!-- Main Vibrant Gold Curve -->
-		<path d="M0 0 L0 110 C 130 110, 290 50, 460 0 Z" fill="url(#goldMainGrad)" />
-	</svg>
-
-	<!-- 2. Bottom Cyan/Turquoise Organic Flowing Wave (100% Full Width Viewport, 2 Lapisan Organik Sesuai Mockup) -->
-	<svg class="decor-wave-bottom-cyan" viewBox="0 0 1440 130" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<defs>
-			<linearGradient id="cyanBackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-				<stop offset="0%" stop-color="#7DE7F5" stop-opacity="0.85" />
-				<stop offset="50%" stop-color="#A5F3FC" stop-opacity="0.9" />
-				<stop offset="100%" stop-color="#67E8F9" stop-opacity="0.85" />
-			</linearGradient>
-			<linearGradient id="cyanFrontGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-				<stop offset="0%" stop-color="#00C4D6" />
-				<stop offset="50%" stop-color="#00D2EA" />
-				<stop offset="100%" stop-color="#08A6B5" />
-			</linearGradient>
-		</defs>
-		<!-- Lapisan 1: Cyan Muda / Light Turquoise (Bagian Belakang/Atas) -->
-		<path d="M 0 130 L 0 32 C 340 76, 760 84, 1440 22 L 1440 130 Z" fill="url(#cyanBackGrad)" />
-		<!-- Lapisan 2: Turquoise / Cyan Lebih Pekat (Bagian Depan) -->
-		<path d="M 0 130 L 0 58 C 360 96, 780 102, 1440 46 L 1440 130 Z" fill="url(#cyanFrontGrad)" />
-	</svg>
-
 	<div class="program-edu-container">
 		<!-- Left: Text & CTA -->
 		<div class="program-edu-left">
@@ -71,18 +30,11 @@
 			</a>
 		</div>
 
-		<!-- Right: Photo with Floating Book Badge & Decorative Corner Ribbons -->
+		<!-- Right: Photo with Floating Book Badge -->
 		<div class="program-edu-right">
 			<div class="photo-wrapper">
-				<!-- Top-Left Floating Book Badge with Golden Rays -->
+				<!-- Top-Left Floating Book Badge -->
 				<div class="floating-badge-wrap" aria-hidden="true">
-					<!-- 3 Sparkle rays above badge -->
-					<div class="badge-sun-rays">
-						<span class="ray ray-left"></span>
-						<span class="ray ray-mid"></span>
-						<span class="ray ray-right"></span>
-					</div>
-					<!-- Turquoise Badge Icon Box with Book Icon -->
 					<div class="floating-badge-box">
 						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -99,13 +51,6 @@
 						class="program-img"
 						loading="eager"
 					/>
-					<!-- Decorative curve ribbons on bottom-right (Layered Yellow & Cyan curves) -->
-					<svg class="deco-corner-ribbon" viewBox="0 0 160 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<!-- Outer Yellow Ribbon -->
-						<path d="M0 100 C50 96 110 75 160 20 V100 H0 Z" fill="#FFB900"/>
-						<!-- Inner Cyan Ribbon -->
-						<path d="M35 100 C80 96 125 78 160 45 V100 H35 Z" fill="#00C2D8"/>
-					</svg>
 				</div>
 			</div>
 		</div>
@@ -115,32 +60,11 @@
 <style>
 	.program-edu-section {
 		position: relative;
-		background: #FFFFFF;
-		padding: 76px 0 96px;
+		background: #F8FAFC;
+		padding: 76px 0 88px;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: hidden;
-	}
-
-	/* Background Organic Waves */
-	.decor-wave-top-gold {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: clamp(340px, 38vw, 560px);
-		height: clamp(96px, 10.5vw, 150px);
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.decor-wave-bottom-cyan {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: clamp(80px, 9.5vw, 130px);
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.program-edu-container {
@@ -233,49 +157,20 @@
 	/* Floating badge top-left */
 	.floating-badge-wrap {
 		position: absolute;
-		top: -16px;
-		left: -16px;
+		top: -14px;
+		left: -14px;
 		z-index: 10;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 	}
 
-	.badge-sun-rays {
-		display: flex;
-		justify-content: center;
-		align-items: flex-end;
-		gap: 6px;
-		margin-bottom: 4px;
-	}
-
-	.badge-sun-rays .ray {
-		display: inline-block;
-		width: 3px;
-		height: 8px;
-		background: #FFB900;
-		border-radius: 2px;
-	}
-
-	.badge-sun-rays .ray-left {
-		transform: rotate(-30deg);
-	}
-
-	.badge-sun-rays .ray-mid {
-		height: 10px;
-	}
-
-	.badge-sun-rays .ray-right {
-		transform: rotate(30deg);
-	}
-
 	.floating-badge-box {
-		width: 52px;
-		height: 52px;
-		border-radius: 14px;
+		width: 46px;
+		height: 46px;
+		border-radius: 12px;
 		background: #00B8C7;
-		border: 3.5px solid #FFFFFF;
-		box-shadow: 0 6px 18px rgba(0, 184, 199, 0.35);
+		border: 2.5px solid #FFFFFF;
+		box-shadow: 0 4px 14px rgba(0, 184, 199, 0.25);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -285,10 +180,10 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 16 / 9.2;
-		border-radius: 22px;
+		border-radius: 20px;
 		overflow: hidden;
-		box-shadow: 0 16px 36px rgba(11, 41, 72, 0.08);
-		border: 3px solid #FFFFFF;
+		box-shadow: 0 12px 30px rgba(11, 41, 72, 0.08);
+		border: 1px solid #E2E8F0;
 		background: #F1F5F9;
 	}
 
@@ -303,16 +198,6 @@
 
 	.photo-wrapper:hover .program-img {
 		transform: scale(1.02);
-	}
-
-	.deco-corner-ribbon {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 160px;
-		height: 100px;
-		pointer-events: none;
-		z-index: 2;
 	}
 
 	/* Responsive Tablet */
@@ -338,14 +223,6 @@
 			padding: 56px 0 76px;
 		}
 
-		.decor-wave-top-gold {
-			width: 260px;
-			height: 75px;
-		}
-
-		.decor-wave-bottom-cyan {
-			height: 65px;
-		}
 
 		.program-edu-container {
 			flex-direction: column;

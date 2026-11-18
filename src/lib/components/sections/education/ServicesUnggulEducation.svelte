@@ -180,21 +180,6 @@
 						}
 					}}
 				>
-					<!-- Inner Bottom Wave Decoration -->
-					<div class="card-wave-bg" aria-hidden="true">
-						{#if item.accent === 'gold'}
-							<svg viewBox="0 0 280 48" fill="none" preserveAspectRatio="none">
-								<path d="M0 20 C70 40, 170 10, 280 26 V48 H0 Z" fill="#FEF08A" opacity="0.65" />
-								<path d="M0 32 C80 44, 180 20, 280 34 V48 H0 Z" fill="#FDE047" opacity="0.45" />
-							</svg>
-						{:else}
-							<svg viewBox="0 0 280 48" fill="none" preserveAspectRatio="none">
-								<path d="M0 20 C70 40, 170 10, 280 26 V48 H0 Z" fill="#D3F6F8" opacity="0.75" />
-								<path d="M0 32 C80 44, 180 20, 280 34 V48 H0 Z" fill="#B7EEF3" opacity="0.5" />
-							</svg>
-						{/if}
-					</div>
-
 					<div class="card-body">
 						<div class="card-icon-wrap {item.accent === 'gold' ? 'icon-gold' : 'icon-cyan'}">
 							{#if item.icon === 'users'}
@@ -260,8 +245,8 @@
 
 <style>
 	.layanan-section {
-		background: #FFFFFF;
-		padding: 72px 0 84px;
+		background: #F8FAFC;
+		padding: 76px 0 88px;
 		width: 100%;
 		box-sizing: border-box;
 		position: relative;
@@ -327,14 +312,14 @@
 		position: relative;
 		background: #FFFFFF;
 		border: 1px solid #E2E8F0;
-		border-radius: 22px;
+		border-radius: 18px;
 		padding: 26px 22px 22px;
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
 		min-height: 254px;
 		overflow: hidden;
-		box-shadow: 0 4px 18px rgba(11, 41, 72, 0.04);
+		box-shadow: 0 4px 16px rgba(11, 41, 72, 0.04);
 		transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
 		box-sizing: border-box;
 		cursor: pointer;
@@ -342,49 +327,32 @@
 	}
 
 	.layanan-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 14px 30px rgba(11, 41, 72, 0.09);
+		transform: translateY(-3px);
+		box-shadow: 0 10px 24px rgba(11, 41, 72, 0.08);
 		border-color: #00AAB5;
 	}
 
 	/* Card 2 Accent (Gold / Cream) */
 	.layanan-card.card-gold {
-		background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF7 55%, #FEF8E7 100%);
-		border: 1.5px solid #FDE68A;
-		box-shadow: 0 4px 18px rgba(255, 185, 35, 0.08);
+		background: #FFFFFF;
+		border: 1px solid #FDE68A;
+		box-shadow: 0 4px 16px rgba(255, 185, 35, 0.05);
 	}
 
 	.layanan-card.card-gold:hover {
 		border-color: #FFB923;
-		box-shadow: 0 14px 30px rgba(255, 185, 35, 0.16);
+		box-shadow: 0 10px 24px rgba(255, 185, 35, 0.12);
 	}
 
 	/* Card 4 Active / Highlight */
 	.layanan-card.card-active {
-		background: linear-gradient(180deg, #FFFFFF 0%, #F3FCFD 100%);
-		border: 2px solid #00AAB5;
-		box-shadow: 0 6px 24px rgba(0, 170, 181, 0.14);
+		background: #FFFFFF;
+		border: 1.5px solid #00AAB5;
+		box-shadow: 0 4px 16px rgba(0, 170, 181, 0.08);
 	}
 
 	.layanan-card.card-active:hover {
-		box-shadow: 0 14px 32px rgba(0, 170, 181, 0.22);
-	}
-
-	/* Bottom Wave inside Card */
-	.card-wave-bg {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 48px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.card-wave-bg svg {
-		width: 100%;
-		height: 100%;
-		display: block;
+		box-shadow: 0 10px 24px rgba(0, 170, 181, 0.15);
 	}
 
 	/* Card Body */

@@ -37,51 +37,6 @@
 </script>
 
 <section class="about-section" id="tentang-sdj">
-	<!-- Background Decor: Left Dot Matrix & Glow -->
-	<div class="bg-glow-left" aria-hidden="true"></div>
-	<div class="dot-matrix" aria-hidden="true">
-		{#each Array(15) as _}
-			<span class="dot"></span>
-		{/each}
-	</div>
-
-	<!-- Background Decor: Top-Right Soft Yellow Glow -->
-	<div class="bg-glow-right" aria-hidden="true"></div>
-
-	<!-- Background Decor: Bottom Cyan Flowing Wave -->
-	<div class="bottom-cyan-wave" aria-hidden="true">
-		<svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none">
-			<path
-				d="M0,40 C320,80 600,25 920,62 C1180,92 1340,55 1440,35 L1440,90 L0,90 Z"
-				fill="url(#cyanWaveGrad)"
-			/>
-			<path
-				d="M0,58 C360,92 680,45 1040,78 C1260,98 1380,72 1440,60 L1440,90 L0,90 Z"
-				fill="#E8FAF9"
-				opacity="0.7"
-			/>
-			<defs>
-				<linearGradient id="cyanWaveGrad" x1="0" y1="0" x2="1" y2="0">
-					<stop
-						offset="0%"
-						stop-color="#24CBD8"
-						stop-opacity="0.45"
-					/>
-					<stop
-						offset="50%"
-						stop-color="#64E0EA"
-						stop-opacity="0.32"
-					/>
-					<stop
-						offset="100%"
-						stop-color="#D7F6F8"
-						stop-opacity="0.18"
-					/>
-				</linearGradient>
-			</defs>
-		</svg>
-	</div>
-
 	<div class="about-container">
 		<!-- Kolom 1 — Konten Utama (Kiri: 34%) -->
 		<div class="about-left-col">
@@ -140,27 +95,6 @@
 
 		<!-- Kolom 2 — Daftar Keunggulan (Tengah: 30%) -->
 		<div class="about-mid-col">
-			<!-- Arc curve dekoratif di sebelah kiri pills -->
-			<svg
-				class="pill-arc-svg"
-				viewBox="0 0 38 270"
-				fill="none"
-				aria-hidden="true"
-			>
-				<path
-					d="M 32 14 C 2 78, 2 192, 32 256"
-					stroke="#22CBD8"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					fill="none"
-				/>
-				<circle cx="32" cy="14" r="3" fill="#A4EEF3" />
-				<circle cx="15" cy="74" r="3.5" fill="#00AAB5" />
-				<circle cx="9" cy="135" r="4.2" fill="#00AAB5" />
-				<circle cx="15" cy="196" r="3.5" fill="#00AAB5" />
-				<circle cx="32" cy="256" r="3" fill="#A4EEF3" />
-			</svg>
-
 			<div class="pillars-list">
 				{#each pillars as p}
 					<div class="pillar-card {p.active ? 'active-pillar' : ''}">
@@ -274,26 +208,11 @@
 			<div class="bldg-wrapper">
 				<!-- Floating Badge: Dedikasi untuk Talenta Indonesia -->
 				<div class="floating-badge">
-					<div class="badge-sparkles" aria-hidden="true">
-						<svg
-							width="22"
-							height="18"
-							viewBox="0 0 24 20"
-							fill="none"
-						>
-							<path
-								d="M12 2V6M5 6L8 9M19 6L16 9"
-								stroke="#FFB923"
-								stroke-width="2.2"
-								stroke-linecap="round"
-							/>
-						</svg>
-					</div>
 					<div class="badge-icon" aria-hidden="true">
 						<!-- Laurel wreath -->
 						<svg
-							width="28"
-							height="28"
+							width="24"
+							height="24"
 							viewBox="0 0 48 48"
 							fill="#FFB51B"
 						>
@@ -326,23 +245,6 @@
 						class="bldg-img"
 						loading="eager"
 					/>
-					<!-- Aksen lengkung kuning dan teal pada bagian kanan bawah gambar -->
-					<svg
-						class="bldg-corner-swoosh"
-						viewBox="0 0 160 120"
-						fill="none"
-						preserveAspectRatio="none"
-						aria-hidden="true"
-					>
-						<path
-							d="M0 120 C50 115 110 95 160 30 V120 H0 Z"
-							fill="#FFB923"
-						/>
-						<path
-							d="M45 120 C90 116 130 98 160 60 V120 H45 Z"
-							fill="#00AAB5"
-						/>
-					</svg>
 				</div>
 			</div>
 		</div>
@@ -353,78 +255,10 @@
 	.about-section {
 		position: relative;
 		background: #ffffff;
-		padding: 72px 0 86px;
+		padding: 76px 0 88px;
 		width: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	/* Background Decorations */
-	.bg-glow-left {
-		position: absolute;
-		top: 20%;
-		left: -120px;
-		width: 320px;
-		height: 320px;
-		background: radial-gradient(
-			circle,
-			rgba(0, 170, 181, 0.12) 0%,
-			rgba(255, 255, 255, 0) 70%
-		);
-		border-radius: 50%;
-		pointer-events: none;
-		z-index: 0;
-	}
-
-	.dot-matrix {
-		position: absolute;
-		top: 38%;
-		left: 36px;
-		display: grid;
-		grid-template-columns: repeat(5, 5px);
-		gap: 9px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.dot {
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: #00aab5;
-		opacity: 0.42;
-	}
-
-	.bg-glow-right {
-		position: absolute;
-		top: -40px;
-		right: -60px;
-		width: 420px;
-		height: 420px;
-		background: radial-gradient(
-			circle,
-			rgba(255, 185, 35, 0.1) 0%,
-			rgba(255, 255, 255, 0) 70%
-		);
-		border-radius: 50%;
-		pointer-events: none;
-		z-index: 0;
-	}
-
-	.bottom-cyan-wave {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 75px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.bottom-cyan-wave svg {
-		width: 100%;
-		height: 100%;
-		display: block;
 	}
 
 	.about-container {
@@ -520,16 +354,6 @@
 		align-items: center;
 	}
 
-	.pill-arc-svg {
-		position: absolute;
-		left: -32px;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 38px;
-		height: 270px;
-		pointer-events: none;
-	}
-
 	.pillars-list {
 		width: 100%;
 		display: flex;
@@ -545,20 +369,20 @@
 		background: #ffffff;
 		border: 1px solid #e2e8f0;
 		border-radius: 9999px;
-		box-shadow: 0 3px 10px rgba(11, 41, 72, 0.04);
+		box-shadow: 0 2px 8px rgba(11, 41, 72, 0.04);
 		transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.pillar-card:hover {
 		transform: translateX(4px);
-		box-shadow: 0 6px 16px rgba(0, 170, 181, 0.12);
+		box-shadow: 0 4px 14px rgba(0, 170, 181, 0.12);
 		border-color: #00aab5;
 	}
 
 	.active-pillar {
-		background: linear-gradient(90deg, #e2f9fa 0%, #d8f7f9 100%);
+		background: #f0fafa;
 		border: 1.5px solid #00aab5;
-		box-shadow: 0 4px 16px rgba(0, 170, 181, 0.16);
+		box-shadow: 0 3px 12px rgba(0, 170, 181, 0.12);
 	}
 
 	.pillar-icon-box {
@@ -579,7 +403,7 @@
 		background: #ffffff;
 		border-color: transparent;
 		color: #00aab5;
-		box-shadow: 0 2px 8px rgba(0, 170, 181, 0.15);
+		box-shadow: 0 2px 6px rgba(0, 170, 181, 0.12);
 	}
 
 	.pillar-title {
@@ -603,8 +427,8 @@
 	/* Floating Badge: Dedikasi untuk Talenta Indonesia */
 	.floating-badge {
 		position: absolute;
-		top: -18px;
-		right: -10px;
+		top: -16px;
+		right: -8px;
 		z-index: 10;
 		display: inline-flex;
 		align-items: center;
@@ -612,15 +436,8 @@
 		background: #ffffff;
 		padding: 7px 18px 7px 12px;
 		border-radius: 9999px;
-		border: 1.5px solid #fde68a;
-		box-shadow: 0 8px 24px rgba(11, 41, 72, 0.1);
-	}
-
-	.badge-sparkles {
-		position: absolute;
-		top: -14px;
-		right: 12px;
-		pointer-events: none;
+		border: 1px solid #e2e8f0;
+		box-shadow: 0 6px 20px rgba(11, 41, 72, 0.08);
 	}
 
 	.badge-icon {
@@ -639,7 +456,7 @@
 	.badge-row-1 {
 		font-size: 10.5px;
 		font-weight: 600;
-		color: #0b2948;
+		color: #556980;
 	}
 
 	.badge-row-2 {
@@ -652,10 +469,10 @@
 		position: relative;
 		width: 100%;
 		height: 330px;
-		border-radius: 26px;
+		border-radius: 20px;
 		overflow: hidden;
-		box-shadow: 0 16px 36px rgba(11, 41, 72, 0.1);
-		border: 3px solid #ffffff;
+		box-shadow: 0 12px 30px rgba(11, 41, 72, 0.08);
+		border: 1px solid #e2e8f0;
 		background: #f1f5f9;
 	}
 
@@ -669,33 +486,13 @@
 	}
 
 	.bldg-card:hover .bldg-img {
-		transform: scale(1.03);
-	}
-
-	.bldg-corner-swoosh {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 160px;
-		height: 120px;
-		pointer-events: none;
-	}
-
-	/* Tablet */
-	@media (max-width: 1100px) {
-		.dot-matrix {
-			display: none;
-		}
+		transform: scale(1.02);
 	}
 
 	@media (max-width: 1024px) {
 		.about-container {
 			gap: 24px;
 			padding: 0 24px;
-		}
-
-		.dot-matrix {
-			left: 14px;
 		}
 
 		.about-left-col {
@@ -706,11 +503,6 @@
 		.about-mid-col {
 			flex: 0 0 31%;
 			max-width: 31%;
-		}
-
-		.pill-arc-svg {
-			left: -22px;
-			width: 30px;
 		}
 
 		.about-right-col {
@@ -747,14 +539,6 @@
 	@media (max-width: 768px) {
 		.about-section {
 			padding: 52px 0 64px;
-		}
-
-		.dot-matrix {
-			display: none;
-		}
-
-		.pill-arc-svg {
-			display: none;
 		}
 
 		.about-container {

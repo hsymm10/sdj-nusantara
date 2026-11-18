@@ -42,31 +42,6 @@
 </script>
 
 <section class="scholarship-cat-section" id="akses-beasiswa">
-	<!-- Atmospheric background geometric curves from Mockup GAMBAR 2 -->
-	<div class="cat-bg-decor" aria-hidden="true">
-		<svg class="decor-swoosh-left" viewBox="0 0 320 240" fill="none" preserveAspectRatio="none">
-			<path d="M0 0 L220 0 C160 55 90 120 0 170 Z" fill="url(#teal-pale-layer-cat)" />
-			<path d="M260 0 C190 50 110 110 0 145 L0 205 C95 155 180 90 220 0 Z" fill="url(#teal-main-ribbon-cat)" />
-			<path d="M260 0 C190 50 110 110 0 145" stroke="url(#teal-crest-stroke-cat)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-			<defs>
-				<linearGradient id="teal-pale-layer-cat" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#C2F1F5" stop-opacity="0.5"/>
-					<stop offset="70%" stop-color="#E2F9FB" stop-opacity="0.25"/>
-					<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-				</linearGradient>
-				<linearGradient id="teal-main-ribbon-cat" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#08A6B5" stop-opacity="0.32"/>
-					<stop offset="50%" stop-color="#00B7C7" stop-opacity="0.22"/>
-					<stop offset="100%" stop-color="#5FE3EC" stop-opacity="0.08"/>
-				</linearGradient>
-				<linearGradient id="teal-crest-stroke-cat" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#08A6B5" stop-opacity="0.5"/>
-					<stop offset="100%" stop-color="#00B7C7" stop-opacity="0.1"/>
-				</linearGradient>
-			</defs>
-		</svg>
-	</div>
-
 	<div class="scholarship-cat-container">
 		<!-- Section Header -->
 		<div class="cat-header">
@@ -137,34 +112,17 @@
 
 <style>
 	.scholarship-cat-section {
-		background: linear-gradient(180deg, #F8FDFF 0%, #FFFFFF 100%);
-		padding: 42px 0 18px;
+		background: #FFFFFF;
+		padding: 68px 0 74px;
 		width: 100%;
 		position: relative;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
-	.cat-bg-decor {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		z-index: 1;
-		overflow: hidden;
-	}
-
-	.decor-swoosh-left {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 320px;
-		height: 240px;
-		pointer-events: none;
-	}
-
 	.scholarship-cat-container {
-		width: 78%;
-		max-width: 1240px;
+		width: 86%;
+		max-width: 1280px;
 		margin: 0 auto;
 		box-sizing: border-box;
 		position: relative;
@@ -173,13 +131,13 @@
 
 	.cat-header {
 		text-align: center;
-		margin-bottom: 26px;
+		margin-bottom: 32px;
 	}
 
 	.cat-badge {
 		display: inline-flex;
 		align-items: center;
-		margin-bottom: 6px;
+		margin-bottom: 8px;
 	}
 
 	.badge-text {
@@ -191,11 +149,11 @@
 	}
 
 	.cat-title {
-		font-size: clamp(23px, 2.1vw, 28px);
+		font-size: clamp(26px, 2.5vw, 34px);
 		font-weight: 800;
 		color: #0B2948;
-		line-height: 1.25;
-		margin: 0 0 6px;
+		line-height: 1.3;
+		margin: 0 0 10px;
 		letter-spacing: -0.015em;
 	}
 
@@ -204,11 +162,11 @@
 	}
 
 	.cat-sub {
-		font-size: 13px;
+		font-size: 15.5px;
 		color: #5A6A80;
 		margin: 0 auto;
-		max-width: 580px;
-		line-height: 1.5;
+		max-width: 660px;
+		line-height: 1.6;
 	}
 
 	/* 5 Cards Row */
@@ -222,12 +180,12 @@
 		background: #FFFFFF;
 		border: 1px solid #E2E8F0;
 		border-radius: 16px;
-		padding: 10px 11px;
-		min-height: 60px;
+		padding: 13px 15px;
+		min-height: 68px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 8px;
+		gap: 10px;
 		text-decoration: none;
 		box-shadow: 0 3px 12px rgba(11, 41, 72, 0.04);
 		transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s, border-color 0.2s;
@@ -254,9 +212,9 @@
 	}
 
 	.cat-icon-wrap {
-		width: 36px;
-		height: 36px;
-		border-radius: 10px;
+		width: 40px;
+		height: 40px;
+		border-radius: 11px;
 		background: #E6F7F8;
 		color: #08A6B5;
 		display: flex;
@@ -275,10 +233,10 @@
 	.cat-label {
 		flex: 1;
 		min-width: 0;
-		font-size: 12px;
+		font-size: 14.5px;
 		font-weight: 700;
 		color: #0B2948;
-		line-height: 1.25;
+		line-height: 1.35;
 		white-space: pre-line;
 		position: relative;
 		z-index: 2;

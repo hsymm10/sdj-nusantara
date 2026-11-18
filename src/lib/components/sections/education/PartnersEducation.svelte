@@ -233,52 +233,6 @@
 </script>
 
 <section class="partners-redesign-section" id="mitra-kolaborasi">
-	<!-- Abstract Background Vector Decorations (Sesuai Mockup 2) -->
-	<!-- 1. Top-Left Soft Cyan Wave -->
-	<svg class="bg-decor-top-cyan" viewBox="0 0 460 260" fill="none" aria-hidden="true">
-		<defs>
-			<radialGradient id="topCyanGrad" cx="0%" cy="0%" r="100%">
-				<stop offset="0%" stop-color="#C2F1F7" stop-opacity="0.85" />
-				<stop offset="60%" stop-color="#E2F8FA" stop-opacity="0.45" />
-				<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-			</radialGradient>
-		</defs>
-		<path d="M0 0 L0 230 C120 230, 240 180, 360 80 C410 40, 440 15, 460 0 Z" fill="url(#topCyanGrad)" />
-	</svg>
-
-	<!-- 2. Top-Left Cyan Dot Matrix (5 cols x 3 rows) -->
-	<div class="dot-matrix-top-left" aria-hidden="true">
-		{#each Array(15) as _}
-			<span class="dot-cyan"></span>
-		{/each}
-	</div>
-
-	<!-- 3. Top-Right Yellow Dot Matrix (5 cols x 4 rows) -->
-	<div class="dot-matrix-top-right" aria-hidden="true">
-		{#each Array(20) as _}
-			<span class="dot-gold"></span>
-		{/each}
-	</div>
-
-	<!-- 4. Bottom-Left Grey Dot Matrix (5 cols x 3 rows) -->
-	<div class="dot-matrix-bottom-left" aria-hidden="true">
-		{#each Array(15) as _}
-			<span class="dot-grey"></span>
-		{/each}
-	</div>
-
-	<!-- 5. Bottom-Right Large Soft Yellow Wave -->
-	<svg class="bg-decor-bottom-yellow" viewBox="0 0 520 320" fill="none" aria-hidden="true">
-		<defs>
-			<radialGradient id="bottomYellowGrad" cx="100%" cy="100%" r="100%">
-				<stop offset="0%" stop-color="#FDE68A" stop-opacity="0.8" />
-				<stop offset="45%" stop-color="#FEF3C7" stop-opacity="0.4" />
-				<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-			</radialGradient>
-		</defs>
-		<path d="M520 320 L160 320 C240 220, 340 120, 450 40 L520 0 Z" fill="url(#bottomYellowGrad)" />
-	</svg>
-
 	<!-- Main Content Container -->
 	<div class="partners-content-wrap">
 		<!-- Header Section -->
@@ -289,16 +243,10 @@
 				<span class="badge-text">{i18n.pick('Mitra & Kolaborasi', 'Partners & Collaboration')}</span>
 			</div>
 
-			<!-- Main Heading with Curved Golden Swoosh Underline under SDJNusantara -->
+			<!-- Main Heading -->
 			<h2 class="partners-main-title">
 				{i18n.pick('Jaringan Kolaborasi', 'Collaboration Network of')}
-				<span class="title-highlight">
-					SDJNusantara
-					<!-- Curved golden swoosh underline -->
-					<svg class="swoosh-brush" viewBox="0 0 240 18" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M 2 5 C 65 17, 160 17, 238 6 C 175 13, 85 13, 2 5 Z" fill="#FBBF24" />
-					</svg>
-				</span>
+				<span class="title-highlight">SDJNusantara</span>
 			</h2>
 
 			<!-- Subtitle -->
@@ -310,19 +258,9 @@
 			</p>
 		</div>
 
-		<!-- Big Capsule Container with Crescent Accents Behind -->
+		<!-- Big Capsule Container -->
 		<div class="capsule-outer-wrap">
-			<!-- Yellow Crescent on Bottom-Left (Thick Bold Arc Hugging the Left Curve) -->
-			<svg class="crescent-accent-left" viewBox="0 0 110 110" fill="none" aria-hidden="true">
-				<path d="M 40 8 C 16 34, 20 78, 68 100 C 30 96, 6 64, 26 12 C 30 6, 36 6, 40 8 Z" fill="#F59E0B" />
-			</svg>
-
-			<!-- Cyan Crescent on Top-Right (Thick Bold Arc Hugging the Right Curve) -->
-			<svg class="crescent-accent-right" viewBox="0 0 110 110" fill="none" aria-hidden="true">
-				<path d="M 70 102 C 94 76, 90 32, 42 10 C 80 14, 104 46, 84 98 C 80 104, 74 104, 70 102 Z" fill="#00A6B4" />
-			</svg>
-
-			<!-- Pill / Capsule Container Card: 175px-185px height on desktop, border-radius 9999px -->
+			<!-- Pill / Capsule Container Card: height ~115px on desktop, border-radius 9999px -->
 			<div
 				class="partners-capsule-card"
 				class:grabbing={isDragging}
@@ -382,89 +320,10 @@
 	.partners-redesign-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 80px 0 96px;
+		padding: 76px 0 88px;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: hidden;
-	}
-
-	/* Background Decorations */
-	.bg-decor-top-cyan {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: clamp(260px, 32vw, 460px);
-		height: clamp(140px, 18vw, 260px);
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.bg-decor-bottom-yellow {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: clamp(300px, 36vw, 520px);
-		height: clamp(180px, 22vw, 320px);
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	/* Dot Matrices */
-	.dot-matrix-top-left {
-		position: absolute;
-		top: 65px;
-		left: 45px;
-		display: grid;
-		grid-template-columns: repeat(5, 6px);
-		grid-gap: 12px;
-		pointer-events: none;
-		z-index: 2;
-	}
-
-	.dot-cyan {
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: #62D5E3;
-		opacity: 0.75;
-	}
-
-	.dot-matrix-top-right {
-		position: absolute;
-		top: 75px;
-		right: 50px;
-		display: grid;
-		grid-template-columns: repeat(5, 6px);
-		grid-gap: 13px;
-		pointer-events: none;
-		z-index: 2;
-	}
-
-	.dot-gold {
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: #FBBF24;
-		opacity: 0.75;
-	}
-
-	.dot-matrix-bottom-left {
-		position: absolute;
-		bottom: 60px;
-		left: 45px;
-		display: grid;
-		grid-template-columns: repeat(5, 6px);
-		grid-gap: 12px;
-		pointer-events: none;
-		z-index: 2;
-	}
-
-	.dot-grey {
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: #CBD5E1;
-		opacity: 0.65;
 	}
 
 	/* Content Wrap */
@@ -520,19 +379,7 @@
 	}
 
 	.title-highlight {
-		position: relative;
-		display: inline-block;
-		white-space: nowrap;
-		color: #0B2238;
-	}
-
-	.swoosh-brush {
-		position: absolute;
-		bottom: -10px;
-		left: 0;
-		width: 100%;
-		height: 14px;
-		pointer-events: none;
+		color: #00A6B2;
 	}
 
 	/* Subtitle */
@@ -544,7 +391,7 @@
 		margin: 0 auto;
 	}
 
-	/* Capsule Outer Wrap with Crescent Accents: width ~90-95% */
+	/* Capsule Outer Wrap: width ~90-95% */
 	.capsule-outer-wrap {
 		position: relative;
 		width: 92%;
@@ -552,36 +399,15 @@
 		margin: 0 auto 24px;
 	}
 
-	/* Bold Crescent Accents Hugging Capsule Ends */
-	.crescent-accent-left {
-		position: absolute;
-		left: -18px;
-		bottom: -14px;
-		width: 70px;
-		height: 70px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.crescent-accent-right {
-		position: absolute;
-		right: -18px;
-		top: -14px;
-		width: 70px;
-		height: 70px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
 	/* Capsule Container Card: 110-120px height on desktop (115px) */
 	.partners-capsule-card {
 		position: relative;
 		z-index: 2;
 		background: #FFFFFF;
-		border: 1.5px solid #E2E8F0;
+		border: 1px solid #E2E8F0;
 		border-radius: 9999px;
 		height: 115px;
-		box-shadow: 0 10px 30px rgba(11, 41, 72, 0.05), 0 2px 6px rgba(11, 41, 72, 0.02);
+		box-shadow: 0 8px 24px rgba(11, 41, 72, 0.05);
 		overflow: hidden;
 		user-select: none;
 		touch-action: pan-y;
@@ -731,25 +557,7 @@
 			height: 44px;
 		}
 
-		.crescent-accent-left {
-			left: -14px;
-			bottom: -10px;
-			width: 58px;
-			height: 58px;
-		}
 
-		.crescent-accent-right {
-			right: -14px;
-			top: -10px;
-			width: 58px;
-			height: 58px;
-		}
-
-		.dot-matrix-top-left,
-		.dot-matrix-top-right,
-		.dot-matrix-bottom-left {
-			display: none;
-		}
 	}
 
 	/* Responsive Mobile (max 640px) */
@@ -815,10 +623,6 @@
 			height: 34px;
 		}
 
-		.crescent-accent-left,
-		.crescent-accent-right {
-			display: none;
-		}
 
 		.page-dot {
 			width: 9px;

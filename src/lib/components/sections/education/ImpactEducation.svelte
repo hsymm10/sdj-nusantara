@@ -31,61 +31,6 @@
 </script>
 
 <section class="impact-edu-section" id="dampak-nyata">
-	<!-- Atmospheric background geometric curves from Mockup GAMBAR 2 -->
-	<div class="impact-bg-decor" aria-hidden="true">
-		<!-- Top-left geometric cyan swoosh curve (Mockup GAMBAR 2) -->
-		<svg class="decor-swoosh-left" viewBox="0 0 320 240" fill="none" preserveAspectRatio="none">
-			<!-- Layer 1: Very pale soft cyan wide background arc -->
-			<path d="M0 0 L220 0 C160 55 90 120 0 170 Z" fill="url(#teal-pale-layer)" />
-			<!-- Layer 2: Main sweeping ribbon wave with stronger teal gradient -->
-			<path d="M260 0 C190 50 110 110 0 145 L0 205 C95 155 180 90 220 0 Z" fill="url(#teal-main-ribbon)" />
-			<!-- Layer 3: Accent crest line along upper curve -->
-			<path d="M260 0 C190 50 110 110 0 145" stroke="url(#teal-crest-stroke)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-			<defs>
-				<linearGradient id="teal-pale-layer" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#C2F1F5" stop-opacity="0.5"/>
-					<stop offset="70%" stop-color="#E2F9FB" stop-opacity="0.25"/>
-					<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-				</linearGradient>
-				<linearGradient id="teal-main-ribbon" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#08A6B5" stop-opacity="0.32"/>
-					<stop offset="50%" stop-color="#00B7C7" stop-opacity="0.22"/>
-					<stop offset="100%" stop-color="#5FE3EC" stop-opacity="0.08"/>
-				</linearGradient>
-				<linearGradient id="teal-crest-stroke" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#08A6B5" stop-opacity="0.5"/>
-					<stop offset="100%" stop-color="#00B7C7" stop-opacity="0.1"/>
-				</linearGradient>
-			</defs>
-		</svg>
-
-		<!-- Bottom-right geometric yellow/amber swoosh curve (Mockup GAMBAR 2) -->
-		<svg class="decor-swoosh-right" viewBox="0 0 340 200" fill="none" preserveAspectRatio="none">
-			<!-- Layer 1: Wider pale yellow underlayer -->
-			<path d="M0 200 C110 180 200 135 340 95 L340 200 Z" fill="url(#gold-pale-layer)" />
-			<!-- Layer 2: Main flowing rich gold ribbon -->
-			<path d="M40 200 C140 185 230 145 340 120 L340 200 Z" fill="url(#gold-main-ribbon)" />
-			<!-- Layer 3: Accent crest line along upper curve -->
-			<path d="M0 200 C110 180 200 135 340 95" stroke="url(#gold-crest-stroke)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
-			<defs>
-				<linearGradient id="gold-pale-layer" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFCE52" stop-opacity="0.45"/>
-					<stop offset="60%" stop-color="#FFE399" stop-opacity="0.22"/>
-					<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-				</linearGradient>
-				<linearGradient id="gold-main-ribbon" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFB928" stop-opacity="0.75"/>
-					<stop offset="50%" stop-color="#FFC84C" stop-opacity="0.50"/>
-					<stop offset="100%" stop-color="#FFEBB8" stop-opacity="0.10"/>
-				</linearGradient>
-				<linearGradient id="gold-crest-stroke" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFB928" stop-opacity="0.6"/>
-					<stop offset="100%" stop-color="#FFE399" stop-opacity="0.1"/>
-				</linearGradient>
-			</defs>
-		</svg>
-	</div>
-
 	<div class="impact-edu-container">
 		<!-- Section Header -->
 		<div class="impact-header">
@@ -146,18 +91,6 @@
 						<div class="impact-num">{item.num}</div>
 						<div class="impact-label">{item.label}</div>
 					</div>
-
-					{#if item.isHighlight}
-						<!-- Card 1 corner decoration (Mockup GAMBAR 2): Dark teal shadow wave + Bright teal band + Gold corner arc -->
-						<svg class="card-corner-ribbon" viewBox="0 0 120 74" fill="none" preserveAspectRatio="none" aria-hidden="true">
-							<!-- 1. Dark teal curved wave -->
-							<path d="M0 74 C35 70 75 52 120 12 V74 H0 Z" fill="#046775"/>
-							<!-- 2. Bright cyan/teal wave -->
-							<path d="M25 74 C58 72 92 56 120 28 V74 H25 Z" fill="#00B8C8"/>
-							<!-- 3. Signature golden yellow corner arc -->
-							<path d="M55 74 C80 73 104 62 120 44 V74 H55 Z" fill="#FFB928"/>
-						</svg>
-					{/if}
 				</div>
 			{/each}
 		</div>
@@ -166,39 +99,12 @@
 
 <style>
 	.impact-edu-section {
-		background: linear-gradient(180deg, #F8FDFF 0%, #FFFFFF 60%, #FCFDFF 100%);
-		padding: 34px 0 38px;
+		background: #FFFFFF;
+		padding: 68px 0 74px;
 		width: 100%;
 		position: relative;
 		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	/* Background subtle decorative geometric curves from GAMBAR 2 */
-	.impact-bg-decor {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		z-index: 1;
-		overflow: hidden;
-	}
-
-	.decor-swoosh-left {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 320px;
-		height: 240px;
-		pointer-events: none;
-	}
-
-	.decor-swoosh-right {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: 340px;
-		height: 190px;
-		pointer-events: none;
 	}
 
 	.impact-edu-container {
@@ -316,16 +222,6 @@
 		flex-shrink: 0;
 		position: relative;
 		z-index: 2;
-	}
-
-	.card-corner-ribbon {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 105px;
-		height: 66px;
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.impact-text-group {

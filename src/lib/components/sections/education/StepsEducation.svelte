@@ -44,28 +44,6 @@
 		<div class="steps-bg-overlay"></div>
 	</div>
 
-	<!-- Bottom Wave Ribbons (Teal, Turquoise, Yellow) -->
-	<svg class="steps-bottom-wave" viewBox="0 0 1536 64" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<defs>
-			<linearGradient id="teal-ribbon-left-steps" x1="0" y1="0" x2="1" y2="1">
-				<stop offset="0%" stop-color="#08B5C0" />
-				<stop offset="100%" stop-color="#008C99" />
-			</linearGradient>
-			<linearGradient id="teal-ribbon-right-steps" x1="0" y1="1" x2="1" y2="0">
-				<stop offset="0%" stop-color="#008C99" />
-				<stop offset="100%" stop-color="#08B5C0" />
-			</linearGradient>
-		</defs>
-
-		<!-- Left Wave Layers -->
-		<path d="M0,0 C90,4 170,22 250,64 L0,64 Z" fill="#0A5E75" />
-		<path d="M0,16 C95,20 190,34 290,64 L0,64 Z" fill="url(#teal-ribbon-left-steps)" />
-
-		<!-- Right Wave Layers -->
-		<path d="M1240,64 C1340,48 1435,22 1536,10 L1536,64 Z" fill="url(#teal-ribbon-right-steps)" />
-		<path d="M1360,64 C1430,52 1485,34 1536,22 L1536,64 Z" fill="#FFB820" />
-	</svg>
-
 	<div class="steps-edu-container">
 		<!-- Left Column: Info & Button -->
 		<div class="steps-edu-left">
@@ -205,17 +183,6 @@
 			rgba(11, 41, 72, 0.58) 68%,
 			rgba(11, 41, 72, 0.28) 100%
 		);
-	}
-
-	/* Bottom wave decoration */
-	.steps-bottom-wave {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 56px;
-		pointer-events: none;
-		z-index: 2;
 	}
 
 	/* Content Container */

@@ -23,43 +23,12 @@
 </script>
 
 <section class="prep-edu-section" id="persiapan-beasiswa">
-	<!-- Atmospheric background geometric curves from Mockup GAMBAR 2 -->
-	<div class="prep-bg-decor" aria-hidden="true">
-		<!-- Bottom-right geometric yellow/amber swoosh curve -->
-		<svg class="decor-swoosh-right" viewBox="0 0 340 200" fill="none" preserveAspectRatio="none">
-			<path d="M0 200 C110 180 200 135 340 95 L340 200 Z" fill="url(#gold-pale-layer-prep)" />
-			<path d="M40 200 C140 185 230 145 340 120 L340 200 Z" fill="url(#gold-main-ribbon-prep)" />
-			<path d="M0 200 C110 180 200 135 340 95" stroke="url(#gold-crest-stroke-prep)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
-			<defs>
-				<linearGradient id="gold-pale-layer-prep" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFCE52" stop-opacity="0.45"/>
-					<stop offset="60%" stop-color="#FFE399" stop-opacity="0.22"/>
-					<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-				</linearGradient>
-				<linearGradient id="gold-main-ribbon-prep" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFB928" stop-opacity="0.75"/>
-					<stop offset="50%" stop-color="#FFC84C" stop-opacity="0.50"/>
-					<stop offset="100%" stop-color="#FFEBB8" stop-opacity="0.10"/>
-				</linearGradient>
-				<linearGradient id="gold-crest-stroke-prep" x1="1" y1="1" x2="0" y2="0">
-					<stop offset="0%" stop-color="#FFB928" stop-opacity="0.6"/>
-					<stop offset="100%" stop-color="#FFE399" stop-opacity="0.1"/>
-				</linearGradient>
-			</defs>
-		</svg>
-	</div>
-
 	<div class="prep-edu-container">
-		<!-- Col 1: Photo with Floating Badge & Bottom-Left Corner Swoosh -->
+		<!-- Col 1: Photo with Floating Badge -->
 		<div class="prep-col-photo">
 			<div class="photo-card-wrap">
-				<!-- Top-Left Floating Graduation Badge with Golden Sparkle Rays -->
+				<!-- Top-Left Floating Graduation Badge -->
 				<div class="floating-badge-wrap" aria-hidden="true">
-					<svg class="sparkle-rays" viewBox="0 0 32 18" fill="none">
-						<line x1="8" y1="14" x2="3" y2="4" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
-						<line x1="16" y1="12" x2="16" y2="2" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
-						<line x1="24" y1="14" x2="29" y2="4" stroke="#FFB928" stroke-width="2.5" stroke-linecap="round"/>
-					</svg>
 					<div class="floating-badge-box">
 						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
@@ -75,11 +44,6 @@
 						class="prep-img"
 						loading="lazy"
 					/>
-					<!-- Decorative curve ribbons on bottom-left (Mockup GAMBAR 2) -->
-					<svg class="photo-corner-ribbon-left" viewBox="0 0 110 70" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M0 0 C15 35 45 60 110 70 H0 Z" fill="#08A6B5"/>
-						<path d="M0 22 C12 45 32 62 80 70 H0 Z" fill="#FFB323"/>
-					</svg>
 				</div>
 			</div>
 		</div>
@@ -128,39 +92,22 @@
 
 <style>
 	.prep-edu-section {
-		background: linear-gradient(180deg, #FFFFFF 0%, #FCFDFF 100%);
-		padding: 16px 0 48px;
+		background: #F8FAFC;
+		padding: 72px 0 80px;
 		width: 100%;
 		position: relative;
 		overflow: hidden;
 		box-sizing: border-box;
 	}
 
-	.prep-bg-decor {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		z-index: 1;
-		overflow: hidden;
-	}
-
-	.decor-swoosh-right {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: 340px;
-		height: 190px;
-		pointer-events: none;
-	}
-
 	.prep-edu-container {
-		width: 78%;
-		max-width: 1240px;
+		width: 86%;
+		max-width: 1280px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 36px;
+		gap: 42px;
 		box-sizing: border-box;
 		position: relative;
 		z-index: 2;
@@ -168,8 +115,8 @@
 
 	/* Col 1: Photo */
 	.prep-col-photo {
-		flex: 0 0 310px;
-		max-width: 310px;
+		flex: 0 0 340px;
+		max-width: 340px;
 	}
 
 	.photo-card-wrap {
@@ -180,27 +127,20 @@
 	/* Floating badge top-left */
 	.floating-badge-wrap {
 		position: absolute;
-		top: -14px;
+		top: -12px;
 		left: -12px;
 		z-index: 10;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 	}
 
-	.sparkle-rays {
-		width: 28px;
-		height: 16px;
-		margin-bottom: -4px;
-	}
-
 	.floating-badge-box {
-		width: 44px;
-		height: 44px;
+		width: 46px;
+		height: 46px;
 		border-radius: 12px;
 		background: #08A6B5;
 		border: 2.5px solid #FFFFFF;
-		box-shadow: 0 6px 16px rgba(8, 166, 181, 0.35);
+		box-shadow: 0 4px 14px rgba(8, 166, 181, 0.25);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -208,10 +148,10 @@
 
 	.photo-card {
 		position: relative;
-		border-radius: 16px;
+		border-radius: 18px;
 		overflow: hidden;
-		box-shadow: 0 10px 26px rgba(11, 41, 72, 0.08);
-		height: 200px;
+		box-shadow: 0 10px 24px rgba(11, 41, 72, 0.06);
+		height: 225px;
 		border: 1px solid #E2E8F0;
 		background: #FFFFFF;
 	}
@@ -229,26 +169,16 @@
 		transform: scale(1.02);
 	}
 
-	.photo-corner-ribbon-left {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 95px;
-		height: 58px;
-		pointer-events: none;
-		z-index: 2;
-	}
-
 	/* Col 2: Text */
 	.prep-col-text {
-		flex: 1 1 260px;
-		max-width: 380px;
+		flex: 1 1 320px;
+		max-width: 440px;
 	}
 
 	.prep-badge {
 		display: inline-flex;
 		align-items: center;
-		margin-bottom: 10px;
+		margin-bottom: 12px;
 	}
 
 	.badge-text {
@@ -260,11 +190,11 @@
 	}
 
 	.prep-title {
-		font-size: clamp(22px, 2vw, 27px);
+		font-size: clamp(26px, 2.5vw, 34px);
 		line-height: 1.25;
 		font-weight: 800;
 		color: #0B2948;
-		margin: 0 0 12px;
+		margin: 0 0 14px;
 		letter-spacing: -0.015em;
 	}
 
@@ -273,22 +203,22 @@
 	}
 
 	.prep-desc {
-		font-size: 13.5px;
-		line-height: 1.6;
+		font-size: 15.5px;
+		line-height: 1.65;
 		color: #5A6A80;
-		margin: 0 0 20px;
+		margin: 0 0 24px;
 	}
 
 	.prep-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
+		gap: 9px;
 		background: #FFB323;
 		color: #0B2948;
-		font-size: 13.5px;
+		font-size: 14.5px;
 		font-weight: 700;
-		padding: 11px 22px;
-		border-radius: 8px;
+		padding: 12px 24px;
+		border-radius: 9px;
 		text-decoration: none;
 		white-space: nowrap;
 		box-shadow: 0 4px 14px rgba(255, 179, 35, 0.32);
@@ -303,8 +233,8 @@
 
 	/* Col 3: Checklist */
 	.prep-col-checklist {
-		flex: 1 1 310px;
-		max-width: 350px;
+		flex: 1 1 360px;
+		max-width: 420px;
 	}
 
 	.checklist-items {
@@ -313,14 +243,14 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 11px;
 	}
 
 	.check-item {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-		padding: 10px 14px;
+		gap: 13px;
+		padding: 12px 16px;
 		background: #F8FBFC;
 		border: 1px solid #E2E8F0;
 		border-radius: 12px;
@@ -335,8 +265,8 @@
 	}
 
 	.check-icon {
-		width: 24px;
-		height: 24px;
+		width: 26px;
+		height: 26px;
 		border-radius: 50%;
 		background: #E6F7F8;
 		display: flex;
@@ -346,10 +276,10 @@
 	}
 
 	.check-text {
-		font-size: 13px;
+		font-size: 14.5px;
 		font-weight: 600;
 		color: #0B2948;
-		line-height: 1.35;
+		line-height: 1.4;
 	}
 
 	@media (max-width: 960px) {

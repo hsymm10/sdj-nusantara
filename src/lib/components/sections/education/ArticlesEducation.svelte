@@ -220,49 +220,6 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <section class="articles-edu-section" id="artikel-wawasan">
-	<!-- Atmospheric background: Top-Right Yellow Waves & Bottom Full-Width Cyan Waves (Mockup GAMBAR 2) -->
-	<div class="articles-bg-decor" aria-hidden="true">
-		<!-- Top-right sweeping yellow/amber wave -->
-		<svg class="decor-wave-top-right" viewBox="0 0 760 220" fill="none" preserveAspectRatio="none">
-			<defs>
-				<linearGradient id="yellowWaveLight" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#FFF3D6" stop-opacity="0.3"/>
-					<stop offset="50%" stop-color="#FFE59E" stop-opacity="0.6"/>
-					<stop offset="100%" stop-color="#FFCA3A" stop-opacity="0.9"/>
-				</linearGradient>
-				<linearGradient id="yellowWaveMain" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stop-color="#FFE082" stop-opacity="0.4"/>
-					<stop offset="40%" stop-color="#FFC107" stop-opacity="0.85"/>
-					<stop offset="100%" stop-color="#FFA000" stop-opacity="0.95"/>
-				</linearGradient>
-			</defs>
-			<!-- Lower pale layer -->
-			<path d="M 0 0 C 220 50, 480 90, 760 220 L 760 0 Z" fill="url(#yellowWaveLight)" />
-			<!-- Upper vibrant ribbon -->
-			<path d="M 160 0 C 360 40, 580 75, 760 160 L 760 0 Z" fill="url(#yellowWaveMain)" />
-		</svg>
-
-		<!-- Bottom full-width multi-layered cyan/turquoise wave spanning 100% width -->
-		<svg class="decor-wave-bottom-full" viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none">
-			<defs>
-				<linearGradient id="cyanWaveBack" x1="0" y1="0" x2="1" y2="0">
-					<stop offset="0%" stop-color="#00A6B8" stop-opacity="0.75" />
-					<stop offset="50%" stop-color="#00BBD0" stop-opacity="0.85" />
-					<stop offset="100%" stop-color="#00D4EA" stop-opacity="0.95" />
-				</linearGradient>
-				<linearGradient id="cyanWaveFront" x1="0" y1="0" x2="1" y2="0">
-					<stop offset="0%" stop-color="#00C9DE" />
-					<stop offset="50%" stop-color="#00E5FF" />
-					<stop offset="100%" stop-color="#08B9D2" />
-				</linearGradient>
-			</defs>
-			<!-- Back wave layer -->
-			<path d="M 0 140 L 0 55 C 380 95, 920 102, 1440 38 L 1440 140 Z" fill="url(#cyanWaveBack)" />
-			<!-- Front wave layer -->
-			<path d="M 0 140 L 0 78 C 420 112, 960 115, 1440 58 L 1440 140 Z" fill="url(#cyanWaveFront)" />
-		</svg>
-	</div>
-
 	<div class="articles-edu-container">
 		<!-- A. HERO SECTION (BAGIAN ATAS - 2 KOLOM SESUAI MOCKUP GAMBAR 2) -->
 		<div class="articles-hero-layout">
@@ -294,16 +251,11 @@
 				</div>
 			</div>
 
-			<!-- Kolom Kanan (55-60%): Landscape Photo Frame with Cyan Book Badge & Yellow Sun Rays -->
+			<!-- Kolom Kanan (55-60%): Landscape Photo Frame with Cyan Book Badge -->
 			<div class="hero-right-col">
 				<div class="hero-photo-wrap">
-					<!-- Badge Buku Cyan di sudut kiri atas dengan 3 Garis Sinar Kuning -->
+					<!-- Badge Buku Cyan di sudut kiri atas -->
 					<div class="hero-badge-wrap" aria-hidden="true">
-						<div class="badge-sun-rays">
-							<span class="ray ray-left"></span>
-							<span class="ray ray-mid"></span>
-							<span class="ray ray-right"></span>
-						</div>
 						<div class="hero-book-badge">
 							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -320,14 +272,6 @@
 							class="hero-photo-img"
 							loading="eager"
 						/>
-
-						<!-- Lengkungan dekorasi cyan & kuning di sudut kanan bawah gambar -->
-						<svg class="hero-corner-ribbon" viewBox="0 0 160 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
-							<!-- Pita Kuning Luar -->
-							<path d="M0 100 C50 96 110 75 160 20 V100 H0 Z" fill="#FFB900"/>
-							<!-- Pita Cyan Dalam -->
-							<path d="M35 100 C80 96 125 78 160 45 V100 H35 Z" fill="#00C2D8"/>
-						</svg>
 					</div>
 				</div>
 			</div>
@@ -662,39 +606,10 @@
 	.articles-edu-section {
 		position: relative;
 		background: #FFFFFF;
-		padding: 76px 0 110px;
+		padding: 76px 0 88px;
 		width: 100%;
 		overflow: hidden;
 		box-sizing: border-box;
-	}
-
-	/* Atmospheric background: Top-Right Yellow Wave & Bottom Full-Width Cyan Waves */
-	.articles-bg-decor {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		z-index: 0;
-		overflow: hidden;
-	}
-
-	.decor-wave-top-right {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: clamp(380px, 48vw, 760px);
-		height: clamp(140px, 16vw, 240px);
-		z-index: 1;
-		pointer-events: none;
-	}
-
-	.decor-wave-bottom-full {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: clamp(80px, 10vw, 150px);
-		z-index: 1;
-		pointer-events: none;
 	}
 
 	/* Unified 78% Container for SDJNusantara Education Page */
@@ -804,11 +719,11 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 16 / 9.2;
-		border-radius: 22px;
+		border-radius: 20px;
 		overflow: hidden;
 		background: #F1F5F9;
-		border: 3px solid #FFFFFF;
-		box-shadow: 0 16px 36px rgba(11, 43, 80, 0.08);
+		border: 1px solid #E2E8F0;
+		box-shadow: 0 12px 30px rgba(11, 43, 80, 0.08);
 	}
 
 	.hero-photo-img {
@@ -818,66 +733,26 @@
 		display: block;
 	}
 
-	/* Corner Ribbon in bottom-right of image */
-	.hero-corner-ribbon {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 160px;
-		height: 100px;
-		pointer-events: none;
-		z-index: 2;
-	}
-
-	/* Badge on Top-Left with Sun Rays */
+	/* Badge on Top-Left */
 	.hero-badge-wrap {
 		position: absolute;
-		top: -16px;
-		left: -16px;
+		top: -14px;
+		left: -14px;
 		z-index: 10;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
-	}
-
-	.badge-sun-rays {
-		display: flex;
-		justify-content: center;
-		align-items: flex-end;
-		gap: 6px;
-		margin-bottom: 4px;
-	}
-
-	.badge-sun-rays .ray {
-		display: inline-block;
-		width: 3px;
-		height: 8px;
-		background: #FFB900;
-		border-radius: 2px;
-	}
-
-	.badge-sun-rays .ray-left {
-		transform: rotate(-30deg);
-	}
-
-	.badge-sun-rays .ray-mid {
-		height: 10px;
-	}
-
-	.badge-sun-rays .ray-right {
-		transform: rotate(30deg);
 	}
 
 	.hero-book-badge {
-		width: 52px;
-		height: 52px;
+		width: 46px;
+		height: 46px;
 		background: #00B8C7;
-		border: 3.5px solid #FFFFFF;
-		border-radius: 14px;
+		border: 2.5px solid #FFFFFF;
+		border-radius: 12px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 6px 18px rgba(0, 184, 199, 0.35);
+		box-shadow: 0 4px 14px rgba(0, 184, 199, 0.25);
 	}
 
 	/* 5 Cards Row */
