@@ -6,35 +6,35 @@
 		{
 			id: 'pemerintah',
 			title: i18n.pick('Beasiswa\nPemerintah', 'Government\nScholarships'),
-			href: '/beasiswa?kategori=pemerintah',
+			href: '/layanan/beasiswa?kategori=pemerintah',
 			icon: 'grad',
 			isHighlight: true
 		},
 		{
 			id: 'universitas',
 			title: i18n.pick('Beasiswa\nUniversitas', 'University\nScholarships'),
-			href: '/beasiswa?kategori=universitas',
+			href: '/layanan/beasiswa?kategori=universitas',
 			icon: 'grad',
 			isHighlight: false
 		},
 		{
 			id: 'internasional',
 			title: i18n.pick('Beasiswa\nInternasional', 'International\nScholarships'),
-			href: '/beasiswa?kategori=internasional',
+			href: '/layanan/beasiswa?kategori=internasional',
 			icon: 'globe',
 			isHighlight: false
 		},
 		{
 			id: 'swasta',
 			title: i18n.pick('Beasiswa\nSwasta', 'Private\nScholarships'),
-			href: '/beasiswa?kategori=swasta',
+			href: '/layanan/beasiswa?kategori=swasta',
 			icon: 'company',
 			isHighlight: false
 		},
 		{
 			id: 'daerah',
 			title: i18n.pick('Beasiswa\nDaerah', 'Regional\nScholarships'),
-			href: '/beasiswa?kategori=daerah',
+			href: '/layanan/beasiswa?kategori=daerah',
 			icon: 'pin',
 			isHighlight: false
 		}
@@ -71,9 +71,7 @@
 		<!-- Section Header -->
 		<div class="cat-header">
 			<div class="cat-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">{i18n.pick('Akses Beasiswa Terpercaya', 'Curated Scholarship Access')}</span>
-				<span class="badge-dash"></span>
 			</div>
 			<h2 class="cat-title">
 				{i18n.pick('Temukan Beasiswa yang Sesuai dengan', 'Find Scholarships Matched to')} <span class="highlight-gold">{i18n.pick('Tujuan Anda', 'Your Goals')}</span>
@@ -181,23 +179,15 @@
 	.cat-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 6px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 22px;
-		height: 2px;
-		background: #08A6B5;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #08A6B5;
-		letter-spacing: 0.02em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.cat-title {

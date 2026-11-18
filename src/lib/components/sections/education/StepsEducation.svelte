@@ -70,7 +70,6 @@
 		<!-- Left Column: Info & Button -->
 		<div class="steps-edu-left">
 			<div class="steps-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">{i18n.pick('LAYANAN PENDAMPINGAN', 'MENTORING PROCESS')}</span>
 			</div>
 			<h2 class="steps-title">
@@ -243,23 +242,14 @@
 	.steps-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 12px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 18px;
-		height: 3px;
-		background: #08B5C0;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 11.5px;
-		font-weight: 800;
-		color: #08B5C0;
-		letter-spacing: 0.08em;
+		font-size: 15px;
+		font-weight: 700;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

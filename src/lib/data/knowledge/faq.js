@@ -25,7 +25,7 @@ export const faqKnowledge = [
 			'Profesional & Lembaga: Pelatihan komunikasi, AI produktivitas, serta kemitraan institusi.'
 		],
 		cocokUntuk: [
-			'Pelajar, mahasiswa, pencari kerja, praktisi, dan pimpinan lembaga'
+			'Pelajar, mahasiswa, pencari kerja, praktisi, dan management lembaga'
 		],
 		langkahBerikut: [
 			{ label: 'Lihat Layanan Pendidikan', href: '/layanan/pendidikan' },
@@ -58,7 +58,7 @@ export const faqKnowledge = [
 			'Pendaftar beasiswa yang mencari kejelasan peran lembaga pendamping'
 		],
 		langkahBerikut: [
-			{ label: 'Cari Informasi Beasiswa', href: '/layanan/pendidikan#beasiswa' },
+			{ label: 'Cari Informasi Beasiswa', href: '/layanan/beasiswa' },
 			{ label: 'Konsultasi Persiapan', href: '/kontak' }
 		],
 		tindakLanjutChip: ['Beasiswa', 'Info Program Pendidikan', 'Konsultasi'],
@@ -201,12 +201,12 @@ export const faqKnowledge = [
 		ringkas:
 			'Ya. Kami dapat merancang program, silabus, dan jadwal pelatihan khusus yang disesuaikan dengan tujuan serta anggaran lembaga mitra.',
 		detail: [
-			'Penyusunan kurikulum modular bersama pimpinan instansi.',
+			'Penyusunan kurikulum modular bersama management instansi.',
 			'Dapat diselenggarakan secara in-house di kantor mitra maupun daring terpadu.',
 			'Dilengkapi dengan laporan evaluasi ketercapaian kompetensi peserta.'
 		],
 		cocokUntuk: [
-			'Pimpinan perguruan tinggi, kepala sekolah, dinas, dan manajer HRD perusahaan'
+			'Management perguruan tinggi, kepala sekolah, dinas, dan manajer HRD perusahaan'
 		],
 		langkahBerikut: [
 			{ label: 'Lihat Info Kemitraan', href: '/kemitraan' },

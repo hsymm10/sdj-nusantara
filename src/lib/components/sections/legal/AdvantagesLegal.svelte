@@ -33,7 +33,6 @@
 		<!-- Kolom Kiri: Informasi (±38%) -->
 		<div class="adv-left-col">
 			<div class="adv-badge">
-				<span class="badge-dash" aria-hidden="true"></span>
 				<span class="badge-text">KEUNGGULAN LAYANAN HUKUM</span>
 			</div>
 
@@ -178,23 +177,14 @@
 	.adv-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 10px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 20px;
-		height: 2px;
-		background: #00A9B7;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #00A9B7;
-		letter-spacing: 0.08em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

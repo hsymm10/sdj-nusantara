@@ -24,9 +24,7 @@
 		<!-- Section Header Terpusat -->
 		<div class="scope-header">
 			<div class="scope-badge">
-				<span class="badge-dash" aria-hidden="true"></span>
 				<span class="badge-text">RUANG LINGKUP LAYANAN</span>
-				<span class="badge-dash" aria-hidden="true"></span>
 			</div>
 			<h2 id="scope-legal-heading" class="scope-title">Ruang Lingkup Layanan Hukum</h2>
 			<p class="scope-sub">
@@ -118,23 +116,14 @@
 	.scope-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 8px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 22px;
-		height: 2px;
-		background: #00AAB5;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #00AAB5;
-		letter-spacing: 0.08em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

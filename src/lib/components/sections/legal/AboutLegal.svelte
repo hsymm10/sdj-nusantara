@@ -21,7 +21,6 @@
 		<!-- KOLOM KIRI (~40%): Label, Heading, Deskripsi, Information Box -->
 		<div class="about-col-left">
 			<div class="section-tag">
-				<span class="tag-dash" aria-hidden="true"></span>
 				<span class="tag-label">TENTANG LAYANAN</span>
 			</div>
 
@@ -148,23 +147,14 @@
 	.section-tag {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 10px;
 	}
 
-	.tag-dash {
-		display: inline-block;
-		width: 20px;
-		height: 2px;
-		background: #00AAB5;
-		border-radius: 2px;
-	}
-
 	.tag-label {
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #00AAB5;
-		letter-spacing: 0.08em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

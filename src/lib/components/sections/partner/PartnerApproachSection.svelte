@@ -85,7 +85,6 @@
 			<!-- Kolom Kiri (~33%): Label, Heading + Garis Bawah Kuning, Deskripsi & Tombol CTA -->
 			<div class="text-col">
 				<div class="approach-label">
-					<span class="label-dash"></span>
 					<span class="label-text">{i18n.pick('PENDEKATAN KAMI', 'OUR APPROACH')}</span>
 				</div>
 
@@ -262,22 +261,15 @@
 	.approach-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
 		margin-bottom: 12px;
-	}
-
-	.label-dash {
-		width: 22px;
-		height: 2.5px;
-		background: #00A6B2;
-		border-radius: 2px;
 	}
 
 	.label-text {
 		color: #00A6B2;
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.section-title {

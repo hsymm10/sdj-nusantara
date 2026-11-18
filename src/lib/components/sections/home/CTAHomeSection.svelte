@@ -9,7 +9,6 @@
 	<div class="cta-home-container">
 		<div class="cta-home-text">
 			<div class="cta-label" aria-hidden="true">
-				<div class="cta-label-line"></div>
 				<span>Hubungi Kami</span>
 			</div>
 			<h2 class="cta-home-title">Masih Bingung Menentukan<br/>Layanan yang Tepat?</h2>
@@ -24,7 +23,7 @@
 				</svg>
 				<span>Hubungi Kami</span>
 			</a>
-			<a href="/kontak#chat" class="cta-home-btn-outline">
+			<a href="/kontak#chat" data-open-chat class="cta-home-btn-outline">
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 					<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
@@ -95,22 +94,14 @@
 	.cta-label {
 		display: flex;
 		align-items: center;
-		gap: 10px;
 		margin-bottom: 16px;
-	}
-
-	.cta-label-line {
-		width: 20px;
-		height: 2.5px;
-		background: #F5B331;
-		border-radius: 2px;
 	}
 
 	.cta-label span {
 		color: #F5B331;
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

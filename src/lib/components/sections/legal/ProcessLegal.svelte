@@ -46,9 +46,7 @@
 			<!-- Header Terpusat -->
 			<div class="process-header">
 				<div class="process-badge">
-					<span class="badge-dash" aria-hidden="true"></span>
 					<span class="badge-text">ALUR LAYANAN HUKUM</span>
-					<span class="badge-dash" aria-hidden="true"></span>
 				</div>
 				<h2 id="process-legal-heading" class="process-title">
 					Proses Layanan yang <span class="process-title-highlight">Jelas dan Terarah.</span>
@@ -178,23 +176,14 @@
 	.process-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 8px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 20px;
-		height: 2px;
-		background: #00A9B7;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #00A9B7;
-		letter-spacing: 0.08em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

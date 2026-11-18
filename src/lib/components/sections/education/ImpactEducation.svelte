@@ -90,9 +90,7 @@
 		<!-- Section Header -->
 		<div class="impact-header">
 			<div class="impact-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">{i18n.pick('Dampak Nyata', 'Real Impact')}</span>
-				<span class="badge-dash"></span>
 			</div>
 			<h2 class="impact-title">
 				{i18n.pick('Komitmen Nyata untuk', 'Real Commitment to')} <span class="highlight-gold">{i18n.pick('Dampak yang Terukur', 'Measurable Impact')}</span>
@@ -220,23 +218,15 @@
 	.impact-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 6px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 22px;
-		height: 2px;
-		background: #08A6B5;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #08A6B5;
-		letter-spacing: 0.02em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.impact-title {

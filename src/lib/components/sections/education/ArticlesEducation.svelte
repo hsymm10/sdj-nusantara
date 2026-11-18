@@ -269,8 +269,7 @@
 			<!-- Kolom Kiri (40-45%): Label, Judul, Deskripsi, Tombol CTA -->
 			<div class="hero-left-col">
 				<div class="hero-label-wrap">
-					<span class="label-dash" aria-hidden="true"></span>
-					<span class="label-text">{i18n.pick('Artikel & Wawasan', 'Articles & Insights')}</span>
+					<span class="label-text">{i18n.pick('Perspektif', 'Perspectives')}</span>
 				</div>
 
 				<h2 class="hero-title">
@@ -731,23 +730,15 @@
 	.hero-label-wrap {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
 		margin-bottom: 14px;
 	}
 
-	.label-dash {
-		display: inline-block;
-		width: 20px;
-		height: 3px;
-		background: #00B8C7;
-		border-radius: 2px;
-	}
-
 	.label-text {
-		font-size: 14px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #00B8C7;
-		letter-spacing: 0.01em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	/* Main Title */

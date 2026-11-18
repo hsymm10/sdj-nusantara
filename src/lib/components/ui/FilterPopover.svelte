@@ -46,6 +46,30 @@
 		calculateCount ? calculateCount(draftValues) : null
 	);
 
+	function onFieldChange(field: keyof FilterValues) {
+		// Ketika opsi diubah, jika kombinasi filter menghasilkan 0 beasiswa,
+		// sesuaikan filter lain yang saling bertentangan secara cerdas agar tidak "over filter"
+		if (calculateCount && calculateCount(draftValues) === 0) {
+			if (field === 'penyelenggara') {
+				if (calculateCount(draftValues) === 0) draftValues.status = 'Semua Status';
+				if (calculateCount(draftValues) === 0) draftValues.negara = 'Semua Negara';
+				if (calculateCount(draftValues) === 0) draftValues.jenjang = 'Semua Jenjang';
+			} else if (field === 'status') {
+				if (calculateCount(draftValues) === 0) draftValues.penyelenggara = 'Semua Penyelenggara';
+				if (calculateCount(draftValues) === 0) draftValues.negara = 'Semua Negara';
+				if (calculateCount(draftValues) === 0) draftValues.jenjang = 'Semua Jenjang';
+			} else if (field === 'negara') {
+				if (calculateCount(draftValues) === 0) draftValues.penyelenggara = 'Semua Penyelenggara';
+				if (calculateCount(draftValues) === 0) draftValues.status = 'Semua Status';
+				if (calculateCount(draftValues) === 0) draftValues.jenjang = 'Semua Jenjang';
+			} else if (field === 'jenjang') {
+				if (calculateCount(draftValues) === 0) draftValues.penyelenggara = 'Semua Penyelenggara';
+				if (calculateCount(draftValues) === 0) draftValues.status = 'Semua Status';
+				if (calculateCount(draftValues) === 0) draftValues.negara = 'Semua Negara';
+			}
+		}
+	}
+
 	function openPopover() {
 		// Sinkronkan draft dengan nilai aktif saat dibuka
 		draftValues = {
@@ -127,15 +151,15 @@
 		aria-expanded={isOpen}
 		aria-controls="filter-dialog"
 	>
-		<div class="filter-icon-container">
-			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-				<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-			</svg>
-			{#if activeCount > 0}
-				<span class="active-badge" aria-label={i18n.pick(`${activeCount} filter aktif`, `${activeCount} active filters`)}>{activeCount}</span>
-			{/if}
-		</div>
+		<svg class="filter-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+		</svg>
 		<span class="filter-btn-label">Filter</span>
+		{#if activeCount > 0}
+			<span class="active-badge" aria-label={i18n.pick(`${activeCount} filter aktif`, `${activeCount} active filters`)}>
+				{activeCount}
+			</span>
+		{/if}
 	</button>
 
 	<!-- Popover Container / Mobile Bottom Sheet -->
@@ -180,13 +204,9 @@
 				<div class="control-group">
 					<label for="filter-pop-kategori" class="control-label">{i18n.pick('Kategori', 'Category')}</label>
 					<div class="select-box">
-						<select id="filter-pop-kategori" bind:value={draftValues.kategori} class="custom-select">
+						<select id="filter-pop-kategori" bind:value={draftValues.kategori} onchange={() => onFieldChange('kategori')} class="custom-select">
 							<option value="Semua Kategori">{i18n.pick('Semua Kategori', 'All Categories')}</option>
 							<option value="Pemerintah">{i18n.pick('Pemerintah', 'Government')}</option>
-							<option value="Universitas">{i18n.pick('Universitas', 'University')}</option>
-							<option value="Lembaga Internasional">{i18n.pick('Lembaga Internasional', 'International Organization')}</option>
-							<option value="Swasta">{i18n.pick('Swasta', 'Private')}</option>
-							<option value="Daerah">{i18n.pick('Daerah', 'Regional')}</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -196,7 +216,7 @@
 				<div class="control-group">
 					<label for="filter-pop-jenjang" class="control-label">{i18n.pick('Jenjang Pendidikan', 'Education Level')}</label>
 					<div class="select-box">
-						<select id="filter-pop-jenjang" bind:value={draftValues.jenjang} class="custom-select">
+						<select id="filter-pop-jenjang" bind:value={draftValues.jenjang} onchange={() => onFieldChange('jenjang')} class="custom-select">
 							<option value="Semua Jenjang">{i18n.pick('Semua Jenjang', 'All Levels')}</option>
 							<option value="S1">S1</option>
 							<option value="S2">S2</option>
@@ -210,7 +230,7 @@
 				<div class="control-group">
 					<label for="filter-pop-negara" class="control-label">{i18n.pick('Negara Tujuan', 'Destination Country')}</label>
 					<div class="select-box">
-						<select id="filter-pop-negara" bind:value={draftValues.negara} class="custom-select">
+						<select id="filter-pop-negara" bind:value={draftValues.negara} onchange={() => onFieldChange('negara')} class="custom-select">
 							<option value="Semua Negara">{i18n.pick('Semua Negara', 'All Countries')}</option>
 							<option value="Dalam Negeri">{i18n.pick('Dalam Negeri', 'Domestic')}</option>
 							<option value="Luar Negeri">{i18n.pick('Luar Negeri', 'International')}</option>
@@ -225,10 +245,9 @@
 				<div class="control-group">
 					<label for="filter-pop-pendanaan" class="control-label">{i18n.pick('Jenis Pendanaan', 'Funding Type')}</label>
 					<div class="select-box">
-						<select id="filter-pop-pendanaan" bind:value={draftValues.pendanaan} class="custom-select">
+						<select id="filter-pop-pendanaan" bind:value={draftValues.pendanaan} onchange={() => onFieldChange('pendanaan')} class="custom-select">
 							<option value="Semua Jenis">{i18n.pick('Semua Jenis', 'All Types')}</option>
 							<option value="Fully Funded">Fully Funded</option>
-							<option value="Partial Funded">Partial Funded</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -238,11 +257,10 @@
 				<div class="control-group">
 					<label for="filter-pop-status" class="control-label">{i18n.pick('Status Pendaftaran', 'Application Status')}</label>
 					<div class="select-box">
-						<select id="filter-pop-status" bind:value={draftValues.status} class="custom-select">
+						<select id="filter-pop-status" bind:value={draftValues.status} onchange={() => onFieldChange('status')} class="custom-select">
 							<option value="Semua Status">{i18n.pick('Semua Status', 'All Statuses')}</option>
 							<option value="Buka">{i18n.pick('Buka', 'Open')}</option>
 							<option value="Segera Dibuka">{i18n.pick('Segera Dibuka', 'Opening Soon')}</option>
-							<option value="Ditutup">{i18n.pick('Ditutup', 'Closed')}</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -252,12 +270,12 @@
 				<div class="control-group">
 					<label for="filter-pop-penyelenggara" class="control-label">{i18n.pick('Penyelenggara', 'Provider')}</label>
 					<div class="select-box">
-						<select id="filter-pop-penyelenggara" bind:value={draftValues.penyelenggara} class="custom-select">
+						<select id="filter-pop-penyelenggara" bind:value={draftValues.penyelenggara} onchange={() => onFieldChange('penyelenggara')} class="custom-select">
 							<option value="Semua Penyelenggara">{i18n.pick('Semua Penyelenggara', 'All Providers')}</option>
-							<option value="Kementerian">{i18n.pick('Pemerintah RI / Kemdikbud', 'Indonesian Gov / Kemdikbud')}</option>
+							<option value="Kementerian Pendidikan">{i18n.pick('Kementerian Pendidikan (BPI)', 'Ministry of Education (BPI)')}</option>
 							<option value="UK Government">UK Government (Chevening)</option>
 							<option value="Government of Japan">Government of Japan (MEXT)</option>
-							<option value="Kementerian Keuangan">LPDP Kemenkeu</option>
+							<option value="Kementerian Keuangan">{i18n.pick('Kementerian Keuangan (LPDP)', 'Ministry of Finance (LPDP)')}</option>
 						</select>
 						<div class="select-chevron" aria-hidden="true">▼</div>
 					</div>
@@ -299,7 +317,7 @@
 	/* Trigger Button */
 	.filter-trigger-btn {
 		height: 48px;
-		padding: 0 18px;
+		padding: 0 16px;
 		background: #FFFFFF;
 		border: 1px solid #D6E6EC;
 		border-radius: 14px;
@@ -330,29 +348,31 @@
 		box-shadow: 0 0 0 3px rgba(7, 158, 173, 0.15);
 	}
 
-	.filter-icon-container {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	.filter-icon {
+		flex-shrink: 0;
+		color: currentColor;
+	}
+
+	.filter-btn-label {
+		display: inline-block;
+		line-height: 1;
 	}
 
 	.active-badge {
-		position: absolute;
-		top: -7px;
-		right: -9px;
-		min-width: 17px;
-		height: 17px;
-		padding: 0 4px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 20px;
+		height: 20px;
+		padding: 0 6px;
 		border-radius: 9999px;
 		background: #079EAD;
 		color: #FFFFFF;
-		font-size: 10px;
+		font-size: 11px;
 		font-weight: 800;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+		line-height: 1;
+		box-sizing: border-box;
+		margin-left: 2px;
 	}
 
 	.popover-mobile-backdrop {

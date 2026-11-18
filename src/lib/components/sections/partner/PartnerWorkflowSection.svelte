@@ -90,7 +90,6 @@
 		<!-- Section Header -->
 		<div class="workflow-header">
 			<div class="section-label">
-				<span class="label-dash">—</span>
 				<span class="label-text">{i18n.pick('Alur Kerja Sama', 'Partnership Workflow')}</span>
 			</div>
 			<h2 class="section-title">{i18n.pick('Langkah Mudah Menuju Kolaborasi yang Sukses.', 'Simple Steps Toward Successful Collaboration.')}</h2>
@@ -237,15 +236,12 @@
 	.section-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
 		color: #00A6B2;
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
-		margin-bottom: 0.35rem;
-	}
-
-	.label-dash {
-		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		margin-bottom: 0.45rem;
 	}
 
 	.section-title {

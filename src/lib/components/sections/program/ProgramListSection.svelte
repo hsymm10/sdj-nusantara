@@ -55,14 +55,11 @@
 	function openModal(prog: ProgramItem, triggerEl?: HTMLElement) {
 		selectedProgramModal = prog;
 		if (triggerEl) activeTriggerElement = triggerEl;
-		if (typeof window !== 'undefined') {
-			history.replaceState(null, '', `#program-${prog.slug}`);
-		}
 	}
 
 	function closeModal() {
 		selectedProgramModal = null;
-		if (typeof window !== 'undefined') {
+		if (typeof window !== 'undefined' && window.location.hash.startsWith('#program-')) {
 			const cleanUrl = window.location.pathname + window.location.search;
 			history.replaceState(null, '', cleanUrl);
 		}
@@ -106,7 +103,6 @@
 		<div class="header-row">
 			<div class="title-col">
 				<div class="program-section-label">
-					<span class="label-dash">—</span>
 					<span class="label-text">Daftar Program</span>
 				</div>
 				<h2 class="section-title">Temukan Program yang Sesuai dengan Kebutuhan Anda</h2>
@@ -163,7 +159,7 @@
 			{:else}
 				<div class="cards-grid">
 					{#each filteredPrograms as prog}
-						<div class="prog-card">
+						<div id="program-{prog.slug}" class="prog-card">
 							<!-- Top Photo with Category Chip (tinggi ±186px, ±40% kartu) -->
 							<div class="card-thumb-wrap">
 								<img src={prog.image} alt={prog.title} class="card-thumb" loading="lazy" />
@@ -272,17 +268,12 @@
 	.program-section-label {
 		display: flex;
 		align-items: center;
-		gap: 6px;
 		color: #00A6B2;
-		font-size: 14.5px;
-		font-weight: 600;
-		text-transform: none;
-		letter-spacing: normal;
-		margin-bottom: 0.35rem;
-	}
-
-	.label-dash {
+		font-size: 15px;
 		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.45rem;
 	}
 
 	.section-title {

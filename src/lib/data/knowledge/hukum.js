@@ -25,7 +25,7 @@ export const hukumKnowledge = [
 			'Informasi pada situs web bersifat umum dan bukan merupakan nasihat hukum formal.'
 		],
 		cocokUntuk: [
-			'Pimpinan institusi pendidikan, yayasan, dan organisasi mitra'
+			'Management institusi pendidikan, yayasan, dan organisasi mitra'
 		],
 		langkahBerikut: [
 			{ label: 'Kunjungi Halaman Layanan Hukum', href: '/layanan/hukum' },

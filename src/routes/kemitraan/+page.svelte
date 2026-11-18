@@ -4,9 +4,6 @@
 	import HeroPartner from '#lib/components/sections/partner/HeroPartner.svelte';
 	import PartnerApproachSection from '#lib/components/sections/partner/PartnerApproachSection.svelte';
 	import PartnerTypesSection from '#lib/components/sections/partner/PartnerTypesSection.svelte';
-	import PartnerCollaborationForms from '#lib/components/sections/partner/PartnerCollaborationForms.svelte';
-	import PartnerFocusFields from '#lib/components/sections/partner/PartnerFocusFields.svelte';
-	import PartnerWorkflowSection from '#lib/components/sections/partner/PartnerWorkflowSection.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
@@ -34,16 +31,7 @@
 	<!-- 3. Jenis Mitra -->
 	<PartnerTypesSection />
 
-	<!-- 4. Bentuk Kerja Sama -->
-	<PartnerCollaborationForms />
-
-	<!-- 5. Bidang Kolaborasi -->
-	<PartnerFocusFields />
-
-	<!-- 6. Alur Kerja Sama -->
-	<PartnerWorkflowSection />
-
-	<!-- 7. CTA Banner -->
+	<!-- 4. CTA Banner -->
 	<CtaBanner
 		title={i18n.pick('Siap Menjalin Kemitraan dengan SDJNusantara?', 'Ready to Partner with SDJNusantara?')}
 		description={i18n.pick(

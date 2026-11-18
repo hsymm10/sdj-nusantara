@@ -41,7 +41,6 @@
 		<!-- Right: FAQ Accordion -->
 		<div class="faq-content-col">
 			<div class="section-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">Pertanyaan Umum</span>
 			</div>
 			<h2 class="faq-home-title">Temukan Jawaban dari Pertanyaan yang Sering Diajukan</h2>
@@ -181,22 +180,14 @@
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
 		margin-bottom: 12px;
 	}
 
-	.badge-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #079EAD;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		color: #079EAD;
-		font-size: 12px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

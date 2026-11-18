@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { articlesData } from '#lib/data/articles.js';
+	import { i18n } from '#lib/stores/i18n.svelte';
 
 	// Get 4 latest articles for preview
 	const previewArticles = articlesData.slice(0, 4);
@@ -28,13 +29,12 @@
 		<div class="articles-header">
 			<div>
 				<div class="section-badge">
-					<span class="badge-dash"></span>
-					<span class="badge-text">Artikel & Wawasan</span>
+					<span class="badge-text">{i18n.pick('Perspektif', 'Perspectives')}</span>
 				</div>
-				<h2 class="articles-title">Temukan Insight dan Inspirasi Terbaru</h2>
+				<h2 class="articles-title">{i18n.pick('Temukan Insight dan Inspirasi Terbaru', 'Discover the Latest Insights & Inspiration')}</h2>
 			</div>
 			<a href="/artikel" class="articles-view-all">
-				<span>Lihat Semua Artikel</span>
+				<span>{i18n.pick('Lihat Semua Perspektif', 'View All Perspectives')}</span>
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
 				</svg>
@@ -122,22 +122,14 @@
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
 		margin-bottom: 10px;
 	}
 
-	.badge-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #079EAD;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		color: #079EAD;
-		font-size: 12px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

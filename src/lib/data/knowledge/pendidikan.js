@@ -85,7 +85,7 @@ export const pendidikanKnowledge = [
 			'Profesional muda yang berencana melanjutkan studi ke luar negeri'
 		],
 		langkahBerikut: [
-			{ label: 'Lihat Direktori Beasiswa', href: '/layanan/pendidikan#beasiswa' },
+			{ label: 'Lihat Direktori Beasiswa', href: '/layanan/beasiswa' },
 			{ label: 'Konsultasi Beasiswa', href: '/kontak' }
 		],
 		tindakLanjutChip: ['Beasiswa', 'Info Program Pendidikan', 'Konsultasi'],
@@ -168,7 +168,7 @@ export const pendidikanKnowledge = [
 			'Dikelola dengan transparansi anggaran dan pelaporan berkala.'
 		],
 		cocokUntuk: [
-			'Pimpinan universitas, dekan, dan pengelola pusat karier kampus',
+			'Management universitas, dekan, dan pengelola pusat karier kampus',
 			'Kepala sekolah dan guru bimbingan konseling (BK)',
 			'Manajer HRD perusahaan atau pengelola dana tanggung jawab sosial (CSR)'
 		],

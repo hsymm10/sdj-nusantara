@@ -17,8 +17,8 @@
 <svelte:head>
 	<title
 		>{i18n.pick(
-			"Artikel & Wawasan — SDJNusantara Strategic Your Partner",
-			"Articles & Insights — SDJNusantara Strategic Your Partner",
+			"Perspektif — SDJNusantara Strategic Your Partner",
+			"Perspectives — SDJNusantara Strategic Your Partner",
 		)}</title
 	>
 	<meta
@@ -33,7 +33,7 @@
 <Navbar compact={true} wide={true} />
 
 <main class="page-content">
-	<!-- 1. Hero Artikel & Wawasan -->
+	<!-- 1. Hero Perspektif -->
 	<HeroArticle />
 
 	<!-- 2. Overlap 7 Kategori Filter Bar -->

@@ -91,7 +91,6 @@
 		<!-- Section Header (±y 1722 on 1536) -->
 		<div class="cat-header">
 			<div class="section-label">
-				<span class="label-dash">—</span>
 				<span class="label-text">{i18n.pick('Jenis Beasiswa', 'Scholarship Types')}</span>
 			</div>
 			<h2 class="section-title">{i18n.pick('Jelajahi Beasiswa Berdasarkan Kategori', 'Explore Scholarships by Category')}</h2>
@@ -191,15 +190,12 @@
 	.section-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
 		color: #00A6B2;
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 		margin-bottom: 0.5rem;
-	}
-
-	.label-dash {
-		font-weight: 800;
 	}
 
 	.section-title {

@@ -24,7 +24,6 @@
 		<!-- Panel Tengah: Informasi Lokasi & Kartu Alamat (x ±678→1098, Latar PUTIH) -->
 		<div class="panel-center">
 			<div class="section-label">
-				<span class="label-line"></span>
 				<span class="label-text">Lokasi Kami</span>
 			</div>
 
@@ -141,21 +140,15 @@
 	.section-label {
 		display: flex;
 		align-items: center;
-		gap: 6px;
 		margin-bottom: 6px;
 	}
 
-	.label-line {
-		width: 16px;
-		height: 2px;
-		background: #16B6C1;
-		border-radius: 2px;
-	}
-
 	.label-text {
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
 		color: #16B6C1;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.location-title {

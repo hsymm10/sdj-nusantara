@@ -3,7 +3,8 @@
 	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
 
-<section class="program-edu-section" id="program-pendidikan">
+<section class="program-edu-section" id="program">
+	<span id="program-pendidikan" class="anchor-target" aria-hidden="true"></span>
 	<!-- Background Organic Curves (Mockup SDJNusantara) -->
 	<!-- 1. Top-Left Golden Yellow Layered Wave (Dipertahankan Sesuai Mockup) -->
 	<svg class="decor-wave-top-gold" viewBox="0 0 580 150" fill="none" preserveAspectRatio="none" aria-hidden="true">
@@ -49,7 +50,6 @@
 		<!-- Left: Text & CTA -->
 		<div class="program-edu-left">
 			<div class="program-badge">
-				<span class="badge-dash" aria-hidden="true"></span>
 				<span class="badge-text">{i18n.pick('Program Pendidikan', 'Education Programs')}</span>
 			</div>
 			<h2 class="program-title">
@@ -165,23 +165,15 @@
 	.program-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
 		margin-bottom: 14px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 20px;
-		height: 3px;
-		background: #00B8C7;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 14px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #00B8C7;
-		letter-spacing: 0.01em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.program-title {

@@ -61,10 +61,7 @@
 	<div class="about-container">
 		<!-- Left: Text Content -->
 		<div class="about-left-text">
-			<div class="section-badge">
-				<span class="badge-dash"></span>
-				<span class="badge-text">{i18n.pick('Tentang SDJNusantara', 'About SDJNusantara')}</span>
-			</div>
+			<div class="section-label">{i18n.pick('Tentang SDJNusantara', 'About SDJNusantara')}</div>
 
 			<h2 class="about-title">
 				{i18n.pick('Menjembatani Potensi dengan', 'Bridging Potential with')}<br />
@@ -80,7 +77,7 @@
 
 			<a href="/tentang-kami" class="about-btn">
 				<span>{i18n.pick('Selengkapnya Tentang Kami', 'More About Us')}</span>
-				<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
 				</svg>
@@ -218,14 +215,14 @@
 	.about-section {
 		position: relative;
 		background: #FFFFFF;
-		min-height: 250px;
+		min-height: 280px;
 		height: auto;
 		width: 100%;
 		overflow-x: clip;
 		overflow-y: visible;
 		display: flex;
 		align-items: center;
-		padding: 34px 0 16px 0; /* label ±34px di bawah dasar kartu statistik */
+		padding: 56px 0 36px 0;
 		box-sizing: border-box;
 	}
 
@@ -234,30 +231,31 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: 220px;
-		height: 160px;
+		width: 240px;
+		height: 180px;
 		z-index: 1;
 		pointer-events: none;
 	}
 
-	/* Main Centered Container (x 232→1318) */
+	/* Main Centered Container */
 	.about-container {
 		position: relative;
 		z-index: 3;
 		width: 100%;
-		max-width: 1086px;
+		max-width: 1320px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		gap: 2.25rem;
+		gap: 3.5rem;
 		box-sizing: border-box;
 	}
 
 	/* Left Column */
 	.about-left-text {
-		width: 350px;
+		width: 480px;
+		max-width: 500px;
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
@@ -265,57 +263,46 @@
 		box-sizing: border-box;
 	}
 
-	.section-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
-		margin-bottom: 0.35rem;
-	}
-
-	.badge-dash {
-		width: 16px;
-		height: 2.5px;
-		background: #079EAD;
-		border-radius: 2px;
-	}
-
-	.badge-text {
-		color: #079EAD;
-		font-size: 11.5px;
+	.section-label {
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.02em;
+		color: #00A6B2;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
 	}
 
 	.about-title {
-		font-size: 22px;
+		font-size: clamp(23px, 2.05vw, 29px);
 		font-weight: 800;
 		color: #082442;
-		line-height: 1.22;
-		letter-spacing: -0.01em;
-		margin: 0 0 0.4rem 0;
+		line-height: 1.25;
+		letter-spacing: -0.015em;
+		margin: 0 0 0.65rem 0;
 	}
 
 	.about-desc {
-		font-size: 12.5px;
-		line-height: 1.55;
-		color: #183553;
-		margin: 0 0 0.85rem 0;
+		font-size: 14.5px;
+		line-height: 1.6;
+		color: #37474F;
+		margin: 0 0 1.25rem 0;
 		letter-spacing: 0;
-		max-width: 350px;
+		max-width: 440px;
+		text-wrap: pretty;
 	}
 
 	.about-btn {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.45rem;
-		padding: 0.45rem 1.15rem;
+		gap: 0.5rem;
+		padding: 0.65rem 1.4rem;
 		background: #F5B331;
 		color: #082442;
 		font-weight: 700;
-		font-size: 11.5px;
-		border-radius: 12px;
+		font-size: 13.5px;
+		border-radius: 10px;
 		text-decoration: none;
-		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.28);
+		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.32);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
 		letter-spacing: 0;
@@ -324,9 +311,10 @@
 	.about-btn:hover {
 		background: #e6a528;
 		transform: translateY(-1px);
+		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.4);
 	}
 
-	/* Center Features (x 577→1060 pada 1536) */
+	/* Center Features */
 	.about-center-features {
 		display: flex;
 		align-items: center;
@@ -334,6 +322,7 @@
 		width: 480px;
 		flex-shrink: 0;
 		box-sizing: border-box;
+		margin-right: 2rem;
 	}
 
 	.feature-col {
@@ -342,15 +331,15 @@
 		align-items: center;
 		text-align: center;
 		flex: 1;
-		padding: 0 0.2rem;
+		padding: 0 0.35rem;
 	}
 
 	.feature-icon-box {
-		margin-bottom: 0.45rem;
+		margin-bottom: 0.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 32px;
+		height: 34px;
 	}
 
 	.feature-text {
@@ -360,10 +349,10 @@
 	}
 
 	.feat-line {
-		font-size: 11.5px;
-		font-weight: 500;
+		font-size: 12px;
+		font-weight: 600;
 		color: #082442;
-		line-height: 1.25;
+		line-height: 1.3;
 		white-space: nowrap;
 		letter-spacing: 0;
 	}
@@ -371,7 +360,7 @@
 	.feature-vdivider {
 		width: 1px;
 		height: 48px;
-		background: #E3EAF1;
+		background: #E2EBF1;
 		flex-shrink: 0;
 	}
 
@@ -380,8 +369,8 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: clamp(360px, 29vw, 455px);
-		height: 195px;
+		width: clamp(380px, 28vw, 460px);
+		height: 220px;
 		z-index: 2;
 		overflow: visible;
 		pointer-events: none;

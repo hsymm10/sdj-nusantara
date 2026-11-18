@@ -30,6 +30,7 @@
 <Navbar compact={true} wide={true} />
 
 <main class="page-content">
+	<span id="chat" class="anchor-target" aria-hidden="true"></span>
 	<!-- 1. Hero Kontak -->
 	<HeroContact />
 

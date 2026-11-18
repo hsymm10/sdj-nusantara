@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/article-hero.jpg"
-			alt="Artikel & Wawasan SDJNusantara"
+			alt="Perspektif SDJNusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"

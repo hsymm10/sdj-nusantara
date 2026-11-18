@@ -122,7 +122,6 @@
 			<div class="collab-content-col">
 				<div class="collab-header">
 					<div class="collab-label">
-						<span class="label-dash"></span>
 						<span class="label-text"
 							>{i18n.pick(
 								"BENTUK KERJA SAMA",
@@ -401,22 +400,15 @@
 	.collab-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
 		margin-bottom: 12px;
 	}
 
-	.label-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #00a9b7;
-		border-radius: 2px;
-	}
-
 	.label-text {
-		color: #00a9b7;
-		font-size: 13px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	/* Heading Target Desktop: 30–36px */

@@ -72,7 +72,7 @@
 				<span class="pill-dot"></span>
 				<span class="pill-label"
 					>{i18n.pick(
-						"Mitra Strategis Pendidikan",
+						"Mitra Strategis Pengembangan Manusia",
 						"Strategic Education Partner",
 					)}</span
 				>

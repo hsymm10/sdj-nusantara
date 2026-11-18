@@ -24,14 +24,13 @@
 		<!-- Center: Text -->
 		<div class="bsw-prep-center">
 			<div class="section-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">Program Beasiswa</span>
 			</div>
 			<h2 class="bsw-prep-title">Persiapkan Diri untuk Meraih Beasiswa Impian</h2>
 			<p class="bsw-prep-desc">
 				Panduan lengkap dan pendampingan profesional membantu Anda mempersiapkan diri dengan optimal untuk mendapatkan beasiswa bergengsi yang Anda impikan.
 			</p>
-			<a href="/layanan/pendidikan/beasiswa" class="bsw-prep-btn">
+			<a href="/layanan/beasiswa" class="bsw-prep-btn">
 				<span>Mulai Persiapan Sekarang</span>
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -159,22 +158,14 @@
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
 		margin-bottom: 16px;
 	}
 
-	.badge-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #079EAD;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		color: #079EAD;
-		font-size: 12px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

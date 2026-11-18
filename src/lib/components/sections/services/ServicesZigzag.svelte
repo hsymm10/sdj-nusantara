@@ -2,7 +2,7 @@
 	// ServicesZigzag.svelte - 4 Pilar Layanan Pendidikan Utama sesuai Basis Pengetahuan SDJNusantara
 	// Tipe A (01, 03, 05): Teks Kiri, Foto Kanan dengan Kartu Navy di dalam foto
 	// Tipe B (02, 04): Foto Kiri Menempel Tepi Layar, Teks Tengah, Kartu Terang di Kanan
-	import { pendidikanKnowledge, showDigitalEducation } from '#lib/data/knowledge/pendidikan';
+	import { pendidikanKnowledge } from '#lib/data/knowledge/pendidikan';
 
 	const p1 = pendidikanKnowledge[0];
 	const p2 = pendidikanKnowledge[1];
@@ -17,6 +17,7 @@
 	     Target tinggi: ±388px pada 1536
 	     ========================================== -->
 	<section class="zigzag-block block-type-a block-01" id="layanan-1">
+		<span id="talent-management" class="anchor-target" aria-hidden="true"></span>
 		<div class="block-container">
 			<div class="grid-type-a">
 				<!-- Left: Text -->
@@ -134,6 +135,7 @@
 	     Target tinggi: ±367px pada 1536
 	     ========================================== -->
 	<section class="zigzag-block block-type-b block-02" id="layanan-2">
+		<span id="scholarship-academy" class="anchor-target" aria-hidden="true"></span>
 		<!-- Photo menempel tepi kiri layar (x 0→540) -->
 		<div class="fullbleed-photo-left">
 			<img
@@ -202,7 +204,7 @@
 						</div>
 					</div>
 
-					<a href="/layanan/pendidikan#beasiswa" class="btn-gold">
+					<a href="/layanan/beasiswa" class="btn-gold">
 						<span>Pelajari Lebih Lanjut</span>
 						<span class="btn-arrow">→</span>
 					</a>
@@ -242,6 +244,7 @@
 	     Target tinggi: ±401px pada 1536
 	     ========================================== -->
 	<section class="zigzag-block block-type-a block-03" id="layanan-3">
+		<span id="skills-development" class="anchor-target" aria-hidden="true"></span>
 		<div class="block-container">
 			<div class="grid-type-a">
 				<!-- Left: Text -->
@@ -368,6 +371,7 @@
 	     Target tinggi: ±377px pada 1536
 	     ========================================== -->
 	<section class="zigzag-block block-type-b block-04" id="layanan-4">
+		<span id="institutional-partnership" class="anchor-target" aria-hidden="true"></span>
 		<!-- Photo menempel tepi kiri layar (x 0→540) -->
 		<div class="fullbleed-photo-left">
 			<img
@@ -479,134 +483,6 @@
 		</div>
 	</section>
 
-
-	{#if showDigitalEducation}
-	<!-- ==========================================
-	     BLOK 05: Digital Education & Learning Platform (Tipe A)
-	     Target tinggi: ±369px pada 1536
-	     ========================================== -->
-	<section class="zigzag-block block-type-a block-05" id="layanan-5">
-		<div class="block-container">
-			<div class="grid-type-a">
-				<!-- Left: Text -->
-				<div class="text-col">
-					<div class="title-row">
-						<span class="badge-num badge-teal">05</span>
-						<h3 class="service-title">
-							Digital Education &amp;<br />
-							Learning Platform
-						</h3>
-					</div>
-
-					<p class="service-desc">
-						Solusi pembelajaran digital untuk mendukung proses pendidikan yang lebih inklusif, fleksibel, dan berkelanjutan.
-					</p>
-
-					<!-- 4 Chips -->
-					<div class="chips-grid">
-						<div class="chip-item">
-							<div class="chip-icon">
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-									<line x1="8" y1="21" x2="16" y2="21"></line>
-								</svg>
-							</div>
-							<span>Pengembangan Platform</span>
-						</div>
-
-						<div class="chip-item">
-							<div class="chip-icon">
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-									<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-								</svg>
-							</div>
-							<span>Sistem Manajemen Pembelajaran</span>
-						</div>
-
-						<div class="chip-item">
-							<div class="chip-icon">
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polygon points="23 7 16 12 23 17 23 7"></polygon>
-									<rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-								</svg>
-							</div>
-							<span>Konten Pembelajaran Digital</span>
-						</div>
-
-						<div class="chip-item">
-							<div class="chip-icon">
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<circle cx="18" cy="5" r="3"></circle>
-									<circle cx="6" cy="12" r="3"></circle>
-									<circle cx="18" cy="19" r="3"></circle>
-									<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-									<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-								</svg>
-							</div>
-							<span>Integrasi dengan Institusi</span>
-						</div>
-					</div>
-
-					<a href="/konsultasi" class="btn-gold">
-						<span>Diskusikan Kebutuhan Anda</span>
-						<span class="btn-arrow">→</span>
-					</a>
-				</div>
-
-				<!-- Right: Photo with Floating Navy Card -->
-				<div class="photo-col-a">
-					<div class="photo-frame-a">
-						<img
-							src="/images/svc-05-video-call.jpg"
-							alt="Digital Education"
-							class="photo-img"
-							loading="lazy"
-						/>
-					</div>
-
-					<!-- Floating Navy Card on right side of photo -->
-					<div class="card-floating-navy">
-						<h4 class="card-float-title">Keunggulan</h4>
-						<ul class="card-float-list">
-							<li>
-								<span class="badge-icon-teal">
-									<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								</span>
-								<span>Fleksibel &amp; Mudah Diakses</span>
-							</li>
-							<li>
-								<span class="badge-icon-teal">
-									<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								</span>
-								<span>Konten Berkualitas</span>
-							</li>
-							<li>
-								<span class="badge-icon-teal">
-									<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								</span>
-								<span>Interaktif &amp; Kolaboratif</span>
-							</li>
-							<li>
-								<span class="badge-icon-teal">
-									<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								</span>
-								<span>Dapat Disesuaikan</span>
-							</li>
-							<li>
-								<span class="badge-icon-teal">
-									<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								</span>
-								<span>Mendukung Pembelajaran Berkelanjutan</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	{/if}
-
 </div>
 
 <style>
@@ -641,10 +517,6 @@
 
 	.block-04 {
 		height: 377px;
-	}
-
-	.block-05 {
-		height: 369px;
 	}
 
 	.block-container {
@@ -994,7 +866,7 @@
 
 	/* ==================== RESPONSIVE ==================== */
 	@media (max-width: 1024px) {
-		.block-01, .block-02, .block-03, .block-04, .block-05 {
+		.block-01, .block-02, .block-03, .block-04 {
 			height: auto !important;
 			padding: 2.25rem 0;
 		}

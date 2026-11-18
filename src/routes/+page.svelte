@@ -3,9 +3,9 @@
 	import Footer from "#lib/components/layout/Footer.svelte";
 	import { i18n } from "#lib/stores/i18n.svelte";
 	import HeroSection from "#lib/components/sections/home/HeroSection.svelte";
-	import StatsBar from "#lib/components/sections/home/StatsBar.svelte";
 	import AboutSection from "#lib/components/sections/home/AboutSection.svelte";
 	import ServicesSection from "#lib/components/sections/home/ServicesSection.svelte";
+	import LeadershipSection from "#lib/components/sections/about/LeadershipSection.svelte";
 	import CTASection from "#lib/components/sections/home/CTASection.svelte";
 </script>
 
@@ -29,9 +29,9 @@
 
 <main class="main-content">
 	<HeroSection />
-	<StatsBar />
 	<AboutSection />
 	<ServicesSection />
+	<LeadershipSection />
 	<CTASection />
 </main>
 

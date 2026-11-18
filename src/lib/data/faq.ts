@@ -211,7 +211,7 @@ export const faqData: FaqItem[] = [
 		id: 'faq-part-15',
 		question: 'Bagaimana jika institusi ingin mengajukan proposal kegiatan kolaboratif?',
 		answer:
-			'Silakan kirimkan dokumen proposal atau kerangka acuan kerja sama ke alamat email info@sdjnusantara.com untuk ditelaah oleh tim pimpinan dan kemitraan strategis kami.',
+			'Silakan kirimkan dokumen proposal atau kerangka acuan kerja sama ke alamat email info@sdjnusantara.com untuk ditelaah oleh tim management dan kemitraan strategis kami.',
 		categories: ['kemitraan'],
 		isActive: true,
 		isPopular: false,

@@ -123,22 +123,19 @@ button {
 }
 
 .section-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--color-teal);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .section-label::before {
-  content: '';
-  display: block;
-  width: 2rem;
-  height: 2px;
-  background: var(--color-teal);
+  display: none !important;
+  content: none !important;
 }
 
 .btn-gold {

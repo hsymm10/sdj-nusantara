@@ -27,7 +27,7 @@ export const leadersData = [
 		fotoAlt:
 			'Potret Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han)., Senior Advisor SDJNusantara',
 		profilSingkat:
-			'Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han). merupakan profesional senior dengan pengalaman panjang dalam bidang strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, serta pendidikan tinggi.\n\nSepanjang perjalanan kariernya, ia telah menjalankan berbagai penugasan strategis di dalam dan luar negeri, termasuk bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional. Pengalaman tersebut membentuk perspektif yang kuat dalam membaca dinamika lingkungan strategis, mengelola risiko, membangun jejaring kelembagaan, serta merumuskan pendekatan yang terukur dalam menghadapi berbagai tantangan organisasi.\n\nIa juga memiliki latar belakang pendidikan yang luas dan multidisiplin, mencakup bidang ekonomi, hukum, teknik industri, pertahanan, intelijen strategis, hukum internasional, serta strategi global.\n\nSebagai Penasihat Senior Bidang Strategis dan Hubungan Kelembagaan PT Sampurna Djaya Nusantara, ia memberikan pandangan dan pertimbangan strategis kepada pimpinan perusahaan dalam pengembangan arah organisasi, penguatan hubungan kelembagaan, pengelolaan risiko, kepemimpinan, serta pengembangan kerja sama yang mendukung pertumbuhan perusahaan secara berkelanjutan.',
+			'Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han). merupakan profesional senior dengan pengalaman panjang dalam bidang strategi, kepemimpinan, pertahanan, intelijen, pengembangan kelembagaan, serta pendidikan tinggi.\n\nSepanjang perjalanan kariernya, ia telah menjalankan berbagai penugasan strategis di dalam dan luar negeri, termasuk bidang operasi, intelijen, pengembangan organisasi, pendidikan, dan kerja sama internasional. Pengalaman tersebut membentuk perspektif yang kuat dalam membaca dinamika lingkungan strategis, mengelola risiko, membangun jejaring kelembagaan, serta merumuskan pendekatan yang terukur dalam menghadapi berbagai tantangan organisasi.\n\nIa juga memiliki latar belakang pendidikan yang luas dan multidisiplin, mencakup bidang ekonomi, hukum, teknik industri, pertahanan, intelijen strategis, hukum internasional, serta strategi global.\n\nSebagai Penasihat Senior Bidang Strategis dan Hubungan Kelembagaan PT Sampurna Djaya Nusantara, ia memberikan pandangan dan pertimbangan strategis kepada management perusahaan dalam pengembangan arah organisasi, penguatan hubungan kelembagaan, pengelolaan risiko, kepemimpinan, serta pengembangan kerja sama yang mendukung pertumbuhan perusahaan secara berkelanjutan.',
 		pendidikan:
 			'S.E., S.H., S.T., Ir., M.A., M.D.S., M.Si., M.Si (Han)., Dr., Dr. — Ekonomi, Hukum, Teknik Industri, Pertahanan, Intelijen Strategis, Hukum Internasional & Strategi Global',
 		pengalaman: [
@@ -77,7 +77,7 @@ export const leadersData = [
 
 if (leadersData.some((leader) => leader.isPlaceholder)) {
 	console.warn(
-		'[SDJNusantara Warning] Data pimpinan masih menggunakan data contoh (isPlaceholder: true). WAJIB diganti dengan data resmi dan persetujuan publikasi sebelum rilis publik (content-master bagian 2 & 15).'
+		'[SDJNusantara Warning] Data management masih menggunakan data contoh (isPlaceholder: true). WAJIB diganti dengan data resmi dan persetujuan publikasi sebelum rilis publik (content-master bagian 2 & 15).'
 	);
 }
 

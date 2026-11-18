@@ -5,7 +5,6 @@
 		<div class="steps-left">
 			<div class="steps-left-content">
 				<div class="steps-badge">
-					<span class="badge-dash"></span>
 					<span class="badge-label">Layanan Pendidikan</span>
 				</div>
 				<h2 class="steps-heading">5 Tahap Pelaksanaan<br/>Program Kami</h2>
@@ -118,22 +117,14 @@
 	.steps-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
 		margin-bottom: 16px;
-	}
-
-	.badge-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #F5B331;
-		border-radius: 2px;
 	}
 
 	.badge-label {
 		color: #F5B331;
-		font-size: 11.5px;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

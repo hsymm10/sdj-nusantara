@@ -7,7 +7,7 @@
 		<div class="visi-misi-grid">
 			<!-- Left: Intro & Heading -->
 			<div class="visi-misi-left">
-				<div class="section-label">{i18n.pick('— Visi & Misi', '— Vision & Mission')}</div>
+				<div class="section-label">{i18n.pick('Visi & Misi', 'Vision & Mission')}</div>
 
 				<h2 class="section-heading">
 					{i18n.pick('Menjadi mitra terpercaya dalam', 'Becoming a trusted partner in')}<br />
@@ -121,11 +121,12 @@
 	}
 
 	.section-label {
-		font-size: 13px;
-		font-weight: 600;
+		font-size: 15px;
+		font-weight: 700;
 		color: #00A6B2;
-		margin-bottom: 0.35rem;
-		letter-spacing: 0;
+		margin-bottom: 0.45rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.section-heading {

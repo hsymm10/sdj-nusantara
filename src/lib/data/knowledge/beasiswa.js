@@ -41,7 +41,7 @@ export const beasiswaKnowledge = [
 			'Pendaftar beasiswa S1, S2, maupun S3 jenjang dalam negeri dan luar negeri yang ingin persiapan terarah'
 		],
 		langkahBerikut: [
-			{ label: 'Lihat Direktori Beasiswa', href: '/layanan/pendidikan#beasiswa' },
+			{ label: 'Lihat Direktori Beasiswa', href: '/layanan/beasiswa' },
 			{ label: 'Konsultasi Beasiswa Sekarang', href: '/kontak' }
 		],
 		tindakLanjutChip: ['Beasiswa', 'Info Program Pendidikan', 'Konsultasi'],
@@ -121,7 +121,7 @@ export const beasiswaKnowledge = [
 			'Calon pendaftar beasiswa pemerintah dalam negeri maupun beasiswa internasional bergengsi'
 		],
 		langkahBerikut: [
-			{ label: 'Lihat Direktori Beasiswa', href: '/layanan/pendidikan#beasiswa' },
+			{ label: 'Lihat Direktori Beasiswa', href: '/layanan/beasiswa' },
 			{ label: 'Konsultasi Strategi Beasiswa', href: '/kontak' }
 		],
 		tindakLanjutChip: ['Beasiswa', 'Info Program Pendidikan', 'Konsultasi'],
@@ -157,7 +157,7 @@ export const beasiswaKnowledge = [
 			'Kami tidak mencantumkan atau mengklaim kemitraan sebelum adanya perjanjian kerja sama formal yang terverifikasi.'
 		],
 		cocokUntuk: [
-			'Peserta pelatihan dan pimpinan institusi yang membutuhkan kepastian legalitas sertifikat'
+			'Peserta pelatihan dan management institusi yang membutuhkan kepastian legalitas sertifikat'
 		],
 		langkahBerikut: [
 			{ label: 'Konsultasi Pelatihan', href: '/kontak' },

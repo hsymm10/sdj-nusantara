@@ -6,7 +6,7 @@ export const enDict: TranslationDict = {
 		about: 'About Us',
 		services: 'Services',
 		partnership: 'Partnership',
-		articles: 'Articles & Insights',
+		articles: 'Perspectives',
 		contact: 'Contact',
 		viewAllServices: 'View all services',
 		servicesMenu: {
@@ -39,7 +39,7 @@ export const enDict: TranslationDict = {
 			home: 'Home',
 			about: 'About Us',
 			partnership: 'Partnership',
-			articles: 'Articles & Insights',
+			articles: 'Perspectives',
 			contact: 'Contact',
 			faq: 'FAQ',
 			education: 'Education Programs',

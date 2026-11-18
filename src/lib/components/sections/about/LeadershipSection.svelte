@@ -303,7 +303,7 @@
 	});
 </script>
 
-<section class="leadership-section" id="pimpinan">
+<section class="leadership-section" id="management">
 	<!-- Background Glass Building Illustration (Right, opacity 0.12) -->
 	<img
 		src="/images/tentang-building-hero-hd.jpg"
@@ -408,10 +408,10 @@
 		<!-- Section Header -->
 		<div class="header-box">
 			<h2 class="section-title">
-				{i18n.pick('Pimpinan', 'Leadership of')} <span class="teal-highlight">SDJNusantara</span>
+				{i18n.pick('Management', 'Management')} <span class="teal-highlight">SDJNusantara</span>
 			</h2>
 			<div class="turquoise-line" aria-hidden="true"></div>
-			<p class="section-subtitle">{i18n.pick('Jajaran Pimpinan SDJNusantara.', 'Executive Leadership Team of SDJNusantara.')}</p>
+			<p class="section-subtitle">{i18n.pick('Jajaran Management SDJNusantara.', 'Management Team of SDJNusantara.')}</p>
 		</div>
 
 		<!-- Carousel Outer Stage: Navigation buttons sit OUTSIDE the drag wrapper -->
@@ -421,7 +421,7 @@
 				type="button"
 				class="nav-btn prev-btn"
 				onclick={prev}
-				aria-label={i18n.pick('Pimpinan sebelumnya', 'Previous leader')}
+				aria-label={i18n.pick('Management sebelumnya', 'Previous management')}
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="15 18 9 12 15 6"></polyline>
@@ -434,14 +434,14 @@
 				class="cards-track-wrapper"
 				role="region"
 				aria-roledescription="carousel"
-				aria-label={i18n.pick('Pimpinan SDJNusantara', 'SDJNusantara Leadership')}
+				aria-label={i18n.pick('Management SDJNusantara', 'SDJNusantara Management')}
 				onpointerdown={handlePointerDown}
 				onpointermove={handlePointerMove}
 				onpointerup={handlePointerUp}
 				onpointercancel={handlePointerCancel}
 				onwheel={handleWheel}
 			>
-				<div class="cards-stage" role="group" aria-label={i18n.pick('Daftar foto pimpinan', 'Leadership photo list')}>
+				<div class="cards-stage" role="group" aria-label={i18n.pick('Daftar foto management', 'Management photo list')}>
 					{#each leadersData as leader, i (leader.id)}
 						{@const baseOffset = getBaseOffset(i, activeIndex, count)}
 						{@const isCenter = baseOffset === 0}
@@ -511,7 +511,7 @@
 				type="button"
 				class="nav-btn next-btn"
 				onclick={next}
-				aria-label="Pimpinan berikutnya"
+				aria-label="Management berikutnya"
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="9 18 15 12 9 6"></polyline>
@@ -526,7 +526,7 @@
 					type="button"
 					class="dot-indicator {idx === activeIndex ? 'active' : ''}"
 					onclick={() => { activeIndex = idx; }}
-					aria-label="Menuju pimpinan {idx + 1}"
+					aria-label="Menuju management {idx + 1}"
 					tabindex="-1"
 				></button>
 			{/each}
@@ -716,6 +716,53 @@
 		-webkit-user-select: none;
 		-webkit-tap-highlight-color: transparent;
 		will-change: transform;
+	}
+
+	/* Static positioning fallbacks for SSR and instant initial rendering */
+	.leader-card.pos-0 {
+		transform: translateX(0px) translateZ(60px) scale(1) rotateY(0deg);
+		opacity: 1;
+		z-index: 10;
+		pointer-events: auto;
+	}
+	.leader-card.pos--1 {
+		transform: translateX(-195px) translateZ(15px) scale(0.86) rotateY(14deg);
+		opacity: 0.88;
+		z-index: 8;
+		pointer-events: auto;
+	}
+	.leader-card.pos-1 {
+		transform: translateX(195px) translateZ(15px) scale(0.86) rotateY(-14deg);
+		opacity: 0.88;
+		z-index: 8;
+		pointer-events: auto;
+	}
+	.leader-card.pos--2 {
+		transform: translateX(-390px) translateZ(-30px) scale(0.72) rotateY(24deg);
+		opacity: 0.76;
+		z-index: 6;
+		pointer-events: none;
+	}
+	.leader-card.pos-2 {
+		transform: translateX(390px) translateZ(-30px) scale(0.72) rotateY(-24deg);
+		opacity: 0.76;
+		z-index: 6;
+		pointer-events: none;
+	}
+
+	@media (max-width: 768px) {
+		.leader-card.pos--1 {
+			transform: translateX(-140px) translateZ(15px) scale(0.84) rotateY(12deg);
+		}
+		.leader-card.pos-1 {
+			transform: translateX(140px) translateZ(15px) scale(0.84) rotateY(-12deg);
+		}
+		.leader-card.pos--2 {
+			transform: translateX(-260px) translateZ(-30px) scale(0.68) rotateY(20deg);
+		}
+		.leader-card.pos-2 {
+			transform: translateX(260px) translateZ(-30px) scale(0.68) rotateY(-20deg);
+		}
 	}
 
 	.leader-card:focus-visible {

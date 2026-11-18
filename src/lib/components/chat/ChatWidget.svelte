@@ -36,7 +36,7 @@
 		const href = target.getAttribute('href');
 		const isOpenChat = target.hasAttribute('data-open-chat');
 
-		if (isOpenChat || href === '/konsultasi' || href === '#chat' || href?.includes('chat=open')) {
+		if (isOpenChat || href === '/konsultasi' || href === '#chat' || href?.endsWith('#chat') || href?.includes('chat=open')) {
 			e.preventDefault();
 			chatStore.open();
 		}

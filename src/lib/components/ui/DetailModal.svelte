@@ -2,6 +2,7 @@
 	import { tick, type Snippet } from "svelte";
 	import { chatStore } from "#lib/stores/chat.svelte";
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { getLenis } from "#lib/utils/lenis";
 
 	interface Props {
 		isOpen: boolean;
@@ -58,14 +59,19 @@
 		};
 	}
 
-	// Scroll lock tanpa layout shift
+	// Scroll lock tanpa layout shift & integrasi Lenis
 	$effect(() => {
 		if (isOpen) {
+			const lenis = getLenis();
+			lenis?.stop();
+
 			const scrollbarWidth =
 				window.innerWidth - document.documentElement.clientWidth;
-			const originalOverflow = document.body.style.overflow;
+			const originalBodyOverflow = document.body.style.overflow;
+			const originalHtmlOverflow = document.documentElement.style.overflow;
 			const originalPaddingRight = document.body.style.paddingRight;
 
+			document.documentElement.style.overflow = "hidden";
 			document.body.style.overflow = "hidden";
 			if (scrollbarWidth > 0) {
 				document.body.style.paddingRight = `${scrollbarWidth}px`;
@@ -77,8 +83,11 @@
 			});
 
 			return () => {
-				document.body.style.overflow = originalOverflow;
+				document.documentElement.style.overflow = originalHtmlOverflow;
+				document.body.style.overflow = originalBodyOverflow;
 				document.body.style.paddingRight = originalPaddingRight;
+				lenis?.start();
+
 				// Kembalikan fokus ke elemen pemicu
 				if (
 					triggerElement &&
@@ -89,6 +98,18 @@
 			};
 		}
 	});
+
+	function handleBodyScrollWheel(e: WheelEvent) {
+		const el = e.currentTarget as HTMLElement;
+		if (!el) return;
+		const { scrollTop, scrollHeight, clientHeight } = el;
+		const isAtTop = scrollTop <= 0 && e.deltaY < 0;
+		const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+		if (isAtTop || isAtBottom) {
+			e.preventDefault();
+		}
+		e.stopPropagation();
+	}
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (!isOpen) return;
@@ -149,12 +170,14 @@
 <svelte:window onkeydown={handleKeydown} />
 
 {#if isOpen}
-	<div class="modal-root" use:portal role="none">
+	<div class="modal-root" use:portal role="none" data-lenis-prevent>
 		<!-- Backdrop -->
 		<button
 			type="button"
 			class="modal-backdrop"
 			onclick={onClose}
+			onwheel={(e) => { e.preventDefault(); e.stopPropagation(); }}
+			ontouchmove={(e) => { e.preventDefault(); e.stopPropagation(); }}
 			aria-label={i18n.pick('Tutup modal latar belakang', 'Close modal backdrop')}
 			tabindex="-1"
 		></button>
@@ -166,6 +189,7 @@
 			aria-modal="true"
 			aria-labelledby="modal-title"
 			bind:this={modalPanelEl}
+			data-lenis-prevent
 		>
 			<!-- Mobile Drag Handle -->
 			<div class="mobile-drag-handle" aria-hidden="true"></div>
@@ -325,7 +349,11 @@
 			{/if}
 
 			<!-- Scrollable Content Body -->
-			<div class="modal-body-scroll">
+			<div
+				class="modal-body-scroll"
+				data-lenis-prevent
+				onwheel={handleBodyScrollWheel}
+			>
 				{#if children}
 					{@render children()}
 				{/if}
@@ -337,7 +365,6 @@
 					<a
 						href={consultationHref}
 						class="btn-footer-gold"
-						onclick={onClose}
 					>
 						<span
 							>{i18n.pick(
@@ -378,7 +405,6 @@
 					<a
 						href={fullPageRoute}
 						class="link-full-page"
-						onclick={onClose}
 					>
 						<span
 							>{i18n.pick(
@@ -404,6 +430,7 @@
 		justify-content: center;
 		padding: 24px 16px;
 		box-sizing: border-box;
+		overscroll-behavior: contain;
 	}
 
 	.modal-backdrop {
@@ -414,6 +441,8 @@
 		-webkit-backdrop-filter: blur(6px);
 		border: none;
 		cursor: pointer;
+		touch-action: none;
+		overscroll-behavior: contain;
 		animation: backdropFade 200ms ease-out forwards;
 	}
 
@@ -431,7 +460,7 @@
 		z-index: 1;
 		width: 100%;
 		max-width: min(720px, 92vw);
-		max-height: 88vh;
+		max-height: min(88vh, 850px);
 		background: #ffffff;
 		border-radius: 20px;
 		box-shadow:
@@ -440,6 +469,7 @@
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
+		overscroll-behavior: contain;
 		animation: panelScaleIn 260ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 	}
 
@@ -603,7 +633,10 @@
 		padding: 24px 28px;
 		overflow-y: auto;
 		overscroll-behavior: contain;
-		flex: 1;
+		-webkit-overflow-scrolling: touch;
+		touch-action: pan-y;
+		flex: 1 1 auto;
+		min-height: 0;
 	}
 
 	/* Sticky Footer */

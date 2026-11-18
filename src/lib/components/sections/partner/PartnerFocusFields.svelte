@@ -54,7 +54,6 @@
 			<!-- Kolom Kiri (~38%): Label, Heading, Deskripsi & Tombol -->
 			<div class="fields-text-col">
 				<div class="fields-label">
-					<span class="label-dash"></span>
 					<span class="label-text">{i18n.pick('BIDANG KOLABORASI', 'COLLABORATION SECTORS')}</span>
 				</div>
 
@@ -254,22 +253,15 @@
 	.fields-label {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
 		margin-bottom: 12px;
 	}
 
-	.label-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #00A9B7;
-		border-radius: 2px;
-	}
-
 	.label-text {
-		color: #00A9B7;
-		font-size: 13px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	/* Heading Target Desktop: 30–36px */

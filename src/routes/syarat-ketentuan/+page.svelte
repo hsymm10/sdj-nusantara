@@ -14,7 +14,6 @@
 <main class="legal-page">
 	<div class="legal-container">
 		<div class="section-label">
-			<span class="label-dash">—</span>
 			<span class="label-text">{i18n.dict.footer.terms}</span>
 		</div>
 		<h1 class="legal-title">{i18n.pick('Syarat & Ketentuan Layanan', 'Terms & Conditions of Service')}</h1>
@@ -53,10 +52,10 @@
 	.section-label {
 		display: flex;
 		align-items: center;
-		gap: 8px;
 		color: #00A6B2;
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		margin-bottom: 0.5rem;
 	}

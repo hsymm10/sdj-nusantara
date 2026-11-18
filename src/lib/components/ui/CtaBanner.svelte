@@ -68,7 +68,7 @@
 
 			<div class="cta-actions">
 				<a href={primaryHref} class="btn-gold">
-					<span>{primaryText}</span>
+					<span>{primaryText.replace(/\s*→\s*$/, '')}</span>
 					<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 5px;">
 						<line x1="5" y1="12" x2="19" y2="12"></line>
 						<polyline points="12 5 19 12 12 19"></polyline>

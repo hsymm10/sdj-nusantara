@@ -87,7 +87,6 @@
 		<!-- Col 2: Text & CTA -->
 		<div class="prep-col-text">
 			<div class="prep-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">{i18n.pick('Program Beasiswa', 'Scholarship Program')}</span>
 			</div>
 			<h2 class="prep-title">
@@ -249,23 +248,15 @@
 	.prep-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 10px;
 	}
 
-	.badge-dash {
-		display: inline-block;
-		width: 18px;
-		height: 2.5px;
-		background: #08A6B5;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #08A6B5;
-		letter-spacing: 0.02em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.prep-title {

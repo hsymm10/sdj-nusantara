@@ -4,7 +4,7 @@ export const idDict = {
 		about: 'Tentang Kami',
 		services: 'Layanan',
 		partnership: 'Kemitraan',
-		articles: 'Artikel & Wawasan',
+		articles: 'Perspektif',
 		contact: 'Kontak',
 		viewAllServices: 'Lihat semua layanan',
 		servicesMenu: {
@@ -37,7 +37,7 @@ export const idDict = {
 			home: 'Beranda',
 			about: 'Tentang Kami',
 			partnership: 'Kemitraan',
-			articles: 'Artikel & Wawasan',
+			articles: 'Perspektif',
 			contact: 'Kontak',
 			faq: 'FAQ',
 			education: 'Program Pendidikan',

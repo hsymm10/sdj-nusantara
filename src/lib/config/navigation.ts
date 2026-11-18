@@ -50,7 +50,7 @@ export const navItems: NavItem[] = [
 		)
 	},
 	{ label: 'Kemitraan', href: '/kemitraan' },
-	{ label: 'Artikel & Wawasan', href: '/artikel' },
+	{ label: 'Perspektif', href: '/artikel' },
 	{ label: 'Kontak', href: '/kontak' }
 ];
 
@@ -62,7 +62,7 @@ export const footerNav = {
 		{ label: 'Kemitraan', href: '/kemitraan' }
 	],
 	pusatInformasi: [
-		{ label: 'Artikel & Wawasan', href: '/artikel' },
+		{ label: 'Perspektif', href: '/artikel' },
 		{ label: 'Kontak', href: '/kontak' }
 	]
 };

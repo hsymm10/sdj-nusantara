@@ -86,7 +86,6 @@
 		<!-- Kolom 1 — Konten Utama (Kiri: 34%) -->
 		<div class="about-left-col">
 			<div class="section-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text"
 					>{i18n.pick(
 						"Tentang SDJNusantara",
@@ -451,22 +450,15 @@
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 14px;
 	}
 
-	.badge-dash {
-		width: 18px;
-		height: 3px;
-		background: #00aab5;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		color: #00aab5;
-		font-size: 13px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.02em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.about-title {

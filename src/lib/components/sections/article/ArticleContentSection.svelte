@@ -236,7 +236,6 @@
 				<!-- 2. Section Header: Artikel Terbaru -->
 				<div class="latest-section-header">
 					<div class="section-label-dash">
-						<span class="dash">—</span>
 						<span class="label-text">{i18n.pick('Artikel Terbaru', 'Latest Articles')}</span>
 					</div>
 					<h2 class="latest-heading">{i18n.pick('Insight Terbaru untuk Mendukung Perjalanan Pendidikan Anda', 'Latest Insights to Support Your Educational Journey')}</h2>
@@ -707,15 +706,12 @@
 	.section-label-dash {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
 		color: #00A6B2;
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 700;
-		margin-bottom: 0.4rem;
-	}
-
-	.dash {
-		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		margin-bottom: 0.45rem;
 	}
 
 	.latest-heading {

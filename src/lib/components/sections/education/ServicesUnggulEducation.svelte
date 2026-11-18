@@ -151,9 +151,7 @@
 		<!-- Header -->
 		<div class="layanan-header">
 			<div class="section-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">{i18n.pick('Layanan Unggulan', 'Featured Services')}</span>
-				<span class="badge-dash"></span>
 			</div>
 			<h2 class="layanan-title">
 				{i18n.pick('Solusi Terintegrasi untuk', 'Integrated Solutions for')} <span class="highlight-cyan">{i18n.pick('Pengembangan Potensi', 'Potential Development')}</span>
@@ -286,22 +284,15 @@
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 12px;
 	}
 
-	.badge-dash {
-		width: 16px;
-		height: 2.5px;
-		background: #00AAB5;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		color: #00AAB5;
-		font-size: 13px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.03em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.layanan-title {

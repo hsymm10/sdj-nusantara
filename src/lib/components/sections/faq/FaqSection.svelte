@@ -203,7 +203,6 @@
 				<!-- B. Category Heading with Teal Dash -->
 				<div class="faq-header-row">
 					<div class="header-title-wrap">
-						<span class="teal-dash" aria-hidden="true">—</span>
 						<h2 id="faq-section-heading" class="faq-heading-text">{headingTitle}</h2>
 					</div>
 
@@ -613,14 +612,6 @@
 	.header-title-wrap {
 		display: flex;
 		align-items: center;
-		gap: 10px;
-	}
-
-	.teal-dash {
-		font-weight: 800;
-		color: #00A6B2;
-		font-size: 24px;
-		line-height: 1;
 	}
 
 	.faq-heading-text {

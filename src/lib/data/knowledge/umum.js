@@ -101,7 +101,7 @@ export const umumKnowledge = [
 			'Perusahaan & Mitra CSR: Pelatihan karyawan dan penyaluran program sosial pendidikan.'
 		],
 		cocokUntuk: [
-			'Pelajar, mahasiswa, pencari kerja, praktisi, dan pimpinan lembaga'
+			'Pelajar, mahasiswa, pencari kerja, praktisi, dan management lembaga'
 		],
 		langkahBerikut: [
 			{ label: 'Lihat Layanan Pendidikan', href: '/layanan/pendidikan' },

@@ -23,7 +23,7 @@ function mapKnowledgeToTopicId(kategori: string, entryId: string): string {
 	if (kategori === 'faq') return 'faq';
 	if (entryId.includes('kemitraan') || entryId.includes('kerjasama')) return 'kemitraan';
 	if (entryId.includes('kontak') || entryId.includes('konsultasi')) return 'kontak';
-	if (entryId.includes('profil') || entryId.includes('tentang') || entryId.includes('pimpinan')) {
+	if (entryId.includes('profil') || entryId.includes('tentang') || entryId.includes('management')) {
 		return 'tentang-kami';
 	}
 	return 'layanan';
@@ -203,7 +203,7 @@ export function processUserQuery(userQuery: string, lastTopicId?: string | null)
 	const indexResults = searchWebsiteIndex(trimmed);
 	const topIndex = indexResults.length > 0 ? indexResults[0] : null;
 
-	// Prioritas 4A: Kecocokan kuat di Website Index (>= 45) jika user bertanya topik umum/halaman (mis. "Kebijakan Privasi", "Pimpinan", "Syarat Ketentuan")
+	// Prioritas 4A: Kecocokan kuat di Website Index (>= 45) jika user bertanya topik umum/halaman (mis. "Kebijakan Privasi", "Management", "Syarat Ketentuan")
 	if (topIndex && topIndex.score >= 45 && (!kbResult.entry || topIndex.score > kbResult.score)) {
 		const topic = topIndex.topic;
 		const reply: StructuredReply = {

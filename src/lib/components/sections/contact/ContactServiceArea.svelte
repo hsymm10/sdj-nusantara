@@ -24,7 +24,6 @@
 		<!-- Left Column: Text & Features (x ±93 -> 560 pada 1536) -->
 		<div class="area-text-col">
 			<div class="section-dash-line">
-				<span class="dash"></span>
 				<span class="section-tag">{i18n.pick('Wilayah Layanan', 'Service Coverage')}</span>
 			</div>
 
@@ -245,20 +244,14 @@
 	.section-dash-line {
 		display: flex;
 		align-items: center;
-		gap: 8px;
-	}
-
-	.dash {
-		width: 18px;
-		height: 2.5px;
-		background: #16B6C1;
-		border-radius: 2px;
 	}
 
 	.section-tag {
-		font-size: 12px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #16B6C1;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.area-title {

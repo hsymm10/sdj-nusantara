@@ -12,7 +12,7 @@
 		<div class="intro-grid">
 			<!-- Left: Label, Heading, Description -->
 			<div class="intro-left">
-				<div class="section-label">— Layanan</div>
+				<div class="section-label">Layanan</div>
 
 				<h2 class="intro-title">
 					Solusi Terintegrasi untuk<br />
@@ -114,11 +114,12 @@
 	}
 
 	.section-label {
-		font-size: 13px;
-		font-weight: 600;
+		font-size: 15px;
+		font-weight: 700;
 		color: #00A6B2;
-		margin-bottom: 0.35rem;
-		letter-spacing: 0;
+		margin-bottom: 0.45rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.intro-title {

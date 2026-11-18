@@ -13,8 +13,8 @@
 			<div class="struktur-left">
 				<div class="section-label">
 					{i18n.pick(
-						"— Struktur Organisasi",
-						"— Organizational Structure",
+						"Struktur Organisasi",
+						"Organizational Structure",
 					)}
 				</div>
 
@@ -319,11 +319,12 @@
 	}
 
 	.section-label {
-		font-size: 13px;
-		font-weight: 600;
+		font-size: 15px;
+		font-weight: 700;
 		color: #00a6b2;
-		margin-bottom: 0.3rem;
-		letter-spacing: 0;
+		margin-bottom: 0.45rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.struktur-title {

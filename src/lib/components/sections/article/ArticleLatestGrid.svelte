@@ -62,7 +62,6 @@
 		<!-- Left: Section Heading + 3x2 Grid + Pagination -->
 		<div class="latest-main-col">
 			<div class="section-dash-line">
-				<span class="dash"></span>
 				<span class="section-tag">Artikel Terbaru</span>
 			</div>
 
@@ -258,21 +257,15 @@
 	.section-dash-line {
 		display: flex;
 		align-items: center;
-		gap: 6px;
 		margin-bottom: 4px;
 	}
 
-	.dash {
-		width: 16px;
-		height: 2.5px;
-		background: #16B6C1;
-		border-radius: 2px;
-	}
-
 	.section-tag {
-		font-size: 11px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #16B6C1;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.section-heading {

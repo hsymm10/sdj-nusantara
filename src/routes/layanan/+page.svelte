@@ -297,7 +297,6 @@
 			<!-- Kiri: Header teks -->
 			<div class="intro-text-col">
 				<div class="section-badge-label">
-					<span class="label-dash" aria-hidden="true"></span>
 					<span class="label-text">{i18n.pick('Layanan SDJNusantara', 'SDJNusantara Services')}</span>
 				</div>
 				<h2 id="intro-heading" class="intro-title">
@@ -376,10 +375,12 @@
 			</svg>
 		{/snippet}
 		<div class="hub-container">
+			<span id="skills-development" class="anchor-target" aria-hidden="true"></span>
+			<span id="institutional-partnership" class="anchor-target" aria-hidden="true"></span>
 			<div class="cards-grid {activeTab !== 'semua' ? 'single-filtered' : !serviceConfig.legal ? 'two-services' : ''}">
 				<!-- KARTU 1: Program Pendidikan -->
 				{#if activeTab === 'semua' || activeTab === 'program'}
-					<article class="service-card card-program">
+					<article id="talent-management" class="service-card card-program">
 						<div class="card-body">
 							<div>
 								<div class="card-pill">
@@ -454,7 +455,7 @@
 
 				<!-- KARTU 2: Program Beasiswa -->
 				{#if activeTab === 'semua' || activeTab === 'beasiswa'}
-					<article class="service-card card-beasiswa">
+					<article id="scholarship-academy" class="service-card card-beasiswa">
 						<div class="card-body">
 							<div>
 								<div class="card-pill">
@@ -507,7 +508,7 @@
 							</div>
 
 							<div class="card-action card-action-with-note">
-								<a href="/layanan/pendidikan#beasiswa" class="btn-card-gold">
+								<a href="/layanan/beasiswa" class="btn-card-gold">
 									<span>{i18n.pick('Temukan Semua Beasiswa', 'Explore All Scholarships')}</span>
 									<span class="btn-arrow" aria-hidden="true">→</span>
 								</a>
@@ -1230,22 +1231,15 @@
 	.section-badge-label {
 		display: flex;
 		align-items: center;
-		gap: 8px;
 		margin-bottom: 12px;
 	}
 
-	.label-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #079EAD;
-		border-radius: 2px;
-	}
-
 	.label-text {
-		font-size: 13.5px;
+		font-size: 15px;
 		font-weight: 700;
-		color: #079EAD;
-		letter-spacing: 0.02em;
+		color: #00A6B2;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.intro-title {

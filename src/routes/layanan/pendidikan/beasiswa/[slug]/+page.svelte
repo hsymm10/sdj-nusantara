@@ -36,8 +36,8 @@
 
 <main class="scholarship-detail-page">
 	<div class="detail-container">
-		<!-- Back Button ke rute baru /layanan/pendidikan#beasiswa -->
-		<a href="/layanan/pendidikan#beasiswa" class="btn-back">
+		<!-- Back Button ke rute direktori beasiswa -->
+		<a href="/layanan/beasiswa" class="btn-back">
 			<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="19" y1="12" x2="5" y2="12"></line>
 				<polyline points="12 19 5 12 12 5"></polyline>
@@ -98,7 +98,7 @@
 						<line x1="10" y1="14" x2="21" y2="3"></line>
 					</svg>
 				</a>
-				<a href="/konsultasi" class="btn-secondary">
+				<a href="/kontak" class="btn-secondary">
 					<span>{i18n.pick('Konsultasikan Persiapan', 'Consult on Preparation')}</span>
 					<span>→</span>
 				</a>

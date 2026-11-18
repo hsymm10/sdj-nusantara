@@ -4,7 +4,6 @@
 		<!-- Header -->
 		<div class="beasiswa-cat-header">
 			<div class="section-badge">
-				<span class="badge-dash"></span>
 				<span class="badge-text">Akses Beasiswa</span>
 			</div>
 			<h2 class="beasiswa-cat-title">Temukan Beasiswa yang Sesuai dengan Tujuan Anda</h2>
@@ -16,7 +15,7 @@
 		<!-- 5 Category Cards -->
 		<div class="beasiswa-cards-row">
 			<!-- Card 1: Pemerintah -->
-			<a href="/beasiswa?kategori=pemerintah" class="bsw-card">
+			<a href="/layanan/beasiswa?kategori=pemerintah" class="bsw-card">
 				<div class="bsw-card-icon">
 					<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 						<path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 10v11M12 10v11M16 10v11" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -34,7 +33,7 @@
 			</a>
 
 			<!-- Card 2: Universitas -->
-			<a href="/beasiswa?kategori=universitas" class="bsw-card">
+			<a href="/layanan/beasiswa?kategori=universitas" class="bsw-card">
 				<div class="bsw-card-icon">
 					<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 						<path d="M12 3L2 8l10 5 10-5-10-5z" stroke="#079EAD" stroke-width="2" stroke-linejoin="round" fill="none"/>
@@ -55,7 +54,7 @@
 			</a>
 
 			<!-- Card 3: Internasional -->
-			<a href="/beasiswa?kategori=internasional" class="bsw-card bsw-card-active">
+			<a href="/layanan/beasiswa?kategori=internasional" class="bsw-card bsw-card-active">
 				<div class="bsw-card-icon bsw-card-icon-active">
 					<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 						<circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2" fill="none"/>
@@ -75,7 +74,7 @@
 			</a>
 
 			<!-- Card 4: Swasta -->
-			<a href="/beasiswa?kategori=swasta" class="bsw-card">
+			<a href="/layanan/beasiswa?kategori=swasta" class="bsw-card">
 				<div class="bsw-card-icon">
 					<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 						<rect x="2" y="7" width="20" height="14" rx="2" stroke="#079EAD" stroke-width="2" fill="none"/>
@@ -96,7 +95,7 @@
 			</a>
 
 			<!-- Card 5: Daerah -->
-			<a href="/beasiswa?kategori=daerah" class="bsw-card">
+			<a href="/layanan/beasiswa?kategori=daerah" class="bsw-card">
 				<div class="bsw-card-icon">
 					<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 						<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#079EAD" stroke-width="2" fill="none"/>
@@ -139,22 +138,14 @@
 	.section-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
 		margin-bottom: 12px;
 	}
 
-	.badge-dash {
-		width: 20px;
-		height: 2.5px;
-		background: #079EAD;
-		border-radius: 2px;
-	}
-
 	.badge-text {
-		color: #079EAD;
-		font-size: 12px;
+		color: #00A6B2;
+		font-size: 15px;
 		font-weight: 700;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
 

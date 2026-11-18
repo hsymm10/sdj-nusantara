@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { onMount, tick } from 'svelte';
-	import type leadersData from '#lib/data/leaders.js';
-	import { leadersEnMap } from '#lib/i18n/dataEn';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { onMount, tick } from "svelte";
+	import type leadersData from "#lib/data/leaders.js";
+	import { leadersEnMap } from "#lib/i18n/dataEn";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	type Leader = (typeof leadersData)[0];
 
@@ -25,7 +25,7 @@
 		onClose,
 		onPrev,
 		onNext,
-		triggerElement = null
+		triggerElement = null,
 	}: Props = $props();
 
 	let modalEl = $state<HTMLElement | null>(null);
@@ -33,7 +33,7 @@
 
 	let displayLeader = $derived.by(() => {
 		if (!leader) return null;
-		if (i18n.lang === 'en' && leadersEnMap[leader.id]) {
+		if (i18n.lang === "en" && leadersEnMap[leader.id]) {
 			return { ...leader, ...leadersEnMap[leader.id] };
 		}
 		return leader;
@@ -47,15 +47,16 @@
 				if (node.parentNode) {
 					node.parentNode.removeChild(node);
 				}
-			}
+			},
 		};
 	}
 
 	// Scroll lock with scrollbar width compensation
 	$effect(() => {
 		if (isOpen) {
-			const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-			document.body.style.overflow = 'hidden';
+			const scrollbarWidth =
+				window.innerWidth - document.documentElement.clientWidth;
+			document.body.style.overflow = "hidden";
 			if (scrollbarWidth > 0) {
 				document.body.style.paddingRight = `${scrollbarWidth}px`;
 			}
@@ -66,8 +67,8 @@
 			});
 
 			return () => {
-				document.body.style.overflow = '';
-				document.body.style.paddingRight = '';
+				document.body.style.overflow = "";
+				document.body.style.paddingRight = "";
 				// Return focus to trigger element
 				triggerElement?.focus();
 			};
@@ -77,29 +78,29 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if (!isOpen) return;
 
-		if (e.key === 'Escape') {
+		if (e.key === "Escape") {
 			e.preventDefault();
 			onClose();
 			return;
 		}
 
-		if (e.key === 'ArrowLeft') {
+		if (e.key === "ArrowLeft") {
 			e.preventDefault();
 			onPrev();
 			return;
 		}
 
-		if (e.key === 'ArrowRight') {
+		if (e.key === "ArrowRight") {
 			e.preventDefault();
 			onNext();
 			return;
 		}
 
 		// Focus trap
-		if (e.key === 'Tab') {
+		if (e.key === "Tab") {
 			if (!modalEl) return;
 			const focusables = modalEl.querySelectorAll<HTMLElement>(
-				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
 			);
 			if (focusables.length === 0) return;
 
@@ -164,7 +165,14 @@
 					opacity="0.14"
 				/>
 				<defs>
-					<linearGradient id="tealGradTop" x1="0" y1="0" x2="150" y2="60" gradientUnits="userSpaceOnUse">
+					<linearGradient
+						id="tealGradTop"
+						x1="0"
+						y1="0"
+						x2="150"
+						y2="60"
+						gradientUnits="userSpaceOnUse"
+					>
 						<stop stop-color="#079EAD" />
 						<stop offset="1" stop-color="#16B6C1" />
 					</linearGradient>
@@ -187,7 +195,14 @@
 					opacity="0.10"
 				/>
 				<defs>
-					<linearGradient id="tealGradBottom" x1="330" y1="110" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+					<linearGradient
+						id="tealGradBottom"
+						x1="330"
+						y1="110"
+						x2="0"
+						y2="0"
+						gradientUnits="userSpaceOnUse"
+					>
 						<stop stop-color="#079EAD" />
 						<stop offset="1" stop-color="#16B6C1" />
 					</linearGradient>
@@ -202,7 +217,16 @@
 				onclick={onClose}
 				aria-label={i18n.dict.common.close}
 			>
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<line x1="18" y1="6" x2="6" y2="18"></line>
 					<line x1="6" y1="6" x2="18" y2="18"></line>
 				</svg>
@@ -212,11 +236,14 @@
 				<!-- Left Column: Portrait Photo -->
 				<div class="left-col">
 					<div class="photo-frame">
-						{#if leader.foto.includes('.webp')}
+						{#if leader.foto.includes(".webp")}
 							<picture>
-								<source srcset={leader.foto} type="image/webp" />
+								<source
+									srcset={leader.foto}
+									type="image/webp"
+								/>
 								<img
-									src={leader.foto.replace('.webp', '.jpg')}
+									src={leader.foto.replace(".webp", ".jpg")}
 									alt={leader.fotoAlt}
 									class="modal-photo"
 									width="246"
@@ -239,10 +266,18 @@
 				<div class="right-col">
 					<!-- Pill & Badge Header -->
 					<div class="pills-row">
-						<span class="profile-pill">{i18n.pick('Profil Pimpinan', 'Leadership Profile')}</span>
+						<span class="profile-pill"
+							>{i18n.pick(
+								"Profil Management",
+								"Management Profile",
+							)}</span
+						>
 						{#if leader.isPlaceholder}
-							<span class="placeholder-tag" title="Data contoh sementara">
-								{i18n.pick('Data contoh', 'Sample data')}
+							<span
+								class="placeholder-tag"
+								title="Data contoh sementara"
+							>
+								{i18n.pick("Data contoh", "Sample data")}
 							</span>
 						{/if}
 					</div>
@@ -254,11 +289,32 @@
 
 					<!-- Leader Role with Portfolio/Building Icon -->
 					<div class="leader-role-row">
-						<svg class="role-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-							<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+						<svg
+							class="role-icon"
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#079EAD"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<rect
+								x="2"
+								y="7"
+								width="20"
+								height="14"
+								rx="2"
+								ry="2"
+							></rect>
+							<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
+							></path>
 						</svg>
-						<span class="role-text">{leader.jabatanDetail || leader.jabatan}</span>
+						<span class="role-text"
+							>{leader.jabatanDetail || leader.jabatan}</span
+						>
 					</div>
 
 					<!-- Divider -->
@@ -266,7 +322,9 @@
 
 					<!-- Short Bio -->
 					<div class="bio-section">
-						<h3 class="bio-title">{i18n.pick('Profil Singkat', 'Short Biography')}</h3>
+						<h3 class="bio-title">
+							{i18n.pick("Profil Singkat", "Short Biography")}
+						</h3>
 						<div id="leader-modal-desc" class="bio-paragraphs">
 							{#each (displayLeader?.profilSingkat ?? leader.profilSingkat).split(/\n\s*\n/) as paragraph}
 								<p class="bio-text">{paragraph}</p>
@@ -278,21 +336,55 @@
 					<div class="info-rows">
 						<div class="info-row">
 							<div class="info-label-box">
-								<svg class="info-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-									<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+								<svg
+									class="info-icon"
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#079EAD"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path d="M22 10v6M2 10l10-5 10 5-10 5z"
+									></path>
 									<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
 								</svg>
-								<span class="info-label">{i18n.pick('Pendidikan', 'Education')}</span>
+								<span class="info-label"
+									>{i18n.pick(
+										"Pendidikan",
+										"Education",
+									)}</span
+								>
 							</div>
-							<div class="info-value">{displayLeader?.pendidikan ?? leader.pendidikan}</div>
+							<div class="info-value">
+								{displayLeader?.pendidikan ?? leader.pendidikan}
+							</div>
 						</div>
 
 						<div class="info-row">
 							<div class="info-label-box">
-								<svg class="info-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-									<path d="M20 7h-4v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+								<svg
+									class="info-icon"
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#079EAD"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path
+										d="M20 7h-4v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+									></path>
 								</svg>
-								<span class="info-label">{i18n.pick('Jabatan', 'Position')}</span>
+								<span class="info-label"
+									>{i18n.pick("Jabatan", "Position")}</span
+								>
 							</div>
 							<div class="info-value">{leader.jabatan}</div>
 						</div>
@@ -300,26 +392,56 @@
 
 					<!-- Footer Navigation: Prev / Next buttons and counter -->
 					<div class="modal-nav-footer">
-						<div class="counter-text">{currentIndex + 1} {i18n.pick('dari', 'of')} {totalCount}</div>
+						<div class="counter-text">
+							{currentIndex + 1}
+							{i18n.pick("dari", "of")}
+							{totalCount}
+						</div>
 						<div class="nav-btn-group">
 							<button
 								type="button"
 								class="modal-nav-btn"
 								onclick={onPrev}
-								aria-label={i18n.pick('Pimpinan sebelumnya', 'Previous leader')}
+								aria-label={i18n.pick(
+									"Management sebelumnya",
+									"Previous management",
+								)}
 							>
-								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="15 18 9 12 15 6"></polyline>
+								<svg
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<polyline points="15 18 9 12 15 6"
+									></polyline>
 								</svg>
 							</button>
 							<button
 								type="button"
 								class="modal-nav-btn"
 								onclick={onNext}
-								aria-label={i18n.pick('Pimpinan berikutnya', 'Next leader')}
+								aria-label={i18n.pick(
+									"Management berikutnya",
+									"Next management",
+								)}
 							>
-								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="9 18 15 12 9 6"></polyline>
+								<svg
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<polyline points="9 18 15 12 9 6"
+									></polyline>
 								</svg>
 							</button>
 						</div>
@@ -358,7 +480,7 @@
 
 	/* Modal Panel - Fixed & Consistent Dimensions */
 	.modal-panel {
-		background: #FFFFFF;
+		background: #ffffff;
 		border-radius: 18px;
 		box-shadow: 0 24px 60px rgba(8, 36, 66, 0.28);
 		width: 828px;
@@ -391,7 +513,7 @@
 		width: 44px;
 		height: 4px;
 		border-radius: 2px;
-		background: #CBD5E1;
+		background: #cbd5e1;
 		margin: 10px auto 4px auto;
 	}
 
@@ -429,18 +551,20 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		transition: background 180ms ease, color 180ms ease;
+		transition:
+			background 180ms ease,
+			color 180ms ease;
 		z-index: 10;
 		outline: none;
 	}
 
 	.close-btn:hover {
-		background: #F4F8FB;
-		color: #079EAD;
+		background: #f4f8fb;
+		color: #079ead;
 	}
 
 	.close-btn:focus-visible {
-		box-shadow: 0 0 0 3px #16B6C1;
+		box-shadow: 0 0 0 3px #16b6c1;
 	}
 
 	/* Modal Body Layout */
@@ -469,9 +593,9 @@
 		height: 305px;
 		border-radius: 12px;
 		overflow: hidden;
-		border: 1px solid #E3EAF1;
+		border: 1px solid #e3eaf1;
 		box-shadow: 0 8px 24px rgba(8, 36, 66, 0.08);
-		background: #EDF2F7;
+		background: #edf2f7;
 	}
 
 	.modal-photo {
@@ -504,8 +628,8 @@
 	.profile-pill {
 		display: inline-flex;
 		align-items: center;
-		background: #D9F4F6;
-		color: #05707B;
+		background: #d9f4f6;
+		color: #05707b;
 		font-size: 13px;
 		font-weight: 600;
 		padding: 4px 12px;
@@ -516,13 +640,13 @@
 	.placeholder-tag {
 		display: inline-flex;
 		align-items: center;
-		background: #FEF3C7;
-		color: #92400E;
+		background: #fef3c7;
+		color: #92400e;
 		font-size: 11px;
 		font-weight: 600;
 		padding: 3px 8px;
 		border-radius: 6px;
-		border: 1px solid #FCD34D;
+		border: 1px solid #fcd34d;
 	}
 
 	/* Leader Name H2 - Consistent 2-line height so content below never shifts */
@@ -563,7 +687,7 @@
 	/* Divider */
 	.modal-divider {
 		height: 1px;
-		background: #D9E2EC;
+		background: #d9e2ec;
 		margin: 0 0 14px 0;
 		width: 100%;
 		flex-shrink: 0;
@@ -609,7 +733,7 @@
 		align-items: center;
 		font-size: 13px;
 		padding: 3px 0;
-		border-bottom: 1px dashed #E2E8F0;
+		border-bottom: 1px dashed #e2e8f0;
 		min-height: 26px;
 	}
 
@@ -640,13 +764,13 @@
 		justify-content: space-between;
 		margin-top: auto;
 		padding-top: 10px;
-		border-top: 1px solid #F1F5F9;
+		border-top: 1px solid #f1f5f9;
 		flex-shrink: 0;
 	}
 
 	.counter-text {
 		font-size: 12.5px;
-		color: #64748B;
+		color: #64748b;
 		font-weight: 500;
 	}
 
@@ -660,8 +784,8 @@
 		width: 36px;
 		height: 36px;
 		border-radius: 50%;
-		border: 1px solid #CBD5E1;
-		background: #FFFFFF;
+		border: 1px solid #cbd5e1;
+		background: #ffffff;
 		color: #082442;
 		display: flex;
 		align-items: center;
@@ -672,13 +796,13 @@
 	}
 
 	.modal-nav-btn:hover {
-		background: #F8FAFC;
-		border-color: #079EAD;
-		color: #079EAD;
+		background: #f8fafc;
+		border-color: #079ead;
+		color: #079ead;
 	}
 
 	.modal-nav-btn:focus-visible {
-		box-shadow: 0 0 0 3px #16B6C1;
+		box-shadow: 0 0 0 3px #16b6c1;
 	}
 
 	/* Responsive Styles */
@@ -717,7 +841,8 @@
 			max-width: 100%;
 			max-height: 92vh;
 			border-radius: 20px 20px 0 0;
-			animation: bottomSheetSlide 280ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+			animation: bottomSheetSlide 280ms cubic-bezier(0.22, 0.61, 0.36, 1)
+				forwards;
 		}
 
 		@keyframes bottomSheetSlide {

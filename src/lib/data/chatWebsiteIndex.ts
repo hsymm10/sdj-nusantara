@@ -27,8 +27,8 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 	{
 		id: 'tentang-kami',
 		title: {
-			id: 'Tentang Kami (Profil & Pimpinan)',
-			en: 'About Us (Profile & Leadership)'
+			id: 'Tentang Kami (Profil & Management)',
+			en: 'About Us (Profile & Management)'
 		},
 		url: '/tentang-kami',
 		subpages: [
@@ -41,37 +41,37 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 				}
 			},
 			{
-				url: '/tentang-kami#pimpinan',
-				title: { id: 'Dewan Pimpinan & Penasihat', en: 'Leadership & Senior Advisors' },
+				url: '/#management',
+				title: { id: 'Dewan Management & Penasihat', en: 'Management & Senior Advisors' },
 				desc: {
-					id: 'Profil pimpinan: Muhammad Setiawan S Dj (President Director), Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han). (Senior Advisor), Dr. Devi Erna Rachmawati, S.E., M.B.A., Ph.D. (Senior Advisor), dan Hanif Hidayatullah, S.Hum., M.A (Director of Education).',
-					en: 'Leadership: Muhammad Setiawan S Dj (President Director), Maj. Gen. (Ret.) Dr. Dr. Ir. Pujo Widodo (Senior Advisor), Dr. Devi Erna Rachmawati (Senior Advisor), and Hanif Hidayatullah (Director of Education).'
+					id: 'Profil management: Muhammad Setiawan S Dj (President Director), Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han). (Senior Advisor), Dr. Devi Erna Rachmawati, S.E., M.B.A., Ph.D. (Senior Advisor), dan Hanif Hidayatullah, S.Hum., M.A (Director of Education).',
+					en: 'Management: Muhammad Setiawan S Dj (President Director), Maj. Gen. (Ret.) Dr. Dr. Ir. Pujo Widodo (Senior Advisor), Dr. Devi Erna Rachmawati (Senior Advisor), and Hanif Hidayatullah (Director of Education).'
 				}
 			}
 		],
 		keywords: [
 			'tentang', 'kami', 'profil', 'perusahaan', 'lembaga', 'visi', 'misi', 'sejarah',
-			'pimpinan', 'direktur', 'founder', 'pendiri', 'advisor', 'penasihat', 'setiawan',
+			'management', 'manajemen', 'direktur', 'founder', 'pendiri', 'advisor', 'penasihat', 'setiawan',
 			'pujo', 'widodo', 'devi', 'erna', 'rachmawati', 'hanif', 'hidayatullah', 'legalitas',
-			'about', 'us', 'profile', 'company', 'organization', 'vision', 'mission', 'leadership',
+			'about', 'us', 'profile', 'company', 'organization', 'vision', 'mission', 'management',
 			'director', 'president', 'advisors', 'board', 'who'
 		],
 		overview: {
-			id: 'Halaman Tentang Kami memuat profil lengkap PT Sampurna Djaya Nusantara (SDJNusantara), visi, misi, nilai strategis, serta profil dewan pimpinan dan penasihat senior multidisiplin.',
-			en: 'The About Us page presents the comprehensive profile of PT Sampurna Djaya Nusantara (SDJNusantara), vision, mission, strategic values, and multidisciplinary senior leadership.'
+			id: 'Halaman Tentang Kami memuat profil lengkap PT Sampurna Djaya Nusantara (SDJNusantara), visi, misi, nilai strategis, serta profil dewan management dan penasihat senior multidisiplin.',
+			en: 'The About Us page presents the comprehensive profile of PT Sampurna Djaya Nusantara (SDJNusantara), vision, mission, strategic values, and multidisciplinary senior management.'
 		},
 		bullets: {
 			id: [
 				'Konsultan pendidikan, persiapan beasiswa, dan pengembangan talenta di Indonesia.',
 				'Visi: Menjadi mitra strategis terpercaya dalam akselerasi potensi dan daya saing sumber daya manusia.',
 				'Misi: Menghadirkan pendampingan pendidikan berkualitas, membuka akses beasiswa, dan menjembatani kolaborasi institusi.',
-				'Dewan Pimpinan: Muhammad Setiawan S Dj (President Director), Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo (Senior Advisor — Strategic Affairs), Dr. Devi Erna Rachmawati (Senior Advisor — Business Development), Hanif Hidayatullah (Director of Education).'
+				'Dewan Management: Muhammad Setiawan S Dj (President Director), Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo (Senior Advisor — Strategic Affairs), Dr. Devi Erna Rachmawati (Senior Advisor — Business Development), Hanif Hidayatullah (Director of Education).'
 			],
 			en: [
 				'Education, scholarship preparation, and talent development consultancy based in Indonesia.',
 				'Vision: To be a trusted strategic partner accelerating human potential and global competitiveness.',
 				'Mission: Delivering high-quality educational mentoring, expanding scholarship pathways, and bridging institutional collaboration.',
-				'Leadership Board: Muhammad Setiawan S Dj (President Director), Maj. Gen. (Ret.) Dr. Dr. Ir. Pujo Widodo (Senior Advisor — Strategic Affairs), Dr. Devi Erna Rachmawati (Senior Advisor — Business Development), Hanif Hidayatullah (Director of Education).'
+				'Management Board: Muhammad Setiawan S Dj (President Director), Maj. Gen. (Ret.) Dr. Dr. Ir. Pujo Widodo (Senior Advisor — Strategic Affairs), Dr. Devi Erna Rachmawati (Senior Advisor — Business Development), Hanif Hidayatullah (Director of Education).'
 			]
 		},
 		detailedPoints: {
@@ -356,12 +356,12 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 		relatedTopics: ['program-pendidikan', 'layanan', 'kontak', 'faq']
 	},
 
-	// 6. Artikel & Wawasan
+	// 6. Perspektif
 	{
 		id: 'artikel',
 		title: {
-			id: 'Artikel & Wawasan Pendidikan',
-			en: 'Articles & Educational Insights'
+			id: 'Perspektif & Wawasan Pendidikan',
+			en: 'Perspectives & Educational Insights'
 		},
 		url: '/artikel',
 		subpages: [
@@ -383,13 +383,13 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 			}
 		],
 		keywords: [
-			'artikel', 'wawasan', 'berita', 'tips', 'panduan', 'bacaan', 'tulisan', 'blog',
+			'perspektif', 'artikel', 'wawasan', 'berita', 'tips', 'panduan', 'bacaan', 'tulisan', 'blog',
 			'publikasi', 'informasi', 'esai', 'studi', 'literasi',
-			'articles', 'article', 'insights', 'blog', 'read', 'guides', 'news', 'publications'
+			'perspectives', 'articles', 'article', 'insights', 'blog', 'read', 'guides', 'news', 'publications'
 		],
 		overview: {
-			id: 'Halaman Artikel & Wawasan menyajikan kumpulan panduan praktis, strategi beasiswa, tips pengembangan karier, dan wawasan inovasi pendidikan terkini.',
-			en: 'The Articles & Insights page curates practical guides, scholarship blueprints, career development advice, and educational innovation trends.'
+			id: 'Halaman Perspektif menyajikan kumpulan panduan praktis, strategi beasiswa, tips pengembangan karier, dan wawasan inovasi pendidikan terkini.',
+			en: 'The Perspectives page curates practical guides, scholarship blueprints, career development advice, and educational innovation trends.'
 		},
 		bullets: {
 			id: [

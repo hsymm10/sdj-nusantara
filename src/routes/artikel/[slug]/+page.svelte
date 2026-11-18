@@ -379,7 +379,6 @@
 				<!-- 2. Artikel Terkait -->
 				<div class="related-block">
 					<div class="related-header">
-						<span class="related-dash" aria-hidden="true"></span>
 						<h3 class="related-title">{i18n.pick('Artikel Terkait', 'Related Articles')}</h3>
 					</div>
 
@@ -996,16 +995,7 @@
 	.related-header {
 		display: flex;
 		align-items: center;
-		gap: 9px;
 		margin-bottom: 16px;
-	}
-
-	.related-dash {
-		width: 20px;
-		height: 3px;
-		border-radius: 999px;
-		background: linear-gradient(90deg, #00AEBB 0%, #FFB923 100%);
-		flex-shrink: 0;
 	}
 
 	.related-title {

@@ -38,7 +38,7 @@
 			<!-- Left Column: Title & CTA -->
 			<div class="nilai-left">
 				<div class="section-label">
-					{i18n.pick("— Nilai-Nilai Luhur", "— Core Values")}
+					{i18n.pick("Nilai-Nilai Luhur", "Core Values")}
 				</div>
 
 				<h2 class="nilai-title">
@@ -293,11 +293,12 @@
 	}
 
 	.section-label {
-		font-size: 13px;
-		font-weight: 600;
+		font-size: 15px;
+		font-weight: 700;
 		color: #00a6b2;
-		margin-bottom: 0.35rem;
-		letter-spacing: 0;
+		margin-bottom: 0.45rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
 	.nilai-title {
