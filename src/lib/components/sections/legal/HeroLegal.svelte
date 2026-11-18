@@ -297,7 +297,7 @@
 		}
 
 		.hero-headline {
-			font-size: 30px;
+			font-size: clamp(23px, 6.5vw, 30px);
 			line-height: 1.25;
 		}
 

@@ -28,6 +28,13 @@ const allServiceSubItems: NavSubItem[] = [
 		serviceKey: 'education'
 	},
 	{
+		label: 'Beasiswa',
+		href: '/layanan/beasiswa',
+		description: 'Akses dan panduan beasiswa terverifikasi',
+		iconType: 'education',
+		serviceKey: 'scholarship'
+	},
+	{
 		label: 'Hukum',
 		href: '/layanan/hukum',
 		description: 'Layanan hukum dan pendampingan',

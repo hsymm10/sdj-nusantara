@@ -364,122 +364,238 @@
 		</div>
 	</div>
 
-	<!-- Mobile Menu Drawer (≤1023px) -->
+	<!-- Mobile / Tablet Menu Drawer (≤1023px) -->
 	{#if mobileOpen}
-		<div class="mobile-menu-backdrop" onclick={() => (mobileOpen = false)} role="presentation"></div>
-		<div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigasi mobile">
-			<div class="mobile-menu-inner">
-				{#each navItems as item}
-					{#if item.hasDropdown}
-						<!-- Accordion Item "Layanan" -->
-						<div class="mobile-accordion-group">
-							<div class="mobile-accordion-header {isItemActive(item.href) ? 'active' : ''}">
+		<div
+			class="mobile-menu-backdrop"
+			onclick={() => (mobileOpen = false)}
+			role="presentation"
+		></div>
+
+		<div
+			class="mobile-menu"
+			role="dialog"
+			aria-modal="true"
+			aria-label="Menu navigasi"
+		>
+			<!-- Header inside Drawer: Logo on Left, Close X on Right (NO duplicate lang toggle) -->
+			<div class="drawer-header">
+				<a
+					href="/"
+					class="drawer-logo"
+					onclick={() => (mobileOpen = false)}
+					aria-label={i18n.pick('SDJNusantara Beranda', 'SDJNusantara Home')}
+				>
+					<Logo size="nav" variant="plain" />
+				</a>
+				<button
+					type="button"
+					class="drawer-close-btn"
+					onclick={() => (mobileOpen = false)}
+					aria-label={i18n.pick('Tutup menu navigasi', 'Close navigation menu')}
+				>
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+					</svg>
+				</button>
+			</div>
+
+			<!-- Scrollable Menu Content -->
+			<div class="mobile-menu-content">
+				<nav class="drawer-nav-list" aria-label="Menu navigasi">
+					<!-- 1. Home -->
+					<a
+						href="/"
+						class="drawer-nav-item {isItemActive('/') ? 'active' : ''}"
+						onclick={() => (mobileOpen = false)}
+					>
+						<span class="drawer-item-icon">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+								<polyline points="9 22 9 12 15 12 15 22"></polyline>
+							</svg>
+						</span>
+						<span class="drawer-item-label">{i18n.pick('Beranda', 'Home')}</span>
+					</a>
+
+					<!-- 2. About Us -->
+					<a
+						href="/tentang-kami"
+						class="drawer-nav-item {isItemActive('/tentang-kami') ? 'active' : ''}"
+						onclick={() => (mobileOpen = false)}
+					>
+						<span class="drawer-item-icon">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+								<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+							</svg>
+						</span>
+						<span class="drawer-item-label">{i18n.pick('Tentang Kami', 'About Us')}</span>
+					</a>
+
+					<!-- 3. Services (Accordion) -->
+					<div class="drawer-accordion-group {mobileLayananOpen ? 'expanded' : ''}">
+						<button
+							type="button"
+							class="drawer-nav-item drawer-accordion-trigger {(isItemActive('/layanan') || mobileLayananOpen) ? 'active' : ''}"
+							onclick={() => (mobileLayananOpen = !mobileLayananOpen)}
+							aria-expanded={mobileLayananOpen}
+						>
+							<span class="drawer-item-left">
+								<span class="drawer-item-icon">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+										<polyline points="2 17 12 22 22 17"></polyline>
+										<polyline points="2 12 12 17 22 12"></polyline>
+									</svg>
+								</span>
+								<span class="drawer-item-label">{i18n.pick('Layanan', 'Services')}</span>
+							</span>
+							<span class="drawer-chevron-icon {mobileLayananOpen ? 'open' : ''}">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<polyline points="6 9 12 15 18 9"></polyline>
+								</svg>
+							</span>
+						</button>
+
+						{#if mobileLayananOpen}
+							<div class="drawer-submenu">
 								<a
-									href={item.href}
-									class="mobile-accordion-title"
+									href="/layanan/pendidikan"
+									class="drawer-sub-item {isSubItemActive('/layanan/pendidikan') ? 'active' : ''}"
 									onclick={() => (mobileOpen = false)}
 								>
-									<span>{getNavLabel(item)}</span>
+									<span class="sub-dot"></span>
+									<span>{i18n.pick('Pendidikan', 'Education')}</span>
 								</a>
-								<button
-									type="button"
-									class="mobile-accordion-btn {mobileLayananOpen ? 'open' : ''}"
-									aria-label={i18n.pick('Buka submenu Layanan', 'Open Services submenu')}
-									aria-expanded={mobileLayananOpen}
-									onclick={() => (mobileLayananOpen = !mobileLayananOpen)}
+								<a
+									href="/layanan/beasiswa"
+									class="drawer-sub-item {isSubItemActive('/layanan/beasiswa') ? 'active' : ''}"
+									onclick={() => (mobileOpen = false)}
 								>
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-										<polyline points="6 9 12 15 18 9"></polyline>
-									</svg>
-								</button>
+									<span class="sub-dot"></span>
+									<span>{i18n.pick('Pengembangan Talenta', 'Talent Development')}</span>
+								</a>
+								<a
+									href="/program"
+									class="drawer-sub-item {isSubItemActive('/program') ? 'active' : ''}"
+									onclick={() => (mobileOpen = false)}
+								>
+									<span class="sub-dot"></span>
+									<span>{i18n.pick('Program Pelatihan', 'Training Programs')}</span>
+								</a>
 							</div>
+						{/if}
+					</div>
 
-							<!-- Submenu accordion -->
-							{#if mobileLayananOpen}
-								<div class="mobile-submenu-tree">
-									{#if item.children}
-										{#each item.children as sub}
-											{@const subInfo = getSubInfo(sub)}
-											<a
-												href={sub.href}
-												class="mobile-sublink {isSubItemActive(sub.href) ? 'active' : ''}"
-												onclick={() => (mobileOpen = false)}
-											>
-												<span class="mobile-sub-icon {sub.iconType}">
-													{#if sub.iconType === 'education'}
-														<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-															<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-															<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-														</svg>
-													{:else}
-														<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B7791F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-															<path d="M12 3v18"></path>
-															<path d="M6 6h12"></path>
-															<path d="M3 13l3-7 3 7a3 3 0 0 1-6 0z"></path>
-															<path d="M15 13l3-7 3 7a3 3 0 0 1-6 0z"></path>
-															<path d="M4 21h16"></path>
-														</svg>
-													{/if}
-												</span>
-												<div class="mobile-sub-text">
-													<div class="mobile-sub-heading">
-														<span class="mobile-sub-title">{subInfo.label}</span>
-														{#if subInfo.badge}
-															<span class="mobile-sub-badge">{subInfo.badge}</span>
-														{/if}
-													</div>
-													<span class="mobile-sub-desc">{subInfo.description}</span>
-												</div>
-											</a>
-										{/each}
-									{/if}
+					<!-- 4. Partnership -->
+					<a
+						href="/kemitraan"
+						class="drawer-nav-item {isItemActive('/kemitraan') ? 'active' : ''}"
+						onclick={() => (mobileOpen = false)}
+					>
+						<span class="drawer-item-icon">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-2-2"></path>
+								<path d="m18 10 1.5-1.5a2.1 2.1 0 0 0 0-3l-1-1a2.1 2.1 0 0 0-3 0L14 6"></path>
+								<path d="m14 6-4-4a2.1 2.1 0 0 0-3 0l-1 1a2.1 2.1 0 0 0 0 3L7.5 7.5"></path>
+								<path d="M7.5 7.5 3.3 11.7a2.1 2.1 0 0 0 0 3l1 1a2.1 2.1 0 0 0 3 0L11 12"></path>
+								<path d="m2 14 6 6"></path>
+							</svg>
+						</span>
+						<span class="drawer-item-label">{i18n.pick('Kemitraan', 'Partnership')}</span>
+					</a>
 
-									<a
-										href="/layanan"
-										class="mobile-sublink-all"
-										onclick={() => (mobileOpen = false)}
-									>
-										<span>{i18n.dict.nav.viewAllServices} →</span>
-									</a>
-								</div>
-							{/if}
+					<!-- 5. Perspectives -->
+					<a
+						href="/artikel"
+						class="drawer-nav-item {isItemActive('/artikel') ? 'active' : ''}"
+						onclick={() => (mobileOpen = false)}
+					>
+						<span class="drawer-item-icon">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+							</svg>
+						</span>
+						<span class="drawer-item-label">{i18n.pick('Perspektif', 'Perspectives')}</span>
+					</a>
+
+					<!-- 6. Contact -->
+					<a
+						href="/kontak"
+						class="drawer-nav-item {isItemActive('/kontak') ? 'active' : ''}"
+						onclick={() => (mobileOpen = false)}
+					>
+						<span class="drawer-item-icon">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect width="20" height="16" x="2" y="4" rx="2"></rect>
+								<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+							</svg>
+						</span>
+						<span class="drawer-item-label">{i18n.pick('Kontak', 'Contact')}</span>
+					</a>
+				</nav>
+
+				<!-- Bottom Divider & Language Row -->
+				<div class="drawer-bottom-section">
+					<div class="drawer-lang-row">
+						<div class="drawer-lang-left">
+							<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<circle cx="12" cy="12" r="10"></circle>
+								<line x1="2" y1="12" x2="22" y2="12"></line>
+								<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+							</svg>
+							<span class="drawer-lang-title">{i18n.pick('Bahasa', 'Language')}</span>
 						</div>
-					{:else}
-						<a
-							href={item.href}
-							class="mobile-link {isItemActive(item.href) ? 'active' : ''}"
-							onclick={() => (mobileOpen = false)}
-						>
-							<span>{getNavLabel(item)}</span>
-							{#if isItemActive(item.href)}
-								<span class="mobile-active-dot"></span>
-							{/if}
-						</a>
-					{/if}
-				{/each}
 
-				<!-- Mobile Drawer Language Switcher -->
-				<div class="mobile-lang-row">
-					<span class="mobile-lang-label">{i18n.dict.nav.langLabel}</span>
-					<div class="lang-switcher" role="group" aria-label={i18n.dict.nav.ariaLangSwitcher}>
-						<button
-							type="button"
-							class="lang-btn {i18n.lang === 'id' ? 'active' : ''}"
-							onclick={() => i18n.setLang('id')}
-							aria-pressed={i18n.lang === 'id'}
-						>
-							ID
-						</button>
-						<button
-							type="button"
-							class="lang-btn {i18n.lang === 'en' ? 'active' : ''}"
-							onclick={() => i18n.setLang('en')}
-							aria-pressed={i18n.lang === 'en'}
-						>
-							EN
-						</button>
+						<div class="drawer-lang-switcher" role="group" aria-label={i18n.dict.nav.ariaLangSwitcher}>
+							<button
+								type="button"
+								class="drawer-lang-btn {i18n.lang === 'id' ? 'active' : ''}"
+								onclick={() => i18n.setLang('id')}
+								aria-pressed={i18n.lang === 'id'}
+							>
+								ID
+							</button>
+							<button
+								type="button"
+								class="drawer-lang-btn {i18n.lang === 'en' ? 'active' : ''}"
+								onclick={() => i18n.setLang('en')}
+								aria-pressed={i18n.lang === 'en'}
+							>
+								EN
+							</button>
+						</div>
 					</div>
 				</div>
+			</div>
+
+			<!-- Decorative Corner Swoosh Curves (Brand Signature Ribbon) -->
+			<div class="drawer-corner-wave" aria-hidden="true">
+				<svg viewBox="0 0 220 110" fill="none" preserveAspectRatio="none">
+					<path
+						d="M 0 110 C 65 105 120 70 190 25 C 205 15 215 5 220 0 L 220 110 Z"
+						fill="url(#drawerTealGrad)"
+					/>
+					<path
+						d="M 50 110 C 110 105 155 75 210 42 C 215 39 218 35 220 32 L 220 110 Z"
+						fill="url(#drawerGoldGrad)"
+					/>
+					<defs>
+						<linearGradient id="drawerTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" stop-color="#00A6B2" />
+							<stop offset="100%" stop-color="#079EAD" />
+						</linearGradient>
+						<linearGradient id="drawerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop offset="0%" stop-color="#F5B331" />
+							<stop offset="100%" stop-color="#E89F15" />
+						</linearGradient>
+					</defs>
+				</svg>
 			</div>
 		</div>
 	{/if}
@@ -871,199 +987,330 @@
 	.mobile-menu-backdrop {
 		position: fixed;
 		inset: 0;
-		top: 48px;
-		background: rgba(11, 39, 71, 0.45);
-		backdrop-filter: blur(2px);
-		z-index: 998;
+		background: rgba(11, 39, 71, 0.48);
+		backdrop-filter: blur(3px);
+		z-index: 1040;
+		animation: drawerFadeIn 0.22s ease-out;
 	}
 
+	@keyframes drawerFadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	/* Drawer Base Styling */
 	.mobile-menu {
 		position: fixed;
-		top: 48px;
-		left: 0;
-		right: 0;
+		top: 0;
 		bottom: 0;
 		background: #FFFFFF;
-		z-index: 999;
-		overflow-y: auto;
-		border-top: 1px solid #DCE6EE;
-	}
-
-	.mobile-menu-inner {
-		padding: 1.25rem 1.5rem 2.5rem;
+		z-index: 1050;
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
-		max-width: 480px;
-		margin: 0 auto;
+		box-sizing: border-box;
+		overflow: hidden;
 	}
 
-	.mobile-link {
+	/* Phone Viewport (<768px): Fullscreen drawer */
+	@media (max-width: 767px) {
+		.mobile-menu {
+			left: 0;
+			right: 0;
+			width: 100%;
+			animation: drawerSlideMobile 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		}
+	}
+
+	@keyframes drawerSlideMobile {
+		from {
+			opacity: 0;
+			transform: translateY(-8px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Tablet Viewport (768px - 1023px): Right-aligned slide-over drawer */
+	@media (min-width: 768px) and (max-width: 1023px) {
+		.mobile-menu {
+			right: 0;
+			left: auto;
+			width: 400px;
+			max-width: 85vw;
+			box-shadow: -8px 0 32px rgba(11, 39, 71, 0.16);
+			animation: drawerSlideTablet 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+		}
+	}
+
+	@keyframes drawerSlideTablet {
+		from {
+			transform: translateX(100%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+
+	/* Desktop Viewport (≥1024px): Completely hide mobile drawer */
+	@media (min-width: 1024px) {
+		.mobile-menu,
+		.mobile-menu-backdrop {
+			display: none !important;
+		}
+	}
+
+	/* Drawer Header: Logo on Left, Close X on Right */
+	.drawer-header {
+		height: 56px;
+		padding: 0 1.25rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-size: 1rem;
-		font-weight: 500;
-		color: #183553;
-		text-decoration: none;
-		min-height: 48px;
-		padding: 0.5rem 0.25rem;
-		border-bottom: 1px solid #F1F5F9;
-		transition: color 0.15s ease;
-	}
-
-	.mobile-link.active {
-		color: #00A6B2;
-		font-weight: 700;
-	}
-
-	.mobile-active-dot {
-		width: 7px;
-		height: 7px;
-		border-radius: 50%;
-		background: #00A6B2;
-	}
-
-	/* Mobile Accordion for Layanan */
-	.mobile-accordion-group {
-		border-bottom: 1px solid #F1F5F9;
-	}
-
-	.mobile-accordion-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		min-height: 48px;
-		padding: 0.25rem 0;
-	}
-
-	.mobile-accordion-header.active .mobile-accordion-title {
-		color: #00A6B2;
-		font-weight: 700;
-	}
-
-	.mobile-accordion-title {
-		font-size: 1rem;
-		font-weight: 500;
-		color: #183553;
-		text-decoration: none;
-		flex: 1;
-		display: flex;
-		align-items: center;
-		min-height: 48px;
-	}
-
-	.mobile-accordion-btn {
-		background: none;
-		border: none;
-		cursor: pointer;
-		min-width: 48px;
-		min-height: 48px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #183553;
-	}
-
-	.mobile-accordion-btn svg {
-		transition: transform 0.22s ease;
-	}
-
-	.mobile-accordion-btn.open svg {
-		transform: rotate(180deg);
-		color: #00A6B2;
-	}
-
-	.mobile-submenu-tree {
-		margin-left: 12px;
-		padding-left: 16px;
-		border-left: 2px solid #00A6B2;
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		padding-top: 4px;
-		padding-bottom: 12px;
-	}
-
-	.mobile-sublink {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		min-height: 48px;
-		padding: 8px 10px;
-		border-radius: 10px;
-		text-decoration: none;
-		background: #F8FAFC;
-		transition: background 0.15s ease;
-	}
-
-	.mobile-sublink:hover,
-	.mobile-sublink.active {
-		background: #E3F6F8;
-	}
-
-	.mobile-sub-icon {
-		width: 36px;
-		height: 36px;
-		border-radius: 8px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		border-bottom: 1px solid #EEF2F6;
 		flex-shrink: 0;
+		z-index: 3;
+		background: #FFFFFF;
 	}
 
-	.mobile-sub-icon.education {
-		background: #E3F6F8;
+	.drawer-logo {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
 	}
 
-	.mobile-sub-icon.legal {
-		background: #FDF1D3;
-	}
-
-	.mobile-sub-text {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.mobile-sub-heading {
+	.drawer-close-btn {
+		width: 40px;
+		height: 40px;
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		justify-content: center;
+		background: transparent;
+		border: none;
+		border-radius: 8px;
+		color: #183553;
+		cursor: pointer;
+		transition: background 0.15s ease, color 0.15s ease;
 	}
 
-	.mobile-sub-title {
-		font-size: 14px;
-		font-weight: 700;
+	.drawer-close-btn:hover {
+		background: #F1F5F9;
 		color: #082442;
 	}
 
-	.mobile-sublink.active .mobile-sub-title {
-		color: #079EAD;
+	/* Scrollable Drawer Content */
+	.mobile-menu-content {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1.25rem 1.25rem 7rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		position: relative;
+		z-index: 2;
 	}
 
-	.mobile-sub-badge {
-		font-size: 10.5px;
+	.drawer-nav-list {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	/* Drawer Nav Item */
+	.drawer-nav-item {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		min-height: 48px;
+		padding: 10px 16px;
+		border-radius: 12px;
+		text-decoration: none;
+		color: #183553;
+		font-size: 15px;
+		font-weight: 500;
+		transition: all 0.18s ease;
+		background: transparent;
+		cursor: pointer;
+		border: none;
+		width: 100%;
+		box-sizing: border-box;
+		text-align: left;
+		line-height: 1.2;
+	}
+
+	.drawer-nav-item:hover {
+		background: #F8FAFC;
+		color: #0B2747;
+	}
+
+	/* Active item capsule style (matches mockup) */
+	.drawer-nav-item.active {
+		background: #E3F6F8;
+		color: #008C99;
+		font-weight: 700;
+	}
+
+	.drawer-item-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: currentColor;
+		flex-shrink: 0;
+		width: 22px;
+	}
+
+	.drawer-item-label {
+		flex: 1;
+		font-size: 15px;
+	}
+
+	/* Accordion Services */
+	.drawer-accordion-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.drawer-accordion-trigger {
+		justify-content: space-between;
+	}
+
+	.drawer-item-left {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+	}
+
+	.drawer-chevron-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: currentColor;
+		transition: transform 0.22s ease;
+	}
+
+	.drawer-chevron-icon.open {
+		transform: rotate(180deg);
+	}
+
+	/* Drawer Submenu */
+	.drawer-submenu {
+		margin: 4px 0 6px 36px;
+		padding: 4px 0 4px 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.drawer-sub-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		min-height: 42px;
+		padding: 6px 12px;
+		border-radius: 8px;
+		text-decoration: none;
+		font-size: 14.5px;
+		font-weight: 500;
+		color: #183553;
+		transition: all 0.15s ease;
+	}
+
+	.drawer-sub-item:hover {
+		background: #F1F5F9;
+		color: #008C99;
+	}
+
+	.drawer-sub-item.active {
+		color: #008C99;
+		font-weight: 700;
+	}
+
+	.sub-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: #00A6B2;
+		flex-shrink: 0;
+	}
+
+	/* Bottom Section */
+	.drawer-bottom-section {
+		margin-top: 2rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid #E2E8F0;
+	}
+
+	.drawer-lang-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.drawer-lang-left {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: #183553;
+	}
+
+	.drawer-lang-title {
+		font-size: 14px;
 		font-weight: 600;
-		background: #EEF2F6;
-		color: #5B6B7F;
-		padding: 1px 6px;
-		border-radius: 999px;
+		color: #183553;
 	}
 
-	.mobile-sub-desc {
-		font-size: 12px;
-		color: #64748B;
-	}
-
-	.mobile-sublink-all {
+	.drawer-lang-switcher {
 		display: inline-flex;
 		align-items: center;
-		min-height: 40px;
-		padding: 6px 10px;
-		font-size: 13px;
-		font-weight: 600;
-		color: #079EAD;
-		text-decoration: none;
+		background: #F1F5F9;
+		border: 1px solid #DCE6EE;
+		border-radius: 9999px;
+		padding: 2px;
+		gap: 2px;
+	}
+
+	.drawer-lang-btn {
+		border: none;
+		background: transparent;
+		color: #475569;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		padding: 5px 12px;
+		border-radius: 9999px;
+		cursor: pointer;
+		transition: all 0.18s ease;
+		line-height: 1.1;
+	}
+
+	.drawer-lang-btn:hover:not(.active) {
+		color: #0B2747;
+		background: rgba(255, 255, 255, 0.7);
+	}
+
+	.drawer-lang-btn.active {
+		background: #082442;
+		color: #FFFFFF;
+		box-shadow: 0 1px 3px rgba(8, 36, 66, 0.2);
+	}
+
+	/* Bottom Right Corner Brand Wave */
+	.drawer-corner-wave {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 190px;
+		height: 95px;
+		pointer-events: none;
+		z-index: 1;
+		overflow: hidden;
+	}
+
+	.drawer-corner-wave svg {
+		width: 100%;
+		height: 100%;
+		display: block;
 	}
 
 	/* Responsive Media Queries (Drawer aktif di ≤1023px) */
@@ -1085,6 +1332,7 @@
 			justify-content: center;
 		}
 	}
+
 	/* Right Controls + Language Switcher */
 	.nav-right-controls {
 		display: flex;
@@ -1126,20 +1374,5 @@
 		background: #082442;
 		color: #FFFFFF;
 		box-shadow: 0 1px 3px rgba(8, 36, 66, 0.18);
-	}
-
-	.mobile-lang-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 16px;
-		padding-top: 14px;
-		border-top: 1px solid #E2E8F0;
-	}
-
-	.mobile-lang-label {
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: #183553;
 	}
 </style>

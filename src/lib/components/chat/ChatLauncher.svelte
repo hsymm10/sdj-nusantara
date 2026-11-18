@@ -289,12 +289,29 @@
 		}
 
 		.chat-launcher-btn {
-			width: 56px;
-			height: 56px;
+			width: 52px;
+			height: 52px;
 		}
 
 		.open-mobile-hidden {
 			display: none !important;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.chat-launcher-container {
+			bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+			right: 12px;
+		}
+
+		.chat-launcher-btn {
+			width: 48px;
+			height: 48px;
+		}
+
+		.launcher-icon.robot-icon {
+			width: 26px;
+			height: 26px;
 		}
 	}
 </style>
