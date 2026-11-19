@@ -146,7 +146,7 @@
 		flex-shrink: 0;
 	}
 
-	/* Tombol Pertama: Oranye SDJNusantara (#D95D0F) Sesuai Referensi Gambar 5 */
+	/* Tombol Pertama: Kuning Emas SDJNusantara (#f5b331) Sesuai Gambar 2 */
 	.cta-btn-orange {
 		display: inline-flex;
 		align-items: center;
@@ -154,24 +154,24 @@
 		gap: 0.45rem;
 		padding: 0 1.25rem;
 		height: 38px;
-		background: #D95D0F;
-		color: #FFFFFF;
+		background: #f5b331;
+		color: #082442;
 		font-weight: 700;
 		font-size: 12.5px;
 		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 3px 10px rgba(217, 93, 15, 0.32);
+		box-shadow: 0 3px 10px rgba(245, 179, 49, 0.32);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
 		letter-spacing: -0.005em;
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		border: 1px solid rgba(245, 179, 49, 0.35);
 	}
 
 	.cta-btn-orange:hover {
-		background: #C4510B;
+		background: #e6a528;
 		transform: translateY(-1px);
-		box-shadow: 0 6px 16px rgba(217, 93, 15, 0.42);
-		color: #FFFFFF;
+		box-shadow: 0 6px 16px rgba(245, 179, 49, 0.42);
+		color: #082442;
 	}
 
 	/* Tombol Kedua: Putih dengan Border Navy & Teks Navy Sesuai Referensi Gambar 5 */

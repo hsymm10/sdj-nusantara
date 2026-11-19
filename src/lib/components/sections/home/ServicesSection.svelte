@@ -225,8 +225,8 @@
 	/* Highlight pulse saat tombol hero diklik */
 	:global(.panel-highlighted) {
 		animation: pulseFocus 2s ease-out;
-		border-color: #D95D0F !important;
-		box-shadow: 0 0 0 3px rgba(217, 93, 15, 0.25), 0 10px 30px rgba(8, 36, 66, 0.12) !important;
+		border-color: #f5b331 !important;
+		box-shadow: 0 0 0 3px rgba(245, 179, 49, 0.25), 0 10px 30px rgba(8, 36, 66, 0.12) !important;
 	}
 
 	@keyframes pulseFocus {
@@ -301,10 +301,10 @@
 	.bullet-square {
 		width: 8px;
 		height: 8px;
-		background-color: #D95D0F;
+		background-color: #f5b331;
 		border-radius: 1.5px;
 		flex-shrink: 0;
-		box-shadow: 0 1px 3px rgba(217, 93, 15, 0.3);
+		box-shadow: 0 1px 3px rgba(245, 179, 49, 0.3);
 	}
 
 	.bullet-text {
@@ -379,7 +379,7 @@
 			width: 60px;
 			flex: none;
 			height: 3px;
-			background: #D95D0F;
+			background: #f5b331;
 		}
 
 		.dual-panels-grid {

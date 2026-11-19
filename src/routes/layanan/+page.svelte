@@ -880,17 +880,17 @@
 	}
 
 	.hero-choice-btn.btn-choice-active {
-		background: #D95D0F;
-		color: #FFFFFF;
-		border: 1.5px solid #D95D0F;
-		box-shadow: 0 4px 14px rgba(217, 93, 15, 0.32);
+		background: #f5b331;
+		color: #082442;
+		border: 1.5px solid #f5b331;
+		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.32);
 	}
 
 	.hero-choice-btn.btn-choice-active:hover {
-		background: #C4510B;
-		border-color: #C4510B;
+		background: #e6a528;
+		border-color: #e6a528;
 		transform: translateY(-1px);
-		box-shadow: 0 6px 18px rgba(217, 93, 15, 0.42);
+		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.42);
 	}
 
 	.hero-choice-btn.btn-choice-inactive {
