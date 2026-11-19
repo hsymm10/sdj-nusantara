@@ -88,19 +88,6 @@
 					"SDJNusantara serves as an education and talent development consultancy committed to delivering strategic, innovative, and impactful solutions for individuals and institutions.",
 				)}
 			</p>
-
-			<!-- Button CTA -->
-			<div class="hero-btn-row">
-				<a href="#profil" class="btn-gold">
-					<span
-						>{i18n.pick(
-							"Mengenal Lebih Dekat",
-							"Get to Know Us",
-						)}</span
-					>
-					<span class="btn-arrow">→</span>
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
@@ -240,48 +227,9 @@
 		font-size: 14px;
 		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.5rem 0;
+		margin: 0;
 		max-width: 575px;
 		text-wrap: pretty;
-	}
-
-	/* Buttons Row */
-	.hero-btn-row {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-	}
-
-	.btn-gold {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		width: 210px;
-		height: 42px;
-		background: #f5b331;
-		color: #082442;
-		font-size: 13.5px;
-		font-weight: 700;
-		border-radius: 8px;
-		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-	}
-
-	.btn-gold:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-	}
-
-	.btn-arrow {
-		font-size: 14px;
-		transition: transform 0.2s ease;
-	}
-
-	.btn-gold:hover .btn-arrow {
-		transform: translateX(3px);
 	}
 
 	@media (max-width: 900px) {
@@ -313,10 +261,6 @@
 		.hero-title {
 			font-size: clamp(23px, 6.5vw, 30px);
 			line-height: 1.25;
-		}
-		.btn-gold {
-			width: 100%;
-			height: 44px;
 		}
 	}
 </style>
