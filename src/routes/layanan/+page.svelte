@@ -833,9 +833,9 @@
 		title={i18n.pick('Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>', 'Ready to Unlock <span class="highlight-gold">Your Institution’s Potential?</span>')}
 		description={i18n.pick('Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJNusantara.', 'Discover education solutions, talent development, and institutional mentoring with SDJNusantara.')}
 		bgImage="/images/cta-layanan-collaboration-bg.jpg"
-		primaryText={i18n.pick('Jadwalkan Konsultasi', 'Schedule a Consultation')}
+		primaryText={i18n.pick('Ajukan Konsultasi', 'Request Consultation')}
 		primaryHref="/kontak"
-		secondaryText={i18n.pick('Ajukan Kerja Sama', 'Propose Partnership')}
+		secondaryText={i18n.pick('Diskusi Institusi', 'Institutional Discussion')}
 		secondaryHref="/kemitraan"
 		variant="layanan"
 	/>

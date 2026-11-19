@@ -32,16 +32,20 @@
 			</p>
 		</div>
 
+		<!-- Aksi Tombol Sesuai Referensi Gambar 5 -->
 		<div class="cta-right-actions">
-			<a href="/kontak" class="cta-btn-gold">
-				<span>{i18n.pick('Jadwalkan Konsultasi', 'Schedule a Consultation')}</span>
+			<!-- 1. Ajukan Konsultasi (Orange Background, White Text, 8px radius) -->
+			<a href="/kontak" class="cta-btn-orange">
+				<span>{i18n.pick('Ajukan Konsultasi', 'Request Consultation')}</span>
 				<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
 				</svg>
 			</a>
-			<a href="/kemitraan" class="cta-btn-outline">
-				<span>{i18n.pick('Ajukan Kerja Sama', 'Propose Partnership')}</span>
+
+			<!-- 2. Diskusi Institusi (Navy Border / White Card, Navy Text, 8px radius) -->
+			<a href="/kemitraan" class="cta-btn-institusi">
+				<span>{i18n.pick('Diskusi Institusi', 'Institutional Discussion')}</span>
 			</a>
 		</div>
 	</div>
@@ -51,13 +55,13 @@
 	.cta-banner {
 		position: relative;
 		background-color: #0B2948;
-		min-height: 86px;
-		height: 86px;
+		min-height: 88px;
 		width: 100%;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
 		box-sizing: border-box;
+		padding: 16px 0;
 	}
 
 	.cta-bg-wrap {
@@ -103,6 +107,7 @@
 		align-items: center;
 		justify-content: space-between;
 		box-sizing: border-box;
+		gap: 1.5rem;
 	}
 
 	@media (min-width: 1920px) {
@@ -141,59 +146,64 @@
 		flex-shrink: 0;
 	}
 
-	/* Tombol Pertama: Gold SDJNusantara (#F9B52B) */
-	.cta-btn-gold {
+	/* Tombol Pertama: Oranye SDJNusantara (#D95D0F) Sesuai Referensi Gambar 5 */
+	.cta-btn-orange {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 0.45rem;
-		padding: 0 1.15rem;
-		height: 35px;
-		background: #F9B52B;
-		color: #071D36;
-		font-weight: 700;
-		font-size: 11.5px;
-		border-radius: 7px;
-		text-decoration: none;
-		box-shadow: 0 3px 8px rgba(249, 181, 43, 0.28);
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-		white-space: nowrap;
-		letter-spacing: 0;
-	}
-
-	.cta-btn-gold:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-		box-shadow: 0 5px 12px rgba(249, 181, 43, 0.38);
-	}
-
-	/* Tombol Kedua: Gaya Outline Transparan dengan Border Putih */
-	.cta-btn-outline {
-		display: inline-flex;
-		align-items: center;
-		padding: 0 1.15rem;
-		height: 35px;
-		background: rgba(255, 255, 255, 0.04);
-		border: 1.5px solid rgba(255, 255, 255, 0.7);
+		padding: 0 1.25rem;
+		height: 38px;
+		background: #D95D0F;
 		color: #FFFFFF;
 		font-weight: 700;
-		font-size: 11.5px;
-		border-radius: 7px;
+		font-size: 12.5px;
+		border-radius: 8px;
 		text-decoration: none;
+		box-shadow: 0 3px 10px rgba(217, 93, 15, 0.32);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		white-space: nowrap;
-		letter-spacing: 0;
+		letter-spacing: -0.005em;
+		border: 1px solid rgba(255, 255, 255, 0.15);
 	}
 
-	.cta-btn-outline:hover {
-		background: rgba(255, 255, 255, 0.16);
-		border-color: #FFFFFF;
+	.cta-btn-orange:hover {
+		background: #C4510B;
 		transform: translateY(-1px);
+		box-shadow: 0 6px 16px rgba(217, 93, 15, 0.42);
+		color: #FFFFFF;
+	}
+
+	/* Tombol Kedua: Putih dengan Border Navy & Teks Navy Sesuai Referensi Gambar 5 */
+	.cta-btn-institusi {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 1.25rem;
+		height: 38px;
+		background: #FFFFFF;
+		border: 2px solid #082442;
+		color: #082442;
+		font-weight: 700;
+		font-size: 12.5px;
+		border-radius: 8px;
+		text-decoration: none;
+		box-shadow: 0 3px 10px rgba(8, 36, 66, 0.18);
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
+		letter-spacing: -0.005em;
+	}
+
+	.cta-btn-institusi:hover {
+		background: #082442;
+		color: #FFFFFF;
+		border-color: #082442;
+		transform: translateY(-1px);
+		box-shadow: 0 6px 16px rgba(8, 36, 66, 0.3);
 	}
 
 	@media (max-width: 1024px) {
 		.cta-banner {
-			height: auto;
-			min-height: auto;
 			padding: 1.75rem 1.25rem;
 		}
 		.cta-container {
@@ -215,7 +225,7 @@
 			padding: 1.75rem 1rem;
 		}
 		.cta-title {
-			font-size: 1.2rem;
+			font-size: 1.15rem;
 		}
 		.cta-text {
 			font-size: 13px;
@@ -224,13 +234,15 @@
 		.cta-right-actions {
 			flex-direction: column;
 			gap: 0.75rem;
+			width: 100%;
 		}
-		.cta-btn-gold,
-		.cta-btn-outline {
+		.cta-btn-orange,
+		.cta-btn-institusi {
 			width: 100%;
 			height: 42px;
 			justify-content: center;
 			font-size: 13.5px;
+			box-sizing: border-box;
 		}
 	}
 </style>

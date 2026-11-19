@@ -1,5 +1,24 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
+
+	let activeHeroChoice = $state<'individu' | 'institusi'>('individu');
+
+	function handleChoiceClick(choice: 'individu' | 'institusi', e: MouseEvent) {
+		activeHeroChoice = choice;
+		const targetId = choice === 'individu' ? 'panel-individu' : 'panel-institusi';
+		const el = document.getElementById(targetId);
+		if (el) {
+			e.preventDefault();
+			el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			el.classList.add('panel-highlighted');
+			setTimeout(() => {
+				el.classList.remove('panel-highlighted');
+			}, 2000);
+			if (typeof history !== 'undefined') {
+				history.replaceState(null, '', `#${targetId}`);
+			}
+		}
+	}
 </script>
 
 <section id="hero-beranda" class="hero-section">
@@ -107,24 +126,26 @@
 				/>
 			</div>
 
-			<!-- Buttons Row -->
-			<div class="hero-btn-row">
-				<a href="/kontak" class="btn-gold">
-					<span
-						>{i18n.pick(
-							"Konsultasikan Kebutuhan Anda",
-							"Consult Your Needs",
-						)}</span
-					>
-					<span class="btn-arrow">→</span>
+			<!-- Segmented Choice Buttons (Sesuai Referensi Gambar 2) -->
+			<div class="hero-choice-group" role="tablist" aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}>
+				<a
+					href="#panel-individu"
+					class="hero-choice-btn {activeHeroChoice === 'individu' ? 'btn-choice-active' : 'btn-choice-inactive'}"
+					role="tab"
+					aria-selected={activeHeroChoice === 'individu'}
+					onclick={(e) => handleChoiceClick('individu', e)}
+				>
+					<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
 				</a>
-				<a href="/layanan" class="btn-outline">
-					<span
-						>{i18n.pick(
-							"Jelajahi Program Kami",
-							"Explore Our Programs",
-						)}</span
-					>
+
+				<a
+					href="#panel-institusi"
+					class="hero-choice-btn {activeHeroChoice === 'institusi' ? 'btn-choice-active' : 'btn-choice-inactive'}"
+					role="tab"
+					aria-selected={activeHeroChoice === 'institusi'}
+					onclick={(e) => handleChoiceClick('institusi', e)}
+				>
+					<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
 				</a>
 			</div>
 		</div>
@@ -263,69 +284,56 @@
 		text-wrap: pretty;
 	}
 
-	/* Buttons Row */
-	.hero-btn-row {
+	/* Segmented Choice Buttons (Sesuai Referensi Gambar 2) */
+	.hero-choice-group {
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: 14px;
 		margin-top: 0;
 	}
 
-	.btn-gold {
+	.hero-choice-btn {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
-		height: 40px;
+		height: 44px;
 		padding: 0 24px;
-		background: #f9b52b;
-		color: #082442;
-		font-size: 13px;
-		font-weight: 700;
-		border-radius: 999px;
-		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(249, 181, 43, 0.28);
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-		white-space: nowrap;
-	}
-
-	.btn-gold:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-	}
-
-	.btn-arrow {
 		font-size: 14px;
-		transition: transform 0.2s ease;
-	}
-
-	.btn-gold:hover .btn-arrow {
-		transform: translateX(3px);
-	}
-
-	.btn-outline {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: 40px;
-		padding: 0 22px;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1.5px solid rgba(255, 255, 255, 0.7);
-		color: #ffffff;
-		font-size: 13px;
-		font-weight: 600;
-		border-radius: 999px;
+		font-weight: 700;
+		border-radius: 8px; /* Rounded rectangle sesuai Gambar 2 */
 		text-decoration: none;
-		transition: all 0.2s ease;
-		box-sizing: border-box;
 		white-space: nowrap;
+		box-sizing: border-box;
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		cursor: pointer;
 	}
 
-	.btn-outline:hover {
-		background: rgba(255, 255, 255, 0.18);
-		border-color: #ffffff;
-		color: #ffffff;
+	/* Tombol aktif: Background oranye (#D95D0F) dengan teks putih */
+	.hero-choice-btn.btn-choice-active {
+		background: #D95D0F;
+		color: #FFFFFF;
+		border: 2px solid #D95D0F;
+		box-shadow: 0 4px 14px rgba(217, 93, 15, 0.32);
+	}
+
+	.hero-choice-btn.btn-choice-active:hover {
+		background: #C4510B;
+		border-color: #C4510B;
+		transform: translateY(-1px);
+		box-shadow: 0 6px 18px rgba(217, 93, 15, 0.42);
+	}
+
+	/* Tombol tidak aktif: Background putih atau transparan dengan border navy dan teks navy */
+	.hero-choice-btn.btn-choice-inactive {
+		background: #FFFFFF;
+		color: #082442;
+		border: 2px solid #082442;
+		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.08);
+	}
+
+	.hero-choice-btn.btn-choice-inactive:hover {
+		background: #F8FAFC;
+		border-color: #0B2948;
 		transform: translateY(-1px);
 	}
 
@@ -400,16 +408,17 @@
 			height: 36px;
 		}
 
-		.hero-btn-row {
-			flex-direction: column;
+		.hero-choice-group {
+			flex-direction: row;
 			gap: 10px;
 			width: 100%;
 		}
 
-		.btn-gold,
-		.btn-outline {
-			width: 100%;
-			min-width: 0;
+		.hero-choice-btn {
+			flex: 1 1 50%;
+			height: 42px;
+			padding: 0 10px;
+			font-size: 13px;
 		}
 	}
 </style>

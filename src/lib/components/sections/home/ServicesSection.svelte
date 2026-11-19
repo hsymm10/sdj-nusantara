@@ -1,133 +1,125 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
 
-	const services = [
-		{
-			num: '01',
-			titleLine1: 'Talent Management &',
-			titleLine2: 'Development Center',
-			href: '/layanan#talent-management',
-			icon: 'users'
-		},
-		{
-			num: '02',
-			titleLine1: 'Scholarship',
-			titleLine2: 'Academy',
-			href: '/layanan#scholarship-academy',
-			icon: 'grad'
-		},
-		{
-			num: '03',
-			titleLine1: 'Skills Development &',
-			titleLine2: 'Certification',
-			href: '/layanan#skills-development',
-			icon: 'award'
-		},
-		{
-			num: '04',
-			titleLine1: 'Institutional',
-			titleLine2: 'Partnership',
-			href: '/layanan#institutional-partnership',
-			icon: 'handshake'
-		}
+	const individualBullets = [
+		{ id: 'pemetaan', textId: 'Pemetaan talenta', textEn: 'Talent mapping' },
+		{ id: 'perencanaan', textId: 'Perencanaan studi', textEn: 'Study planning' },
+		{ id: 'beasiswa', textId: 'Persiapan beasiswa', textEn: 'Scholarship preparation' }
+	];
+
+	const institutionBullets = [
+		{ id: 'kompetensi', textId: 'Pengembangan kompetensi', textEn: 'Competency development' },
+		{ id: 'pelatihan', textId: 'Pelatihan organisasi', textEn: 'Organizational training' },
+		{ id: 'perancangan', textId: 'Perancangan program', textEn: 'Program design' }
 	];
 </script>
 
-<section class="services-section">
+<section id="layanan-kami" class="services-section" aria-label={i18n.pick('Layanan Sesuai Kebutuhan Anda', 'Services Tailored to Your Needs')}>
 	<!-- Background Ornaments (Sesuai Mockup Referensi) -->
 	<!-- 1. Top Right Soft Cyan Layered Curves -->
 	<svg class="decor-top-right" viewBox="0 0 380 200" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M60 0 C160 110 270 120 380 40 V0 H60 Z" fill="#00A6B2" fill-opacity="0.12" />
-		<path d="M0 0 C130 90 250 90 380 20 V0 H0 Z" fill="#00A6B2" fill-opacity="0.05" />
+		<path d="M60 0 C160 110 270 120 380 40 V0 H60 Z" fill="#00A6B2" fill-opacity="0.1" />
+		<path d="M0 0 C130 90 250 90 380 20 V0 H0 Z" fill="#00A6B2" fill-opacity="0.04" />
 	</svg>
 
 	<!-- 2. Bottom Left Soft Cyan Wave -->
 	<svg class="decor-bottom-left" viewBox="0 0 320 200" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M0 200 C80 140 180 130 320 200 H0 Z" fill="#00A6B2" fill-opacity="0.07" />
+		<path d="M0 200 C80 140 180 130 320 200 H0 Z" fill="#00A6B2" fill-opacity="0.06" />
 		<path d="M0 160 C70 110 150 110 260 200 H0 Z" fill="#00A6B2" fill-opacity="0.03" />
 	</svg>
 
 	<!-- 3. Bottom Right Signature Brand Diagonal Ribbon Swoosh (Teal, Turquoise, Gold) -->
 	<svg class="decor-bottom-right" viewBox="0 0 320 140" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M0 140 C110 120 215 70 320 22 V140 H0 Z" fill="#008C99" />
-		<path d="M45 140 C140 125 235 80 320 34 V140 H45 Z" fill="#00A6B2" />
-		<path d="M130 140 C190 130 255 95 320 54 V140 H130 Z" fill="#8CE0E7" />
+		<path d="M0 140 C110 120 215 70 320 22 V140 H0 Z" fill="#008C99" fill-opacity="0.85" />
+		<path d="M45 140 C140 125 235 80 320 34 V140 H45 Z" fill="#00A6B2" fill-opacity="0.85" />
+		<path d="M130 140 C190 130 255 95 320 54 V140 H130 Z" fill="#8CE0E7" fill-opacity="0.9" />
 		<path d="M175 140 C230 132 275 104 320 72 V140 H175 Z" fill="#FFB822" />
 	</svg>
 
 	<div class="services-container">
-		<!-- Area Heading Sesuai Mockup -->
-		<div class="services-header-box">
-			<div class="section-label">LAYANAN KAMI</div>
-			<h2 class="services-title">
-				Solusi Pendidikan &amp; <span class="highlight-gold">Pengembangan Talenta</span>
+		<!-- Heading Row Sesuai Referensi Gambar 4: Judul + Garis Horizontal -->
+		<div class="services-heading-row">
+			<h2 class="services-main-title">
+				{i18n.pick('Layanan Sesuai Kebutuhan Anda', 'Services Tailored to Your Needs')}
 			</h2>
-			<p class="services-subtitle">
-				{i18n.pick(
-					'Layanan utama untuk mendukung perjalanan pendidikan dan pengembangan diri Anda.',
-					'Core services to support your educational journey and personal growth.'
-				)}
-			</p>
+			<div class="title-divider-line" aria-hidden="true"></div>
 		</div>
 
-		<!-- Area 4 Service Cards Horizontal -->
-		<div class="services-cards-grid">
-			{#each services as svc}
-				<a href={svc.href} class="service-card-item">
-					<!-- Ikon di Sisi Kiri (Rounded Square Cyan/Teal Muda) -->
-					<div class="svc-icon-box" aria-hidden="true">
-						{#if svc.icon === 'users'}
-							<!-- 01: Talent Management & Development Center (Users) -->
-							<svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-								<circle cx="9" cy="7" r="4"></circle>
-								<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-							</svg>
-						{:else if svc.icon === 'grad'}
-							<!-- 02: Scholarship Academy (Graduation Cap) -->
-							<svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-								<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-							</svg>
-						{:else if svc.icon === 'award'}
-							<!-- 03: Skills Development & Certification (Award Ribbon Badge with Star) -->
-							<svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<circle cx="12" cy="8.5" r="5.5"></circle>
-								<polygon points="12 5.5 12.8 7.3 14.8 7.5 13.3 8.9 13.7 10.8 12 9.8 10.3 10.8 10.7 8.9 9.2 7.5 11.2 7.3 12 5.5" stroke-width="1.3"></polygon>
-								<path d="M8.2 13.8L7 22l5-3 5 3-1.2-8.2"></path>
-							</svg>
-						{:else if svc.icon === 'handshake'}
-							<!-- 04: Institutional Partnership (Handshake) -->
-							<svg width="27" height="27" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M104,152l-24,24a24,24,0,0,1-33.94,0L28.69,158.63a24,24,0,0,1,0-33.94L64,89.37"></path>
-								<path d="M152,104l24-24a24,24,0,0,1,33.94,0l17.37,17.37a24,24,0,0,1,0,33.94L192,166.63"></path>
-								<path d="M64,89.37,97.37,122.75a16,16,0,0,0,22.63,0l36-36a16,16,0,0,1,22.63,0L192,100"></path>
-								<path d="M104,152l33.37,33.37a16,16,0,0,0,22.63,0l32-32"></path>
-								<line x1="88" y1="136" x2="104" y2="152"></line>
-								<line x1="120" y1="168" x2="136" y2="184"></line>
-							</svg>
-						{/if}
-					</div>
+		<!-- Dua Panel Horizontal (Untuk Individu & Untuk Institusi) Sesuai Referensi Gambar 4 -->
+		<div class="dual-panels-grid">
+			<!-- Panel 1: Untuk Individu -->
+			<a
+				id="panel-individu"
+				href="/layanan#talent-management"
+				class="dual-service-panel"
+				aria-label={i18n.pick('Layanan Untuk Individu', 'Services For Individuals')}
+			>
+				<div class="panel-photo-col">
+					<img
+						src="/images/layanan-panel-individu.jpg"
+						alt={i18n.pick('Mahasiswa Individu SDJNusantara', 'SDJNusantara Individual Student')}
+						class="panel-img"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
 
-					<!-- Nomor Layanan & Nama Layanan -->
-					<div class="svc-text-wrap">
-						<span class="svc-num">{svc.num}</span>
-						<h3 class="svc-title">
-							<span>{svc.titleLine1}</span>
-							<span>{svc.titleLine2}</span>
-						</h3>
-					</div>
-
-					<!-- Tombol Panah Lingkaran di Sisi Kanan -->
-					<div class="svc-arrow-circle" aria-hidden="true">
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<div class="panel-content-col">
+					<h3 class="panel-title">{i18n.pick('Untuk Individu', 'For Individuals')}</h3>
+					<ul class="panel-bullet-list">
+						{#each individualBullets as bullet}
+							<li class="bullet-item">
+								<span class="bullet-square" aria-hidden="true"></span>
+								<span class="bullet-text">{i18n.pick(bullet.textId, bullet.textEn)}</span>
+							</li>
+						{/each}
+					</ul>
+					<div class="panel-link-hint">
+						<span>{i18n.pick('Pelajari Selengkapnya', 'Learn More')}</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<line x1="5" y1="12" x2="19" y2="12"></line>
 							<polyline points="12 5 19 12 12 19"></polyline>
 						</svg>
 					</div>
-				</a>
-			{/each}
+				</div>
+			</a>
+
+			<!-- Panel 2: Untuk Institusi -->
+			<a
+				id="panel-institusi"
+				href="/layanan#institutional-partnership"
+				class="dual-service-panel"
+				aria-label={i18n.pick('Layanan Untuk Institusi', 'Services For Institutions')}
+			>
+				<div class="panel-photo-col">
+					<img
+						src="/images/layanan-panel-institusi.jpg"
+						alt={i18n.pick('Gedung Institusi Pendidikan SDJNusantara', 'SDJNusantara Institutional Campus')}
+						class="panel-img"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+
+				<div class="panel-content-col">
+					<h3 class="panel-title">{i18n.pick('Untuk Institusi', 'For Institutions')}</h3>
+					<ul class="panel-bullet-list">
+						{#each institutionBullets as bullet}
+							<li class="bullet-item">
+								<span class="bullet-square" aria-hidden="true"></span>
+								<span class="bullet-text">{i18n.pick(bullet.textId, bullet.textEn)}</span>
+							</li>
+						{/each}
+					</ul>
+					<div class="panel-link-hint">
+						<span>{i18n.pick('Pelajari Selengkapnya', 'Learn More')}</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</div>
+				</div>
+			</a>
 		</div>
 	</div>
 </section>
@@ -137,12 +129,12 @@
 		background: #FFFFFF;
 		width: 100%;
 		position: relative;
-		padding: 60px 0 70px;
+		padding: 56px 0 68px;
 		box-sizing: border-box;
 		overflow: hidden;
 	}
 
-	/* Ornamen Dekoratif di Background */
+	/* Background Ornaments */
 	.decor-top-right {
 		position: absolute;
 		top: 0;
@@ -182,200 +174,300 @@
 		z-index: 1;
 	}
 
-	/* Area Heading */
-	.services-header-box {
+	/* Heading Row: Title + Garis Horizontal Memanjang */
+	.services-heading-row {
+		display: flex;
+		align-items: center;
+		gap: 1.75rem;
 		margin-bottom: 2.25rem;
-		text-align: left;
+		width: 100%;
 	}
 
-	.section-label {
-		font-size: 15px;
-		font-weight: 700;
-		color: #00A6B2;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		margin-bottom: 0.5rem;
-	}
-
-	.services-title {
-		font-size: clamp(28px, 2.6vw, 36px);
+	.services-main-title {
+		margin: 0;
+		font-size: clamp(22px, 2.1vw, 29px);
 		font-weight: 800;
 		color: #082442;
-		line-height: 1.22;
 		letter-spacing: -0.015em;
-		margin: 0 0 0.5rem 0;
+		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
-	.highlight-gold {
-		color: #FFB822;
+	.title-divider-line {
+		flex: 1;
+		height: 2px;
+		background: #D9E2EC;
+		border-radius: 2px;
+		min-width: 40px;
 	}
 
-	.services-subtitle {
-		font-size: 15.5px;
-		color: #556987;
-		margin: 0;
-		line-height: 1.5;
-		letter-spacing: 0;
-	}
-
-	/* 4 Service Cards Grid */
-	.services-cards-grid {
+	/* Dual Panels Grid: 2 Kolom Berdampingan Sesuai Gambar 4 */
+	.dual-panels-grid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 1.25rem;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
 		align-items: stretch;
 		width: 100%;
 		box-sizing: border-box;
 	}
 
-	/* Bentuk Card Sesuai Mockup */
-	.service-card-item {
+	/* Service Panel Card (Kombinasi Foto + Box Teks Krem Hangat) */
+	.dual-service-panel {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 12px;
-		padding: 18px 20px;
-		background: #FFFFFF;
-		border: 1.5px solid #EDF2F7;
-		border-radius: 18px;
+		flex-direction: row;
+		background: #F8F4F1;
+		border-radius: 14px;
+		overflow: hidden;
 		text-decoration: none;
-		box-shadow: 0 4px 18px rgba(11, 41, 72, 0.04);
-		box-sizing: border-box;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow: 0 4px 18px rgba(8, 36, 66, 0.05);
+		border: 1.5px solid rgba(8, 36, 66, 0.06);
+		transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+		            box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+		            border-color 0.28s ease;
+		scroll-margin-top: 90px;
 		position: relative;
 	}
 
-	/* Hover State (Sesuai Contoh Card Ketiga pada Mockup) */
-	.service-card-item:hover {
-		background: #EEFAF9;
-		border-color: #00A6B2;
-		box-shadow: 0 8px 24px rgba(0, 166, 178, 0.12);
-		transform: translateY(-2px);
+	.dual-service-panel:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.1);
+		border-color: rgba(217, 93, 15, 0.35);
 	}
 
-	/* Ikon Box */
-	.svc-icon-box {
-		width: 52px;
-		height: 52px;
-		border-radius: 14px;
-		background: #E8F7F8;
-		color: #00A6B2;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+	/* Highlight pulse saat tombol hero diklik */
+	:global(.panel-highlighted) {
+		animation: pulseFocus 2s ease-out;
+		border-color: #D95D0F !important;
+		box-shadow: 0 0 0 3px rgba(217, 93, 15, 0.25), 0 10px 30px rgba(8, 36, 66, 0.12) !important;
 	}
 
-	.service-card-item:hover .svc-icon-box {
+	@keyframes pulseFocus {
+		0% {
+			transform: scale(1);
+		}
+		35% {
+			transform: scale(1.018);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	/* Kolom Foto */
+	.panel-photo-col {
+		flex: 0 0 44%;
+		min-width: 150px;
+		position: relative;
+		overflow: hidden;
+		background: #E5E7EB;
+	}
+
+	.panel-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		display: block;
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.dual-service-panel:hover .panel-img {
 		transform: scale(1.04);
-		background: #DCF4F6;
 	}
 
-	/* Text Area */
-	.svc-text-wrap {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 3px;
+	/* Kolom Konten Teks */
+	.panel-content-col {
 		flex: 1;
-		min-width: 0;
-	}
-
-	.svc-num {
-		font-size: 18px;
-		font-weight: 800;
-		color: #00A6B2;
-		line-height: 1.1;
-		letter-spacing: -0.01em;
-	}
-
-	.svc-title {
-		margin: 0;
+		padding: 26px 26px 22px;
 		display: flex;
 		flex-direction: column;
-		font-size: 13.5px;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
+	.panel-title {
+		margin: 0 0 1rem 0;
+		font-size: clamp(19px, 1.45vw, 22px);
 		font-weight: 800;
 		color: #082442;
-		line-height: 1.32;
 		letter-spacing: -0.01em;
-		transition: color 0.25s ease;
+		line-height: 1.25;
 	}
 
-	.svc-title span {
-		white-space: nowrap;
+	/* Bullet List dengan Kotak Oranye Sesuai Gambar 4 */
+	.panel-bullet-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.25rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
 	}
 
-	.service-card-item:hover .svc-title {
-		color: #082442;
-	}
-
-	/* Tombol Panah Lingkaran */
-	.svc-arrow-circle {
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		background: #F1F5F9;
-		color: #082442;
+	.bullet-item {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		gap: 0.75rem;
+	}
+
+	.bullet-square {
+		width: 8px;
+		height: 8px;
+		background-color: #D95D0F;
+		border-radius: 1.5px;
 		flex-shrink: 0;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		box-shadow: 0 1px 3px rgba(217, 93, 15, 0.3);
 	}
 
-	/* Panah saat Hover: Lingkaran Teal dengan Panah Putih */
-	.service-card-item:hover .svc-arrow-circle {
-		background: #00A6B2;
-		color: #FFFFFF;
-		transform: translateX(2px);
+	.bullet-text {
+		font-size: 15px;
+		font-weight: 600;
+		color: #1E293B;
+		line-height: 1.35;
+		letter-spacing: -0.005em;
 	}
 
-	/* Responsive Tablet (768px - 1100px) */
-	@media (max-width: 1100px) {
-		.services-cards-grid {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.25rem 1rem;
+	/* Tautan Pelajari Selengkapnya di Bawah Card */
+	.panel-link-hint {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 13px;
+		font-weight: 700;
+		color: #D95D0F;
+		transition: gap 0.2s ease, color 0.2s ease;
+		margin-top: auto;
+	}
+
+	.dual-service-panel:hover .panel-link-hint {
+		gap: 9px;
+		color: #B54705;
+	}
+
+	/* Tablet Responsif (768px - 1024px) */
+	@media (max-width: 1024px) {
+		.services-section {
+			padding: 48px 0 56px;
 		}
 
-		.service-card-item {
-			padding: 16px 18px;
+		.services-container {
+			padding: 0 1.5rem;
+		}
+
+		.services-heading-row {
+			gap: 1.25rem;
+			margin-bottom: 1.75rem;
+		}
+
+		.dual-panels-grid {
+			gap: 1.25rem;
+		}
+
+		.panel-photo-col {
+			flex: 0 0 40%;
+		}
+
+		.panel-content-col {
+			padding: 20px 20px 18px;
+		}
+
+		.panel-title {
+			font-size: 18px;
+			margin-bottom: 0.85rem;
+		}
+
+		.bullet-text {
+			font-size: 14px;
 		}
 	}
 
-	/* Responsive Mobile (< 768px) */
+	/* Mobile Responsif (< 768px) */
 	@media (max-width: 767px) {
 		.services-section {
-			padding: 40px 0 50px;
+			padding: 40px 0 48px;
 		}
 
 		.services-container {
 			padding: 0 1.25rem;
 		}
 
-		.services-header-box {
+		.services-heading-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
 			margin-bottom: 1.5rem;
 		}
 
-		.services-title {
-			font-size: 24px;
-		}
-
-		.services-subtitle {
-			font-size: 14px;
-		}
-
-		.services-cards-grid {
-			grid-template-columns: 1fr;
-			gap: 0.85rem;
-		}
-
-		.service-card-item {
-			padding: 14px 16px;
-		}
-
-		.svc-title span {
+		.services-main-title {
 			white-space: normal;
+			font-size: 21px;
+			line-height: 1.3;
+		}
+
+		.title-divider-line {
+			width: 60px;
+			flex: none;
+			height: 3px;
+			background: #D95D0F;
+		}
+
+		.dual-panels-grid {
+			grid-template-columns: 1fr;
+			gap: 1.15rem;
+		}
+
+		.dual-service-panel {
+			flex-direction: row;
+			min-height: 155px;
+		}
+
+		.panel-photo-col {
+			flex: 0 0 38%;
+			min-width: 115px;
+		}
+
+		.panel-content-col {
+			padding: 16px 14px 14px;
+		}
+
+		.panel-title {
+			font-size: 16.5px;
+			margin-bottom: 0.65rem;
+		}
+
+		.panel-bullet-list {
+			gap: 0.55rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.bullet-square {
+			width: 7px;
+			height: 7px;
+		}
+
+		.bullet-text {
+			font-size: 13px;
+		}
+
+		.panel-link-hint {
+			font-size: 12px;
+		}
+	}
+
+	/* Layar Sangat Kecil (< 420px) */
+	@media (max-width: 420px) {
+		.dual-service-panel {
+			flex-direction: column;
+		}
+
+		.panel-photo-col {
+			flex: none;
+			width: 100%;
+			height: 140px;
+		}
+
+		.panel-content-col {
+			padding: 16px;
 		}
 	}
 </style>
