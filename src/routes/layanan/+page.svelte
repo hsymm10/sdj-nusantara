@@ -8,19 +8,12 @@
 	import { beasiswaKnowledge } from '#lib/data/knowledge/beasiswa';
 	import { serviceConfig } from '#lib/config/services';
 	import { i18n } from '#lib/stores/i18n.svelte';
-	import { dragToScroll } from '#lib/actions/dragToScroll';
 
 	type ServiceCategory = 'individu' | 'institusi';
 	let activeTab = $state<ServiceCategory>('individu');
-	let tabCardEl = $state<HTMLElement | null>(null);
 
 	function setTab(tab: ServiceCategory) {
 		activeTab = tab;
-	}
-
-	function selectFromHero(tab: ServiceCategory) {
-		activeTab = tab;
-		scrollToCards();
 	}
 
 	onMount(() => {
@@ -31,21 +24,6 @@
 			} else if (hash.includes('individu') || hash.includes('pendidikan') || hash.includes('beasiswa')) {
 				activeTab = 'individu';
 			}
-		}
-	});
-
-	$effect(() => {
-		const currentTab = activeTab;
-		if (!tabCardEl || typeof window === 'undefined') return;
-		if (window.innerWidth > 768) return;
-		const activeEl = tabCardEl.querySelector<HTMLElement>(`[data-tab="${currentTab}"]`);
-		if (!activeEl) return;
-
-		if (currentTab === 'individu') {
-			tabCardEl.scrollTo({ left: 0, behavior: 'smooth' });
-		} else {
-			const targetLeft = Math.max(0, activeEl.offsetLeft - 14);
-			tabCardEl.scrollTo({ left: targetLeft, behavior: 'smooth' });
 		}
 	});
 
@@ -144,36 +122,16 @@
 							: 'SDJNusantara provides education services, talent development programs, and scholarships to unlock your full potential.'
 					)}
 				</p>
-
-				<!-- Tombol aksi Sesuai Referensi Gambar 2 -->
-				<div class="hero-actions">
-					<button
-						type="button"
-						class="hero-choice-btn {activeTab === 'individu' ? 'btn-choice-active' : 'btn-choice-inactive'}"
-						onclick={() => selectFromHero('individu')}
-					>
-						<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
-					</button>
-					<button
-						type="button"
-						class="hero-choice-btn {activeTab === 'institusi' ? 'btn-choice-active' : 'btn-choice-inactive'}"
-						onclick={() => selectFromHero('institusi')}
-					>
-						<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
-					</button>
-				</div>
 			</div>
 		</div>
 	</header>
 
 	<!-- ==========================================
-	     2. TAB BAR (Tinggi 84px, overlap hero 16px, radius 20px)
+	     2. TAB BAR (Segmented Control: 2 Kategori Seimbang & Proporsional)
 	     ========================================== -->
 	<section class="tab-overlap-section" aria-label="Filter Layanan">
 		<div class="hub-container">
 			<div
-				bind:this={tabCardEl}
-				use:dragToScroll
 				class="tab-overlap-card"
 				role="tablist"
 				aria-label="Kategori Portofolio Layanan"
@@ -188,7 +146,7 @@
 					onclick={() => setTab('individu')}
 				>
 					<span class="tab-icon" aria-hidden="true">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
 							<circle cx="12" cy="7" r="4"></circle>
 						</svg>
@@ -208,7 +166,7 @@
 					onclick={() => setTab('institusi')}
 				>
 					<span class="tab-icon" aria-hidden="true">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 							<rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
 							<path d="M9 22v-4h6v4"></path>
 							<path d="M8 6h.01"></path>
@@ -978,89 +936,33 @@
 		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
 		max-width: 550px;
-		margin: 0 0 16px 0;
-	}
-
-	.hero-actions {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		flex-wrap: wrap;
-	}
-
-	.hero-choice-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: 42px;
-		padding: 0 24px;
-		font-size: 14px;
-		font-weight: 700;
-		border-radius: 8px;
-		text-decoration: none;
-		white-space: nowrap;
-		box-sizing: border-box;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-		cursor: pointer;
-	}
-
-	.hero-choice-btn.btn-choice-active {
-		background: #f5b331;
-		color: #082442;
-		border: 1.5px solid #f5b331;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.32);
-	}
-
-	.hero-choice-btn.btn-choice-active:hover {
-		background: #e6a528;
-		border-color: #e6a528;
-		transform: translateY(-1px);
-		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.42);
-	}
-
-	.hero-choice-btn.btn-choice-inactive {
-		background: #FFFFFF;
-		color: #082442;
-		border: 1.5px solid #FFFFFF;
-		box-shadow: 0 3px 12px rgba(8, 36, 66, 0.16);
-	}
-
-	.hero-choice-btn.btn-choice-inactive:hover {
-		background: #F8FAFC;
-		border-color: #E2E8F0;
-		transform: translateY(-1px);
-		box-shadow: 0 5px 16px rgba(8, 36, 66, 0.22);
+		margin: 0;
 	}
 
 	/* ==========================================
-	     2. TAB BAR OVERLAP
+	     2. TAB BAR OVERLAP (Segmented Category Navigation)
 	     ========================================== */
 	.tab-overlap-section {
 		position: relative;
 		z-index: var(--z-overlap-bar, 10);
-		margin-top: var(--overlap-margin-top, -16px);
+		margin-top: -30px;
 		margin-bottom: 28px;
 	}
 
 	.tab-overlap-card {
 		background: #FFFFFF;
-		border-radius: 20px;
-		box-shadow: 0 10px 32px rgba(8, 36, 66, 0.08);
-		border: 1px solid rgba(226, 232, 240, 0.9);
+		border-radius: 18px;
+		box-shadow: 0 10px 30px rgba(8, 36, 66, 0.08);
+		border: 1px solid rgba(226, 232, 240, 0.95);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: var(--overlap-card-height, 84px);
+		height: 60px;
 		width: 100%;
+		max-width: 620px;
 		margin: 0 auto;
-		padding: 12px 18px;
+		padding: 6px 8px;
 		box-sizing: border-box;
-		overflow-x: auto;
-		scrollbar-width: none;
-	}
-
-	.tab-overlap-card::-webkit-scrollbar {
-		display: none;
 	}
 
 	.tab-btn {
@@ -1069,11 +971,11 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 12px;
-		height: 60px;
-		padding: 0 20px;
-		margin: 0 6px;
-		border-radius: 14px;
+		gap: 10px;
+		height: 48px;
+		padding: 0 16px;
+		margin: 0;
+		border-radius: 12px;
 		border: none;
 		background: transparent;
 		color: #082442;
@@ -1088,15 +990,13 @@
 	.tab-btn:hover:not(.active) {
 		background: rgba(7, 158, 173, 0.08);
 		color: #079EAD;
-		transform: translateY(-1px);
 	}
 
 	.tab-btn.active {
 		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
 		color: #FFFFFF;
 		font-weight: 700;
-		box-shadow: 0 4px 16px rgba(7, 158, 173, 0.26);
-		transform: translateY(-1px);
+		box-shadow: 0 4px 14px rgba(7, 158, 173, 0.28);
 	}
 
 	.tab-icon {
@@ -1116,9 +1016,9 @@
 
 	.tab-vdivider {
 		width: 1px;
-		height: 38px;
+		height: 28px;
 		background: #E2E8F0;
-		margin: 0 16px;
+		margin: 0 6px;
 		flex-shrink: 0;
 	}
 
@@ -1613,21 +1513,22 @@
 
 	@media (max-width: 1024px) {
 		.tab-overlap-card {
-			height: 74px;
-			padding: 10px 14px;
+			max-width: 580px;
+			height: 56px;
+			padding: 5px 6px;
 		}
 
 		.tab-btn {
-			height: 54px;
+			height: 46px;
 			padding: 0 14px;
-			margin: 0 4px;
-			font-size: 14px;
-			gap: 9px;
+			margin: 0;
+			font-size: 14.5px;
+			gap: 8px;
 		}
 
 		.tab-vdivider {
-			height: 32px;
-			margin: 0 10px;
+			height: 24px;
+			margin: 0 4px;
 		}
 
 		.cards-grid {
@@ -1692,49 +1593,37 @@
 			font-size: 14px;
 		}
 
-		.hero-actions {
-			flex-direction: row;
-			gap: 10px;
-			width: 100%;
-		}
-
-		.hero-choice-btn {
-			flex: 1 1 50%;
-			height: 42px;
-			padding: 0 10px;
-			font-size: 13px;
-		}
-
 		.tab-overlap-section {
-			margin-bottom: 18px;
+			margin-top: -24px;
+			margin-bottom: 20px;
 		}
 
 		.tab-overlap-card {
-			height: auto;
-			padding: 8px 10px;
-			gap: 8px;
-			justify-content: flex-start;
-			border-radius: 16px;
-			-webkit-overflow-scrolling: touch;
-			scroll-padding: 0 10px;
-			scroll-snap-type: x proximity;
-			touch-action: pan-x pan-y;
+			max-width: 520px;
+			height: 54px;
+			padding: 5px 6px;
+			border-radius: 14px;
+			overflow-x: visible;
 		}
 
 		.tab-btn {
-			flex: 0 0 auto;
-			min-width: max-content;
-			height: 48px;
-			padding: 0 18px;
+			flex: 1;
+			min-width: 0;
+			height: 44px;
+			padding: 0 12px;
 			margin: 0;
 			font-size: 13.5px;
-			border-radius: 12px;
+			border-radius: 10px;
 			gap: 8px;
-			scroll-snap-align: start;
 		}
 
 		.tab-vdivider {
-			display: none;
+			display: block;
+			width: 1px;
+			height: 22px;
+			background: #E2E8F0;
+			margin: 0 3px;
+			flex-shrink: 0;
 		}
 
 		.hub-intro-section {
@@ -1840,6 +1729,33 @@
 		.showcase-arc-br {
 			opacity: 0.45;
 			transform: scale(0.65);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.tab-overlap-card {
+			max-width: 100%;
+			height: 50px;
+			padding: 4px;
+			border-radius: 12px;
+		}
+
+		.tab-btn {
+			height: 42px;
+			padding: 0 8px;
+			font-size: 12.5px;
+			border-radius: 9px;
+			gap: 6px;
+		}
+
+		.tab-icon :global(svg) {
+			width: 17px;
+			height: 17px;
+		}
+
+		.tab-vdivider {
+			height: 20px;
+			margin: 0 2px;
 		}
 	}
 </style>
