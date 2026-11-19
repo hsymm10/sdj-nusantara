@@ -32,7 +32,9 @@
 		desc: string;
 		checklist: string[];
 		img: string;
-		href: string;
+		overview: string;
+		highlights: string[];
+		targetAudience: string[];
 	}
 
 	const institutionalServices: InstitutionalService[] = [
@@ -47,7 +49,14 @@
 				'Penguatan Standar Profesional & Capaian Kinerja'
 			],
 			img: '/images/about-team-4-hd.jpg',
-			href: '/layanan/pendidikan/program/ai-digital-skills-academy'
+			overview: 'Program pengembangan kompetensi dirancang khusus untuk institusi pendidikan, korporasi, dan lembaga publik guna memperkuat kapasitas, adaptasi teknologi, serta kapabilitas profesional SDM melalui modul pelatihan aplikatif yang terarah.',
+			highlights: [
+				'Asesmen komprehensif untuk memetakan gap kompetensi & kebutuhan organisasi',
+				'Kurikulum pelatihan aplikatif yang dapat disesuaikan (customized syllabus)',
+				'Fokus pada kapabilitas masa depan: AI, digital skills, & manajemen kinerja',
+				'Evaluasi hasil pelatihan berkala serta sertifikasi kompetensi peserta'
+			],
+			targetAudience: ['Sekolah & Madrasah', 'Perguruan Tinggi', 'Yayasan Pendidikan', 'Instansi & Korporasi']
 		},
 		{
 			id: 'pelatihan-organisasi',
@@ -60,7 +69,14 @@
 				'Pendampingan Budaya Kerja & Efektivitas Organisasi'
 			],
 			img: '/images/partner-hero-5.jpg',
-			href: '/layanan/pendidikan/program/corporate-campus-training'
+			overview: 'Pendampingan dan in-house training intensif bagi pimpinan, manajer, dan unit kerja untuk membangun kepemimpinan transformasional, budaya kerja produktif, serta efektivitas kolaborasi tim.',
+			highlights: [
+				'Lokakarya kepemimpinan adaptif berbasis studi kasus riil organisasi',
+				'Penguatan sinergi kerja tim dan resolusi hambatan komunikasi internal',
+				'Penyusunan standar operasional & budaya kerja yang berkelanjutan',
+				'Pengukuran dampak pelatihan terhadap produktivitas dan kepuasan kerja'
+			],
+			targetAudience: ['Manajemen Sekolah & Kampus', 'Divisi SDM / HR & Diklat', 'Yayasan & Komite Organisasi', 'Lembaga Pendidikan Vokasi']
 		},
 		{
 			id: 'perancangan-program',
@@ -73,7 +89,14 @@
 				'Penyusunan Panduan Operasional & Instrumen Evaluasi'
 			],
 			img: '/images/about-laptop-desk-hd.jpg',
-			href: '/layanan/pendidikan/program/institutional-partnership-services'
+			overview: 'Layanan konsultasi strategis dalam merancang kurikulum modern, silabus inovatif, program beasiswa kelembagaan, serta modul pelatihan khusus yang terukur dan selaras dengan standar mutu institusi.',
+			highlights: [
+				'Desain kurikulum dan materi ajar kontekstual berbasis luaran (outcome-based)',
+				'Arsitektur program inkubasi talenta dan program beasiswa internal mitra',
+				'Penyusunan instrumen evaluasi, rubrik asesmen, dan panduan fasilitator',
+				'Penyelarasan program institusi dengan kebutuhan industri & dunia kerja'
+			],
+			targetAudience: ['Pengelola Lembaga Pendidikan', 'Tim Kurikulum & Pengembang Akademik', 'Penyelenggara Program Beasiswa', 'Lembaga Pelatihan Terpadu']
 		},
 		{
 			id: 'kemitraan-strategis',
@@ -86,9 +109,47 @@
 				'Fasilitasi Kolaborasi Kampus, Sekolah & Industri'
 			],
 			img: '/images/layanan-panel-institusi.jpg',
-			href: '/kemitraan'
+			overview: 'Fasilitasi dan pendampingan kerja sama strategis lintas sektor guna memperluas jangkauan program, membuka akses beasiswa, serta membangun konsorsium kemitraan antara lembaga pendidikan dan industri.',
+			highlights: [
+				'Inisiasi MoU, perancangan proposal kerja sama, & pendampingan implementasi',
+				'Penyelenggaraan expo pendidikan, seminar nasional, & sosialisasi beasiswa',
+				'Fasilitasi kemitraan kampus/sekolah dengan korporasi & yayasan donor',
+				'Penyusunan dan pengelolaan program Corporate Social Responsibility (CSR) bidang pendidikan'
+			],
+			targetAudience: ['Perguruan Tinggi & Universitas', 'Asosiasi Sekolah & Pendidikan', 'Perusahaan & Lembaga CSR', 'Lembaga Donor Beasiswa Internasional']
 		}
 	];
+
+	let selectedInstitutionalService = $state<InstitutionalService | null>(null);
+
+	function openInstitutionalDetail(service: InstitutionalService) {
+		selectedInstitutionalService = service;
+	}
+
+	function closeInstitutionalDetail() {
+		selectedInstitutionalService = null;
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape' && selectedInstitutionalService) {
+			closeInstitutionalDetail();
+		}
+	}
+
+	$effect(() => {
+		if (typeof document !== 'undefined') {
+			if (selectedInstitutionalService) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = '';
+			}
+		}
+		return () => {
+			if (typeof document !== 'undefined') {
+				document.body.style.overflow = '';
+			}
+		};
+	});
 
 	onMount(() => {
 		if (typeof window !== 'undefined' && window.location.hash) {
@@ -126,6 +187,8 @@
 	/>
 	<link rel="canonical" href="https://sdjnusantara.com/layanan" />
 </svelte:head>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <Navbar compact={true} wide={true} />
 
@@ -636,10 +699,16 @@
 								</div>
 
 								<div class="card-action">
-									<a href={service.href} class="btn-card-gold">
+									<button
+										type="button"
+										class="btn-card-gold"
+										onclick={() => openInstitutionalDetail(service)}
+										aria-haspopup="dialog"
+										aria-expanded={selectedInstitutionalService?.id === service.id}
+									>
 										<span>{i18n.pick('Jelajahi Semua Program', 'Explore All Programs')}</span>
 										<span class="btn-arrow" aria-hidden="true">→</span>
-									</a>
+									</button>
 								</div>
 							</div>
 
@@ -756,6 +825,152 @@
 		secondaryHref="/kemitraan"
 		variant="layanan"
 	/>
+
+	<!-- ==========================================
+	     6. MODAL DETAIL SOLUSI INSTITUSI
+	     ========================================== -->
+	{#if selectedInstitutionalService}
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<div
+			class="inst-modal-backdrop"
+			role="presentation"
+			onclick={(e) => {
+				if (e.target === e.currentTarget) closeInstitutionalDetail();
+			}}
+		>
+			<div
+				class="inst-modal-card"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="inst-modal-title"
+				tabindex="-1"
+			>
+				<!-- Tombol Tutup X di Kanan Atas -->
+				<button
+					type="button"
+					class="inst-modal-close"
+					aria-label={i18n.pick('Tutup detail layanan', 'Close service detail')}
+					onclick={closeInstitutionalDetail}
+				>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+					</svg>
+				</button>
+
+				<!-- Header Banner Foto Layanan -->
+				<div class="inst-modal-banner">
+					<img
+						src={selectedInstitutionalService.img}
+						alt={selectedInstitutionalService.title}
+						class="inst-modal-banner-img"
+						loading="eager"
+					/>
+					<div class="inst-modal-banner-overlay"></div>
+					<div class="inst-modal-badge-row">
+						<span class="inst-modal-pill">
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+								<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+							</svg>
+							<span>{i18n.pick('Solusi Institusi', 'Institutional Solution')}</span>
+						</span>
+						<span class="inst-modal-subbadge">{selectedInstitutionalService.badge}</span>
+					</div>
+				</div>
+
+				<!-- Konten Informasi Lengkap -->
+				<div class="inst-modal-content">
+					<div class="inst-modal-header-text">
+						<h3 id="inst-modal-title" class="inst-modal-title">
+							{selectedInstitutionalService.title}
+						</h3>
+						<p class="inst-modal-desc">
+							{selectedInstitutionalService.desc}
+						</p>
+					</div>
+
+					<!-- Section 1: Gambaran Lengkap Layanan -->
+					<div class="inst-modal-section">
+						<h4 class="inst-section-title">
+							<span class="section-icon" aria-hidden="true">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10"></circle>
+									<polyline points="12 6 12 12 16 14"></polyline>
+								</svg>
+							</span>
+							<span>{i18n.pick('Gambaran Lengkap Layanan', 'Complete Service Overview')}</span>
+						</h4>
+						<p class="inst-section-text">{selectedInstitutionalService.overview}</p>
+					</div>
+
+					<!-- Section 2: Cakupan Program & Manfaat Layanan -->
+					<div class="inst-modal-section">
+						<h4 class="inst-section-title">
+							<span class="section-icon" aria-hidden="true">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+									<polyline points="22 4 12 14.01 9 11.01"></polyline>
+								</svg>
+							</span>
+							<span>{i18n.pick('Cakupan Program & Manfaat Layanan', 'Program Scope & Service Benefits')}</span>
+						</h4>
+						<ul class="inst-highlight-list">
+							{#each selectedInstitutionalService.highlights as highlight}
+								<li>
+									<span class="check-icon" aria-hidden="true">
+										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+									</span>
+									<span>{highlight}</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+
+					<!-- Section 3: Sasaran Institusi Mitra -->
+					<div class="inst-modal-section">
+						<h4 class="inst-section-title">
+							<span class="section-icon" aria-hidden="true">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+									<circle cx="9" cy="7" r="4"></circle>
+									<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+									<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+								</svg>
+							</span>
+							<span>{i18n.pick('Sasaran Institusi Mitra', 'Target Institutional Partners')}</span>
+						</h4>
+						<div class="inst-audience-pills">
+							{#each selectedInstitutionalService.targetAudience as audience}
+								<span class="audience-pill">{audience}</span>
+							{/each}
+						</div>
+					</div>
+
+					<!-- Footer Modal: Aksi Hubungi & Tutup -->
+					<div class="inst-modal-footer">
+						<a
+							href="/kontak"
+							class="btn-card-gold"
+							onclick={closeInstitutionalDetail}
+						>
+							<span>{i18n.pick('Konsultasikan Kebutuhan', 'Consult Your Needs')}</span>
+							<span class="btn-arrow" aria-hidden="true">→</span>
+						</a>
+						<button
+							type="button"
+							class="btn-modal-close-action"
+							onclick={closeInstitutionalDetail}
+						>
+							<span>{i18n.pick('Tutup', 'Close')}</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
 </main>
 
 <Footer compact={true} variant="layanan" />
@@ -1298,6 +1513,9 @@
 		font-weight: 700;
 		border-radius: 10px;
 		text-decoration: none;
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
 		box-shadow: 0 4px 12px rgba(245, 179, 49, 0.24);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		width: fit-content;
@@ -1494,6 +1712,267 @@
 
 	.cards-grid.two-services .why-tile {
 		min-height: 142px;
+	}
+
+	/* ==========================================
+	     MODAL DETAIL SOLUSI INSTITUSI
+	     ========================================== */
+	.inst-modal-backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		background: rgba(8, 36, 66, 0.65);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		box-sizing: border-box;
+		animation: fadeInModal 0.22s ease-out forwards;
+	}
+
+	@keyframes fadeInModal {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.inst-modal-card {
+		background: #FFFFFF;
+		border-radius: 24px;
+		box-shadow: 0 25px 60px rgba(8, 36, 66, 0.25);
+		border: 1px solid rgba(226, 232, 240, 0.9);
+		width: 100%;
+		max-width: 640px;
+		max-height: 90vh;
+		overflow-y: auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		animation: slideUpModal 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	@keyframes slideUpModal {
+		from {
+			opacity: 0;
+			transform: translateY(20px) scale(0.97);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	.inst-modal-close {
+		position: absolute;
+		top: 14px;
+		right: 14px;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.94);
+		border: 1px solid rgba(226, 232, 240, 0.85);
+		color: #082442;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 10;
+		transition: all 0.2s ease;
+		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.12);
+	}
+
+	.inst-modal-close:hover {
+		background: #082442;
+		color: #FFFFFF;
+		transform: rotate(90deg);
+	}
+
+	.inst-modal-banner {
+		position: relative;
+		height: 180px;
+		min-height: 180px;
+		overflow: hidden;
+		border-radius: 24px 24px 0 0;
+	}
+
+	.inst-modal-banner-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 30%;
+		display: block;
+	}
+
+	.inst-modal-banner-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(8, 36, 66, 0.15) 0%, rgba(8, 36, 66, 0.78) 100%);
+	}
+
+	.inst-modal-badge-row {
+		position: absolute;
+		bottom: 14px;
+		left: 20px;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		z-index: 2;
+	}
+
+	.inst-modal-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		background: #00A6B2;
+		color: #FFFFFF;
+		font-size: 12px;
+		font-weight: 700;
+		padding: 4px 12px;
+		border-radius: 9999px;
+	}
+
+	.inst-modal-subbadge {
+		font-size: 12px;
+		font-weight: 700;
+		background: #FFB923;
+		color: #082442;
+		padding: 4px 10px;
+		border-radius: 9999px;
+	}
+
+	.inst-modal-content {
+		padding: 24px 28px 28px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.inst-modal-header-text {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.inst-modal-title {
+		font-size: 22px;
+		font-weight: 800;
+		color: #082442;
+		margin: 0;
+		line-height: 1.25;
+	}
+
+	.inst-modal-desc {
+		font-size: 14.5px;
+		line-height: 1.6;
+		color: #475569;
+		margin: 0;
+	}
+
+	.inst-modal-section {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.inst-section-title {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 15px;
+		font-weight: 700;
+		color: #082442;
+		margin: 0;
+	}
+
+	.section-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 20px;
+		height: 20px;
+		flex-shrink: 0;
+	}
+
+	.inst-section-text {
+		font-size: 14px;
+		line-height: 1.65;
+		color: #475569;
+		margin: 0;
+		background: #F8FAFC;
+		padding: 12px 16px;
+		border-radius: 12px;
+		border-left: 3px solid #00A6B2;
+	}
+
+	.inst-highlight-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.inst-highlight-list li {
+		display: flex;
+		align-items: flex-start;
+		gap: 10px;
+		font-size: 14px;
+		line-height: 1.5;
+		color: #334155;
+	}
+
+	.inst-audience-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.audience-pill {
+		font-size: 12.5px;
+		font-weight: 600;
+		color: #007A85;
+		background: #EAF9FA;
+		padding: 5px 12px;
+		border-radius: 9999px;
+		border: 1px solid rgba(0, 166, 178, 0.2);
+	}
+
+	.inst-modal-footer {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding-top: 14px;
+		border-top: 1px solid #EEF2F6;
+		margin-top: 4px;
+	}
+
+	.btn-modal-close-action {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: #F1F5F9;
+		color: #475569;
+		font-size: 13.5px;
+		font-weight: 700;
+		padding: 10px 20px;
+		border-radius: 10px;
+		border: 1px solid #E2E8F0;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-family: inherit;
+	}
+
+	.btn-modal-close-action:hover {
+		background: #E2E8F0;
+		color: #082442;
 	}
 
 	/* ==========================================
@@ -1760,6 +2239,48 @@
 		.tab-vdivider {
 			height: 20px;
 			margin: 0 2px;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.inst-modal-backdrop {
+			padding: 12px;
+		}
+
+		.inst-modal-card {
+			max-height: 94vh;
+			border-radius: 18px;
+		}
+
+		.inst-modal-banner {
+			height: 140px;
+			min-height: 140px;
+			border-radius: 18px 18px 0 0;
+		}
+
+		.inst-modal-content {
+			padding: 18px 18px 22px;
+			gap: 16px;
+		}
+
+		.inst-modal-title {
+			font-size: 20px;
+		}
+
+		.inst-modal-desc {
+			font-size: 13.5px;
+		}
+
+		.inst-modal-footer {
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.inst-modal-footer .btn-card-gold,
+		.btn-modal-close-action {
+			width: 100%;
+			justify-content: center;
+			box-sizing: border-box;
 		}
 	}
 </style>
