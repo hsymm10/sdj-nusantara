@@ -1,5 +1,5 @@
-// Konfigurasi Terpusat Floating Chatbot Widget SDJNusantara
-// Sesuai Spesifikasi Desain Mockup design/chatbot-mockup.png & content-master SDJNusantara
+// Konfigurasi Terpusat Floating Chatbot Widget NALARA SDJNusantara
+// NALARA — Nusantara AI Learning & Resource Assistant
 
 export interface QuickReplyItem {
 	id: string;
@@ -9,58 +9,45 @@ export interface QuickReplyItem {
 }
 
 export const chatConfig = {
-	title: 'Asisten SDJNusantara',
-	subtitle: 'Asisten Virtual • Siap Membantu',
-	demoNotice: 'Mode demo: jawaban otomatis sementara. Jangan kirim data sensitif (NIK, kata sandi, nomor kartu).',
-	inputPlaceholder: 'Ketik pertanyaan Anda...',
+	title: 'NALARA',
+	fullName: 'Nusantara AI Learning & Resource Assistant',
+	subtitle: 'Asisten Virtual Resmi SDJNusantara',
+	demoNotice: 'NALARA — Asisten AI Resmi SDJNusantara. Jangan kirimkan data sensitif (NIK, kata sandi, rekening).',
+	inputPlaceholder: 'Tanyakan seputar profil, layanan, atau beasiswa...',
 
 	tooltip: {
-		title: 'Butuh informasi seputar\npendidikan?',
-		description: 'Tanyakan langsung kepada\nAsisten SDJNusantara.',
+		title: 'Butuh informasi seputar\nSDJNusantara?',
+		description: 'Tanyakan langsung kepada\nNALARA AI Assistant.',
 		delayMs: 2000
 	},
 
-	welcomeMessage: `Halo! Selamat datang di SDJNusantara
-Saya Asisten Virtual SDJNusantara. Ada yang bisa saya bantu hari ini?
-Silakan pilih topik berikut atau ketik pertanyaan Anda.`,
+	welcomeMessage: 'Halo! Saya NALARA, asisten virtual SDJNusantara. Ada yang ingin Anda ketahui?',
 
-	// 6 Quick Reply Chips (Grid 2 Kolom x 3 Baris sesuai mockup)
+	// 4 Suggested Questions Sesuai Spesifikasi NALARA
 	quickReplies: [
 		{
-			id: 'program',
-			label: 'Info Program Pendidikan',
+			id: 'profil',
+			label: 'Apa itu SDJNusantara?',
 			iconType: 'program',
-			queryText: 'Info Program Pendidikan'
+			queryText: 'Apa itu SDJNusantara?'
+		},
+		{
+			id: 'layanan',
+			label: 'Layanan yang tersedia',
+			iconType: 'talenta',
+			queryText: 'Apa saja layanan yang tersedia?'
 		},
 		{
 			id: 'beasiswa',
-			label: 'Beasiswa',
+			label: 'Informasi Beasiswa',
 			iconType: 'beasiswa',
-			queryText: 'Informasi Beasiswa'
+			queryText: 'Bagaimana cara mendapatkan informasi beasiswa?'
 		},
 		{
-			id: 'talenta',
-			label: 'Pengembangan Talenta',
-			iconType: 'talenta',
-			queryText: 'Pengembangan Talenta'
-		},
-		{
-			id: 'konsultasi',
-			label: 'Konsultasi',
-			iconType: 'konsultasi',
-			queryText: 'Konsultasi Pendidikan'
-		},
-		{
-			id: 'kemitraan',
-			label: 'Kerja Sama Institusi',
+			id: 'institusi',
+			label: 'Solusi untuk Institusi',
 			iconType: 'kemitraan',
-			queryText: 'Kerja Sama Institusi'
-		},
-		{
-			id: 'lainnya',
-			label: 'Topik Lainnya',
-			iconType: 'lainnya',
-			queryText: 'Topik Lainnya'
+			queryText: 'Apa saja solusi untuk institusi?'
 		}
 	] as QuickReplyItem[],
 
@@ -70,7 +57,7 @@ Silakan pilih topik berikut atau ketik pertanyaan Anda.`,
 	// Batasan pesan & rate limit
 	maxMessageLength: 500,
 	rateLimitMs: 800,
-	storageKey: 'sdj_chat_v1'
+	storageKey: 'sdj_nalara_chat_history'
 };
 
 export function isChatEnabled(pathname: string): boolean {

@@ -67,13 +67,25 @@ class ChatStore {
 			console.warn('[ChatStore] sessionStorage not available', e);
 		}
 
-		// 2. Pulihkan Riwayat Pesan dengan migrasi aman ke format terstruktur (v2)
+		// 2. Pulihkan Riwayat Pesan dari localStorage (dengan migrasi aman)
 		try {
-			const raw = sessionStorage.getItem(chatConfig.storageKey);
+			let raw = null;
+			try {
+				raw = localStorage.getItem(chatConfig.storageKey);
+			} catch {
+				// fallback ke sessionStorage jika localStorage dibatasi
+			}
+			if (!raw) {
+				try {
+					raw = sessionStorage.getItem(chatConfig.storageKey);
+				} catch {
+					// ignore
+				}
+			}
+
 			if (raw) {
 				const parsed = JSON.parse(raw);
 				if (Array.isArray(parsed.messages) && parsed.messages.length > 0) {
-					// Migrasi aman bila masih format lama (v1)
 					const now = Date.now();
 					this.messages = parsed.messages.map((m: any, idx: number) => {
 						const timestampMs = typeof m.timestampMs === 'number' ? m.timestampMs : now - (parsed.messages.length - idx) * 1000;
@@ -163,7 +175,7 @@ class ChatStore {
 	private saveToStorage() {
 		if (typeof window === 'undefined') return;
 		try {
-			// Simpan maksimal 100 pesan terakhir
+			// Simpan maksimal 100 pesan terakhir di localStorage
 			const payload = {
 				version: 2,
 				messages: this.messages.slice(-100),
@@ -171,7 +183,13 @@ class ChatStore {
 				unreadCount: this.unreadCount,
 				showQuickReplies: this.showQuickReplies
 			};
-			sessionStorage.setItem(chatConfig.storageKey, JSON.stringify(payload));
+			const serialized = JSON.stringify(payload);
+			try {
+				localStorage.setItem(chatConfig.storageKey, serialized);
+			} catch {
+				// fallback ke sessionStorage jika localStorage penuh atau dibatasi
+				sessionStorage.setItem(chatConfig.storageKey, serialized);
+			}
 		} catch (e) {
 			console.warn('[ChatStore] Storage save failed', e);
 		}
@@ -217,6 +235,18 @@ class ChatStore {
 	}
 
 	clearConversation() {
+		if (typeof window !== 'undefined') {
+			try {
+				localStorage.removeItem(chatConfig.storageKey);
+			} catch {
+				// ignore
+			}
+			try {
+				sessionStorage.removeItem(chatConfig.storageKey);
+			} catch {
+				// ignore
+			}
+		}
 		this.resetToWelcome();
 	}
 

@@ -232,15 +232,13 @@
 			return { headline, body };
 		}
 
-		// 8. Teks fallback standar (legacy)
-		const raw = msg.text || '';
-		const newlineIdx = raw.indexOf('\n');
-		if (newlineIdx !== -1) {
-			return {
-				headline: raw.substring(0, newlineIdx).trim(),
-				body: raw.substring(newlineIdx + 1).trim()
-			};
+		// 8. Teks respons NALARA AI / Text Biasa
+		if (msg.kind === 'text' || !msg.kind) {
+			return { headline: '', body: msg.text || '' };
 		}
+
+		// 9. Teks fallback standar (legacy)
+		const raw = msg.text || '';
 		return { headline: '', body: raw };
 	}
 

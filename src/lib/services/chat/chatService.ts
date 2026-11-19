@@ -51,7 +51,7 @@ export interface IChatService {
 }
 
 // Konfigurasi Mode Layanan: 'mock' | 'api'
-export const CHAT_MODE: string = 'mock';
+export const CHAT_MODE: string = 'api';
 
 import { mockChatService } from './mockChatService';
 import { apiChatService } from './apiChatService';
