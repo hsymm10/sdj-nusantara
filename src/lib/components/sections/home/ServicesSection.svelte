@@ -74,13 +74,6 @@
 							</li>
 						{/each}
 					</ul>
-					<div class="panel-link-hint">
-						<span>{i18n.pick('Pelajari Selengkapnya', 'Learn More')}</span>
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="5" y1="12" x2="19" y2="12"></line>
-							<polyline points="12 5 19 12 12 19"></polyline>
-						</svg>
-					</div>
 				</div>
 			</a>
 
@@ -111,13 +104,6 @@
 							</li>
 						{/each}
 					</ul>
-					<div class="panel-link-hint">
-						<span>{i18n.pick('Pelajari Selengkapnya', 'Learn More')}</span>
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="5" y1="12" x2="19" y2="12"></line>
-							<polyline points="12 5 19 12 12 19"></polyline>
-						</svg>
-					</div>
 				</div>
 			</a>
 		</div>
@@ -211,27 +197,29 @@
 		box-sizing: border-box;
 	}
 
-	/* Service Panel Card (Kombinasi Foto + Box Teks Krem Hangat) */
+	/* Service Panel Card (Kombinasi Foto + Box Teks Putih Bersih Sesuai Beranda) */
 	.dual-service-panel {
 		display: flex;
 		flex-direction: row;
-		background: #F8F4F1;
-		border-radius: 14px;
+		background: #FFFFFF;
+		border-radius: 16px;
 		overflow: hidden;
 		text-decoration: none;
 		box-shadow: 0 4px 18px rgba(8, 36, 66, 0.05);
-		border: 1.5px solid rgba(8, 36, 66, 0.06);
+		border: 1.5px solid #EDF2F7;
 		transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
 		            box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-		            border-color 0.28s ease;
+		            border-color 0.28s ease,
+		            background-color 0.28s ease;
 		scroll-margin-top: 90px;
 		position: relative;
 	}
 
 	.dual-service-panel:hover {
+		background: #FAFCFE;
 		transform: translateY(-3px);
-		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.1);
-		border-color: rgba(217, 93, 15, 0.35);
+		box-shadow: 0 10px 28px rgba(0, 166, 178, 0.12);
+		border-color: #00A6B2;
 	}
 
 	/* Highlight pulse saat tombol hero diklik */
@@ -278,7 +266,7 @@
 	/* Kolom Konten Teks */
 	.panel-content-col {
 		flex: 1;
-		padding: 26px 26px 22px;
+		padding: 28px 28px 24px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -294,14 +282,14 @@
 		line-height: 1.25;
 	}
 
-	/* Bullet List dengan Kotak Oranye Sesuai Gambar 4 */
+	/* Bullet List dengan Kotak Oranye Sesuai Gambar 1 */
 	.panel-bullet-list {
 		list-style: none;
 		padding: 0;
-		margin: 0 0 1.25rem 0;
+		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: 0.85rem;
 	}
 
 	.bullet-item {
@@ -325,23 +313,6 @@
 		color: #1E293B;
 		line-height: 1.35;
 		letter-spacing: -0.005em;
-	}
-
-	/* Tautan Pelajari Selengkapnya di Bawah Card */
-	.panel-link-hint {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		font-size: 13px;
-		font-weight: 700;
-		color: #D95D0F;
-		transition: gap 0.2s ease, color 0.2s ease;
-		margin-top: auto;
-	}
-
-	.dual-service-panel:hover .panel-link-hint {
-		gap: 9px;
-		color: #B54705;
 	}
 
 	/* Tablet Responsif (768px - 1024px) */
@@ -447,10 +418,6 @@
 
 		.bullet-text {
 			font-size: 13px;
-		}
-
-		.panel-link-hint {
-			font-size: 12px;
 		}
 	}
 

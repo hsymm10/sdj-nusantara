@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
@@ -11,7 +10,6 @@
 	import { dragToScroll } from '#lib/actions/dragToScroll';
 
 	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
-	let openFaq = $state<number | null>(0);
 	let tabCardEl = $state<HTMLElement | null>(null);
 
 	function setTab(tab: 'semua' | 'program' | 'beasiswa' | 'hukum') {
@@ -34,10 +32,6 @@
 		}
 	});
 
-	function toggleFaq(index: number) {
-		openFaq = openFaq === index ? null : index;
-	}
-
 	function scrollToCards() {
 		if (typeof document !== 'undefined') {
 			const el = document.getElementById('daftar-layanan');
@@ -46,37 +40,6 @@
 			}
 		}
 	}
-
-	const faqs = $derived([
-		{
-			question: i18n.pick('Bagaimana cara mengajukan kerja sama?', 'How do we propose a partnership?'),
-			answer: i18n.pick(
-				'Anda dapat menghubungi kami melalui formulir kontak atau WhatsApp resmi SDJNusantara. Tim kami akan menjadwalkan diskusi awal untuk memahami kebutuhan dan profil institusi Anda.',
-				'You can reach us via our contact form or official SDJNusantara WhatsApp. Our team will schedule an initial discovery session to understand your institution’s needs and profile.'
-			)
-		},
-		{
-			question: i18n.pick('Apakah layanan SDJNusantara hanya untuk sekolah?', 'Are SDJNusantara services only for schools?'),
-			answer: i18n.pick(
-				'Tidak. Kami melayani siswa, mahasiswa, profesional mandiri, sekolah, perguruan tinggi, yayasan pendidikan, serta korporasi dan institusi mitra.',
-				'No. We serve high school students, university students, professionals, schools, universities, education foundations, corporations, and partner institutions.'
-			)
-		},
-		{
-			question: i18n.pick('Apakah tersedia konsultasi online?', 'Are online consultations available?'),
-			answer: i18n.pick(
-				'Ya, seluruh sesi konsultasi, pendampingan, dan bimbingan dapat dilaksanakan secara daring maupun tatap muka langsung sesuai kesepakatan bersama.',
-				'Yes, all consultation, mentoring, and coaching sessions can be conducted online or in person by mutual agreement.'
-			)
-		},
-		{
-			question: i18n.pick('Berapa lama proses layanan berlangsung?', 'How long does the service process take?'),
-			answer: i18n.pick(
-				'Durasi layanan bervariasi bergantung pada jenis program, mulai dari sesi bimbingan tematik 1 hari hingga pendampingan terstruktur selama beberapa bulan.',
-				'Service duration varies by program type, ranging from 1-day thematic workshops to structured mentoring over several months.'
-			)
-		}
-	]);
 </script>
 
 <svelte:head>
@@ -165,15 +128,13 @@
 					)}
 				</p>
 
-				<!-- Tombol aksi ramping -->
+				<!-- Tombol aksi Sesuai Referensi Gambar 2 -->
 				<div class="hero-actions">
-					<button type="button" class="btn-hero-gold" onclick={scrollToCards}>
-						<span>{i18n.pick('Jelajahi Layanan', 'Explore Services')}</span>
-						<span class="btn-arrow" aria-hidden="true">→</span>
-					</button>
-
-					<a href="/kontak" class="btn-hero-outline">
-						<span>{i18n.pick('Konsultasi dengan Kami', 'Consult With Us')}</span>
+					<a href="/layanan" class="hero-choice-btn btn-choice-active">
+						<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
+					</a>
+					<a href="/layanan" class="hero-choice-btn btn-choice-inactive">
+						<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
 					</a>
 				</div>
 			</div>
@@ -696,138 +657,7 @@
 	</div>
 
 	<!-- ==========================================
-	     5. PERTANYAAN UMUM (FAQ)
-	     ========================================== -->
-	<section class="hub-faq-section" aria-label="Pertanyaan Umum">
-		<!-- Dekorasi Sudut Latar Lembut -->
-		<svg class="faq-bg-arc-tr" viewBox="0 0 260 220" fill="none" aria-hidden="true">
-			<path d="M80 0 C110 110, 175 180, 260 205 L260 0 Z" fill="#DDF3F6" fill-opacity="0.7" />
-			<path d="M145 0 C170 80, 210 130, 260 150 L260 0 Z" fill="#BCEAF0" fill-opacity="0.55" />
-		</svg>
-		<svg class="faq-bg-arc-bl" viewBox="0 0 240 160" fill="none" aria-hidden="true">
-			<path d="M0 40 C85 50, 150 95, 195 160 L0 160 Z" fill="#E3F6F9" fill-opacity="0.75" />
-		</svg>
-		<svg class="faq-bg-arc-br" viewBox="0 0 320 170" fill="none" aria-hidden="true">
-			<path d="M40 170 C120 115, 220 75, 320 45 L320 170 Z" fill="#7FD8E0" fill-opacity="0.35" />
-			<path d="M90 170 C170 120, 245 88, 320 68 L320 170 Z" fill="#FFB629" fill-opacity="0.88" />
-			<path d="M135 170 C205 128, 265 102, 320 92 L320 170 Z" fill="#00A6B2" />
-		</svg>
-
-		<div class="hub-container">
-			<div class="faq-card" aria-labelledby="faq-heading">
-				<div class="faq-header-top">
-					<div class="faq-header-copy">
-						<div class="faq-eyebrow">
-							<span class="faq-eyebrow-line" aria-hidden="true"></span>
-							<span>FAQ</span>
-						</div>
-						<h3 id="faq-heading" class="faq-title">
-							{i18n.pick('Pertanyaan', 'Frequently Asked')} <span class="faq-title-gold">{i18n.pick('Umum', 'Questions')}</span>
-						</h3>
-						<p class="faq-subtitle">
-							{i18n.pick(
-								'Temukan jawaban dari pertanyaan yang paling sering ditanyakan.',
-								'Find answers to the most commonly asked questions.'
-							)}
-						</p>
-					</div>
-
-					<!-- Ilustrasi Balon Percakapan 3D -->
-					<div class="faq-header-illus" aria-hidden="true">
-						<svg viewBox="0 0 150 105" fill="none" class="faq-bubbles-svg">
-							<defs>
-								<linearGradient id="faq-teal-bubble" x1="12" y1="12" x2="96" y2="88" gradientUnits="userSpaceOnUse">
-									<stop offset="0%" stop-color="#3BD0DB" />
-									<stop offset="100%" stop-color="#009AA6" />
-								</linearGradient>
-								<linearGradient id="faq-white-bubble" x1="68" y1="44" x2="128" y2="96" gradientUnits="userSpaceOnUse">
-									<stop offset="0%" stop-color="#FFFFFF" />
-									<stop offset="100%" stop-color="#E7F1F6" />
-								</linearGradient>
-								<filter id="faq-bubble-shadow" x="0" y="0" width="150" height="105" filterUnits="userSpaceOnUse">
-									<feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#082442" flood-opacity="0.12" />
-								</filter>
-							</defs>
-
-							<!-- Spark Kuning di Kanan Atas -->
-							<g stroke="#FFB629" stroke-width="3.6" stroke-linecap="round">
-								<line x1="107" y1="18" x2="112" y2="8" />
-								<line x1="117" y1="24" x2="128" y2="19" />
-								<line x1="119" y1="34" x2="130" y2="35" />
-							</g>
-
-							<!-- Balon Teal dengan Tanda Tanya -->
-							<g filter="url(#faq-bubble-shadow)">
-								<path
-									d="M55 14C32.356 14 14 29.01 14 47.52C14 57.33 19.15 66.15 27.38 72.3L22.5 84.5L38.3 78.65C43.52 80.22 49.15 81.04 55 81.04C77.644 81.04 96 66.03 96 47.52C96 29.01 77.644 14 55 14Z"
-									fill="url(#faq-teal-bubble)"
-								/>
-								<path
-									d="M47.8 39.2C47.8 34.8 51.3 31.6 56.1 31.6C60.7 31.6 64.1 34.3 64.1 38.4C64.1 41.3 62.4 43.2 59.5 44.9C57.1 46.3 56.2 47.6 56.2 50.1V51.4"
-									stroke="#FFFFFF"
-									stroke-width="4.4"
-									stroke-linecap="round"
-								/>
-								<circle cx="56.2" cy="59.2" r="2.7" fill="#FFFFFF" />
-							</g>
-
-							<!-- Balon Putih dengan 3 Titik -->
-							<g filter="url(#faq-bubble-shadow)">
-								<path
-									d="M99 42C81.879 42 68 53.193 68 67C68 80.807 81.879 92 99 92C103.5 92 107.78 91.22 111.64 89.83L123.5 94.5L119.72 84.95C126.02 80.36 130 74.02 130 67C130 53.193 116.121 42 99 42Z"
-									fill="url(#faq-white-bubble)"
-									stroke="#DCEAF2"
-									stroke-width="1"
-								/>
-								<circle cx="88" cy="67" r="3.4" fill="#00A6B2" />
-								<circle cx="99" cy="67" r="3.4" fill="#46C2CC" />
-								<circle cx="110" cy="67" r="3.4" fill="#82D8DF" />
-							</g>
-						</svg>
-					</div>
-				</div>
-
-				<div class="faq-list">
-					{#each faqs as item, index}
-						{@const isOpen = openFaq === index}
-						{@const orderNum = String(index + 1).padStart(2, '0')}
-						<div class="faq-item {isOpen ? 'is-open' : ''}">
-							<button
-								type="button"
-								class="faq-question-btn"
-								aria-expanded={isOpen}
-								aria-controls="layanan-faq-ans-{index}"
-								onclick={() => toggleFaq(index)}
-							>
-								<span class="faq-q-left">
-									<span class="faq-num-badge">{orderNum}</span>
-									<span class="question-text">{item.question}</span>
-								</span>
-								<span class="faq-chevron" aria-hidden="true">
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<polyline points="6 9 12 15 18 9"></polyline>
-									</svg>
-								</span>
-							</button>
-
-							{#if isOpen}
-								<div
-									id="layanan-faq-ans-{index}"
-									class="faq-answer-panel"
-									transition:slide={{ duration: 220 }}
-								>
-									<p class="faq-answer-text">{item.answer}</p>
-								</div>
-							{/if}
-						</div>
-					{/each}
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ==========================================
-	     6. CTA BANNER FULL BACKGROUND IMAGE
+	     5. CTA BANNER FULL BACKGROUND IMAGE
 	     ========================================== -->
 	<CtaBanner
 		title={i18n.pick('Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>', 'Ready to Unlock <span class="highlight-gold">Your Institution’s Potential?</span>')}
@@ -1033,68 +863,48 @@
 		flex-wrap: wrap;
 	}
 
-	.btn-hero-gold {
+	.hero-choice-btn {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
-		background: #F5B331;
-		color: #082442;
-		width: auto;
-		min-width: 174px;
 		height: 42px;
-		padding: 0 22px;
-		font-size: 13.5px;
-		font-weight: 700;
-		border-radius: 9px;
-		border: none;
-		cursor: pointer;
-		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-		box-sizing: border-box;
-	}
-
-	.btn-hero-gold:hover {
-		background: #e6a528;
-		transform: translateY(-2px);
-		box-shadow: 0 5px 16px rgba(245, 179, 49, 0.36);
-	}
-
-	.btn-arrow {
+		padding: 0 24px;
 		font-size: 14px;
-		line-height: 1;
-		transition: transform 0.2s ease;
-	}
-
-	.btn-hero-gold:hover .btn-arrow {
-		transform: translateX(3px);
-	}
-
-	.btn-hero-outline {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		background: transparent;
-		color: #FFFFFF;
-		border: 1.5px solid rgba(255, 255, 255, 0.85);
-		width: auto;
-		min-width: 204px;
-		height: 42px;
-		padding: 0 22px;
-		font-size: 13.5px;
 		font-weight: 700;
-		border-radius: 9px;
-		cursor: pointer;
+		border-radius: 8px;
 		text-decoration: none;
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
 		box-sizing: border-box;
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		cursor: pointer;
 	}
 
-	.btn-hero-outline:hover {
-		background: rgba(255, 255, 255, 0.14);
-		border-color: #FFFFFF;
-		transform: translateY(-2px);
+	.hero-choice-btn.btn-choice-active {
+		background: #D95D0F;
+		color: #FFFFFF;
+		border: 1.5px solid #D95D0F;
+		box-shadow: 0 4px 14px rgba(217, 93, 15, 0.32);
+	}
+
+	.hero-choice-btn.btn-choice-active:hover {
+		background: #C4510B;
+		border-color: #C4510B;
+		transform: translateY(-1px);
+		box-shadow: 0 6px 18px rgba(217, 93, 15, 0.42);
+	}
+
+	.hero-choice-btn.btn-choice-inactive {
+		background: #FFFFFF;
+		color: #082442;
+		border: 1.5px solid #FFFFFF;
+		box-shadow: 0 3px 12px rgba(8, 36, 66, 0.16);
+	}
+
+	.hero-choice-btn.btn-choice-inactive:hover {
+		background: #F8FAFC;
+		border-color: #E2E8F0;
+		transform: translateY(-1px);
+		box-shadow: 0 5px 16px rgba(8, 36, 66, 0.22);
 	}
 
 	/* ==========================================
@@ -1753,246 +1563,6 @@
 	}
 
 	/* ==========================================
-	     5. PERTANYAAN UMUM (FAQ)
-	     ========================================== */
-	.hub-faq-section {
-		position: relative;
-		overflow: hidden;
-		padding: 52px 0 64px;
-		background: #F6FAFC;
-	}
-
-	.faq-bg-arc-tr {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 240px;
-		height: 200px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.faq-bg-arc-bl {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 220px;
-		height: 150px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.faq-bg-arc-br {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: 300px;
-		height: 160px;
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.hub-faq-section .faq-card {
-		position: relative;
-		z-index: 2;
-		width: 100%;
-		max-width: 1000px;
-		margin: 0 auto;
-	}
-
-	.faq-card {
-		background: #FFFFFF;
-		border: 1px solid #E1ECF4;
-		border-radius: 20px;
-		padding: 36px 40px;
-		display: flex;
-		flex-direction: column;
-		box-sizing: border-box;
-		box-shadow: 0 12px 34px rgba(8, 36, 66, 0.055), 0 2px 8px rgba(8, 36, 66, 0.03);
-	}
-
-	.faq-header-top {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 20px;
-		margin-bottom: 24px;
-	}
-
-	.faq-header-copy {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.faq-eyebrow {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		font-size: 12px;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		color: #00A6B2;
-		text-transform: uppercase;
-		margin-bottom: 6px;
-	}
-
-	.faq-eyebrow-line {
-		width: 18px;
-		height: 2px;
-		background: #00A6B2;
-		border-radius: 2px;
-		display: inline-block;
-	}
-
-	.faq-title {
-		font-size: 28px;
-		font-weight: 800;
-		color: #082442;
-		margin: 0 0 8px 0;
-		line-height: 1.2;
-		letter-spacing: -0.015em;
-	}
-
-	.faq-title-gold {
-		color: #FFB629;
-	}
-
-	.faq-subtitle {
-		font-size: 14px;
-		color: #5A7184;
-		margin: 0;
-		line-height: 1.5;
-	}
-
-	.faq-header-illus {
-		flex-shrink: 0;
-		width: 144px;
-		margin-top: -6px;
-	}
-
-	.faq-bubbles-svg {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-
-	.faq-list {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		width: 100%;
-		min-width: 0;
-	}
-
-	.faq-item {
-		width: 100%;
-		min-width: 0;
-		background: #FFFFFF;
-		border: 1px solid #DCE7F0;
-		border-radius: 12px;
-		box-sizing: border-box;
-		transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-	}
-
-	.faq-item:hover {
-		border-color: #BDD8E4;
-		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.035);
-	}
-
-	.faq-item.is-open {
-		background: #EFF9FA;
-		border-color: #93DDE3;
-		box-shadow: 0 4px 14px rgba(0, 166, 178, 0.08);
-	}
-
-	.faq-question-btn {
-		width: 100%;
-		min-height: 52px;
-		min-width: 0;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 12px 18px;
-		background: transparent;
-		border: none;
-		text-align: left;
-		cursor: pointer;
-		color: #082442;
-		font-size: 14.5px;
-		font-weight: 700;
-		gap: 14px;
-		box-sizing: border-box;
-	}
-
-	.faq-q-left {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-		flex: 1;
-		min-width: 0;
-	}
-
-	.faq-num-badge {
-		min-width: 34px;
-		height: 28px;
-		border-radius: 8px;
-		background: #DDF4F5;
-		color: #00A6B2;
-		font-size: 13px;
-		font-weight: 800;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		transition: background-color 0.18s ease, color 0.18s ease;
-	}
-
-	.faq-item.is-open .faq-num-badge {
-		background: #00A6B2;
-		color: #FFFFFF;
-	}
-
-	.question-text {
-		line-height: 1.4;
-		white-space: normal;
-		overflow-wrap: anywhere;
-		word-break: break-word;
-		min-width: 0;
-		flex: 1;
-	}
-
-	.faq-chevron {
-		transition: transform 0.22s ease, color 0.2s ease;
-		display: flex;
-		align-items: center;
-		color: #475569;
-		flex-shrink: 0;
-	}
-
-	.faq-item.is-open .faq-chevron {
-		transform: rotate(180deg);
-		color: #00A6B2;
-	}
-
-	.faq-answer-panel {
-		width: 100%;
-		padding: 0 22px 18px 66px;
-		box-sizing: border-box;
-	}
-
-	.faq-answer-text {
-		width: 100%;
-		font-size: 14px;
-		line-height: 1.6;
-		color: #475569;
-		margin: 0;
-		white-space: normal;
-		overflow-wrap: anywhere;
-		word-break: break-word;
-		box-sizing: border-box;
-	}
-
-	/* ==========================================
 	     RESPONSIVE
 	     ========================================== */
 	@media (max-width: 1200px) {
@@ -2045,15 +1615,6 @@
 
 		.cards-grid.single-filtered .card-media {
 			min-height: 328px;
-		}
-
-		.faq-card {
-			border-radius: 20px;
-			padding: 30px 28px;
-		}
-
-		.faq-header-illus {
-			width: 124px;
 		}
 	}
 
@@ -2135,13 +1696,16 @@
 		}
 
 		.hero-actions {
-			flex-direction: column;
-			align-items: stretch;
+			flex-direction: row;
+			gap: 10px;
+			width: 100%;
 		}
 
-		.btn-hero-gold,
-		.btn-hero-outline {
-			width: 100%;
+		.hero-choice-btn {
+			flex: 1 1 50%;
+			height: 42px;
+			padding: 0 10px;
+			font-size: 13px;
 		}
 
 		.tab-overlap-section {
@@ -2297,64 +1861,6 @@
 		.showcase-arc-br {
 			opacity: 0.45;
 			transform: scale(0.65);
-		}
-
-		.hub-faq-section {
-			padding: 36px 0 48px;
-		}
-
-		.faq-card {
-			padding: 22px 16px;
-			border-radius: 16px;
-		}
-
-		.faq-header-top {
-			gap: 12px;
-			margin-bottom: 18px;
-		}
-
-		.faq-title {
-			font-size: 22px;
-		}
-
-		.faq-subtitle {
-			font-size: 13px;
-		}
-
-		.faq-header-illus {
-			width: 88px;
-			margin-top: 0;
-		}
-
-		.faq-question-btn {
-			padding: 12px 14px;
-			font-size: 13.5px;
-			gap: 10px;
-		}
-
-		.faq-q-left {
-			gap: 10px;
-		}
-
-		.faq-num-badge {
-			min-width: 30px;
-			height: 25px;
-			font-size: 12px;
-		}
-
-		.faq-answer-panel {
-			padding: 0 14px 14px 54px;
-		}
-
-		.faq-answer-text {
-			font-size: 13px;
-		}
-
-		.faq-bg-arc-tr,
-		.faq-bg-arc-bl,
-		.faq-bg-arc-br {
-			opacity: 0.6;
-			transform: scale(0.7);
 		}
 	}
 </style>

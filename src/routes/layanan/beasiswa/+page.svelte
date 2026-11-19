@@ -49,10 +49,10 @@
 	<CtaBanner
 		title={i18n.pick('Butuh Bantuan <span class="highlight-gold">Memilih Beasiswa?</span>', 'Need Help <span class="highlight-gold">Choosing a Scholarship?</span>')}
 		description={i18n.pick('Konsultasikan rencana pendidikan Anda dengan tim SDJNusantara dan dapatkan rekomendasi beasiswa yang sesuai dengan profil Anda.', 'Consult your education plan with the SDJNusantara team and receive scholarship recommendations matched to your profile.')}
-		primaryText={i18n.pick('Jadwalkan Konsultasi →', 'Schedule a Consultation →')}
+		primaryText={i18n.pick('Ajukan Konsultasi', 'Request Consultation')}
 		primaryHref="/kontak"
-		secondaryText={i18n.pick('Lihat Program Lainnya', 'View Other Programs')}
-		secondaryHref="/program"
+		secondaryText={i18n.pick('Diskusi Institusi', 'Institutional Discussion')}
+		secondaryHref="/kemitraan"
 		bgImage="/images/cta-pendidikan-academic-bg.jpg"
 		variant="layanan"
 	/>

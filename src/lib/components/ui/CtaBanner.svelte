@@ -407,20 +407,22 @@
 		gap: 7px;
 		padding: 0 1.35rem;
 		height: 38px;
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 700;
-		background: #F9B52B;
-		color: #082442;
+		background: #D95D0F;
+		color: #FFFFFF;
 		border-radius: 8px;
-		box-shadow: 0 3px 10px rgba(249, 181, 43, 0.32);
+		box-shadow: 0 3px 10px rgba(217, 93, 15, 0.35);
 		white-space: nowrap;
+		border: 1px solid rgba(255, 255, 255, 0.15);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.cta-banner.variant-layanan .btn-gold:hover {
-		background: #e6a528;
+		background: #C4510B;
 		transform: translateY(-1px);
-		box-shadow: 0 5px 14px rgba(249, 181, 43, 0.42);
+		box-shadow: 0 5px 14px rgba(217, 93, 15, 0.45);
+		color: #FFFFFF;
 	}
 
 	.cta-banner.variant-layanan .btn-outline {
@@ -429,21 +431,23 @@
 		gap: 7px;
 		padding: 0 1.35rem;
 		height: 38px;
-		font-size: 12px;
+		font-size: 12.5px;
 		font-weight: 700;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1.5px solid rgba(255, 255, 255, 0.8);
-		color: #FFFFFF;
+		background: #FFFFFF;
+		border: 1.5px solid #FFFFFF;
+		color: #082442;
 		border-radius: 8px;
 		white-space: nowrap;
+		box-shadow: 0 3px 10px rgba(8, 36, 66, 0.16);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.cta-banner.variant-layanan .btn-outline:hover {
-		background: rgba(255, 255, 255, 0.18);
-		border-color: #FFFFFF;
-		color: #FFFFFF;
+		background: #F8FAFC;
+		border-color: #E2E8F0;
+		color: #082442;
 		transform: translateY(-1px);
+		box-shadow: 0 5px 14px rgba(8, 36, 66, 0.22);
 	}
 
 	.cta-banner.variant-layanan .cta-bg-img {

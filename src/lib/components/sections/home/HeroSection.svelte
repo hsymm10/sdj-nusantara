@@ -1,24 +1,5 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
-
-	let activeHeroChoice = $state<'individu' | 'institusi'>('individu');
-
-	function handleChoiceClick(choice: 'individu' | 'institusi', e: MouseEvent) {
-		activeHeroChoice = choice;
-		const targetId = choice === 'individu' ? 'panel-individu' : 'panel-institusi';
-		const el = document.getElementById(targetId);
-		if (el) {
-			e.preventDefault();
-			el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-			el.classList.add('panel-highlighted');
-			setTimeout(() => {
-				el.classList.remove('panel-highlighted');
-			}, 2000);
-			if (typeof history !== 'undefined') {
-				history.replaceState(null, '', `#${targetId}`);
-			}
-		}
-	}
 </script>
 
 <section id="hero-beranda" class="hero-section">
@@ -127,23 +108,17 @@
 			</div>
 
 			<!-- Segmented Choice Buttons (Sesuai Referensi Gambar 2) -->
-			<div class="hero-choice-group" role="tablist" aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}>
+			<div class="hero-choice-group" aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}>
 				<a
-					href="#panel-individu"
-					class="hero-choice-btn {activeHeroChoice === 'individu' ? 'btn-choice-active' : 'btn-choice-inactive'}"
-					role="tab"
-					aria-selected={activeHeroChoice === 'individu'}
-					onclick={(e) => handleChoiceClick('individu', e)}
+					href="/layanan"
+					class="hero-choice-btn btn-choice-active"
 				>
 					<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
 				</a>
 
 				<a
-					href="#panel-institusi"
-					class="hero-choice-btn {activeHeroChoice === 'institusi' ? 'btn-choice-active' : 'btn-choice-inactive'}"
-					role="tab"
-					aria-selected={activeHeroChoice === 'institusi'}
-					onclick={(e) => handleChoiceClick('institusi', e)}
+					href="/layanan"
+					class="hero-choice-btn btn-choice-inactive"
 				>
 					<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
 				</a>
@@ -323,18 +298,19 @@
 		box-shadow: 0 6px 18px rgba(217, 93, 15, 0.42);
 	}
 
-	/* Tombol tidak aktif: Background putih atau transparan dengan border navy dan teks navy */
+	/* Tombol tidak aktif: Background putih dengan teks navy sesuai Gambar 2 */
 	.hero-choice-btn.btn-choice-inactive {
 		background: #FFFFFF;
 		color: #082442;
-		border: 2px solid #082442;
-		box-shadow: 0 2px 8px rgba(8, 36, 66, 0.08);
+		border: 1.5px solid #FFFFFF;
+		box-shadow: 0 3px 12px rgba(8, 36, 66, 0.16);
 	}
 
 	.hero-choice-btn.btn-choice-inactive:hover {
 		background: #F8FAFC;
-		border-color: #0B2948;
+		border-color: #E2E8F0;
 		transform: translateY(-1px);
+		box-shadow: 0 5px 16px rgba(8, 36, 66, 0.22);
 	}
 
 	.hero-mobile-photo-band {

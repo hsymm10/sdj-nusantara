@@ -58,14 +58,13 @@
 				)}
 			</p>
 
-			<!-- Buttons Row -->
-			<div class="hero-btn-row">
-				<a href="/kontak" class="btn-gold">
-					<span>{i18n.pick('Konsultasikan Kebutuhan Anda', 'Consult Your Needs')}</span>
-					<span class="btn-arrow">→</span>
+			<!-- Segmented Choice Buttons (Sesuai Referensi Gambar 2) -->
+			<div class="hero-choice-group" aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}>
+				<a href="/layanan" class="hero-choice-btn btn-choice-active">
+					<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
 				</a>
-				<a href="#solusi-terintegrasi" class="btn-outline">
-					<span>{i18n.pick('Jelajahi Layanan Kami', 'Explore Our Services')}</span>
+				<a href="/layanan" class="hero-choice-btn btn-choice-inactive">
+					<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
 				</a>
 			</div>
 		</div>
@@ -209,66 +208,56 @@
 		max-width: 575px;
 	}
 
-	/* Buttons Row */
-	.hero-btn-row {
+	/* Segmented Choice Buttons (Sesuai Referensi Gambar 2) */
+	.hero-choice-group {
 		display: flex;
 		align-items: center;
-		gap: 14px;
+		gap: 12px;
+		margin-top: 0.5rem;
 	}
 
-	.btn-gold {
+	.hero-choice-btn {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
-		width: 250px;
 		height: 42px;
-		background: #F5B331;
-		color: #082442;
-		font-size: 13.5px;
+		padding: 0 24px;
+		font-size: 14px;
 		font-weight: 700;
 		border-radius: 8px;
 		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
-		transition: all 0.2s ease;
+		white-space: nowrap;
 		box-sizing: border-box;
+		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		cursor: pointer;
 	}
 
-	.btn-gold:hover {
-		background: #e6a528;
+	.hero-choice-btn.btn-choice-active {
+		background: #D95D0F;
+		color: #FFFFFF;
+		border: 1.5px solid #D95D0F;
+		box-shadow: 0 4px 14px rgba(217, 93, 15, 0.32);
+	}
+
+	.hero-choice-btn.btn-choice-active:hover {
+		background: #C4510B;
+		border-color: #C4510B;
 		transform: translateY(-1px);
+		box-shadow: 0 6px 18px rgba(217, 93, 15, 0.42);
 	}
 
-	.btn-arrow {
-		font-size: 14px;
-		transition: transform 0.2s ease;
+	.hero-choice-btn.btn-choice-inactive {
+		background: #FFFFFF;
+		color: #082442;
+		border: 1.5px solid #FFFFFF;
+		box-shadow: 0 3px 12px rgba(8, 36, 66, 0.16);
 	}
 
-	.btn-gold:hover .btn-arrow {
-		transform: translateX(3px);
-	}
-
-	.btn-outline {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 178px;
-		height: 42px;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1.5px solid rgba(255, 255, 255, 0.65);
-		color: #FFFFFF;
-		font-size: 13.5px;
-		font-weight: 600;
-		border-radius: 8px;
-		text-decoration: none;
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-	}
-
-	.btn-outline:hover {
-		border-color: #00A6B2;
-		background: rgba(0, 166, 178, 0.12);
-		color: #FFFFFF;
+	.hero-choice-btn.btn-choice-inactive:hover {
+		background: #F8FAFC;
+		border-color: #E2E8F0;
+		transform: translateY(-1px);
+		box-shadow: 0 5px 16px rgba(8, 36, 66, 0.22);
 	}
 
 	@media (max-width: 900px) {
@@ -301,16 +290,16 @@
 			font-size: clamp(23px, 6.5vw, 30px);
 			line-height: 1.25;
 		}
-		.hero-btn-row {
-			flex-direction: column;
-			align-items: stretch;
-			width: 100%;
+		.hero-choice-group {
+			flex-direction: row;
 			gap: 10px;
-		}
-		.btn-gold,
-		.btn-outline {
 			width: 100%;
-			height: 44px;
+		}
+		.hero-choice-btn {
+			flex: 1 1 50%;
+			height: 42px;
+			padding: 0 10px;
+			font-size: 13px;
 		}
 	}
 </style>
