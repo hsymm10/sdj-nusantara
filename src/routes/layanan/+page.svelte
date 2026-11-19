@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
@@ -9,13 +10,29 @@
 	import { i18n } from '#lib/stores/i18n.svelte';
 	import { dragToScroll } from '#lib/actions/dragToScroll';
 
-	let activeTab = $state<'semua' | 'program' | 'beasiswa' | 'hukum'>('semua');
+	type ServiceCategory = 'individu' | 'institusi';
+	let activeTab = $state<ServiceCategory>('individu');
 	let tabCardEl = $state<HTMLElement | null>(null);
 
-	function setTab(tab: 'semua' | 'program' | 'beasiswa' | 'hukum') {
-		if (tab === 'hukum' && !serviceConfig.legal) return;
+	function setTab(tab: ServiceCategory) {
 		activeTab = tab;
 	}
+
+	function selectFromHero(tab: ServiceCategory) {
+		activeTab = tab;
+		scrollToCards();
+	}
+
+	onMount(() => {
+		if (typeof window !== 'undefined' && window.location.hash) {
+			const hash = window.location.hash.toLowerCase();
+			if (hash.includes('institusi') || hash.includes('kemitraan') || hash.includes('solusi')) {
+				activeTab = 'institusi';
+			} else if (hash.includes('individu') || hash.includes('pendidikan') || hash.includes('beasiswa')) {
+				activeTab = 'individu';
+			}
+		}
+	});
 
 	$effect(() => {
 		const currentTab = activeTab;
@@ -24,7 +41,7 @@
 		const activeEl = tabCardEl.querySelector<HTMLElement>(`[data-tab="${currentTab}"]`);
 		if (!activeEl) return;
 
-		if (currentTab === 'semua' || currentTab === 'program') {
+		if (currentTab === 'individu') {
 			tabCardEl.scrollTo({ left: 0, behavior: 'smooth' });
 		} else {
 			const targetLeft = Math.max(0, activeEl.offsetLeft - 14);
@@ -130,12 +147,20 @@
 
 				<!-- Tombol aksi Sesuai Referensi Gambar 2 -->
 				<div class="hero-actions">
-					<a href="/layanan" class="hero-choice-btn btn-choice-active">
+					<button
+						type="button"
+						class="hero-choice-btn {activeTab === 'individu' ? 'btn-choice-active' : 'btn-choice-inactive'}"
+						onclick={() => selectFromHero('individu')}
+					>
 						<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
-					</a>
-					<a href="/layanan" class="hero-choice-btn btn-choice-inactive">
+					</button>
+					<button
+						type="button"
+						class="hero-choice-btn {activeTab === 'institusi' ? 'btn-choice-active' : 'btn-choice-inactive'}"
+						onclick={() => selectFromHero('institusi')}
+					>
 						<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -153,93 +178,49 @@
 				role="tablist"
 				aria-label="Kategori Portofolio Layanan"
 			>
-				<!-- Tab 1: Semua Layanan -->
+				<!-- Tab 1: Layanan Individu -->
 				<button
 					type="button"
 					role="tab"
-					data-tab="semua"
-					class="tab-btn {activeTab === 'semua' ? 'active' : ''}"
-					aria-selected={activeTab === 'semua'}
-					onclick={() => setTab('semua')}
+					data-tab="individu"
+					class="tab-btn {activeTab === 'individu' ? 'active' : ''}"
+					aria-selected={activeTab === 'individu'}
+					onclick={() => setTab('individu')}
 				>
 					<span class="tab-icon" aria-hidden="true">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<rect x="3" y="3" width="7" height="7"></rect>
-							<rect x="14" y="3" width="7" height="7"></rect>
-							<rect x="14" y="14" width="7" height="7"></rect>
-							<rect x="3" y="14" width="7" height="7"></rect>
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+							<circle cx="12" cy="7" r="4"></circle>
 						</svg>
 					</span>
-					<span class="tab-label">{i18n.pick('Semua Layanan', 'All Services')}</span>
+					<span class="tab-label">{i18n.pick('Layanan Individu', 'Individual Services')}</span>
 				</button>
 
 				<div class="tab-vdivider" aria-hidden="true"></div>
 
-				<!-- Tab 2: Program Pendidikan -->
+				<!-- Tab 2: Solusi Institusi -->
 				<button
 					type="button"
 					role="tab"
-					data-tab="program"
-					class="tab-btn {activeTab === 'program' ? 'active' : ''}"
-					aria-selected={activeTab === 'program'}
-					onclick={() => setTab('program')}
+					data-tab="institusi"
+					class="tab-btn {activeTab === 'institusi' ? 'active' : ''}"
+					aria-selected={activeTab === 'institusi'}
+					onclick={() => setTab('institusi')}
 				>
 					<span class="tab-icon" aria-hidden="true">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-							<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+							<rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+							<path d="M9 22v-4h6v4"></path>
+							<path d="M8 6h.01"></path>
+							<path d="M16 6h.01"></path>
+							<path d="M8 10h.01"></path>
+							<path d="M16 10h.01"></path>
+							<path d="M8 14h.01"></path>
+							<path d="M16 14h.01"></path>
 						</svg>
 					</span>
-					<span class="tab-label">{i18n.pick('Program Pendidikan', 'Education Programs')}</span>
+					<span class="tab-label">{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
 				</button>
-
-				<div class="tab-vdivider" aria-hidden="true"></div>
-
-				<!-- Tab 3: Beasiswa -->
-				<button
-					type="button"
-					role="tab"
-					data-tab="beasiswa"
-					class="tab-btn {activeTab === 'beasiswa' ? 'active' : ''}"
-					aria-selected={activeTab === 'beasiswa'}
-					onclick={() => setTab('beasiswa')}
-				>
-					<span class="tab-icon" aria-hidden="true">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="20 12 20 22 4 22 4 12"></polyline>
-							<rect x="2" y="7" width="20" height="5"></rect>
-							<line x1="12" y1="22" x2="12" y2="7"></line>
-							<path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-							<path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-						</svg>
-					</span>
-					<span class="tab-label">{i18n.pick('Beasiswa', 'Scholarships')}</span>
-				</button>
-
-				{#if serviceConfig.legal}
-					<div class="tab-vdivider" aria-hidden="true"></div>
-
-					<!-- Tab 4: Layanan Hukum -->
-					<button
-						type="button"
-						role="tab"
-						data-tab="hukum"
-						class="tab-btn {activeTab === 'hukum' ? 'active' : ''}"
-						aria-selected={activeTab === 'hukum'}
-						onclick={() => setTab('hukum')}
-					>
-						<span class="tab-icon" aria-hidden="true">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-								<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-								<path d="M7 21h10"></path>
-								<path d="M12 3v18"></path>
-								<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
-							</svg>
-						</span>
-						<span class="tab-label">Layanan Hukum</span>
-					</button>
-				{/if}
 			</div>
 		</div>
 	</section>
@@ -267,61 +248,117 @@
 					<span class="label-text">{i18n.pick('Layanan SDJNusantara', 'SDJNusantara Services')}</span>
 				</div>
 				<h2 id="intro-heading" class="intro-title">
-					{i18n.pick('Layanan Pendidikan dan', 'Education and Talent')}<br />{i18n.pick('Pengembangan Talenta', 'Development Services')}
+					{#if activeTab === 'institusi'}
+						{i18n.pick('Solusi Strategis untuk', 'Strategic Solutions for')}<br />{i18n.pick('Mitra Institusi', 'Institutional Partners')}
+					{:else}
+						{i18n.pick('Layanan Pendidikan dan', 'Education and Talent')}<br />{i18n.pick('Pengembangan Talenta', 'Development Services')}
+					{/if}
 				</h2>
 				<p class="intro-desc">
-					{i18n.pick(
-						'Pendampingan terintegrasi untuk membantu individu dan institusi dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan yang lebih baik.',
-						'Integrated mentoring to help individuals and institutions plan education, build competencies, and prepare for a brighter future.'
-					)}
+					{#if activeTab === 'institusi'}
+						{i18n.pick(
+							'Kolaborasi strategis bersama sekolah, perguruan tinggi, korporasi, dan yayasan dalam perancangan program, peningkatan kompetensi staf, serta tata kelola berkelanjutan.',
+							'Strategic collaboration with schools, universities, corporations, and foundations in program design, staff competency development, and sustainable governance.'
+						)}
+					{:else}
+						{i18n.pick(
+							'Pendampingan terintegrasi untuk membantu individu dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan yang lebih baik.',
+							'Integrated mentoring to help individuals plan education, build competencies, and prepare for a brighter future.'
+						)}
+					{/if}
 				</p>
 			</div>
 
 			<!-- Kanan: 4 ubin putih dengan icon container soft teal -->
 			<div class="intro-tiles-col">
-				<div class="feature-tile">
-					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-							<circle cx="9" cy="7" r="4"></circle>
-							<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-							<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-						</svg>
+				{#if activeTab === 'institusi'}
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Kemitraan Strategis', 'Strategic Partnerships')}</span>
 					</div>
-					<span class="tile-label">{i18n.pick('Pendampingan Menyeluruh', 'End-to-End Mentoring')}</span>
-				</div>
 
-				<div class="feature-tile">
-					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="10"></circle>
-							<circle cx="12" cy="12" r="6"></circle>
-							<circle cx="12" cy="12" r="2"></circle>
-						</svg>
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+								<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Pelatihan In-House', 'In-House Training')}</span>
 					</div>
-					<span class="tile-label">{i18n.pick('Program Terstruktur', 'Structured Programs')}</span>
-				</div>
 
-				<div class="feature-tile">
-					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-							<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-						</svg>
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Desain Program Kustom', 'Custom Program Design')}</span>
 					</div>
-					<span class="tile-label">{i18n.pick('Informasi Beasiswa', 'Scholarship Insights')}</span>
-				</div>
 
-				<div class="feature-tile">
-					<div class="tile-icon-box" aria-hidden="true">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="18" y1="20" x2="18" y2="10"></line>
-							<line x1="12" y1="20" x2="12" y2="4"></line>
-							<line x1="6" y1="20" x2="6" y2="14"></line>
-						</svg>
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="18" y1="20" x2="18" y2="10"></line>
+								<line x1="12" y1="20" x2="12" y2="4"></line>
+								<line x1="6" y1="20" x2="6" y2="14"></line>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Pengembangan SDM', 'HR Development')}</span>
 					</div>
-					<span class="tile-label">{i18n.pick('Pengembangan Talenta', 'Talent Development')}</span>
-				</div>
+				{:else}
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Pendampingan Menyeluruh', 'End-to-End Mentoring')}</span>
+					</div>
+
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<circle cx="12" cy="12" r="6"></circle>
+								<circle cx="12" cy="12" r="2"></circle>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Program Terstruktur', 'Structured Programs')}</span>
+					</div>
+
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Informasi Beasiswa', 'Scholarship Insights')}</span>
+					</div>
+
+					<div class="feature-tile">
+						<div class="tile-icon-box" aria-hidden="true">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="18" y1="20" x2="18" y2="10"></line>
+								<line x1="12" y1="20" x2="12" y2="4"></line>
+								<line x1="6" y1="20" x2="6" y2="14"></line>
+							</svg>
+						</div>
+						<span class="tile-label">{i18n.pick('Pengembangan Talenta', 'Talent Development')}</span>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</section>
@@ -344,9 +381,14 @@
 		<div class="hub-container">
 			<span id="skills-development" class="anchor-target" aria-hidden="true"></span>
 			<span id="institutional-partnership" class="anchor-target" aria-hidden="true"></span>
-			<div class="cards-grid {activeTab !== 'semua' ? 'single-filtered' : !serviceConfig.legal ? 'two-services' : ''}">
-				<!-- KARTU 1: Program Pendidikan -->
-				{#if activeTab === 'semua' || activeTab === 'program'}
+			<div class="cards-grid two-services">
+				{#if activeTab === 'individu'}
+					<!-- ==============================================
+					     KATEGORI 1: LAYANAN INDIVIDU
+					     1. Program Pendidikan
+					     2. Program Beasiswa
+					     ============================================== -->
+					<!-- KARTU 1: Program Pendidikan -->
 					<article id="talent-management" class="service-card card-program">
 						<div class="card-body">
 							<div>
@@ -364,7 +406,7 @@
 								<p class="card-desc">
 									{i18n.pick(
 										pendidikanKnowledge[0].ringkas,
-										'Structured talent management, academic mentoring, skills training, and institutional collaboration designed for measurable growth.'
+										'Layanan pemetaan bakat dan minat terpadu untuk membantu Anda mengenali kelebihan diri serta menyusun rencana pengembangan studi dan karier masa depan.'
 									)}
 								</p>
 
@@ -411,17 +453,15 @@
 									src="/images/layanan-hub-program.jpg"
 									alt="Program Pendidikan SDJNusantara"
 									class="card-img-curved"
-									loading="lazy"
+									loading="eager"
 									decoding="async"
 								/>
 							</picture>
 							{@render mediaCorners()}
 						</div>
 					</article>
-				{/if}
 
-				<!-- KARTU 2: Program Beasiswa -->
-				{#if activeTab === 'semua' || activeTab === 'beasiswa'}
+					<!-- KARTU 2: Program Beasiswa -->
 					<article id="scholarship-academy" class="service-card card-beasiswa">
 						<div class="card-body">
 							<div>
@@ -442,7 +482,7 @@
 								<p class="card-desc">
 									{i18n.pick(
 										beasiswaKnowledge[0].ringkas,
-										'Structured preparation and strategic mentoring for domestic and international scholarship applicants, from profile mapping to interview readiness.'
+										'Pendampingan beasiswa SDJNusantara dirancang melalui 6 langkah berurutan agar berkas dan kesiapan mental Anda matang sebelum batas waktu pendaftaran tiba.'
 									)}
 								</p>
 
@@ -495,50 +535,51 @@
 									src="/images/layanan-hub-beasiswa.jpg"
 									alt="Program Beasiswa SDJNusantara"
 									class="card-img-curved"
-									loading="lazy"
+									loading="eager"
 									decoding="async"
 								/>
 							</picture>
 							{@render mediaCorners()}
 						</div>
 					</article>
-				{/if}
-
-				<!-- KARTU 3: Layanan Hukum -->
-				<!-- WAJIB DIVERIFIKASI pemilik: ruang lingkup layanan hukum dan izin/legalitas praktik (content-master tidak memuat layanan hukum) -->
-				{#if serviceConfig.legal && (activeTab === 'semua' || activeTab === 'hukum')}
-					<article class="service-card card-hukum">
+				{:else}
+					<!-- ==============================================
+					     KATEGORI 2: SOLUSI INSTITUSI
+					     1. Kemitraan & Program Institusi
+					     2. Pelatihan Organisasi & Kapasitas SDM
+					     ============================================== -->
+					<!-- KARTU 1: Kemitraan & Program Institusi -->
+					<article id="institutional-partnership-card" class="service-card card-institusi">
 						<div class="card-body">
 							<div>
-								<div class="card-pill-row">
-									<div class="card-pill">
-										<span class="card-pill-icon" aria-hidden="true">
-											<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-												<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-												<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-												<path d="M7 21h10"></path>
-												<path d="M12 3v18"></path>
-												<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
-											</svg>
-										</span>
-										<span>Layanan Hukum</span>
-									</div>
-									<span class="badge-soon">Segera hadir</span>
+								<div class="card-pill">
+									<span class="card-pill-icon" aria-hidden="true">
+										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+											<circle cx="9" cy="7" r="4"></circle>
+											<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+											<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+										</svg>
+									</span>
+									<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
 								</div>
 
-								<h3 class="card-title">Layanan Hukum</h3>
+								<h3 class="card-title">{i18n.pick('Kemitraan & Program Institusi', 'Institutional Partnerships & Programs')}</h3>
 								<p class="card-desc">
-									Layanan konsultasi regulasi, telaah kepatuhan, serta pendampingan tata kelola hukum bagi institusi pendidikan dan korporasi.
+									{i18n.pick(
+										'Kolaborasi terpadu bersama sekolah, perguruan tinggi, yayasan, dan instansi dalam penyelenggaraan program bersama, kemitraan strategis, dan perancangan kurikulum adaptif.',
+										'Integrated collaboration with schools, universities, foundations, and agencies in joint program delivery, strategic partnerships, and adaptive curriculum design.'
+									)}
 								</p>
 
-								<ul class="card-checklist" aria-label="Fitur Layanan Hukum">
+								<ul class="card-checklist" aria-label={i18n.pick('Fitur Kemitraan Institusi', 'Institutional Partnership Features')}>
 									<li>
 										<span class="check-icon" aria-hidden="true">
 											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Penyusunan & Penelaahan Kontrak/MOU</span>
+										<span>{i18n.pick('Penyelenggaraan Program Bersama & Sosialisasi Beasiswa', 'Joint Program Delivery & Scholarship Outreach')}</span>
 									</li>
 									<li>
 										<span class="check-icon" aria-hidden="true">
@@ -546,7 +587,7 @@
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Kepatuhan Regulasi & Kebijakan Kampus</span>
+										<span>{i18n.pick('Pengembangan Kurikulum, Modul & Perancangan Program', 'Curriculum, Module & Program Design')}</span>
 									</li>
 									<li>
 										<span class="check-icon" aria-hidden="true">
@@ -554,14 +595,14 @@
 												<polyline points="20 6 9 17 4 12"></polyline>
 											</svg>
 										</span>
-										<span>Pendampingan Hukum Terstruktur</span>
+										<span>{i18n.pick('Kemitraan Strategis Kampus, Sekolah & Yayasan', 'Strategic Campus, School & Foundation Partnerships')}</span>
 									</li>
 								</ul>
 							</div>
 
 							<div class="card-action">
-								<a href="/layanan/hukum" class="btn-card-gold">
-									<span>Pelajari Layanan Hukum</span>
+								<a href="/kemitraan" class="btn-card-gold">
+									<span>{i18n.pick('Konsultasikan Kemitraan', 'Consult Partnership')}</span>
 									<span class="btn-arrow" aria-hidden="true">→</span>
 								</a>
 							</div>
@@ -569,12 +610,85 @@
 
 						<div class="card-media" aria-hidden="true">
 							<picture class="card-picture">
-								<source srcset="/images/layanan-hub-hukum.webp" type="image/webp" />
+								<source srcset="/images/layanan-panel-institusi.jpg" type="image/jpeg" />
 								<img
-									src="/images/layanan-hub-hukum.jpg"
-									alt="Patung Dewi Keadilan Layanan Hukum"
+									src="/images/layanan-panel-institusi.jpg"
+									alt="Solusi Kemitraan Institusi SDJNusantara"
 									class="card-img-curved"
-									loading="lazy"
+									loading="eager"
+									decoding="async"
+								/>
+							</picture>
+							{@render mediaCorners()}
+						</div>
+					</article>
+
+					<!-- KARTU 2: Pelatihan Organisasi & Kapasitas SDM -->
+					<article id="capacity-building-card" class="service-card card-pelatihan">
+						<div class="card-body">
+							<div>
+								<div class="card-pill">
+									<span class="card-pill-icon" aria-hidden="true">
+										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+											<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+										</svg>
+									</span>
+									<span>{i18n.pick('Pelatihan Institusi', 'Institutional Training')}</span>
+								</div>
+
+								<h3 class="card-title">{i18n.pick('Pelatihan Organisasi & Kapasitas SDM', 'Organizational Training & Capacity Building')}</h3>
+								<p class="card-desc">
+									{i18n.pick(
+										'Peningkatan kompetensi dan pelatihan in-house terstruktur untuk tenaga pendidik, pimpinan, dan staf institusi guna mewujudkan kinerja organisasi yang unggul.',
+										'Competency enhancement and structured in-house training for educators, leaders, and institutional staff to achieve organizational excellence.'
+									)}
+								</p>
+
+								<ul class="card-checklist" aria-label={i18n.pick('Fitur Pelatihan Organisasi', 'Organizational Training Features')}>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>{i18n.pick('Pengembangan Kompetensi & Pelatihan Organisasi', 'Competency Development & Organizational Training')}</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>{i18n.pick('Pelatihan In-House & Workshop Interaktif Institusi', 'In-House Training & Interactive Institutional Workshops')}</span>
+									</li>
+									<li>
+										<span class="check-icon" aria-hidden="true">
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="20 6 9 17 4 12"></polyline>
+											</svg>
+										</span>
+										<span>{i18n.pick('Pendampingan Tata Kelola Mutu & Evaluasi Terstandar', 'Quality Governance Mentoring & Standardized Evaluation')}</span>
+									</li>
+								</ul>
+							</div>
+
+							<div class="card-action">
+								<a href="/kemitraan" class="btn-card-gold">
+									<span>{i18n.pick('Ajukan Kerja Sama Pelatihan', 'Propose Training Partnership')}</span>
+									<span class="btn-arrow" aria-hidden="true">→</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="card-media" aria-hidden="true">
+							<picture class="card-picture">
+								<source srcset="/images/partner-hero-5.jpg" type="image/jpeg" />
+								<img
+									src="/images/partner-hero-5.jpg"
+									alt="Pelatihan Organisasi SDJNusantara"
+									class="card-img-curved"
+									loading="eager"
 									decoding="async"
 								/>
 							</picture>
@@ -583,74 +697,85 @@
 					</article>
 				{/if}
 
-				<!-- KARTU 4: Mengapa Memilih SDJNusantara? -->
-				{#if activeTab === 'semua'}
-					<aside class="why-us-card" aria-labelledby="why-us-heading">
-						<!-- Swoosh SVG dekorasi kanan -->
-						<div class="why-swoosh-wrap" aria-hidden="true">
-							<svg class="why-swoosh-svg" viewBox="0 0 160 330" fill="none" preserveAspectRatio="none">
-								<path
-									d="M30,0 C90,80 150,140 160,330 L160,0 Z"
-									fill="#16B6C1"
-									opacity="0.16"
-								/>
-								<path
-									d="M70,0 C120,70 150,150 160,260 L160,0 Z"
-									fill="#079EAD"
-									opacity="0.12"
-								/>
-							</svg>
-						</div>
+				<!-- KARTU 3: Mengapa Memilih SDJNusantara? (Full width banner on 2-col layout) -->
+				<aside class="why-us-card" aria-labelledby="why-us-heading">
+					<!-- Swoosh SVG dekorasi kanan -->
+					<div class="why-swoosh-wrap" aria-hidden="true">
+						<svg class="why-swoosh-svg" viewBox="0 0 160 330" fill="none" preserveAspectRatio="none">
+							<path
+								d="M30,0 C90,80 150,140 160,330 L160,0 Z"
+								fill="#16B6C1"
+								opacity="0.16"
+							/>
+							<path
+								d="M70,0 C120,70 150,150 160,260 L160,0 Z"
+								fill="#079EAD"
+								opacity="0.12"
+							/>
+						</svg>
+					</div>
 
-						<div class="why-header">
-							<h3 id="why-us-heading" class="why-title">{i18n.pick('Mengapa Memilih SDJNusantara?', 'Why Choose SDJNusantara?')}</h3>
-							<p class="why-desc">
+					<div class="why-header">
+						<h3 id="why-us-heading" class="why-title">
+							{#if activeTab === 'institusi'}
+								{i18n.pick('Keunggulan Kolaborasi Bersama Kami', 'Why Partner with SDJNusantara?')}
+							{:else}
+								{i18n.pick('Mengapa Memilih SDJNusantara?', 'Why Choose SDJNusantara?')}
+							{/if}
+						</h3>
+						<p class="why-desc">
+							{#if activeTab === 'institusi'}
+								{i18n.pick(
+									'Kami membangun kemitraan yang berkelanjutan, adaptif, dan berorientasi pada hasil nyata bagi institusi Anda.',
+									'We build sustainable, adaptive partnerships focused on tangible results for your institution.'
+								)}
+							{:else}
 								{i18n.pick(
 									'Kami mendampingi dengan pendekatan yang terarah, transparan, dan berorientasi pada kebutuhan Anda.',
 									'We guide you with a targeted, transparent, and needs-oriented approach.'
 								)}
-							</p>
+							{/if}
+						</p>
+					</div>
+
+					<div class="why-tiles-row">
+						<div class="why-tile">
+							<div class="why-icon" aria-hidden="true">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+									<circle cx="9" cy="7" r="4"></circle>
+									<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+									<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+								</svg>
+							</div>
+							<h4 class="why-tile-title">{i18n.pick('Tim Profesional', 'Professional Team')}</h4>
+							<p class="why-tile-desc">{i18n.pick('Didampingi konsultan dan mentor sesuai bidangnya.', 'Guided by domain-specialist consultants and mentors.')}</p>
 						</div>
 
-						<div class="why-tiles-row">
-							<div class="why-tile">
-								<div class="why-icon" aria-hidden="true">
-									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-										<circle cx="9" cy="7" r="4"></circle>
-										<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-										<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-									</svg>
-								</div>
-								<h4 class="why-tile-title">{i18n.pick('Tim Profesional', 'Professional Team')}</h4>
-								<p class="why-tile-desc">{i18n.pick('Didampingi konsultan dan mentor sesuai bidangnya.', 'Guided by domain-specialist consultants and mentors.')}</p>
+						<div class="why-tile">
+							<div class="why-icon" aria-hidden="true">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+									<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+								</svg>
 							</div>
-
-							<div class="why-tile">
-								<div class="why-icon" aria-hidden="true">
-									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-										<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-									</svg>
-								</div>
-								<h4 class="why-tile-title">{i18n.pick('Pendampingan Terarah', 'Targeted Mentoring')}</h4>
-								<p class="why-tile-desc">{i18n.pick('Proses yang sistematis dan sesuai kebutuhan.', 'A systematic process tailored to your goals.')}</p>
-							</div>
-
-							<div class="why-tile">
-								<div class="why-icon" aria-hidden="true">
-									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<circle cx="12" cy="12" r="10"></circle>
-										<circle cx="12" cy="12" r="6"></circle>
-										<circle cx="12" cy="12" r="2"></circle>
-									</svg>
-								</div>
-								<h4 class="why-tile-title">{i18n.pick('Solusi Terintegrasi', 'Integrated Solutions')}</h4>
-								<p class="why-tile-desc">{i18n.pick('Layanan saling terhubung untuk kebutuhan pendidikan Anda.', 'Connected services for your complete educational journey.')}</p>
-							</div>
+							<h4 class="why-tile-title">{i18n.pick('Pendampingan Terarah', 'Targeted Mentoring')}</h4>
+							<p class="why-tile-desc">{i18n.pick('Proses yang sistematis dan sesuai kebutuhan.', 'A systematic process tailored to your goals.')}</p>
 						</div>
-					</aside>
-				{/if}
+
+						<div class="why-tile">
+							<div class="why-icon" aria-hidden="true">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16B6C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10"></circle>
+									<circle cx="12" cy="12" r="6"></circle>
+									<circle cx="12" cy="12" r="2"></circle>
+								</svg>
+							</div>
+							<h4 class="why-tile-title">{i18n.pick('Solusi Terintegrasi', 'Integrated Solutions')}</h4>
+							<p class="why-tile-desc">{i18n.pick('Layanan saling terhubung untuk kebutuhan pendidikan Anda.', 'Connected services for your complete educational journey.')}</p>
+						</div>
+					</div>
+				</aside>
 			</div>
 		</div>
 	</section>
@@ -1154,12 +1279,6 @@
 		align-items: stretch;
 	}
 
-	.cards-grid.single-filtered {
-		grid-template-columns: 1fr;
-		max-width: 100%;
-		margin: 0 auto;
-	}
-
 	.service-card {
 		background: #FFFFFF;
 		border: 1px solid rgba(226, 232, 240, 0.95);
@@ -1181,13 +1300,6 @@
 		box-shadow: 0 14px 40px rgba(8, 36, 66, 0.09);
 	}
 
-	.cards-grid.single-filtered .service-card {
-		min-height: 416px;
-		padding: 18px 18px 18px 42px;
-		gap: 36px;
-		box-shadow: 0 12px 38px rgba(8, 36, 66, 0.068);
-	}
-
 	.card-body {
 		width: 56%;
 		padding: 26px 24px 24px 28px;
@@ -1196,19 +1308,6 @@
 		justify-content: space-between;
 		box-sizing: border-box;
 		z-index: 2;
-	}
-
-	.cards-grid.single-filtered .card-body {
-		width: 47%;
-		padding: 18px 0;
-		justify-content: center;
-	}
-
-	.card-pill-row {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-bottom: 10px;
 	}
 
 	.card-pill {
@@ -1225,29 +1324,9 @@
 		width: fit-content;
 	}
 
-	.cards-grid.single-filtered .card-pill {
-		font-size: 13.5px;
-		padding: 6px 14px;
-		margin-bottom: 14px;
-	}
-
-	.card-pill-row .card-pill {
-		margin-bottom: 0;
-	}
-
 	.card-pill-icon {
 		display: flex;
 		align-items: center;
-	}
-
-	.badge-soon {
-		font-size: 11px;
-		font-weight: 600;
-		color: #64748B;
-		background: #F1F5F9;
-		border: 1px solid #E2E8F0;
-		padding: 3px 10px;
-		border-radius: 9999px;
 	}
 
 	.card-title {
@@ -1259,23 +1338,11 @@
 		letter-spacing: -0.015em;
 	}
 
-	.cards-grid.single-filtered .card-title {
-		font-size: clamp(26px, 2.2vw, 33px);
-		margin-bottom: 12px;
-	}
-
 	.card-desc {
 		font-size: 14.5px;
 		line-height: 1.55;
 		color: #475569;
 		margin: 0 0 14px 0;
-	}
-
-	.cards-grid.single-filtered .card-desc {
-		font-size: 15.5px;
-		line-height: 1.62;
-		margin-bottom: 20px;
-		max-width: 490px;
 	}
 
 	.card-checklist {
@@ -1287,11 +1354,6 @@
 		gap: 7px;
 	}
 
-	.cards-grid.single-filtered .card-checklist {
-		gap: 10px;
-		margin-bottom: 26px;
-	}
-
 	.card-checklist li {
 		display: flex;
 		align-items: center;
@@ -1300,11 +1362,6 @@
 		font-weight: 700;
 		color: #082442;
 		line-height: 1.38;
-	}
-
-	.cards-grid.single-filtered .card-checklist li {
-		font-size: 15px;
-		gap: 10px;
 	}
 
 	.check-icon {
@@ -1318,10 +1375,6 @@
 
 	.card-action {
 		margin-top: auto;
-	}
-
-	.cards-grid.single-filtered .card-action {
-		margin-top: 0;
 	}
 
 	.card-action-with-note {
@@ -1344,11 +1397,6 @@
 		box-shadow: 0 4px 12px rgba(245, 179, 49, 0.24);
 		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		width: fit-content;
-	}
-
-	.cards-grid.single-filtered .btn-card-gold {
-		padding: 13px 26px;
-		font-size: 14.5px;
 	}
 
 	.btn-card-gold:hover {
@@ -1381,14 +1429,6 @@
 		background: #EBF5F7;
 	}
 
-	.cards-grid.single-filtered .card-media {
-		width: 53%;
-		margin: 0;
-		min-height: 378px;
-		border-radius: 20px;
-		border-top-left-radius: 56px;
-	}
-
 	.card-picture {
 		position: absolute;
 		inset: 0;
@@ -1415,11 +1455,6 @@
 		z-index: 2;
 	}
 
-	.cards-grid.single-filtered .card-media-corner-tl {
-		width: 96px;
-		height: 96px;
-	}
-
 	.card-media-corner-br {
 		position: absolute;
 		bottom: 0;
@@ -1428,11 +1463,6 @@
 		height: 84px;
 		pointer-events: none;
 		z-index: 2;
-	}
-
-	.cards-grid.single-filtered .card-media-corner-br {
-		width: 180px;
-		height: 112px;
 	}
 
 	/* Mengapa Memilih SDJNusantara Panel */
@@ -1579,11 +1609,6 @@
 		.feature-tile {
 			width: 100%;
 		}
-
-		.cards-grid.single-filtered .service-card {
-			padding: 16px 16px 16px 32px;
-			gap: 28px;
-		}
 	}
 
 	@media (max-width: 1024px) {
@@ -1608,14 +1633,6 @@
 		.cards-grid {
 			grid-template-columns: 1fr;
 		}
-
-		.cards-grid.single-filtered .service-card {
-			min-height: 360px;
-		}
-
-		.cards-grid.single-filtered .card-media {
-			min-height: 328px;
-		}
 	}
 
 	@media (max-width: 900px) {
@@ -1636,26 +1653,6 @@
 		.hero-wave,
 		.hero-wave-right {
 			display: none;
-		}
-
-		.cards-grid.single-filtered .service-card {
-			flex-direction: column-reverse;
-			padding: 0;
-			gap: 0;
-			min-height: 0;
-		}
-
-		.cards-grid.single-filtered .card-body {
-			width: 100%;
-			padding: 24px 22px;
-		}
-
-		.cards-grid.single-filtered .card-media {
-			width: 100%;
-			min-height: 240px;
-			height: 240px;
-			margin: 0;
-			border-radius: 0;
 		}
 
 		.cards-grid.two-services .why-us-card {
@@ -1773,8 +1770,7 @@
 			padding: 4px 0 44px;
 		}
 
-		.service-card,
-		.cards-grid.single-filtered .service-card {
+		.service-card {
 			height: auto;
 			min-height: 0;
 			flex-direction: column-reverse;
@@ -1783,26 +1779,12 @@
 			border-radius: 20px;
 		}
 
-		.card-body,
-		.cards-grid.single-filtered .card-body {
+		.card-body {
 			width: 100%;
 			padding: 22px 18px;
 		}
 
-		.cards-grid.single-filtered .card-title {
-			font-size: 24px;
-		}
-
-		.cards-grid.single-filtered .card-desc {
-			font-size: 14.5px;
-		}
-
-		.cards-grid.single-filtered .card-checklist li {
-			font-size: 14px;
-		}
-
-		.card-media,
-		.cards-grid.single-filtered .card-media {
+		.card-media {
 			width: 100%;
 			height: 200px;
 			min-height: 200px;
@@ -1810,20 +1792,17 @@
 			border-radius: 0;
 		}
 
-		.card-media-corner-tl,
-		.cards-grid.single-filtered .card-media-corner-tl {
+		.card-media-corner-tl {
 			width: 64px;
 			height: 64px;
 		}
 
-		.card-media-corner-br,
-		.cards-grid.single-filtered .card-media-corner-br {
+		.card-media-corner-br {
 			width: 118px;
 			height: 74px;
 		}
 
-		.btn-card-gold,
-		.cards-grid.single-filtered .btn-card-gold {
+		.btn-card-gold {
 			width: 100%;
 			justify-content: center;
 			padding: 12px 20px;
