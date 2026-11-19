@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 	import Navbar from '#lib/components/layout/Navbar.svelte';
 	import Footer from '#lib/components/layout/Footer.svelte';
 	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
@@ -10,10 +11,125 @@
 	import { i18n } from '#lib/stores/i18n.svelte';
 
 	type ServiceCategory = 'individu' | 'institusi';
-	let activeTab = $state<ServiceCategory>('individu');
+	let activeTab = $state<ServiceCategory>(
+		page.url.searchParams.get('tab')?.toLowerCase() === 'institusi' ? 'institusi' : 'individu'
+	);
 
 	function setTab(tab: ServiceCategory) {
 		activeTab = tab;
+		if (typeof window !== 'undefined' && window.history) {
+			const url = new URL(window.location.href);
+			url.searchParams.set('tab', tab);
+			url.hash = tab;
+			window.history.replaceState(null, '', url.toString());
+		}
+	}
+
+	interface InstitutionalService {
+		id: string;
+		title: string;
+		badge: string;
+		desc: string;
+		checklist: string[];
+		img: string;
+		overview: string;
+		highlights: string[];
+		targetAudience: string[];
+	}
+
+	const institutionalServices: InstitutionalService[] = [
+		{
+			id: 'pengembangan-kompetensi',
+			title: 'Pengembangan Kompetensi',
+			badge: 'Kompetensi SDM',
+			desc: 'Program peningkatan kompetensi dan kapasitas sumber daya manusia untuk institusi.',
+			checklist: [
+				'Asesmen Kebutuhan & Pemetaan Kompetensi SDM',
+				'Pelatihan Upskilling & Peningkatan Kapasitas Teknis',
+				'Penguatan Standar Profesional & Capaian Kinerja'
+			],
+			img: '/images/about-team-4-hd.jpg',
+			overview: 'Program pengembangan kompetensi dirancang untuk memperkuat kapasitas, keahlian teknis, dan kapabilitas profesional tenaga pendidik maupun staf institusi melalui kurikulum pelatihan terstruktur.',
+			highlights: [
+				'Pemetaan gap kompetensi berbasis instrumen asesmen terstandar',
+				'Modul pelatihan aplikatif yang disesuaikan dengan kebutuhan institusi',
+				'Evaluasi berkala serta sertifikasi kompetensi peserta'
+			],
+			targetAudience: ['Sekolah & Madrasah', 'Perguruan Tinggi', 'Yayasan Pendidikan', 'Instansi & Korporasi']
+		},
+		{
+			id: 'pelatihan-organisasi',
+			title: 'Pelatihan Organisasi',
+			badge: 'Pelatihan In-House',
+			desc: 'Pendampingan dan pelatihan untuk meningkatkan kemampuan serta efektivitas organisasi.',
+			checklist: [
+				'In-House Training & Lokakarya Terarah',
+				'Pengembangan Kepemimpinan & Manajemen Kolaborasi',
+				'Pendampingan Budaya Kerja & Efektivitas Organisasi'
+			],
+			img: '/images/partner-hero-5.jpg',
+			overview: 'Pendampingan komprehensif bagi pimpinan dan tim institusi guna menciptakan sinergi kerja yang adaptif, budaya organisasi produktif, dan kepemimpinan yang efektif.',
+			highlights: [
+				'Lokakarya kepemimpinan (leadership workshop) yang interaktif',
+				'Metodologi pendampingan berbasis studi kasus nyata institusi',
+				'Pengukuran dampak pelatihan terhadap efektivitas kerja tim'
+			],
+			targetAudience: ['Manajemen Sekolah & Kampus', 'Divisi HR & Diklat', 'Yayasan & Komite Organisasi']
+		},
+		{
+			id: 'perancangan-program',
+			title: 'Perancangan Program',
+			badge: 'Kurikulum & Modul',
+			desc: 'Perencanaan dan pengembangan program pendidikan maupun pengembangan talenta sesuai kebutuhan institusi.',
+			checklist: [
+				'Rancang Bangun Kurikulum & Modul Pembelajaran Adaptif',
+				'Perancangan Program Talenta & Beasiswa Khusus',
+				'Penyusunan Panduan Operasional & Instrumen Evaluasi'
+			],
+			img: '/images/about-laptop-desk-hd.jpg',
+			overview: 'Layanan konsultasi perancangan program pendidikan dan kurikulum yang kontekstual, terukur, dan selaras dengan standar kompetensi terkini.',
+			highlights: [
+				'Desain silabus dan modul ajar adaptif',
+				'Pengembangan program pengayaan talenta siswa dan mahasiswa',
+				'Penyusunan indikator keberhasilan program jangka panjang'
+			],
+			targetAudience: ['Pengelola Lembaga Pendidikan', 'Tim Kurikulum & Pengembang Akademik', 'Penyelenggara Program Beasiswa']
+		},
+		{
+			id: 'kemitraan-strategis',
+			title: 'Kemitraan Strategis',
+			badge: 'Kolaborasi Luas',
+			desc: 'Kolaborasi dan pengembangan kerja sama dengan institusi pendidikan maupun organisasi.',
+			checklist: [
+				'Penyelenggaraan Program Bersama & Konsorsium Pendidikan',
+				'Sosialisasi & Jaringan Akses Beasiswa Institusi',
+				'Fasilitasi Kolaborasi Kampus, Sekolah & Industri'
+			],
+			img: '/images/layanan-panel-institusi.jpg',
+			overview: 'Membangun sinergi kolaboratif antara institusi pendidikan, industri, dan yayasan dalam memperluas akses peluang, beasiswa, dan program pengembangan masa depan.',
+			highlights: [
+				'Inisiasi MoU dan kemitraan program berkelanjutan',
+				'Penyelenggaraan seminar, workshop, dan sosialisasi beasiswa terpadu',
+				'Jaringan kolaborasi strategis tingkat nasional dan internasional'
+			],
+			targetAudience: ['Perguruan Tinggi', 'Asosiasi Pendidikan & Sekolah', 'Perusahaan & CSR', 'Lembaga Donor Beasiswa']
+		}
+	];
+
+	let selectedInstitutionalService = $state<InstitutionalService | null>(null);
+
+	function openInstitutionalDetail(service: InstitutionalService) {
+		selectedInstitutionalService = service;
+	}
+
+	function closeInstitutionalDetail() {
+		selectedInstitutionalService = null;
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape' && selectedInstitutionalService) {
+			closeInstitutionalDetail();
+		}
 	}
 
 	onMount(() => {
@@ -52,6 +168,8 @@
 	/>
 	<link rel="canonical" href="https://sdjnusantara.com/layanan" />
 </svelte:head>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <Navbar compact={true} wide={true} />
 
@@ -207,21 +325,21 @@
 				</div>
 				<h2 id="intro-heading" class="intro-title">
 					{#if activeTab === 'institusi'}
-						{i18n.pick('Solusi Strategis untuk', 'Strategic Solutions for')}<br />{i18n.pick('Mitra Institusi', 'Institutional Partners')}
+						{i18n.pick('Solusi Institusi', 'Institutional Solutions')}
 					{:else}
-						{i18n.pick('Layanan Pendidikan dan', 'Education and Talent')}<br />{i18n.pick('Pengembangan Talenta', 'Development Services')}
+						{i18n.pick('Layanan Individu', 'Individual Services')}
 					{/if}
 				</h2>
 				<p class="intro-desc">
 					{#if activeTab === 'institusi'}
 						{i18n.pick(
-							'Kolaborasi strategis bersama sekolah, perguruan tinggi, korporasi, dan yayasan dalam perancangan program, peningkatan kompetensi staf, serta tata kelola berkelanjutan.',
-							'Strategic collaboration with schools, universities, corporations, and foundations in program design, staff competency development, and sustainable governance.'
+							'Layanan terpadu mencakup pengembangan kompetensi sumber daya manusia, pelatihan organisasi, perancangan program, dan kemitraan strategis.',
+							'Integrated services covering human resource competency development, organizational training, program design, and strategic partnerships.'
 						)}
 					{:else}
 						{i18n.pick(
-							'Pendampingan terintegrasi untuk membantu individu dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan yang lebih baik.',
-							'Integrated mentoring to help individuals plan education, build competencies, and prepare for a brighter future.'
+							'Pendampingan terintegrasi untuk membantu individu dalam merencanakan pendidikan, mengembangkan kompetensi, serta mempersiapkan masa depan dan beasiswa.',
+							'Integrated mentoring to help individuals plan education, build competencies, and prepare for their future and scholarships.'
 						)}
 					{/if}
 				</p>
@@ -233,13 +351,12 @@
 					<div class="feature-tile">
 						<div class="tile-icon-box" aria-hidden="true">
 							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-								<circle cx="9" cy="7" r="4"></circle>
-								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+								<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="8.5" cy="7" r="4"></circle>
+								<polyline points="17 11 19 13 23 9"></polyline>
 							</svg>
 						</div>
-						<span class="tile-label">{i18n.pick('Kemitraan Strategis', 'Strategic Partnerships')}</span>
+						<span class="tile-label">{i18n.pick('Pengembangan Kompetensi', 'Competency Development')}</span>
 					</div>
 
 					<div class="feature-tile">
@@ -249,7 +366,7 @@
 								<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
 							</svg>
 						</div>
-						<span class="tile-label">{i18n.pick('Pelatihan In-House', 'In-House Training')}</span>
+						<span class="tile-label">{i18n.pick('Pelatihan Organisasi', 'Organizational Training')}</span>
 					</div>
 
 					<div class="feature-tile">
@@ -259,18 +376,19 @@
 								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
 							</svg>
 						</div>
-						<span class="tile-label">{i18n.pick('Desain Program Kustom', 'Custom Program Design')}</span>
+						<span class="tile-label">{i18n.pick('Perancangan Program', 'Program Design')}</span>
 					</div>
 
 					<div class="feature-tile">
 						<div class="tile-icon-box" aria-hidden="true">
 							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="18" y1="20" x2="18" y2="10"></line>
-								<line x1="12" y1="20" x2="12" y2="4"></line>
-								<line x1="6" y1="20" x2="6" y2="14"></line>
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 							</svg>
 						</div>
-						<span class="tile-label">{i18n.pick('Pengembangan SDM', 'HR Development')}</span>
+						<span class="tile-label">{i18n.pick('Kemitraan Strategis', 'Strategic Partnerships')}</span>
 					</div>
 				{:else}
 					<div class="feature-tile">
@@ -503,156 +621,93 @@
 				{:else}
 					<!-- ==============================================
 					     KATEGORI 2: SOLUSI INSTITUSI
-					     1. Kemitraan & Program Institusi
-					     2. Pelatihan Organisasi & Kapasitas SDM
+					     1. Pengembangan Kompetensi
+					     2. Pelatihan Organisasi
+					     3. Perancangan Program
+					     4. Kemitraan Strategis
 					     ============================================== -->
-					<!-- KARTU 1: Kemitraan & Program Institusi -->
-					<article id="institutional-partnership-card" class="service-card card-institusi">
-						<div class="card-body">
-							<div>
-								<div class="card-pill">
-									<span class="card-pill-icon" aria-hidden="true">
-										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-											<circle cx="9" cy="7" r="4"></circle>
-											<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-											<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-										</svg>
-									</span>
-									<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
+					{#each institutionalServices as service (service.id)}
+						<article id={service.id} class="service-card card-institusi">
+							<div class="card-body">
+								<div>
+									<div class="card-pill">
+										<span class="card-pill-icon" aria-hidden="true">
+											{#if service.id === 'pengembangan-kompetensi'}
+												<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+													<circle cx="8.5" cy="7" r="4"></circle>
+													<polyline points="17 11 19 13 23 9"></polyline>
+												</svg>
+											{:else if service.id === 'pelatihan-organisasi'}
+												<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+													<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+												</svg>
+											{:else if service.id === 'perancangan-program'}
+												<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+													<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+												</svg>
+											{:else}
+												<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+													<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+													<circle cx="9" cy="7" r="4"></circle>
+													<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+													<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+												</svg>
+											{/if}
+										</span>
+										<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
+									</div>
+
+									<h3 class="card-title">{service.title}</h3>
+									<p class="card-desc">
+										{service.desc}
+									</p>
+
+									<ul class="card-checklist" aria-label={`Fitur ${service.title}`}>
+										{#each service.checklist as item}
+											<li>
+												<span class="check-icon" aria-hidden="true">
+													<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+														<polyline points="20 6 9 17 4 12"></polyline>
+													</svg>
+												</span>
+												<span>{item}</span>
+											</li>
+										{/each}
+									</ul>
 								</div>
 
-								<h3 class="card-title">{i18n.pick('Kemitraan & Program Institusi', 'Institutional Partnerships & Programs')}</h3>
-								<p class="card-desc">
-									{i18n.pick(
-										'Kolaborasi terpadu bersama sekolah, perguruan tinggi, yayasan, dan instansi dalam penyelenggaraan program bersama, kemitraan strategis, dan perancangan kurikulum adaptif.',
-										'Integrated collaboration with schools, universities, foundations, and agencies in joint program delivery, strategic partnerships, and adaptive curriculum design.'
-									)}
-								</p>
-
-								<ul class="card-checklist" aria-label={i18n.pick('Fitur Kemitraan Institusi', 'Institutional Partnership Features')}>
-									<li>
-										<span class="check-icon" aria-hidden="true">
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-												<polyline points="20 6 9 17 4 12"></polyline>
-											</svg>
-										</span>
-										<span>{i18n.pick('Penyelenggaraan Program Bersama & Sosialisasi Beasiswa', 'Joint Program Delivery & Scholarship Outreach')}</span>
-									</li>
-									<li>
-										<span class="check-icon" aria-hidden="true">
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-												<polyline points="20 6 9 17 4 12"></polyline>
-											</svg>
-										</span>
-										<span>{i18n.pick('Pengembangan Kurikulum, Modul & Perancangan Program', 'Curriculum, Module & Program Design')}</span>
-									</li>
-									<li>
-										<span class="check-icon" aria-hidden="true">
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-												<polyline points="20 6 9 17 4 12"></polyline>
-											</svg>
-										</span>
-										<span>{i18n.pick('Kemitraan Strategis Kampus, Sekolah & Yayasan', 'Strategic Campus, School & Foundation Partnerships')}</span>
-									</li>
-								</ul>
-							</div>
-
-							<div class="card-action">
-								<a href="/kemitraan" class="btn-card-gold">
-									<span>{i18n.pick('Konsultasikan Kemitraan', 'Consult Partnership')}</span>
-									<span class="btn-arrow" aria-hidden="true">→</span>
-								</a>
-							</div>
-						</div>
-
-						<div class="card-media" aria-hidden="true">
-							<picture class="card-picture">
-								<source srcset="/images/layanan-panel-institusi.jpg" type="image/jpeg" />
-								<img
-									src="/images/layanan-panel-institusi.jpg"
-									alt="Solusi Kemitraan Institusi SDJNusantara"
-									class="card-img-curved"
-									loading="eager"
-									decoding="async"
-								/>
-							</picture>
-							{@render mediaCorners()}
-						</div>
-					</article>
-
-					<!-- KARTU 2: Pelatihan Organisasi & Kapasitas SDM -->
-					<article id="capacity-building-card" class="service-card card-pelatihan">
-						<div class="card-body">
-							<div>
-								<div class="card-pill">
-									<span class="card-pill-icon" aria-hidden="true">
-										<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-											<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-										</svg>
-									</span>
-									<span>{i18n.pick('Pelatihan Institusi', 'Institutional Training')}</span>
+								<div class="card-action card-action-group">
+									<a href="/kemitraan" class="btn-card-gold">
+										<span>{i18n.pick('Konsultasikan Solusi', 'Consult Solutions')}</span>
+										<span class="btn-arrow" aria-hidden="true">→</span>
+									</a>
+									<button
+										type="button"
+										class="btn-card-outline"
+										onclick={() => openInstitutionalDetail(service)}
+									>
+										<span>{i18n.pick('Pelajari Detail', 'Learn Details')}</span>
+									</button>
 								</div>
-
-								<h3 class="card-title">{i18n.pick('Pelatihan Organisasi & Kapasitas SDM', 'Organizational Training & Capacity Building')}</h3>
-								<p class="card-desc">
-									{i18n.pick(
-										'Peningkatan kompetensi dan pelatihan in-house terstruktur untuk tenaga pendidik, pimpinan, dan staf institusi guna mewujudkan kinerja organisasi yang unggul.',
-										'Competency enhancement and structured in-house training for educators, leaders, and institutional staff to achieve organizational excellence.'
-									)}
-								</p>
-
-								<ul class="card-checklist" aria-label={i18n.pick('Fitur Pelatihan Organisasi', 'Organizational Training Features')}>
-									<li>
-										<span class="check-icon" aria-hidden="true">
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-												<polyline points="20 6 9 17 4 12"></polyline>
-											</svg>
-										</span>
-										<span>{i18n.pick('Pengembangan Kompetensi & Pelatihan Organisasi', 'Competency Development & Organizational Training')}</span>
-									</li>
-									<li>
-										<span class="check-icon" aria-hidden="true">
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-												<polyline points="20 6 9 17 4 12"></polyline>
-											</svg>
-										</span>
-										<span>{i18n.pick('Pelatihan In-House & Workshop Interaktif Institusi', 'In-House Training & Interactive Institutional Workshops')}</span>
-									</li>
-									<li>
-										<span class="check-icon" aria-hidden="true">
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-												<polyline points="20 6 9 17 4 12"></polyline>
-											</svg>
-										</span>
-										<span>{i18n.pick('Pendampingan Tata Kelola Mutu & Evaluasi Terstandar', 'Quality Governance Mentoring & Standardized Evaluation')}</span>
-									</li>
-								</ul>
 							</div>
 
-							<div class="card-action">
-								<a href="/kemitraan" class="btn-card-gold">
-									<span>{i18n.pick('Ajukan Kerja Sama Pelatihan', 'Propose Training Partnership')}</span>
-									<span class="btn-arrow" aria-hidden="true">→</span>
-								</a>
+							<div class="card-media" aria-hidden="true">
+								<picture class="card-picture">
+									<img
+										src={service.img}
+										alt={service.title}
+										class="card-img-curved"
+										loading="lazy"
+										decoding="async"
+									/>
+								</picture>
+								{@render mediaCorners()}
 							</div>
-						</div>
-
-						<div class="card-media" aria-hidden="true">
-							<picture class="card-picture">
-								<source srcset="/images/partner-hero-5.jpg" type="image/jpeg" />
-								<img
-									src="/images/partner-hero-5.jpg"
-									alt="Pelatihan Organisasi SDJNusantara"
-									class="card-img-curved"
-									loading="eager"
-									decoding="async"
-								/>
-							</picture>
-							{@render mediaCorners()}
-						</div>
-					</article>
+						</article>
+					{/each}
 				{/if}
 
 				<!-- KARTU 3: Mengapa Memilih SDJNusantara? (Full width banner on 2-col layout) -->
@@ -752,6 +807,142 @@
 		secondaryHref="/kemitraan"
 		variant="layanan"
 	/>
+
+	<!-- ==========================================
+	     6. MODAL DETAIL SOLUSI INSTITUSI
+	     ========================================== -->
+	{#if selectedInstitutionalService}
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<div
+			class="inst-modal-backdrop"
+			role="presentation"
+			onclick={(e) => {
+				if (e.target === e.currentTarget) closeInstitutionalDetail();
+			}}
+		>
+			<div
+				class="inst-modal-card"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="inst-modal-title"
+				tabindex="-1"
+			>
+				<button
+					type="button"
+					class="inst-modal-close"
+					aria-label={i18n.pick('Tutup modal', 'Close modal')}
+					onclick={closeInstitutionalDetail}
+				>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+					</svg>
+				</button>
+
+				<div class="inst-modal-banner">
+					<img
+						src={selectedInstitutionalService.img}
+						alt={selectedInstitutionalService.title}
+						class="inst-modal-banner-img"
+					/>
+					<div class="inst-modal-banner-overlay"></div>
+					<div class="inst-modal-badge-row">
+						<span class="inst-modal-pill">
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+								<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+							</svg>
+							<span>{i18n.pick('Solusi Institusi', 'Institutional Solution')}</span>
+						</span>
+						<span class="inst-modal-subbadge">{selectedInstitutionalService.badge}</span>
+					</div>
+				</div>
+
+				<div class="inst-modal-content">
+					<h3 id="inst-modal-title" class="inst-modal-title">
+						{selectedInstitutionalService.title}
+					</h3>
+					<p class="inst-modal-desc">
+						{selectedInstitutionalService.desc}
+					</p>
+
+					<div class="inst-modal-section">
+						<h4 class="inst-section-title">
+							<span class="section-icon" aria-hidden="true">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10"></circle>
+									<polyline points="12 6 12 12 16 14"></polyline>
+								</svg>
+							</span>
+							<span>{i18n.pick('Gambaran Program', 'Program Overview')}</span>
+						</h4>
+						<p class="inst-section-text">{selectedInstitutionalService.overview}</p>
+					</div>
+
+					<div class="inst-modal-section">
+						<h4 class="inst-section-title">
+							<span class="section-icon" aria-hidden="true">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+									<polyline points="22 4 12 14.01 9 11.01"></polyline>
+								</svg>
+							</span>
+							<span>{i18n.pick('Fokus & Keunggulan Layanan', 'Key Focus & Highlights')}</span>
+						</h4>
+						<ul class="inst-highlight-list">
+							{#each selectedInstitutionalService.highlights as highlight}
+								<li>
+									<span class="check-icon" aria-hidden="true">
+										<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="20 6 9 17 4 12"></polyline>
+										</svg>
+									</span>
+									<span>{highlight}</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+
+					<div class="inst-modal-section">
+						<h4 class="inst-section-title">
+							<span class="section-icon" aria-hidden="true">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#079EAD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+									<circle cx="9" cy="7" r="4"></circle>
+									<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+									<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+								</svg>
+							</span>
+							<span>{i18n.pick('Sasaran Institusi Mitra', 'Target Institutional Partners')}</span>
+						</h4>
+						<div class="inst-audience-pills">
+							{#each selectedInstitutionalService.targetAudience as audience}
+								<span class="audience-pill">{audience}</span>
+							{/each}
+						</div>
+					</div>
+
+					<div class="inst-modal-footer">
+						<a
+							href="/kemitraan"
+							class="btn-card-gold"
+							onclick={closeInstitutionalDetail}
+						>
+							<span>{i18n.pick('Konsultasikan Kerja Sama', 'Consult Partnership')}</span>
+							<span class="btn-arrow" aria-hidden="true">→</span>
+						</a>
+						<a
+							href="/kontak"
+							class="btn-card-outline"
+							onclick={closeInstitutionalDetail}
+						>
+							<span>{i18n.pick('Hubungi Kami', 'Contact Us')}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
 </main>
 
 <Footer compact={true} variant="layanan" />
@@ -946,7 +1137,7 @@
 		position: relative;
 		z-index: var(--z-overlap-bar, 10);
 		margin-top: -30px;
-		margin-bottom: 28px;
+		margin-bottom: 14px;
 	}
 
 	.tab-overlap-card {
@@ -1054,7 +1245,7 @@
 	.hub-intro-section {
 		position: relative;
 		z-index: 2;
-		padding: 36px 0 34px;
+		padding: 14px 0 24px;
 	}
 
 	.intro-grid {
@@ -1072,7 +1263,7 @@
 	.section-badge-label {
 		display: flex;
 		align-items: center;
-		margin-bottom: 12px;
+		margin-bottom: 8px;
 	}
 
 	.label-text {
@@ -1090,7 +1281,7 @@
 		line-height: 1.22;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 14px 0;
+		margin: 0 0 10px 0;
 		letter-spacing: -0.02em;
 	}
 
@@ -1277,6 +1468,13 @@
 		margin-top: auto;
 	}
 
+	.card-action-group {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
 	.card-action-with-note {
 		display: flex;
 		flex-direction: column;
@@ -1307,6 +1505,30 @@
 
 	.btn-card-gold:hover .btn-arrow {
 		transform: translateX(3px);
+	}
+
+	.btn-card-outline {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		background: #FFFFFF;
+		color: #082442;
+		font-size: 13.5px;
+		font-weight: 700;
+		padding: 9px 18px;
+		border-radius: 10px;
+		text-decoration: none;
+		border: 1.5px solid #00A6B2;
+		transition: all 0.2s ease;
+		cursor: pointer;
+		width: fit-content;
+	}
+
+	.btn-card-outline:hover {
+		background: #EAF9FA;
+		color: #007A85;
+		border-color: #007A85;
+		transform: translateY(-2px);
 	}
 
 	.card-disclaimer {
@@ -1493,6 +1715,229 @@
 	}
 
 	/* ==========================================
+	     MODAL DETAIL SOLUSI INSTITUSI
+	     ========================================== */
+	.inst-modal-backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		background: rgba(8, 36, 66, 0.68);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		box-sizing: border-box;
+		animation: fadeInModal 0.22s ease-out forwards;
+	}
+
+	@keyframes fadeInModal {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.inst-modal-card {
+		background: #FFFFFF;
+		border-radius: 24px;
+		box-shadow: 0 25px 60px rgba(8, 36, 66, 0.25);
+		border: 1px solid rgba(226, 232, 240, 0.9);
+		width: 100%;
+		max-width: 620px;
+		max-height: 90vh;
+		overflow-y: auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		animation: slideUpModal 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	@keyframes slideUpModal {
+		from {
+			opacity: 0;
+			transform: translateY(20px) scale(0.97);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	.inst-modal-close {
+		position: absolute;
+		top: 14px;
+		right: 14px;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.92);
+		border: 1px solid rgba(226, 232, 240, 0.8);
+		color: #082442;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 10;
+		transition: all 0.2s ease;
+		box-shadow: 0 4px 12px rgba(8, 36, 66, 0.12);
+	}
+
+	.inst-modal-close:hover {
+		background: #082442;
+		color: #FFFFFF;
+		transform: rotate(90deg);
+	}
+
+	.inst-modal-banner {
+		position: relative;
+		height: 180px;
+		overflow: hidden;
+		border-radius: 24px 24px 0 0;
+	}
+
+	.inst-modal-banner-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 30%;
+		display: block;
+	}
+
+	.inst-modal-banner-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(8, 36, 66, 0.2) 0%, rgba(8, 36, 66, 0.75) 100%);
+	}
+
+	.inst-modal-badge-row {
+		position: absolute;
+		bottom: 14px;
+		left: 20px;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		z-index: 2;
+	}
+
+	.inst-modal-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		background: #00A6B2;
+		color: #FFFFFF;
+		font-size: 12px;
+		font-weight: 700;
+		padding: 4px 12px;
+		border-radius: 9999px;
+	}
+
+	.inst-modal-subbadge {
+		font-size: 12px;
+		font-weight: 700;
+		background: #FFB923;
+		color: #082442;
+		padding: 4px 10px;
+		border-radius: 9999px;
+	}
+
+	.inst-modal-content {
+		padding: 24px 28px 28px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.inst-modal-title {
+		font-size: 24px;
+		font-weight: 800;
+		color: #082442;
+		margin: 0;
+		line-height: 1.25;
+	}
+
+	.inst-modal-desc {
+		font-size: 15px;
+		line-height: 1.6;
+		color: #475569;
+		margin: 0;
+	}
+
+	.inst-modal-section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.inst-section-title {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 15px;
+		font-weight: 700;
+		color: #082442;
+		margin: 0;
+	}
+
+	.inst-section-text {
+		font-size: 14px;
+		line-height: 1.6;
+		color: #475569;
+		margin: 0;
+		background: #F8FAFC;
+		padding: 12px 16px;
+		border-radius: 12px;
+		border-left: 3px solid #00A6B2;
+	}
+
+	.inst-highlight-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.inst-highlight-list li {
+		display: flex;
+		align-items: flex-start;
+		gap: 10px;
+		font-size: 14px;
+		line-height: 1.5;
+		color: #334155;
+	}
+
+	.inst-audience-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.audience-pill {
+		font-size: 12.5px;
+		font-weight: 600;
+		color: #007A85;
+		background: #EAF9FA;
+		padding: 5px 12px;
+		border-radius: 9999px;
+		border: 1px solid rgba(0, 166, 178, 0.2);
+	}
+
+	.inst-modal-footer {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding-top: 12px;
+		border-top: 1px solid #EEF2F6;
+		margin-top: 4px;
+	}
+
+	/* ==========================================
 	     RESPONSIVE
 	     ========================================== */
 	@media (max-width: 1200px) {
@@ -1595,7 +2040,7 @@
 
 		.tab-overlap-section {
 			margin-top: -24px;
-			margin-bottom: 20px;
+			margin-bottom: 12px;
 		}
 
 		.tab-overlap-card {
@@ -1627,7 +2072,7 @@
 		}
 
 		.hub-intro-section {
-			padding: 20px 0 24px;
+			padding: 12px 0 18px;
 		}
 
 		.intro-title {
@@ -1673,6 +2118,12 @@
 			padding: 22px 18px;
 		}
 
+		.card-action-group {
+			width: 100%;
+			flex-direction: column;
+			gap: 8px;
+		}
+
 		.card-media {
 			width: 100%;
 			height: 200px;
@@ -1695,6 +2146,13 @@
 			width: 100%;
 			justify-content: center;
 			padding: 12px 20px;
+			font-size: 14px;
+		}
+
+		.btn-card-outline {
+			width: 100%;
+			justify-content: center;
+			padding: 11px 20px;
 			font-size: 14px;
 		}
 
