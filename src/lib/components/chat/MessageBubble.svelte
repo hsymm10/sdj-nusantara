@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { chatStore, type ChatMessage } from '#lib/stores/chat.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import logoNalara from '#lib/assets/logo_nalara.png';
 	import { buildWhatsAppUrl } from '#lib/utils/whatsapp';
 	import { getWebsiteTopicById } from '#lib/data/chatWebsiteIndex';
 	import { allKnowledge } from '#lib/data/knowledge/index.js';
@@ -295,24 +296,10 @@
 </script>
 
 <div class="message-row {message.role}">
-	<!-- Bot Avatar Icon on Left Top (Lingkaran Teal ±36px, Ikon Robot Putih) -->
+	<!-- Bot Avatar Icon on Left Top (Logo NALARA ±36px) -->
 	{#if message.role === 'bot'}
 		<div class="bot-bubble-avatar" aria-hidden="true">
-			<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-				<!-- Head: Persegi membulat putih -->
-				<rect x="3.5" y="6" width="17" height="13" rx="4" stroke="#FFFFFF" stroke-width="1.8" fill="none" />
-				<!-- Eyes -->
-				<circle cx="8.5" cy="11.5" r="1.3" fill="#FFFFFF" />
-				<circle cx="15.5" cy="11.5" r="1.3" fill="#FFFFFF" />
-				<!-- Smile -->
-				<path d="M9.5 15c.8.7 1.7 1 2.5 1s1.7-.3 2.5-1" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" />
-				<!-- Antenna -->
-				<path d="M12 2.5v3.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
-				<circle cx="12" cy="2.5" r="1.1" fill="#FFFFFF" />
-				<!-- Ears -->
-				<rect x="1.5" y="10.5" width="2" height="4" rx="1" fill="#FFFFFF" />
-				<rect x="20.5" y="10.5" width="2" height="4" rx="1" fill="#FFFFFF" />
-			</svg>
+			<img src={logoNalara} alt="NALARA" class="nalara-bubble-img" />
 		</div>
 	{/if}
 
@@ -381,18 +368,27 @@
 		justify-content: flex-start;
 	}
 
-	/* Avatar Kecil Robot Lingkaran Teal ±36px di Kiri Atas */
+	/* Avatar Kecil Robot Lingkaran ±36px di Kiri Atas */
 	.bot-bubble-avatar {
 		width: 36px;
 		height: 36px;
 		border-radius: 50%;
-		background: #079EAD;
+		background: #FFFFFF;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		box-shadow: 0 3px 8px rgba(7, 158, 173, 0.28);
+		box-shadow: 0 3px 8px rgba(8, 36, 66, 0.12);
 		margin-top: 2px;
+		overflow: hidden;
+		border: 1.5px solid rgba(7, 158, 173, 0.25);
+	}
+
+	.nalara-bubble-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
 	}
 
 	/* Bubble Style */

@@ -48,7 +48,7 @@
 	});
 </script>
 
-<div class="chat-launcher-container" class:open-mobile-hidden={chatStore.isOpen}>
+<div class="chat-launcher-container">
 	<!-- Live Region Pengumuman Pesan Baru untuk Aksesibilitas Pembaca Layar -->
 	<div class="sr-only" role="status" aria-live="polite">
 		{#if chatStore.unreadCount > 0 && !chatStore.isOpen}
@@ -118,7 +118,7 @@
 		position: fixed;
 		bottom: 24px;
 		right: 24px;
-		z-index: 990;
+		z-index: 1000;
 		pointer-events: auto;
 	}
 
@@ -293,9 +293,7 @@
 			height: 52px;
 		}
 
-		.open-mobile-hidden {
-			display: none !important;
-		}
+
 	}
 
 	@media (max-width: 380px) {

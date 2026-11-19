@@ -189,11 +189,11 @@
 			left: 14px;
 			right: 14px;
 			margin: 0 auto;
-			bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+			bottom: calc(76px + env(safe-area-inset-bottom, 0px));
 			width: min(calc(100vw - 28px), 390px);
 			max-width: 390px;
 			height: clamp(390px, 66dvh, 500px);
-			max-height: calc(100dvh - 76px);
+			max-height: calc(100dvh - 90px);
 			border-radius: 20px;
 			box-shadow:
 				0 16px 40px rgba(8, 36, 66, 0.28),
@@ -208,8 +208,8 @@
 			right: 10px;
 			width: calc(100vw - 20px);
 			height: clamp(370px, 64dvh, 470px);
-			max-height: calc(100dvh - 64px);
-			bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+			max-height: calc(100dvh - 80px);
+			bottom: calc(70px + env(safe-area-inset-bottom, 0px));
 			border-radius: 18px;
 		}
 	}

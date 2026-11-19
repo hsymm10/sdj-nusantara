@@ -1,38 +1,15 @@
 <script lang="ts">
-	import { chatStore } from '#lib/stores/chat.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
-
-	function handleMinimize() {
-		chatStore.close();
-	}
-
-	function handleClose() {
-		chatStore.close();
-	}
+	import logoNalara from '#lib/assets/logo_nalara.png';
 </script>
 
 <header class="chat-header">
-	<!-- Top Row: Brand Info + Actions -->
+	<!-- Top Row: Brand Info (Tanpa tombol - dan X, ditutup via tombol silang di bawah) -->
 	<div class="header-main-row">
 		<!-- Left: White Circle Avatar + Title & Subtitle -->
 		<div class="header-brand">
 			<div class="bot-avatar-circle" aria-hidden="true">
-				<!-- Robot Icon Navy/Teal ±30px Sesuai Mockup -->
-				<svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-					<!-- Head: Persegi membulat outline tebal navy #082442 -->
-					<rect x="3.5" y="6" width="17" height="13" rx="4.5" stroke="#082442" stroke-width="2" fill="none" />
-					<!-- Two Eyes Navy -->
-					<circle cx="8.5" cy="11.5" r="1.5" fill="#082442" />
-					<circle cx="15.5" cy="11.5" r="1.5" fill="#082442" />
-					<!-- Smile Navy -->
-					<path d="M9.5 15c.8.8 1.7 1.1 2.5 1.1s1.7-.3 2.5-1.1" stroke="#082442" stroke-width="1.8" stroke-linecap="round" />
-					<!-- Antenna -->
-					<path d="M12 2.5v3.5" stroke="#082442" stroke-width="2" stroke-linecap="round" />
-					<circle cx="12" cy="2.5" r="1.25" fill="#082442" />
-					<!-- Ears -->
-					<rect x="1.5" y="10.5" width="2" height="4" rx="1" fill="#082442" />
-					<rect x="20.5" y="10.5" width="2" height="4" rx="1" fill="#082442" />
-				</svg>
+				<img src={logoNalara} alt="NALARA" class="nalara-avatar-img" />
 			</div>
 
 			<div class="brand-text">
@@ -43,34 +20,6 @@
 					<span>{i18n.dict.chat.subtitleStatus}</span>
 				</p>
 			</div>
-		</div>
-
-		<!-- Right Actions: Minimize (-) & Close (X) Bersih Sesuai Mockup -->
-		<div class="header-actions">
-			<button
-				type="button"
-				class="header-icon-btn"
-				onclick={handleMinimize}
-				aria-label={i18n.dict.chat.minimizeLabel}
-				title={i18n.dict.chat.minimizeLabel}
-			>
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round">
-					<line x1="5" y1="12" x2="19" y2="12"></line>
-				</svg>
-			</button>
-
-			<button
-				type="button"
-				class="header-icon-btn"
-				onclick={handleClose}
-				aria-label={i18n.dict.chat.closeLabel}
-				title={i18n.dict.chat.closeLabel}
-			>
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<line x1="18" y1="6" x2="6" y2="18"></line>
-					<line x1="6" y1="6" x2="18" y2="18"></line>
-				</svg>
-			</button>
 		</div>
 	</div>
 
@@ -119,7 +68,7 @@
 		min-width: 0;
 	}
 
-	/* Avatar Kiri: Lingkaran Putih ±54px, Ikon Robot ±30px Navy */
+	/* Avatar Kiri: Lingkaran Putih ±52px, Logo NALARA */
 	.bot-avatar-circle {
 		width: 52px;
 		height: 52px;
@@ -131,6 +80,14 @@
 		flex-shrink: 0;
 		box-shadow: 0 4px 14px rgba(8, 36, 66, 0.22);
 		border: 2px solid rgba(255, 255, 255, 0.95);
+		overflow: hidden;
+	}
+
+	.nalara-avatar-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
 	}
 
 	.brand-text {
@@ -169,37 +126,7 @@
 		font-size: 11px;
 	}
 
-	.header-actions {
-		display: flex;
-		align-items: center;
-		gap: 4px;
-		flex-shrink: 0;
-	}
 
-	.header-icon-btn {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		background: transparent;
-		border: none;
-		color: #FFFFFF;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		transition: background-color 0.15s ease, transform 0.15s ease;
-		padding: 0;
-	}
-
-	.header-icon-btn:hover {
-		background: rgba(255, 255, 255, 0.14);
-		transform: scale(1.04);
-	}
-
-	.header-icon-btn:focus-visible {
-		outline: 2px solid #16B6C1;
-		outline-offset: 1px;
-	}
 
 	/* Wave Decoration Berlapis di Tepi Bawah */
 	.header-wave-wrap {
