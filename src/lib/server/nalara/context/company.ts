@@ -74,3 +74,4 @@ export const companyKnowledge: KnowledgeEntry[] = [
 		relevantUrls: ['/syarat-ketentuan', '/kebijakan-privasi']
 	}
 ];
+

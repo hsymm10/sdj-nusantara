@@ -33,3 +33,4 @@ export interface KnowledgeEntry {
 	/** Tautan rute internal yang relevan untuk direkomendasikan */
 	relevantUrls?: string[];
 }
+

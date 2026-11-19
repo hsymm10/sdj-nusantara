@@ -76,3 +76,4 @@ export const servicesKnowledge: KnowledgeEntry[] = [
 		relevantUrls: ['/tentang-kami']
 	}
 ];
+

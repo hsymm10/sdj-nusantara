@@ -130,3 +130,4 @@ export const solusInstitusiEntry: KnowledgeEntry = {
    - Pastikan entri baru diimpor dan dimasukkan ke dalam daftar array di `src/lib/server/nalara/context/index.ts`.
 4. **Verifikasi Tipe & Build:**
    - Jalankan `npm run check` untuk memastikan validitas tipe TypeScript dan tidak ada properti wajib yang terlewat.
+

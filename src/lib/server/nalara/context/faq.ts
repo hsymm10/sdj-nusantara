@@ -74,3 +74,4 @@ export const faqKnowledge: KnowledgeEntry[] = [
 		relevantUrls: ['/kontak']
 	}
 ];
+

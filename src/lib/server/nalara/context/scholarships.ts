@@ -77,3 +77,4 @@ export const scholarshipsKnowledge: KnowledgeEntry[] = [
 		relevantUrls: ['/layanan/beasiswa']
 	}
 ];
+

@@ -24,3 +24,4 @@ export interface GuardrailResult {
 	reason?: 'out_of_context' | 'jailbreak' | 'empty' | 'too_long';
 	customReply?: string;
 }
+

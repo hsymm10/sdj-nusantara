@@ -28,3 +28,4 @@ export const websiteKnowledge: KnowledgeEntry[] = [
 		relevantUrls: ['/', '/tentang-kami', '/layanan', '/kemitraan', '/artikel', '/kontak']
 	}
 ];
+

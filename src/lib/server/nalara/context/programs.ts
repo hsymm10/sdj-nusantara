@@ -73,3 +73,4 @@ export const programsKnowledge: KnowledgeEntry[] = [
 		relevantUrls: ['/kemitraan']
 	}
 ];
+
