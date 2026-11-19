@@ -48,14 +48,7 @@ const allServiceSubItems: NavSubItem[] = [
 export const navItems: NavItem[] = [
 	{ label: 'Beranda', href: '/' },
 	{ label: 'Tentang Kami', href: '/tentang-kami' },
-	{
-		label: 'Layanan',
-		href: '/layanan',
-		hasDropdown: true,
-		children: allServiceSubItems.filter(
-			(sub) => !sub.serviceKey || serviceConfig[sub.serviceKey]
-		)
-	},
+	{ label: 'Layanan', href: '/layanan' },
 	{ label: 'Kemitraan', href: '/kemitraan' },
 	{ label: 'Perspektif', href: '/artikel' },
 	{ label: 'Kontak', href: '/kontak' }
