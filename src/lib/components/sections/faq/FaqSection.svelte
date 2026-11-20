@@ -7,6 +7,7 @@
 	import { chatStore } from '#lib/stores/chat.svelte';
 	import { serviceConfig } from '#lib/config/services';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 
 	let {
 		showCtaBanner = true,
@@ -118,6 +119,7 @@
 		<!-- Main 2-Column Layout -->
 		<div
 			class="faq-grid-layout"
+			use:scrollReveal={{ selector: '.faq-sidebar-col, .main-accordion-col', stagger: 0.1 }}
 			style="--faq-sidebar-max-height: {sidebarHeight > 0 ? `${sidebarHeight}px` : '630px'};"
 		>
 			<!-- LEFT COLUMN: Info Card & Category Navigation (380px) -->

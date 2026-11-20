@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 </script>
 
 <section class="profile-section" id="profil">
@@ -7,7 +8,7 @@
 	<img src="/images/tentang-line-art.png" alt="" class="bg-line-art" />
 
 	<div class="profile-container">
-		<div class="profile-grid">
+		<div class="profile-grid" use:scrollReveal={{ selector: '.image-wrapper, .content-wrapper', stagger: 0.1 }}>
 			<!-- Left: Image with 2 overlapping rounded color blocks popping on LEFT -->
 			<div class="image-wrapper">
 				<!-- Turquoise and Gold rounded decorative blocks popping from LEFT side -->

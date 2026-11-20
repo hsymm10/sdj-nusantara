@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { scrollReveal } from "#lib/motion";
 </script>
 
 <section
@@ -28,7 +29,7 @@
 
 	<!-- Content Container (Centered & Balanced Layout Without Buttons) -->
 	<div class="cta-container">
-		<div class="cta-content">
+		<div class="cta-content" use:scrollReveal>
 			<h2 class="cta-title">
 				{i18n.pick(
 					"Siap Mengambil Langkah Berikutnya?",

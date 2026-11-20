@@ -9,6 +9,7 @@
 	import { beasiswaKnowledge } from "#lib/data/knowledge/beasiswa";
 	import { serviceConfig } from "#lib/config/services";
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { heroEntrance, scrollReveal } from "#lib/motion";
 	import InstitutionalDetailModal, {
 		type InstitutionalServiceData,
 	} from "#lib/components/sections/education/InstitutionalDetailModal.svelte";
@@ -585,7 +586,7 @@
 	<!-- ==========================================
 	     1. HERO SECTION (Tinggi ±360px skala 1536, ±240px skala 1024)
 	     ========================================== -->
-	<header class="hub-hero">
+	<header class="hub-hero" use:heroEntrance>
 		<!-- Photo full-bleed di kanan mulai ±x 42% dengan fade navy halus dari kiri -->
 		<div class="hero-bg-wrapper" aria-hidden="true">
 			<picture>
@@ -857,7 +858,7 @@
 		<!-- ==========================================
 	     3. INTRO SECTION (Teks kiri & 4 ubin putih kanan)
 	     ========================================== -->
-		<section class="hub-intro-section" aria-labelledby="intro-heading">
+		<section class="hub-intro-section" aria-labelledby="intro-heading" use:scrollReveal={{ selector: '.intro-text-col, .intro-tiles-col', stagger: 0.1 }}>
 			<div class="hub-container intro-grid">
 				<!-- Kiri: Header teks -->
 				<div class="intro-text-col">
@@ -1135,6 +1136,7 @@
 			id="daftar-layanan"
 			class="hub-cards-section"
 			aria-label="Daftar Layanan"
+			use:scrollReveal={{ selector: '.service-card-curved, .why-us-card', stagger: 0.1 }}
 		>
 			{#snippet mediaCorners()}
 				<svg

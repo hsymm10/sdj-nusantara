@@ -5,10 +5,20 @@
 	import { i18n } from '#lib/stores/i18n.svelte';
 	import { setLenis } from '#lib/utils/lenis';
 	import Lenis from 'lenis';
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, onNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 
 	let { children }: LayoutProps = $props();
+
+	onNavigate((navigation) => {
+		if (typeof document === 'undefined' || !document.startViewTransition) return;
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 
 	let lenis: Lenis | null = null;
 

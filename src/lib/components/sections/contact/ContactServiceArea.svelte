@@ -5,6 +5,7 @@
 	import { contactConfig } from '#lib/config/contact';
 	import { INDONESIA_MAP_PATH } from '#lib/assets/maps/indonesiaPath';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 
 	// ilustrasi jangkauan layanan, bukan lokasi kantor (maksimal ±9 titik bersama Jakarta)
 	const serviceCities = [
@@ -20,7 +21,7 @@
 </script>
 
 <section class="service-area-section">
-	<div class="area-container">
+	<div class="area-container" use:scrollReveal={{ selector: '.area-text-col, .map-wrapper', stagger: 0.1 }}>
 		<!-- Left Column: Text & Features (x ±93 -> 560 pada 1536) -->
 		<div class="area-text-col">
 			<div class="section-dash-line">

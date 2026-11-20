@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { scrollReveal } from "#lib/motion";
 </script>
 
 <section class="nilai-section" id="nilai">
@@ -33,7 +34,7 @@
 		/>
 	</svg>
 
-	<div class="nilai-container">
+	<div class="nilai-container" use:scrollReveal={{ selector: '.nilai-left, .nilai-col', stagger: 0.08 }}>
 		<div class="nilai-grid">
 			<!-- Left Column: Title & CTA -->
 			<div class="nilai-left">

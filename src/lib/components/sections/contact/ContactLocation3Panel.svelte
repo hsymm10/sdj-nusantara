@@ -2,10 +2,11 @@
 	import { contactConfig } from '#lib/config/contact';
 	import Logo from '#lib/components/ui/Logo.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 </script>
 
 <section class="location-3panel-section" id="lokasi">
-	<div class="panel-grid">
+	<div class="panel-grid" use:scrollReveal={{ selector: '.panel-left, .panel-center, .panel-right', stagger: 0.1 }}>
 		<!-- Panel Kiri: Foto Gedung Kaca Modern Penuh Tepi Kiri Layar (x 0→678, ±44% lebar) -->
 		<div class="panel-left">
 			<img

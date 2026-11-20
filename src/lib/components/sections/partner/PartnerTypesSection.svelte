@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 
 	const partnerTypes = $derived(
 		i18n.lang === 'en'
@@ -47,7 +48,7 @@
 	</div>
 
 	<div class="types-container">
-		<div class="types-grid">
+		<div class="types-grid" use:scrollReveal={{ selector: '.text-col, .type-tile', stagger: 0.06 }}>
 			<!-- Kolom Kiri (~30%): Label, Heading & Deskripsi -->
 			<div class="text-col">
 				<div class="types-label">

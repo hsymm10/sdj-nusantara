@@ -3,6 +3,7 @@
 	import leadersData from "#lib/data/leaders.js";
 	import LeaderModal from "./LeaderModal.svelte";
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { scrollReveal } from "#lib/motion";
 
 	// Svelte 5 runes
 	type Leader = (typeof leadersData)[0];
@@ -442,7 +443,7 @@
 	<!-- Foreground Content Container -->
 	<div class="leadership-container">
 		<!-- Section Header -->
-		<div class="header-box">
+		<div class="header-box" use:scrollReveal>
 			<h2 class="section-title">
 				{i18n.pick("Management", "Management")}
 				<span class="teal-highlight">SDJ Nusantara</span>

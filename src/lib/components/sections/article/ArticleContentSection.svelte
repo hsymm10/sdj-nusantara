@@ -2,6 +2,7 @@
 	import { articlesData, type Article } from '#lib/data/articles';
 	import { articlesEnMap } from '#lib/i18n/articlesEn';
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 
 	function locArticle(a: Article): Article {
 		if (i18n.lang === 'en' && articlesEnMap[a.id]) {
@@ -164,7 +165,7 @@
 	<div class="sch-article-container">
 		<div class="article-layout-grid">
 			<!-- LEFT COLUMN (Featured Carousel + Artikel Terbaru + Pagination, Width: ±1030px) -->
-			<div class="main-left-col">
+			<div class="main-left-col" use:scrollReveal={{ selector: '.featured-carousel-wrap, .article-card-cell', stagger: 0.08 }}>
 				<!-- 1. Featured Carousel (Tanpa bingkai kartu putih) -->
 				<div
 					class="featured-carousel-wrap"
@@ -318,7 +319,7 @@
 			</div>
 
 			<!-- RIGHT SIDEBAR COLUMN (Width: ±367px) -->
-			<aside class="sidebar-right-col">
+			<aside class="sidebar-right-col" use:scrollReveal={{ selector: '.sidebar-card, .newsletter-card', stagger: 0.1 }}>
 				<!-- 1. Input Pencarian Pill Putih -->
 				<div class="search-widget-pill">
 					<input

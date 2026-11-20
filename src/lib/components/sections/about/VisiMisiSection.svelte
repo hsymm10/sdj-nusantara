@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { scrollReveal } from "#lib/motion";
 </script>
 
 <section class="visi-misi-section" id="visi-misi">
 	<div class="visi-misi-container">
-		<div class="visi-misi-grid">
+		<div class="visi-misi-grid" use:scrollReveal={{ selector: '.visi-misi-left, .vm-card', stagger: 0.08 }}>
 			<!-- Left: Intro & Heading -->
 			<div class="visi-misi-left">
 				<div class="section-label">

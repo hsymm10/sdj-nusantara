@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 
 	const approaches = $derived(
 		i18n.lang === 'en'
@@ -81,7 +82,7 @@
 	</div>
 
 	<div class="approach-container">
-		<div class="approach-grid">
+		<div class="approach-grid" use:scrollReveal={{ selector: '.text-col, .approach-card', stagger: 0.08 }}>
 			<!-- Kolom Kiri (~33%): Label, Heading + Garis Bawah Kuning, Deskripsi & Tombol CTA -->
 			<div class="text-col">
 				<div class="approach-label">

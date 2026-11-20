@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
+	import { heroEntrance } from "#lib/motion";
 </script>
 
-<section id="hero-kemitraan" class="hero-partner">
+<section id="hero-kemitraan" class="hero-partner" use:heroEntrance>
 	<!-- Background Image & Gradient Overlays -->
 	<div class="hero-bg-wrap">
 		<img

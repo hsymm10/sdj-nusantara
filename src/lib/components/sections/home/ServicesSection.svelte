@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 	import { onMount } from 'svelte';
 
 	let activeCategory = $state<'individu' | 'institusi'>('individu');
@@ -54,7 +55,7 @@
 		<path d="M175 140 C230 132 275 104 320 72 V140 H175 Z" fill="#FFB822" />
 	</svg>
 
-	<div class="services-container">
+	<div class="services-container" use:scrollReveal={{ selector: '.services-heading-row, .services-tab-wrapper, .services-content-area', stagger: 0.08 }}>
 		<!-- Heading Row Sesuai Referensi Gambar 4: Judul + Garis Horizontal -->
 		<div class="services-heading-row">
 			<h2 class="services-main-title">

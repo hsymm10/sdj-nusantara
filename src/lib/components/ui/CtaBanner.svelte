@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { scrollReveal } from '#lib/motion';
+
 	interface Props {
 		title: string;
 		description: string;
@@ -66,7 +68,7 @@
 	</div>
 
 	<div class="cta-container">
-		<div class="cta-content">
+		<div class="cta-content" use:scrollReveal>
 			<div class="cta-text">
 				<h2 class="cta-title">{@html title}</h2>
 				<p class="cta-desc">{description}</p>

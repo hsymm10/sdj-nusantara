@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 </script>
 
 <section class="pendekatan-section" id="pendekatan">
@@ -20,7 +21,7 @@
 	</div>
 
 	<div class="pendekatan-container">
-		<div class="pendekatan-grid">
+		<div class="pendekatan-grid" use:scrollReveal={{ selector: '.pendekatan-content, .pendekatan-checks', stagger: 0.1 }}>
 			<!-- Empty spacer for left photo -->
 			<div class="spacer-col"></div>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { scrollReveal } from '#lib/motion';
 </script>
 
 <section class="about-section">
@@ -58,7 +59,7 @@
 	</div>
 
 	<!-- Main Centered Container (aligned with StatsBar x 232→1318) -->
-	<div class="about-container">
+	<div class="about-container" use:scrollReveal={{ selector: '.about-left-text, .about-center-features, .about-right-card', stagger: 0.09 }}>
 		<!-- Left: Text Content -->
 		<div class="about-left-text">
 			<div class="section-label">{i18n.pick('Tentang SDJ Nusantara', 'About SDJ Nusantara')}</div>
