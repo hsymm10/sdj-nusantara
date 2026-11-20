@@ -32,7 +32,7 @@ export const geminiService = {
 			if (!hasMatch) {
 				return {
 					reply: OUT_OF_CONTEXT_REPLY,
-					suggestions: ['Apa itu SDJNusantara?', 'Apa saja layanan yang tersedia?'],
+					suggestions: ['Apa itu SDJ Nusantara?', 'Apa saja layanan yang tersedia?'],
 					source: 'guardrail',
 					contextIds: []
 				};
@@ -146,7 +146,7 @@ export const geminiService = {
 			return {
 				reply: isTimeout
 					? 'Mohon maaf, pemrosesan jawaban membutuhkan waktu lebih lama dari biasanya. Silakan coba kembali pertanyaan Anda atau hubungi kami langsung di /kontak.'
-					: 'Mohon maaf, terjadi kendala teknis saat menghubungkan ke server AI. Silakan hubungi tim SDJNusantara via WhatsApp di +62 858-8072-4733.',
+					: 'Mohon maaf, terjadi kendala teknis saat menghubungkan ke server AI. Silakan hubungi tim SDJ Nusantara via WhatsApp di +62 858-8072-4733.',
 				source: 'fallback'
 			};
 		}

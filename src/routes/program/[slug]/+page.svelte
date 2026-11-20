@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-	<title>{program.title} — SDJNusantara</title>
+	<title>{program.title} — SDJ Nusantara</title>
 	<meta name="description" content={program.desc} />
 </svelte:head>
 

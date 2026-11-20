@@ -1,13 +1,13 @@
 // src/lib/server/nalara/guards/context-guard.ts
-// AI Guardrails Sisi Server untuk NALARA SDJNusantara
+// AI Guardrails Sisi Server untuk NALARA SDJ Nusantara
 
 import type { GuardrailResult } from '../types/nalara.types';
 
-export const OUT_OF_CONTEXT_REPLY = `Maaf, saya NALARA, asisten virtual SDJNusantara yang berfokus pada informasi profil, layanan, program, dan beasiswa SDJNusantara.
+export const OUT_OF_CONTEXT_REPLY = `Maaf, saya NALARA, asisten virtual SDJ Nusantara yang berfokus pada informasi profil, layanan, program, dan beasiswa SDJ Nusantara.
 
-Apakah ada hal seputar SDJNusantara yang ingin Anda tanyakan?`;
+Apakah ada hal seputar SDJ Nusantara yang ingin Anda tanyakan?`;
 
-export const INFO_NOT_AVAILABLE_REPLY = `Maaf, informasi tersebut belum tersedia dalam basis pengetahuan saya. Silakan hubungi tim SDJNusantara untuk informasi lebih lanjut.`;
+export const INFO_NOT_AVAILABLE_REPLY = `Maaf, informasi tersebut belum tersedia dalam basis pengetahuan saya. Silakan hubungi tim SDJ Nusantara untuk informasi lebih lanjut.`;
 
 /** Pola prompt injection atau manipulasi instruksi sistem */
 const INJECTION_PATTERNS = [
@@ -25,7 +25,7 @@ const INJECTION_PATTERNS = [
 	/you\s+are\s+now\s+an\s+unfiltered/i
 ];
 
-/** Pola pertanyaan umum yang jelas di luar ranah SDJNusantara */
+/** Pola pertanyaan umum yang jelas di luar ranah SDJ Nusantara */
 const OUT_OF_BOUNDS_PATTERNS = [
 	/resep|memasak|cara\s+masak|bumbu\s+dapur|kuliner/i,
 	/cara\s+membuat\s+(kue|nasi|kopi|masakan|makanan|sayur|rendang|bakso)/i,
@@ -38,7 +38,7 @@ const OUT_OF_BOUNDS_PATTERNS = [
 	/skor\s+sepak\s+bola|hasil\s+pertandingan|liga\s+inggris|liga\s+champions/i
 ];
 
-/** Kata kunci / topik yang selalu diizinkan dan relevan dengan SDJNusantara */
+/** Kata kunci / topik yang selalu diizinkan dan relevan dengan SDJ Nusantara */
 const RELEVANT_TOPIC_KEYWORDS = [
 	'sdj',
 	'sdjnusantara',
@@ -98,7 +98,7 @@ const RELEVANT_TOPIC_KEYWORDS = [
 
 export const contextGuard = {
 	/**
-	 * Memvalidasi apakah pesan aman dan relevan dengan ranah SDJNusantara
+	 * Memvalidasi apakah pesan aman dan relevan dengan ranah SDJ Nusantara
 	 */
 	validate(message: string): GuardrailResult {
 		const trimmed = message.trim();
@@ -108,7 +108,7 @@ export const contextGuard = {
 			return {
 				isAllowed: false,
 				reason: 'empty',
-				customReply: 'Silakan ketik pertanyaan Anda seputar layanan atau program SDJNusantara.'
+				customReply: 'Silakan ketik pertanyaan Anda seputar layanan atau program SDJ Nusantara.'
 			};
 		}
 

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Navbar from '#lib/components/layout/Navbar.svelte';
-	import Footer from '#lib/components/layout/Footer.svelte';
-	import HeroScholarship from '#lib/components/sections/scholarship/HeroScholarship.svelte';
-	import ServiceFloatingNavigation from '#lib/components/ui/ServiceFloatingNavigation.svelte';
-	import ScholarshipSearchSection from '#lib/components/sections/scholarship/ScholarshipSearchSection.svelte';
-	import ScholarshipPrepGuide from '#lib/components/sections/scholarship/ScholarshipPrepGuide.svelte';
-	import ScholarshipCategorySection from '#lib/components/sections/scholarship/ScholarshipCategorySection.svelte';
-	import CtaBanner from '#lib/components/ui/CtaBanner.svelte';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import Navbar from "#lib/components/layout/Navbar.svelte";
+	import Footer from "#lib/components/layout/Footer.svelte";
+	import HeroScholarship from "#lib/components/sections/scholarship/HeroScholarship.svelte";
+	import ServiceFloatingNavigation from "#lib/components/ui/ServiceFloatingNavigation.svelte";
+	import ScholarshipSearchSection from "#lib/components/sections/scholarship/ScholarshipSearchSection.svelte";
+	import ScholarshipPrepGuide from "#lib/components/sections/scholarship/ScholarshipPrepGuide.svelte";
+	import ScholarshipCategorySection from "#lib/components/sections/scholarship/ScholarshipCategorySection.svelte";
+	import CtaBanner from "#lib/components/ui/CtaBanner.svelte";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
-	let activeCategory = $state('Semua Kategori');
+	let activeCategory = $state("Semua Kategori");
 
 	function handleCategorySelect(cat: string) {
 		activeCategory = cat;
@@ -17,12 +17,17 @@
 </script>
 
 <svelte:head>
-	<title>{i18n.pick('Beasiswa — SDJNusantara Strategic Your Partner', 'Scholarships — SDJNusantara Your Strategic Partner')}</title>
+	<title
+		>{i18n.pick(
+			"Beasiswa — SDJ Nusantara Strategic Your Partner",
+			"Scholarships — SDJ Nusantara Your Strategic Partner",
+		)}</title
+	>
 	<meta
 		name="description"
 		content={i18n.pick(
-			'Akses informasi beasiswa dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur bersama SDJNusantara.',
-			'Access curated, structured information on domestic and international scholarships with SDJNusantara.'
+			"Akses informasi beasiswa dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur bersama SDJ Nusantara.",
+			"Access curated, structured information on domestic and international scholarships with SDJ Nusantara.",
 		)}
 	/>
 </svelte:head>
@@ -45,14 +50,17 @@
 	<!-- 6. Jelajahi Beasiswa Berdasarkan Kategori -->
 	<ScholarshipCategorySection onSelectCategory={handleCategorySelect} />
 
-	<!-- 7. CTA Banner (Konsisten dengan Halaman Pendidikan) -->
+	<!-- 7. CTA Banner (Tanpa Tombol) -->
 	<CtaBanner
-		title={i18n.pick('Butuh Bantuan <span class="highlight-gold">Memilih Beasiswa?</span>', 'Need Help <span class="highlight-gold">Choosing a Scholarship?</span>')}
-		description={i18n.pick('Konsultasikan rencana pendidikan Anda dengan tim SDJNusantara dan dapatkan rekomendasi beasiswa yang sesuai dengan profil Anda.', 'Consult your education plan with the SDJNusantara team and receive scholarship recommendations matched to your profile.')}
-		primaryText={i18n.pick('Ajukan Konsultasi', 'Request Consultation')}
-		primaryHref="/kontak"
-		secondaryText={i18n.pick('Diskusi Institusi', 'Institutional Discussion')}
-		secondaryHref="/kemitraan"
+		title={i18n.pick(
+			'Butuh Bantuan <span class="highlight-gold">Memilih Beasiswa?</span>',
+			'Need Help <span class="highlight-gold">Choosing a Scholarship?</span>',
+		)}
+		description={i18n.pick(
+			"Konsultasikan rencana pendidikan Anda dengan tim SDJ Nusantara dan dapatkan rekomendasi beasiswa yang sesuai dengan profil Anda.",
+			"Consult your education plan with the SDJ Nusantara team and receive scholarship recommendations matched to your profile.",
+		)}
+		showButtons={false}
 		bgImage="/images/cta-pendidikan-academic-bg.jpg"
 		variant="layanan"
 	/>
@@ -64,8 +72,7 @@
 	.page-content {
 		width: 100%;
 		overflow-x: hidden;
-		background: #FFFFFF;
+		background: #ffffff;
 		padding-top: var(--navbar-height, 48px);
 	}
 </style>
-

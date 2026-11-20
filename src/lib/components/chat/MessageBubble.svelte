@@ -202,24 +202,24 @@
 				return {
 					headline: isEn ? 'Scholarship Guarantee Policy' : 'Kebijakan Jaminan Beasiswa',
 					body: isEn
-						? 'SDJNusantara does not guarantee scholarship acceptance or admission. Final selection decisions rest solely with the awarding organization or university.\n\nOur Scholarship Academy focuses on structured preparation, profile mapping, essay and CV refinement, and interview simulations.\n\nLearn more at /layanan/beasiswa.'
-						: 'SDJNusantara tidak memberikan jaminan kelulusan atau perolehan beasiswa. Keputusan akhir sepenuhnya merupakan wewenang pihak universitas atau lembaga penyelenggara beasiswa terkait.\n\nLayanan Scholarship Academy SDJNusantara berfokus pada pendampingan terarah, pemetaan profil, penguatan dokumen aplikasi (CV dan esai/motivation letter), serta simulasi wawancara agar persiapan Anda lebih matang.\n\nPelajari selengkapnya di halaman /layanan/beasiswa.'
+						? 'SDJ Nusantara does not guarantee scholarship acceptance or admission. Final selection decisions rest solely with the awarding organization or university.\n\nOur Scholarship Academy focuses on structured preparation, profile mapping, essay and CV refinement, and interview simulations.\n\nLearn more at /layanan/beasiswa.'
+						: 'SDJ Nusantara tidak memberikan jaminan kelulusan atau perolehan beasiswa. Keputusan akhir sepenuhnya merupakan wewenang pihak universitas atau lembaga penyelenggara beasiswa terkait.\n\nLayanan Scholarship Academy SDJ Nusantara berfokus pada pendampingan terarah, pemetaan profil, penguatan dokumen aplikasi (CV dan esai/motivation letter), serta simulasi wawancara agar persiapan Anda lebih matang.\n\nPelajari selengkapnya di halaman /layanan/beasiswa.'
 				};
 			}
 			if (msg.key === 'payment_account') {
 				return {
 					headline: isEn ? 'Official Payment & Account Policy' : 'Kebijakan Pembayaran & Rekening Resmi',
 					body: isEn
-						? 'All official SDJNusantara program transactions and payments are issued only via official corporate invoices and institutional bank accounts, never personal accounts.\n\nFor official administration verification, reach our representative via WhatsApp +62 858-8072-4733 or email info@sdjnusantara.com.\n\nSee full details at /syarat-ketentuan.'
-						: 'Seluruh transaksi dan pembayaran resmi program SDJNusantara hanya diterbitkan melalui invoice resmi dan rekening institusi atas nama perusahaan, bukan rekening pribadi individu mana pun.\n\nUntuk konfirmasi administrasi resmi, silakan hubungi saluran representatif kami di WhatsApp +62 858-8072-4733 atau email info@sdjnusantara.com.\n\nLihat selengkapnya di halaman /syarat-ketentuan.'
+						? 'All official SDJ Nusantara program transactions and payments are issued only via official corporate invoices and institutional bank accounts, never personal accounts.\n\nFor official administration verification, reach our representative via WhatsApp +62 858-8072-4733 or email info@sdjnusantara.com.\n\nSee full details at /syarat-ketentuan.'
+						: 'Seluruh transaksi dan pembayaran resmi program SDJ Nusantara hanya diterbitkan melalui invoice resmi dan rekening institusi atas nama perusahaan, bukan rekening pribadi individu mana pun.\n\nUntuk konfirmasi administrasi resmi, silakan hubungi saluran representatif kami di WhatsApp +62 858-8072-4733 atau email info@sdjnusantara.com.\n\nLihat selengkapnya di halaman /syarat-ketentuan.'
 				};
 			}
 			if (msg.key === 'legal_unavailable') {
 				return {
 					headline: isEn ? 'Service Availability' : 'Informasi Ketersediaan Layanan',
 					body: isEn
-						? 'Currently, SDJNusantara focuses our active services on Education Programs and Scholarships. You can explore our active programs at /layanan or consult with our team via /kontak.'
-						: 'Saat ini fokus utama layanan aktif SDJNusantara adalah Program Pendidikan dan Beasiswa. Anda dapat menjelajahi program aktif kami di /layanan atau berdiskusi dengan tim kami melalui halaman /kontak.'
+						? 'Currently, SDJ Nusantara focuses our active services on Education Programs and Scholarships. You can explore our active programs at /layanan or consult with our team via /kontak.'
+						: 'Saat ini fokus utama layanan aktif SDJ Nusantara adalah Program Pendidikan dan Beasiswa. Anda dapat menjelajahi program aktif kami di /layanan atau berdiskusi dengan tim kami melalui halaman /kontak.'
 				};
 			}
 		}

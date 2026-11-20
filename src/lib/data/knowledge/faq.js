@@ -8,7 +8,7 @@ export const faqKnowledge = [
 	{
 		id: 'faq-sasaran-peserta',
 		kategori: 'faq',
-		judul: 'Apakah SDJNusantara hanya melayani mahasiswa?',
+		judul: 'Apakah SDJ Nusantara hanya melayani mahasiswa?',
 		pertanyaan: [
 			'apakah sdjnusantara hanya untuk mahasiswa',
 			'apakah anak sekolah bisa ikut',
@@ -39,7 +39,7 @@ export const faqKnowledge = [
 	{
 		id: 'faq-penyedia-beasiswa',
 		kategori: 'faq',
-		judul: 'Apakah SDJNusantara menyediakan beasiswa sendiri?',
+		judul: 'Apakah SDJ Nusantara menyediakan beasiswa sendiri?',
 		pertanyaan: [
 			'apakah sdjnusantara pemberi beasiswa',
 			'apakah sdj bagi-bagi beasiswa',
@@ -49,7 +49,7 @@ export const faqKnowledge = [
 		],
 		kataKunci: ['menyediakan beasiswa', 'pemberi beasiswa', 'dana beasiswa', 'donor beasiswa', 'sumber pendanaan'],
 		ringkas:
-			'SDJNusantara berfokus pada kurasi informasi dan pendampingan persiapan aplikasi beasiswa, bukan sebagai lembaga penyandang dana beasiswa langsung.',
+			'SDJ Nusantara berfokus pada kurasi informasi dan pendampingan persiapan aplikasi beasiswa, bukan sebagai lembaga penyandang dana beasiswa langsung.',
 		detail: [
 			'Ketersediaan dana dan penetapan beasiswa sepenuhnya ditentukan oleh masing-masing lembaga penyedia (pemerintah, universitas, yayasan, atau lembaga donor internasional).',
 			'Kami membimbing Anda memilih beasiswa yang sesuai serta mendampingi penguatan berkas agar peluang bersaing Anda optimal.'
@@ -138,9 +138,9 @@ export const faqKnowledge = [
 		],
 		kataKunci: ['sertifikat', 'bnsp', 'sertifikat pelatihan', 'sertifikat kompetensi', 'ijazah kursus'],
 		ringkas:
-			'Peserta memperoleh sertifikat keikutsertaan pelatihan resmi dari SDJNusantara; sertifikat kompetensi profesi hanya diterbitkan oleh lembaga berwenang (seperti BNSP).',
+			'Peserta memperoleh sertifikat keikutsertaan pelatihan resmi dari SDJ Nusantara; sertifikat kompetensi profesi hanya diterbitkan oleh lembaga berwenang (seperti BNSP).',
 		detail: [
-			'Sertifikat keikutsertaan pelatihan diberikan sebagai bukti telah menyelesaikan kurikulum kelas di SDJNusantara.',
+			'Sertifikat keikutsertaan pelatihan diberikan sebagai bukti telah menyelesaikan kurikulum kelas di SDJ Nusantara.',
 			'Sertifikat kompetensi profesi diterbitkan tersendiri oleh badan sertifikasi berwenang sesuai skema uji kompetensi.',
 			'Kerja sama resmi dengan lembaga sertifikasi dan skema terkait akan diumumkan secara terbuka setelah proses verifikasi selesai.'
 		],
@@ -170,9 +170,9 @@ export const faqKnowledge = [
 		ringkas:
 			'Pilih program yang Anda minati di situs web, lalu isi formulir kontak atau hubungi WhatsApp resmi kami untuk memulai konsultasi awal.',
 		detail: [
-			'Kunjungi menu Layanan atau Program di website SDJNusantara.',
+			'Kunjungi menu Layanan atau Program di website SDJ Nusantara.',
 			'Klik tombol "Ajukan Konsultasi" atau isi formulir di halaman Kontak.',
-			'Tim narahubung kami akan segera merespons untuk memetakan kebutuhan dan mengarahkan paket yang paling sesuai.'
+			'Tim narahubung kami akanAjukan Konsultasi segera merespons untuk memetakan kebutuhan dan mengarahkan paket yang paling sesuai.'
 		],
 		cocokUntuk: [
 			'Semua calon peserta individu maupun perwakilan lembaga'

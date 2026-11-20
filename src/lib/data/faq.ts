@@ -1,5 +1,5 @@
 // src/lib/data/faq.ts
-// Data resmi Pertanyaan yang Sering Diajukan (FAQ) SDJNusantara
+// Data resmi Pertanyaan yang Sering Diajukan (FAQ) SDJ Nusantara
 // Mendukung kategorisasi, status aktif, status populer, urutan, dan pencarian interaktif
 
 export interface FaqItem {
@@ -31,7 +31,7 @@ export const faqData: FaqItem[] = [
 	// --- KATEGORI: PROGRAM PENDIDIKAN (7 Pertanyaan Resmi Sesuai Konten Layanan Pendidikan) ---
 	{
 		id: 'faq-01',
-		question: 'Apakah SDJNusantara hanya melayani mahasiswa?',
+		question: 'Apakah SDJ Nusantara hanya melayani mahasiswa?',
 		answer:
 			'Tidak. Layanan kami terbuka untuk pelajar sekolah menengah, mahasiswa, lulusan baru, profesional, pendidik, komunitas, hingga institusi.',
 		detail: [
@@ -46,9 +46,9 @@ export const faqData: FaqItem[] = [
 	},
 	{
 		id: 'faq-02',
-		question: 'Apakah SDJNusantara menyediakan beasiswa sendiri?',
+		question: 'Apakah SDJ Nusantara menyediakan beasiswa sendiri?',
 		answer:
-			'SDJNusantara berfokus pada kurasi informasi dan pendampingan persiapan aplikasi beasiswa, bukan sebagai lembaga penyandang dana beasiswa langsung.',
+			'SDJ Nusantara berfokus pada kurasi informasi dan pendampingan persiapan aplikasi beasiswa, bukan sebagai lembaga penyandang dana beasiswa langsung.',
 		detail: [
 			'Ketersediaan dana dan penetapan beasiswa sepenuhnya ditentukan oleh masing-masing lembaga penyedia (pemerintah, universitas, yayasan, atau lembaga donor internasional).',
 			'Kami membimbing Anda memilih beasiswa yang sesuai serta mendampingi penguatan berkas agar peluang bersaing Anda optimal.'
@@ -90,9 +90,9 @@ export const faqData: FaqItem[] = [
 		id: 'faq-05',
 		question: 'Apakah peserta pelatihan memperoleh sertifikat (termasuk BNSP)?',
 		answer:
-			'Peserta memperoleh sertifikat keikutsertaan pelatihan resmi dari SDJNusantara. Untuk sertifikat kompetensi profesi, penerbitan dilakukan oleh badan sertifikasi berwenang (seperti BNSP) sesuai skema uji kompetensi yang terdaftar.',
+			'Peserta memperoleh sertifikat keikutsertaan pelatihan resmi dari SDJ Nusantara. Untuk sertifikat kompetensi profesi, penerbitan dilakukan oleh badan sertifikasi berwenang (seperti BNSP) sesuai skema uji kompetensi yang terdaftar.',
 		detail: [
-			'Sertifikat Pelatihan SDJNusantara: Bukti keikutsertaan dan penyelesaian jam pelatihan profesional.',
+			'Sertifikat Pelatihan SDJ Nusantara: Bukti keikutsertaan dan penyelesaian jam pelatihan profesional.',
 			'Sertifikasi Profesi/BNSP: Mengikuti uji kompetensi resmi melalui Lembaga Sertifikasi Profesi (LSP) berlisensi mitra kami.'
 		],
 		categories: ['program'],
@@ -104,7 +104,7 @@ export const faqData: FaqItem[] = [
 		id: 'faq-06',
 		question: 'Bagaimana cara mendaftar program atau bimbingan?',
 		answer:
-			'Pilih program yang Anda minati di website SDJNusantara, lalu isi formulir kontak atau hubungi WhatsApp resmi kami untuk memulai konsultasi awal pemetaan kebutuhan.',
+			'Pilih program yang Anda minati di website SDJ Nusantara, lalu isi formulir kontak atau hubungi WhatsApp resmi kami untuk memulai konsultasi awal pemetaan kebutuhan.',
 		detail: [
 			'Konsultasi Kebutuhan: Kami memetakan sasaran belajar atau kebutuhan pelatihan Anda.',
 			'Rencana & Penawaran: Penyampaian silabus, jadwal, dan skema biaya transparan.',
@@ -221,7 +221,7 @@ export const faqData: FaqItem[] = [
 	// --- KATEGORI: LAYANAN HUKUM (5 Pertanyaan Hukum) ---
 	{
 		id: 'faq-leg-16',
-		question: 'Apa saja ruang lingkup layanan hukum dan konsultasi regulasi di SDJNusantara?',
+		question: 'Apa saja ruang lingkup layanan hukum dan konsultasi regulasi di SDJ Nusantara?',
 		answer:
 			'Ruang lingkup meliputi telaah kepatuhan regulasi pendidikan, penyusunan dan penelaahan kontrak kerja sama (MoU/PKS), serta konsultasi tata kelola kelembagaan pendidikan.',
 		categories: ['hukum'],
@@ -231,9 +231,9 @@ export const faqData: FaqItem[] = [
 	},
 	{
 		id: 'faq-leg-17',
-		question: 'Apakah SDJNusantara menangani sengketa perdata atau pidana di pengadilan?',
+		question: 'Apakah SDJ Nusantara menangani sengketa perdata atau pidana di pengadilan?',
 		answer:
-			'Tidak. Layanan hukum SDJNusantara bersifat preventif dan konsultatif tata kelola non-litigasi. Kami tidak menyediakan jasa advokat litigasi di ruang peradilan.',
+			'Tidak. Layanan hukum SDJ Nusantara bersifat preventif dan konsultatif tata kelola non-litigasi. Kami tidak menyediakan jasa advokat litigasi di ruang peradilan.',
 		categories: ['hukum'],
 		isActive: true,
 		isPopular: false,

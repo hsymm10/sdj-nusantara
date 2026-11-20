@@ -12,15 +12,15 @@
 <svelte:head>
 	<title
 		>{i18n.pick(
-			"SDJNusantara — Strategic Your Partner",
-			"SDJNusantara — Your Strategic Partner",
+			"SDJ Nusantara — Strategic Your Partner",
+			"SDJ Nusantara — Your Strategic Partner",
 		)}</title
 	>
 	<meta
 		name="description"
 		content={i18n.pick(
-			"SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, dan meningkatkan keterampilan.",
-			"SDJNusantara is an education and talent development consultancy helping individuals and institutions plan education, prepare for scholarships, and build skills.",
+			"SDJ Nusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, dan meningkatkan keterampilan.",
+			"SDJ Nusantara is an education and talent development consultancy helping individuals and institutions plan education, prepare for scholarships, and build skills.",
 		)}
 	/>
 </svelte:head>

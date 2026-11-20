@@ -1,5 +1,5 @@
 // src/lib/server/nalara/types/knowledge.types.ts
-// Arsitektur Tipe Basis Pengetahuan NALARA SDJNusantara
+// Arsitektur Tipe Basis Pengetahuan NALARA SDJ Nusantara
 
 export type VerificationStatus = 'verified' | 'draft' | 'archived';
 
@@ -22,7 +22,7 @@ export interface KnowledgeEntry {
 	content: string;
 	/** Poin-poin spesifik atau cakupan informasi */
 	details: string[];
-	/** Tautan rute atau sumber resmi website SDJNusantara */
+	/** Tautan rute atau sumber resmi website SDJ Nusantara */
 	source: string;
 	/** Status verifikasi: hanya 'verified' yang dijadikan fakta oleh AI */
 	verificationStatus: VerificationStatus;

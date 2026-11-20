@@ -19,15 +19,15 @@
 <svelte:head>
 	<title
 		>{i18n.pick(
-			"Layanan Pendidikan — SDJNusantara",
-			"Education Services — SDJNusantara",
+			"Layanan Pendidikan — SDJ Nusantara",
+			"Education Services — SDJ Nusantara",
 		)}</title
 	>
 	<meta
 		name="description"
 		content={i18n.pick(
-			"Layanan Pendidikan SDJNusantara menyediakan pendampingan profesional, persiapan beasiswa, pengembangan talenta, dan kemitraan institusi untuk masa depan pendidikan Indonesia.",
-			"SDJNusantara Education Services provides professional mentoring, scholarship preparation, talent development, and institutional partnerships for the future of education.",
+			"Layanan Pendidikan SDJ Nusantara menyediakan pendampingan profesional, persiapan beasiswa, pengembangan talenta, dan kemitraan institusi untuk masa depan pendidikan Indonesia.",
+			"SDJ Nusantara Education Services provides professional mentoring, scholarship preparation, talent development, and institutional partnerships for the future of education.",
 		)}
 	/>
 </svelte:head>
@@ -41,7 +41,7 @@
 	<!-- 02: Standardized Service Floating Navigation Overlap -->
 	<ServiceFloatingNavigation activeService="education" />
 
-	<!-- 03: Tentang SDJNusantara (3-Kolom: Info, 5 Keunggulan, Foto Gedung Melengkung) -->
+	<!-- 03: Tentang SDJ Nusantara (3-Kolom: Info, 5 Keunggulan, Foto Gedung Melengkung) -->
 	<AboutEducation />
 
 	<!-- 04: Solusi Terintegrasi untuk Pengembangan Potensi (4 Cards Unggulan) -->
@@ -65,7 +65,7 @@
 	<!-- 10: Mitra & Kolaborasi (Carousel Logo Resmi Institusi) -->
 	<PartnersEducation />
 
-	<!-- 11: CTA Banner Full Background Image -->
+	<!-- 11: CTA Banner Full Background Image (Tanpa Tombol) -->
 	<CtaBanner
 		title={i18n.pick(
 			'Siap Mengembangkan <span class="highlight-gold">Kualitas Pendidikan</span> Institusi Anda?',
@@ -76,10 +76,7 @@
 			"Get targeted education and talent development solutions tailored to your institution’s needs.",
 		)}
 		bgImage="/images/cta-pendidikan-academic-bg.jpg"
-		primaryText={i18n.pick("Ajukan Konsultasi", "Request Consultation")}
-		primaryHref="/kontak"
-		secondaryText={i18n.pick("Diskusi Institusi", "Institutional Discussion")}
-		secondaryHref="/kemitraan"
+		showButtons={false}
 		variant="layanan"
 	/>
 </main>

@@ -1,4 +1,4 @@
-// Dataset Artikel & Wawasan SDJNusantara
+// Dataset Artikel & Wawasan SDJ Nusantara
 // WAJIB DIISI/DIVERIFIKASI: penulis, sumber tepercaya, tanggal publikasi/pembaruan (content-master bagian 6)
 
 export interface Article {
@@ -37,7 +37,7 @@ export const articlesData: Article[] = [
 			<h3>Peran Tenaga Pendidik dan Komunitas</h3>
 			<p>Guru dan pihak sekolah memerlukan pendampingan berkelanjutan agar mampu merancang kurikulum berdiferensiasi yang menjawab kebutuhan individual siswa secara efektif.</p>
 		`,
-		penulis: 'Konsultan Pendidikan Inklusif SDJNusantara',
+		penulis: 'Konsultan Pendidikan Inklusif SDJ Nusantara',
 		sumber: 'Jurnal Pedagogi & Kebijakan Pendidikan Indonesia',
 		gambar: '/images/article-card-1.jpg',
 		kutipan:
@@ -58,7 +58,7 @@ export const articlesData: Article[] = [
 			<h3>Kombinasi Hard Skill dan Soft Skill</h3>
 			<p>Selain keahlian teknis seperti analisis data, pemrograman, atau desain digital, kemampuan berpikir kritis dan pemecahan masalah kompleks tetap menjadi kunci utama.</p>
 		`,
-		penulis: 'Instruktur Keterampilan Digital SDJNusantara',
+		penulis: 'Instruktur Keterampilan Digital SDJ Nusantara',
 		sumber: 'World Economic Forum - Future of Jobs Report',
 		gambar: '/images/article-card-2.jpg',
 		isLatestPrimary: true
@@ -76,7 +76,7 @@ export const articlesData: Article[] = [
 			<h3>Persiapan Karier Strategis</h3>
 			<p>Mulai dari pemetaan kompetensi, penyusunan portofolio profesional berbasis hasil nyata, hingga pemahaman etika kerja dan komunikasi lintas generasi.</p>
 		`,
-		penulis: 'Penasihat Karier & Talenta SDJNusantara',
+		penulis: 'Penasihat Karier & Talenta SDJ Nusantara',
 		sumber: 'Survei Kesiapan Kerja Lulusan Indonesia',
 		gambar: '/images/article-card-3.jpg',
 		isLatestPrimary: true
@@ -94,7 +94,7 @@ export const articlesData: Article[] = [
 			<h3>Kategori dan Persyaratan Beasiswa</h3>
 			<p>Pahami perbedaan antara beasiswa prestasi akademis, afirmasi daerah, riset terapan, dan kemitraan bilateral untuk memilih program yang paling sesuai.</p>
 		`,
-		penulis: 'Tim Konsultan Beasiswa SDJNusantara',
+		penulis: 'Tim Konsultan Beasiswa SDJ Nusantara',
 		sumber: 'Direktori Beasiswa Terbuka Indonesia',
 		gambar: '/images/article-card-4.jpg',
 		isLatestPrimary: true
@@ -112,7 +112,7 @@ export const articlesData: Article[] = [
 			<h3>Bentuk Kemitraan Strategis</h3>
 			<p>Program magang industri terstruktur, pengajar praktisi, dan riset bersama terbukti meningkatkan relevansi lulusan secara signifikan.</p>
 		`,
-		penulis: 'Divisi Kemitraan SDJNusantara',
+		penulis: 'Divisi Kemitraan SDJ Nusantara',
 		sumber: 'Laporan Forum Kemitraan Pendidikan & Industri',
 		gambar: '/images/article-card-5.jpg',
 		isLatestPrimary: true
@@ -130,7 +130,7 @@ export const articlesData: Article[] = [
 			<h3>Dampak Positif Mentoring</h3>
 			<p>Melalui sesi konsultasi dan refleksi terarah, mentee dapat mengenali kekuatan diri, memetakan peluang, serta menghindari kesalahan umum dalam perencanaan karier.</p>
 		`,
-		penulis: 'Lead Mentor SDJNusantara',
+		penulis: 'Lead Mentor SDJ Nusantara',
 		sumber: 'Studi Efektivitas Mentoring Talenta Muda',
 		gambar: '/images/article-card-6.jpg',
 		isLatestPrimary: true
@@ -154,8 +154,8 @@ export const articlesData: Article[] = [
 			<h3>3. Penguatan Bahasa dan Wawancara</h3>
 			<p>Sertifikasi kemampuan bahasa asing dan latihan wawancara berbasis simulasi terbukti efektif membangun kepercayaan diri peserta seleksi beasiswa internasional.</p>
 		`,
-		penulis: 'Tim Konsultan Beasiswa SDJNusantara',
-		sumber: 'SDJNusantara Education Research & Insight',
+		penulis: 'Tim Konsultan Beasiswa SDJ Nusantara',
+		sumber: 'SDJ Nusantara Education Research & Insight',
 		gambar: '/images/article-featured-grad.jpg',
 		isFeatured: true
 	},
@@ -168,8 +168,8 @@ export const articlesData: Article[] = [
 		updatedAt: '11 Oktober 2026',
 		ringkasan: 'Kuasai teknik komunikasi efektif dan penyampaian visi kontribusi yang meyakinkan di hadapan dewan juri beasiswa internasional.',
 		isi: '<p>Wawancara merupakan fase penentu dalam proses seleksi beasiswa. Pelajari bagaimana memformulasikan jawaban berbasis bukti dan pengalaman nyata.</p>',
-		penulis: 'Tim Mentor SDJNusantara',
-		sumber: 'Internal Assessment Data SDJNusantara',
+		penulis: 'Tim Mentor SDJ Nusantara',
+		sumber: 'Internal Assessment Data SDJ Nusantara',
 		gambar: '/images/article-featured-grad.jpg',
 		isFeatured: true
 	},
@@ -182,7 +182,7 @@ export const articlesData: Article[] = [
 		updatedAt: '10 Oktober 2026',
 		ringkasan: 'Eksplorasi metodologi pedagogi modern yang memanfaatkan teknologi digital untuk meningkatkan efektivitas transfer ilmu.',
 		isi: '<p>Integrasi teknologi dalam kurikulum sekolah dan universitas menuntut adaptasi berkelanjutan dari pengajar maupun siswa.</p>',
-		penulis: 'Divisi Inovasi Pendidikan SDJNusantara',
+		penulis: 'Divisi Inovasi Pendidikan SDJ Nusantara',
 		sumber: 'Kementerian Pendidikan & World Economic Forum Report',
 		gambar: '/images/article-card-7.jpg',
 		isFeatured: true
@@ -196,8 +196,8 @@ export const articlesData: Article[] = [
 		updatedAt: '9 Oktober 2026',
 		ringkasan: 'Langkah strategis mahasiswa untuk mengonversi pengalaman organisasi dan magang menjadi nilai tambah kompetitif di pasar kerja.',
 		isi: '<p>Portofolio komprehensif membedakan lulusan baru di tengah persaingan bursa kerja nasional dan multinasional.</p>',
-		penulis: 'Konsultan Pengembangan Karier SDJNusantara',
-		sumber: 'SDJNusantara Career Development Center',
+		penulis: 'Konsultan Pengembangan Karier SDJ Nusantara',
+		sumber: 'SDJ Nusantara Career Development Center',
 		gambar: '/images/article-card-3.jpg',
 		isFeatured: true
 	},
@@ -212,8 +212,8 @@ export const articlesData: Article[] = [
 		updatedAt: '5 Oktober 2026',
 		ringkasan: 'Struktur portofolio yang sistematis membantu penilai memahami rekam jejak kepemimpinan dan dedikasi akademis calon penerima beasiswa.',
 		isi: '<p>Portofolio beasiswa harus menonjolkan dampak sosial, prestasi terverifikasi, dan relevansi terhadap program studi tujuan.</p>',
-		penulis: 'Tim Ahli Beasiswa SDJNusantara',
-		sumber: 'Pusat Riset Beasiswa SDJNusantara',
+		penulis: 'Tim Ahli Beasiswa SDJ Nusantara',
+		sumber: 'Pusat Riset Beasiswa SDJ Nusantara',
 		gambar: '/images/article-pop-1.jpg',
 		populerRank: 1
 	},
@@ -226,7 +226,7 @@ export const articlesData: Article[] = [
 		updatedAt: '28 September 2026',
 		ringkasan: 'Kecakapan komunikasi, kepemimpinan, dan pemecahan masalah kompleks kini menjadi parameter utama kesuksesan talenta muda.',
 		isi: '<p>Pendidikan abad 21 menitikberatkan pada pengembangan holistik karakter serta kecerdasan emosional siswa.</p>',
-		penulis: 'Konsultan Talenta SDJNusantara',
+		penulis: 'Konsultan Talenta SDJ Nusantara',
 		sumber: 'OECD Future of Education and Skills',
 		gambar: '/images/article-pop-2.jpg',
 		populerRank: 2
@@ -240,7 +240,7 @@ export const articlesData: Article[] = [
 		updatedAt: '20 September 2026',
 		ringkasan: 'Perkembangan edtech membuka peluang profesi baru mulai dari instructional designer hingga konsultan pembelajaran daring.',
 		isi: '<p>Industri pendidikan berkembang pesat dengan munculnya berbagai platform teknologi yang membutuhkan talenta multidisiplin.</p>',
-		penulis: 'Riset Karier SDJNusantara',
+		penulis: 'Riset Karier SDJ Nusantara',
 		sumber: 'EdTech Asia Market Overview',
 		gambar: '/images/article-pop-3.jpg',
 		populerRank: 3
@@ -254,8 +254,8 @@ export const articlesData: Article[] = [
 		updatedAt: '12 September 2026',
 		ringkasan: 'Model kemitraan strategis yang menjembatani kurikulum vokasi dan akademik dengan standar kompetensi industri terkini.',
 		isi: '<p>Link and match antara institusi pendidikan dan pelaku usaha menjamin relevansi kompetensi lulusan.</p>',
-		penulis: 'Divisi Kemitraan SDJNusantara',
-		sumber: 'Kemitraan Industri SDJNusantara',
+		penulis: 'Divisi Kemitraan SDJ Nusantara',
+		sumber: 'Kemitraan Industri SDJ Nusantara',
 		gambar: '/images/article-pop-4.jpg',
 		populerRank: 4
 	},
@@ -268,7 +268,7 @@ export const articlesData: Article[] = [
 		updatedAt: '10 September 2026',
 		ringkasan: 'Pemahaman analisis data kuantitatif dan kualitatif kini menjadi keahlian penting di berbagai lini industri dan institusi.',
 		isi: '<p>Literasi data memungkinkan individu dan institusi menyusun proyeksi serta keputusan berbasis bukti nyata yang akurat.</p>',
-		penulis: 'Instruktur Data & Analitik SDJNusantara',
+		penulis: 'Instruktur Data & Analitik SDJ Nusantara',
 		sumber: 'Data Literacy Index 2026',
 		gambar: '/images/article-card-2.jpg'
 	},
@@ -281,7 +281,7 @@ export const articlesData: Article[] = [
 		updatedAt: '8 September 2026',
 		ringkasan: 'Dukungan fasilitas, pendanaan awal, dan pendampingan mentor mengubah ide inovatif mahasiswa menjadi rintisan usaha produktif.',
 		isi: '<p>Perguruan tinggi bertransformasi menjadi katalisator penciptaan lapangan kerja melalui program inkubasi terstruktur.</p>',
-		penulis: 'Konsultan Talenta & Inovasi SDJNusantara',
+		penulis: 'Konsultan Talenta & Inovasi SDJ Nusantara',
 		sumber: 'Laporan Kewirausahaan Pemuda Nasional',
 		gambar: '/images/article-card-4.jpg'
 	},
@@ -294,8 +294,8 @@ export const articlesData: Article[] = [
 		updatedAt: '4 September 2026',
 		ringkasan: 'Langkah taktis menyusun rencana studi, menjalin korespondensi dengan calon supervisor, dan memenuhi kualifikasi ketat universitas top.',
 		isi: '<p>Letter of Acceptance (LoA) tanpa syarat merupakan tiket utama untuk mengunci peluang beasiswa bergengsi luar negeri.</p>',
-		penulis: 'Tim Konsultan Studi Luar Negeri SDJNusantara',
-		sumber: 'Panduan Beasiswa & Studi Global SDJNusantara',
+		penulis: 'Tim Konsultan Studi Luar Negeri SDJ Nusantara',
+		sumber: 'Panduan Beasiswa & Studi Global SDJ Nusantara',
 		gambar: '/images/article-card-9.jpg'
 	},
 	{
@@ -307,7 +307,7 @@ export const articlesData: Article[] = [
 		updatedAt: '1 September 2026',
 		ringkasan: 'Sinkronisasi standar kompetensi kerja nasional dengan kebutuhan riil pasar memastikan lulusan langsung siap berkarya.',
 		isi: '<p>Kolaborasi kurikulum terintegrasi dan program magang bersertifikat menjadi jembatan kokoh antara SMK/Politeknik dan industri modern.</p>',
-		penulis: 'Divisi Kemitraan Vokasi SDJNusantara',
+		penulis: 'Divisi Kemitraan Vokasi SDJ Nusantara',
 		sumber: 'Kajian Kemitraan Vokasi Nasional',
 		gambar: '/images/article-card-6.jpg'
 	},
@@ -334,8 +334,8 @@ export const articlesData: Article[] = [
 			<h3>Konsistensi dan Evaluasi Berkala</h3>
 			<p>Lakukan peninjauan ulang setiap berkas bersama mentor atau konsultan pendidikan agar tidak ada detail persyaratan yang terlewat sebelum pengajuan akhir.</p>
 		`,
-		penulis: 'Tim Konsultan Beasiswa SDJNusantara',
-		sumber: 'Panduan Persiapan Beasiswa Internasional SDJNusantara',
+		penulis: 'Tim Konsultan Beasiswa SDJ Nusantara',
+		sumber: 'Panduan Persiapan Beasiswa Internasional SDJ Nusantara',
 		gambar: '/images/article-card-1.jpg'
 	},
 	{
@@ -359,7 +359,7 @@ export const articlesData: Article[] = [
 				<li>Perluasan jejaring pertukaran pelajar serta kolaborasi riset antarnegara.</li>
 			</ul>
 		`,
-		penulis: 'Tim Riset & Pengembangan Pendidikan SDJNusantara',
+		penulis: 'Tim Riset & Pengembangan Pendidikan SDJ Nusantara',
 		sumber: 'Kajian Transformasi Pendidikan Global 2025',
 		gambar: '/images/article-card-2.jpg'
 	},
@@ -383,8 +383,8 @@ export const articlesData: Article[] = [
 				<li>Pelihara jejaring profesional serta pola pikir belajar berkelanjutan.</li>
 			</ul>
 		`,
-		penulis: 'Konsultan Pengembangan Karier SDJNusantara',
-		sumber: 'Observatorium Talenta & Karier SDJNusantara',
+		penulis: 'Konsultan Pengembangan Karier SDJ Nusantara',
+		sumber: 'Observatorium Talenta & Karier SDJ Nusantara',
 		gambar: '/images/article-card-3.jpg'
 	},
 	{
@@ -406,7 +406,7 @@ export const articlesData: Article[] = [
 				<li><strong>Ketahanan adaptif:</strong> Menjaga performa dan ketenangan di tengah perubahan cepat.</li>
 			</ul>
 		`,
-		penulis: 'Divisi Pengembangan Talenta SDJNusantara',
+		penulis: 'Divisi Pengembangan Talenta SDJ Nusantara',
 		sumber: 'Laporan Kompetensi Talenta Digital Indonesia',
 		gambar: '/images/article-card-4.jpg'
 	}

@@ -13,7 +13,7 @@
 <div class="logo-wrapper {size} {variant}">
 	<img
 		src={logoSdj}
-		alt={i18n.pick('Logo SDJNusantara - Your Strategic Partner', 'SDJNusantara Logo - Your Strategic Partner')}
+		alt={i18n.pick('Logo SDJ Nusantara - Your Strategic Partner', 'SDJ Nusantara Logo - Your Strategic Partner')}
 		class="logo-icon-img"
 		width="1410"
 		height="320"

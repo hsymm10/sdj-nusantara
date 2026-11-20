@@ -26,7 +26,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 			<h3>The Role of Educators and Communities</h3>
 			<p>Teachers and schools need continuous mentoring to design differentiated curricula that address students' individual needs effectively.</p>
 		`,
-		penulis: 'SDJNusantara Inclusive Education Consultant',
+		penulis: 'SDJ Nusantara Inclusive Education Consultant',
 		sumber: 'Indonesian Journal of Pedagogy & Education Policy',
 		kutipan:
 			'Inclusive education is not merely about access—it is about giving every child an equal opportunity to thrive according to their potential.',
@@ -44,7 +44,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 			<h3>Core Digital Competencies</h3>
 			<p>Beyond basic software proficiency, modern talent must understand structured prompting, digital collaboration, and ethical data analysis.</p>
 		`,
-		penulis: 'SDJNusantara Digital Skills Instructor',
+		penulis: 'SDJ Nusantara Digital Skills Instructor',
 		sumber: 'World Economic Forum - Future of Jobs Report'
 	},
 	3: {
@@ -59,7 +59,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 			<h3>Practical Steps</h3>
 			<p>Document project outcomes, sharpen interview communication, and seek structured mentoring before entering the job market.</p>
 		`,
-		penulis: 'SDJNusantara Career & Talent Advisor',
+		penulis: 'SDJ Nusantara Career & Talent Advisor',
 		sumber: 'Indonesia Graduate Work Readiness Survey'
 	},
 	4: {
@@ -72,7 +72,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>From government-funded schemes like BPI and LPDP to international awards such as Chevening and MEXT, understanding each scheme's criteria helps applicants choose the right fit.</p>
 		`,
-		penulis: 'SDJNusantara Scholarship Consulting Team',
+		penulis: 'SDJ Nusantara Scholarship Consulting Team',
 		sumber: 'Indonesia Open Scholarship Directory'
 	},
 	5: {
@@ -85,7 +85,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Strategic alignment between campuses, schools, and industry partners ensures curricula remain relevant and opens real-world talent pipelines.</p>
 		`,
-		penulis: 'SDJNusantara Partnership Division',
+		penulis: 'SDJ Nusantara Partnership Division',
 		sumber: 'Education & Industry Partnership Forum Report'
 	},
 	6: {
@@ -98,7 +98,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Structured mentoring accelerates self-awareness, goal clarity, and professional readiness through direct feedback from experienced practitioners.</p>
 		`,
-		penulis: 'SDJNusantara Lead Mentor',
+		penulis: 'SDJ Nusantara Lead Mentor',
 		sumber: 'Youth Talent Mentoring Effectiveness Study'
 	},
 	7: {
@@ -113,8 +113,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 			<h3>Key Preparation Pillars</h3>
 			<p>Align your academic track record, social impact story, and post-study contribution plan with the sponsor's mission.</p>
 		`,
-		penulis: 'SDJNusantara Scholarship Consulting Team',
-		sumber: 'SDJNusantara Education Research & Insight'
+		penulis: 'SDJ Nusantara Scholarship Consulting Team',
+		sumber: 'SDJ Nusantara Education Research & Insight'
 	},
 	8: {
 		judul: 'A Practical Guide to Acing Prestigious Scholarship Interviews',
@@ -126,8 +126,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Scholarship interviews evaluate authenticity, clarity of purpose, leadership resilience, and alignment between your study plan and future impact.</p>
 		`,
-		penulis: 'SDJNusantara Mentoring Team',
-		sumber: 'SDJNusantara Internal Assessment Data'
+		penulis: 'SDJ Nusantara Mentoring Team',
+		sumber: 'SDJ Nusantara Internal Assessment Data'
 	},
 	9: {
 		judul: 'The Future of Adaptive Learning in the Age of Artificial Intelligence',
@@ -139,7 +139,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Adaptive learning tools powered by AI enable educators to personalize pacing and feedback while preserving critical thinking and academic integrity.</p>
 		`,
-		penulis: 'SDJNusantara Education Innovation Division',
+		penulis: 'SDJ Nusantara Education Innovation Division',
 		sumber: 'Ministry of Education & World Economic Forum Report'
 	},
 	10: {
@@ -152,8 +152,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>A well-curated portfolio translates coursework, leadership roles, and internships into measurable proof of capability for employers and selection committees.</p>
 		`,
-		penulis: 'SDJNusantara Career Development Consultant',
-		sumber: 'SDJNusantara Career Development Center'
+		penulis: 'SDJ Nusantara Career Development Consultant',
+		sumber: 'SDJ Nusantara Career Development Center'
 	},
 	11: {
 		judul: 'Tips for Building a Strong Scholarship Portfolio',
@@ -165,8 +165,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Highlight verified achievements, community impact, and research outputs clearly so reviewers can immediately grasp your readiness.</p>
 		`,
-		penulis: 'SDJNusantara Scholarship Specialist Team',
-		sumber: 'SDJNusantara Scholarship Research Center'
+		penulis: 'SDJ Nusantara Scholarship Specialist Team',
+		sumber: 'SDJ Nusantara Scholarship Research Center'
 	},
 	12: {
 		judul: 'The Role of Soft Skills in Modern Education',
@@ -178,7 +178,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Technical knowledge alone is no longer sufficient; adaptability, empathy, and teamwork distinguish high-performing learners and professionals.</p>
 		`,
-		penulis: 'SDJNusantara Talent Consultant',
+		penulis: 'SDJ Nusantara Talent Consultant',
 		sumber: 'OECD Future of Education and Skills'
 	},
 	13: {
@@ -191,7 +191,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>As digital learning expands, educators and tech-savvy graduates can build impactful careers designing curricula, learning platforms, and hybrid training programs.</p>
 		`,
-		penulis: 'SDJNusantara Career Research',
+		penulis: 'SDJ Nusantara Career Research',
 		sumber: 'EdTech Asia Market Overview'
 	},
 	14: {
@@ -204,8 +204,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Co-designed workshops, guest practitioner sessions, and competency assessments help schools prepare students for real industry standards.</p>
 		`,
-		penulis: 'SDJNusantara Partnership Division',
-		sumber: 'SDJNusantara Industry Partnerships'
+		penulis: 'SDJ Nusantara Partnership Division',
+		sumber: 'SDJ Nusantara Industry Partnerships'
 	},
 	15: {
 		judul: 'Developing Data Literacy for Strategic Decision-Making',
@@ -217,7 +217,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Data literacy empowers educators, researchers, and managers to interpret evidence accurately and make accountable strategic decisions.</p>
 		`,
-		penulis: 'SDJNusantara Data & Analytics Instructor',
+		penulis: 'SDJ Nusantara Data & Analytics Instructor',
 		sumber: 'Data Literacy Index 2026'
 	},
 	16: {
@@ -230,7 +230,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Campus incubators connect student innovators with mentors, validation frameworks, and industry partners to turn prototypes into sustainable initiatives.</p>
 		`,
-		penulis: 'SDJNusantara Talent & Innovation Consultant',
+		penulis: 'SDJ Nusantara Talent & Innovation Consultant',
 		sumber: 'National Youth Entrepreneurship Report'
 	},
 	17: {
@@ -243,8 +243,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Securing an Unconditional Letter of Acceptance requires early preparation of academic transcripts, language scores, and tailored research proposals.</p>
 		`,
-		penulis: 'SDJNusantara Overseas Study Consulting Team',
-		sumber: 'SDJNusantara Global Study & Scholarship Guide'
+		penulis: 'SDJ Nusantara Overseas Study Consulting Team',
+		sumber: 'SDJ Nusantara Global Study & Scholarship Guide'
 	},
 	18: {
 		judul: 'Aligning Vocational Curricula with Industry 4.0 Dynamics',
@@ -256,7 +256,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Continuous curriculum review alongside industry associations ensures vocational graduates possess relevant, certifiable competencies.</p>
 		`,
-		penulis: 'SDJNusantara Vocational Partnership Division',
+		penulis: 'SDJ Nusantara Vocational Partnership Division',
 		sumber: 'National Vocational Partnership Study'
 	},
 	19: {
@@ -269,8 +269,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Start early, research target programs thoroughly, craft an authentic essay, secure strong recommendation letters, and practice mock interviews consistently.</p>
 		`,
-		penulis: 'SDJNusantara Scholarship Consulting Team',
-		sumber: 'SDJNusantara International Scholarship Preparation Guide'
+		penulis: 'SDJ Nusantara Scholarship Consulting Team',
+		sumber: 'SDJ Nusantara International Scholarship Preparation Guide'
 	},
 	20: {
 		judul: 'Global Education Trends in 2025',
@@ -282,7 +282,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Micro-credentials, AI literacy, and cross-border academic collaboration are reshaping how institutions prepare learners for global challenges.</p>
 		`,
-		penulis: 'SDJNusantara Education Research & Development Team',
+		penulis: 'SDJ Nusantara Education Research & Development Team',
 		sumber: 'Global Education Transformation Study 2025'
 	},
 	21: {
@@ -295,8 +295,8 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>Combine continuous upskilling, recognized certifications, and clear communication of measurable achievements to stand out in competitive hiring.</p>
 		`,
-		penulis: 'SDJNusantara Career Development Consultant',
-		sumber: 'SDJNusantara Talent & Career Observatory'
+		penulis: 'SDJ Nusantara Career Development Consultant',
+		sumber: 'SDJ Nusantara Talent & Career Observatory'
 	},
 	22: {
 		judul: 'The Importance of Soft Skills in the Digital Era',
@@ -308,7 +308,7 @@ export const articlesEnMap: Record<number, ArticleEn> = {
 		isi: `
 			<p>As routine tasks become automated, human-centric skills—ethical judgment, collaboration, and persuasive communication—grow even more valuable.</p>
 		`,
-		penulis: 'SDJNusantara Talent Development Division',
+		penulis: 'SDJ Nusantara Talent Development Division',
 		sumber: 'Indonesia Digital Talent Competency Report'
 	}
 };

@@ -8,7 +8,7 @@
 			</div>
 			<h2 class="impact-title">Komitmen Nyata untuk Dampak yang Terukur</h2>
 			<p class="impact-desc">
-				SDJNusantara hadir untuk menciptakan perubahan nyata bagi individu, institusi, dan ekosistem pendidikan nasional.
+				SDJ Nusantara hadir untuk menciptakan perubahan nyata bagi individu, institusi, dan ekosistem pendidikan nasional.
 			</p>
 		</div>
 

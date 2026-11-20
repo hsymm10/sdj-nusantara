@@ -1,4 +1,4 @@
-// Konfigurasi Terpusat Floating Chatbot Widget NALARA SDJNusantara
+// Konfigurasi Terpusat Floating Chatbot Widget NALARA SDJ Nusantara
 // NALARA — Nusantara AI Learning & Resource Assistant
 
 export interface QuickReplyItem {
@@ -11,25 +11,25 @@ export interface QuickReplyItem {
 export const chatConfig = {
 	title: 'NALARA',
 	fullName: 'Nusantara AI Learning & Resource Assistant',
-	subtitle: 'Asisten Virtual Resmi SDJNusantara',
-	demoNotice: 'NALARA — Asisten AI Resmi SDJNusantara. Jangan kirimkan data sensitif (NIK, kata sandi, rekening).',
+	subtitle: 'Asisten Virtual Resmi SDJ Nusantara',
+	demoNotice: 'NALARA — Asisten AI Resmi SDJ Nusantara. Jangan kirimkan data sensitif (NIK, kata sandi, rekening).',
 	inputPlaceholder: 'Tanyakan seputar profil, layanan, atau beasiswa...',
 
 	tooltip: {
-		title: 'Butuh informasi seputar\nSDJNusantara?',
+		title: 'Butuh informasi seputar\nSDJ Nusantara?',
 		description: 'Tanyakan langsung kepada\nNALARA AI Assistant.',
 		delayMs: 2000
 	},
 
-	welcomeMessage: 'Halo! Saya NALARA, asisten virtual SDJNusantara. Ada yang ingin Anda ketahui?',
+	welcomeMessage: 'Halo! Saya NALARA, asisten virtual SDJ Nusantara. Ada yang ingin Anda ketahui?',
 
 	// 4 Suggested Questions Sesuai Spesifikasi NALARA
 	quickReplies: [
 		{
 			id: 'profil',
-			label: 'Apa itu SDJNusantara?',
+			label: 'Apa itu SDJ Nusantara?',
 			iconType: 'program',
-			queryText: 'Apa itu SDJNusantara?'
+			queryText: 'Apa itu SDJ Nusantara?'
 		},
 		{
 			id: 'layanan',

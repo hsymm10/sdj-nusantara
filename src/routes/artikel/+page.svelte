@@ -17,15 +17,15 @@
 <svelte:head>
 	<title
 		>{i18n.pick(
-			"Perspektif — SDJNusantara Strategic Your Partner",
-			"Perspectives — SDJNusantara Strategic Your Partner",
+			"Perspektif — SDJ Nusantara Strategic Your Partner",
+			"Perspectives — SDJ Nusantara Strategic Your Partner",
 		)}</title
 	>
 	<meta
 		name="description"
 		content={i18n.pick(
-			"Insight, analisis, panduan beasiswa, dan artikel pendidikan terkini dari tim konsultan ahli SDJNusantara.",
-			"Insights, analysis, scholarship guides, and the latest education articles from SDJNusantara’s expert consulting team.",
+			"Insight, analisis, panduan beasiswa, dan artikel pendidikan terkini dari tim konsultan ahli SDJ Nusantara.",
+			"Insights, analysis, scholarship guides, and the latest education articles from SDJ Nusantara’s expert consulting team.",
 		)}
 	/>
 </svelte:head>
@@ -48,7 +48,7 @@
 		onSelectCategory={handleCategoryChange}
 	/>
 
-	<!-- 4. CTA Banner Kolaborasi Artikel -->
+	<!-- 4. CTA Banner Kolaborasi Artikel (Tanpa Tombol) -->
 	<CtaBanner
 		title={i18n.pick(
 			"Ingin Berdiskusi atau Mengusulkan Topik Artikel?",
@@ -58,10 +58,7 @@
 			"Kami terbuka untuk kolaborasi penulisan artikel bersama Anda.",
 			"We are open to collaborative article writing and editorial partnerships with you.",
 		)}
-		primaryText={i18n.pick("Ajukan Topik Artikel →", "Propose a Topic →")}
-		primaryHref="/kontak"
-		secondaryText={i18n.pick("Hubungi Kami", "Contact Us")}
-		secondaryHref="/kontak"
+		showButtons={false}
 		bgImage="/images/cta-building-glass.jpg"
 		variant="artikel"
 	/>

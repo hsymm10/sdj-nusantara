@@ -1,4 +1,4 @@
-<!-- Section 02: Program Pendidikan untuk Meningkatkan Daya Saing (Mockup Final SDJNusantara) -->
+<!-- Section 02: Program Pendidikan untuk Meningkatkan Daya Saing (Mockup Final SDJ Nusantara) -->
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
 </script>
@@ -47,7 +47,7 @@
 				<div class="img-frame">
 					<img
 						src="/images/program-study-desk-laptop.jpg"
-						alt="Program Pendidikan SDJNusantara - Suasana Belajar & Laptop"
+						alt="Program Pendidikan SDJ Nusantara - Suasana Belajar & Laptop"
 						class="program-img"
 						loading="eager"
 					/>

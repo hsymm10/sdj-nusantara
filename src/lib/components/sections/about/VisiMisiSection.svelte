@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { i18n } from "#lib/stores/i18n.svelte";
 </script>
 
 <section class="visi-misi-section" id="visi-misi">
@@ -7,25 +7,31 @@
 		<div class="visi-misi-grid">
 			<!-- Left: Intro & Heading -->
 			<div class="visi-misi-left">
-				<div class="section-label">{i18n.pick('Visi & Misi', 'Vision & Mission')}</div>
+				<div class="section-label">
+					{i18n.pick("Visi & Misi", "Vision & Mission")}
+				</div>
 
 				<h2 class="section-heading">
-					{i18n.pick('Menjadi mitra terpercaya dalam', 'Becoming a trusted partner in')}<br />
-					{i18n.pick('pengembangan talenta anak bangsa', 'developing the nation’s talent')}<br />
-					{i18n.pick('untuk masa depan yang lebih baik.', 'for a brighter future.')}
+					{i18n.pick(
+						"Menjadi mitra terpercaya dalam",
+						"Becoming a trusted partner in",
+					)}<br />
+					{i18n.pick(
+						"pengembangan talenta anak bangsa",
+						"developing the nation’s talent",
+					)}<br />
+					{i18n.pick(
+						"untuk masa depan yang lebih baik.",
+						"for a brighter future.",
+					)}
 				</h2>
 
 				<p class="section-desc">
 					{i18n.pick(
-						'Kami berkomitmen untuk terus berinovasi dan memberikan solusi pendidikan terbaik bagi individu, institusi, dan masyarakat.',
-						'We are committed to continuous innovation and delivering the best education solutions for individuals, institutions, and society.'
+						"Kami berkomitmen untuk terus berinovasi dan memberikan solusi pendidikan terbaik bagi individu, institusi, dan masyarakat.",
+						"We are committed to continuous innovation and delivering the best education solutions for individuals, institutions, and society.",
 					)}
 				</p>
-
-				<a href="#nilai" class="btn-gold">
-					<span>{i18n.pick('Pelajari Visi Misi Kami', 'Explore Our Vision & Mission')}</span>
-					<span class="btn-arrow">→</span>
-				</a>
 			</div>
 
 			<!-- Right: 2 White Cards equal height -->
@@ -33,18 +39,29 @@
 				<!-- Visi Card -->
 				<div class="vm-card">
 					<div class="vm-icon-circle">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#00A6B2"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path
+								d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+							></path>
 							<circle cx="12" cy="12" r="3"></circle>
 						</svg>
 					</div>
 
-					<h3 class="vm-card-title">{i18n.pick('Visi', 'Vision')}</h3>
+					<h3 class="vm-card-title">{i18n.pick("Visi", "Vision")}</h3>
 
 					<p class="vm-card-text">
 						{i18n.pick(
-							'Menjadi mitra terpercaya dalam pengembangan talenta anak bangsa untuk pendidikan yang lebih inklusif, adaptif, dan berkelanjutan.',
-							'To be a trusted partner in developing Indonesia’s talent for more inclusive, adaptive, and sustainable education.'
+							"Menjadi mitra terpercaya dalam pengembangan talenta anak bangsa untuk pendidikan yang lebih inklusif, adaptif, dan berkelanjutan.",
+							"To be a trusted partner in developing Indonesia’s talent for more inclusive, adaptive, and sustainable education.",
 						)}
 					</p>
 				</div>
@@ -52,27 +69,53 @@
 				<!-- Misi Card -->
 				<div class="vm-card">
 					<div class="vm-icon-circle">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#00A6B2"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<circle cx="12" cy="12" r="10"></circle>
 							<circle cx="12" cy="12" r="6"></circle>
 							<circle cx="12" cy="12" r="2"></circle>
 						</svg>
 					</div>
 
-					<h3 class="vm-card-title">{i18n.pick('Misi', 'Mission')}</h3>
+					<h3 class="vm-card-title">
+						{i18n.pick("Misi", "Mission")}
+					</h3>
 
 					<ul class="misi-list">
 						<li>
 							<span class="misi-num">1</span>
-							<span>{i18n.pick('Menyediakan layanan pendidikan yang inovatif dan berkualitas.', 'Deliver innovative, high-quality education services.')}</span>
+							<span
+								>{i18n.pick(
+									"Menyediakan layanan pendidikan yang inovatif dan berkualitas.",
+									"Deliver innovative, high-quality education services.",
+								)}</span
+							>
 						</li>
 						<li>
 							<span class="misi-num">2</span>
-							<span>{i18n.pick('Membangun kolaborasi strategis dengan berbagai pihak.', 'Build strategic collaborations across institutions and communities.')}</span>
+							<span
+								>{i18n.pick(
+									"Membangun kolaborasi strategis dengan berbagai pihak.",
+									"Build strategic collaborations across institutions and communities.",
+								)}</span
+							>
 						</li>
 						<li>
 							<span class="misi-num">3</span>
-							<span>{i18n.pick('Memberikan dampak positif bagi individu, institusi, dan masyarakat.', 'Create lasting positive impact for individuals, institutions, and society.')}</span>
+							<span
+								>{i18n.pick(
+									"Memberikan dampak positif bagi individu, institusi, dan masyarakat.",
+									"Create lasting positive impact for individuals, institutions, and society.",
+								)}</span
+							>
 						</li>
 					</ul>
 				</div>
@@ -83,15 +126,15 @@
 
 <style>
 	.visi-misi-section {
-		background: #F4F8FB;
+		background: #f4f8fb;
 		height: auto;
 		min-height: 310px;
 		display: flex;
 		align-items: center;
 		overflow: hidden;
 		box-sizing: border-box;
-		border-top: 1px solid #EAF0F6;
-		border-bottom: 1px solid #EAF0F6;
+		border-top: 1px solid #eaf0f6;
+		border-bottom: 1px solid #eaf0f6;
 		padding: 44px 0;
 	}
 
@@ -125,7 +168,7 @@
 	.section-label {
 		font-size: 15px;
 		font-weight: 700;
-		color: #00A6B2;
+		color: #00a6b2;
 		margin-bottom: 0.5rem;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
@@ -153,8 +196,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		background: #F5B331;
-		color: #071D36;
+		background: #f5b331;
+		color: #071d36;
 		padding: 10px 22px;
 		font-size: 13px;
 		font-weight: 700;
@@ -183,7 +226,7 @@
 	}
 
 	.vm-card {
-		background: #FFFFFF;
+		background: #ffffff;
 		border-radius: 16px;
 		padding: 1.5rem 1.4rem;
 		box-shadow: 0 4px 16px rgba(11, 39, 71, 0.05);
@@ -199,7 +242,7 @@
 		width: 38px;
 		height: 38px;
 		border-radius: 50%;
-		border: 1.5px solid #00A6B2;
+		border: 1.5px solid #00a6b2;
 		background: rgba(0, 166, 178, 0.05);
 		display: flex;
 		align-items: center;
@@ -244,8 +287,8 @@
 		width: 18px;
 		height: 18px;
 		border-radius: 50%;
-		background: #00A6B2;
-		color: #FFFFFF;
+		background: #00a6b2;
+		color: #ffffff;
 		font-size: 10px;
 		font-weight: 700;
 		display: flex;

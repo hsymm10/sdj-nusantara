@@ -12,13 +12,13 @@ export function buildWhatsAppUrl(lastUserQuestion?: string | null, lang: Locale 
 	if (cleaned) {
 		message =
 			lang === 'en'
-				? `Hello SDJNusantara Consultant, I would like to ask further about: "${cleaned}"`
-				: `Halo Konsultan SDJNusantara, saya ingin bertanya lebih lanjut mengenai: "${cleaned}"`;
+				? `Hello SDJ Nusantara Consultant, I would like to ask further about: "${cleaned}"`
+				: `Halo Konsultan SDJ Nusantara, saya ingin bertanya lebih lanjut mengenai: "${cleaned}"`;
 	} else {
 		message =
 			lang === 'en'
-				? 'Hello SDJNusantara Consultant, I would like to consult regarding SDJNusantara education programs and services.'
-				: 'Halo Konsultan SDJNusantara, saya ingin berkonsultasi mengenai program dan layanan SDJNusantara.';
+				? 'Hello SDJ Nusantara Consultant, I would like to consult regarding SDJ Nusantara education programs and services.'
+				: 'Halo Konsultan SDJ Nusantara, saya ingin berkonsultasi mengenai program dan layanan SDJ Nusantara.';
 	}
 
 	return `https://wa.me/${contactConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;

@@ -1,5 +1,5 @@
 // CONTOH DATA: WAJIB DIVERIFIKASI ke sumber resmi sebelum publikasi
-// Sesuai Bagian 5 & 15 content-master SDJNusantara
+// Sesuai Bagian 5 & 15 content-master SDJ Nusantara
 
 export interface Scholarship {
 	id: string;

@@ -7,17 +7,17 @@
 </script>
 
 <svelte:head>
-	<title>{i18n.pick('Pertanyaan yang Sering Diajukan (FAQ) — SDJNusantara', 'Frequently Asked Questions (FAQ) — SDJNusantara')}</title>
+	<title>{i18n.pick('Pertanyaan yang Sering Diajukan (FAQ) — SDJ Nusantara', 'Frequently Asked Questions (FAQ) — SDJ Nusantara')}</title>
 	<meta
 		name="description"
 		content={serviceConfig.legal
 			? i18n.pick(
-					'Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, kemitraan institusi, dan layanan hukum SDJNusantara.',
-					'Find quick answers about education programs, scholarship preparation, institutional partnerships, and legal services at SDJNusantara.'
+					'Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, kemitraan institusi, dan layanan hukum SDJ Nusantara.',
+					'Find quick answers about education programs, scholarship preparation, institutional partnerships, and legal services at SDJ Nusantara.'
 				)
 			: i18n.pick(
-					'Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, dan kemitraan institusi SDJNusantara.',
-					'Find quick answers about education programs, scholarship preparation, and institutional partnerships at SDJNusantara.'
+					'Temukan jawaban cepat atas pertanyaan seputar program pendidikan, persiapan beasiswa, dan kemitraan institusi SDJ Nusantara.',
+					'Find quick answers about education programs, scholarship preparation, and institutional partnerships at SDJ Nusantara.'
 				)}
 	/>
 </svelte:head>

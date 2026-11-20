@@ -17,7 +17,7 @@
 				<div class="image-box">
 					<img
 						src="/images/about-team-4-hd.jpg"
-						alt="Tim dan Mahasiswa SDJNusantara"
+						alt="Tim dan Mahasiswa SDJ Nusantara"
 						class="profile-img"
 						loading="lazy"
 					/>

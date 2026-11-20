@@ -6,7 +6,7 @@
 			<div class="bsw-prep-img-wrap">
 				<img
 					src="/images/home-scholarship-prep.jpg"
-					alt="Persiapan Beasiswa SDJNusantara"
+					alt="Persiapan Beasiswa SDJ Nusantara"
 					class="bsw-prep-img"
 					loading="lazy"
 				/>
@@ -90,7 +90,7 @@
 							<polyline points="20 6 9 17 4 12"/>
 						</svg>
 					</div>
-					<span>Layanan Beasiswa SDJNusantara</span>
+					<span>Layanan Beasiswa SDJ Nusantara</span>
 				</li>
 			</ul>
 		</div>

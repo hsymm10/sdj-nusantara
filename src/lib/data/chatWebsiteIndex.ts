@@ -1,5 +1,5 @@
 // src/lib/data/chatWebsiteIndex.ts
-// Indeks Konten Website SDJNusantara Terpusat sebagai Single Source of Truth Chatbot
+// Indeks Konten Website SDJ Nusantara Terpusat sebagai Single Source of Truth Chatbot
 // Mencakup 10 Topik Utama Website dalam Bahasa Indonesia dan English
 
 import { serviceConfig } from '#lib/config/services';
@@ -57,8 +57,8 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 			'director', 'president', 'advisors', 'board', 'who'
 		],
 		overview: {
-			id: 'Halaman Tentang Kami memuat profil lengkap PT Sampurna Djaya Nusantara (SDJNusantara), visi, misi, nilai strategis, serta profil dewan management dan penasihat senior multidisiplin.',
-			en: 'The About Us page presents the comprehensive profile of PT Sampurna Djaya Nusantara (SDJNusantara), vision, mission, strategic values, and multidisciplinary senior management.'
+			id: 'Halaman Tentang Kami memuat profil lengkap PT Sampurna Djaya Nusantara (SDJ Nusantara), visi, misi, nilai strategis, serta profil dewan management dan penasihat senior multidisiplin.',
+			en: 'The About Us page presents the comprehensive profile of PT Sampurna Djaya Nusantara (SDJ Nusantara), vision, mission, strategic values, and multidisciplinary senior management.'
 		},
 		bullets: {
 			id: [
@@ -93,8 +93,8 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 	{
 		id: 'layanan',
 		title: {
-			id: 'Layanan Utama SDJNusantara',
-			en: 'SDJNusantara Core Services'
+			id: 'Layanan Utama SDJ Nusantara',
+			en: 'SDJ Nusantara Core Services'
 		},
 		url: '/layanan',
 		subpages: [
@@ -120,8 +120,8 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 			'services', 'service', 'features', 'offerings', 'overview', 'core', 'what'
 		],
 		overview: {
-			id: 'Halaman Layanan menyajikan gambaran dua pilar utama SDJNusantara saat ini: Program Pendidikan dan Beasiswa, yang dirancang untuk individu, sekolah, perguruan tinggi, dan korporasi.',
-			en: 'The Services page provides an overview of SDJNusantara’s two active core pillars: Education Programs and Scholarships, tailored for individuals, schools, universities, and corporations.'
+			id: 'Halaman Layanan menyajikan gambaran dua pilar utama SDJ Nusantara saat ini: Program Pendidikan dan Beasiswa, yang dirancang untuk individu, sekolah, perguruan tinggi, dan korporasi.',
+			en: 'The Services page provides an overview of SDJ Nusantara’s two active core pillars: Education Programs and Scholarships, tailored for individuals, schools, universities, and corporations.'
 		},
 		bullets: {
 			id: [
@@ -219,11 +219,11 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 		detailedPoints: {
 			id: [
 				'Setiap peserta mendapatkan pendampingan terarah dan evaluasi capaian belajar.',
-				'Tersedia sertifikat kelulusan program resmi dari SDJNusantara.'
+				'Tersedia sertifikat kelulusan program resmi dari SDJ Nusantara.'
 			],
 			en: [
 				'Participants receive structured mentorship and practical skill evaluations.',
-				'Official completion certificates issued by SDJNusantara upon program requirements.'
+				'Official completion certificates issued by SDJ Nusantara upon program requirements.'
 			]
 		},
 		relatedTopics: ['beasiswa', 'layanan', 'kemitraan', 'kontak']
@@ -263,7 +263,7 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 				'Pemetaan profil kandidat dan rekomendasi program beasiswa yang paling realistis serta sesuai target.',
 				'Review intensif substansi CV, personal statement, motivation letter, dan proposal studi/riset.',
 				'Simulasi wawancara mendalam dengan umpan balik terstruktur bersama mentor penerima beasiswa.',
-				'SDJNusantara mendampingi persiapan teknis dan substansi (tidak menjamin kelulusan mutlak karena wewenang ada pada komite seleksi resmi).'
+				'SDJ Nusantara mendampingi persiapan teknis dan substansi (tidak menjamin kelulusan mutlak karena wewenang ada pada komite seleksi resmi).'
 			],
 			en: [
 				'Covers prestigious schemes: LPDP, BPI, Chevening, Fulbright, AAS, Erasmus+, and global university grants.',
@@ -393,13 +393,13 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 		},
 		bullets: {
 			id: [
-				'Ditulis dan dikurasi langsung oleh mentor serta praktisi pendidikan SDJNusantara.',
+				'Ditulis dan dikurasi langsung oleh mentor serta praktisi pendidikan SDJ Nusantara.',
 				'Mencakup topik strategi beasiswa (panduan esai, persiapan wawancara), pengembangan karier, dan pemanfaatan AI produktif.',
 				'Dapat diakses secara gratis oleh seluruh pengunjung dan pencari beasiswa.',
 				'Diperbarui secara berkala mengikuti perkembangan informasi dan linimasa beasiswa.'
 			],
 			en: [
-				'Authored and curated by SDJNusantara mentors and seasoned education practitioners.',
+				'Authored and curated by SDJ Nusantara mentors and seasoned education practitioners.',
 				'Covers scholarship tactics (essay blueprints, interview mastery), career roadmaps, and practical AI.',
 				'Freely accessible to all visitors, students, and scholarship applicants.',
 				'Continuously updated with fresh insights and application intake schedules.'
@@ -450,7 +450,7 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 			'contact', 'reach', 'consultation', 'phone', 'mail', 'hours', 'office', 'talk'
 		],
 		overview: {
-			id: 'Halaman Kontak memuat formulir konsultasi terpadu, alamat operasional, jam kerja representatif, serta akses langsung WhatsApp dan email resmi SDJNusantara.',
+			id: 'Halaman Kontak memuat formulir konsultasi terpadu, alamat operasional, jam kerja representatif, serta akses langsung WhatsApp dan email resmi SDJ Nusantara.',
 			en: 'The Contact page features our official consultation form, operating hours, office details, and direct access to WhatsApp and email.'
 		},
 		bullets: {
@@ -556,20 +556,20 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 			'privacy', 'policy', 'data', 'security', 'protection', 'confidentiality', 'gdpr'
 		],
 		overview: {
-			id: 'Halaman Kebijakan Privasi menguraikan komitmen SDJNusantara dalam melindungi data pribadi pengguna, jenis data yang diproses, tujuan pengumpulan, dan hak-hak privasi Anda.',
-			en: 'The Privacy Policy page details SDJNusantara’s commitment to personal data protection, categories of processed data, usage purposes, and user rights.'
+			id: 'Halaman Kebijakan Privasi menguraikan komitmen SDJ Nusantara dalam melindungi data pribadi pengguna, jenis data yang diproses, tujuan pengumpulan, dan hak-hak privasi Anda.',
+			en: 'The Privacy Policy page details SDJ Nusantara’s commitment to personal data protection, categories of processed data, usage purposes, and user rights.'
 		},
 		bullets: {
 			id: [
 				'Berkomitmen melindungi kerahasiaan data pribadi sesuai peraturan perundang-undangan perlindungan data di Indonesia.',
 				'Data yang dikumpulkan melalui formulir hanya digunakan untuk komunikasi layanan, evaluasi kebutuhan program, dan administrasi.',
-				'SDJNusantara tidak pernah menjual, menyewakan, atau memberikan data pribadi pengguna kepada pihak ketiga tanpa izin sah.',
+				'SDJ Nusantara tidak pernah menjual, menyewakan, atau memberikan data pribadi pengguna kepada pihak ketiga tanpa izin sah.',
 				'Pengguna berhak memperbarui, memverifikasi, atau meminta penghapusan data kontak sewaktu-waktu.'
 			],
 			en: [
 				'Committed to personal data confidentiality adhering to applicable Indonesian data protection laws.',
 				'Information submitted through forms is used solely for service inquiries, program evaluations, and administrative communications.',
-				'SDJNusantara never sells, rents, or discloses personal data to unauthorized third parties.',
+				'SDJ Nusantara never sells, rents, or discloses personal data to unauthorized third parties.',
 				'Users retain the right to review, update, or request data deletion at any time.'
 			]
 		},
@@ -606,13 +606,13 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 		},
 		bullets: {
 			id: [
-				'Seluruh materi, modul, logo, dan konten website merupakan hak kekayaan intelektual SDJNusantara.',
+				'Seluruh materi, modul, logo, dan konten website merupakan hak kekayaan intelektual SDJ Nusantara.',
 				'Pembayaran program hanya sah melalui invoice resmi dan rekening institusi perusahaan (bukan rekening pribadi individu).',
 				'Peserta wajib memberikan informasi yang akurat dan beritikad baik selama mengikuti seluruh tahapan program.',
 				'Ketentuan pembatalan, penggantian sesi, atau penyesuaian jadwal mengacu pada klausul perjanjian layanan resmi.'
 			],
 			en: [
-				'All training materials, modules, logos, and website contents remain the intellectual property of SDJNusantara.',
+				'All training materials, modules, logos, and website contents remain the intellectual property of SDJ Nusantara.',
 				'Program payments are strictly valid when transacted via official invoices and corporate accounts (never personal accounts).',
 				'Participants agree to provide truthful and accurate information throughout all mentoring stages.',
 				'Cancellation, rescheduling, and refund terms are regulated under official service agreements.'
@@ -620,11 +620,11 @@ export const websiteTopicIndex: WebsiteTopicIndex[] = [
 		},
 		detailedPoints: {
 			id: [
-				'SDJNusantara tidak bertanggung jawab atas kerugian akibat transaksi tidak resmi di luar saluran yang tertera di website.',
+				'SDJ Nusantara tidak bertanggung jawab atas kerugian akibat transaksi tidak resmi di luar saluran yang tertera di website.',
 				'Setiap perubahan syarat dan ketentuan akan diperbarui di halaman ini secara berkala.'
 			],
 			en: [
-				'SDJNusantara is not liable for unauthorized transactions conducted outside our official verified channels.',
+				'SDJ Nusantara is not liable for unauthorized transactions conducted outside our official verified channels.',
 				'Terms and conditions may be updated periodically and reflected on this page.'
 			]
 		},

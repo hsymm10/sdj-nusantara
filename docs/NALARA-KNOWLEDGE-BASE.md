@@ -5,7 +5,7 @@
 
 ### 1. Filosofi & Sumber Kebenaran (Single Source of Truth)
 
-Basis pengetahuan NALARA disimpan dalam format **TypeScript terstruktur** pada direktori `src/lib/server/nalara/context/`. Seluruh informasi yang disematkan ke dalam memori NALARA **wajib berasal dari data faktual website resmi SDJNusantara**.
+Basis pengetahuan NALARA disimpan dalam format **TypeScript terstruktur** pada direktori `src/lib/server/nalara/context/`. Seluruh informasi yang disematkan ke dalam memori NALARA **wajib berasal dari data faktual website resmi SDJ Nusantara**.
 
 Prinsip utama:
 1. **Zero Hallucination:** NALARA dilarang mengarang layanan, alamat, kontak, atau harga yang tidak tertera pada basis data.
@@ -39,7 +39,7 @@ export interface KnowledgeEntry {
   relatedRoutes?: string[];       // Rute website terkait (contoh: ['/layanan', '/kontak'])
   status: VerificationStatus;     // Status verifikasi: 'verified' | 'draft' | 'archived'
   lastVerifiedAt: string;         // Tanggal verifikasi terakhir (ISO format: YYYY-MM-DD)
-  verifiedBy: string;             // Nama PIC verifikator (contoh: 'SDJNusantara Content Team')
+  verifiedBy: string;             // Nama PIC verifikator (contoh: 'SDJ Nusantara Content Team')
 }
 ```
 
@@ -49,7 +49,7 @@ export interface KnowledgeEntry {
 
 | Modul File | Kategori | Cakupan Konten Faktual |
 |---|---|---|
-| `company.ts` | `company` | Profil SDJNusantara, visi misi, legalitas rekening resmi perusahaan, alamat kantor, jam operasional, dan kontak representatif. |
+| `company.ts` | `company` | Profil SDJ Nusantara, visi misi, legalitas rekening resmi perusahaan, alamat kantor, jam operasional, dan kontak representatif. |
 | `services.ts` | `services` | Pengelompokan dua pilar utama (**Layanan Individu** dan **Solusi Institusi**), metode 5 tahapan kerja, dan pendampingan terarah. |
 | `programs.ts` | `programs` | *Talent Management*, kurasi kompetensi digital/AI, pelatihan khusus organisasi/korporasi, dan program kemitraan kampus. |
 | `scholarships.ts` | `scholarships` | *Scholarship Academy*, roadmap 6 langkah pendampingan beasiswa (S1, S2, S3 dalam/luar negeri), dan penegasan kebijakan *tanpa jaminan kelulusan*. |
@@ -84,7 +84,7 @@ Berikut adalah contoh format entri resmi yang diterapkan pada `src/lib/server/na
 ```typescript
 export const solusInstitusiEntry: KnowledgeEntry = {
   id: 'services-institusi',
-  title: 'Solusi Institusi SDJNusantara',
+  title: 'Solusi Institusi SDJ Nusantara',
   category: 'services',
   summary:
     'Layanan pengembangan kapasitas strategis yang dirancang khusus untuk korporasi, institusi pendidikan, dan organisasi publik.',
@@ -110,7 +110,7 @@ export const solusInstitusiEntry: KnowledgeEntry = {
   relatedRoutes: ['/layanan', '/kemitraan', '/kontak'],
   status: 'verified',
   lastVerifiedAt: '2026-11-20',
-  verifiedBy: 'SDJNusantara Content Team'
+  verifiedBy: 'SDJ Nusantara Content Team'
 };
 ```
 

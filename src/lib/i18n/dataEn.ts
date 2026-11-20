@@ -6,7 +6,7 @@ export interface FaqEn {
 
 export const faqEnMap: Record<string, FaqEn> = {
 	'faq-01': {
-		question: 'Does SDJNusantara only serve university students?',
+		question: 'Does SDJ Nusantara only serve university students?',
 		answer:
 			'No. Our services are open to high school students, university students, fresh graduates, professionals, educators, communities, and institutions.',
 		detail: [
@@ -16,9 +16,9 @@ export const faqEnMap: Record<string, FaqEn> = {
 		]
 	},
 	'faq-02': {
-		question: 'Does SDJNusantara provide its own scholarships?',
+		question: 'Does SDJ Nusantara provide its own scholarships?',
 		answer:
-			'SDJNusantara focuses on information curation and scholarship application preparation mentoring, rather than acting as a direct scholarship funding provider.',
+			'SDJ Nusantara focuses on information curation and scholarship application preparation mentoring, rather than acting as a direct scholarship funding provider.',
 		detail: [
 			'Funding availability and scholarship awards are determined solely by each official provider (governments, universities, foundations, or international donor agencies).',
 			'We guide you in selecting suitable scholarships and strengthen your application documents to maximize your competitiveness.'
@@ -45,16 +45,16 @@ export const faqEnMap: Record<string, FaqEn> = {
 	'faq-05': {
 		question: 'Do training participants receive certificates (including BNSP)?',
 		answer:
-			'Participants receive an official training certificate of participation from SDJNusantara. Professional competency certificates are issued by authorized certification bodies (such as BNSP) according to registered competency schemes.',
+			'Participants receive an official training certificate of participation from SDJ Nusantara. Professional competency certificates are issued by authorized certification bodies (such as BNSP) according to registered competency schemes.',
 		detail: [
-			'SDJNusantara Training Certificate: Official proof of attendance and completion of professional training hours.',
+			'SDJ Nusantara Training Certificate: Official proof of attendance and completion of professional training hours.',
 			'Professional / BNSP Certification: Official competency assessment through our licensed partner Professional Certification Bodies (LSP).'
 		]
 	},
 	'faq-06': {
 		question: 'How do I register for a program or mentoring session?',
 		answer:
-			'Select the program you are interested in on the SDJNusantara website, then fill out the contact form or reach our official WhatsApp to begin an initial needs-assessment consultation.',
+			'Select the program you are interested in on the SDJ Nusantara website, then fill out the contact form or reach our official WhatsApp to begin an initial needs-assessment consultation.',
 		detail: [
 			'Needs Consultation: We map your learning goals or institutional training requirements.',
 			'Plan & Proposal: Transparent sharing of syllabus, schedule, and fee structure.',
@@ -125,7 +125,7 @@ export interface LeaderEn {
 
 export const leadersEnMap: Record<string, LeaderEn> = {
 	dirut: {
-		fotoAlt: 'Portrait of Muhammad Setiawan S Dj, President Director of SDJNusantara',
+		fotoAlt: 'Portrait of Muhammad Setiawan S Dj, President Director of SDJ Nusantara',
 		profilSingkat:
 			'Muhammad Setiawan S Dj is a professional with over a decade of experience in public policy, higher education, human capital development, innovation, and strategic program management.\n\nBacked by a multidisciplinary background in psychology, social sciences, strategic intelligence studies, and law, he brings an analytical, adaptive leadership approach focused on problem-solving and measurable outcomes.\n\nHis professional experience spans government, the private sector, and legislative institutions. This cross-sector exposure has shaped a strong understanding of policy dynamics, organizational governance, talent development, and effective multi-stakeholder collaboration.\n\nThroughout his career, he has been actively involved in initiatives across education, innovation, human resource development, institutional capacity building, and strategic development agendas.\n\nAs Founder and President Director, he leads the company’s strategic direction with a focus on strategy, human development, education, and institutional strengthening. He believes sustainable growth stems from combining sound strategy, capable people, good governance, and collaboration that turns ideas into real impact.',
 		pendidikan: 'B.A., S.Psi., S.H., M.Si., M.H.',
@@ -136,7 +136,7 @@ export const leadersEnMap: Record<string, LeaderEn> = {
 		]
 	},
 	'senior-advisor-strategic': {
-		fotoAlt: 'Portrait of Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, Senior Advisor at SDJNusantara',
+		fotoAlt: 'Portrait of Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, Senior Advisor at SDJ Nusantara',
 		profilSingkat:
 			'Mayjen TNI (Purn) Dr. Dr. Ir. Pujo Widodo, S.E., S.H., S.T., M.A., M.D.S., M.Si., M.Si (Han). is a senior professional with extensive experience in strategy, leadership, defense, intelligence, institutional development, and higher education.\n\nThroughout his career, he has undertaken strategic domestic and international assignments across operations, intelligence, organizational development, education, and international cooperation. This experience has forged a sharp perspective in reading strategic environments, managing risk, building institutional networks, and formulating measured approaches to organizational challenges.\n\nHe also holds a broad multidisciplinary academic background spanning economics, law, industrial engineering, defense, strategic intelligence, international law, and global strategy.\n\nAs Senior Advisor for Strategic Affairs & Institutional Relations at PT Sampurna Djaya Nusantara, he provides strategic counsel to company leadership on organizational direction, institutional relations, risk management, leadership, and sustainable partnerships.',
 		pendidikan:
@@ -148,7 +148,7 @@ export const leadersEnMap: Record<string, LeaderEn> = {
 		]
 	},
 	'senior-advisor-business': {
-		fotoAlt: 'Portrait of Dr. Devi Erna Rachmawati, Senior Advisor at SDJNusantara',
+		fotoAlt: 'Portrait of Dr. Devi Erna Rachmawati, Senior Advisor at SDJ Nusantara',
 		profilSingkat:
 			'Dr. Devi Erna Rachmawati is a professional and entrepreneur with broad experience in business development, strategic partnerships, trade, industry networks, and organizational growth.\n\nShe holds academic credentials in economics, business management, and East Asian economic studies, earning her doctoral degree from Yamaguchi University, Japan, with outstanding academic distinction.\n\nThroughout her career, she has built and led diverse business initiatives and actively participated in national and international business organizations and trade networks—covering enterprise growth, entrepreneurship, trade and investment, industry networking, and stakeholder relations.\n\nShe also brings experience across government and education sectors, enriching her perspective on the intersection of business, public policy, human capital development, and market needs.\n\nAs Senior Advisor for Business Development & Strategic Partnerships, she provides strategic insights on business opportunities, network expansion, partnership building, and collaborative initiatives that drive sustainable growth.\n\nShe believes strong business growth is built on spotting opportunities, fostering trust, expanding networks, and creating shared value for all partners.',
 		pendidikan:
@@ -160,13 +160,13 @@ export const leadersEnMap: Record<string, LeaderEn> = {
 		]
 	},
 	'director-education': {
-		fotoAlt: 'Portrait of Hanif Hidayatullah, Director of Education at SDJNusantara',
+		fotoAlt: 'Portrait of Hanif Hidayatullah, Director of Education at SDJ Nusantara',
 		profilSingkat:
-			'Hanif Hidayatullah is a researcher and educator across universities, Islamic boarding schools (pesantren), and educational institutions. He serves as Director of Education at SDJNusantara.\n\nHe is actively engaged in issues surrounding Political Economy, Leadership, and Organizational Development.',
+			'Hanif Hidayatullah is a researcher and educator across universities, Islamic boarding schools (pesantren), and educational institutions. He serves as Director of Education at SDJ Nusantara.\n\nHe is actively engaged in issues surrounding Political Economy, Leadership, and Organizational Development.',
 		pendidikan: 'S.Hum., M.A.',
 		pengalaman: [
 			'Researcher and educator across universities, pesantren, and educational institutions',
-			'Director of Education at SDJNusantara',
+			'Director of Education at SDJ Nusantara',
 			'Active in Political Economy, Leadership, and Organizational Studies'
 		]
 	}

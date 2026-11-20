@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>{scholarship.nama} — {i18n.pick('SDJNusantara Layanan Pendidikan', 'SDJNusantara Education Services')}</title>
+	<title>{scholarship.nama} — {i18n.pick('SDJ Nusantara Layanan Pendidikan', 'SDJ Nusantara Education Services')}</title>
 	<meta
 		name="description"
 		content={i18n.pick(
@@ -107,7 +107,7 @@
 
 		<!-- Disclaimer -->
 		<div class="disclaimer-box">
-			<p><em>* {i18n.pick(scholarshipDisclaimer, 'Reference sample data. Always verify the latest information and requirements on each scholarship provider’s official website. SDJNusantara does not guarantee scholarship admission; final decisions rest solely with the provider.')}</em></p>
+			<p><em>* {i18n.pick(scholarshipDisclaimer, 'Reference sample data. Always verify the latest information and requirements on each scholarship provider’s official website. SDJ Nusantara does not guarantee scholarship admission; final decisions rest solely with the provider.')}</em></p>
 		</div>
 	</div>
 </main>

@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/partner-hero-5.jpg"
-			alt="Program SDJNusantara"
+			alt="Program SDJ Nusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -52,7 +52,7 @@
 
 			<!-- Description -->
 			<p class="hero-desc">
-				SDJNusantara menghadirkan berbagai program pendidikan dan pengembangan talenta yang dirancang secara terstruktur, relevan dengan kebutuhan zaman, dan didukung oleh para praktisi terpercaya.
+				SDJ Nusantara menghadirkan berbagai program pendidikan dan pengembangan talenta yang dirancang secara terstruktur, relevan dengan kebutuhan zaman, dan didukung oleh para praktisi terpercaya.
 			</p>
 
 			<!-- Buttons -->

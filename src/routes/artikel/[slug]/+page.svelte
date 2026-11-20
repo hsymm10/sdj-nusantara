@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import Navbar from '#lib/components/layout/Navbar.svelte';
-	import Footer from '#lib/components/layout/Footer.svelte';
-	import { articlesData, type Article } from '#lib/data/articles';
-	import { articlesEnMap } from '#lib/i18n/articlesEn';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { page } from "$app/state";
+	import Navbar from "#lib/components/layout/Navbar.svelte";
+	import Footer from "#lib/components/layout/Footer.svelte";
+	import { articlesData, type Article } from "#lib/data/articles";
+	import { articlesEnMap } from "#lib/i18n/articlesEn";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	function locArticle(a: Article): Article {
-		if (i18n.lang === 'en' && articlesEnMap[a.id]) {
+		if (i18n.lang === "en" && articlesEnMap[a.id]) {
 			return { ...a, ...(articlesEnMap[a.id] as Partial<Article>) };
 		}
 		return a;
@@ -15,7 +15,7 @@
 
 	const slug = $derived(page.params.slug);
 	const rawArticle = $derived(
-		articlesData.find((a) => a.slug === slug) || articlesData[0]
+		articlesData.find((a) => a.slug === slug) || articlesData[0],
 	);
 	const article = $derived(locArticle(rawArticle));
 
@@ -26,14 +26,15 @@
 
 	function parseArticleContent(html: string): ParsedArticle {
 		const headingRegex = /<h[23][^>]*>([\s\S]*?)<\/h[23]>/gi;
-		const matches: { index: number; endIndex: number; heading: string }[] = [];
+		const matches: { index: number; endIndex: number; heading: string }[] =
+			[];
 		let match: RegExpExecArray | null;
 
 		while ((match = headingRegex.exec(html)) !== null) {
 			matches.push({
 				index: match.index,
 				endIndex: match.index + match[0].length,
-				heading: match[1].replace(/<[^>]+>/g, '').trim()
+				heading: match[1].replace(/<[^>]+>/g, "").trim(),
 			});
 		}
 
@@ -43,10 +44,11 @@
 
 		const introHtml = html.slice(0, matches[0].index).trim();
 		const sections = matches.map((m, idx) => {
-			const nextStart = idx + 1 < matches.length ? matches[idx + 1].index : html.length;
+			const nextStart =
+				idx + 1 < matches.length ? matches[idx + 1].index : html.length;
 			return {
 				heading: m.heading,
-				bodyHtml: html.slice(m.endIndex, nextStart).trim()
+				bodyHtml: html.slice(m.endIndex, nextStart).trim(),
 			};
 		});
 
@@ -56,14 +58,38 @@
 	function getArticleTags(item: Article): string[] {
 		if (item.tags && item.tags.length > 0) return item.tags;
 		const map: Record<string, string[]> = {
-			Pendidikan: ['#PendidikanBerkualitas', '#InovasiSekolah', '#SDJNusantara'],
-			Beasiswa: ['#BeasiswaInternasional', '#StudiLanjut', '#PersiapanKarier'],
-			'Pengembangan Talenta': ['#PengembanganTalenta', '#SoftSkill', '#Kepemimpinan'],
-			'Keterampilan Digital': ['#LiterasiDigital', '#KompetensiMasaDepan', '#KarierDigital'],
-			Kemitraan: ['#KemitraanStrategis', '#SinergiIndustri', '#Kolaborasi'],
-			'Karier & Profesional': ['#KesiapanKarier', '#ProfesionalMuda', '#DayaSaing']
+			Pendidikan: [
+				"#PendidikanBerkualitas",
+				"#InovasiSekolah",
+				"#SDJ Nusantara",
+			],
+			Beasiswa: [
+				"#BeasiswaInternasional",
+				"#StudiLanjut",
+				"#PersiapanKarier",
+			],
+			"Pengembangan Talenta": [
+				"#PengembanganTalenta",
+				"#SoftSkill",
+				"#Kepemimpinan",
+			],
+			"Keterampilan Digital": [
+				"#LiterasiDigital",
+				"#KompetensiMasaDepan",
+				"#KarierDigital",
+			],
+			Kemitraan: [
+				"#KemitraanStrategis",
+				"#SinergiIndustri",
+				"#Kolaborasi",
+			],
+			"Karier & Profesional": [
+				"#KesiapanKarier",
+				"#ProfesionalMuda",
+				"#DayaSaing",
+			],
 		};
-		return map[item.kategori] || ['#WawasanSDJ', '#Pendidikan'];
+		return map[item.kategori] || ["#WawasanSDJ", "#Pendidikan"];
 	}
 
 	const parsed = $derived(parseArticleContent(article.isi));
@@ -72,17 +98,22 @@
 
 	const relatedArticles = $derived.by(() => {
 		const sameCategory = articlesData.filter(
-			(a) => a.slug !== rawArticle.slug && a.kategori === rawArticle.kategori
+			(a) =>
+				a.slug !== rawArticle.slug &&
+				a.kategori === rawArticle.kategori,
 		);
 		const others = articlesData.filter(
-			(a) => a.slug !== rawArticle.slug && a.kategori !== rawArticle.kategori
+			(a) =>
+				a.slug !== rawArticle.slug &&
+				a.kategori !== rawArticle.kategori,
 		);
 		return [...sameCategory, ...others].slice(0, 3).map(locArticle);
 	});
 
 	let copied = $state(false);
 	function copyArticleLink() {
-		if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
+		if (typeof window === "undefined" || typeof navigator === "undefined")
+			return;
 		navigator.clipboard?.writeText(window.location.href).catch(() => {});
 		copied = true;
 		setTimeout(() => {
@@ -91,14 +122,16 @@
 	}
 
 	const shareUrl = $derived(
-		typeof window !== 'undefined'
+		typeof window !== "undefined"
 			? window.location.href
-			: `https://sdjnusantara.com/artikel/${article.slug}`
+			: `https://sdjnusantara.com/artikel/${article.slug}`,
 	);
 
 	function triggerNativeShare() {
-		if (typeof navigator !== 'undefined' && navigator.share) {
-			navigator.share({ title: article.judul, url: shareUrl }).catch(() => {});
+		if (typeof navigator !== "undefined" && navigator.share) {
+			navigator
+				.share({ title: article.judul, url: shareUrl })
+				.catch(() => {});
 		} else {
 			copyArticleLink();
 		}
@@ -106,7 +139,12 @@
 </script>
 
 <svelte:head>
-	<title>{article.judul} — {i18n.pick('SDJNusantara Artikel', 'SDJNusantara Articles')}</title>
+	<title
+		>{article.judul} — {i18n.pick(
+			"SDJ Nusantara Artikel",
+			"SDJ Nusantara Articles",
+		)}</title
+	>
 	<meta name="description" content={article.ringkasan} />
 </svelte:head>
 
@@ -115,17 +153,51 @@
 <main class="article-reader-page">
 	<!-- Decorative Subtle Background Corners -->
 	<div class="page-bg-decor" aria-hidden="true">
-		<svg class="bg-wave-tl" viewBox="0 0 340 120" fill="none" preserveAspectRatio="none">
-			<path d="M0,0 L340,0 C240,8 145,42 0,115 Z" fill="#00AEBB" fill-opacity="0.92" />
-			<path d="M0,0 L240,0 C175,18 100,48 0,92 Z" fill="#0A6C7A" fill-opacity="0.35" />
+		<svg
+			class="bg-wave-tl"
+			viewBox="0 0 340 120"
+			fill="none"
+			preserveAspectRatio="none"
+		>
+			<path
+				d="M0,0 L340,0 C240,8 145,42 0,115 Z"
+				fill="#00AEBB"
+				fill-opacity="0.92"
+			/>
+			<path
+				d="M0,0 L240,0 C175,18 100,48 0,92 Z"
+				fill="#0A6C7A"
+				fill-opacity="0.35"
+			/>
 		</svg>
-		<svg class="bg-wave-tr" viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+		<svg
+			class="bg-wave-tr"
+			viewBox="0 0 260 220"
+			fill="none"
+			preserveAspectRatio="none"
+		>
 			<path d="M260,0 L70,0 C110,65 180,105 260,118 Z" fill="#E8F8FA" />
-			<path d="M260,0 L140,0 C170,50 212,78 260,86 Z" fill="#BFEFF4" fill-opacity="0.7" />
+			<path
+				d="M260,0 L140,0 C170,50 212,78 260,86 Z"
+				fill="#BFEFF4"
+				fill-opacity="0.7"
+			/>
 		</svg>
-		<svg class="bg-wave-br" viewBox="0 0 380 150" fill="none" preserveAspectRatio="none">
-			<path d="M380,150 L40,150 C150,122 280,68 380,4 Z" fill="#00AEBB" fill-opacity="0.9" />
-			<path d="M380,150 L150,150 C245,126 320,84 380,34 Z" fill="#FFB923" />
+		<svg
+			class="bg-wave-br"
+			viewBox="0 0 380 150"
+			fill="none"
+			preserveAspectRatio="none"
+		>
+			<path
+				d="M380,150 L40,150 C150,122 280,68 380,4 Z"
+				fill="#00AEBB"
+				fill-opacity="0.9"
+			/>
+			<path
+				d="M380,150 L150,150 C245,126 320,84 380,34 Z"
+				fill="#FFB923"
+			/>
 		</svg>
 	</div>
 
@@ -136,12 +208,26 @@
 				<!-- 1. Back Button -->
 				<a href="/artikel" class="btn-back">
 					<span class="back-icon-circle" aria-hidden="true">
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							width="13"
+							height="13"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.4"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<line x1="19" y1="12" x2="5" y2="12"></line>
 							<polyline points="12 19 5 12 12 5"></polyline>
 						</svg>
 					</span>
-					<span>{i18n.pick('Kembali ke Semua Artikel', 'Back to All Articles')}</span>
+					<span
+						>{i18n.pick(
+							"Kembali ke Semua Artikel",
+							"Back to All Articles",
+						)}</span
+					>
 				</a>
 
 				<!-- Header Metadata & Title -->
@@ -151,8 +237,25 @@
 						<span class="badge-cat">{article.kategori}</span>
 						<span class="meta-vsep" aria-hidden="true">|</span>
 						<span class="meta-date-wrap">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-								<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#64748B"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<rect
+									x="3"
+									y="4"
+									width="18"
+									height="18"
+									rx="2"
+									ry="2"
+								></rect>
 								<line x1="16" y1="2" x2="16" y2="6"></line>
 								<line x1="8" y1="2" x2="8" y2="6"></line>
 								<line x1="3" y1="10" x2="21" y2="10"></line>
@@ -169,31 +272,85 @@
 					<!-- 4. Penulis & Sumber dalam satu baris -->
 					<div class="author-bar">
 						<span class="author-item">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#64748B"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path
+									d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+								></path>
 								<circle cx="12" cy="7" r="4"></circle>
 							</svg>
-							<span>{i18n.pick('Penulis:', 'Author:')} <strong>{article.penulis}</strong></span>
+							<span
+								>{i18n.pick("Penulis:", "Author:")}
+								<strong>{article.penulis}</strong></span
+							>
 						</span>
 						<span class="author-vsep" aria-hidden="true">|</span>
 						<span class="author-item">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-								<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-								<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#64748B"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path
+									d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"
+								></path>
+								<path
+									d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+								></path>
 							</svg>
-							<span>{i18n.pick('Sumber:', 'Source:')} <em>{article.sumber}</em></span>
+							<span
+								>{i18n.pick("Sumber:", "Source:")}
+								<em>{article.sumber}</em></span
+							>
 						</span>
 					</div>
 				</header>
 
 				<!-- 5. Gambar Utama Artikel (16:9 + Corner Ribbons) -->
 				<div class="article-hero-cover">
-					<img src={article.gambar} alt={article.judul} class="cover-img" />
-					<svg class="cover-corner-tl" viewBox="0 0 120 75" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M0,0 L120,0 C70,6 30,28 0,75 Z" fill="#00AEBB" />
+					<img
+						src={article.gambar}
+						alt={article.judul}
+						class="cover-img"
+					/>
+					<svg
+						class="cover-corner-tl"
+						viewBox="0 0 120 75"
+						fill="none"
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M0,0 L120,0 C70,6 30,28 0,75 Z"
+							fill="#00AEBB"
+						/>
 					</svg>
-					<svg class="cover-corner-br" viewBox="0 0 130 65" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M130,65 L0,65 C55,54 96,30 130,0 Z" fill="#FFB923" />
+					<svg
+						class="cover-corner-br"
+						viewBox="0 0 130 65"
+						fill="none"
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M130,65 L0,65 C55,54 96,30 130,0 Z"
+							fill="#FFB923"
+						/>
 					</svg>
 				</div>
 
@@ -211,23 +368,71 @@
 							<section class="feature-section-row">
 								<div class="sec-icon-box" aria-hidden="true">
 									{#if idx % 2 === 0}
-										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00AEBB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-											<circle cx="12" cy="12" r="3"></circle>
-											<circle cx="5" cy="6" r="2"></circle>
-											<circle cx="19" cy="6" r="2"></circle>
-											<circle cx="5" cy="18" r="2"></circle>
-											<circle cx="19" cy="18" r="2"></circle>
-											<line x1="9.8" y1="10" x2="6.6" y2="7.4"></line>
-											<line x1="14.2" y1="10" x2="17.4" y2="7.4"></line>
-											<line x1="9.8" y1="14" x2="6.6" y2="16.6"></line>
-											<line x1="14.2" y1="14" x2="17.4" y2="16.6"></line>
+										<svg
+											width="22"
+											height="22"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="#00AEBB"
+											stroke-width="1.9"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<circle cx="12" cy="12" r="3"
+											></circle>
+											<circle cx="5" cy="6" r="2"
+											></circle>
+											<circle cx="19" cy="6" r="2"
+											></circle>
+											<circle cx="5" cy="18" r="2"
+											></circle>
+											<circle cx="19" cy="18" r="2"
+											></circle>
+											<line
+												x1="9.8"
+												y1="10"
+												x2="6.6"
+												y2="7.4"
+											></line>
+											<line
+												x1="14.2"
+												y1="10"
+												x2="17.4"
+												y2="7.4"
+											></line>
+											<line
+												x1="9.8"
+												y1="14"
+												x2="6.6"
+												y2="16.6"
+											></line>
+											<line
+												x1="14.2"
+												y1="14"
+												x2="17.4"
+												y2="16.6"
+											></line>
 										</svg>
 									{:else}
-										<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00AEBB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-											<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-											<circle cx="9" cy="7" r="4"></circle>
-											<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-											<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+										<svg
+											width="22"
+											height="22"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="#00AEBB"
+											stroke-width="1.9"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path
+												d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+											></path>
+											<circle cx="9" cy="7" r="4"
+											></circle>
+											<path d="M23 21v-2a4 4 0 0 0-3-3.87"
+											></path>
+											<path d="M16 3.13a4 4 0 0 1 0 7.75"
+											></path>
 										</svg>
 									{/if}
 								</div>
@@ -246,30 +451,53 @@
 				<blockquote class="article-quote-box">
 					<span class="quote-mark" aria-hidden="true">“</span>
 					<p class="quote-text">“{displayQuote}”</p>
-					<svg class="quote-corner-accent" viewBox="0 0 90 50" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M90,50 L20,50 C52,42 74,24 90,0 Z" fill="#00AEBB" fill-opacity="0.35" />
-						<path d="M90,50 L46,50 C68,42 80,30 90,14 Z" fill="#FFB923" fill-opacity="0.85" />
+					<svg
+						class="quote-corner-accent"
+						viewBox="0 0 90 50"
+						fill="none"
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M90,50 L20,50 C52,42 74,24 90,0 Z"
+							fill="#00AEBB"
+							fill-opacity="0.35"
+						/>
+						<path
+							d="M90,50 L46,50 C68,42 80,30 90,14 Z"
+							fill="#FFB923"
+							fill-opacity="0.85"
+						/>
 					</svg>
 				</blockquote>
 
 				<!-- 10. Disclaimer / Catatan Card -->
 				<div class="article-footer-note">
 					<p>
-						{#if i18n.lang === 'en'}
-							<strong>Note:</strong> This article is published for educational and informational purposes. Copyright belongs to SDJNusantara and the respective contributors.
+						{#if i18n.lang === "en"}
+							<strong>Note:</strong> This article is published for
+							educational and informational purposes. Copyright belongs
+							to SDJ Nusantara and the respective contributors.
 						{:else}
-							<strong>Catatan:</strong> Informasi artikel ini diterbitkan untuk tujuan edukasi dan wawasan. Hak cipta materi berada pada SDJNusantara dan kontributor terkait.
+							<strong>Catatan:</strong> Informasi artikel ini diterbitkan
+							untuk tujuan edukasi dan wawasan. Hak cipta materi berada
+							pada SDJ Nusantara dan kontributor terkait.
 						{/if}
 					</p>
 					<a href="/kontak" class="btn-consult">
-						{i18n.pick('Konsultasikan Kebutuhan Anda dengan Tim Ahli →', 'Consult Your Needs with Our Expert Team →')}
+						{i18n.pick(
+							"Konsultasikan Kebutuhan Anda dengan Tim Ahli →",
+							"Consult Your Needs with Our Expert Team →",
+						)}
 					</a>
 				</div>
 
 				<!-- 11 & 12. Tag Pills + Share Icons Row -->
 				<div class="article-bottom-meta">
 					<div class="tags-group">
-						<span class="meta-label">{i18n.pick('Tag:', 'Tags:')}</span>
+						<span class="meta-label"
+							>{i18n.pick("Tag:", "Tags:")}</span
+						>
 						<div class="tags-list">
 							{#each displayTags as tag}
 								<span class="tag-pill">{tag}</span>
@@ -278,24 +506,51 @@
 					</div>
 
 					<div class="share-group">
-						<span class="meta-label">{i18n.pick('Bagikan:', 'Share:')}</span>
+						<span class="meta-label"
+							>{i18n.pick("Bagikan:", "Share:")}</span
+						>
 						<div class="share-buttons">
 							<button
 								type="button"
 								class="share-circle-btn"
 								class:copied
 								onclick={copyArticleLink}
-								title={copied ? 'Tautan disalin!' : 'Salin tautan artikel'}
+								title={copied
+									? "Tautan disalin!"
+									: "Salin tautan artikel"}
 								aria-label="Salin tautan artikel"
 							>
 								{#if copied}
-									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00AEBB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-										<polyline points="20 6 9 17 4 12"></polyline>
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#00AEBB"
+										stroke-width="2.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<polyline points="20 6 9 17 4 12"
+										></polyline>
 									</svg>
 								{:else}
-									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-										<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+										></path>
+										<path
+											d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+										></path>
 									</svg>
 								{/if}
 							</button>
@@ -312,15 +567,26 @@
 							</a>
 
 							<a
-								href={`https://api.whatsapp.com/send?text=${encodeURIComponent(article.judul + ' — ' + shareUrl)}`}
+								href={`https://api.whatsapp.com/send?text=${encodeURIComponent(article.judul + " — " + shareUrl)}`}
 								target="_blank"
 								rel="noopener noreferrer"
 								class="share-circle-btn share-wa"
 								title="Bagikan ke WhatsApp"
 								aria-label="Bagikan ke WhatsApp"
 							>
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+									></path>
 								</svg>
 							</a>
 
@@ -331,12 +597,31 @@
 								title="Bagikan artikel"
 								aria-label="Bagikan artikel"
 							>
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
 									<circle cx="18" cy="5" r="3"></circle>
 									<circle cx="6" cy="12" r="3"></circle>
 									<circle cx="18" cy="19" r="3"></circle>
-									<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-									<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+									<line
+										x1="8.59"
+										y1="13.51"
+										x2="15.42"
+										y2="17.49"
+									></line>
+									<line
+										x1="15.41"
+										y1="6.51"
+										x2="8.59"
+										y2="10.49"
+									></line>
 								</svg>
 							</button>
 						</div>
@@ -352,48 +637,104 @@
 				<!-- 1. Consultation Card -->
 				<div class="consult-card">
 					<div class="consult-icon-circle" aria-hidden="true">
-						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#FFFFFF"
+							stroke-width="2.1"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
 							<path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-							<path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+							<path
+								d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+							></path>
 						</svg>
 					</div>
-					<h2 class="consult-title">{i18n.pick('Perlu Konsultasi Terkait Pendidikan?', 'Need Education Consultation?')}</h2>
+					<h2 class="consult-title">
+						{i18n.pick(
+							"Perlu Konsultasi Terkait Pendidikan?",
+							"Need Education Consultation?",
+						)}
+					</h2>
 					<p class="consult-desc">
 						{i18n.pick(
-							'Dapatkan pendampingan dari tim ahli SDJNusantara untuk kebutuhan institusi Anda.',
-							'Get tailored guidance from SDJNusantara’s expert team for your institutional needs.'
+							"Dapatkan pendampingan dari tim ahli SDJ Nusantara untuk kebutuhan institusi Anda.",
+							"Get tailored guidance from SDJ Nusantara’s expert team for your institutional needs.",
 						)}
 					</p>
-					<a href="/kontak" class="consult-cta-btn">
-						<span>{i18n.pick('Ajukan Konsultasi', 'Request Consultation')}</span>
-						<span aria-hidden="true">→</span>
-					</a>
 
 					<!-- Corner Wave Decoration -->
-					<svg class="consult-corner-decor" viewBox="0 0 140 60" fill="none" preserveAspectRatio="none" aria-hidden="true">
-						<path d="M140,60 L20,60 C70,48 110,24 140,0 Z" fill="#00AEBB" />
-						<path d="M140,60 L64,60 C98,48 122,32 140,14 Z" fill="#FFB923" />
+					<svg
+						class="consult-corner-decor"
+						viewBox="0 0 140 60"
+						fill="none"
+						preserveAspectRatio="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M140,60 L20,60 C70,48 110,24 140,0 Z"
+							fill="#00AEBB"
+						/>
+						<path
+							d="M140,60 L64,60 C98,48 122,32 140,14 Z"
+							fill="#FFB923"
+						/>
 					</svg>
 				</div>
 
 				<!-- 2. Artikel Terkait -->
 				<div class="related-block">
 					<div class="related-header">
-						<h3 class="related-title">{i18n.pick('Artikel Terkait', 'Related Articles')}</h3>
+						<h3 class="related-title">
+							{i18n.pick("Artikel Terkait", "Related Articles")}
+						</h3>
 					</div>
 
 					<div class="related-list">
 						{#each relatedArticles as rel (rel.slug)}
-							<a href={`/artikel/${rel.slug}`} class="related-card">
-								<img src={rel.gambar} alt={rel.judul} class="related-thumb" loading="eager" />
+							<a
+								href={`/artikel/${rel.slug}`}
+								class="related-card"
+							>
+								<img
+									src={rel.gambar}
+									alt={rel.judul}
+									class="related-thumb"
+									loading="eager"
+								/>
 								<div class="related-info">
-									<h4 class="related-card-title">{rel.judul}</h4>
+									<h4 class="related-card-title">
+										{rel.judul}
+									</h4>
 									<span class="related-date">
-										<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-											<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-											<line x1="16" y1="2" x2="16" y2="6"></line>
-											<line x1="8" y1="2" x2="8" y2="6"></line>
-											<line x1="3" y1="10" x2="21" y2="10"></line>
+										<svg
+											width="12"
+											height="12"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="#64748B"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											aria-hidden="true"
+										>
+											<rect
+												x="3"
+												y="4"
+												width="18"
+												height="18"
+												rx="2"
+												ry="2"
+											></rect>
+											<line x1="16" y1="2" x2="16" y2="6"
+											></line>
+											<line x1="8" y1="2" x2="8" y2="6"
+											></line>
+											<line x1="3" y1="10" x2="21" y2="10"
+											></line>
 										</svg>
 										<span>{rel.tanggal}</span>
 									</span>
@@ -404,7 +745,12 @@
 
 					<!-- 3. Lihat Artikel Lainnya Button -->
 					<a href="/artikel" class="btn-more-articles">
-						<span>{i18n.pick('Lihat Artikel Lainnya', 'View More Articles')}</span>
+						<span
+							>{i18n.pick(
+								"Lihat Artikel Lainnya",
+								"View More Articles",
+							)}</span
+						>
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
@@ -419,7 +765,7 @@
 	.article-reader-page {
 		position: relative;
 		width: 100%;
-		background: #FFFFFF;
+		background: #ffffff;
 		padding-top: var(--navbar-height, 48px);
 		min-height: 80vh;
 		overflow: hidden;
@@ -479,7 +825,7 @@
 	.col-vertical-divider {
 		width: 1px;
 		align-self: stretch;
-		background: #DFE9F0;
+		background: #dfe9f0;
 	}
 
 	/* ==========================================
@@ -495,7 +841,7 @@
 		gap: 8px;
 		font-size: 13.5px;
 		font-weight: 600;
-		color: #00AEBB;
+		color: #00aebb;
 		text-decoration: none;
 		margin-bottom: 18px;
 		transition: color 0.2s ease;
@@ -505,20 +851,22 @@
 		width: 24px;
 		height: 24px;
 		border-radius: 50%;
-		border: 1.5px solid #00AEBB;
+		border: 1.5px solid #00aebb;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		transition: background 0.2s ease, color 0.2s ease;
+		transition:
+			background 0.2s ease,
+			color 0.2s ease;
 	}
 
 	.btn-back:hover {
-		color: #0D2B4C;
+		color: #0d2b4c;
 	}
 
 	.btn-back:hover .back-icon-circle {
-		background: #00AEBB;
-		color: #FFFFFF;
+		background: #00aebb;
+		color: #ffffff;
 	}
 
 	.article-header {
@@ -536,8 +884,8 @@
 	.badge-cat {
 		display: inline-flex;
 		align-items: center;
-		background: #E8F8FA;
-		color: #00AEBB;
+		background: #e8f8fa;
+		color: #00aebb;
 		font-size: 12.5px;
 		font-weight: 700;
 		padding: 4px 13px;
@@ -545,7 +893,7 @@
 	}
 
 	.meta-vsep {
-		color: #DFE9F0;
+		color: #dfe9f0;
 		font-size: 12.5px;
 	}
 
@@ -558,11 +906,11 @@
 	.meta-date {
 		font-size: 12.5px;
 		font-weight: 500;
-		color: #64748B;
+		color: #64748b;
 	}
 
 	.title-accent-wrap {
-		border-left: 4px solid #FFB923;
+		border-left: 4px solid #ffb923;
 		padding-left: 16px;
 		margin-bottom: 14px;
 	}
@@ -571,7 +919,7 @@
 		font-size: clamp(26px, 2.3vw, 32px);
 		font-weight: 800;
 		line-height: 1.24;
-		color: #0D2B4C;
+		color: #0d2b4c;
 		margin: 0;
 		letter-spacing: -0.015em;
 	}
@@ -582,7 +930,7 @@
 		align-items: center;
 		gap: 6px 12px;
 		font-size: 12.5px;
-		color: #52647A;
+		color: #52647a;
 	}
 
 	.author-item {
@@ -592,17 +940,17 @@
 	}
 
 	.author-item strong {
-		color: #0D2B4C;
+		color: #0d2b4c;
 		font-weight: 600;
 	}
 
 	.author-item em {
 		font-style: italic;
-		color: #38536F;
+		color: #38536f;
 	}
 
 	.author-vsep {
-		color: #DFE9F0;
+		color: #dfe9f0;
 	}
 
 	/* Featured Image 16:9 with Corner Accents */
@@ -613,7 +961,7 @@
 		border-radius: 15px;
 		overflow: hidden;
 		margin-bottom: 18px;
-		background: #EAF2F8;
+		background: #eaf2f8;
 		box-shadow: 0 10px 30px rgba(13, 43, 76, 0.08);
 	}
 
@@ -647,7 +995,7 @@
 	.article-intro {
 		font-size: 14.5px;
 		line-height: 1.72;
-		color: #38536F;
+		color: #38536f;
 		margin-bottom: 20px;
 	}
 
@@ -671,18 +1019,18 @@
 		align-items: flex-start;
 		gap: 14px;
 		padding: 18px 0;
-		border-bottom: 1px solid #EDF3F7;
+		border-bottom: 1px solid #edf3f7;
 	}
 
 	.feature-section-row:first-child {
-		border-top: 1px solid #EDF3F7;
+		border-top: 1px solid #edf3f7;
 	}
 
 	.sec-icon-box {
 		width: 42px;
 		height: 42px;
 		border-radius: 10px;
-		background: #E8F8FA;
+		background: #e8f8fa;
 		border: 1px solid rgba(0, 174, 187, 0.16);
 		display: flex;
 		align-items: center;
@@ -700,20 +1048,20 @@
 		font-size: 18px;
 		font-weight: 700;
 		line-height: 1.35;
-		color: #0D2B4C;
+		color: #0d2b4c;
 		margin: 0 0 8px 0;
 	}
 
 	.sec-body {
 		font-size: 14.5px;
 		line-height: 1.72;
-		color: #38536F;
+		color: #38536f;
 	}
 
 	.sec-body :global(h3) {
 		font-size: 15.5px;
 		font-weight: 700;
-		color: #0D2B4C;
+		color: #0d2b4c;
 		margin: 14px 0 6px 0;
 	}
 
@@ -746,7 +1094,7 @@
 	/* Quotation Block */
 	.article-quote-box {
 		position: relative;
-		background: #E8F8FA;
+		background: #e8f8fa;
 		border-radius: 14px;
 		padding: 20px 24px;
 		margin: 0 0 16px 0;
@@ -760,7 +1108,7 @@
 		font-size: 48px;
 		line-height: 0.9;
 		font-weight: 800;
-		color: #00AEBB;
+		color: #00aebb;
 		font-family: Georgia, serif;
 		flex-shrink: 0;
 		margin-top: 4px;
@@ -774,7 +1122,7 @@
 		font-style: italic;
 		font-weight: 500;
 		line-height: 1.7;
-		color: #0D2B4C;
+		color: #0d2b4c;
 	}
 
 	.quote-corner-accent {
@@ -789,9 +1137,9 @@
 	/* Disclaimer Box */
 	.article-footer-note {
 		padding: 18px 20px;
-		background: #F7FAFC;
+		background: #f7fafc;
 		border-radius: 12px;
-		border: 1px solid #DFE9F0;
+		border: 1px solid #dfe9f0;
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
@@ -802,18 +1150,18 @@
 		margin: 0;
 		font-size: 12.5px;
 		line-height: 1.65;
-		color: #52647A;
+		color: #52647a;
 	}
 
 	.article-footer-note p strong {
-		color: #0D2B4C;
+		color: #0d2b4c;
 	}
 
 	.btn-consult {
 		display: inline-flex;
 		align-items: center;
 		width: fit-content;
-		color: #00AEBB;
+		color: #00aebb;
 		font-size: 13px;
 		font-weight: 700;
 		text-decoration: none;
@@ -821,7 +1169,7 @@
 	}
 
 	.btn-consult:hover {
-		color: #0D2B4C;
+		color: #0d2b4c;
 		text-decoration: underline;
 	}
 
@@ -846,7 +1194,7 @@
 	.meta-label {
 		font-size: 12.5px;
 		font-weight: 700;
-		color: #0D2B4C;
+		color: #0d2b4c;
 	}
 
 	.tags-list {
@@ -856,9 +1204,9 @@
 	}
 
 	.tag-pill {
-		background: #F4F8FB;
-		border: 1px solid #DFE9F0;
-		color: #38536F;
+		background: #f4f8fb;
+		border: 1px solid #dfe9f0;
+		color: #38536f;
 		font-size: 12px;
 		font-weight: 500;
 		padding: 4px 12px;
@@ -875,9 +1223,9 @@
 		width: 32px;
 		height: 32px;
 		border-radius: 50%;
-		border: 1px solid #DFE9F0;
-		background: #FFFFFF;
-		color: #38536F;
+		border: 1px solid #dfe9f0;
+		background: #ffffff;
+		color: #38536f;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -888,9 +1236,9 @@
 
 	.share-circle-btn:hover,
 	.share-circle-btn.copied {
-		border-color: #00AEBB;
-		color: #00AEBB;
-		background: #E8F8FA;
+		border-color: #00aebb;
+		color: #00aebb;
+		background: #e8f8fa;
 	}
 
 	.li-text {
@@ -912,7 +1260,7 @@
 	/* 1. Consultation Card */
 	.consult-card {
 		position: relative;
-		background: linear-gradient(155deg, #E8F8FA 0%, #D9F4F7 100%);
+		background: linear-gradient(155deg, #e8f8fa 0%, #d9f4f7 100%);
 		border: 1px solid rgba(0, 174, 187, 0.16);
 		border-radius: 16px;
 		padding: 24px 22px;
@@ -928,7 +1276,7 @@
 		width: 44px;
 		height: 44px;
 		border-radius: 50%;
-		background: #00AEBB;
+		background: #00aebb;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -940,14 +1288,14 @@
 		font-size: 18px;
 		font-weight: 800;
 		line-height: 1.3;
-		color: #0D2B4C;
+		color: #0d2b4c;
 		margin: 0 0 8px 0;
 	}
 
 	.consult-desc {
 		font-size: 13.5px;
 		line-height: 1.6;
-		color: #38536F;
+		color: #38536f;
 		margin: 0 0 18px 0;
 		position: relative;
 		z-index: 1;
@@ -961,19 +1309,21 @@
 		justify-content: center;
 		gap: 8px;
 		height: 44px;
-		background: #FFB923;
-		color: #0D2B4C;
+		background: #ffb923;
+		color: #0d2b4c;
 		font-size: 13.5px;
 		font-weight: 700;
 		padding: 0 24px;
 		border-radius: 999px;
 		text-decoration: none;
 		box-shadow: 0 4px 12px rgba(255, 185, 35, 0.35);
-		transition: background 0.2s ease, transform 0.2s ease;
+		transition:
+			background 0.2s ease,
+			transform 0.2s ease;
 	}
 
 	.consult-cta-btn:hover {
-		background: #F0A814;
+		background: #f0a814;
 		transform: translateY(-1px);
 	}
 
@@ -1001,7 +1351,7 @@
 	.related-title {
 		font-size: 19px;
 		font-weight: 800;
-		color: #0D2B4C;
+		color: #0d2b4c;
 		margin: 0;
 	}
 
@@ -1017,18 +1367,21 @@
 		align-items: center;
 		gap: 13px;
 		padding: 12px;
-		background: #FFFFFF;
-		border: 1px solid #DFE9F0;
+		background: #ffffff;
+		border: 1px solid #dfe9f0;
 		border-radius: 12px;
 		text-decoration: none;
 		box-shadow: 0 3px 12px rgba(13, 43, 76, 0.04);
-		transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			transform 0.2s ease;
 		min-height: 88px;
 		box-sizing: border-box;
 	}
 
 	.related-card:hover {
-		border-color: #00AEBB;
+		border-color: #00aebb;
 		box-shadow: 0 6px 18px rgba(0, 174, 187, 0.12);
 		transform: translateY(-1px);
 	}
@@ -1039,7 +1392,7 @@
 		border-radius: 8px;
 		object-fit: cover;
 		flex-shrink: 0;
-		background: #EAF2F8;
+		background: #eaf2f8;
 	}
 
 	.related-info {
@@ -1054,7 +1407,7 @@
 		font-size: 13.5px;
 		font-weight: 700;
 		line-height: 1.38;
-		color: #0D2B4C;
+		color: #0d2b4c;
 		margin: 0;
 		display: -webkit-box;
 		line-clamp: 2;
@@ -1069,7 +1422,7 @@
 		gap: 5px;
 		font-size: 11.5px;
 		font-weight: 500;
-		color: #64748B;
+		color: #64748b;
 	}
 
 	/* 3. View More Articles Pill Button */
@@ -1080,9 +1433,9 @@
 		gap: 8px;
 		width: 100%;
 		height: 40px;
-		background: #FFFFFF;
-		color: #00AEBB;
-		border: 1.5px solid #00AEBB;
+		background: #ffffff;
+		color: #00aebb;
+		border: 1.5px solid #00aebb;
 		border-radius: 999px;
 		font-size: 13px;
 		font-weight: 700;
@@ -1092,8 +1445,8 @@
 	}
 
 	.btn-more-articles:hover {
-		background: #00AEBB;
-		color: #FFFFFF;
+		background: #00aebb;
+		color: #ffffff;
 	}
 
 	/* ==========================================

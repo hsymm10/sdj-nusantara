@@ -6,7 +6,7 @@
 	<div class="cta-bg">
 		<img
 			src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1600&h=600&fit=crop"
-			alt="SDJNusantara gedung"
+			alt="SDJ Nusantara gedung"
 			class="cta-img"
 			crossorigin="anonymous"
 		/>
@@ -16,7 +16,7 @@
 		<div class="cta-inner">
 			<h2 class="cta-heading">
 				Mari Bersinergi Bersama<br />
-				<span class="gold">SDJNusantara</span>
+				<span class="gold">SDJ Nusantara</span>
 			</h2>
 			<p class="cta-desc">
 				Bergabunglah dengan jaringan mitra institusi pendidikan, perusahaan, dan organisasi

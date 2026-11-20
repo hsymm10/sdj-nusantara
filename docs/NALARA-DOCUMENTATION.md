@@ -5,9 +5,9 @@
 
 ### 1. Ringkasan Proyek
 
-**NALARA (Nusantara AI Learning & Resource Assistant)** adalah asisten virtual cerdas berbasis AI resmi untuk website **SDJNusantara**. NALARA dirancang untuk melayani pengunjung dengan memberikan informasi akurat dan cepat mengenai profil perusahaan, layanan pendidikan, solusi institusi, program beasiswa (*Scholarship Academy*), serta membantu konsultasi awal secara ramah, profesional, dan solutif.
+**NALARA (Nusantara AI Learning & Resource Assistant)** adalah asisten virtual cerdas berbasis AI resmi untuk website **SDJ Nusantara**. NALARA dirancang untuk melayani pengunjung dengan memberikan informasi akurat dan cepat mengenai profil perusahaan, layanan pendidikan, solusi institusi, program beasiswa (*Scholarship Academy*), serta membantu konsultasi awal secara ramah, profesional, dan solutif.
 
-NALARA mengintegrasikan teknologi model bahasa terdepan **Google Gemini** dengan sistem **Guardrail Server-Side** dan **Basis Pengetahuan Terverifikasi (Verified Knowledge Base)** berbasis TypeScript untuk mencegah halusinasi (*zero hallucinations*) serta membatasi ruang lingkup interaksi hanya pada topik resmi SDJNusantara.
+NALARA mengintegrasikan teknologi model bahasa terdepan **Google Gemini** dengan sistem **Guardrail Server-Side** dan **Basis Pengetahuan Terverifikasi (Verified Knowledge Base)** berbasis TypeScript untuk mencegah halusinasi (*zero hallucinations*) serta membatasi ruang lingkup interaksi hanya pada topik resmi SDJ Nusantara.
 
 ---
 
@@ -73,7 +73,7 @@ src/
           ├── 2. Sanitasi & Validasi Payload ───────────────────[Jika kosong]───> Return petunjuk
           ├── 3. Context Guard (Security & Relevance Filter)
           │      ├─ Cek Prompt Injection (e.g. "ignore previous")
-          │      ├─ Cek Whitelist Topik SDJNusantara
+          │      ├─ Cek Whitelist Topik SDJ Nusantara
           │      └─ Cek Blacklist Topik Umum (koding, resep, politik)
           │         └──[Jika melanggar]────────────────────────> Return Respons Baku Out-of-Scope
           │
@@ -120,18 +120,18 @@ Variabel lingkungan dideklarasikan di `.env` (lokal/produksi) dan didokumentasik
 1. **Deteksi Prompt Injection & Jailbreak:**
    Mendeteksi upaya memodifikasi *system prompt* (contoh: "abaikan instruksi sebelumnya", "ignore rules", "you are now DAN").
 2. **Filter Relevansi (Whitelist Topik):**
-   Menerima pertanyaan seputar profil SDJNusantara, program pendidikan, beasiswa, pelatihan institusi, kemitraan, konsultasi, kontak, dan biaya.
+   Menerima pertanyaan seputar profil SDJ Nusantara, program pendidikan, beasiswa, pelatihan institusi, kemitraan, konsultasi, kontak, dan biaya.
 3. **Penyaring Topik Non-Relevan (Blacklist Topik Umum):**
    Memblokir pertanyaan di luar lingkup seperti resep masakan, pemrograman/koding, politik internasional, kripto, cuaca, atau tugas sekolah umum.
 4. **Pesan Penolakan Baku (*Out-of-Scope Response*):**
    ```text
-   Maaf, saya NALARA, asisten virtual SDJNusantara yang berfokus pada informasi profil, layanan, program, dan beasiswa SDJNusantara.
+   Maaf, saya NALARA, asisten virtual SDJ Nusantara yang berfokus pada informasi profil, layanan, program, dan beasiswa SDJ Nusantara.
 
-   Apakah ada hal seputar SDJNusantara yang ingin Anda tanyakan?
+   Apakah ada hal seputar SDJ Nusantara yang ingin Anda tanyakan?
    ```
 5. **Pesan Informasi Tidak Tersedia:**
    ```text
-   Maaf, informasi tersebut belum tersedia dalam basis pengetahuan saya. Silakan hubungi tim SDJNusantara untuk informasi lebih lanjut.
+   Maaf, informasi tersebut belum tersedia dalam basis pengetahuan saya. Silakan hubungi tim SDJ Nusantara untuk informasi lebih lanjut.
    ```
 
 ---
@@ -152,11 +152,11 @@ NALARA diinstruksikan melalui `src/lib/server/nalara/prompts/system-prompt.ts` u
 
 Pengujian endpoint `/api/chat` dapat dilakukan dengan perintah curl atau skrip pengujian:
 
-#### Pertanyaan Profil SDJNusantara:
+#### Pertanyaan Profil SDJ Nusantara:
 ```bash
 curl -X POST http://localhost:3000/api/chat \
   -H "Content-Type: application/json" \
-  -d '{"message": "Apa itu SDJNusantara?"}'
+  -d '{"message": "Apa itu SDJ Nusantara?"}'
 ```
 
 #### Pertanyaan di Luar Konteks (Menguji Guardrail):

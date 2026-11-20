@@ -716,18 +716,21 @@
 
 	.latest-heading {
 		font-size: clamp(22px, 1.8vw, 28px);
-		line-height: 1.25;
+		line-height: 1.28;
 		font-weight: 800;
 		color: #082442;
 		margin: 0 0 0.45rem 0;
-		white-space: nowrap;
+		text-wrap: balance;
+		max-width: 760px;
 	}
 
 	.latest-desc {
 		font-size: 14.5px;
-		line-height: 1.5;
+		line-height: 1.55;
 		color: #475569;
 		margin: 0;
+		max-width: 620px;
+		text-wrap: pretty;
 	}
 
 	/* 3. Cards Grid (3x2) */

@@ -1,4 +1,4 @@
-// Layanan Mock Chatbot SDJNusantara
+// Layanan Mock Chatbot SDJ Nusantara
 // Membaca langsung dari Indeks Website & Basis Pengetahuan Tunggal via chatEngine
 
 import type { IChatService, SendMessageOptions, ChatResponse } from './chatService';

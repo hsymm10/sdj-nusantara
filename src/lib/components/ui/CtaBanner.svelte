@@ -3,27 +3,33 @@
 		title: string;
 		description: string;
 		bgImage?: string;
-		primaryText: string;
-		primaryHref: string;
+		primaryText?: string;
+		primaryHref?: string;
 		secondaryText?: string;
 		secondaryHref?: string;
 		secondaryIcon?: 'whatsapp' | 'none';
 		secondaryTarget?: string;
-		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan' | 'artikel';
+		variant?: 'default' | 'tentang-kami' | 'layanan' | 'program' | 'beasiswa' | 'kemitraan' | 'artikel' | 'kontak';
+		showButtons?: boolean;
 	}
 
 	let {
 		title,
 		description,
 		bgImage = '/images/cta-bg-clean.jpg',
-		primaryText,
-		primaryHref,
-		secondaryText,
-		secondaryHref,
+		primaryText = '',
+		primaryHref = '',
+		secondaryText = '',
+		secondaryHref = '',
 		secondaryIcon = 'none',
 		secondaryTarget = '_self',
-		variant = 'default'
+		variant = 'default',
+		showButtons = true
 	}: Props = $props();
+
+	let hasButtons = $derived(
+		showButtons && Boolean(primaryText && primaryHref)
+	);
 
 	let effectiveBgImage = $derived(
 		bgImage !== '/images/cta-bg-clean.jpg'
@@ -32,7 +38,7 @@
 				? '/images/cta-building-glass-left.jpg'
 				: variant === 'artikel' || variant === 'tentang-kami'
 					? '/images/cta-building-glass.jpg'
-					: variant === 'layanan'
+					: variant === 'layanan' || variant === 'kontak'
 						? '/images/cta-layanan-collaboration-bg.jpg'
 						: '/images/cta-bg-clean.jpg'
 	);
@@ -48,7 +54,7 @@
 	);
 </script>
 
-<section class="cta-banner variant-{variant}">
+<section class="cta-banner variant-{variant}" class:no-buttons={!hasButtons}>
 	<div class="cta-bg-wrap">
 		<picture>
 			{#if webpSrc}
@@ -66,30 +72,32 @@
 				<p class="cta-desc">{description}</p>
 			</div>
 
-			<div class="cta-actions">
-				<a href={primaryHref} class="btn-gold">
-					<span>{primaryText.replace(/\s*→\s*$/, '')}</span>
-					<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 5px;">
-						<line x1="5" y1="12" x2="19" y2="12"></line>
-						<polyline points="12 5 19 12 12 19"></polyline>
-					</svg>
-				</a>
-				{#if secondaryText && secondaryHref}
-					<a
-						href={secondaryHref}
-						class="btn-outline"
-						target={secondaryTarget}
-						rel={secondaryTarget === '_blank' ? 'noopener noreferrer' : undefined}
-					>
-						{#if secondaryIcon === 'whatsapp'}
-							<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 5px;">
-								<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.122-.51-1.819-.751-2.99-2.6-3.08-2.72-.091-.121-.734-.977-.734-1.861 0-.885.464-1.32.629-1.498.165-.178.36-.223.48-.223.12 0 .241.002.346.007.11.005.257-.042.402.308.149.362.51 1.246.555 1.337.045.09.075.196.015.316-.06.12-.09.196-.18.301-.091.106-.191.236-.273.316-.091.091-.186.19-.08.372.105.181.468.772 1.005 1.25.69.615 1.272.806 1.453.896.18.09.285.076.39-.045.106-.12.451-.526.571-.707.12-.18.24-.15.405-.09.166.06 1.053.497 1.234.587.18.09.3.136.345.211.046.075.046.436-.098.841z"/>
-							</svg>
-						{/if}
-						<span>{secondaryText}</span>
+			{#if hasButtons}
+				<div class="cta-actions">
+					<a href={primaryHref} class="btn-gold">
+						<span>{primaryText.replace(/\s*→\s*$/, '')}</span>
+						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 5px;">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
 					</a>
-				{/if}
-			</div>
+					{#if secondaryText && secondaryHref}
+						<a
+							href={secondaryHref}
+							class="btn-outline"
+							target={secondaryTarget}
+							rel={secondaryTarget === '_blank' ? 'noopener noreferrer' : undefined}
+						>
+							{#if secondaryIcon === 'whatsapp'}
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 5px;">
+									<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.122-.51-1.819-.751-2.99-2.6-3.08-2.72-.091-.121-.734-.977-.734-1.861 0-.885.464-1.32.629-1.498.165-.178.36-.223.48-.223.12 0 .241.002.346.007.11.005.257-.042.402.308.149.362.51 1.246.555 1.337.045.09.075.196.015.316-.06.12-.09.196-.18.301-.091.106-.191.236-.273.316-.091.091-.186.19-.08.372.105.181.468.772 1.005 1.25.69.615 1.272.806 1.453.896.18.09.285.076.39-.045.106-.12.451-.526.571-.707.12-.18.24-.15.405-.09.166.06 1.053.497 1.234.587.18.09.3.136.345.211.046.075.046.436-.098.841z"/>
+								</svg>
+							{/if}
+							<span>{secondaryText}</span>
+						</a>
+					{/if}
+				</div>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -331,6 +339,99 @@
 			rgba(11, 41, 72, 0.28) 75%,
 			rgba(11, 41, 72, 0.15) 100%
 		);
+	}
+
+	/* No-buttons mode: Clean, elegant, balanced presentation */
+	.cta-banner.no-buttons {
+		height: auto;
+		min-height: 96px;
+		padding: 1.65rem 1.5rem;
+		box-sizing: border-box;
+	}
+
+	.cta-banner.no-buttons .cta-overlay,
+	.cta-banner.variant-tentang-kami.no-buttons .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(11, 41, 72, 0.94) 0%,
+			rgba(11, 41, 72, 0.82) 50%,
+			rgba(11, 41, 72, 0.94) 100%
+		);
+	}
+
+	.cta-banner.no-buttons .cta-content {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.cta-banner.no-buttons .cta-text {
+		align-items: center;
+		text-align: center;
+		max-width: 820px;
+		margin: 0 auto;
+		gap: 6px;
+	}
+
+	.cta-banner.no-buttons .cta-title,
+	.cta-banner.variant-tentang-kami.no-buttons .cta-title {
+		font-size: clamp(19px, 1.8vw, 24px);
+		font-weight: 800;
+		color: #FFFFFF;
+		letter-spacing: -0.01em;
+		line-height: 1.3;
+		margin: 0;
+	}
+
+	.cta-banner.no-buttons .cta-desc,
+	.cta-banner.variant-tentang-kami.no-buttons .cta-desc {
+		font-size: clamp(12.5px, 1.05vw, 14px);
+		color: rgba(255, 255, 255, 0.88);
+		line-height: 1.5;
+		margin: 0;
+		max-width: 680px;
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.no-buttons,
+		.cta-banner.variant-tentang-kami.no-buttons {
+			height: auto;
+			padding: 1.35rem 1rem;
+			min-height: 85px;
+		}
+		.cta-banner.no-buttons .cta-content {
+			align-items: center;
+			text-align: center;
+		}
+		.cta-banner.no-buttons .cta-text {
+			align-items: center;
+			text-align: center;
+			gap: 4px;
+		}
+		.cta-banner.no-buttons .cta-title,
+		.cta-banner.variant-tentang-kami.no-buttons .cta-title {
+			font-size: 18px;
+		}
+		.cta-banner.no-buttons .cta-desc,
+		.cta-banner.variant-tentang-kami.no-buttons .cta-desc {
+			font-size: 12.5px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.cta-banner.no-buttons,
+		.cta-banner.variant-tentang-kami.no-buttons {
+			padding: 1.2rem 0.75rem;
+		}
+		.cta-banner.no-buttons .cta-title,
+		.cta-banner.variant-tentang-kami.no-buttons .cta-title {
+			font-size: 16.5px;
+		}
+		.cta-banner.no-buttons .cta-desc,
+		.cta-banner.variant-tentang-kami.no-buttons .cta-desc {
+			font-size: 12px;
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -751,6 +852,304 @@
 		.cta-banner.variant-kemitraan {
 			height: auto;
 			padding: 1.5rem 0;
+		}
+	}
+
+	/* Variant Kemitraan without buttons (centered, balanced content) */
+	.cta-banner.variant-kemitraan.no-buttons {
+		height: auto;
+		min-height: 96px;
+		padding: 1.65rem 1.5rem;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.cta-banner.variant-kemitraan.no-buttons .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(11, 41, 72, 0.90) 0%,
+			rgba(11, 41, 72, 0.80) 50%,
+			rgba(11, 41, 72, 0.90) 100%
+		);
+	}
+
+	.cta-banner.variant-kemitraan.no-buttons .cta-content {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.cta-banner.variant-kemitraan.no-buttons .cta-text {
+		margin-left: 0;
+		margin: 0 auto;
+		align-items: center;
+		text-align: center;
+		max-width: 820px;
+		gap: 6px;
+	}
+
+	.cta-banner.variant-kemitraan.no-buttons .cta-title {
+		font-size: clamp(19px, 1.8vw, 24px);
+		font-weight: 800;
+		color: #FFFFFF;
+		margin: 0;
+		line-height: 1.3;
+		text-align: center;
+	}
+
+	.cta-banner.variant-kemitraan.no-buttons .cta-desc {
+		font-size: clamp(12.5px, 1.05vw, 14px);
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
+		max-width: 720px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.variant-kemitraan.no-buttons {
+			padding: 1.35rem 1rem;
+			min-height: 85px;
+		}
+
+		.cta-banner.variant-kemitraan.no-buttons .cta-text {
+			margin-left: 0;
+			margin: 0 auto;
+			align-items: center;
+			text-align: center;
+			gap: 4px;
+		}
+
+		.cta-banner.variant-kemitraan.no-buttons .cta-title {
+			font-size: 18px;
+		}
+
+		.cta-banner.variant-kemitraan.no-buttons .cta-desc {
+			font-size: 12.5px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.cta-banner.variant-kemitraan.no-buttons {
+			padding: 1.2rem 0.75rem;
+		}
+
+		.cta-banner.variant-kemitraan.no-buttons .cta-title {
+			font-size: 16.5px;
+		}
+
+		.cta-banner.variant-kemitraan.no-buttons .cta-desc {
+			font-size: 12px;
+		}
+	}
+
+	/* Variant Artikel without buttons (Perspektif) */
+	.cta-banner.variant-artikel.no-buttons {
+		height: auto;
+		min-height: 96px;
+		padding: 1.65rem 1.5rem;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.cta-banner.variant-artikel.no-buttons .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(11, 41, 72, 0.94) 0%,
+			rgba(11, 41, 72, 0.82) 50%,
+			rgba(11, 41, 72, 0.94) 100%
+		);
+	}
+
+	.cta-banner.variant-artikel.no-buttons .cta-content {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.cta-banner.variant-artikel.no-buttons .cta-text {
+		align-items: center;
+		text-align: center;
+		max-width: 820px;
+		margin: 0 auto;
+		gap: 6px;
+	}
+
+	.cta-banner.variant-artikel.no-buttons .cta-title {
+		font-size: clamp(19px, 1.8vw, 24px);
+		font-weight: 800;
+		color: #FFFFFF;
+		margin: 0;
+		line-height: 1.3;
+		text-align: center;
+	}
+
+	.cta-banner.variant-artikel.no-buttons .cta-desc {
+		font-size: clamp(12.5px, 1.05vw, 14px);
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
+		max-width: 720px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.variant-artikel.no-buttons {
+			padding: 1.35rem 1rem;
+			min-height: 85px;
+		}
+
+		.cta-banner.variant-artikel.no-buttons .cta-text {
+			gap: 4px;
+		}
+
+		.cta-banner.variant-artikel.no-buttons .cta-title {
+			font-size: 18px;
+		}
+
+		.cta-banner.variant-artikel.no-buttons .cta-desc {
+			font-size: 12.5px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.cta-banner.variant-artikel.no-buttons {
+			padding: 1.2rem 0.75rem;
+		}
+
+		.cta-banner.variant-artikel.no-buttons .cta-title {
+			font-size: 16.5px;
+		}
+
+		.cta-banner.variant-artikel.no-buttons .cta-desc {
+			font-size: 12px;
+		}
+	}
+
+	/* Variant Layanan, Kontak, & Beasiswa without buttons */
+	.cta-banner.variant-layanan.no-buttons,
+	.cta-banner.variant-kontak.no-buttons,
+	.cta-banner.variant-beasiswa.no-buttons {
+		height: auto;
+		min-height: 96px;
+		padding: 1.65rem 1.5rem;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.cta-banner.variant-layanan.no-buttons .cta-overlay,
+	.cta-banner.variant-kontak.no-buttons .cta-overlay,
+	.cta-banner.variant-beasiswa.no-buttons .cta-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(11, 41, 72, 0.92) 0%,
+			rgba(11, 41, 72, 0.80) 50%,
+			rgba(11, 41, 72, 0.92) 100%
+		);
+	}
+
+	.cta-banner.variant-layanan.no-buttons .cta-content,
+	.cta-banner.variant-kontak.no-buttons .cta-content,
+	.cta-banner.variant-beasiswa.no-buttons .cta-content {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.cta-banner.variant-layanan.no-buttons .cta-text,
+	.cta-banner.variant-kontak.no-buttons .cta-text,
+	.cta-banner.variant-beasiswa.no-buttons .cta-text {
+		align-items: center;
+		text-align: center;
+		max-width: 820px;
+		margin: 0 auto;
+		gap: 6px;
+	}
+
+	.cta-banner.variant-layanan.no-buttons .cta-title,
+	.cta-banner.variant-kontak.no-buttons .cta-title,
+	.cta-banner.variant-beasiswa.no-buttons .cta-title {
+		font-size: clamp(19px, 1.8vw, 24px);
+		font-weight: 800;
+		color: #FFFFFF;
+		margin: 0;
+		line-height: 1.3;
+		text-align: center;
+	}
+
+	.cta-banner.variant-layanan.no-buttons .cta-title :global(.highlight-gold),
+	.cta-banner.variant-layanan.no-buttons .cta-title :global(span),
+	.cta-banner.variant-kontak.no-buttons .cta-title :global(.highlight-gold),
+	.cta-banner.variant-kontak.no-buttons .cta-title :global(span),
+	.cta-banner.variant-beasiswa.no-buttons .cta-title :global(.highlight-gold),
+	.cta-banner.variant-beasiswa.no-buttons .cta-title :global(span) {
+		color: #F9B52B;
+	}
+
+	.cta-banner.variant-layanan.no-buttons .cta-desc,
+	.cta-banner.variant-kontak.no-buttons .cta-desc,
+	.cta-banner.variant-beasiswa.no-buttons .cta-desc {
+		font-size: clamp(12.5px, 1.05vw, 14px);
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
+		max-width: 720px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.cta-banner.variant-layanan.no-buttons,
+		.cta-banner.variant-kontak.no-buttons,
+		.cta-banner.variant-beasiswa.no-buttons {
+			padding: 1.35rem 1rem;
+			min-height: 85px;
+		}
+
+		.cta-banner.variant-layanan.no-buttons .cta-text,
+		.cta-banner.variant-kontak.no-buttons .cta-text,
+		.cta-banner.variant-beasiswa.no-buttons .cta-text {
+			gap: 4px;
+		}
+
+		.cta-banner.variant-layanan.no-buttons .cta-title,
+		.cta-banner.variant-kontak.no-buttons .cta-title,
+		.cta-banner.variant-beasiswa.no-buttons .cta-title {
+			font-size: 18px;
+		}
+
+		.cta-banner.variant-layanan.no-buttons .cta-desc,
+		.cta-banner.variant-kontak.no-buttons .cta-desc,
+		.cta-banner.variant-beasiswa.no-buttons .cta-desc {
+			font-size: 12.5px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.cta-banner.variant-layanan.no-buttons,
+		.cta-banner.variant-kontak.no-buttons,
+		.cta-banner.variant-beasiswa.no-buttons {
+			padding: 1.2rem 0.75rem;
+		}
+
+		.cta-banner.variant-layanan.no-buttons .cta-title,
+		.cta-banner.variant-kontak.no-buttons .cta-title,
+		.cta-banner.variant-beasiswa.no-buttons .cta-title {
+			font-size: 16.5px;
+		}
+
+		.cta-banner.variant-layanan.no-buttons .cta-desc,
+		.cta-banner.variant-kontak.no-buttons .cta-desc,
+		.cta-banner.variant-beasiswa.no-buttons .cta-desc {
+			font-size: 12px;
 		}
 	}
 </style>

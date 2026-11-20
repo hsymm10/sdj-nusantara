@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/education-hero.jpg"
-			alt={i18n.pick('Layanan Pendidikan SDJNusantara', 'SDJNusantara Education Services')}
+			alt={i18n.pick('Layanan Pendidikan SDJ Nusantara', 'SDJ Nusantara Education Services')}
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -53,20 +53,10 @@
 			<!-- Description -->
 			<p class="hero-desc">
 				{i18n.pick(
-					'SDJNusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.',
-					'SDJNusantara provides education services, talent development, scholarships, and professional mentoring to unlock your highest potential.'
+					'SDJ Nusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.',
+					'SDJ Nusantara provides education services, talent development, scholarships, and professional mentoring to unlock your highest potential.'
 				)}
 			</p>
-
-			<!-- Segmented Choice Buttons (Sesuai Referensi Gambar 2) -->
-			<div class="hero-choice-group" aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}>
-				<a href="/layanan" class="hero-choice-btn btn-choice-active">
-					<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
-				</a>
-				<a href="/layanan" class="hero-choice-btn btn-choice-inactive">
-					<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
@@ -157,6 +147,7 @@
 
 	.hero-text-col {
 		max-width: 590px;
+		transform: translateY(-36px);
 	}
 
 	/* Pill Tag */
@@ -164,26 +155,28 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
-		padding: 4px 14px;
-		background: rgba(0, 166, 178, 0.18);
-		border: 1px solid rgba(0, 166, 178, 0.5);
-		border-radius: 999px;
-		margin-top: 6px;
-		margin-bottom: 0.75rem;
+		padding: 4px 12px;
+		background: rgba(7, 158, 173, 0.18);
+		border: 1px solid rgba(226, 232, 240, 0.4);
+		border-radius: 9999px;
+		margin-top: 0;
+		margin-bottom: 12px;
+		width: fit-content;
 	}
 
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00A6B2;
 		border-radius: 50%;
+		background: #16B6C1;
+		box-shadow: 0 0 6px #16B6C1;
 	}
 
 	.pill-label {
-		font-size: 12px;
-		font-weight: 600;
-		color: #FFFFFF;
-		letter-spacing: 0.02em;
+		color: #E6F7F9;
+		font-size: 11.5px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
 	}
 
 	/* Headline */
@@ -204,66 +197,17 @@
 		font-size: 14px;
 		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.5rem 0;
+		margin: 0;
 		max-width: 575px;
-	}
-
-	/* Segmented Choice Buttons (Sesuai Referensi Gambar 2) */
-	.hero-choice-group {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-top: 0.5rem;
-	}
-
-	.hero-choice-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: 42px;
-		padding: 0 24px;
-		font-size: 14px;
-		font-weight: 700;
-		border-radius: 8px;
-		text-decoration: none;
-		white-space: nowrap;
-		box-sizing: border-box;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-		cursor: pointer;
-	}
-
-	.hero-choice-btn.btn-choice-active {
-		background: #f5b331;
-		color: #082442;
-		border: 1.5px solid #f5b331;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.32);
-	}
-
-	.hero-choice-btn.btn-choice-active:hover {
-		background: #e6a528;
-		border-color: #e6a528;
-		transform: translateY(-1px);
-		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.42);
-	}
-
-	.hero-choice-btn.btn-choice-inactive {
-		background: #FFFFFF;
-		color: #082442;
-		border: 1.5px solid #FFFFFF;
-		box-shadow: 0 3px 12px rgba(8, 36, 66, 0.16);
-	}
-
-	.hero-choice-btn.btn-choice-inactive:hover {
-		background: #F8FAFC;
-		border-color: #E2E8F0;
-		transform: translateY(-1px);
-		box-shadow: 0 5px 16px rgba(8, 36, 66, 0.22);
 	}
 
 	@media (max-width: 900px) {
 		.hero-education {
 			height: auto;
-			padding: 4.5rem 0 3rem;
+			padding: 3.5rem 0 3.25rem;
+		}
+		.hero-text-col {
+			transform: none;
 		}
 		.hero-container {
 			padding: 0 1.5rem;
@@ -272,8 +216,8 @@
 			background: linear-gradient(
 				90deg,
 				#082442 0%,
-				rgba(8, 36, 66, 0.92) 60%,
-				rgba(8, 36, 66, 0.75) 100%
+				rgba(8, 36, 66, 0.94) 60%,
+				rgba(8, 36, 66, 0.78) 100%
 			);
 		}
 		.hero-wave,
@@ -282,24 +226,28 @@
 		}
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
+		.hero-education {
+			height: auto;
+			padding: 36px 0 44px;
+		}
 		.hero-bg-wrap {
 			display: none;
 		}
 		.hero-title {
-			font-size: clamp(23px, 6.5vw, 30px);
-			line-height: 1.25;
+			font-size: clamp(24px, 6.5vw, 28px);
+			line-height: 1.22;
+			margin-bottom: 12px;
 		}
-		.hero-choice-group {
-			flex-direction: row;
-			gap: 10px;
-			width: 100%;
+		.hero-desc {
+			font-size: 14px;
+			line-height: 1.5;
 		}
-		.hero-choice-btn {
-			flex: 1 1 50%;
-			height: 42px;
-			padding: 0 10px;
-			font-size: 13px;
+	}
+
+	@media (max-width: 480px) {
+		.hero-container {
+			padding: 0 1.25rem;
 		}
 	}
 </style>

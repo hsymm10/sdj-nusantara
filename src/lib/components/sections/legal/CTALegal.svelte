@@ -11,12 +11,23 @@
 				<div class="cta-img-wrap">
 					<img
 						src="/images/legal-faceless-writing.jpg"
-						alt="Konsultasi Hukum SDJNusantara"
+						alt="Konsultasi Hukum SDJ Nusantara"
 						class="cta-faceless-img"
 					/>
 					<!-- Garis emas tipis (#F5B331, 3px) mengikuti lengkungan sisi kanan foto -->
-					<svg class="cta-gold-curve-line" viewBox="0 0 40 210" preserveAspectRatio="none" fill="none" aria-hidden="true">
-						<path d="M0 0 C38 60 38 150 0 210" stroke="#F5B331" stroke-width="4" stroke-linecap="round"/>
+					<svg
+						class="cta-gold-curve-line"
+						viewBox="0 0 40 210"
+						preserveAspectRatio="none"
+						fill="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M0 0 C38 60 38 150 0 210"
+							stroke="#F5B331"
+							stroke-width="4"
+							stroke-linecap="round"
+						/>
 					</svg>
 				</div>
 			</div>
@@ -30,7 +41,8 @@
 						<span class="gold-text">Hukum Institusi Anda</span>
 					</h2>
 					<p class="cta-desc">
-						Dapatkan solusi hukum yang terarah dan sesuai dengan regulasi pendidikan.
+						Dapatkan solusi hukum yang terarah dan sesuai dengan
+						regulasi pendidikan.
 					</p>
 				</div>
 
@@ -39,22 +51,23 @@
 
 				<!-- Kolom 2 (Kanan): Tombol Emas + Disclaimer dengan Ikon Info Solid Teal -->
 				<div class="cta-col-right">
-					<a href="/konsultasi" class="btn-cta-gold">
-						<span>Ajukan Konsultasi</span>
-						<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="5" y1="12" x2="19" y2="12"/>
-							<polyline points="12 5 19 12 12 19"/>
-						</svg>
-					</a>
-
 					<div class="cta-disclaimer-box">
 						<div class="disclaimer-teal-icon" aria-hidden="true">
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="#079EAD">
-								<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+							<svg
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="#079EAD"
+							>
+								<path
+									d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+								/>
 							</svg>
 						</div>
 						<p class="disclaimer-text">
-							Informasi pada halaman ini bersifat umum dan bukan nasihat hukum. Hubungan penasihat-klien baru terbentuk setelah ada kesepakatan tertulis.
+							Informasi pada halaman ini bersifat umum dan bukan
+							nasihat hukum. Hubungan penasihat-klien baru
+							terbentuk setelah ada kesepakatan tertulis.
 						</p>
 					</div>
 				</div>
@@ -188,7 +201,9 @@
 		height: 46px;
 		border-radius: 6px;
 		text-decoration: none;
-		transition: background 0.2s, transform 0.2s;
+		transition:
+			background 0.2s,
+			transform 0.2s;
 		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.35);
 	}
 

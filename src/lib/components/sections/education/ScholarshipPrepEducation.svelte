@@ -1,4 +1,4 @@
-<!-- Section 09: Persiapkan Diri untuk Meraih Beasiswa Impian — 3 Kolom (Mockup GAMBAR 2 SDJNusantara) -->
+<!-- Section 09: Persiapkan Diri untuk Meraih Beasiswa Impian — 3 Kolom (Mockup GAMBAR 2 SDJ Nusantara) -->
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
 
@@ -40,7 +40,7 @@
 				<div class="photo-card">
 					<img
 						src="/images/beasiswa-prep-laptop-cap.jpg"
-						alt="Persiapan Beasiswa SDJNusantara"
+						alt="Persiapan Beasiswa SDJ Nusantara"
 						class="prep-img"
 						loading="lazy"
 					/>
@@ -59,8 +59,8 @@
 			</h2>
 			<p class="prep-desc">
 				{i18n.pick(
-					'Dapatkan pendampingan, informasi lengkap, dan strategi terbaik untuk meraih beasiswa bersama SDJNusantara.',
-					'Get mentoring, comprehensive information, and winning strategies for scholarships with SDJNusantara.'
+					'Dapatkan pendampingan, informasi lengkap, dan strategi terbaik untuk meraih beasiswa bersama SDJ Nusantara.',
+					'Get mentoring, comprehensive information, and winning strategies for scholarships with SDJ Nusantara.'
 				)}
 			</p>
 			<a href="/beasiswa" class="prep-btn">

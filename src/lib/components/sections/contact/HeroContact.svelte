@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/contact-hero.jpg"
-			alt="Kontak SDJNusantara"
+			alt="Kontak SDJ Nusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -57,21 +57,10 @@
 			<!-- Description -->
 			<p class="hero-desc">
 				{i18n.pick(
-					'Tim SDJNusantara siap mendengarkan kebutuhan Anda dan memberikan solusi yang tepat untuk pengembangan talenta, pendidikan, dan program strategis.',
-					'The SDJNusantara team is ready to listen to your needs and provide tailored solutions for talent development, education, and strategic programs.'
+					'Tim SDJ Nusantara siap mendengarkan kebutuhan Anda dan memberikan solusi yang tepat untuk pengembangan talenta, pendidikan, dan program strategis.',
+					'The SDJ Nusantara team is ready to listen to your needs and provide tailored solutions for talent development, education, and strategic programs.'
 				)}
 			</p>
-
-			<!-- Buttons Row -->
-			<div class="hero-btn-row">
-				<a href="/konsultasi" class="btn-gold">
-					<span>{i18n.pick('Konsultasi Sekarang', 'Consult Now')}</span>
-					<span class="btn-arrow">→</span>
-				</a>
-				<a href="/layanan" class="btn-outline">
-					<span>{i18n.pick('Lihat Layanan Kami', 'View Our Services')}</span>
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
@@ -169,6 +158,7 @@
 
 	.hero-text-col {
 		max-width: 590px;
+		transform: translateY(-36px);
 	}
 
 	/* Pill Tag */
@@ -176,35 +166,38 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
-		padding: 4px 14px;
-		background: rgba(0, 166, 178, 0.18);
-		border: 1px solid rgba(0, 166, 178, 0.5);
-		border-radius: 999px;
-		margin-top: 6px;
-		margin-bottom: 0.75rem;
+		padding: 4px 12px;
+		background: rgba(7, 158, 173, 0.18);
+		border: 1px solid rgba(226, 232, 240, 0.4);
+		border-radius: 9999px;
+		margin-top: 0;
+		margin-bottom: 12px;
+		width: fit-content;
 	}
 
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00A6B2;
 		border-radius: 50%;
+		background: #16B6C1;
+		box-shadow: 0 0 6px #16B6C1;
 	}
 
 	.pill-label {
-		font-size: 12px;
-		font-weight: 600;
-		color: #FFFFFF;
-		letter-spacing: 0.02em;
+		color: #E6F7F9;
+		font-size: 11.5px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
 	}
 
 	/* Headline */
 	.hero-title {
 		font-size: clamp(30px, 2.6vw, 39px);
-		line-height: 1.18;
+		line-height: 1.2;
 		font-weight: 800;
 		color: #FFFFFF;
-		margin: 0 0 0.85rem 0;
+		margin: 0 0 12px 0;
+		letter-spacing: -0.015em;
 	}
 
 	.gold-text {
@@ -213,80 +206,21 @@
 
 	/* Description */
 	.hero-desc {
-		font-size: 14px;
-		line-height: 1.5;
-		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.5rem 0;
+		font-size: 14.5px;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.92);
+		margin: 0;
 		max-width: 575px;
 		text-wrap: pretty;
-	}
-
-	/* Buttons Row */
-	.hero-btn-row {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-	}
-
-	.btn-gold {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		width: 210px;
-		height: 42px;
-		background: #F5B331;
-		color: #082442;
-		font-size: 13.5px;
-		font-weight: 700;
-		border-radius: 8px;
-		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-	}
-
-	.btn-gold:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-	}
-
-	.btn-arrow {
-		font-size: 14px;
-		transition: transform 0.2s ease;
-	}
-
-	.btn-gold:hover .btn-arrow {
-		transform: translateX(3px);
-	}
-
-	.btn-outline {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 178px;
-		height: 42px;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1.5px solid rgba(255, 255, 255, 0.65);
-		color: #FFFFFF;
-		font-size: 13.5px;
-		font-weight: 600;
-		border-radius: 8px;
-		text-decoration: none;
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-	}
-
-	.btn-outline:hover {
-		border-color: #00A6B2;
-		background: rgba(0, 166, 178, 0.12);
-		color: #FFFFFF;
 	}
 
 	@media (max-width: 900px) {
 		.hero-contact {
 			height: auto;
-			padding: 4.5rem 0 3rem;
+			padding: 3.5rem 0 3.25rem;
+		}
+		.hero-text-col {
+			transform: none;
 		}
 		.hero-container {
 			padding: 0 1.5rem;
@@ -295,8 +229,8 @@
 			background: linear-gradient(
 				90deg,
 				#082442 0%,
-				rgba(8, 36, 66, 0.92) 60%,
-				rgba(8, 36, 66, 0.75) 100%
+				rgba(8, 36, 66, 0.94) 60%,
+				rgba(8, 36, 66, 0.78) 100%
 			);
 		}
 		.hero-wave-wrap,
@@ -305,24 +239,28 @@
 		}
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
+		.hero-contact {
+			height: auto;
+			padding: 36px 0 44px;
+		}
 		.hero-bg-wrap {
 			display: none;
 		}
 		.hero-title {
-			font-size: clamp(23px, 6.5vw, 30px);
-			line-height: 1.25;
+			font-size: clamp(24px, 6.5vw, 28px);
+			line-height: 1.22;
+			margin-bottom: 12px;
 		}
-		.hero-btn-row {
-			flex-direction: column;
-			align-items: stretch;
-			width: 100%;
-			gap: 10px;
+		.hero-desc {
+			font-size: 14px;
+			line-height: 1.5;
 		}
-		.btn-gold,
-		.btn-outline {
-			width: 100%;
-			height: 44px;
+	}
+
+	@media (max-width: 480px) {
+		.hero-container {
+			padding: 0 1.25rem;
 		}
 	}
 </style>

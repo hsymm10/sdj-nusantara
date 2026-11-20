@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/partner-hero-5.jpg"
-			alt="Ekosistem Kemitraan SDJNusantara"
+			alt="Ekosistem Kemitraan SDJ Nusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -79,40 +79,10 @@
 			<!-- Description: putih 4 baris, max-width ±600px tanpa br manual -->
 			<p class="hero-desc">
 				{i18n.pick(
-					"SDJNusantara membuka peluang kolaborasi dengan berbagai institusi, baik di sektor pendidikan, pemerintah, maupun dunia usaha, untuk menciptakan dampak nyata bagi pengembangan talenta Indonesia.",
-					"SDJNusantara welcomes collaboration with institutions across education, government, and industry to create tangible impact for talent development in Indonesia.",
+					"SDJ Nusantara membuka peluang kolaborasi dengan berbagai institusi, baik di sektor pendidikan, pemerintah, maupun dunia usaha, untuk menciptakan dampak nyata bagi pengembangan talenta Indonesia.",
+					"SDJ Nusantara welcomes collaboration with institutions across education, government, and industry to create tangible impact for talent development in Indonesia.",
 				)}
 			</p>
-
-			<!-- Mobile Photo Band (Only visible on mobile ≤ 640px) -->
-			<div class="hero-mobile-photo-band" aria-hidden="true">
-				<img
-					src="/images/partner-hero-5.jpg"
-					alt="5 Profesional Kemitraan"
-					class="mobile-band-img"
-				/>
-			</div>
-
-			<!-- Buttons: Dasar tombol ±45px di atas batas bawah hero -->
-			<div class="hero-btn-row">
-				<a href="/konsultasi" class="btn-gold">
-					<span
-						>{i18n.pick(
-							"Ajukan Kerja Sama",
-							"Propose a Partnership",
-						)}</span
-					>
-					<span class="btn-arrow">→</span>
-				</a>
-				<a href="#jenis-mitra" class="btn-outline">
-					<span
-						>{i18n.pick(
-							"Lihat Jenis Kemitraan",
-							"Explore Partner Types",
-						)}</span
-					>
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
@@ -208,6 +178,7 @@
 
 	.hero-content {
 		max-width: 590px;
+		transform: translateY(-36px);
 	}
 
 	/* Pill: Center ±y 104 on 1536px */
@@ -215,26 +186,28 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
-		padding: 4px 14px;
-		background: rgba(0, 166, 178, 0.18);
-		border: 1px solid rgba(0, 166, 178, 0.5);
-		border-radius: 999px;
-		margin-top: 6px;
-		margin-bottom: 0.75rem;
+		padding: 4px 12px;
+		background: rgba(7, 158, 173, 0.18);
+		border: 1px solid rgba(226, 232, 240, 0.4);
+		border-radius: 9999px;
+		margin-top: 0;
+		margin-bottom: 12px;
+		width: fit-content;
 	}
 
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00a6b2;
 		border-radius: 50%;
+		background: #16B6C1;
+		box-shadow: 0 0 6px #16B6C1;
 	}
 
 	.pill-label {
-		font-size: 12px;
-		font-weight: 600;
-		color: #ffffff;
-		letter-spacing: 0.02em;
+		color: #E6F7F9;
+		font-size: 11.5px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
 	}
 
 	/* H1 Headline */
@@ -255,77 +228,18 @@
 		font-size: 14px;
 		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 1.5rem 0;
+		margin: 0;
 		max-width: 575px;
 		text-wrap: pretty;
-	}
-
-	/* Buttons Row */
-	.hero-btn-row {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-	}
-
-	.btn-gold {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		width: 210px;
-		height: 42px;
-		background: #f5b331;
-		color: #082442;
-		font-size: 13.5px;
-		font-weight: 700;
-		border-radius: 8px;
-		text-decoration: none;
-		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-	}
-
-	.btn-gold:hover {
-		background: #e6a528;
-		transform: translateY(-1px);
-	}
-
-	.btn-arrow {
-		font-size: 14px;
-		transition: transform 0.2s ease;
-	}
-
-	.btn-gold:hover .btn-arrow {
-		transform: translateX(3px);
-	}
-
-	.btn-outline {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 178px;
-		height: 42px;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1.5px solid rgba(255, 255, 255, 0.65);
-		color: #ffffff;
-		font-size: 13.5px;
-		font-weight: 600;
-		border-radius: 8px;
-		text-decoration: none;
-		transition: all 0.2s ease;
-		box-sizing: border-box;
-	}
-
-	.btn-outline:hover {
-		border-color: #00a6b2;
-		background: rgba(0, 166, 178, 0.12);
-		color: #ffffff;
 	}
 
 	@media (max-width: 900px) {
 		.hero-partner {
 			height: auto;
-			padding: 4.5rem 0 3rem;
+			padding: 3.5rem 0 3.25rem;
+		}
+		.hero-content {
+			transform: none;
 		}
 		.sch-partner-container {
 			padding: 0 1.5rem;
@@ -334,8 +248,8 @@
 			background: linear-gradient(
 				90deg,
 				#082442 0%,
-				rgba(8, 36, 66, 0.92) 60%,
-				rgba(8, 36, 66, 0.75) 100%
+				rgba(8, 36, 66, 0.94) 60%,
+				rgba(8, 36, 66, 0.78) 100%
 			);
 		}
 		.hero-wave,
@@ -344,44 +258,28 @@
 		}
 	}
 
-	.hero-mobile-photo-band {
-		display: none;
-	}
-
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
+		.hero-partner {
+			height: auto;
+			padding: 36px 0 44px;
+		}
 		.hero-bg-wrap {
 			display: none;
 		}
 		.hero-title {
-			font-size: clamp(23px, 6.5vw, 30px);
-			line-height: 1.25;
+			font-size: clamp(24px, 6.5vw, 28px);
+			line-height: 1.22;
+			margin-bottom: 12px;
 		}
-		.hero-mobile-photo-band {
-			display: block;
-			width: 100%;
-			height: 200px;
-			border-radius: 12px;
-			overflow: hidden;
-			margin: 1.25rem 0;
-			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+		.hero-desc {
+			font-size: 14px;
+			line-height: 1.5;
 		}
-		.mobile-band-img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: 82% 25%;
-			display: block;
-		}
-		.hero-btn-row {
-			flex-direction: column;
-			align-items: stretch;
-			width: 100%;
-			gap: 10px;
-		}
-		.btn-gold,
-		.btn-outline {
-			width: 100%;
-			height: 44px;
+	}
+
+	@media (max-width: 480px) {
+		.sch-partner-container {
+			padding: 0 1.25rem;
 		}
 	}
 </style>

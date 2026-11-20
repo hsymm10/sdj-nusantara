@@ -71,7 +71,7 @@
 					<div class="collab-photo-frame">
 						<img
 							src="/images/partner-handshake-real.jpg"
-							alt="Bentuk Kerja Sama SDJNusantara"
+							alt="Bentuk Kerja Sama SDJ Nusantara"
 							class="collab-photo"
 							loading="eager"
 						/>

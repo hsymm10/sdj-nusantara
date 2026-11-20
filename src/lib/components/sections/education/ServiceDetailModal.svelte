@@ -1,4 +1,4 @@
-<!-- Modal Detail Layanan Unggulan (Mockup Resmi SDJNusantara) -->
+<!-- Modal Detail Layanan Unggulan (Mockup Resmi SDJ Nusantara) -->
 <script lang="ts">
 	import { onDestroy } from "svelte";
 	import { i18n } from "#lib/stores/i18n.svelte";

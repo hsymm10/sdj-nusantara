@@ -1,5 +1,5 @@
 // src/lib/config/services.ts
-// Konfigurasi terpusat visibilitas dan akses modul layanan SDJNusantara
+// Konfigurasi terpusat visibilitas dan akses modul layanan SDJ Nusantara
 
 export const serviceConfig = {
 	education: true,

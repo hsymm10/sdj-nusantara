@@ -1,5 +1,23 @@
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
+	import { onMount } from 'svelte';
+
+	let activeCategory = $state<'individu' | 'institusi'>('individu');
+
+	function setCategory(cat: 'individu' | 'institusi') {
+		activeCategory = cat;
+	}
+
+	onMount(() => {
+		if (typeof window !== 'undefined' && window.location.hash) {
+			const hash = window.location.hash.toLowerCase();
+			if (hash === '#panel-institusi' || hash === '#institusi' || hash === '#solusi-institusi') {
+				activeCategory = 'institusi';
+			} else if (hash === '#panel-individu' || hash === '#individu' || hash === '#layanan-individu') {
+				activeCategory = 'individu';
+			}
+		}
+	});
 
 	const individualBullets = [
 		{ id: 'pemetaan', textId: 'Pemetaan talenta', textEn: 'Talent mapping' },
@@ -45,67 +63,148 @@
 			<div class="title-divider-line" aria-hidden="true"></div>
 		</div>
 
-		<!-- Dua Panel Horizontal (Untuk Individu & Untuk Institusi) Sesuai Referensi Gambar 4 -->
-		<div class="dual-panels-grid">
-			<!-- Panel 1: Untuk Individu -->
-			<a
-				id="panel-individu"
-				href="/layanan#talent-management"
-				class="dual-service-panel"
-				aria-label={i18n.pick('Layanan Untuk Individu', 'Services For Individuals')}
+		<!-- Navigasi Tab Kategori di Bagian Atas Konten Section Kedua -->
+		<div class="services-tab-wrapper">
+			<div
+				class="services-tab-pill"
+				role="tablist"
+				aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}
 			>
-				<div class="panel-photo-col">
-					<img
-						src="/images/layanan-panel-individu.jpg"
-						alt={i18n.pick('Mahasiswa Individu SDJNusantara', 'SDJNusantara Individual Student')}
-						class="panel-img"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
+				<button
+					type="button"
+					role="tab"
+					class="tab-pill-btn {activeCategory === 'individu' ? 'active' : ''}"
+					aria-selected={activeCategory === 'individu'}
+					onclick={() => setCategory('individu')}
+				>
+					<span class="tab-icon" aria-hidden="true">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+							<circle cx="12" cy="7" r="4"></circle>
+						</svg>
+					</span>
+					<span class="tab-label">{i18n.pick('Layanan Individu', 'Individual Services')}</span>
+				</button>
 
-				<div class="panel-content-col">
-					<h3 class="panel-title">{i18n.pick('Untuk Individu', 'For Individuals')}</h3>
-					<ul class="panel-bullet-list">
-						{#each individualBullets as bullet}
-							<li class="bullet-item">
-								<span class="bullet-square" aria-hidden="true"></span>
-								<span class="bullet-text">{i18n.pick(bullet.textId, bullet.textEn)}</span>
-							</li>
-						{/each}
-					</ul>
-				</div>
-			</a>
+				<div class="tab-pill-divider" aria-hidden="true"></div>
 
-			<!-- Panel 2: Untuk Institusi -->
-			<a
-				id="panel-institusi"
-				href="/layanan#institutional-partnership"
-				class="dual-service-panel"
-				aria-label={i18n.pick('Layanan Untuk Institusi', 'Services For Institutions')}
-			>
-				<div class="panel-photo-col">
-					<img
-						src="/images/layanan-panel-institusi.jpg"
-						alt={i18n.pick('Gedung Institusi Pendidikan SDJNusantara', 'SDJNusantara Institutional Campus')}
-						class="panel-img"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
+				<button
+					type="button"
+					role="tab"
+					class="tab-pill-btn {activeCategory === 'institusi' ? 'active' : ''}"
+					aria-selected={activeCategory === 'institusi'}
+					onclick={() => setCategory('institusi')}
+				>
+					<span class="tab-icon" aria-hidden="true">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+							<path d="M9 22v-4h6v4"></path>
+							<path d="M8 6h.01"></path>
+							<path d="M16 6h.01"></path>
+							<path d="M8 10h.01"></path>
+							<path d="M16 10h.01"></path>
+							<path d="M8 14h.01"></path>
+							<path d="M16 14h.01"></path>
+						</svg>
+					</span>
+					<span class="tab-label">{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
+				</button>
+			</div>
+		</div>
 
-				<div class="panel-content-col">
-					<h3 class="panel-title">{i18n.pick('Untuk Institusi', 'For Institutions')}</h3>
-					<ul class="panel-bullet-list">
-						{#each institutionBullets as bullet}
-							<li class="bullet-item">
-								<span class="bullet-square" aria-hidden="true"></span>
-								<span class="bullet-text">{i18n.pick(bullet.textId, bullet.textEn)}</span>
-							</li>
-						{/each}
-					</ul>
-				</div>
-			</a>
+		<!-- Konten Panel Sesuai Tab Aktif -->
+		<div class="services-content-area">
+			{#if activeCategory === 'individu'}
+				<a
+					id="panel-individu"
+					href="/layanan?tab=individu"
+					class="dual-service-panel featured-service-panel"
+					aria-label={i18n.pick('Layanan Untuk Individu — Lihat Selengkapnya di Halaman Layanan', 'Services For Individuals — Learn More on Services Page')}
+				>
+					<div class="panel-photo-col">
+						<img
+							src="/images/layanan-panel-individu.jpg"
+							alt={i18n.pick('Mahasiswa Individu SDJ Nusantara', 'SDJ Nusantara Individual Student')}
+							class="panel-img"
+							loading="lazy"
+							decoding="async"
+						/>
+					</div>
+
+					<div class="panel-content-col">
+						<div class="panel-badge-wrap">
+							<span class="panel-badge">{i18n.pick('Layanan Individu', 'Individual Services')}</span>
+						</div>
+						<h3 class="panel-title">{i18n.pick('Untuk Individu', 'For Individuals')}</h3>
+						<p class="panel-desc">
+							{i18n.pick(
+								'Pendampingan personal untuk membantu setiap individu mengenali potensi diri, mengembangkan minat dan bakat, serta menentukan arah pendidikan dan masa depan yang lebih terarah.',
+								'Personal mentoring to help every individual identify their potential, develop interests and talents, and determine a clearer educational and future path.'
+							)}
+						</p>
+						<ul class="panel-bullet-list">
+							{#each individualBullets as bullet}
+								<li class="bullet-item">
+									<span class="bullet-square" aria-hidden="true"></span>
+									<span class="bullet-text">{i18n.pick(bullet.textId, bullet.textEn)}</span>
+								</li>
+							{/each}
+						</ul>
+						<div class="panel-link-cta">
+							<span>{i18n.pick('Lihat Selengkapnya', 'Learn More')}</span>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<line x1="5" y1="12" x2="19" y2="12"></line>
+								<polyline points="12 5 19 12 12 19"></polyline>
+							</svg>
+						</div>
+					</div>
+				</a>
+			{:else}
+				<a
+					id="panel-institusi"
+					href="/layanan?tab=institusi"
+					class="dual-service-panel featured-service-panel"
+					aria-label={i18n.pick('Solusi Untuk Institusi — Lihat Selengkapnya di Halaman Layanan', 'Solutions For Institutions — Learn More on Services Page')}
+				>
+					<div class="panel-photo-col">
+						<img
+							src="/images/layanan-panel-institusi.jpg"
+							alt={i18n.pick('Gedung Institusi Pendidikan SDJ Nusantara', 'SDJ Nusantara Institutional Campus')}
+							class="panel-img"
+							loading="lazy"
+							decoding="async"
+						/>
+					</div>
+
+					<div class="panel-content-col">
+						<div class="panel-badge-wrap">
+							<span class="panel-badge">{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
+						</div>
+						<h3 class="panel-title">{i18n.pick('Untuk Institusi', 'For Institutions')}</h3>
+						<p class="panel-desc">
+							{i18n.pick(
+								'Solusi pendampingan bagi sekolah dan institusi untuk mengembangkan potensi peserta didik, memperkuat program pendidikan, serta menciptakan lingkungan pembelajaran yang lebih terarah dan berdampak.',
+								'Mentoring solutions for schools and institutions to develop student potential, strengthen educational programs, and create a more targeted and impactful learning environment.'
+							)}
+						</p>
+						<ul class="panel-bullet-list">
+							{#each institutionBullets as bullet}
+								<li class="bullet-item">
+									<span class="bullet-square" aria-hidden="true"></span>
+									<span class="bullet-text">{i18n.pick(bullet.textId, bullet.textEn)}</span>
+								</li>
+							{/each}
+						</ul>
+						<div class="panel-link-cta">
+							<span>{i18n.pick('Lihat Selengkapnya', 'Learn More')}</span>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<line x1="5" y1="12" x2="19" y2="12"></line>
+								<polyline points="12 5 19 12 12 19"></polyline>
+							</svg>
+						</div>
+					</div>
+				</a>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -187,15 +286,144 @@
 		min-width: 40px;
 	}
 
-	/* Dual Panels Grid: 2 Kolom Berdampingan Sesuai Gambar 4 */
-	.dual-panels-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.5rem;
-		align-items: stretch;
+	/* Navigasi Tab Kategori */
+	.services-tab-wrapper {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+		width: 100%;
+	}
+
+	.services-tab-pill {
+		background: #FFFFFF;
+		border-radius: 16px;
+		box-shadow: 0 4px 20px rgba(8, 36, 66, 0.08);
+		border: 1px solid rgba(226, 232, 240, 0.95);
+		display: inline-flex;
+		align-items: center;
+		padding: 5px 6px;
+		max-width: 480px;
 		width: 100%;
 		box-sizing: border-box;
 	}
+
+	.tab-pill-btn {
+		flex: 1;
+		min-width: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		height: 42px;
+		padding: 0 16px;
+		margin: 0;
+		border-radius: 11px;
+		border: none;
+		background: transparent;
+		color: #082442;
+		font-size: 14px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+		white-space: nowrap;
+		box-sizing: border-box;
+	}
+
+	.tab-pill-btn:hover:not(.active) {
+		background: rgba(7, 158, 173, 0.08);
+		color: #079EAD;
+	}
+
+	.tab-pill-btn.active {
+		background: linear-gradient(135deg, #079EAD 0%, #16B6C1 100%);
+		color: #FFFFFF;
+		font-weight: 700;
+		box-shadow: 0 4px 14px rgba(7, 158, 173, 0.28);
+	}
+
+	.tab-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		line-height: 1;
+	}
+
+	.tab-label {
+		display: inline-flex;
+		align-items: center;
+		line-height: 1.2;
+		letter-spacing: 0.01em;
+	}
+
+	.tab-pill-divider {
+		width: 1px;
+		height: 24px;
+		background: #E2E8F0;
+		margin: 0 4px;
+		flex-shrink: 0;
+	}
+
+	/* Konten Panel Area */
+	.services-content-area {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.featured-service-panel {
+		max-width: 900px;
+		width: 100%;
+		border: 2px solid #00A6B2;
+		box-shadow: 0 8px 26px rgba(0, 166, 178, 0.12);
+		animation: fadeIn 0.25s ease-out;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0.65;
+			transform: translateY(4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.panel-badge-wrap {
+		margin-bottom: 0.65rem;
+	}
+
+	.panel-badge {
+		display: inline-block;
+		font-size: 11px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #079EAD;
+		background: rgba(7, 158, 173, 0.1);
+		padding: 3px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(7, 158, 173, 0.2);
+	}
+
+	.panel-link-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		margin-top: 1.25rem;
+		font-size: 13.5px;
+		font-weight: 700;
+		color: #00A6B2;
+		transition: gap 0.2s ease, color 0.2s ease;
+	}
+
+	.featured-service-panel:hover .panel-link-cta {
+		gap: 9px;
+		color: #079EAD;
+	}
+
+
 
 	/* Service Panel Card (Kombinasi Foto + Box Teks Putih Bersih Sesuai Beranda) */
 	.dual-service-panel {
@@ -274,12 +502,22 @@
 	}
 
 	.panel-title {
-		margin: 0 0 1rem 0;
+		margin: 0 0 0.5rem 0;
 		font-size: clamp(19px, 1.45vw, 22px);
 		font-weight: 800;
 		color: #082442;
 		letter-spacing: -0.01em;
 		line-height: 1.25;
+	}
+
+	.panel-desc {
+		margin: 0 0 1.15rem 0;
+		font-size: 13.5px;
+		line-height: 1.55;
+		color: #475569;
+		max-width: 500px;
+		letter-spacing: -0.005em;
+		text-wrap: pretty;
 	}
 
 	/* Bullet List dengan Kotak Oranye Sesuai Gambar 1 */
@@ -327,12 +565,18 @@
 
 		.services-heading-row {
 			gap: 1.25rem;
-			margin-bottom: 1.75rem;
+			margin-bottom: 1.5rem;
 		}
 
-		.dual-panels-grid {
-			gap: 1.25rem;
+		.services-tab-wrapper {
+			margin-bottom: 1.5rem;
 		}
+
+		.featured-service-panel {
+			max-width: 100%;
+		}
+
+
 
 		.panel-photo-col {
 			flex: 0 0 40%;
@@ -344,7 +588,13 @@
 
 		.panel-title {
 			font-size: 18px;
-			margin-bottom: 0.85rem;
+			margin-bottom: 0.45rem;
+		}
+
+		.panel-desc {
+			font-size: 13px;
+			line-height: 1.5;
+			margin-bottom: 0.95rem;
 		}
 
 		.bullet-text {
@@ -366,7 +616,7 @@
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 0.5rem;
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.25rem;
 		}
 
 		.services-main-title {
@@ -382,10 +632,29 @@
 			background: #f5b331;
 		}
 
-		.dual-panels-grid {
-			grid-template-columns: 1fr;
-			gap: 1.15rem;
+		.services-tab-wrapper {
+			margin-bottom: 1.25rem;
 		}
+
+		.services-tab-pill {
+			max-width: 100%;
+			padding: 4px;
+			border-radius: 14px;
+		}
+
+		.tab-pill-btn {
+			height: 38px;
+			padding: 0 8px;
+			font-size: 13px;
+			gap: 6px;
+		}
+
+		.tab-icon svg {
+			width: 16px;
+			height: 16px;
+		}
+
+
 
 		.dual-service-panel {
 			flex-direction: row;
@@ -403,7 +672,14 @@
 
 		.panel-title {
 			font-size: 16.5px;
-			margin-bottom: 0.65rem;
+			margin-bottom: 0.4rem;
+		}
+
+		.panel-desc {
+			font-size: 12.5px;
+			line-height: 1.48;
+			margin-bottom: 0.85rem;
+			max-width: 100%;
 		}
 
 		.panel-bullet-list {
@@ -418,6 +694,11 @@
 
 		.bullet-text {
 			font-size: 13px;
+		}
+
+		.panel-link-cta {
+			margin-top: 0.85rem;
+			font-size: 12.5px;
 		}
 	}
 

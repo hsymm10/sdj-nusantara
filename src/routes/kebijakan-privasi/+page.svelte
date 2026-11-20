@@ -5,8 +5,8 @@
 </script>
 
 <svelte:head>
-	<title>{i18n.dict.footer.privacyPolicy} - SDJNusantara</title>
-	<meta name="description" content="{i18n.dict.footer.privacyPolicy} SDJNusantara" />
+	<title>{i18n.dict.footer.privacyPolicy} - SDJ Nusantara</title>
+	<meta name="description" content="{i18n.dict.footer.privacyPolicy} SDJ Nusantara" />
 </svelte:head>
 
 <Navbar compact={true} wide={true} />
@@ -16,7 +16,7 @@
 		<div class="section-label">
 			<span class="label-text">{i18n.dict.footer.privacyPolicy}</span>
 		</div>
-		<h1 class="legal-title">{i18n.pick('Kebijakan Privasi SDJNusantara', 'SDJNusantara Privacy Policy')}</h1>
+		<h1 class="legal-title">{i18n.pick('Kebijakan Privasi SDJ Nusantara', 'SDJ Nusantara Privacy Policy')}</h1>
 		<div class="legal-card">
 			<p class="status-note">
 				{i18n.pick(
@@ -26,8 +26,8 @@
 			</p>
 			<p class="legal-desc">
 				{i18n.pick(
-					'SDJNusantara berkomitmen menjaga dan melindungi kerahasiaan data pribadi seluruh pengguna, klien, dan mitra kami. Informasi yang dikumpulkan melalui formulir konsultasi, pendaftaran program, maupun komunikasi langsung hanya digunakan untuk keperluan layanan pendidikan dan pengembangan talenta.',
-					'SDJNusantara is committed to safeguarding the confidentiality of personal data belonging to all users, clients, and partners. Information collected through consultation forms, program registrations, or direct communication is used solely for education and talent development services.'
+					'SDJ Nusantara berkomitmen menjaga dan melindungi kerahasiaan data pribadi seluruh pengguna, klien, dan mitra kami. Informasi yang dikumpulkan melalui formulir konsultasi, pendaftaran program, maupun komunikasi langsung hanya digunakan untuk keperluan layanan pendidikan dan pengembangan talenta.',
+					'SDJ Nusantara is committed to safeguarding the confidentiality of personal data belonging to all users, clients, and partners. Information collected through consultation forms, program registrations, or direct communication is used solely for education and talent development services.'
 				)}
 			</p>
 			<div class="back-wrap">

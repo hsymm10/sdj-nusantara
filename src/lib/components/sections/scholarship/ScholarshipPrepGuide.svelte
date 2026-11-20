@@ -71,8 +71,8 @@
 
 			<p class="prep-desc">
 				{i18n.pick(
-					'Dapatkan panduan, strategi dokumen, dan simulasi wawancara terarah dari konsultan pendidikan SDJNusantara untuk mendukung persiapan studi Anda.',
-					'Get structured guidance, document strategies, and targeted interview simulations from SDJNusantara education consultants to support your study preparation.'
+					'Dapatkan panduan, strategi dokumen, dan simulasi wawancara terarah dari konsultan pendidikan SDJ Nusantara untuk mendukung persiapan studi Anda.',
+					'Get structured guidance, document strategies, and targeted interview simulations from SDJ Nusantara education consultants to support your study preparation.'
 				)}
 			</p>
 

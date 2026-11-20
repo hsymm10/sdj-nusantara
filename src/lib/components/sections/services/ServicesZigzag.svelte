@@ -1,5 +1,5 @@
 <script lang="ts">
-	// ServicesZigzag.svelte - 4 Pilar Layanan Pendidikan Utama sesuai Basis Pengetahuan SDJNusantara
+	// ServicesZigzag.svelte - 4 Pilar Layanan Pendidikan Utama sesuai Basis Pengetahuan SDJ Nusantara
 	// Tipe A (01, 03, 05): Teks Kiri, Foto Kanan dengan Kartu Navy di dalam foto
 	// Tipe B (02, 04): Foto Kiri Menempel Tepi Layar, Teks Tengah, Kartu Terang di Kanan
 	import { pendidikanKnowledge } from '#lib/data/knowledge/pendidikan';

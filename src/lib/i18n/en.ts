@@ -30,9 +30,9 @@ export const enDict: TranslationDict = {
 		colNewsletter: 'Newsletter',
 		newsletterDesc: 'Get the latest scholarship and education program updates directly in your inbox.',
 		newsletterPlaceholder: 'Your email address',
-		newsletterSuccess: 'Thank you! You are now subscribed to the SDJNusantara newsletter.',
+		newsletterSuccess: 'Thank you! You are now subscribed to the SDJ Nusantara newsletter.',
 		newsletterInvalid: 'Please enter a valid email address.',
-		copyright: '© 2026 SDJNusantara. All rights reserved.',
+		copyright: '© 2026 SDJ Nusantara. All rights reserved.',
 		privacyPolicy: 'Privacy Policy',
 		terms: 'Terms & Conditions',
 		links: {
@@ -56,7 +56,7 @@ export const enDict: TranslationDict = {
 		launcherOpenLabel: 'Open NALARA AI Assistant',
 		launcherCloseLabel: 'Close NALARA AI Assistant',
 		tooltipTitleLine1: 'Need information about',
-		tooltipTitleLine2: 'SDJNusantara?',
+		tooltipTitleLine2: 'SDJ Nusantara?',
 		tooltipDescLine1: 'Ask directly to',
 		tooltipDescLine2: 'NALARA AI Assistant.',
 		tooltipDismiss: 'Dismiss message',
@@ -64,14 +64,14 @@ export const enDict: TranslationDict = {
 		inputPlaceholder: 'Ask about profile, services, scholarships...',
 		inputAria: 'Type a question for NALARA',
 		sendLabel: 'Send message',
-		demoNote: 'NALARA — Official AI Assistant of SDJNusantara. Do not send sensitive data.',
+		demoNote: 'NALARA — Official AI Assistant of SDJ Nusantara. Do not send sensitive data.',
 		clearChat: 'New conversation',
 		clearConfirm: 'Start a new conversation and clear current history?',
 		quickRepliesAria: 'Suggested questions',
 		welcomeMessage:
-			'Hello! I am NALARA, official virtual assistant of SDJNusantara. How can I help you today?',
+			'Hello! I am NALARA, official virtual assistant of SDJ Nusantara. How can I help you today?',
 		quickReplies: [
-			{ id: 'profil', label: 'About SDJNusantara', iconType: 'program', queryText: 'What is SDJNusantara?' },
+			{ id: 'profil', label: 'About SDJ Nusantara', iconType: 'program', queryText: 'What is SDJ Nusantara?' },
 			{ id: 'layanan', label: 'Available Services', iconType: 'talenta', queryText: 'What services are available?' },
 			{ id: 'beasiswa', label: 'Scholarship Info', iconType: 'beasiswa', queryText: 'How can I get scholarship information?' },
 			{ id: 'institusi', label: 'Institutional Solutions', iconType: 'kemitraan', queryText: 'What solutions are available for institutions?' }

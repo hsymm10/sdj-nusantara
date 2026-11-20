@@ -61,7 +61,7 @@
 	<div class="about-container">
 		<!-- Left: Text Content -->
 		<div class="about-left-text">
-			<div class="section-label">{i18n.pick('Tentang SDJNusantara', 'About SDJNusantara')}</div>
+			<div class="section-label">{i18n.pick('Tentang SDJ Nusantara', 'About SDJ Nusantara')}</div>
 
 			<h2 class="about-title">
 				{i18n.pick('Menjembatani Potensi dengan', 'Bridging Potential with')}<br />
@@ -70,8 +70,8 @@
 
 			<p class="about-desc">
 				{i18n.pick(
-					'SDJNusantara hadir untuk menghubungkan potensi individu dan institusi dengan kesempatan pendidikan, pengembangan kompetensi, dan jejaring profesional.',
-					'SDJNusantara connects individual and institutional potential with educational opportunities, competency development, and professional networks.'
+					'SDJ Nusantara hadir untuk menghubungkan potensi individu dan institusi dengan kesempatan pendidikan, pengembangan kompetensi, dan jejaring profesional.',
+					'SDJ Nusantara connects individual and institutional potential with educational opportunities, competency development, and professional networks.'
 				)}
 			</p>
 
@@ -176,37 +176,77 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Right: Large Curved Campus Building Blob with decorative swooshes behind -->
-	<div class="about-right-blob-wrap" aria-hidden="true">
-		<!-- Background Swooshes behind the photo (z-index 1) -->
-		<svg class="about-blob-decor" viewBox="0 0 520 220" fill="none" preserveAspectRatio="none">
-			<defs>
-				<linearGradient id="blob-teal-grad" x1="0" y1="1" x2="1" y2="0">
-					<stop offset="0%" stop-color="#079EAD" />
-					<stop offset="100%" stop-color="#16B6C1" />
-				</linearGradient>
-			</defs>
+		<!-- Right: Modern Layered Card (Sesuai Mockup Referensi Gambar 1) -->
+		<div class="about-right-card-col" aria-hidden="true">
+			<div class="modern-layered-card">
+				<!-- 1. Teal Dot Grid (Kiri-Atas Kartu) -->
+				<svg class="card-decor-dots" width="56" height="46" viewBox="0 0 56 46" fill="none">
+					<circle cx="5" cy="5" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="17" cy="5" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="29" cy="5" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="41" cy="5" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="53" cy="5" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
 
-			<!-- 1. Top-Right Turquoise Swoosh -->
-			<path d="M340,0 C410,22 470,52 520,72 L520,0 Z" fill="url(#blob-teal-grad)" />
+					<circle cx="5" cy="17" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="17" cy="17" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="29" cy="17" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="41" cy="17" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="53" cy="17" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
 
-			<!-- 2. Top-Right Thin Gold Ribbon (#F5B331) -->
-			<path d="M400,0 C450,26 485,46 520,62 L520,40 C490,26 460,12 425,0 Z" fill="#F5B331" />
+					<circle cx="5" cy="29" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="17" cy="29" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="29" cy="29" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="41" cy="29" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="53" cy="29" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
 
-			<!-- 3. Bottom-Left Golden Crescent Swoosh (#F5B331) (x ≈ 1010→1100, y ≈ 540→613) -->
-			<path d="M0,220 C25,175 60,135 110,105 C85,145 65,185 48,220 Z" fill="#F5B331" />
-		</svg>
+					<circle cx="5" cy="41" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="17" cy="41" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="29" cy="41" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="41" cy="41" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+					<circle cx="53" cy="41" r="2.2" fill="#00A6B2" fill-opacity="0.65" />
+				</svg>
 
-		<!-- Building Photo Blob with smooth arch (z-index 2) -->
-		<div class="about-building-frame">
-			<img
-				src="/images/about-campus-hd.jpg"
-				alt="Gedung Kampus SDJNusantara"
-				class="building-blob-img"
-				loading="eager"
-			/>
+				<!-- 2. Lapisan Biru Muda Organik (Backdrop Cyan Curve) -->
+				<svg class="card-decor-cyan-blob" viewBox="0 0 360 240" fill="none">
+					<path d="M45 35 C120 -15, 270 -5, 335 45 C380 85, 360 190, 285 225 C210 245, 95 235, 35 180 C-25 125, -15 65, 45 35 Z" fill="#E2F6F8" fill-opacity="0.8" />
+				</svg>
+
+				<!-- 3. Lapisan Navy di Belakang Foto (Offset Kanan-Atas) -->
+				<div class="card-navy-layer"></div>
+
+				<!-- 4. Foto Utama (Bingkai Rounded Card) -->
+				<div class="card-photo-frame">
+					<img
+						src="/images/about-campus-hd.jpg"
+						alt={i18n.pick('Gedung Kampus SDJ Nusantara', 'SDJ Nusantara Campus Building')}
+						class="card-building-img"
+						loading="eager"
+						decoding="async"
+					/>
+				</div>
+
+				<!-- 5. Aksen Teal dan Kuning di Bagian Bawah Gambar -->
+				<svg class="card-bottom-swooshes" viewBox="0 0 250 80" fill="none" preserveAspectRatio="none">
+					<!-- Teal Swoosh Curve -->
+					<path d="M0 50 C65 35, 155 18, 250 0 V60 C200 75, 115 80, 0 80 Z" fill="#00A6B2" />
+					<!-- Yellow Accent Swoosh Curve -->
+					<path d="M50 70 C115 60, 190 38, 250 14 V70 C205 80, 135 80, 50 80 Z" fill="#F5B331" />
+				</svg>
+
+				<!-- 6. Badge Geometris Berwarna Kuning dengan Ikon Gedung (Kanan-Bawah) -->
+				<div class="card-building-badge">
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+						<path d="M6 12H4a2 2 0 0 0-2 2v8h4"></path>
+						<path d="M18 9h2a2 2 0 0 1 2 2v11h-4"></path>
+						<path d="M10 6h4"></path>
+						<path d="M10 10h4"></path>
+						<path d="M10 14h4"></path>
+						<path d="M10 18h4"></path>
+					</svg>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -247,16 +287,15 @@
 		padding: 0 2rem;
 		display: flex;
 		align-items: center;
-		justify-content: flex-start;
-		gap: 3.5rem;
+		justify-content: space-between;
+		gap: 2rem;
 		box-sizing: border-box;
 	}
 
 	/* Left Column */
 	.about-left-text {
-		width: 480px;
-		max-width: 500px;
-		flex-shrink: 0;
+		flex: 0 1 370px;
+		max-width: 390px;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -282,12 +321,12 @@
 	}
 
 	.about-desc {
-		font-size: 14.5px;
+		font-size: 14px;
 		line-height: 1.6;
 		color: #37474F;
 		margin: 0 0 1.25rem 0;
 		letter-spacing: 0;
-		max-width: 440px;
+		max-width: 370px;
 		text-wrap: pretty;
 	}
 
@@ -321,10 +360,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		width: 480px;
-		flex-shrink: 0;
+		flex: 0 1 440px;
 		box-sizing: border-box;
-		margin-right: 2rem;
 	}
 
 	.feature-col {
@@ -368,40 +405,70 @@
 		flex-shrink: 0;
 	}
 
-	/* Right: Large Curved Campus Building Blob */
-	.about-right-blob-wrap {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: clamp(380px, 28vw, 460px);
-		height: 220px;
-		z-index: 2;
-		overflow: visible;
-		pointer-events: none;
+	/* Right Column: Modern Layered Card (Sesuai Mockup Referensi Gambar 1) */
+	.about-right-card-col {
+		flex: 0 0 340px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		position: relative;
 	}
 
-	.about-blob-decor {
+	.modern-layered-card {
+		position: relative;
+		width: 310px;
+		height: 195px;
+	}
+
+	/* 1. Teal Dot Grid */
+	.card-decor-dots {
 		position: absolute;
-		top: -24px;
-		right: 0;
-		width: 100%;
-		height: calc(100% + 24px);
+		top: 14px;
+		left: -26px;
+		width: 52px;
+		height: 42px;
 		z-index: 1;
 		pointer-events: none;
 	}
 
-	.about-building-frame {
+	/* 2. Soft Light Cyan Blob Curve */
+	.card-decor-cyan-blob {
 		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: calc(100% - 35px);
+		top: -24px;
+		left: -32px;
+		width: 350px;
+		height: 235px;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	/* 3. Navy Layer Behind Photo (Offset Kanan-Atas) */
+	.card-navy-layer {
+		position: absolute;
+		top: -12px;
+		right: -10px;
+		width: 100%;
 		height: 100%;
-		border-top-left-radius: 190px;
+		background: #082442;
+		border-radius: 20px;
+		z-index: 1;
+		box-shadow: 0 10px 28px rgba(8, 36, 66, 0.18);
+	}
+
+	/* 4. Main Photo Card */
+	.card-photo-frame {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		border-radius: 18px;
 		overflow: hidden;
+		background: #FFFFFF;
+		border: 2px solid #FFFFFF;
+		box-shadow: 0 12px 30px rgba(8, 36, 66, 0.12);
 		z-index: 2;
 	}
 
-	.building-blob-img {
+	.card-building-img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -409,22 +476,50 @@
 		display: block;
 	}
 
+	/* 5. Bottom Teal & Yellow Swooshes */
+	.card-bottom-swooshes {
+		position: absolute;
+		bottom: -16px;
+		right: -12px;
+		width: 220px;
+		height: 60px;
+		z-index: 3;
+		pointer-events: none;
+	}
+
+	/* 6. Yellow Geometric Building Badge */
+	.card-building-badge {
+		position: absolute;
+		bottom: -10px;
+		right: -10px;
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+		background: #F5B331;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.45);
+		border: 2px solid #FFFFFF;
+		z-index: 4;
+	}
+
 	@media (max-width: 1199px) {
 		.about-section {
 			height: auto;
-			flex-direction: column;
 			padding: 2.5rem 1.5rem;
-			gap: 2rem;
 		}
 		.about-container {
-			height: auto;
 			flex-direction: column;
+			align-items: center;
 			padding: 0;
-			gap: 2rem;
+			gap: 2.25rem;
 		}
 		.about-left-text {
 			width: 100%;
 			max-width: 600px;
+			align-items: center;
+			text-align: center;
 		}
 		.about-desc {
 			max-width: 100%;
@@ -437,22 +532,18 @@
 		}
 		.about-center-features {
 			width: 100%;
+			max-width: 680px;
 			display: grid;
 			grid-template-columns: repeat(5, 1fr);
-			gap: 1rem;
+			gap: 0.75rem;
 		}
 		.feature-vdivider {
 			display: none;
 		}
-		.about-right-blob-wrap {
-			position: relative;
+		.about-right-card-col {
+			flex: 0 0 auto;
 			width: 100%;
-			height: 240px;
-		}
-		.about-building-frame {
-			width: 100%;
-			border-top-left-radius: 60px;
-			border-top-right-radius: 60px;
+			justify-content: center;
 		}
 	}
 
@@ -465,6 +556,8 @@
 		}
 		.about-left-text {
 			width: 100%;
+			align-items: flex-start;
+			text-align: left;
 		}
 		.about-title {
 			font-size: 1.45rem;
@@ -482,12 +575,20 @@
 		.feature-col:last-child {
 			grid-column: 1 / -1;
 		}
-		.about-right-blob-wrap {
-			height: 200px;
+		.about-right-card-col {
+			width: 100%;
+			padding: 0.75rem 0 0.5rem;
 		}
-		.about-building-frame {
-			border-top-left-radius: 40px;
-			border-top-right-radius: 40px;
+		.modern-layered-card {
+			width: 280px;
+			height: 175px;
+		}
+		.card-decor-dots {
+			left: -18px;
+		}
+		.card-decor-cyan-blob {
+			width: 310px;
+			left: -20px;
 		}
 	}
 </style>

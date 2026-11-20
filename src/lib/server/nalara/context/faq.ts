@@ -6,14 +6,14 @@ import type { KnowledgeEntry } from '../types/knowledge.types';
 export const faqKnowledge: KnowledgeEntry[] = [
 	{
 		id: 'faq-consultation-process',
-		title: 'Bagaimana Cara Memulai Konsultasi di SDJNusantara?',
+		title: 'Bagaimana Cara Memulai Konsultasi di SDJ Nusantara?',
 		category: 'faq',
 		content:
-			'Konsultasi dapat dimulai dengan mengajukan formulir di halaman /kontak atau mengirim pesan langsung ke WhatsApp resmi SDJNusantara di +62 858-8072-4733.',
+			'Konsultasi dapat dimulai dengan mengajukan formulir di halaman /kontak atau mengirim pesan langsung ke WhatsApp resmi SDJ Nusantara di +62 858-8072-4733.',
 		details: [
 			'Langkah 1: Hubungi tim kami via WhatsApp atau form kontak di website.',
 			'Langkah 2: Sampaikan profil singkat, jenjang studi, atau kebutuhan institusi Anda.',
-			'Langkah 3: Tim konsultan SDJNusantara akan menjadwalkan sesi konsultasi awal.',
+			'Langkah 3: Tim konsultan SDJ Nusantara akan menjadwalkan sesi konsultasi awal.',
 			'Langkah 4: Anda akan mendapatkan rekomendasi program atau rencana aksi yang sesuai.'
 		],
 		source: 'https://sdjnusantara.com/kontak',
@@ -24,10 +24,10 @@ export const faqKnowledge: KnowledgeEntry[] = [
 	},
 	{
 		id: 'faq-program-cost',
-		title: 'Berapa Biaya Program dan Layanan di SDJNusantara?',
+		title: 'Berapa Biaya Program dan Layanan di SDJ Nusantara?',
 		category: 'faq',
 		content:
-			'Biaya program pendampingan di SDJNusantara bersifat transparan dan disesuaikan dengan paket layanan yang dipilih (bimbingan individu, kurasi esai, mock interview, atau in-house training institusi).',
+			'Biaya program pendampingan di SDJ Nusantara bersifat transparan dan disesuaikan dengan paket layanan yang dipilih (bimbingan individu, kurasi esai, mock interview, atau in-house training institusi).',
 		details: [
 			'Konsultasi awal untuk mengetahui kebutuhan program dapat dilakukan secara gratis melalui WhatsApp resmi.',
 			'Rincian biaya paket pendampingan resmi akan disampaikan secara tertulis bersama silabus dan ruang lingkup program.',
@@ -41,10 +41,10 @@ export const faqKnowledge: KnowledgeEntry[] = [
 	},
 	{
 		id: 'faq-target-participants',
-		title: 'Siapa Saja yang Bisa Mengikuti Program SDJNusantara?',
+		title: 'Siapa Saja yang Bisa Mengikuti Program SDJ Nusantara?',
 		category: 'faq',
 		content:
-			'Program SDJNusantara terbuka untuk berbagai kalangan: pelajar SMA/SMK, mahasiswa aktif, fresh graduate, pencari beasiswa S1/S2/S3, profesional, hingga institusi pendidikan dan perusahaan.',
+			'Program SDJ Nusantara terbuka untuk berbagai kalangan: pelajar SMA/SMK, mahasiswa aktif, fresh graduate, pencari beasiswa S1/S2/S3, profesional, hingga institusi pendidikan dan perusahaan.',
 		details: [
 			'Pelajar & Mahasiswa: Perencanaan studi lanjut dan persiapan aplikasi beasiswa.',
 			'Pencari Beasiswa: Pendampingan intensif CV, motivation letter, dan wawancara.',
@@ -62,10 +62,10 @@ export const faqKnowledge: KnowledgeEntry[] = [
 		title: 'Apakah Pendampingan Dilakukan Secara Online atau Offline?',
 		category: 'faq',
 		content:
-			'Layanan pendampingan SDJNusantara diselenggarakan secara fleksibel: (1) Online melalui platform video conference untuk peserta dari seluruh Indonesia & luar negeri, dan (2) Offline/In-house untuk kemitraan institusi.',
+			'Layanan pendampingan SDJ Nusantara diselenggarakan secara fleksibel: (1) Online melalui platform video conference untuk peserta dari seluruh Indonesia & luar negeri, dan (2) Offline/In-house untuk kemitraan institusi.',
 		details: [
 			'Bimbingan online 1-on-1 memudahkan peserta dari berbagai kota berkonsultasi secara fleksibel.',
-			'Untuk institusi mitra (kampus/sekolah/perusahaan), pelatihan dapat dilaksanakan langsung di lokasi mitra (in-house) atau di kantor SDJNusantara Jakarta.'
+			'Untuk institusi mitra (kampus/sekolah/perusahaan), pelatihan dapat dilaksanakan langsung di lokasi mitra (in-house) atau di kantor SDJ Nusantara Jakarta.'
 		],
 		source: 'https://sdjnusantara.com/tentang-kami',
 		verificationStatus: 'verified',

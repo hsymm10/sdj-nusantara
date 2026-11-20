@@ -1,5 +1,5 @@
 // src/lib/server/nalara/context/index.ts
-// Pusat Ekspor & Helper Basis Pengetahuan NALARA SDJNusantara
+// Pusat Ekspor & Helper Basis Pengetahuan NALARA SDJ Nusantara
 
 import type { KnowledgeEntry, KnowledgeCategory } from '../types/knowledge.types';
 import { companyKnowledge } from './company';

@@ -1,7 +1,7 @@
 <script lang="ts">
-	// ContactServiceArea.svelte - Section Wilayah Layanan & Lokasi SDJNusantara
+	// ContactServiceArea.svelte - Section Wilayah Layanan & Lokasi SDJ Nusantara
 	// Menggunakan data geografis nyata kepulauan Indonesia (Natural Earth 1:50m, Public Domain)
-	// dan data resmi alamat kantor SDJNusantara dari contact.ts
+	// dan data resmi alamat kantor SDJ Nusantara dari contact.ts
 	import { contactConfig } from '#lib/config/contact';
 	import { INDONESIA_MAP_PATH } from '#lib/assets/maps/indonesiaPath';
 	import { i18n } from '#lib/stores/i18n.svelte';
@@ -31,8 +31,8 @@
 			
 			<p class="area-desc">
 				{i18n.pick(
-					'Program dan layanan SDJNusantara dapat diakses oleh institusi dan individu dari berbagai daerah di Indonesia, baik secara online maupun offline.',
-					'SDJNusantara programs and services are accessible to institutions and individuals across Indonesia, both online and in person.'
+					'Program dan layanan SDJ Nusantara dapat diakses oleh institusi dan individu dari berbagai daerah di Indonesia, baik secara online maupun offline.',
+					'SDJ Nusantara programs and services are accessible to institutions and individuals across Indonesia, both online and in person.'
 				)}
 			</p>
 
@@ -67,14 +67,48 @@
 				</div>
 			</div>
 
-			<!-- Button Gold: Pelajari Wilayah Layanan -->
-			<a href="/layanan" class="btn-gold-area">
-				<span>{i18n.pick('Pelajari Wilayah Layanan', 'Explore Service Coverage')}</span>
-				<span class="btn-arrow">→</span>
-			</a>
+			<!-- Dua Tombol Navigasi: Layanan Individu & Solusi Institusi -->
+			<div class="service-cta-buttons-row">
+				<a href="/layanan?tab=individu" class="btn-gold-service">
+					<div class="btn-service-icon" aria-hidden="true">
+						<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#082442" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="8" r="5" />
+							<path d="M20 21a8 8 0 0 0-16 0" />
+						</svg>
+					</div>
+					<div class="btn-service-text">
+						<span class="btn-service-title">{i18n.pick('Layanan Individu', 'Individual Services')}</span>
+						<span class="btn-service-sub">
+							{i18n.pick('Lihat layanan', 'View services')}
+							<span class="btn-service-arrow">→</span>
+						</span>
+					</div>
+				</a>
+
+				<a href="/layanan?tab=institusi" class="btn-gold-service">
+					<div class="btn-service-icon" aria-hidden="true">
+						<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#082442" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+							<path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+							<path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+							<path d="M10 6h4" />
+							<path d="M10 10h4" />
+							<path d="M10 14h4" />
+							<path d="M10 18h4" />
+						</svg>
+					</div>
+					<div class="btn-service-text">
+						<span class="btn-service-title">{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
+						<span class="btn-service-sub">
+							{i18n.pick('Lihat layanan', 'View services')}
+							<span class="btn-service-arrow">→</span>
+						</span>
+					</div>
+				</a>
+			</div>
 		</div>
 
-		<!-- Right Column: Interactive Indonesia Vector Map & Lokasi SDJNusantara -->
+		<!-- Right Column: Interactive Indonesia Vector Map & Lokasi SDJ Nusantara -->
 		<div class="area-map-col">
 			<!-- Floating Card: Informasi LOKASI SDJNUSANTARA (menggantikan teks lama) -->
 			<div class="map-floating-card">
@@ -85,7 +119,7 @@
 					</svg>
 				</div>
 				<div class="floating-text">
-					<h3 class="floating-title">{i18n.pick('Lokasi SDJNusantara', 'SDJNusantara Location')}</h3>
+					<h3 class="floating-title">{i18n.pick('Lokasi SDJ Nusantara', 'SDJ Nusantara Location')}</h3>
 					<p class="floating-address">
 						{contactConfig.addressDetail}
 					</p>
@@ -112,7 +146,7 @@
 					aria-labelledby="map-title map-desc"
 				>
 					<title id="map-title">Peta Indonesia</title>
-					<desc id="map-desc">Peta Kepulauan Nusantara Sumber Data Natural Earth Skala 1:50m Proyeksi Equirectangular dengan Penanda Lokasi Kantor SDJNusantara di Jakarta dan Titik Jangkauan Layanan Nasional</desc>
+					<desc id="map-desc">Peta Kepulauan Nusantara Sumber Data Natural Earth Skala 1:50m Proyeksi Equirectangular dengan Penanda Lokasi Kantor SDJ Nusantara di Jakarta dan Titik Jangkauan Layanan Nasional</desc>
 					
 					<defs>
 						<!-- Teal Gradient for islands -->
@@ -136,7 +170,7 @@
 					<path d="M0 165 C 260 125, 560 195, 940 145" stroke="#16B6C1" stroke-width="1.8" opacity="0.08" fill="none" />
 					<path d="M0 65 C 300 25, 620 95, 940 55" stroke="#16B6C1" stroke-width="1.5" opacity="0.06" fill="none" />
 
-					<!-- Garis Penghubung Titik Jakarta ke Arah Kartu Lokasi SDJNusantara -->
+					<!-- Garis Penghubung Titik Jakarta ke Arah Kartu Lokasi SDJ Nusantara -->
 					<path 
 						class="jakarta-card-line"
 						d="M246.9 254.2 C 280 140, 520 60, 720 50" 
@@ -189,7 +223,7 @@
 						{/each}
 					</g>
 
-					<!-- Titik JAKARTA (Lokasi Kantor Resmi SDJNusantara): ±14px Emas #F5B331 dengan Ring Putih & Pulse Halus -->
+					<!-- Titik JAKARTA (Lokasi Kantor Resmi SDJ Nusantara): ±14px Emas #F5B331 dengan Ring Putih & Pulse Halus -->
 					<g class="jakarta-marker-group" transform="translate(246.9, 254.2)">
 						<!-- Pulse Ring Halus (Hormati prefers-reduced-motion) -->
 						<circle class="jakarta-pulse" r="16" fill="rgba(245, 179, 49, 0.25)" />
@@ -205,7 +239,7 @@
 							<rect x="-34" y="-8.5" width="68" height="17" rx="8.5" fill="#082442" opacity="0.92" />
 							<text x="0" y="3.2" fill="#FFFFFF" font-size="8.5" font-weight="700" text-anchor="middle" font-family="inherit">Jakarta</text>
 						</g>
-						<title>Jakarta: Lokasi Kantor SDJNusantara</title>
+						<title>Jakarta: Lokasi Kantor SDJ Nusantara</title>
 					</g>
 				</svg>
 			</div>
@@ -255,20 +289,21 @@
 	}
 
 	.area-title {
-		font-size: 26px;
+		font-size: clamp(23px, 2vw, 27px);
 		font-weight: 800;
 		color: #082442;
 		line-height: 1.25;
-		margin: 0;
+		margin: 0 0 8px;
 		letter-spacing: -0.015em;
 		text-wrap: balance;
+		max-width: 480px;
 	}
 
 	.area-desc {
-		font-size: 13.5px;
-		line-height: 1.45;
+		font-size: 14px;
+		line-height: 1.55;
 		color: #183553;
-		margin: 0 0 2px;
+		margin: 0 0 16px;
 		max-width: 440px;
 		text-wrap: pretty;
 	}
@@ -319,36 +354,89 @@
 		color: #64748B;
 	}
 
-	.btn-gold-area {
-		display: inline-flex;
+	/* Dua Tombol Navigasi: Layanan Individu & Solusi Institusi */
+	.service-cta-buttons-row {
+		display: flex;
+		align-items: stretch;
+		gap: 12px;
+		width: 100%;
+		max-width: 460px;
+		margin-top: 4px;
+	}
+
+	.btn-gold-service {
+		display: flex;
 		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		width: 210px;
-		height: 38px;
+		gap: 10px;
+		flex: 1;
 		background: #F5B331;
 		color: #082442;
-		font-size: 13px;
-		font-weight: 700;
-		border-radius: 9px;
+		border-radius: 10px;
+		padding: 7px 12px;
+		min-height: 48px;
 		text-decoration: none;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.3);
+		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.28);
 		transition: all 0.2s ease;
 		box-sizing: border-box;
-		margin-top: 2px;
 	}
 
-	.btn-gold-area:hover {
+	.btn-gold-service:hover {
 		background: #e6a528;
-		transform: translateY(-1px);
+		transform: translateY(-1.5px);
+		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.38);
 	}
 
-	.btn-arrow {
-		font-size: 13px;
+	.btn-service-icon {
+		flex-shrink: 0;
+		width: 32px;
+		height: 32px;
+		border-radius: 8px;
+		background: rgba(8, 36, 66, 0.08);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #082442;
 		transition: transform 0.2s ease;
 	}
 
-	.btn-gold-area:hover .btn-arrow {
+	.btn-gold-service:hover .btn-service-icon {
+		transform: scale(1.05);
+	}
+
+	.btn-service-text {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.btn-service-title {
+		font-size: 13px;
+		font-weight: 700;
+		color: #082442;
+		line-height: 1.25;
+		white-space: nowrap;
+	}
+
+	.btn-service-sub {
+		font-size: 11px;
+		font-weight: 600;
+		color: #1A365D;
+		line-height: 1.2;
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		white-space: nowrap;
+	}
+
+	.btn-service-arrow {
+		font-size: 11px;
+		transition: transform 0.2s ease;
+		display: inline-block;
+	}
+
+	.btn-gold-service:hover .btn-service-arrow {
 		transform: translateX(3px);
 	}
 
@@ -362,7 +450,7 @@
 		justify-content: center;
 	}
 
-	/* Floating Card: Lokasi SDJNusantara */
+	/* Floating Card: Lokasi SDJ Nusantara */
 	.map-floating-card {
 		position: absolute;
 		top: 10px;
@@ -551,8 +639,16 @@
 		.mini-cards-row {
 			flex-direction: column;
 		}
-		.btn-gold-area {
+		.service-cta-buttons-row {
+			flex-direction: column;
+			gap: 10px;
 			width: 100%;
+			max-width: 100%;
+		}
+		.btn-gold-service {
+			width: 100%;
+			min-height: 48px;
+			padding: 9px 14px;
 		}
 		.map-svg-wrap {
 			order: 1;

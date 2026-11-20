@@ -1,5 +1,5 @@
 // src/lib/server/nalara/context/programs.ts
-// Basis Pengetahuan Resmi: Program Pendidikan & Pelatihan SDJNusantara
+// Basis Pengetahuan Resmi: Program Pendidikan & Pelatihan SDJ Nusantara
 
 import type { KnowledgeEntry } from '../types/knowledge.types';
 

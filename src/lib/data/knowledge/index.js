@@ -35,7 +35,7 @@ import { SYNONYMS_MAP, expandSynonyms } from './synonyms.js';
  */
 
 /**
- * Basis Pengetahuan Tunggal SDJNusantara (Pendidikan & Beasiswa)
+ * Basis Pengetahuan Tunggal SDJ Nusantara (Pendidikan & Beasiswa)
  * @type {KnowledgeEntry[]}
  */
 export const knowledgeEntries = [

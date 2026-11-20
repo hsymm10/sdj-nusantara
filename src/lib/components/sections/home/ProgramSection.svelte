@@ -45,7 +45,7 @@
 			<div class="program-img-wrap">
 				<img
 					src="/images/about-team-4-hd.jpg"
-					alt="Program Pendidikan SDJNusantara"
+					alt="Program Pendidikan SDJ Nusantara"
 					class="program-img"
 					loading="lazy"
 				/>

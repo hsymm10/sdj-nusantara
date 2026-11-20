@@ -1,5 +1,5 @@
 // src/lib/services/chat/chatEngine.ts
-// Mesin Pemrosesan Pertanyaan Terpusat Berbasis Data Website & Knowledge Base SDJNusantara
+// Mesin Pemrosesan Pertanyaan Terpusat Berbasis Data Website & Knowledge Base SDJ Nusantara
 
 import { allKnowledge } from '#lib/data/knowledge/index.js';
 import { serviceConfig } from '#lib/config/services';

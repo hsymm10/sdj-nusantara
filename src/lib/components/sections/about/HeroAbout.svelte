@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/about-hero.jpg"
-			alt="Tim SDJNusantara"
+			alt="Tim SDJ Nusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -84,8 +84,8 @@
 			<!-- Description (max-width 560px without manual <br>) -->
 			<p class="hero-desc">
 				{i18n.pick(
-					"SDJNusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.",
-					"SDJNusantara serves as an education and talent development consultancy committed to delivering strategic, innovative, and impactful solutions for individuals and institutions.",
+					"SDJ Nusantara hadir sebagai konsultan pendidikan dan pengembangan talenta yang berkomitmen memberikan solusi strategis, inovatif, dan berdampak nyata bagi individu maupun institusi.",
+					"SDJ Nusantara serves as an education and talent development consultancy committed to delivering strategic, innovative, and impactful solutions for individuals and institutions.",
 				)}
 			</p>
 		</div>
@@ -180,6 +180,7 @@
 
 	.hero-text-col {
 		max-width: 590px;
+		transform: translateY(-36px);
 	}
 
 	/* Pill Tag */
@@ -187,26 +188,28 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
-		padding: 4px 14px;
-		background: rgba(0, 166, 178, 0.18);
-		border: 1px solid rgba(0, 166, 178, 0.5);
-		border-radius: 999px;
-		margin-top: 6px;
-		margin-bottom: 0.75rem;
+		padding: 4px 12px;
+		background: rgba(7, 158, 173, 0.18);
+		border: 1px solid rgba(226, 232, 240, 0.4);
+		border-radius: 9999px;
+		margin-top: 0;
+		margin-bottom: 12px;
+		width: fit-content;
 	}
 
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00a6b2;
 		border-radius: 50%;
+		background: #16B6C1;
+		box-shadow: 0 0 6px #16B6C1;
 	}
 
 	.pill-label {
-		font-size: 12px;
-		font-weight: 600;
-		color: #ffffff;
-		letter-spacing: 0.02em;
+		color: #E6F7F9;
+		font-size: 11.5px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
 	}
 
 	/* Headline */
@@ -235,7 +238,10 @@
 	@media (max-width: 900px) {
 		.hero-about {
 			height: auto;
-			padding: 4.5rem 0 3rem;
+			padding: 3.5rem 0 3.25rem;
+		}
+		.hero-text-col {
+			transform: none;
 		}
 		.hero-container {
 			padding: 0 1.5rem;
@@ -244,8 +250,8 @@
 			background: linear-gradient(
 				90deg,
 				#082442 0%,
-				rgba(8, 36, 66, 0.92) 60%,
-				rgba(8, 36, 66, 0.75) 100%
+				rgba(8, 36, 66, 0.94) 60%,
+				rgba(8, 36, 66, 0.78) 100%
 			);
 		}
 		.hero-wave,
@@ -254,13 +260,28 @@
 		}
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
+		.hero-about {
+			height: auto;
+			padding: 36px 0 44px;
+		}
 		.hero-bg-wrap {
 			display: none;
 		}
 		.hero-title {
-			font-size: clamp(23px, 6.5vw, 30px);
-			line-height: 1.25;
+			font-size: clamp(24px, 6.5vw, 28px);
+			line-height: 1.22;
+			margin-bottom: 12px;
+		}
+		.hero-desc {
+			font-size: 14px;
+			line-height: 1.5;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero-container {
+			padding: 0 1.25rem;
 		}
 	}
 </style>

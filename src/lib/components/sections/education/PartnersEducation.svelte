@@ -1,4 +1,4 @@
-<!-- Section 12: Jaringan Kolaborasi SDJNusantara (Mockup Final Single Source of Truth) -->
+<!-- Section 12: Jaringan Kolaborasi SDJ Nusantara (Mockup Final Single Source of Truth) -->
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';
@@ -246,7 +246,7 @@
 			<!-- Main Heading -->
 			<h2 class="partners-main-title">
 				{i18n.pick('Jaringan Kolaborasi', 'Collaboration Network of')}
-				<span class="title-highlight">SDJNusantara</span>
+				<span class="title-highlight">SDJ Nusantara</span>
 			</h2>
 
 			<!-- Subtitle -->
@@ -272,7 +272,7 @@
 				onmouseenter={stopAutoplay}
 				onmouseleave={() => { if (!isDragging) startAutoplay(); }}
 				role="region"
-				aria-label={i18n.pick('Carousel Mitra dan Kolaborasi SDJNusantara', 'SDJNusantara Partners & Collaboration Carousel')}
+				aria-label={i18n.pick('Carousel Mitra dan Kolaborasi SDJ Nusantara', 'SDJ Nusantara Partners & Collaboration Carousel')}
 			>
 				<div class="slider-viewport">
 					<div

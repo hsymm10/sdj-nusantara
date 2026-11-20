@@ -11,7 +11,7 @@
 			/>
 			<img
 				src="/images/hero-students-composite.jpg"
-				alt="SDJNusantara Tiga Mahasiswa di Kampus"
+				alt="SDJ Nusantara Tiga Mahasiswa di Kampus"
 				class="hero-img"
 				loading="eager"
 				fetchpriority="high"
@@ -93,36 +93,10 @@
 			<!-- Description: max-width 575px -->
 			<p class="hero-desc">
 				{i18n.pick(
-					"SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.",
-					"SDJNusantara is an education and talent development consultancy helping individuals and institutions plan academic pathways, prepare for scholarships, sharpen skills, and build collaborative networks.",
+					"SDJ Nusantara adalah konsultan pendidikan dan pengembangan talenta yang membantu individu serta institusi merencanakan pendidikan, mempersiapkan beasiswa, meningkatkan keterampilan, dan membangun jejaring kolaborasi.",
+					"SDJ Nusantara is an education and talent development consultancy helping individuals and institutions plan academic pathways, prepare for scholarships, sharpen skills, and build collaborative networks.",
 				)}
 			</p>
-
-			<!-- Mobile Photo Band (Only visible on mobile <= 640px) -->
-			<div class="hero-mobile-photo-band" aria-hidden="true">
-				<img
-					src="/images/hero-students-composite.jpg"
-					alt="Mahasiswa Beranda"
-					class="mobile-band-img"
-				/>
-			</div>
-
-			<!-- Segmented Choice Buttons (Sesuai Referensi Gambar 2) -->
-			<div class="hero-choice-group" aria-label={i18n.pick('Pilihan Kategori Layanan', 'Service Category Selection')}>
-				<a
-					href="/layanan"
-					class="hero-choice-btn btn-choice-active"
-				>
-					<span>{i18n.pick('Layanan Individu', 'Individual Services')}</span>
-				</a>
-
-				<a
-					href="/layanan"
-					class="hero-choice-btn btn-choice-inactive"
-				>
-					<span>{i18n.pick('Solusi Institusi', 'Institutional Solutions')}</span>
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
@@ -252,77 +226,19 @@
 	/* Description */
 	.hero-desc {
 		font-size: 14px;
-		line-height: 1.52;
+		line-height: 1.56;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0 0 20px 0;
+		margin: 0;
 		max-width: 575px;
 		text-wrap: pretty;
-	}
-
-	/* Segmented Choice Buttons (Sesuai Referensi Gambar 2) */
-	.hero-choice-group {
-		display: flex;
-		align-items: center;
-		gap: 14px;
-		margin-top: 0;
-	}
-
-	.hero-choice-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: 44px;
-		padding: 0 24px;
-		font-size: 14px;
-		font-weight: 700;
-		border-radius: 8px; /* Rounded rectangle sesuai Gambar 2 */
-		text-decoration: none;
-		white-space: nowrap;
-		box-sizing: border-box;
-		transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-		cursor: pointer;
-	}
-
-	/* Tombol aktif: Background kuning (#f5b331) dengan teks navy (#082442) sesuai Gambar 2 */
-	.hero-choice-btn.btn-choice-active {
-		background: #f5b331;
-		color: #082442;
-		border: 2px solid #f5b331;
-		box-shadow: 0 4px 14px rgba(245, 179, 49, 0.32);
-	}
-
-	.hero-choice-btn.btn-choice-active:hover {
-		background: #e6a528;
-		border-color: #e6a528;
-		transform: translateY(-1px);
-		box-shadow: 0 6px 18px rgba(245, 179, 49, 0.42);
-	}
-
-	/* Tombol tidak aktif: Background putih dengan teks navy sesuai Gambar 2 */
-	.hero-choice-btn.btn-choice-inactive {
-		background: #FFFFFF;
-		color: #082442;
-		border: 1.5px solid #FFFFFF;
-		box-shadow: 0 3px 12px rgba(8, 36, 66, 0.16);
-	}
-
-	.hero-choice-btn.btn-choice-inactive:hover {
-		background: #F8FAFC;
-		border-color: #E2E8F0;
-		transform: translateY(-1px);
-		box-shadow: 0 5px 16px rgba(8, 36, 66, 0.22);
-	}
-
-	.hero-mobile-photo-band {
-		display: none;
 	}
 
 	/* Responsive Tablet & Mobile */
 	@media (max-width: 1024px) {
 		.hero-section {
 			height: auto;
-			min-height: 410px;
-			padding: 28px 0 48px;
+			min-height: 380px;
+			padding: 24px 0 44px;
 		}
 
 		.sch-hero-container {
@@ -343,58 +259,41 @@
 		}
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		.hero-section {
 			height: auto;
 			min-height: 0;
-			padding: 24px 0 40px;
+			padding: 32px 0 38px;
+		}
+
+		.hero-bg-wrap {
+			display: none;
 		}
 
 		.sch-hero-container {
-			padding: 0 20px;
+			padding: 0 1.5rem;
 		}
 
 		.hero-title {
-			font-size: 24px;
-			line-height: 1.25;
+			font-size: clamp(24px, 6.5vw, 28px);
+			line-height: 1.22;
+			margin-bottom: 12px;
 		}
 
 		.hero-desc {
-			font-size: 13px;
-			margin-bottom: 1.25rem;
-		}
-
-		.hero-mobile-photo-band {
-			display: block;
-			width: 100%;
-			height: 180px;
-			border-radius: 12px;
-			overflow: hidden;
-			margin: 0 0 1.25rem 0;
-			border: 1px solid rgba(22, 182, 193, 0.3);
-		}
-
-		.mobile-band-img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+			font-size: 13.5px;
+			line-height: 1.54;
+			margin-bottom: 0;
 		}
 
 		.hero-bottom-wave {
-			height: 36px;
+			height: 40px;
 		}
+	}
 
-		.hero-choice-group {
-			flex-direction: row;
-			gap: 10px;
-			width: 100%;
-		}
-
-		.hero-choice-btn {
-			flex: 1 1 50%;
-			height: 42px;
-			padding: 0 10px;
-			font-size: 13px;
+	@media (max-width: 480px) {
+		.sch-hero-container {
+			padding: 0 1.25rem;
 		}
 	}
 </style>

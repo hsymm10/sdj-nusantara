@@ -11,8 +11,8 @@
 <svelte:head>
 	<title>
 		{isNotFound
-			? i18n.pick('Halaman Tidak Ditemukan — SDJNusantara', 'Page Not Found — SDJNusantara')
-			: i18n.pick('Terjadi Kesalahan — SDJNusantara', 'Something Went Wrong — SDJNusantara')}
+			? i18n.pick('Halaman Tidak Ditemukan — SDJ Nusantara', 'Page Not Found — SDJ Nusantara')
+			: i18n.pick('Terjadi Kesalahan — SDJ Nusantara', 'Something Went Wrong — SDJ Nusantara')}
 	</title>
 </svelte:head>
 

@@ -13,7 +13,7 @@
 			</div>
 			<h2 class="cta-home-title">Masih Bingung Menentukan<br/>Layanan yang Tepat?</h2>
 			<p class="cta-home-desc">
-				Tim SDJNusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
+				Tim SDJ Nusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
 			</p>
 		</div>
 		<div class="cta-home-actions">

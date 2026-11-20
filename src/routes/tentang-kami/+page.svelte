@@ -12,8 +12,8 @@
 </script>
 
 <svelte:head>
-	<title>{i18n.pick('Tentang Kami — SDJNusantara Strategic Your Partner', 'About Us — SDJNusantara Your Strategic Partner')}</title>
-	<meta name="description" content={i18n.pick('Profil, visi, misi, nilai luhur, dan pendekatan SDJNusantara sebagai konsultan pendidikan dan pengembangan talenta.', 'Profile, vision, mission, core values, and approach of SDJNusantara as an education and talent development consultancy.')} />
+	<title>{i18n.pick('Tentang Kami — SDJ Nusantara Strategic Your Partner', 'About Us — SDJ Nusantara Your Strategic Partner')}</title>
+	<meta name="description" content={i18n.pick('Profil, visi, misi, nilai luhur, dan pendekatan SDJ Nusantara sebagai konsultan pendidikan dan pengembangan talenta.', 'Profile, vision, mission, core values, and approach of SDJ Nusantara as an education and talent development consultancy.')} />
 </svelte:head>
 
 <Navbar compact={true} wide={true} />
@@ -26,14 +26,11 @@
 	<NilaiSection />
 	<PendekatanSection />
 	<CtaBanner
-		title={i18n.pick('Mari Bersinergi Bersama SDJNusantara', 'Let’s Collaborate with SDJNusantara')}
+		title={i18n.pick('Mari Bersinergi Bersama SDJ Nusantara', 'Let’s Collaborate with SDJ Nusantara')}
 		description={i18n.pick('Bergabunglah dalam perjalanan kami untuk menciptakan pendidikan yang lebih baik.', 'Join us on our journey to build better education for the future.')}
-		primaryText={i18n.pick('Hubungi Kami Sekarang →', 'Contact Us Now →')}
-		primaryHref="/kontak"
-		secondaryText={i18n.pick('Pelajari Program Kami', 'Explore Our Programs')}
-		secondaryHref="/layanan/pendidikan#program"
 		bgImage="/images/cta-building-glass.jpg"
 		variant="tentang-kami"
+		showButtons={false}
 	/>
 </main>
 

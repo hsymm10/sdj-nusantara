@@ -245,12 +245,12 @@
 		</ul>
 	</div>
 
-	<!-- Bantuan dari SDJNusantara -->
+	<!-- Bantuan dari SDJ Nusantara -->
 	<div class="section-subblock">
 		<h3 class="subblock-heading">
 			{i18n.pick(
-				"Bantuan Pendampingan dari SDJNusantara",
-				"Mentoring Support from SDJNusantara",
+				"Bantuan Pendampingan dari SDJ Nusantara",
+				"Mentoring Support from SDJ Nusantara",
 			)}
 		</h3>
 		<div class="assistance-cards-row">
@@ -287,13 +287,13 @@
 					<strong>Note:</strong> Reference sample data. Requirements, deadlines,
 					and official links may change at any time according to the provider's
 					policy. Always verify information on the official provider website.
-					SDJNusantara does not guarantee admission or scholarship award;
+					SDJ Nusantara does not guarantee admission or scholarship award;
 					final decisions rest solely with the provider.
 				{:else}
 					<strong>Catatan:</strong> Contoh data referensi. Syarat, tenggat
 					waktu, dan tautan resmi dapat berubah sewaktu-waktu sesuai kebijakan
 					penyelenggara. Pastikan selalu memverifikasi informasi di situs
-					resmi penyelenggara. SDJNusantara tidak menjanjikan kelulusan
+					resmi penyelenggara. SDJ Nusantara tidak menjanjikan kelulusan
 					atau perolehan beasiswa; keputusan mutlak berada pada pihak penyelenggara.
 				{/if}
 			</p>

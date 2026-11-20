@@ -18,7 +18,7 @@ export const hukumKnowledge = [
 		],
 		kataKunci: ['hukum', 'regulasi', 'mou', 'kontrak', 'kebijakan kampus', 'konsultasi hukum'],
 		ringkas:
-			'Layanan hukum dan pendampingan regulasi saat ini sedang dalam tahap persiapan resmi oleh tim SDJNusantara.',
+			'Layanan hukum dan pendampingan regulasi saat ini sedang dalam tahap persiapan resmi oleh tim SDJ Nusantara.',
 		detail: [
 			'Informasi mengenai ruang lingkup, izin praktik, dan identitas penanggung jawab hukum sedang diverifikasi.',
 			'Untuk kebutuhan konsultasi dan koordinasi terkait regulasi pendidikan, Anda dapat menghubungi perwakilan tim kami secara langsung.',

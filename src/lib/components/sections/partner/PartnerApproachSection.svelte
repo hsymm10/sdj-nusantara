@@ -101,8 +101,8 @@
 
 				<p class="section-desc">
 					{i18n.pick(
-						'Kami percaya bahwa kemitraan yang kuat lahir dari kesamaan visi dan tujuan. SDJNusantara hadir sebagai penghubung antara berbagai pihak untuk menciptakan program pendidikan yang inovatif, inklusif, dan berkelanjutan.',
-						'We believe strong partnerships are born from shared vision and purpose. SDJNusantara serves as a bridge connecting stakeholders to create innovative, inclusive, and sustainable education programs.'
+						'Kami percaya bahwa kemitraan yang kuat lahir dari kesamaan visi dan tujuan. SDJ Nusantara hadir sebagai penghubung antara berbagai pihak untuk menciptakan program pendidikan yang inovatif, inklusif, dan berkelanjutan.',
+						'We believe strong partnerships are born from shared vision and purpose. SDJ Nusantara serves as a bridge connecting stakeholders to create innovative, inclusive, and sustainable education programs.'
 					)}
 				</p>
 

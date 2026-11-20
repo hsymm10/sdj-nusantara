@@ -1,4 +1,4 @@
-<!-- Section 05: 5 Tahap Pelaksanaan Pendampingan Kami (Mockup Resmi SDJNusantara) -->
+<!-- Section 05: 5 Tahap Pelaksanaan Pendampingan Kami (Mockup Resmi SDJ Nusantara) -->
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
 	import { dragToScroll } from '#lib/actions/dragToScroll';

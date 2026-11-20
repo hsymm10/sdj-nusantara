@@ -35,7 +35,7 @@
 				<p class="quote-text">
 					Setiap layanan kami dirancang berdasarkan pengalaman, riset, dan kebutuhan nyata di lapangan.
 				</p>
-				<span class="quote-author">SDJNusantara</span>
+				<span class="quote-author">SDJ Nusantara</span>
 			</div>
 
 			<!-- Right: Spacer for Blob Image that touches screen edge -->
@@ -53,7 +53,7 @@
 		<div class="blob-mask">
 			<img
 				src="/images/services-building.jpg"
-				alt="Gedung Kampus SDJNusantara"
+				alt="Gedung Kampus SDJ Nusantara"
 				class="blob-photo"
 				loading="lazy"
 			/>

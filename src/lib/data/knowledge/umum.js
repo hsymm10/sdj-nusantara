@@ -8,7 +8,7 @@ export const umumKnowledge = [
 	{
 		id: 'umum-profil',
 		kategori: 'umum',
-		judul: 'Mengenal SDJNusantara',
+		judul: 'Mengenal SDJ Nusantara',
 		pertanyaan: [
 			'info program pendidikan',
 			'informasi program pendidikan',
@@ -22,7 +22,7 @@ export const umumKnowledge = [
 		],
 		kataKunci: ['sdjnusantara', 'profil', 'konsultan pendidikan', 'pengembangan talenta', 'tentang kami'],
 		ringkas:
-			'SDJNusantara adalah konsultan pendidikan dan pengembangan talenta yang mendampingi individu serta institusi dalam merencanakan masa depan pendidikan yang terarah.',
+			'SDJ Nusantara adalah konsultan pendidikan dan pengembangan talenta yang mendampingi individu serta institusi dalam merencanakan masa depan pendidikan yang terarah.',
 		detail: [
 			'Fokus pada pendampingan persiapan beasiswa S1, S2, dan S3 dalam dan luar negeri.',
 			'Layanan pemetaan bakat, minat, dan rencana pengembangan diri terstruktur.',
@@ -91,7 +91,7 @@ export const umumKnowledge = [
 		],
 		kataKunci: ['sasaran', 'siapa yang bisa ikut', 'peserta', 'pelajar', 'mahasiswa', 'profesional', 'institusi'],
 		ringkas:
-			'Layanan SDJNusantara terbuka untuk berbagai kalangan, mulai dari pelajar sekolah menengah, mahasiswa, profesional, hingga institusi pendidikan dan korporasi.',
+			'Layanan SDJ Nusantara terbuka untuk berbagai kalangan, mulai dari pelajar sekolah menengah, mahasiswa, profesional, hingga institusi pendidikan dan korporasi.',
 		detail: [
 			'Pelajar SMA/SMK: Pemetaan minat jurusan, persiapan beasiswa S1, dan keterampilan digital dasar.',
 			'Mahasiswa S1/S2: Bimbingan beasiswa master/doktor, publikasi, dan persiapan karier.',
@@ -125,7 +125,7 @@ export const umumKnowledge = [
 		],
 		kataKunci: ['alur', 'cara daftar', 'proses', 'tahapan layanan', 'pendaftaran'],
 		ringkas:
-			'Mengakses layanan di SDJNusantara sangat mudah melalui 4 langkah praktis dari konsultasi awal hingga pelaksanaan.',
+			'Mengakses layanan di SDJ Nusantara sangat mudah melalui 4 langkah praktis dari konsultasi awal hingga pelaksanaan.',
 		detail: [
 			'Langkah 1 (Pilih Layanan): Tentukan bidang yang Anda minati di situs web.',
 			'Langkah 2 (Konsultasi Awal): Hubungi kami melalui formulir kontak atau WhatsApp resmi.',
@@ -158,7 +158,7 @@ export const umumKnowledge = [
 		],
 		kataKunci: ['kontak', 'alamat', 'whatsapp', 'nomor telepon', 'lokasi', 'email', 'graha aktiva'],
 		ringkas:
-			'Anda dapat menghubungi tim SDJNusantara melalui WhatsApp resmi, email, atau mengunjungi kantor operasional kami di Jakarta Selatan.',
+			'Anda dapat menghubungi tim SDJ Nusantara melalui WhatsApp resmi, email, atau mengunjungi kantor operasional kami di Jakarta Selatan.',
 		detail: [
 			'WhatsApp Layanan: +62 858-8072-4733',
 			'Email Resmi: info@sdjnusantara.com',

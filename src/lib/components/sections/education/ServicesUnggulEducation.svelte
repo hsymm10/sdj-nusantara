@@ -1,4 +1,4 @@
-<!-- Section 04: Solusi Terintegrasi untuk Pengembangan Potensi (Mockup Resmi SDJNusantara) -->
+<!-- Section 04: Solusi Terintegrasi untuk Pengembangan Potensi (Mockup Resmi SDJ Nusantara) -->
 <script lang="ts">
 	import ServiceDetailModal from './ServiceDetailModal.svelte';
 	import { i18n } from '#lib/stores/i18n.svelte';

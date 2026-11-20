@@ -28,7 +28,7 @@
 					<span class="gold-accent">Layanan yang Tepat?</span>
 				</h2>
 				<p class="cta-desc">
-					Tim SDJNusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
+					Tim SDJ Nusantara siap membantu Anda menemukan program, beasiswa, maupun layanan yang sesuai dengan kebutuhan.
 				</p>
 			</div>
 

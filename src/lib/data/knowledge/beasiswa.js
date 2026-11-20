@@ -28,7 +28,7 @@ export const beasiswaKnowledge = [
 			's3'
 		],
 		ringkas:
-			'Pendampingan beasiswa SDJNusantara dirancang melalui 6 langkah berurutan agar berkas dan kesiapan mental Anda matang sebelum batas waktu pendaftaran tiba.',
+			'Pendampingan beasiswa SDJ Nusantara dirancang melalui 6 langkah berurutan agar berkas dan kesiapan mental Anda matang sebelum batas waktu pendaftaran tiba.',
 		detail: [
 			'Langkah 1 (Konsultasi Awal): Mengidentifikasi latar belakang pendidikan, target studi, dan preferensi negara tujuan Anda.',
 			'Langkah 2 (Pemetaan Peluang): Menganalisis skema beasiswa dalam dan luar negeri yang paling cocok dengan profil akademik Anda.',
@@ -71,7 +71,7 @@ export const beasiswaKnowledge = [
 		ringkas:
 			'Keputusan penerimaan dan pemberian beasiswa sepenuhnya merupakan kewenangan pihak penyelenggara beasiswa atau perguruan tinggi terkait.',
 		detail: [
-			'SDJNusantara memberikan konsultasi, pembimbingan strategi, dan pendampingan dokumen, bukan perantara atau jaminan kelulusan.',
+			'SDJ Nusantara memberikan konsultasi, pembimbingan strategi, dan pendampingan dokumen, bukan perantara atau jaminan kelulusan.',
 			'Kami tidak menjual janji penerimaan Letter of Acceptance (LoA) maupun kepastian lolos seleksi beasiswa.',
 			'Tujuan kami adalah meningkatkan kelayakan dan mutu aplikasi peserta agar dapat bersaing secara sehat dan terhormat.',
 			'Seluruh proses seleksi resmi dinilai secara independen oleh komite beasiswa masing-masing lembaga.'
@@ -114,7 +114,7 @@ export const beasiswaKnowledge = [
 			'Informasi jadwal, kuota, dan persyaratan teknis beasiswa dapat berubah sewaktu-waktu sesuai kebijakan resmi masing-masing penyelenggara.',
 		detail: [
 			'Pastikan selalu memverifikasi informasi dan tanggal tenggat langsung di situs resmi penyelenggara (misalnya situs LPDP, Kemendikbudristek untuk BPI, Kedutaan Inggris untuk Chevening, atau Kedutaan Jepang untuk MEXT).',
-			'SDJNusantara membantu Anda mempersiapkan syarat-syarat umum: esai kontribusi, rencana studi, motivation letter, dan simulasi wawancara.',
+			'SDJ Nusantara membantu Anda mempersiapkan syarat-syarat umum: esai kontribusi, rencana studi, motivation letter, dan simulasi wawancara.',
 			'Kami mendampingi proses kurasi beasiswa yang paling pas dengan bidang ilmu dan rencana masa depan Anda.'
 		],
 		cocokUntuk: [
@@ -151,9 +151,9 @@ export const beasiswaKnowledge = [
 		ringkas:
 			'Sertifikat keikutsertaan pelatihan internal berbeda dari sertifikat kompetensi resmi yang diterbitkan oleh badan sertifikasi berwenang.',
 		detail: [
-			'Setiap peserta pelatihan di SDJNusantara memperoleh sertifikat keikutsertaan pelatihan resmi dari lembaga kami.',
+			'Setiap peserta pelatihan di SDJ Nusantara memperoleh sertifikat keikutsertaan pelatihan resmi dari lembaga kami.',
 			'Sertifikat kompetensi profesi hanya diterbitkan oleh lembaga yang berwenang (seperti BNSP melalui LSP terkait) sesuai skema uji kompetensi yang berlaku.',
-			'SDJNusantara merencanakan kerja sama dengan lembaga sertifikasi berwenang; nama skema dan status kemitraan resmi akan diumumkan secara terbuka setelah proses verifikasi selesai.',
+			'SDJ Nusantara merencanakan kerja sama dengan lembaga sertifikasi berwenang; nama skema dan status kemitraan resmi akan diumumkan secara terbuka setelah proses verifikasi selesai.',
 			'Kami tidak mencantumkan atau mengklaim kemitraan sebelum adanya perjanjian kerja sama formal yang terverifikasi.'
 		],
 		cocokUntuk: [

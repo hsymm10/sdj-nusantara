@@ -52,7 +52,7 @@
 	<!-- Live Region Pengumuman Pesan Baru untuk Aksesibilitas Pembaca Layar -->
 	<div class="sr-only" role="status" aria-live="polite">
 		{#if chatStore.unreadCount > 0 && !chatStore.isOpen}
-			Ada {chatStore.unreadCount} pesan baru dari Asisten SDJNusantara.
+			Ada {chatStore.unreadCount} pesan baru dari Asisten SDJ Nusantara.
 		{/if}
 	</div>
 

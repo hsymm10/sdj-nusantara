@@ -7,7 +7,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/partner-hero-5.jpg"
-			alt="Layanan SDJNusantara"
+			alt="Layanan SDJ Nusantara"
 			class="hero-img"
 			loading="eager"
 			fetchpriority="high"
@@ -61,7 +61,7 @@
 
 			<!-- Description -->
 			<p class="hero-desc">
-				SDJNusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.
+				SDJ Nusantara menyediakan layanan pendidikan, pengembangan talenta, beasiswa, dan pendampingan profesional untuk mendukung potensi terbaik Anda.
 			</p>
 
 			<!-- Buttons Row -->

@@ -7,7 +7,7 @@
 	<div class="nilai-bg-wrap">
 		<img
 			src="/images/about-hands-network.jpg"
-			alt="Kolaborasi Nilai SDJNusantara"
+			alt="Kolaborasi Nilai SDJ Nusantara"
 			class="nilai-bg-img"
 			loading="lazy"
 		/>
@@ -62,16 +62,6 @@
 						"to deliver the finest education solutions.",
 					)}
 				</p>
-
-				<a href="#pendekatan" class="btn-gold">
-					<span
-						>{i18n.pick(
-							"Kenali Nilai Kami",
-							"Discover Our Values",
-						)}</span
-					>
-					<span class="btn-arrow">→</span>
-				</a>
 			</div>
 
 			<!-- Right Columns: 4 Value Items with Thin Vertical Dividers -->
@@ -383,7 +373,7 @@
 
 	.nilai-col:hover .nilai-icon-box {
 		background: rgba(0, 166, 178, 0.28);
-		border-color: #00A6B2;
+		border-color: #00a6b2;
 		transform: translateY(-2px);
 		box-shadow: 0 4px 12px rgba(0, 166, 178, 0.25);
 	}

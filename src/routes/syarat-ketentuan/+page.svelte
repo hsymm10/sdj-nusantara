@@ -5,8 +5,8 @@
 </script>
 
 <svelte:head>
-	<title>{i18n.dict.footer.terms} - SDJNusantara</title>
-	<meta name="description" content="{i18n.pick('Syarat dan Ketentuan Layanan SDJNusantara', 'SDJNusantara Terms and Conditions of Service')}" />
+	<title>{i18n.dict.footer.terms} - SDJ Nusantara</title>
+	<meta name="description" content="{i18n.pick('Syarat dan Ketentuan Layanan SDJ Nusantara', 'SDJ Nusantara Terms and Conditions of Service')}" />
 </svelte:head>
 
 <Navbar compact={true} wide={true} />

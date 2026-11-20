@@ -9,12 +9,12 @@
 </script>
 
 <svelte:head>
-	<title>{i18n.pick('Kemitraan — SDJNusantara Strategic Your Partner', 'Partnerships — SDJNusantara Strategic Your Partner')}</title>
+	<title>{i18n.pick('Kemitraan — SDJ Nusantara Strategic Your Partner', 'Partnerships — SDJ Nusantara Strategic Your Partner')}</title>
 	<meta
 		name="description"
 		content={i18n.pick(
-			'Peluang kemitraan dan kolaborasi strategis bersama SDJNusantara untuk membangun ekosistem pendidikan dan pengembangan talenta yang lebih kuat.',
-			'Strategic partnership and collaboration opportunities with SDJNusantara to build a stronger education and talent development ecosystem.'
+			'Peluang kemitraan dan kolaborasi strategis bersama SDJ Nusantara untuk membangun ekosistem pendidikan dan pengembangan talenta yang lebih kuat.',
+			'Strategic partnership and collaboration opportunities with SDJ Nusantara to build a stronger education and talent development ecosystem.'
 		)}
 	/>
 </svelte:head>
@@ -33,15 +33,12 @@
 
 	<!-- 4. CTA Banner -->
 	<CtaBanner
-		title={i18n.pick('Siap Menjalin Kemitraan dengan SDJNusantara?', 'Ready to Partner with SDJNusantara?')}
+		title={i18n.pick('Siap Menjalin Kemitraan dengan SDJ Nusantara?', 'Ready to Partner with SDJ Nusantara?')}
 		description={i18n.pick(
 			'Bersama kita bisa menciptakan lebih banyak peluang, program inovatif, dan dampak positif bagi dunia pendidikan dan talenta Indonesia.',
 			'Together we can create greater opportunities, innovative programs, and positive impact for education and talent development.'
 		)}
-		primaryText={i18n.pick('Ajukan Kerja Sama →', 'Propose a Partnership →')}
-		primaryHref="/konsultasi"
-		secondaryText={i18n.pick('Hubungi Kami', 'Contact Us')}
-		secondaryHref="/kontak"
+		showButtons={false}
 		bgImage="/images/cta-building-glass-left.jpg"
 		variant="kemitraan"
 	/>

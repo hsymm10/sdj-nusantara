@@ -1,4 +1,4 @@
-<!-- Section 01: Komitmen Nyata untuk Dampak yang Terukur (Mockup GAMBAR 2 SDJNusantara) -->
+<!-- Section 01: Komitmen Nyata untuk Dampak yang Terukur (Mockup GAMBAR 2 SDJ Nusantara) -->
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
 
@@ -42,8 +42,8 @@
 			</h2>
 			<p class="impact-sub">
 				{i18n.pick(
-					'SDJNusantara terus menghadirkan program pendidikan dan pengembangan talenta yang berdampak luas.',
-					'SDJNusantara continuously delivers education and talent development programs with broad impact.'
+					'SDJ Nusantara terus menghadirkan program pendidikan dan pengembangan talenta yang berdampak luas.',
+					'SDJ Nusantara continuously delivers education and talent development programs with broad impact.'
 				)}
 			</p>
 		</div>

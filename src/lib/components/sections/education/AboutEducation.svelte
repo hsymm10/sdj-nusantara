@@ -1,4 +1,4 @@
-<!-- Section 03: Tentang SDJNusantara (Mockup Resmi SDJNusantara) -->
+<!-- Section 03: Tentang SDJ Nusantara (Mockup Resmi SDJ Nusantara) -->
 <script lang="ts">
 	import { i18n } from "#lib/stores/i18n.svelte";
 
@@ -43,8 +43,8 @@
 			<div class="section-badge">
 				<span class="badge-text"
 					>{i18n.pick(
-						"Tentang SDJNusantara",
-						"About SDJNusantara",
+						"Tentang SDJ Nusantara",
+						"About SDJ Nusantara",
 					)}</span
 				>
 			</div>
@@ -65,8 +65,8 @@
 			</h2>
 			<p class="about-desc">
 				{i18n.pick(
-					"SDJNusantara hadir untuk memperluas akses, membangun kompetensi, dan menghubungkan individu dengan peluang terbaik di dunia pendidikan dan dunia kerja.",
-					"SDJNusantara exists to expand access, build competencies, and connect individuals with top opportunities in education and the workplace.",
+					"SDJ Nusantara hadir untuk memperluas akses, membangun kompetensi, dan menghubungkan individu dengan peluang terbaik di dunia pendidikan dan dunia kerja.",
+					"SDJ Nusantara exists to expand access, build competencies, and connect individuals with top opportunities in education and the workplace.",
 				)}
 			</p>
 			<a href="/tentang-kami" class="about-cta-btn">
@@ -241,7 +241,7 @@
 				<div class="bldg-card">
 					<img
 						src="/images/about-campus-hd.jpg"
-						alt="Gedung Kampus SDJNusantara"
+						alt="Gedung Kampus SDJ Nusantara"
 						class="bldg-img"
 						loading="eager"
 					/>

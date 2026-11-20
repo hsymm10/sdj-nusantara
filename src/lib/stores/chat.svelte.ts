@@ -1,4 +1,4 @@
-// Store State Chatbot SDJNusantara (Svelte 5 Runes)
+// Store State Chatbot SDJ Nusantara (Svelte 5 Runes)
 // Mengelola percakapan dwibahasa, riwayat terstruktur, unread counter, dan status jendela
 
 import { chatConfig } from '#lib/config/chat';

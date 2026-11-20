@@ -1,5 +1,5 @@
 // src/lib/config/navigation.ts
-// Sumber konfigurasi navigasi terpusat SDJNusantara
+// Sumber konfigurasi navigasi terpusat SDJ Nusantara
 import { serviceConfig, type ServiceModuleKey } from './services';
 
 export interface NavSubItem {

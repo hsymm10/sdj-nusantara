@@ -2,7 +2,7 @@
 // src/lib/data/knowledge/policies.js
 
 /**
- * Aturan respons dan kebijakan konten chatbot SDJNusantara.
+ * Aturan respons dan kebijakan konten chatbot SDJ Nusantara.
  * Menjamin kepatuhan etika layanan, akurasi informasi, dan perlindungan privasi.
  */
 
@@ -29,7 +29,7 @@ export const SENSITIVE_DATA_PATTERNS = [
 
 export const CHATBOT_POLICIES = {
 	noGuarantee:
-		'Keputusan akhir beasiswa dan pendaftaran sepenuhnya merupakan wewenang pihak universitas atau penyelenggara beasiswa. SDJNusantara mendampingi persiapan dokumen dan strategi, bukan menjamin kelulusan.',
+		'Keputusan akhir beasiswa dan pendaftaran sepenuhnya merupakan wewenang pihak universitas atau penyelenggara beasiswa. SDJ Nusantara mendampingi persiapan dokumen dan strategi, bukan menjamin kelulusan.',
 	noFixedPricing:
 		'Biaya dan jadwal program disesuaikan dengan kebutuhan serta ruang lingkup pendampingan. Rincian ini dijelaskan langsung saat sesi konsultasi awal.',
 	bnspStatusNotice:
@@ -39,7 +39,7 @@ export const CHATBOT_POLICIES = {
 	privacyNotice:
 		'Kami tidak meminta dan tidak menyimpan data sensitif seperti NIK, kata sandi, atau nomor rekening bank melalui percakapan ini.',
 	unsupportedTopicFallback:
-		'Topik ini di luar cakupan layanan SDJNusantara. Kami berfokus pada pendampingan pendidikan, beasiswa, pelatihan keterampilan, dan pengembangan talenta.'
+		'Topik ini di luar cakupan layanan SDJ Nusantara. Kami berfokus pada pendampingan pendidikan, beasiswa, pelatihan keterampilan, dan pengembangan talenta.'
 };
 
 /**

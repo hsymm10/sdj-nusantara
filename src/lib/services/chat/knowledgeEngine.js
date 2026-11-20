@@ -1,5 +1,5 @@
 // src/lib/services/chat/knowledgeEngine.js
-// Mesin Pemrosesan Pertanyaan Chatbot berbasis Basis Pengetahuan Tunggal SDJNusantara
+// Mesin Pemrosesan Pertanyaan Chatbot berbasis Basis Pengetahuan Tunggal SDJ Nusantara
 
 import { allKnowledge } from '../../data/knowledge/index.js';
 import { expandSynonyms } from '../../data/knowledge/synonyms.js';
@@ -153,8 +153,8 @@ function checkSpecialPolicyIntents(query) {
 		return {
 			replies: [
 				isEn
-					? `SDJNusantara does not guarantee scholarship acceptance or admission. Final selection decisions rest solely with the university or scholarship provider.\n\nOur Scholarship Academy focuses on structured preparation, profile mapping, strengthening application documents (CV and essays/motivation letters), and interview simulations.`
-					: `SDJNusantara tidak memberikan jaminan kelulusan atau perolehan beasiswa. Keputusan akhir sepenuhnya merupakan wewenang pihak universitas atau lembaga penyelenggara beasiswa terkait.\n\nLayanan Scholarship Academy SDJNusantara berfokus pada pendampingan terarah, pemetaan profil, penguatan dokumen aplikasi (CV dan esai/motivation letter), serta simulasi wawancara agar persiapan Anda lebih matang.`
+					? `SDJ Nusantara does not guarantee scholarship acceptance or admission. Final selection decisions rest solely with the university or scholarship provider.\n\nOur Scholarship Academy focuses on structured preparation, profile mapping, strengthening application documents (CV and essays/motivation letters), and interview simulations.`
+					: `SDJ Nusantara tidak memberikan jaminan kelulusan atau perolehan beasiswa. Keputusan akhir sepenuhnya merupakan wewenang pihak universitas atau lembaga penyelenggara beasiswa terkait.\n\nLayanan Scholarship Academy SDJ Nusantara berfokus pada pendampingan terarah, pemetaan profil, penguatan dokumen aplikasi (CV dan esai/motivation letter), serta simulasi wawancara agar persiapan Anda lebih matang.`
 			],
 			suggestions: isEn
 				? ['Education Programs', 'Scholarships', 'Consultation']
@@ -175,8 +175,8 @@ function checkSpecialPolicyIntents(query) {
 		return {
 			replies: [
 				isEn
-					? `All official SDJNusantara program transactions and payments are issued only via official invoices and institutional accounts, never personal bank accounts.\n\nFor official administration confirmation, please reach our representative via WhatsApp +62 858-8072-4733 or email info@sdjnusantara.com.`
-					: `Seluruh transaksi dan pembayaran resmi program SDJNusantara hanya diterbitkan melalui invoice resmi dan rekening institusi atas nama lembaga/perusahaan, bukan rekening pribadi individu mana pun.\n\nUntuk konfirmasi administrasi resmi, silakan hubungi saluran representatif kami di WhatsApp +62 858-8072-4733 atau email info@sdjnusantara.com.`
+					? `All official SDJ Nusantara program transactions and payments are issued only via official invoices and institutional accounts, never personal bank accounts.\n\nFor official administration confirmation, please reach our representative via WhatsApp +62 858-8072-4733 or email info@sdjnusantara.com.`
+					: `Seluruh transaksi dan pembayaran resmi program SDJ Nusantara hanya diterbitkan melalui invoice resmi dan rekening institusi atas nama lembaga/perusahaan, bukan rekening pribadi individu mana pun.\n\nUntuk konfirmasi administrasi resmi, silakan hubungi saluran representatif kami di WhatsApp +62 858-8072-4733 atau email info@sdjnusantara.com.`
 			],
 			suggestions: isEn
 				? ['Contact', 'Consultation', 'Education Programs']

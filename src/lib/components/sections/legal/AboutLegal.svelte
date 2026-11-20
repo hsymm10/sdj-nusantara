@@ -24,7 +24,7 @@
 				<span class="tag-label">TENTANG LAYANAN</span>
 			</div>
 
-			<h2 id="about-legal-heading" class="about-title">Layanan Hukum SDJNusantara</h2>
+			<h2 id="about-legal-heading" class="about-title">Layanan Hukum SDJ Nusantara</h2>
 
 			<p class="about-desc">
 				Layanan konsultasi regulasi, telaah kepatuhan, serta pendampingan tata kelola hukum bagi institusi pendidikan, organisasi, maupun korporasi di bidang pendidikan.
@@ -72,7 +72,7 @@
 				<div class="building-photo-box">
 					<img
 						src="/images/about-campus-hd.jpg"
-						alt="Gedung Perkantoran Modern SDJNusantara"
+						alt="Gedung Perkantoran Modern SDJ Nusantara"
 						class="building-img"
 					/>
 					<!-- Lengkung emas kecil di sudut kanan bawah foto -->

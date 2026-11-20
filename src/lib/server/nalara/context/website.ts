@@ -1,15 +1,15 @@
 // src/lib/server/nalara/context/website.ts
-// Basis Pengetahuan Resmi: Struktur Halaman & Navigasi Website SDJNusantara
+// Basis Pengetahuan Resmi: Struktur Halaman & Navigasi Website SDJ Nusantara
 
 import type { KnowledgeEntry } from '../types/knowledge.types';
 
 export const websiteKnowledge: KnowledgeEntry[] = [
 	{
 		id: 'website-sitemap-routes',
-		title: 'Peta Situs & Halaman Resmi SDJNusantara',
+		title: 'Peta Situs & Halaman Resmi SDJ Nusantara',
 		category: 'website',
 		content:
-			'Website resmi SDJNusantara (https://sdjnusantara.com) memiliki struktur navigasi publik yang mencakup Beranda, Tentang Kami, Layanan, Kemitraan, Perspektif/Artikel, dan Kontak.',
+			'Website resmi SDJ Nusantara (https://sdjnusantara.com) memiliki struktur navigasi publik yang mencakup Beranda, Tentang Kami, Layanan, Kemitraan, Perspektif/Artikel, dan Kontak.',
 		details: [
 			'/ (Beranda): Ikhtisar profil, keunggulan, layanan unggulan, artikel terkini, dan CTA konsultasi.',
 			'/tentang-kami: Visi, misi, nilai perusahaan, tim kepemimpinan, dan metodologi 5 tahap.',

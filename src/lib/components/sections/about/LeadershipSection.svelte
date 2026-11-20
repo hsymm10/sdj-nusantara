@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import leadersData from '#lib/data/leaders.js';
-	import LeaderModal from './LeaderModal.svelte';
-	import { i18n } from '#lib/stores/i18n.svelte';
+	import { onMount } from "svelte";
+	import leadersData from "#lib/data/leaders.js";
+	import LeaderModal from "./LeaderModal.svelte";
+	import { i18n } from "#lib/stores/i18n.svelte";
 
 	// Svelte 5 runes
 	type Leader = (typeof leadersData)[0];
@@ -52,7 +52,10 @@
 		activeIndex = (((activeIndex + steps) % count) + count) % count;
 	}
 
-	function openModalForLeader(leader: Leader, triggerEl?: HTMLElement | null) {
+	function openModalForLeader(
+		leader: Leader,
+		triggerEl?: HTMLElement | null,
+	) {
 		selectedLeader = leader;
 		triggerElement = triggerEl || null;
 		isModalOpen = true;
@@ -92,13 +95,13 @@
 	}
 
 	function handleKeydown(e: KeyboardEvent, index: number) {
-		if (e.key === 'ArrowRight') {
+		if (e.key === "ArrowRight") {
 			e.preventDefault();
 			next();
-		} else if (e.key === 'ArrowLeft') {
+		} else if (e.key === "ArrowLeft") {
 			e.preventDefault();
 			prev();
-		} else if (e.key === 'Enter' || e.key === ' ') {
+		} else if (e.key === "Enter" || e.key === " ") {
 			if (index === activeIndex) {
 				e.preventDefault();
 				openModalForLeader(leadersData[index], cardElements[index]);
@@ -113,7 +116,8 @@
 	function handlePointerDown(e: PointerEvent) {
 		if (e.button !== 0) return;
 		// Ignore clicks originating from interactive buttons or links
-		if ((e.target as HTMLElement).closest('button.nav-btn, a, input')) return;
+		if ((e.target as HTMLElement).closest("button.nav-btn, a, input"))
+			return;
 
 		isPointerDown = true;
 		didDrag = false;
@@ -138,7 +142,9 @@
 				didDrag = true;
 				// Capture pointer ONLY after confirmed drag
 				try {
-					(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+					(e.currentTarget as HTMLElement).setPointerCapture(
+						e.pointerId,
+					);
 				} catch {
 					// fallback
 				}
@@ -198,7 +204,9 @@
 
 			// Release pointer capture
 			try {
-				(e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+				(e.currentTarget as HTMLElement).releasePointerCapture(
+					e.pointerId,
+				);
 			} catch {
 				// fallback
 			}
@@ -227,7 +235,10 @@
 
 	// Horizontal wheel / trackpad support
 	function handleWheel(e: WheelEvent) {
-		if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 28) {
+		if (
+			Math.abs(e.deltaX) > Math.abs(e.deltaY) &&
+			Math.abs(e.deltaX) > 28
+		) {
 			const now = performance.now();
 			if (now - lastWheelTime > 320) {
 				lastWheelTime = now;
@@ -250,7 +261,9 @@
 
 	// Directly apply CSS transforms to DOM cards to avoid Svelte reactive state thrashing
 	function applyDirectTransforms(deltaX: number, isDraggingActive: boolean) {
-		const dragRatio = isDraggingActive ? Math.max(-1.5, Math.min(1.5, deltaX / CARD_SPACING)) : 0;
+		const dragRatio = isDraggingActive
+			? Math.max(-1.5, Math.min(1.5, deltaX / CARD_SPACING))
+			: 0;
 
 		for (let i = 0; i < count; i++) {
 			const el = cardElements[i];
@@ -260,8 +273,8 @@
 			const isVisible = Math.abs(baseOffset) <= 2;
 
 			if (!isVisible) {
-				el.style.opacity = '0';
-				el.style.pointerEvents = 'none';
+				el.style.opacity = "0";
+				el.style.pointerEvents = "none";
 				continue;
 			}
 
@@ -283,15 +296,17 @@
 			const zIndex = Math.round(10 - absEff * 2);
 
 			if (isDraggingActive) {
-				el.style.transition = 'none';
+				el.style.transition = "none";
 			} else {
-				el.style.transition = 'transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 450ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+				el.style.transition =
+					"transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 450ms cubic-bezier(0.22, 0.61, 0.36, 1)";
 			}
 
 			el.style.transform = `translateX(${translateX.toFixed(1)}px) translateZ(${translateZ.toFixed(1)}px) scale(${scale.toFixed(3)}) rotateY(${rotateY.toFixed(1)}deg)`;
 			el.style.opacity = opacity.toFixed(2);
 			el.style.zIndex = zIndex.toString();
-			el.style.pointerEvents = Math.abs(baseOffset) <= 1 ? 'auto' : 'none';
+			el.style.pointerEvents =
+				Math.abs(baseOffset) <= 1 ? "auto" : "none";
 		}
 	}
 
@@ -368,11 +383,25 @@
 			opacity="0.28"
 		/>
 		<defs>
-			<linearGradient id="tealGradLeft" x1="0" y1="150" x2="270" y2="0" gradientUnits="userSpaceOnUse">
+			<linearGradient
+				id="tealGradLeft"
+				x1="0"
+				y1="150"
+				x2="270"
+				y2="0"
+				gradientUnits="userSpaceOnUse"
+			>
 				<stop stop-color="#079EAD" />
 				<stop offset="1" stop-color="#16B6C1" />
 			</linearGradient>
-			<linearGradient id="goldGradLeft" x1="0" y1="150" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+			<linearGradient
+				id="goldGradLeft"
+				x1="0"
+				y1="150"
+				x2="320"
+				y2="0"
+				gradientUnits="userSpaceOnUse"
+			>
 				<stop stop-color="#F5B331" />
 				<stop offset="1" stop-color="#FCD34D" />
 			</linearGradient>
@@ -395,7 +424,14 @@
 			opacity="0.20"
 		/>
 		<defs>
-			<linearGradient id="goldGradRight" x1="320" y1="130" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+			<linearGradient
+				id="goldGradRight"
+				x1="320"
+				y1="130"
+				x2="0"
+				y2="0"
+				gradientUnits="userSpaceOnUse"
+			>
 				<stop stop-color="#F5B331" />
 				<stop offset="0.6" stop-color="#16B6C1" stop-opacity="0.3" />
 				<stop offset="1" stop-color="#079EAD" stop-opacity="0.1" />
@@ -408,10 +444,10 @@
 		<!-- Section Header -->
 		<div class="header-box">
 			<h2 class="section-title">
-				{i18n.pick('Management', 'Management')} <span class="teal-highlight">SDJNusantara</span>
+				{i18n.pick("Management", "Management")}
+				<span class="teal-highlight">SDJ Nusantara</span>
 			</h2>
 			<div class="turquoise-line" aria-hidden="true"></div>
-			<p class="section-subtitle">{i18n.pick('Jajaran Management SDJNusantara.', 'Management Team of SDJNusantara.')}</p>
 		</div>
 
 		<!-- Carousel Outer Stage: Navigation buttons sit OUTSIDE the drag wrapper -->
@@ -421,9 +457,21 @@
 				type="button"
 				class="nav-btn prev-btn"
 				onclick={prev}
-				aria-label={i18n.pick('Management sebelumnya', 'Previous management')}
+				aria-label={i18n.pick(
+					"Management sebelumnya",
+					"Previous management",
+				)}
 			>
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<polyline points="15 18 9 12 15 6"></polyline>
 				</svg>
 			</button>
@@ -434,36 +482,64 @@
 				class="cards-track-wrapper"
 				role="region"
 				aria-roledescription="carousel"
-				aria-label={i18n.pick('Management SDJNusantara', 'SDJNusantara Management')}
+				aria-label={i18n.pick(
+					"Management SDJ Nusantara",
+					"SDJ Nusantara Management",
+				)}
 				onpointerdown={handlePointerDown}
 				onpointermove={handlePointerMove}
 				onpointerup={handlePointerUp}
 				onpointercancel={handlePointerCancel}
 				onwheel={handleWheel}
 			>
-				<div class="cards-stage" role="group" aria-label={i18n.pick('Daftar foto management', 'Management photo list')}>
+				<div
+					class="cards-stage"
+					role="group"
+					aria-label={i18n.pick(
+						"Daftar foto management",
+						"Management photo list",
+					)}
+				>
 					{#each leadersData as leader, i (leader.id)}
-						{@const baseOffset = getBaseOffset(i, activeIndex, count)}
+						{@const baseOffset = getBaseOffset(
+							i,
+							activeIndex,
+							count,
+						)}
 						{@const isCenter = baseOffset === 0}
 						{@const isVisible = Math.abs(baseOffset) <= 2}
 						{#if isVisible}
 							<button
 								bind:this={cardElements[i]}
 								type="button"
-								class="leader-card pos-{baseOffset} {isCenter ? 'is-active' : ''}"
+								class="leader-card pos-{baseOffset} {isCenter
+									? 'is-active'
+									: ''}"
 								onclick={(e) => handleCardClick(i, e)}
 								onkeydown={(e) => handleKeydown(e, i)}
 								tabindex={Math.abs(baseOffset) <= 1 ? 0 : -1}
-								aria-label="{leader.nama}, {leader.jabatan}{isCenter ? ' (Klik untuk membuka profil)' : ''}"
+								aria-label="{leader.nama}, {leader.jabatan}{isCenter
+									? ' (Klik untuk membuka profil)'
+									: ''}"
 								aria-hidden={false}
 								draggable="false"
 							>
-								<div class="photo-wrapper {isCenter ? 'center-photo' : ''}">
-									{#if leader.foto.includes('.webp')}
+								<div
+									class="photo-wrapper {isCenter
+										? 'center-photo'
+										: ''}"
+								>
+									{#if leader.foto.includes(".webp")}
 										<picture>
-											<source srcset={leader.foto} type="image/webp" />
+											<source
+												srcset={leader.foto}
+												type="image/webp"
+											/>
 											<img
-												src={leader.foto.replace('.webp', '.jpg')}
+												src={leader.foto.replace(
+													".webp",
+													".jpg",
+												)}
 												alt={leader.fotoAlt}
 												class="leader-photo"
 												loading="lazy"
@@ -486,7 +562,10 @@
 
 									<!-- Data Contoh Badge: top-left position to leave faces unobstructed -->
 									{#if leader.isPlaceholder}
-										<span class="placeholder-badge" title="Data contoh sementara">
+										<span
+											class="placeholder-badge"
+											title="Data contoh sementara"
+										>
 											Data contoh
 										</span>
 									{/if}
@@ -494,9 +573,22 @@
 
 								<!-- Floating Name Label on Center Card (Allows up to 2 lines, no ellipsis) -->
 								{#if isCenter}
-									<div class="name-label-card" aria-hidden="true">
-										<div class="leader-name" title={leader.nama}>{leader.nama}</div>
-										<div class="leader-role" title={leader.jabatan}>{leader.jabatan}</div>
+									<div
+										class="name-label-card"
+										aria-hidden="true"
+									>
+										<div
+											class="leader-name"
+											title={leader.nama}
+										>
+											{leader.nama}
+										</div>
+										<div
+											class="leader-role"
+											title={leader.jabatan}
+										>
+											{leader.jabatan}
+										</div>
 										<div class="card-teal-line"></div>
 									</div>
 								{/if}
@@ -513,7 +605,16 @@
 				onclick={next}
 				aria-label="Management berikutnya"
 			>
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+				<svg
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
 					<polyline points="9 18 15 12 9 6"></polyline>
 				</svg>
 			</button>
@@ -525,7 +626,9 @@
 				<button
 					type="button"
 					class="dot-indicator {idx === activeIndex ? 'active' : ''}"
-					onclick={() => { activeIndex = idx; }}
+					onclick={() => {
+						activeIndex = idx;
+					}}
 					aria-label="Menuju management {idx + 1}"
 					tabindex="-1"
 				></button>
@@ -549,7 +652,12 @@
 <style>
 	/* Section Container */
 	.leadership-section {
-		background: linear-gradient(180deg, #F8FAFD 0%, #EEF4F9 50%, #F5F9FC 100%);
+		background: linear-gradient(
+			180deg,
+			#f8fafd 0%,
+			#eef4f9 50%,
+			#f5f9fc 100%
+		);
 		padding: 64px 0 68px 0;
 		width: 100%;
 		position: relative;
@@ -568,8 +676,16 @@
 		object-fit: cover;
 		object-position: left center;
 		opacity: 0.12;
-		mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 85%);
-		-webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 85%);
+		mask-image: linear-gradient(
+			to left,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 0) 85%
+		);
+		-webkit-mask-image: linear-gradient(
+			to left,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 0) 85%
+		);
 		pointer-events: none;
 		user-select: none;
 		z-index: 0;
@@ -637,13 +753,13 @@
 	}
 
 	.teal-highlight {
-		color: #079EAD; /* Teal */
+		color: #079ead; /* Teal */
 	}
 
 	.turquoise-line {
 		width: 40px;
 		height: 3px;
-		background: #16B6C1; /* Turquoise */
+		background: #16b6c1; /* Turquoise */
 		margin: 0 auto 12px auto;
 		border-radius: 2px;
 	}
@@ -726,25 +842,29 @@
 		pointer-events: auto;
 	}
 	.leader-card.pos--1 {
-		transform: translateX(-195px) translateZ(15px) scale(0.86) rotateY(14deg);
+		transform: translateX(-195px) translateZ(15px) scale(0.86)
+			rotateY(14deg);
 		opacity: 0.88;
 		z-index: 8;
 		pointer-events: auto;
 	}
 	.leader-card.pos-1 {
-		transform: translateX(195px) translateZ(15px) scale(0.86) rotateY(-14deg);
+		transform: translateX(195px) translateZ(15px) scale(0.86)
+			rotateY(-14deg);
 		opacity: 0.88;
 		z-index: 8;
 		pointer-events: auto;
 	}
 	.leader-card.pos--2 {
-		transform: translateX(-390px) translateZ(-30px) scale(0.72) rotateY(24deg);
+		transform: translateX(-390px) translateZ(-30px) scale(0.72)
+			rotateY(24deg);
 		opacity: 0.76;
 		z-index: 6;
 		pointer-events: none;
 	}
 	.leader-card.pos-2 {
-		transform: translateX(390px) translateZ(-30px) scale(0.72) rotateY(-24deg);
+		transform: translateX(390px) translateZ(-30px) scale(0.72)
+			rotateY(-24deg);
 		opacity: 0.76;
 		z-index: 6;
 		pointer-events: none;
@@ -752,22 +872,26 @@
 
 	@media (max-width: 768px) {
 		.leader-card.pos--1 {
-			transform: translateX(-140px) translateZ(15px) scale(0.84) rotateY(12deg);
+			transform: translateX(-140px) translateZ(15px) scale(0.84)
+				rotateY(12deg);
 		}
 		.leader-card.pos-1 {
-			transform: translateX(140px) translateZ(15px) scale(0.84) rotateY(-12deg);
+			transform: translateX(140px) translateZ(15px) scale(0.84)
+				rotateY(-12deg);
 		}
 		.leader-card.pos--2 {
-			transform: translateX(-260px) translateZ(-30px) scale(0.68) rotateY(20deg);
+			transform: translateX(-260px) translateZ(-30px) scale(0.68)
+				rotateY(20deg);
 		}
 		.leader-card.pos-2 {
-			transform: translateX(260px) translateZ(-30px) scale(0.68) rotateY(-20deg);
+			transform: translateX(260px) translateZ(-30px) scale(0.68)
+				rotateY(-20deg);
 		}
 	}
 
 	.leader-card:focus-visible {
 		border-radius: 16px;
-		box-shadow: 0 0 0 3px #16B6C1;
+		box-shadow: 0 0 0 3px #16b6c1;
 	}
 
 	/* Photo Wrapper */
@@ -778,13 +902,17 @@
 		border-radius: 14px;
 		overflow: hidden;
 		box-shadow: 0 10px 25px rgba(8, 36, 66, 0.12);
-		background: #D9E2EC;
-		transition: border 250ms ease, box-shadow 250ms ease;
+		background: #d9e2ec;
+		transition:
+			border 250ms ease,
+			box-shadow 250ms ease;
 	}
 
 	.photo-wrapper.center-photo {
-		border: 2px solid #079EAD; /* Teal border for center card */
-		box-shadow: 0 16px 36px rgba(7, 158, 173, 0.22), 0 6px 14px rgba(8, 36, 66, 0.12);
+		border: 2px solid #079ead; /* Teal border for center card */
+		box-shadow:
+			0 16px 36px rgba(7, 158, 173, 0.22),
+			0 6px 14px rgba(8, 36, 66, 0.12);
 	}
 
 	.leader-photo {
@@ -803,13 +931,13 @@
 		top: 10px;
 		left: 10px;
 		right: auto;
-		background: #FEF3C7;
-		color: #92400E;
+		background: #fef3c7;
+		color: #92400e;
 		font-size: 11px;
 		font-weight: 600;
 		padding: 2.5px 7px;
 		border-radius: 6px;
-		border: 1px solid #FCD34D;
+		border: 1px solid #fcd34d;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 		z-index: 4;
 		pointer-events: none;
@@ -824,8 +952,8 @@
 		transform: translateX(-50%);
 		width: min(260px, 116%);
 		min-width: 220px;
-		background: #FFFFFF;
-		border: 1px solid #079EAD;
+		background: #ffffff;
+		border: 1px solid #079ead;
 		border-radius: 12px;
 		padding: 8px 12px;
 		box-sizing: border-box;
@@ -873,7 +1001,7 @@
 	.card-teal-line {
 		width: 26px;
 		height: 2px;
-		background: #079EAD;
+		background: #079ead;
 		margin: 4px auto 0 auto;
 		border-radius: 2px;
 	}
@@ -886,8 +1014,8 @@
 		width: 44px;
 		height: 44px;
 		border-radius: 50%;
-		background: #FFFFFF;
-		border: 1px solid #CBD5E1;
+		background: #ffffff;
+		border: 1px solid #cbd5e1;
 		color: #082442;
 		display: flex;
 		align-items: center;
@@ -901,9 +1029,9 @@
 	}
 
 	.nav-btn:hover {
-		background: #F8FAFC;
-		border-color: #079EAD;
-		color: #079EAD;
+		background: #f8fafc;
+		border-color: #079ead;
+		color: #079ead;
 		box-shadow: 0 6px 18px rgba(7, 158, 173, 0.25);
 		transform: translateY(-50%) scale(1.06);
 	}
@@ -913,7 +1041,7 @@
 	}
 
 	.nav-btn:focus-visible {
-		box-shadow: 0 0 0 3px #16B6C1;
+		box-shadow: 0 0 0 3px #16b6c1;
 	}
 
 	.prev-btn {
@@ -939,7 +1067,7 @@
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
-		background: #CBD5E1;
+		background: #cbd5e1;
 		border: none;
 		padding: 0;
 		cursor: pointer;
@@ -949,7 +1077,7 @@
 	.dot-indicator.active {
 		width: 24px;
 		border-radius: 4px;
-		background: #079EAD;
+		background: #079ead;
 	}
 
 	/* Responsive Media Queries */

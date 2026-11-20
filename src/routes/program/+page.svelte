@@ -28,10 +28,10 @@
 </script>
 
 <svelte:head>
-	<title>Program — SDJNusantara Strategic Your Partner</title>
+	<title>Program — SDJ Nusantara Strategic Your Partner</title>
 	<meta
 		name="description"
-		content="Program unggulan SDJNusantara untuk mengembangkan potensi tanpa batas: Persiapan Beasiswa, Pelatihan Keterampilan Digital, Manajemen Talenta, dan Pelatihan Khusus."
+		content="Program unggulan SDJ Nusantara untuk mengembangkan potensi tanpa batas: Persiapan Beasiswa, Pelatihan Keterampilan Digital, Manajemen Talenta, dan Pelatihan Khusus."
 	/>
 </svelte:head>
 
@@ -62,7 +62,7 @@
 	<!-- 7. CTA Banner (tinggi ±131px) -->
 	<CtaBanner
 		title="Siap Mengikuti Program Kami?"
-		description="Konsultasikan kebutuhan pendidikan dan pengembangan talenta Anda bersama tim SDJNusantara."
+		description="Konsultasikan kebutuhan pendidikan dan pengembangan talenta Anda bersama tim SDJ Nusantara."
 		primaryText="Jadwalkan Konsultasi →"
 		primaryHref="/konsultasi"
 		secondaryText="Pelajari Program Lainnya"

@@ -1,4 +1,4 @@
-// Antarmuka & Pemandu Layanan Chatbot SDJNusantara
+// Antarmuka & Pemandu Layanan Chatbot SDJ Nusantara
 
 export type BotMessageKind =
 	| 'greeting'

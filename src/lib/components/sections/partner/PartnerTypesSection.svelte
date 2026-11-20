@@ -62,8 +62,8 @@
 
 				<p class="section-desc">
 					{i18n.pick(
-						'SDJNusantara menjalin kemitraan dengan berbagai pihak yang memiliki visi serupa dalam memajukan pendidikan dan pengembangan talenta.',
-						'SDJNusantara partners with institutions that share our vision in advancing education and talent development.'
+						'SDJ Nusantara menjalin kemitraan dengan berbagai pihak yang memiliki visi serupa dalam memajukan pendidikan dan pengembangan talenta.',
+						'SDJ Nusantara partners with institutions that share our vision in advancing education and talent development.'
 					)}
 				</p>
 			</div>

@@ -10,12 +10,12 @@
 		<div class="panel-left">
 			<img
 				src="/images/contact-building.jpg"
-				alt="Gedung Kantor SDJNusantara"
+				alt="Gedung Kantor SDJ Nusantara"
 				class="panel-img"
 				loading="lazy"
 			/>
 			
-			<!-- Overlay Papan Signage Logo SDJNusantara pada fasad gedung -->
+			<!-- Overlay Papan Signage Logo SDJ Nusantara pada fasad gedung -->
 			<div class="building-logo-plaque" aria-hidden="true">
 				<Logo size="plaque" variant="plain" />
 			</div>
@@ -67,7 +67,7 @@
 		<div class="panel-right">
 			<img
 				src="/images/contact-lobby.jpg"
-				alt="Lobi dan Lounge SDJNusantara"
+				alt="Lobi dan Lounge SDJ Nusantara"
 				class="panel-img"
 				loading="lazy"
 			/>
@@ -155,14 +155,14 @@
 		font-size: 22px;
 		font-weight: 800;
 		color: #082442;
-		margin: 0 0 6px;
+		margin: 0 0 8px;
 		letter-spacing: -0.01em;
 		line-height: 1.25;
 	}
 
 	.location-desc {
-		font-size: 12.5px;
-		line-height: 1.45;
+		font-size: 13px;
+		line-height: 1.5;
 		color: #183553;
 		margin: 0 0 14px;
 		max-width: 360px;

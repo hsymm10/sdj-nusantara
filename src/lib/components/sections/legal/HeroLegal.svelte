@@ -8,7 +8,7 @@
 	<div class="hero-bg-wrap">
 		<img
 			src="/images/layanan-hukum-hero.jpg"
-			alt="Palu Hakim dan Timbangan Keadilan Layanan Hukum SDJNusantara"
+			alt="Palu Hakim dan Timbangan Keadilan Layanan Hukum SDJ Nusantara"
 			class="hero-bg-img"
 			loading="eager"
 			fetchpriority="high"
@@ -17,9 +17,22 @@
 	</div>
 
 	<!-- Wave decoration bottom-left (Master Reference: HeroAbout) -->
-	<svg class="hero-wave" viewBox="0 0 380 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M0 30 C100 30 180 90 300 160 H0 Z" fill="#0A5E75" fill-opacity="0.92" />
-		<path d="M0 75 C100 75 180 120 270 160 H0 Z" fill="url(#teal-grad-legal)" />
+	<svg
+		class="hero-wave"
+		viewBox="0 0 380 160"
+		fill="none"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+	>
+		<path
+			d="M0 30 C100 30 180 90 300 160 H0 Z"
+			fill="#0A5E75"
+			fill-opacity="0.92"
+		/>
+		<path
+			d="M0 75 C100 75 180 120 270 160 H0 Z"
+			fill="url(#teal-grad-legal)"
+		/>
 		<path d="M0 125 C70 125 140 145 200 160 H0 Z" fill="#FFFFFF" />
 		<defs>
 			<linearGradient id="teal-grad-legal" x1="0" y1="0" x2="1" y2="1">
@@ -30,8 +43,18 @@
 	</svg>
 
 	<!-- Accent decoration bottom-right (Master Reference: HeroAbout) -->
-	<svg class="hero-swoosh-right" viewBox="0 0 260 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
-		<path d="M260 20 C200 65 120 115 40 160 H260 Z" fill="#079EAD" fill-opacity="0.85" />
+	<svg
+		class="hero-swoosh-right"
+		viewBox="0 0 260 160"
+		fill="none"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+	>
+		<path
+			d="M260 20 C200 65 120 115 40 160 H260 Z"
+			fill="#079EAD"
+			fill-opacity="0.85"
+		/>
 		<path d="M260 70 C210 105 150 135 90 160 H260 Z" fill="#16B6C1" />
 		<path d="M260 120 C220 138 180 150 140 160 H260 Z" fill="#F5B331" />
 	</svg>
@@ -53,18 +76,12 @@
 
 			<!-- Subtitle / Description Netral (Kepatuhan: tanpa kata klaim) -->
 			<p class="hero-description">
-				Pendampingan hukum yang terarah dan sesuai regulasi di bidang pendidikan bagi institusi, organisasi, maupun korporasi.
+				Pendampingan hukum yang terarah dan sesuai regulasi di bidang
+				pendidikan bagi institusi, organisasi, maupun korporasi.
 			</p>
 
 			<!-- Action Buttons: Tombol 2 adalah "Hubungi Kami" ke /kontak -->
 			<div class="hero-buttons">
-				<a href="/konsultasi" class="btn-primary-gold">
-					<span>Ajukan Konsultasi</span>
-					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-						<line x1="5" y1="12" x2="19" y2="12" />
-						<polyline points="12 5 19 12 12 19" />
-					</svg>
-				</a>
 				<a href="/kontak" class="btn-outline-white">
 					<span>Hubungi Kami</span>
 				</a>
@@ -159,14 +176,14 @@
 	.pill-dot {
 		width: 6px;
 		height: 6px;
-		background: #00A6B2;
+		background: #00a6b2;
 		border-radius: 50%;
 	}
 
 	.pill-text {
 		font-size: 12px;
 		font-weight: 600;
-		color: #FFFFFF;
+		color: #ffffff;
 		letter-spacing: 0.02em;
 	}
 
@@ -213,7 +230,9 @@
 		padding: 0 22px;
 		border-radius: 8px;
 		text-decoration: none;
-		transition: background 0.2s, transform 0.2s;
+		transition:
+			background 0.2s,
+			transform 0.2s;
 		box-shadow: 0 3px 12px rgba(245, 179, 49, 0.28);
 		box-sizing: border-box;
 	}
@@ -236,13 +255,15 @@
 		padding: 0 22px;
 		border-radius: 8px;
 		text-decoration: none;
-		transition: background 0.2s, border-color 0.2s;
+		transition:
+			background 0.2s,
+			border-color 0.2s;
 		box-sizing: border-box;
 	}
 
 	.btn-outline-white:hover {
 		background: rgba(0, 166, 178, 0.12);
-		border-color: #00A6B2;
+		border-color: #00a6b2;
 	}
 
 	/* Wave & swoosh decoration matching Master Reference */

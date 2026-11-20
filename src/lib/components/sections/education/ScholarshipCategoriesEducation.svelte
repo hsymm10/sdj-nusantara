@@ -1,4 +1,4 @@
-<!-- Section 08: Temukan Beasiswa yang Sesuai dengan Tujuan Anda (Mockup Resmi SDJNusantara GAMBAR 2) -->
+<!-- Section 08: Temukan Beasiswa yang Sesuai dengan Tujuan Anda (Mockup Resmi SDJ Nusantara GAMBAR 2) -->
 <script lang="ts">
 	import { i18n } from '#lib/stores/i18n.svelte';
 
@@ -200,7 +200,7 @@
 		border-color: #CBD5E1;
 	}
 
-	/* Card 1 Highlight (Solid Teal SDJNusantara) */
+	/* Card 1 Highlight (Solid Teal SDJ Nusantara) */
 	.cat-card.highlight {
 		background: #00A3B4;
 		border-color: #00A3B4;

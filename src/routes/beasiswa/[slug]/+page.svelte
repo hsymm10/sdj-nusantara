@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>{scholarship.nama} — SDJNusantara Beasiswa</title>
+	<title>{scholarship.nama} — SDJ Nusantara Beasiswa</title>
 	<meta
 		name="description"
 		content="Detail informasi dan persyaratan beasiswa {scholarship.nama} dari {scholarship.penyelenggara}."

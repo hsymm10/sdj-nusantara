@@ -23,10 +23,10 @@
 </script>
 
 <svelte:head>
-	<title>Beasiswa — SDJNusantara Strategic Your Partner</title>
+	<title>Beasiswa — SDJ Nusantara Strategic Your Partner</title>
 	<meta
 		name="description"
-		content="Akses informasi beasiswa dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur bersama SDJNusantara."
+		content="Akses informasi beasiswa dalam dan luar negeri yang terpercaya, lengkap, dan terstruktur bersama SDJ Nusantara."
 	/>
 </svelte:head>
 
@@ -51,7 +51,7 @@
 	<!-- 7. CTA Banner (Konsisten dengan Halaman Pendidikan) -->
 	<CtaBanner
 		title={i18n.pick('Butuh Bantuan <span class="highlight-gold">Memilih Beasiswa?</span>', 'Need Help <span class="highlight-gold">Choosing a Scholarship?</span>')}
-		description={i18n.pick('Konsultasikan rencana pendidikan Anda dengan tim SDJNusantara dan dapatkan rekomendasi beasiswa yang sesuai dengan profil Anda.', 'Consult your education plan with the SDJNusantara team and receive scholarship recommendations matched to your profile.')}
+		description={i18n.pick('Konsultasikan rencana pendidikan Anda dengan tim SDJ Nusantara dan dapatkan rekomendasi beasiswa yang sesuai dengan profil Anda.', 'Consult your education plan with the SDJ Nusantara team and receive scholarship recommendations matched to your profile.')}
 		primaryText={i18n.pick('Jadwalkan Konsultasi →', 'Schedule a Consultation →')}
 		primaryHref="/kontak"
 		secondaryText={i18n.pick('Lihat Program Lainnya', 'View Other Programs')}

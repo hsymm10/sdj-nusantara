@@ -18,8 +18,8 @@
 <svelte:head>
 	<title
 		>{program.title} — {i18n.pick(
-			"Layanan Pendidikan SDJNusantara",
-			"SDJNusantara Education Services",
+			"Layanan Pendidikan SDJ Nusantara",
+			"SDJ Nusantara Education Services",
 		)}</title
 	>
 	<meta name="description" content={program.desc} />

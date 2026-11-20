@@ -1,15 +1,15 @@
 // src/lib/server/nalara/context/services.ts
-// Basis Pengetahuan Resmi: Layanan Utama SDJNusantara
+// Basis Pengetahuan Resmi: Layanan Utama SDJ Nusantara
 
 import type { KnowledgeEntry } from '../types/knowledge.types';
 
 export const servicesKnowledge: KnowledgeEntry[] = [
 	{
 		id: 'service-categories-overview',
-		title: 'Kategori Layanan Utama SDJNusantara',
+		title: 'Kategori Layanan Utama SDJ Nusantara',
 		category: 'services',
 		content:
-			'SDJNusantara menyediakan dua kategori layanan utama: (1) Layanan Individu dan (2) Solusi Institusi, yang dirancang untuk menjawab kebutuhan pelajar, profesional, maupun organisasi.',
+			'SDJ Nusantara menyediakan dua kategori layanan utama: (1) Layanan Individu dan (2) Solusi Institusi, yang dirancang untuk menjawab kebutuhan pelajar, profesional, maupun organisasi.',
 		details: [
 			'Layanan Individu: mencakup Program Pendidikan (pemetaan talenta & konsultasi studi) dan Program Beasiswa (pendampingan seleksi & kurasi beasiswa).',
 			'Solusi Institusi: mencakup Pengembangan Kompetensi, Pelatihan Organisasi, Perancangan Program, dan Kemitraan Strategis.',
@@ -26,7 +26,7 @@ export const servicesKnowledge: KnowledgeEntry[] = [
 		title: 'Layanan Individu: Pendidikan & Beasiswa',
 		category: 'services',
 		content:
-			'Layanan Individu SDJNusantara mendampingi calon penerima beasiswa dan pelajar dalam mengenali potensi diri, merancang studi lanjut, serta mempersiapkan aplikasi beasiswa secara matang.',
+			'Layanan Individu SDJ Nusantara mendampingi calon penerima beasiswa dan pelajar dalam mengenali potensi diri, merancang studi lanjut, serta mempersiapkan aplikasi beasiswa secara matang.',
 		details: [
 			'Program Pendidikan: Pemetaan bakat dan minat, konsultasi karier & studi masa depan, serta penguatan kompetensi digital/AI.',
 			'Program Beasiswa: Akses basis data beasiswa terkurasi, pendampingan berkas (CV & essay), serta simulasi wawancara beasiswa.',
@@ -43,7 +43,7 @@ export const servicesKnowledge: KnowledgeEntry[] = [
 		title: 'Solusi Institusi: Kolaborasi & Peningkatan Kapasitas',
 		category: 'services',
 		content:
-			'Solusi Institusi SDJNusantara dirancang khusus untuk sekolah, perguruan tinggi, yayasan, korporasi, dan lembaga pemerintah guna memperkuat kapasitas SDM dan efektivitas kelembagaan.',
+			'Solusi Institusi SDJ Nusantara dirancang khusus untuk sekolah, perguruan tinggi, yayasan, korporasi, dan lembaga pemerintah guna memperkuat kapasitas SDM dan efektivitas kelembagaan.',
 		details: [
 			'Pengembangan Kompetensi: Asesmen kebutuhan, pemetaan kompetensi, dan pelatihan upskilling kapabilitas digital & AI.',
 			'Pelatihan Organisasi: In-house training kepemimpinan, manajemen kolaborasi, dan penguatan budaya kerja adaptif.',
@@ -58,10 +58,10 @@ export const servicesKnowledge: KnowledgeEntry[] = [
 	},
 	{
 		id: 'service-5-step-methodology',
-		title: '5 Tahap Metodologi Pendampingan SDJNusantara',
+		title: '5 Tahap Metodologi Pendampingan SDJ Nusantara',
 		category: 'services',
 		content:
-			'SDJNusantara menerapkan 5 tahapan kerja sistematis agar pendampingan terarah dan terukur: (1) Kenali, (2) Petakan, (3) Rancang, (4) Dampingi, dan (5) Evaluasi.',
+			'SDJ Nusantara menerapkan 5 tahapan kerja sistematis agar pendampingan terarah dan terukur: (1) Kenali, (2) Petakan, (3) Rancang, (4) Dampingi, dan (5) Evaluasi.',
 		details: [
 			'1. Kenali: Memahami latar belakang, aspirasi, kekuatan, serta tantangan awal peserta atau institusi.',
 			'2. Petakan: Menganalisis gap kompetensi, profil akademik, dan peluang beasiswa/karier yang selaras.',

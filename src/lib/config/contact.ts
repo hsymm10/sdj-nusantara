@@ -1,5 +1,5 @@
-// Konfigurasi Terpusat Kontak & Informasi SDJNusantara
-// Sesuai Bagian 9 & 15 content-master SDJNusantara
+// Konfigurasi Terpusat Kontak & Informasi SDJ Nusantara
+// Sesuai Bagian 9 & 15 content-master SDJ Nusantara
 
 export interface ContactSocials {
 	instagram: string;

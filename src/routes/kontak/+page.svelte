@@ -14,15 +14,15 @@
 <svelte:head>
 	<title
 		>{i18n.pick(
-			"Kontak Kami — SDJNusantara Strategic Your Partner",
-			"Contact Us — SDJNusantara Strategic Your Partner",
+			"Kontak Kami — SDJ Nusantara Strategic Your Partner",
+			"Contact Us — SDJ Nusantara Strategic Your Partner",
 		)}</title
 	>
 	<meta
 		name="description"
 		content={i18n.pick(
-			"Hubungi tim SDJNusantara untuk konsultasi pendidikan, beasiswa, pengembangan talenta, dan kemitraan institusi di seluruh Indonesia.",
-			"Contact the SDJNusantara team for education consultation, scholarships, talent development, and institutional partnerships across Indonesia.",
+			"Hubungi tim SDJ Nusantara untuk konsultasi pendidikan, beasiswa, pengembangan talenta, dan kemitraan institusi di seluruh Indonesia.",
+			"Contact the SDJ Nusantara team for education consultation, scholarships, talent development, and institutional partnerships across Indonesia.",
 		)}
 	/>
 </svelte:head>
@@ -49,22 +49,19 @@
 	<!-- 6. Pertanyaan Umum (FAQ Accordion) -->
 	<ContactFaqSection />
 
-	<!-- 7. CTA Image Banner (Di atas Footer, konsisten dengan halaman Layanan) -->
+	<!-- 7. CTA Image Banner (Di atas Footer, Tanpa Tombol) -->
 	<CtaBanner
 		title={i18n.pick(
 			'Siap Mengembangkan <span class="highlight-gold">Potensi Institusi Anda?</span>',
 			'Ready to Unlock <span class="highlight-gold">Your Institution’s Potential?</span>',
 		)}
 		description={i18n.pick(
-			"Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJNusantara.",
-			"Discover tailored education solutions, talent development, and institutional mentoring with SDJNusantara.",
+			"Temukan solusi pendidikan, pengembangan talenta, dan pendampingan institusi bersama SDJ Nusantara.",
+			"Discover tailored education solutions, talent development, and institutional mentoring with SDJ Nusantara.",
 		)}
 		bgImage="/images/cta-layanan-collaboration-bg.jpg"
-		primaryText={i18n.pick("Jadwalkan Konsultasi", "Schedule Consultation")}
-		primaryHref="/konsultasi"
-		secondaryText={i18n.pick("Ajukan Kerja Sama", "Propose a Partnership")}
-		secondaryHref="/kemitraan"
-		variant="layanan"
+		showButtons={false}
+		variant="kontak"
 	/>
 </main>
 

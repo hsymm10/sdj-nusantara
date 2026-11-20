@@ -76,8 +76,8 @@
 	</svg>
 
 	<div class="navbar-inner">
-		<!-- Logo resmi SDJNusantara (rasio proporsional penuh) -->
-		<a href="/" class="logo-link" aria-label={i18n.pick('SDJNusantara Beranda', 'SDJNusantara Home')}>
+		<!-- Logo resmi SDJ Nusantara (rasio proporsional penuh) -->
+		<a href="/" class="logo-link" aria-label={i18n.pick('SDJ Nusantara Beranda', 'SDJ Nusantara Home')}>
 			<Logo size="nav" variant="plain" />
 		</a>
 
@@ -163,7 +163,7 @@
 					href="/"
 					class="drawer-logo"
 					onclick={() => (mobileOpen = false)}
-					aria-label={i18n.pick('SDJNusantara Beranda', 'SDJNusantara Home')}
+					aria-label={i18n.pick('SDJ Nusantara Beranda', 'SDJ Nusantara Home')}
 				>
 					<Logo size="nav" variant="plain" />
 				</a>

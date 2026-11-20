@@ -11,82 +11,68 @@
 	let { compact = true, variant = 'home' }: Props = $props();
 </script>
 
-<footer class="footer compact-footer">
-	<div class="footer-inner compact-inner">
-		<div class="footer-grid compact-grid">
-			<!-- Col 1: Brand Info, Alamat Perusahaan & No. HP Resmi -->
+<footer class="footer">
+	<div class="footer-inner">
+		<div class="footer-grid">
+			<!-- Kolom 1: Identitas SDJ Nusantara -->
 			<div class="footer-brand-col">
-				<a href="/" class="footer-logo-link" aria-label={i18n.pick('SDJNusantara Beranda', 'SDJNusantara Home')}>
+				<a href="/" class="footer-logo-link" aria-label={i18n.pick('SDJ Nusantara Beranda', 'SDJ Nusantara Home')}>
 					<Logo size="footer" variant="light" />
 				</a>
 
-				<!-- Alamat Perusahaan Resmi (Graha Aktiva) & No. HP dari Kartu Nama -->
-				<div class="footer-brand-address">
-					<p class="footer-address-text">
-						Gedung Graha Aktiva Lt. GF (suite B3A),<br />
-						Jl. H. R. Rasuna Said No.6, Kuningan Tim.,<br />
-						Jakarta Selatan 12950
-					</p>
-					<p class="footer-phone-text">
-						<a href="tel:+6285880724733" class="footer-phone-link" aria-label="Telepon / WhatsApp">
-							<span class="phone-label">{i18n.dict.footer.phoneLabel}</span> +62 858-8072-4733
-						</a>
-					</p>
-				</div>
+				<!-- Alamat Perusahaan Resmi (Graha Aktiva) -->
+				<p class="footer-address-text">
+					Gedung Graha Aktiva Lt. GF (suite B3A),<br />
+					Jl. H. R. Rasuna Said No.6, Kuningan Tim.,<br />
+					Jakarta Selatan 12950
+				</p>
 
-				<!-- Ikon sosial Iconify: Instagram, TikTok, Email terhubung aktif -->
-				<div class="footer-socials">
+				<!-- Ikon sosial Iconify: Instagram, TikTok, Email -->
+				<div class="footer-socials" aria-label={i18n.pick('Media Sosial SDJ Nusantara', 'SDJ Nusantara Social Media')}>
 					<a href="https://instagram.com/sdjnusantara" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="Instagram">
-						<Icon icon="ri:instagram-line" width="13" height="13" />
+						<Icon icon="ri:instagram-line" width="14" height="14" />
 					</a>
 					<a href="https://tiktok.com/@sdjnusantara" target="_blank" rel="noopener noreferrer" class="social-outline-btn" aria-label="TikTok">
-						<Icon icon="ri:tiktok-fill" width="13" height="13" />
+						<Icon icon="ri:tiktok-fill" width="14" height="14" />
 					</a>
 					<a href="mailto:info@sdjnusantara.com" class="social-outline-btn" aria-label="Email">
-						<Icon icon="ri:mail-line" width="13" height="13" />
+						<Icon icon="ri:mail-line" width="14" height="14" />
 					</a>
 				</div>
 			</div>
 
-			<!-- Vertical Divider -->
-			<div class="footer-vdivider"></div>
+			<!-- Vertical Divider 1 (Desktop & Tablet) -->
+			<div class="footer-vdivider" aria-hidden="true"></div>
 
-			<!-- Col 2: Kontak & Informasi -->
+			<!-- Kolom 2: Kontak & Informasi -->
 			<div class="footer-contact-col">
 				<h4 class="footer-col-title">{i18n.pick('Kontak & Informasi', 'Contact & Information')}</h4>
 				<ul class="footer-contact-list">
 					<li>
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-							<polyline points="22,6 12,13 2,6"></polyline>
-						</svg>
+						<Icon icon="ri:mail-line" width="15" height="15" class="contact-icon" aria-hidden="true" />
 						<a href="mailto:info@sdjnusantara.com" class="footer-link">info@sdjnusantara.com</a>
 					</li>
 					<li>
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-						</svg>
+						<Icon icon="ri:phone-line" width="15" height="15" class="contact-icon" aria-hidden="true" />
 						<a href="tel:+6285880724733" class="footer-link">+62 858-8072-4733</a>
 					</li>
 					<li>
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00A6B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-							<circle cx="12" cy="10" r="3"></circle>
-						</svg>
+						<Icon icon="ri:map-pin-line" width="15" height="15" class="contact-icon" aria-hidden="true" />
 						<span class="footer-text">Gedung Graha Aktiva, Jakarta Selatan</span>
 					</li>
 				</ul>
 			</div>
 
-			<!-- Vertical Divider -->
-			<div class="footer-vdivider"></div>
+			<!-- Vertical Divider 2 (Desktop & Tablet) -->
+			<div class="footer-vdivider" aria-hidden="true"></div>
 
-			<!-- Col 3: Hak Cipta & Legalitas -->
-			<div class="footer-copy-col">
-				<p class="footer-copyright">
-					© 2026 SDJNusantara.<br />
-					{i18n.pick('Seluruh hak cipta dilindungi.', 'All rights reserved.')}
-				</p>
+			<!-- Kolom 3: Informasi Legal -->
+			<div class="footer-legal-col">
+				<h4 class="footer-col-title">{i18n.pick('Informasi Legal', 'Legal Information')}</h4>
+				<div class="footer-copyright">
+					<p class="copyright-line">© 2026 SDJ Nusantara.</p>
+					<p class="copyright-line">{i18n.pick('Seluruh hak cipta dilindungi.', 'All rights reserved.')}</p>
+				</div>
 				<div class="footer-legal-links">
 					<a href="/kebijakan-privasi" class="footer-legal-link">{i18n.dict.footer.privacyPolicy}</a>
 					<span class="footer-legal-sep" aria-hidden="true">|</span>
@@ -99,23 +85,19 @@
 
 <style>
 	.footer {
-		background-color: #0B2948;
+		background-color: #082442;
 		color: #FFFFFF;
 		border-top: 1px solid rgba(255, 255, 255, 0.08);
-		min-height: 220px;
-		height: auto;
-		display: flex;
-		align-items: flex-start;
-		padding: 24px 0 24px;
-		box-sizing: border-box;
 		width: 100%;
+		padding: 30px 0 28px;
+		box-sizing: border-box;
 	}
 
 	.footer-inner {
 		width: 100%;
 		max-width: 1312px;
 		margin: 0 auto;
-		padding: 24px 1rem 24px;
+		padding: 0 2rem;
 		box-sizing: border-box;
 	}
 
@@ -125,90 +107,65 @@
 		}
 	}
 
+	/* Grid Desktop */
 	.footer-grid {
 		display: grid;
-		grid-template-columns: 2fr auto 1.6fr auto 1.5fr;
-		gap: 0 2.5rem;
+		grid-template-columns: 1.35fr auto 1.25fr auto 1.15fr;
+		gap: 0 2.25rem;
 		align-items: flex-start;
 	}
 
+	/* Garis Pemisah Vertikal */
 	.footer-vdivider {
 		width: 1px;
 		background: rgba(255, 255, 255, 0.12);
-		height: 110px;
+		height: 105px;
 		flex-shrink: 0;
+		align-self: center;
 	}
 
-	/* Brand Col */
+	/* Kolom 1: Brand & Identitas */
 	.footer-brand-col {
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
+		gap: 10px;
 	}
 
 	.footer-logo-link {
 		text-decoration: none;
 		display: inline-block;
-	}
-
-	.footer-brand-address {
-		margin-top: 6px;
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
+		width: fit-content;
 	}
 
 	.footer-address-text {
-		font-size: 10px;
-		line-height: 14.5px;
-		color: rgba(255, 255, 255, 0.7);
+		font-size: 11.5px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.72);
 		margin: 0;
-		letter-spacing: 0;
-	}
-
-	.footer-phone-text {
-		margin: 2px 0 0 0;
-	}
-
-	.footer-phone-link {
-		font-size: 10px;
-		color: #16B6C1;
-		text-decoration: none;
-		display: inline-flex;
-		align-items: center;
-		gap: 4px;
-		transition: color 0.2s ease;
-	}
-
-	.footer-phone-link:hover {
-		color: #F5B331;
-		text-decoration: underline;
-	}
-
-	.phone-label {
-		color: rgba(255, 255, 255, 0.55);
+		letter-spacing: 0.01em;
 	}
 
 	.footer-socials {
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		margin-top: 10px;
+		margin-top: 2px;
 	}
 
-	/* LINGKARAN OUTLINE putih tipis ±24px tanpa background kotak */
+	/* Lingkaran outline Iconify */
 	.social-outline-btn {
-		width: 24px;
-		height: 24px;
+		width: 26px;
+		height: 26px;
 		border-radius: 50%;
 		border: 1px solid rgba(255, 255, 255, 0.35);
 		background: rgba(255, 255, 255, 0.04);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		color: rgba(255, 255, 255, 0.85);
+		color: rgba(255, 255, 255, 0.88);
 		text-decoration: none;
-		transition: all 0.2s ease;
+		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		box-sizing: border-box;
 	}
 
 	.social-outline-btn:hover {
@@ -218,33 +175,19 @@
 		transform: translateY(-2px);
 	}
 
-	/* Contact & Copy Cols */
-	.footer-contact-col,
-	.footer-copy-col {
+	/* Kolom 2: Kontak & Informasi */
+	.footer-contact-col {
 		display: flex;
 		flex-direction: column;
 	}
 
 	.footer-col-title {
-		font-size: 10.5px;
+		font-size: 12.5px;
 		font-weight: 700;
 		color: #FFFFFF;
-		margin: 0 0 12px 0;
-		letter-spacing: 0;
+		margin: 2px 0 12px 0;
+		letter-spacing: 0.01em;
 		white-space: nowrap;
-	}
-
-	.footer-link {
-		font-size: 10.5px;
-		color: rgba(255, 255, 255, 0.68);
-		text-decoration: none;
-		line-height: 11px;
-		letter-spacing: 0;
-		transition: color 0.2s ease;
-	}
-
-	.footer-link:hover {
-		color: #00A6B2;
 	}
 
 	.footer-contact-list {
@@ -253,35 +196,61 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 7px; /* Jarak item kontak ±20px antar baseline */
+		gap: 10px;
 	}
 
 	.footer-contact-list li {
 		margin: 0;
 		padding: 0;
-		height: 13px;
 		display: flex;
 		align-items: center;
-		gap: 0.45rem;
-		line-height: 13px;
+		gap: 9px;
+		line-height: 1.35;
+	}
+
+	:global(.contact-icon) {
+		color: #00A6B2;
+		flex-shrink: 0;
+	}
+
+	.footer-link {
+		font-size: 11.5px;
+		color: rgba(255, 255, 255, 0.78);
+		text-decoration: none;
+		transition: color 0.2s ease;
+		letter-spacing: 0.01em;
+	}
+
+	.footer-link:hover {
+		color: #00A6B2;
+		text-decoration: underline;
 	}
 
 	.footer-text {
-		font-size: 10.5px;
-		color: rgba(255, 255, 255, 0.68);
-		letter-spacing: 0;
+		font-size: 11.5px;
+		color: rgba(255, 255, 255, 0.78);
+		letter-spacing: 0.01em;
 	}
 
-	/* Copyright Col */
+	/* Kolom 3: Informasi Legal */
+	.footer-legal-col {
+		display: flex;
+		flex-direction: column;
+		padding-right: 3.5rem; /* Space to prevent NALARA button from overlapping on desktop */
+	}
+
 	.footer-copyright {
-		font-size: 10px;
-		color: rgba(255, 255, 255, 0.65);
-		line-height: 14.5px;
-		margin: 0 0 16px 0;
-		letter-spacing: 0;
+		margin: 0 0 12px 0;
 	}
 
-	/* Kebijakan Privasi & Syarat Ketentuan */
+	.copyright-line {
+		font-size: 11.5px;
+		color: rgba(255, 255, 255, 0.72);
+		line-height: 1.5;
+		margin: 0;
+		letter-spacing: 0.01em;
+	}
+
 	.footer-legal-links {
 		display: flex;
 		align-items: center;
@@ -290,70 +259,123 @@
 	}
 
 	.footer-legal-sep {
-		font-size: 9px;
+		font-size: 11px;
 		color: rgba(255, 255, 255, 0.35);
 	}
 
 	.footer-legal-link {
-		font-size: 9px;
-		color: rgba(255, 255, 255, 0.5);
+		font-size: 11px;
+		color: rgba(255, 255, 255, 0.65);
 		text-decoration: none;
-		letter-spacing: 0;
-		transition: color 0.2s;
+		letter-spacing: 0.01em;
+		transition: color 0.2s ease;
 	}
 
-	@media (max-width: 1099px) {
+	.footer-legal-link:hover {
+		color: #00A6B2;
+		text-decoration: underline;
+	}
+
+	/* Responsive Tablet (768px – 1023px) */
+	@media (max-width: 1023px) {
 		.footer {
-			height: auto;
-			padding: 2.5rem 1.5rem 2rem;
+			padding: 26px 0;
 		}
+
+		.footer-inner {
+			padding: 0 1.5rem;
+		}
+
 		.footer-grid {
-			grid-template-columns: 1fr 1fr;
-			gap: 2rem 1.5rem;
+			grid-template-columns: 1.3fr auto 1.2fr auto 1.1fr;
+			gap: 0 1.25rem;
 		}
+
+		.footer-vdivider {
+			height: 98px;
+		}
+
+		.footer-legal-col {
+			padding-right: 4rem;
+		}
+	}
+
+	/* Responsive Mobile (< 768px) */
+	@media (max-width: 767px) {
+		.footer {
+			padding: 26px 0 34px;
+		}
+
+		.footer-inner {
+			padding: 0 1.25rem;
+		}
+
+		.footer-grid {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+
 		.footer-vdivider {
 			display: none;
 		}
-		.footer-brand-col {
-			grid-column: 1 / -1;
-		}
-	}
 
-	@media (max-width: 767px) {
-		.footer {
-			padding: 2rem 1.25rem 1.75rem;
-		}
-		.footer-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 1.75rem;
-		}
 		.footer-brand-col {
-			grid-column: 1 / -1;
+			gap: 10px;
 		}
-		.footer-contact-col {
-			grid-column: 1 / -1;
-		}
-		.footer-copy-col {
-			grid-column: 1 / -1;
-			border-top: 1px solid rgba(255, 255, 255, 0.1);
-			padding-top: 1.25rem;
-			margin-top: 0.5rem;
-		}
-		.footer-col-title {
-			font-size: 13px;
-			white-space: nowrap;
-		}
-		.footer-link,
-		.footer-text,
-		.footer-copyright {
+
+		.footer-address-text {
 			font-size: 12px;
 			line-height: 1.5;
 		}
+
+		.footer-socials {
+			margin-top: 4px;
+		}
+
+		.social-outline-btn {
+			width: 28px;
+			height: 28px;
+		}
+
+		.footer-contact-col {
+			border-top: 1px solid rgba(255, 255, 255, 0.08);
+			padding-top: 18px;
+		}
+
+		.footer-col-title {
+			font-size: 13px;
+			margin: 0 0 10px 0;
+		}
+
+		.footer-contact-list {
+			gap: 10px;
+		}
+
+		.footer-link,
+		.footer-text {
+			font-size: 12px;
+		}
+
+		.footer-legal-col {
+			border-top: 1px solid rgba(255, 255, 255, 0.08);
+			padding-top: 18px;
+			padding-right: 4.5rem; /* Avoid NALARA button overlap */
+		}
+
+		.copyright-line {
+			font-size: 12px;
+		}
+
+		.footer-copyright {
+			margin: 0 0 10px 0;
+		}
+
 		.footer-legal-links {
-			gap: 16px;
+			gap: 10px;
 			flex-wrap: wrap;
 		}
+
 		.footer-legal-link {
 			font-size: 11.5px;
 		}

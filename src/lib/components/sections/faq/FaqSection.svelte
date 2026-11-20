@@ -127,7 +127,7 @@
 					<div class="sidebar-image-wrap">
 						<img
 							src="/images/faq-assistant-woman-mockup-2x.png"
-							alt="Asisten Informasi SDJNusantara"
+							alt="Asisten Informasi SDJ Nusantara"
 							class="sidebar-img"
 							loading="eager"
 						/>
@@ -309,8 +309,8 @@
 					<h3 class="cta-heading">{i18n.pick('Masih ada pertanyaan lain?', 'Still have questions?')}</h3>
 					<p class="cta-desc">
 						{i18n.pick(
-							'Tim SDJNusantara siap membantu Anda mendapatkan informasi yang lebih lengkap, cepat, dan sesuai kebutuhan.',
-							'The SDJNusantara team is ready to help you get complete, fast, and tailored information.'
+							'Tim SDJ Nusantara siap membantu Anda mendapatkan informasi yang lebih lengkap, cepat, dan sesuai kebutuhan.',
+							'The SDJ Nusantara team is ready to help you get complete, fast, and tailored information.'
 						)}
 					</p>
 				</div>
@@ -325,7 +325,7 @@
 					type="button"
 					class="btn-cta-chat"
 					onclick={() => chatStore.open()}
-					aria-label={i18n.pick('Buka percakapan dengan Asisten SDJNusantara', 'Open chat with SDJNusantara Assistant')}
+					aria-label={i18n.pick('Buka percakapan dengan Asisten SDJ Nusantara', 'Open chat with SDJ Nusantara Assistant')}
 				>
 					<Icon icon="fluent:bot-24-filled" width="18" height="18" />
 					<span>{i18n.pick('Chat dengan Asisten', 'Chat with Assistant')}</span>
@@ -336,7 +336,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="btn-cta-wa"
-					aria-label={i18n.pick('Hubungi SDJNusantara via WhatsApp', 'Contact SDJNusantara via WhatsApp')}
+					aria-label={i18n.pick('Hubungi SDJ Nusantara via WhatsApp', 'Contact SDJ Nusantara via WhatsApp')}
 				>
 					<Icon icon="tabler:brand-whatsapp" width="19" height="19" />
 					<span>{i18n.pick('Hubungi via WhatsApp', 'Contact via WhatsApp')}</span>

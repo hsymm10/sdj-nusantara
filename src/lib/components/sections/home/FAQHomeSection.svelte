@@ -19,7 +19,7 @@
 			<div class="faq-photo-wrap">
 				<img
 					src="/images/faq-assistant-woman.jpg"
-					alt="Konsultan SDJNusantara siap membantu"
+					alt="Konsultan SDJ Nusantara siap membantu"
 					class="faq-photo"
 					loading="lazy"
 				/>

@@ -7,7 +7,7 @@ export interface EnglishKnowledgeEntry {
 export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	'program-scholarship-academy': {
 		ringkas:
-			'Scholarship Academy is SDJNusantara’s intensive mentoring program for domestic and international scholarship preparation (LPDP, BPI, Chevening, Fulbright, Erasmus+, and more).',
+			'Scholarship Academy is SDJ Nusantara’s intensive mentoring program for domestic and international scholarship preparation (LPDP, BPI, Chevening, Fulbright, Erasmus+, and more).',
 		detail: [
 			'Profile mapping and curated scholarship target selection.',
 			'In-depth review of CV, essays, motivation letters, and study/research proposals.',
@@ -38,7 +38,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'program-partnership-services': {
 		ringkas:
-			'SDJNusantara Partnership Services connect schools, universities, and institutions with collaborative education, scholarship socialization, and capacity-building programs.',
+			'SDJ Nusantara Partnership Services connect schools, universities, and institutions with collaborative education, scholarship socialization, and capacity-building programs.',
 		detail: [
 			'Joint scholarship clinics and academic readiness seminars.',
 			'Institutional capacity building and educator training.',
@@ -79,7 +79,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 			'Skills & Certification programs focus on practical competencies such as public speaking, AI productivity, and preparation toward recognized competency schemes.',
 		detail: [
 			'Hands-on workshops with real-world case studies.',
-			'Official training completion certificates from SDJNusantara.',
+			'Official training completion certificates from SDJ Nusantara.',
 			'Guidance toward accredited competency certification (such as BNSP) where applicable.'
 		]
 	},
@@ -94,7 +94,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'umum-profil': {
 		ringkas:
-			'SDJNusantara is an education consultancy and talent development partner helping individuals and institutions plan education, prepare for scholarships, build skills, and grow collaborative networks.',
+			'SDJ Nusantara is an education consultancy and talent development partner helping individuals and institutions plan education, prepare for scholarships, build skills, and grow collaborative networks.',
 		detail: [
 			'Focus areas: Education Programs, Scholarship Academy, Talent Development, and Institutional Partnerships.',
 			'Office: Gedung Graha Aktiva Lt. GF (suite B3A), Jl. H. R. Rasuna Said No.6, South Jakarta.',
@@ -113,7 +113,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'umum-sasaran': {
 		ringkas:
-			'SDJNusantara serves high school students, university students (S1/S2/S3), fresh graduates, professionals, educators, communities, and partner institutions.',
+			'SDJ Nusantara serves high school students, university students (S1/S2/S3), fresh graduates, professionals, educators, communities, and partner institutions.',
 		detail: [
 			'High school students: Major mapping & undergraduate scholarship prep.',
 			'University students & graduates: Postgraduate scholarships, publications, & career readiness.',
@@ -132,7 +132,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'umum-kontak': {
 		ringkas:
-			'You can reach the SDJNusantara team through our contact page, email, or official consultant WhatsApp.',
+			'You can reach the SDJ Nusantara team through our contact page, email, or official consultant WhatsApp.',
 		detail: [
 			'Contact page: /kontak',
 			'WhatsApp +62 858-8072-4733 (Mon–Fri, 08:00–17:00 WIB)',
@@ -160,7 +160,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'beasiswa-catatan-layanan': {
 		ringkas:
-			'SDJNusantara provides structured preparation and strategic mentoring, not scholarship funding or guaranteed admission.',
+			'SDJ Nusantara provides structured preparation and strategic mentoring, not scholarship funding or guaranteed admission.',
 		detail: [
 			'We help maximize your readiness and application quality.',
 			'Always verify official deadlines and requirements on the provider’s official website.'
@@ -176,7 +176,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'beasiswa-sertifikat': {
 		ringkas:
-			'Participants receive an SDJNusantara training certificate, while accredited competency certificates are issued by authorized bodies such as BNSP.',
+			'Participants receive an SDJ Nusantara training certificate, while accredited competency certificates are issued by authorized bodies such as BNSP.',
 		detail: [
 			'Internal training certificates document program completion.',
 			'Official competency certification follows verified national assessment schemes.'
@@ -184,7 +184,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'faq-sasaran-peserta': {
 		ringkas:
-			'No—SDJNusantara is not limited to university students. Our services are open to high schoolers, university students, fresh graduates, professionals, educators, and institutions.',
+			'No—SDJ Nusantara is not limited to university students. Our services are open to high schoolers, university students, fresh graduates, professionals, educators, and institutions.',
 		detail: [
 			'High schoolers: Major mapping & undergraduate scholarship prep.',
 			'Students & graduates: Postgraduate scholarships & career readiness.',
@@ -193,7 +193,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'faq-penyedia-beasiswa': {
 		ringkas:
-			'SDJNusantara does not disburse scholarship funds directly; we act as a preparation, mentoring, and strategy partner to help you apply to official scholarship providers.',
+			'SDJ Nusantara does not disburse scholarship funds directly; we act as a preparation, mentoring, and strategy partner to help you apply to official scholarship providers.',
 		detail: [
 			'We guide you on LPDP, BPI, Chevening, Fulbright, MEXT, Erasmus+, and other official schemes.'
 		]
@@ -215,7 +215,7 @@ export const knowledgeEnMap: Record<string, EnglishKnowledgeEntry> = {
 	},
 	'faq-sertifikat': {
 		ringkas:
-			'Training participants receive a certificate of completion from SDJNusantara, and selected competency tracks prepare participants for official BNSP-accredited schemes.',
+			'Training participants receive a certificate of completion from SDJ Nusantara, and selected competency tracks prepare participants for official BNSP-accredited schemes.',
 		detail: [
 			'Official BNSP competency certificates are issued by authorized LSPs upon passing assessment.'
 		]
